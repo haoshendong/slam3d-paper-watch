@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Global Structure-from-Motion Meets Feedforward Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-05-30/index.html">今日</a><a href="../../archive/index.html">归档</a></nav></div></header>
+<main class="wrap">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-05-30/index.html">← 返回 2026-05-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-05-26 · score 17 · cs.CV</div>
+  <h1>Global Structure-from-Motion Meets Feedforward Reconstruction</h1>
+  <div class="meta">作者：Linfei Pan, Johannes Schönberger, Marc Pollefeys</div>
+  <div class="links"><a href="https://arxiv.org/abs/2605.26103">abs</a><a href="https://arxiv.org/pdf/2605.26103">PDF</a></div>
+</section>
+<section class="section">
+  <h2>摘要</h2>
+  <p>Structure-from-Motion -- the process of simultaneously estimating camera poses and 3D scene structure from a collection of images -- remains a central challenge in computer vision, with many open problems yet to be solved. Recent advances in feedforward 3D reconstruction have made significant strides in overcoming persistent failure cases of classical SfM methods, particularly in scenarios characterized by low texture, limited overlap, and symmetries. However, while feedforward approaches excel in these challenging conditions, they often face limitations regarding scalability, accuracy, or robustness, and typically fall short of classical methods in standard reconstruction settings. In this work, we systematically analyze these limitations and propose a new Structure-from-Motion pipeline by combining the respective strengths of classical and feedforward methods. Extensive experiments across multiple datasets show the benefits of our approach, achieving state-of-the-art results across a wide range of scenarios. We share our system as an open-source implementation at https://github.com/colmap/gluemap.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-05-26</li>
+<li>链接：<a href="https://arxiv.org/abs/2605.26103">abs</a> / <a href="https://arxiv.org/pdf/2605.26103">PDF</a>；代码：<a href="https://github.com/colmap/gluemap">colmap/gluemap</a></li>
+<li>作者简写：L. Pan, J. Schönberger, M. Pollefeys</li>
+<li>标签：三维重建 / SfM / feed-forward reconstruction / COLMAP</li>
+<li>背景/动机：经典 SfM 在纹理少、重叠小、重复/对称结构中容易失败；前馈重建在这些困难条件下有优势，但在大规模、精度和常规场景鲁棒性上仍不如经典几何管线。</li>
+<li>主要创新点/工作：系统分析前馈 3D 重建的限制，并把经典 global SfM 与前馈重建的强项组合成新的 SfM pipeline；在多数据集上报告更宽场景范围的 SOTA 结果。</li>
+<li>为什么值得关注：这是 COLMAP 系作者参与、CVPR 2026 Highlight 的“经典几何 + 学习式前馈”融合路线，可能成为下一代通用 SfM/重建系统的重要基线，也适合作为 SLAM 后端初始化和回环重建模块参考。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.26103/fig-001.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.26103/fig-001.webp" alt="Global Structure-from-Motion Meets Feedforward Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.26103/fig-002.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.26103/fig-002.webp" alt="Global Structure-from-Motion Meets Feedforward Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.26103/fig-003.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.26103/fig-003.webp" alt="Global Structure-from-Motion Meets Feedforward Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.26103/fig-004.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.26103/fig-004.webp" alt="Global Structure-from-Motion Meets Feedforward Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.26103/fig-005.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.26103/fig-005.webp" alt="Global Structure-from-Motion Meets Feedforward Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.26103/fig-006.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.26103/fig-006.webp" alt="Global Structure-from-Motion Meets Feedforward Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure></div>
+</section>
+
+<footer>本地静态预览 · 不依赖 npm/React/CDN · 由 data、briefs 和 media.json 生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

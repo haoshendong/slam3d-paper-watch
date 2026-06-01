@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-05-30/index.html">今日</a><a href="../../archive/index.html">归档</a></nav></div></header>
+<main class="wrap">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-05-30/index.html">← 返回 2026-05-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-05-28 · score 12 · cs.CV</div>
+  <h1>Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis</h1>
+  <div class="meta">作者：Marouane Elmegdar, Teng Xiao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2605.29452">abs</a><a href="https://arxiv.org/pdf/2605.29452">PDF</a></div>
+</section>
+<section class="section">
+  <h2>摘要</h2>
+  <p>Image-based 3D reconstruction offers a low-cost alternative to traditional sensor-based techniques for road surface assessment. This study compares four reconstruction pipelines--COLMAP, Meshroom, Metashape, and 3D Gaussian Splatting (3DGS)--to evaluate their ability to estimate road surface roughness from smartphone imagery. All point clouds were processed in CloudCompare using a consistent workflow involving orientation alignment, segmentation, normal estimation, and roughness computation at neighborhood radiuses of 0.2, 0.4, and 0.6 model units. The results show that COLMAP provides the highest sensitivity to micro-texture, while Meshroom yields balanced reconstructions with moderate roughness variation. Metashape produces the smoothest geometry due to its internal filtering, and 3DGS captures visible irregularities but exhibits higher noise and lower density. The comparison demonstrates that open-source pipelines are viable for relative roughness evaluation, offering a practical approach for low-cost pavement monitoring.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-05-28</li>
+<li>链接：<a href="https://arxiv.org/abs/2605.29452">abs</a> / <a href="https://arxiv.org/pdf/2605.29452">PDF</a></li>
+<li>作者简写：M. Elmegdar, T. Xiao</li>
+<li>标签：三维重建 / photogrammetry / 3DGS / 道路表面检测</li>
+<li>背景/动机：道路粗糙度评估通常依赖专用传感器；低成本 smartphone imagery + 图像式三维重建有潜力用于巡检，但不同重建管线对微纹理和几何噪声的影响需要量化。</li>
+<li>主要创新点/工作：比较 COLMAP、Meshroom、Metashape 与 3DGS 四类重建流程；统一在 CloudCompare 中做姿态/方向对齐、分割、法线估计，并在不同邻域半径下计算 roughness。</li>
+<li>为什么值得关注：它不是新算法，但给出了三维重建方法在道路/路面计量任务中的实用对照：COLMAP 对微纹理更敏感，Metashape 更平滑，3DGS 可捕捉可见不规则但噪声和密度问题更明显；对移动测量、车载视觉建图和基础设施检测有参考价值。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.29452/fig-001.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.29452/fig-001.webp" alt="Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.29452/fig-002.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.29452/fig-002.webp" alt="Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.29452/fig-003.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.29452/fig-003.webp" alt="Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.29452/fig-004.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.29452/fig-004.webp" alt="Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.29452/fig-005.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.29452/fig-005.webp" alt="Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-05-30/arxiv-2605.29452/fig-006.webp"><img src="../../assets/media/2026-05-30/arxiv-2605.29452/fig-006.webp" alt="Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure></div>
+</section>
+
+<footer>本地静态预览 · 不依赖 npm/React/CDN · 由 data、briefs 和 media.json 生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

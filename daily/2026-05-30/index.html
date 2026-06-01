@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Paper Reader 2026-05-30</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a></nav></div></header>
+<main class="wrap">
+
+<section class="hero">
+  <div class="meta">本地网页预览 · 2026-05-30</div>
+  <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
+  <p class="muted">密集卡片视图，优先展示新论文、PDF 抽取图和中文简报摘录。</p>
+  <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  <div class="stats"><span class="stat">论文：2</span><span class="stat">新论文：2</span><span class="stat">仓库：30</span><span class="stat">新仓库：</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><p>今天可用新论文偏向 <strong>SfM/前馈三维重建与工程化 3DGS 评测</strong>；调度器首次运行 <code>本地脚本</code> 在 120s 超时，本次已用更长超时重跑并落盘，但 arXiv 多数查询返回 HTTP 429、GitHub 后半段查询返回 API rate limit 403，因此覆盖不完整。采集到候选论文 <strong>2</strong> 篇（新条目 2），候选仓库 <strong>30</strong> 个（新条目 0，均按“跟踪/更新”处理）。GNSS/GNSS-SLAM/GNSS-denied 相关条目 <strong>5</strong> 个（均为仓库/项目跟踪；今日无新 GNSS 论文）。</p>
+<blockquote>采集状态：原计划自动注入的 JSON 因 120s 超时缺失；已手动重跑生成 <code>data/2026-05-30/candidates.json</code>。今日重点论文不足 5 篇，因此补充 5 篇近两日高价值已归档论文，并明确标注为“跟踪/更新”。</blockquote></section>
+<section class="section" id="papers">
+  <h2>重点论文</h2>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2605.26103/index.html"><img src="../../assets/media/2026-05-30/arxiv-2605.26103/fig-001.webp" alt="Global Structure-from-Motion Meets Feedforward Reconstruction" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2605.26103/index.html">Global Structure-from-Motion Meets Feedforward Reconstruction</a></h3>
+  <div class="meta">新论文 · 日期 2026-05-26 · score 17 · cs.CV</div>
+  <div class="meta">作者：Linfei Pan, Johannes Schönberger, Marc Pollefeys</div>
+  <p>Structure-from-Motion -- the process of simultaneously estimating camera poses and 3D scene structure from a collection of images -- remains a central challenge in computer vision, with many open problems yet…</p>
+  <div class="links"><a href="https://arxiv.org/abs/2605.26103">abs</a><a href="https://arxiv.org/pdf/2605.26103">PDF</a><a href="../../papers/arxiv-2605.26103/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2605.29452/index.html"><img src="../../assets/media/2026-05-30/arxiv-2605.29452/fig-001.webp" alt="Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2605.29452/index.html">Comparative evaluation of photogrammetric reconstruction methods and 3D Gaussian Splatting for road surface roughness analysis</a></h3>
+  <div class="meta">新论文 · 日期 2026-05-28 · score 12 · cs.CV</div>
+  <div class="meta">作者：Marouane Elmegdar, Teng Xiao</div>
+  <p>Image-based 3D reconstruction offers a low-cost alternative to traditional sensor-based techniques for road surface assessment. This study compares four reconstruction pipelines--COLMAP, Meshroom, Metashape, a…</p>
+  <div class="links"><a href="https://arxiv.org/abs/2605.29452">abs</a><a href="https://arxiv.org/pdf/2605.29452">PDF</a><a href="../../papers/arxiv-2605.29452/index.html">详情</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <h2>开源仓库/项目</h2>
+  <div class="repo-list"><div class="repo">
+  <strong><a href="https://github.com/Hazz-Y/HybridVIO-D455-Visual-Inertial-Odometry">Hazz-Y/HybridVIO-D455-Visual-Inertial-Odometry</a></strong>
+  <div class="meta">CMake · ★ 0 · 更新 2026-05-27 · score 15</div>
+  <div></div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/luigifreda/pyslam">luigifreda/pyslam</a></strong>
+  <div class="meta">Python · ★ 3314 · 更新 2026-05-28 · score 13</div>
+  <div>pySLAM is a hybrid Python/C++ Visual SLAM pipeline supporting monocular, stereo, and RGB-D cameras. It provides a broad set of modern local and global feature extractors, multiple loop-closure strategies, a volumetric reconstruction module…</div>
+  <div class="meta">Topics：3d-reconstruction, depth-estimation, depth-prediction, end-to-end-reconstruction, feature-matching</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/HoangHungIRL/GPS-VIO_FGO_Fusion">HoangHungIRL/GPS-VIO_FGO_Fusion</a></strong>
+  <div class="meta">C++ · ★ 0 · 更新 2026-05-25 · score 12</div>
+  <div>ROS2-based multi-sensor fusion framework integrating GPS, Visual-Inertial Odometry (VIO), and optional 3D LiDAR depth through factor graph optimization for robust and accurate localization</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/kurajulii/slamAI-istanbulCanyon">kurajulii/slamAI-istanbulCanyon</a></strong>
+  <div class="meta">Python · ★ 1 · 更新 2026-05-29 · score 11</div>
+  <div>🌆 Enhance drone navigation with robust Visual Odometry and SLAM for urban canyons, focusing on realistic İstanbul environments and machine learning solutions.</div>
+  <div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/burakdgdvrn/realsense-visual-slam-gps-denied">burakdgdvrn/realsense-visual-slam-gps-denied</a></strong>
+  <div class="meta">Python · ★ 0 · 更新 2026-05-29 · score 11</div>
+  <div></div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/quimserrats99-afk/rgb-d-slam-comparison">quimserrats99-afk/rgb-d-slam-comparison</a></strong>
+  <div class="meta">Python · ★ 0 · 更新 2026-05-28 · score 11</div>
+  <div></div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/archjain123/Pseudo-RGB-D-SLAM-ROS-Package">archjain123/Pseudo-RGB-D-SLAM-ROS-Package</a></strong>
+  <div class="meta">Makefile · ★ 0 · 更新 2026-05-28 · score 11</div>
+  <div></div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/2black0/Stella-VSLAM-ROS-with-Pixi">2black0/Stella-VSLAM-ROS-with-Pixi</a></strong>
+  <div class="meta">C++ · ★ 14 · 更新 2026-05-25 · score 11</div>
+  <div>Stella VSLAM is a modern Visual SLAM (Simultaneous Localization and Mapping) system that supports monocular, stereo, and RGB-D cameras. This repository provides a complete setup for building and running Stella VSLAM with ROS 2 Humble using…</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/shand001/TGS-SLAM">shand001/TGS-SLAM</a></strong>
+  <div class="meta">Python · ★ 2 · 更新 2026-05-28 · score 10</div>
+  <div>Official implementation of TGS-SLAM (RA-L 2026), a semantic RGB-D SLAM system with 3D Gaussians and TriDS. Achieves 97.02% mIoU on Replica with ~100x fewer semantic parameters.</div>
+  <div class="meta">Topics：3d-gaussian-splatting, 3dgs-slam, gaussian-splatting, nerf-slam, rgb-d-slam</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/y1s3ra150/lidar_inertial_odometry">y1s3ra150/lidar_inertial_odometry</a></strong>
+  <div class="meta">HTML · ★ 1 · 更新 2026-05-29 · score 9</div>
+  <div>🌐 Accelerate LiDAR-Inertial odometry for accurate motion tracking with advanced estimation and efficient data management using pre-computed surfels.</div>
+  <div class="meta">Topics：3d-mapping, 3d-reconstruction, colored-point-cloud, lidar, lidar-camera-synchronization</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/Kostya123123-cloud/GurionSLAM">Kostya123123-cloud/GurionSLAM</a></strong>
+  <div class="meta">Java · ★ 0 · 更新 2026-05-29 · score 8</div>
+  <div>Simulate robot SLAM using concurrent Java microservices to fuse camera, LiDAR, and GPS data into a real-time global landmark map.</div>
+  <div class="meta">Topics：amazon-web-services, chatgpt, combinatorics, distributed-computing, embedded-systems</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/devderev/gnss-denied-visual-odometry">devderev/gnss-denied-visual-odometry</a></strong>
+  <div class="meta">Python · ★ 0 · 更新 2026-05-29 · score 8</div>
+  <div>Video-to-geospatial pipeline: frame extraction, feature matching, pose estimation, 3D reconstruction, and GeoJSON export for QGIS.</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/Hawking-zwn/TenniTech-RTAB-SLAM">Hawking-zwn/TenniTech-RTAB-SLAM</a></strong>
+  <div class="meta">Shell · ★ 0 · 更新 2026-05-25 · score 8</div>
+  <div>RTAB-Map RGB-D SLAM deployment on Raspberry Pi 5</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/doyaleldho-bot/slams-track-dashboard">doyaleldho-bot/slams-track-dashboard</a></strong>
+  <div class="meta">★ 0 · 更新 2026-05-30 · score 7</div>
+  <div></div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/Cavilach/lidar_odometry">Cavilach/lidar_odometry</a></strong>
+  <div class="meta">★ 2 · 更新 2026-05-29 · score 7</div>
+  <div>🚀 Achieve real-time LiDAR odometry with robust state estimation using Probabilistic Kernel Optimization for SLAM applications.</div>
+  <div class="meta">Topics：colored-point-cloud, ct-icp, gaussian-splatting, gtsam, iros</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/Delon123/solidstate-lidar-slam">Delon123/solidstate-lidar-slam</a></strong>
+  <div class="meta">HTML · ★ 1 · 更新 2026-05-29 · score 7</div>
+  <div>📡 Adapt solid-state LiDAR for SLAM and benchmark performance in short-range, small-FoV, and degenerate scenarios robustly.</div>
+  <div class="meta">Topics：buidler, camera-calibration, data-fusion, eth, gatsby-starter-kit</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/ptzzf/Dynamic-SVIO">ptzzf/Dynamic-SVIO</a></strong>
+  <div class="meta">C++ · ★ 0 · 更新 2026-05-26 · score 7</div>
+  <div>RGB-D Visual-Inertial Odometry with structural regularity and dynamic object filtering (YOLOv5)</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/jbernalfa/voxel_svio">jbernalfa/voxel_svio</a></strong>
+  <div class="meta">C++ · ★ 15 · 更新 2026-05-29 · score 6</div>
+  <div>[RA-L 2025] A stereo visual-inertial odometry system based on voxel map</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/luohongk/MiniVIO">luohongk/MiniVIO</a></strong>
+  <div class="meta">C++ · ★ 3 · 更新 2026-05-29 · score 6</div>
+  <div>MiniVIO: A Minimal, Robust and Easy-to-Learn Visual-Inertial Odometry</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/gyuridad/basalt-like-vio">gyuridad/basalt-like-vio</a></strong>
+  <div class="meta">C++ · ★ 0 · 更新 2026-05-28 · score 6</div>
+  <div>A ROS2/Isaac Sim project implementing Basalt-style visual-inertial odometry components, including IMU preintegration, bias correction, and log-based validation.</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/GabrieleRoncolato/vio-pipeline">GabrieleRoncolato/vio-pipeline</a></strong>
+  <div class="meta">C++ · ★ 0 · 更新 2026-05-27 · score 6</div>
+  <div>C++ visual-inertial odometry pipeline for EuRoC</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/Temitope-Ajepe/VIO-Project">Temitope-Ajepe/VIO-Project</a></strong>
+  <div class="meta">Python · ★ 0 · 更新 2026-05-24 · score 6</div>
+  <div>Monocular Visual Odometry to Visual Inertial Odometry on TUM VI dataset</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/naamashutosh/Monocular-Visual-Odometry-on-KITTI-Dataset">naamashutosh/Monocular-Visual-Odometry-on-KITTI-Dataset</a></strong>
+  <div class="meta">Python · ★ 0 · 更新 2026-05-29 · score 3</div>
+  <div></div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/umunevich/visual-odometry">umunevich/visual-odometry</a></strong>
+  <div class="meta">Python · ★ 0 · 更新 2026-05-29 · score 3</div>
+  <div></div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/maxefe7476/Axioma_robot">maxefe7476/Axioma_robot</a></strong>
+  <div class="meta">Python · ★ 4 · 更新 2026-05-29 · score 2</div>
+  <div>🤖 Build and explore an autonomous 4WD robot using C++, Python, ROS2, and Gazebo for advanced navigation and mapping capabilities.</div>
+  <div class="meta">Topics：amcl, arduino, autonomous-navigation, autonomous-robots, cpp</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/matejpopovski/Autonomous_Robotics_CS639">matejpopovski/Autonomous_Robotics_CS639</a></strong>
+  <div class="meta">Python · ★ 0 · 更新 2026-05-29 · score 2</div>
+  <div>Robots sense and act to change the physical world. This course introduces methods for building autonomous robots that make decisions in uncertain, unstructured environments, covering state estimation, localization, SLAM, motion control, pl…</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/nicoleravenous266/pyoctomapRT">nicoleravenous266/pyoctomapRT</a></strong>
+  <div class="meta">★ 0 · 更新 2026-05-29 · score 2</div>
+  <div>Accelerate 3D occupancy grid mapping with this Python wrapper for OctoMap-RT that uses GPU ray-tracing for real-time volumetric data processing.</div>
+  <div class="meta">Topics：3d-mapping, cuda, gpu, nanobind, nvidia-optix</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/9scarface11/Autonomous-Warehouse-Robot">9scarface11/Autonomous-Warehouse-Robot</a></strong>
+  <div class="meta">★ 0 · 更新 2026-05-29 · score 2</div>
+  <div>Autonomous warehouse robot simulation using ROS 2, Nav2, SLAM, and computer vision and Lidar for object detection, localization, navigation, and pick-and-place task execution.</div>
+  
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/aryanssargiyas-rgb/Axis">aryanssargiyas-rgb/Axis</a></strong>
+  <div class="meta">★ 0 · 更新 2026-05-29 · score 2</div>
+  <div>Enhance your shell with a fast, local-first runtime that improves navigation, prompts, and command history without any setup.</div>
+  <div class="meta">Topics：alert, css, gtsam, illusion, lidar</div>
+</div>
+<div class="repo">
+  <strong><a href="https://github.com/JuanAngulo1/realsense-d435-ros2">JuanAngulo1/realsense-d435-ros2</a></strong>
+  <div class="meta">Python · ★ 0 · 更新 2026-05-29 · score 2</div>
+  <div>Mapeo y navegacion con Intel RealSense D435 en ROS 2 Jazzy: simulacion en Gazebo (EKF + slam_toolbox) y mapeo RGB-D real con RTAB-Map</div>
+  
+</div></div>
+</section>
+
+<footer>本地静态预览 · 不依赖 npm/React/CDN · 由 data、briefs 和 media.json 生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
