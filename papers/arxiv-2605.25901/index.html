@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentGrounder: Zero-Shot 3D Visual Pointcloud Grounding using Multimodal Language Models</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-01/index.html">今日</a><a href="../../archive/index.html">归档</a></nav></div></header>
+<main class="wrap">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-01/index.html">← 返回 2026-06-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-05-25 · score 5 · cs.CV, cs.RO</div>
+  <h1>AgentGrounder: Zero-Shot 3D Visual Pointcloud Grounding using Multimodal Language Models</h1>
+  <div class="meta">作者：Cuong Huynh, Maxim Popov, Denis Gridusov, Sergey Kolyubin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2605.25901">abs</a><a href="https://arxiv.org/pdf/2605.25901">PDF</a></div>
+</section>
+<section class="section">
+  <h2>摘要</h2>
+  <p>3D Visual Grounding (3DVG) is an essential capability for embodied AI, requiring agents to localize objects in 3D scenes based on natural language descriptions. Recent zero-shot methods leverage 2D vision-language models (LVLMs). However, they often rely on existing sets of multi-view images and struggle with the limited semantic and spatial details provided by standard 3D segmentation tools. We present $\textbf{AgentGrounder}$, a zero-shot 3D visual grounding framework that operates directly on colored point clouds without task-specific 3D training. Our approach follows a two-stage design: (1) an offline stage that applies 3D model to build an Object Lookup Table (OLT) with instance IDs, semantic labels, 3D bounding boxes; and (2) an online tool-driven agent that decomposes each query, retrieves only relevant candidates from the OLT, performs geometric scoring, and triggers image rendering on demand when additional visual evidence (e.g., color, material, or viewpoint-sensitive cues) is required. Compared with fixed anchor-target matching pipelines, this design reduces cascading matching errors and improves context-window efficiency by avoiding prompts overloaded with irrelevant objects. We evaluate on ScanRefer and Nr3D under a zero-shot setting and observe consistent improvements over SeeGround in our setup, including +2.5% Acc@0.5 on ScanRefer and +6.3% on Nr3D, with a notable +6.3% gain on Nr3D view-independent queries. These results show that combining selective retrieval, geometric reasoning, and adaptive visual inspection yields a practical and robust foundation for open-vocabulary 3D grounding. Our code is available at https://github.com/be2rlab/AgentGrounder.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-05-25</li>
+<li>链接：<a href="https://arxiv.org/abs/2605.25901">arXiv</a> / <a href="https://arxiv.org/pdf/2605.25901">PDF</a> / <a href="https://github.com/be2rlab/AgentGrounder">Code</a></li>
+<li>作者简写：C. Huynh, M. Popov, D. Gridusov, S. Kolyubin</li>
+<li>领域标签：三维重建 / 点云理解 / 语义地图</li>
+<li>背景/动机：具身智能需要根据自然语言在 3D 场景中定位对象；现有 zero-shot 方法依赖多视图图像或 2D VLM，容易受 3D 分割语义与空间细节不足影响。</li>
+<li>主要创新点/工作：直接面向彩色点云，离线构建对象查找表（instance ID、语义标签、3D box），在线由工具驱动 agent 分解查询、检索候选、几何打分，并在需要时按需渲染图像补充视觉证据。</li>
+<li>为什么值得关注：比固定 anchor-target matching 更适合大场景/长上下文 3D 语义地图；对 SLAM 后端地图上做开放词汇查询、机器人目标定位与语义重定位有参考价值。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>本地静态预览 · 不依赖 npm/React/CDN · 由 data、briefs 和 media.json 生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

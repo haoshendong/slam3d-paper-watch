@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IMU Propagation as Preintegration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-01/index.html">今日</a><a href="../../archive/index.html">归档</a></nav></div></header>
+<main class="wrap">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-01/index.html">← 返回 2026-06-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-05-27 · score 3 · cs.RO</div>
+  <h1>IMU Propagation as Preintegration</h1>
+  <div class="meta">作者：Jianzhu Huai</div>
+  <div class="links"><a href="https://arxiv.org/abs/2605.28279">abs</a><a href="https://arxiv.org/pdf/2605.28279">PDF</a></div>
+</section>
+<section class="section">
+  <h2>摘要</h2>
+  <p>IMU preintegration is widely used in factor-graph-based visual--inertial, lidar--inertial, and radar--inertial state estimation, yet it is often treated as a specialized implementation separate from conventional IMU propagation. This note shows that IMU preintegration and propagation are equivalent realizations of the same underlying computation. We present a convention-agnostic view in which the preintegrated measurement, bias Jacobians, and covariance can be obtained by wrapping an existing IMU propagation routine, while a preintegration module can conversely recover state-transition matrices and propagated covariances. This perspective simplifies the reuse of existing propagation code, supports translation across different error-state definitions, and provides practical consistency checks for preintegration implementations. Experiments with random IMU sequences demonstrate close agreement between an RK4-based propagation implementation and GTSAM&#x27;s tangent and manifold preintegration modules in the recovered Jacobians, covariances, and transition matrices.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-05-27</li>
+<li>链接：<a href="https://arxiv.org/abs/2605.28279">arXiv</a> / <a href="https://arxiv.org/pdf/2605.28279">PDF</a></li>
+<li>作者简写：J. Huai</li>
+<li>领域标签：SLAM / VIO / LIO / GNSS-SLAM 基础</li>
+<li>背景/动机：IMU 预积分是视觉-惯性、激光-惯性、雷达-惯性与 GNSS/INS 因子图融合的核心模块，但工程上常与常规 IMU propagation 分开实现，容易出现约定、误差状态和协方差传播不一致。</li>
+<li>主要创新点/工作：把 IMU propagation 与 preintegration 视为同一计算的两种实现；展示如何用已有传播器包装得到预积分量、bias Jacobian 和协方差，也能从预积分模块恢复状态转移矩阵和传播协方差；用随机 IMU 序列对比 RK4 propagation 与 GTSAM tangent/manifold preintegration。</li>
+<li>为什么值得关注：对做紧耦合 VIO/LIO/GNSS-INS 的实现一致性很实用，可作为检查 GTSAM/自研预积分模块、误差状态定义转换和协方差传播的参考。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>本地静态预览 · 不依赖 npm/React/CDN · 由 data、briefs 和 media.json 生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OSMa-Bench++: Toward Open-Ended Benchmarking of Semantic Mapping for Manipulation with Prompt-Generated Synthetic Scenes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-01/index.html">今日</a><a href="../../archive/index.html">归档</a></nav></div></header>
+<main class="wrap">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-01/index.html">← 返回 2026-06-01 日报</a></div>
+  <div class="meta">跟踪 · 日期 2026-05-26 · score 12 · cs.CV, cs.RO</div>
+  <h1>OSMa-Bench++: Toward Open-Ended Benchmarking of Semantic Mapping for Manipulation with Prompt-Generated Synthetic Scenes</h1>
+  <div class="meta">作者：Regina Kurkova, Maxim Popov, Sergey Kolyubin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2605.26831">abs</a><a href="https://arxiv.org/pdf/2605.26831">PDF</a></div>
+</section>
+<section class="section">
+  <h2>摘要</h2>
+  <p>Semantic mapping methods are increasingly used as intermediate scene representations for downstream robotic reasoning and manipulation, yet their evaluation is still largely tied to fixed benchmark datasets with limited coverage of manipulation-relevant corner cases. In this work, we extend OSMa-Bench toward controllable benchmarking with prompt-generated synthetic indoor scenes. Our pipeline automatically generates scene descriptions, synthesizes corresponding environments with SceneSmith, and adapts the resulting assets into an OSMa-Bench-compatible simulation format. This adaptation requires a nontrivial intermediate layer, including semantic normalization, material and texture repair, shader fallback policies, floor handling, navigation setup, and controlled lighting configuration. A key advantage of the proposed setup is that the original scene-generation prompt is known in advance and can therefore serve as an auxiliary semantic specification of the intended scene. We use this property to extend the VQA component of OSMa-Bench with a prompt-grounded question category. The resulting framework supports targeted stress-testing of semantic scene representations under conditions such as clutter, small objects, partial occlusions, and lighting variation, and makes benchmarking more extensible and better aligned with downstream manipulation requirements. Our code is available at https://github.com/be2rlab/OSMa-Bench-v2.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-05-26</li>
+<li>链接：<a href="https://arxiv.org/abs/2605.26831">arXiv</a> / <a href="https://arxiv.org/pdf/2605.26831">PDF</a> / <a href="https://github.com/be2rlab/OSMa-Bench-v2">Code</a></li>
+<li>作者简写：R. Kurkova, M. Popov, S. Kolyubin</li>
+<li>领域标签：SLAM / 语义地图 / 三维重建评测</li>
+<li>背景/动机：语义地图越来越多作为机器人操作与推理的中间表示，但评测仍依赖固定数据集，难覆盖遮挡、小物体、光照、杂乱等任务相关 corner cases。</li>
+<li>主要创新点/工作：用 prompt 生成合成室内场景，经 SceneSmith 合成环境并适配 OSMa-Bench；处理中间层语义归一化、材质/纹理修复、shader fallback、地面与导航配置；利用原始生成 prompt 扩展 VQA 的 prompt-grounded 问题。</li>
+<li>为什么值得关注：可作为语义 SLAM/开放词汇 3D 地图的可控压力测试框架，尤其适合评估遮挡、局部观测和操作任务下地图语义是否稳定。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>本地静态预览 · 不依赖 npm/React/CDN · 由 data、briefs 和 media.json 生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
