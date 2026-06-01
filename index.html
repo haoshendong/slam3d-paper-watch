@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
   <title>Daily Paper Reader 2026-06-01</title>
   <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
+<a class="skip-link" href="#content">跳到内容</a>
 <header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-06-01/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
-<main class="wrap">
+<main class="wrap" id="content">
 
 <section class="hero">
-  <div class="meta">静态网页 · 2026-06-01</div>
-  <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
-  <p class="muted">密集卡片视图，优先展示新论文、PDF 抽取图和中文简报摘录。</p>
-  <div class="links"><a class="btn" href="daily/2026-06-01/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-06-01</div>
+    <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
+    <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="daily/2026-06-01/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+  </div>
   <div class="stats"><span class="stat">论文：5</span><span class="stat">新论文：2</span><span class="stat">仓库：29</span><span class="stat">新仓库：0</span></div>
 </section>
 <section class="section brief"><h2>今日概览</h2><p>今日信号偏向 <strong>视觉/惯性基础模块、开放词汇 3D 语义地图与 3D grounding</strong>；候选论文 5 篇（新 2、跟踪/更新 3），候选仓库 29 个（新 0、跟踪/更新 29）。直接 GNSS/GNSS-SLAM 相关条目 2 个（均为仓库），另有 1 篇 IMU 预积分论文可作为 GNSS/INS/SLAM 紧耦合因子图基础技术关注。</p></section>
@@ -28,7 +32,7 @@
   <span class="score">评分 8.1/10</span>
   <div class="tags"><span class="tag">3D grounding</span><span class="tag">点云理解</span><span class="tag">语义地图</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把点云实例表、几何打分和多模态 agent 结合起来，实现无需专门训练的开放词汇 3D 对象定位。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">把点云实例表、几何打分和多模态 agent 结合起来，实现无需专门训练的开放词汇 3D 对象定位。</p><p class="lang lang-en lang-block" data-lang="en">3D Visual Grounding (3DVG) is an essential capability for embodied AI, requiring agents to localize objects in 3D scenes based on natural language descriptions. Recent zero-shot methods leverage 2D vision-lang…</p></div>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文面向 3D visual grounding：让智能体根据自然语言描述在三维场景中定位对象。方法不依赖任务专用的 3D 训练，直接作用于彩色点云。系统先离线构建对象查找表，记录实例 ID、语义标签和三维框；在线阶段由工具驱动的 agent 分解语言查询、检索候选对象、利用几何关系打分，并在需要时渲染视角补充视觉证据。</p><p class="lang lang-en lang-block" data-lang="en">3D Visual Grounding (3DVG) is an essential capability for embodied AI, requiring agents to localize objects in 3D scenes based on natural language descriptions. Recent zero-shot methods leverage 2D vision-lang…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.25901">abs</a><a href="https://arxiv.org/pdf/2605.25901">PDF</a><a href="papers/arxiv-2605.25901/index.html">详情</a></div>
 </article>
 <article class="card">
@@ -39,7 +43,7 @@
   <span class="score">评分 8.4/10</span>
   <div class="tags"><span class="tag">IMU 预积分</span><span class="tag">因子图</span><span class="tag">GNSS/INS 基础</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>统一解释 IMU propagation 与 preintegration，帮助紧耦合 SLAM/GNSS-INS 后端复用和校验惯性因子实现。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">统一解释 IMU propagation 与 preintegration，帮助紧耦合 SLAM/GNSS-INS 后端复用和校验惯性因子实现。</p><p class="lang lang-en lang-block" data-lang="en">IMU preintegration is widely used in factor-graph-based visual--inertial, lidar--inertial, and radar--inertial state estimation, yet it is often treated as a specialized implementation separate from convention…</p></div>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文指出，IMU 预积分和常规 IMU propagation 本质上是同一底层计算的两种实现方式。作者给出一种不依赖具体约定的视角：可以用已有 IMU propagation 例程包装得到预积分测量、偏置雅可比和协方差，也可以从预积分模块恢复状态转移矩阵和传播协方差。该观点有助于复用现有传播代码，减少视觉惯性、激光惯性、雷达惯性和 GNSS/INS 因子图实现中的约定不一致问题。</p><p class="lang lang-en lang-block" data-lang="en">IMU preintegration is widely used in factor-graph-based visual--inertial, lidar--inertial, and radar--inertial state estimation, yet it is often treated as a specialized implementation separate from convention…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.28279">abs</a><a href="https://arxiv.org/pdf/2605.28279">PDF</a><a href="papers/arxiv-2605.28279/index.html">详情</a></div>
 </article>
 <article class="card">
@@ -50,7 +54,7 @@
   <span class="score">评分 7.9/10</span>
   <div class="tags"><span class="tag">语义地图评测</span><span class="tag">合成场景</span><span class="tag">机器人操作</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用文本提示自动生成可控合成场景，系统性压力测试语义地图在操作任务中的表现。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">用文本提示自动生成可控合成场景，系统性压力测试语义地图在操作任务中的表现。</p><p class="lang lang-en lang-block" data-lang="en">Semantic mapping methods are increasingly used as intermediate scene representations for downstream robotic reasoning and manipulation, yet their evaluation is still largely tied to fixed benchmark datasets wi…</p></div>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文扩展 OSMa-Bench，用 prompt 生成的合成室内场景评测机器人操作所需的语义地图。流程会自动生成场景描述，用 SceneSmith 合成环境，并转换成 OSMa-Bench 兼容的仿真格式；中间需要处理语义归一化、材质纹理修复、shader fallback、地面与导航配置等问题。该框架让语义地图评测从固定数据集转向可控 corner case 生成。</p><p class="lang lang-en lang-block" data-lang="en">Semantic mapping methods are increasingly used as intermediate scene representations for downstream robotic reasoning and manipulation, yet their evaluation is still largely tied to fixed benchmark datasets wi…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.26831">abs</a><a href="https://arxiv.org/pdf/2605.26831">PDF</a><a href="papers/arxiv-2605.26831/index.html">详情</a></div>
 </article>
 <article class="card">
@@ -61,7 +65,7 @@
   <span class="score">评分 8.6/10</span>
   <div class="tags"><span class="tag">3DGS</span><span class="tag">动态语义地图</span><span class="tag">场景图</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把动态 3D Gaussian 地图升级为可推理的实例级语义场景图，用于长期机器人场景理解和 grounding。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">把动态 3D Gaussian 地图升级为可推理的实例级语义场景图，用于长期机器人场景理解和 grounding。</p><p class="lang lang-en lang-block" data-lang="en">Integrating open-vocabulary semantic information into dynamic 3D scene representations is essential for long-term embodied scene understanding. However, existing methods often suffer from fragile instance asso…</p></div>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文尝试把开放词汇语义信息融入动态 3D 场景表达，用于长期具身场景理解。系统将实例感知的 3D Gaussian 动态场景图、概率体素网格、增量语义建图和多模态推理 agent 结合起来，处理跨视角实例关联、动态对象拓扑变化和空间推理不足等问题，并支持在长期变化环境中的 grounding 和重定位。</p><p class="lang lang-en lang-block" data-lang="en">Integrating open-vocabulary semantic information into dynamic 3D scene representations is essential for long-term embodied scene understanding. However, existing methods often suffer from fragile instance asso…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.29879">abs</a><a href="https://arxiv.org/pdf/2605.29879">PDF</a><a href="papers/arxiv-2605.29879/index.html">详情</a></div>
 </article>
 <article class="card">
@@ -72,185 +76,127 @@
   <span class="score">评分 5.6/10</span>
   <div class="tags"><span class="tag">扩散模型</span><span class="tag">表示学习</span><span class="tag">合成数据</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用自监督表示作为扩散模型的控制信号，为可控图像生成和潜在合成数据生成提供一种轻量条件方式。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">用自监督表示作为扩散模型的控制信号，为可控图像生成和潜在合成数据生成提供一种轻量条件方式。</p><p class="lang lang-en lang-block" data-lang="en">Diffusion models have emerged as powerful tools for high-quality image generation and editing, but guiding these models to produce specific outputs remains a challenge. Conventional approaches rely on conditio…</p></div>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文探索用预训练自监督模型的表示作为扩散模型条件，替代对文本提示或密集语义标注的强依赖。作者分析表示空间中的变化方向，展示该条件空间能在一定程度上控制生成结果，并改善无条件生成质量。该工作更偏生成模型和表示学习，与 SLAM/GNSS 的直接关系较弱。</p><p class="lang lang-en lang-block" data-lang="en">Diffusion models have emerged as powerful tools for high-quality image generation and editing, but guiding these models to produce specific outputs remains a challenge. Conventional approaches rely on conditio…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.27343">abs</a><a href="https://arxiv.org/pdf/2605.27343">PDF</a><a href="papers/arxiv-2605.27343/index.html">详情</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
   <h2>开源仓库/项目</h2>
   <div class="repo-list"><div class="repo">
-  <strong><a href="https://github.com/Hazz-Y/HybridVIO-D455-Visual-Inertial-Odometry">Hazz-Y/HybridVIO-D455-Visual-Inertial-Odometry</a></strong>
-  <div class="meta">CMake · ★ 0 · 更新 2026-05-30 · score 15</div>
-  <div></div>
-  
+  <div><strong><a href="https://github.com/Hazz-Y/HybridVIO-D455-Visual-Inertial-Odometry">Hazz-Y/HybridVIO-D455-Visual-Inertial-Odometry</a></strong></div>
+  <div><div class="meta">CMake · ★ 0 · 更新 2026-05-30 · score 15</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/luigifreda/pyslam">luigifreda/pyslam</a></strong>
-  <div class="meta">Python · ★ 3315 · 更新 2026-05-28 · score 13</div>
-  <div>pySLAM is a hybrid Python/C++ Visual SLAM pipeline supporting monocular, stereo, and RGB-D cameras. It provides a broad set of modern local and global feature extractors, multiple loop-closure strategies, a volumetric reconstruction module…</div>
-  <div class="meta">Topics：3d-reconstruction, depth-estimation, depth-prediction, end-to-end-reconstruction, feature-matching</div>
+  <div><strong><a href="https://github.com/luigifreda/pyslam">luigifreda/pyslam</a></strong><div>pySLAM is a hybrid Python/C++ Visual SLAM pipeline supporting monocular, stereo, and RGB-D cameras. It provides a broad set of modern local and global feature extractors, multiple loop-closure strategies, a volumetric reconstruction module…</div></div>
+  <div><div class="meta">Python · ★ 3315 · 更新 2026-05-28 · score 13</div><div class="meta">Topics：3d-reconstruction, depth-estimation, depth-prediction, end-to-end-reconstruction, feature-matching</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/kurajulii/slamAI-istanbulCanyon">kurajulii/slamAI-istanbulCanyon</a></strong>
-  <div class="meta">Python · ★ 1 · 更新 2026-06-01 · score 11</div>
-  <div>🌆 Enhance drone navigation with robust Visual Odometry and SLAM for urban canyons, focusing on realistic İstanbul environments and machine learning solutions.</div>
-  <div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div>
+  <div><strong><a href="https://github.com/kurajulii/slamAI-istanbulCanyon">kurajulii/slamAI-istanbulCanyon</a></strong><div>Enhance drone navigation with robust Visual Odometry and SLAM for urban canyons, focusing on realistic İstanbul environments and machine learning solutions.</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-06-01 · score 11</div><div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/archjain123/Pseudo-RGB-D-SLAM-ROS-Package">archjain123/Pseudo-RGB-D-SLAM-ROS-Package</a></strong>
-  <div class="meta">Makefile · ★ 0 · 更新 2026-05-31 · score 11</div>
-  <div></div>
-  
+  <div><strong><a href="https://github.com/archjain123/Pseudo-RGB-D-SLAM-ROS-Package">archjain123/Pseudo-RGB-D-SLAM-ROS-Package</a></strong></div>
+  <div><div class="meta">Makefile · ★ 0 · 更新 2026-05-31 · score 11</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/quimserrats99-afk/rgb-d-slam-comparison">quimserrats99-afk/rgb-d-slam-comparison</a></strong>
-  <div class="meta">Python · ★ 0 · 更新 2026-05-28 · score 11</div>
-  <div></div>
-  
+  <div><strong><a href="https://github.com/quimserrats99-afk/rgb-d-slam-comparison">quimserrats99-afk/rgb-d-slam-comparison</a></strong></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-05-28 · score 11</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/MOLAorg/mola_lidar_odometry">MOLAorg/mola_lidar_odometry</a></strong>
-  <div class="meta">C++ · ★ 108 · 更新 2026-05-31 · score 10</div>
-  <div>MOLA LiDAR odometry and localization</div>
-  <div class="meta">Topics：cpp, lidar, lidar-point-cloud, localization, mapping</div>
+  <div><strong><a href="https://github.com/MOLAorg/mola_lidar_odometry">MOLAorg/mola_lidar_odometry</a></strong><div>MOLA LiDAR odometry and localization</div></div>
+  <div><div class="meta">C++ · ★ 108 · 更新 2026-05-31 · score 10</div><div class="meta">Topics：cpp, lidar, lidar-point-cloud, localization, mapping</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/shand001/TGS-SLAM">shand001/TGS-SLAM</a></strong>
-  <div class="meta">Python · ★ 2 · 更新 2026-05-28 · score 10</div>
-  <div>Official implementation of TGS-SLAM (RA-L 2026), a semantic RGB-D SLAM system with 3D Gaussians and TriDS. Achieves 97.02% mIoU on Replica with ~100x fewer semantic parameters.</div>
-  <div class="meta">Topics：3d-gaussian-splatting, 3dgs-slam, gaussian-splatting, nerf-slam, rgb-d-slam</div>
+  <div><strong><a href="https://github.com/shand001/TGS-SLAM">shand001/TGS-SLAM</a></strong><div>Official implementation of TGS-SLAM (RA-L 2026), a semantic RGB-D SLAM system with 3D Gaussians and TriDS. Achieves 97.02% mIoU on Replica with ~100x fewer semantic parameters.</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-05-28 · score 10</div><div class="meta">Topics：3d-gaussian-splatting, 3dgs-slam, gaussian-splatting, nerf-slam, rgb-d-slam</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/mdtajnur22/kiss-slam">mdtajnur22/kiss-slam</a></strong>
-  <div class="meta">Python · ★ 5 · 更新 2026-05-31 · score 9</div>
-  <div>A LiDAR SLAM system that just works</div>
-  <div class="meta">Topics：996, censorship, china, china-dictatorship, chinese-communist-party</div>
+  <div><strong><a href="https://github.com/mdtajnur22/kiss-slam">mdtajnur22/kiss-slam</a></strong><div>A LiDAR SLAM system that just works</div></div>
+  <div><div class="meta">Python · ★ 5 · 更新 2026-05-31 · score 9</div><div class="meta">Topics：996, censorship, china, china-dictatorship, chinese-communist-party</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/ainolf/PX4-ROS2-SLAM-Control">ainolf/PX4-ROS2-SLAM-Control</a></strong>
-  <div class="meta">Python · ★ 14 · 更新 2026-06-01 · score 8</div>
-  <div>🚀 Integrate PX4, ROS 2, and Gazebo for drone SLAM, mapping, and control with LiDAR and RGBD camera support in simulation.</div>
-  <div class="meta">Topics：drl, drone, gazebo, lidar, px4</div>
+  <div><strong><a href="https://github.com/ainolf/PX4-ROS2-SLAM-Control">ainolf/PX4-ROS2-SLAM-Control</a></strong><div>Integrate PX4, ROS 2, and Gazebo for drone SLAM, mapping, and control with LiDAR and RGBD camera support in simulation.</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-06-01 · score 8</div><div class="meta">Topics：drl, drone, gazebo, lidar, px4</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/IsmailHossain120/vista-slam">IsmailHossain120/vista-slam</a></strong>
-  <div class="meta">★ 1 · 更新 2026-06-01 · score 8</div>
-  <div>🔍 Explore visual SLAM with ViSTA-SLAM, utilizing symmetric two-view association for accurate mapping and navigation in diverse environments.</div>
-  <div class="meta">Topics：monocular-slam, neural-slam, slam</div>
+  <div><strong><a href="https://github.com/IsmailHossain120/vista-slam">IsmailHossain120/vista-slam</a></strong><div>Explore visual SLAM with ViSTA-SLAM, utilizing symmetric two-view association for accurate mapping and navigation in diverse environments.</div></div>
+  <div><div class="meta">★ 1 · 更新 2026-06-01 · score 8</div><div class="meta">Topics：monocular-slam, neural-slam, slam</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/Kostya123123-cloud/GurionSLAM">Kostya123123-cloud/GurionSLAM</a></strong>
-  <div class="meta">Java · ★ 0 · 更新 2026-05-31 · score 8</div>
-  <div>Simulate robot SLAM using concurrent Java microservices to fuse camera, LiDAR, and GPS data into a real-time global landmark map.</div>
-  <div class="meta">Topics：amazon-web-services, chatgpt, combinatorics, distributed-computing, embedded-systems</div>
+  <div><strong><a href="https://github.com/Kostya123123-cloud/GurionSLAM">Kostya123123-cloud/GurionSLAM</a></strong><div>Simulate robot SLAM using concurrent Java microservices to fuse camera, LiDAR, and GPS data into a real-time global landmark map.</div></div>
+  <div><div class="meta">Java · ★ 0 · 更新 2026-05-31 · score 8</div><div class="meta">Topics：amazon-web-services, chatgpt, combinatorics, distributed-computing, embedded-systems</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/liorsl1/VIO-Tightly">liorsl1/VIO-Tightly</a></strong>
-  <div class="meta">Python · ★ 0 · 更新 2026-05-31 · score 8</div>
-  <div>Tightly Coupled Visual-Inertial Odometry using stereo landmarks + IMU. with GTSAM for factor graph optimization</div>
-  
+  <div><strong><a href="https://github.com/liorsl1/VIO-Tightly">liorsl1/VIO-Tightly</a></strong><div>Tightly Coupled Visual-Inertial Odometry using stereo landmarks + IMU. with GTSAM for factor graph optimization</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-05-31 · score 8</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/AirsQ/Digital-Slam-Book">AirsQ/Digital-Slam-Book</a></strong>
-  <div class="meta">JavaScript · ★ 0 · 更新 2026-06-01 · score 7</div>
-  <div>🐙 Digital-Slam-Book is a simple online slam book built with HTML, CSS, and JavaScript. Answers save in the browser with localStorage; no backend needed.</div>
-  <div class="meta">Topics：animation, beginner-project, css, frontend, html</div>
+  <div><strong><a href="https://github.com/AirsQ/Digital-Slam-Book">AirsQ/Digital-Slam-Book</a></strong><div>Digital-Slam-Book is a simple online slam book built with HTML, CSS, and JavaScript. Answers save in the browser with localStorage; no backend needed.</div></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-01 · score 7</div><div class="meta">Topics：animation, beginner-project, css, frontend, html</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/MOLAorg/mola">MOLAorg/mola</a></strong>
-  <div class="meta">C++ · ★ 943 · 更新 2026-05-31 · score 7</div>
-  <div>A Modular Optimization framework for Localization and mApping (MOLA)</div>
-  <div class="meta">Topics：computer-vision, cxx, cxx17, datasets, graph-slam</div>
+  <div><strong><a href="https://github.com/MOLAorg/mola">MOLAorg/mola</a></strong><div>A Modular Optimization framework for Localization and mApping (MOLA)</div></div>
+  <div><div class="meta">C++ · ★ 943 · 更新 2026-05-31 · score 7</div><div class="meta">Topics：computer-vision, cxx, cxx17, datasets, graph-slam</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/rsasaki0109/visloc-rs">rsasaki0109/visloc-rs</a></strong>
-  <div class="meta">Rust · ★ 2 · 更新 2026-05-31 · score 7</div>
-  <div>Visual-inertial SLAM and localization building blocks in Rust</div>
-  <div class="meta">Topics：autonomous-driving, colmap, computer-vision, gnss, localization</div>
+  <div><strong><a href="https://github.com/rsasaki0109/visloc-rs">rsasaki0109/visloc-rs</a></strong><div>Visual-inertial SLAM and localization building blocks in Rust</div></div>
+  <div><div class="meta">Rust · ★ 2 · 更新 2026-05-31 · score 7</div><div class="meta">Topics：autonomous-driving, colmap, computer-vision, gnss, localization</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/Delon123/solidstate-lidar-slam">Delon123/solidstate-lidar-slam</a></strong>
-  <div class="meta">HTML · ★ 1 · 更新 2026-05-31 · score 7</div>
-  <div>📡 Adapt solid-state LiDAR for SLAM and benchmark performance in short-range, small-FoV, and degenerate scenarios robustly.</div>
-  <div class="meta">Topics：buidler, camera-calibration, data-fusion, eth, gatsby-starter-kit</div>
+  <div><strong><a href="https://github.com/Delon123/solidstate-lidar-slam">Delon123/solidstate-lidar-slam</a></strong><div>Adapt solid-state LiDAR for SLAM and benchmark performance in short-range, small-FoV, and degenerate scenarios robustly.</div></div>
+  <div><div class="meta">HTML · ★ 1 · 更新 2026-05-31 · score 7</div><div class="meta">Topics：buidler, camera-calibration, data-fusion, eth, gatsby-starter-kit</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/alexaGonLuc16/SLAM_Puzzlebot_Orbitrons">alexaGonLuc16/SLAM_Puzzlebot_Orbitrons</a></strong>
-  <div class="meta">CMake · ★ 0 · 更新 2026-05-31 · score 7</div>
-  <div></div>
-  
+  <div><strong><a href="https://github.com/alexaGonLuc16/SLAM_Puzzlebot_Orbitrons">alexaGonLuc16/SLAM_Puzzlebot_Orbitrons</a></strong></div>
+  <div><div class="meta">CMake · ★ 0 · 更新 2026-05-31 · score 7</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/e-cagan/visual-slam">e-cagan/visual-slam</a></strong>
-  <div class="meta">Python · ★ 0 · 更新 2026-05-31 · score 7</div>
-  <div>A repository that focuses on visual SLAM using KITTI Odometry Dataset.</div>
-  
+  <div><strong><a href="https://github.com/e-cagan/visual-slam">e-cagan/visual-slam</a></strong><div>A repository that focuses on visual SLAM using KITTI Odometry Dataset.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-05-31 · score 7</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/ptzzf/Dynamic-SVIO">ptzzf/Dynamic-SVIO</a></strong>
-  <div class="meta">C++ · ★ 0 · 更新 2026-05-26 · score 7</div>
-  <div>RGB-D Visual-Inertial Odometry with structural regularity and dynamic object filtering (YOLOv5)</div>
-  
+  <div><strong><a href="https://github.com/ptzzf/Dynamic-SVIO">ptzzf/Dynamic-SVIO</a></strong><div>RGB-D Visual-Inertial Odometry with structural regularity and dynamic object filtering (YOLOv5)</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-05-26 · score 7</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/jbernalfa/voxel_svio">jbernalfa/voxel_svio</a></strong>
-  <div class="meta">C++ · ★ 15 · 更新 2026-05-31 · score 6</div>
-  <div>[RA-L 2025] A stereo visual-inertial odometry system based on voxel map</div>
-  
+  <div><strong><a href="https://github.com/jbernalfa/voxel_svio">jbernalfa/voxel_svio</a></strong><div>[RA-L 2025] A stereo visual-inertial odometry system based on voxel map</div></div>
+  <div><div class="meta">C++ · ★ 15 · 更新 2026-05-31 · score 6</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/luohongk/MiniVIO">luohongk/MiniVIO</a></strong>
-  <div class="meta">C++ · ★ 3 · 更新 2026-05-29 · score 6</div>
-  <div>MiniVIO: A Minimal, Robust and Easy-to-Learn Visual-Inertial Odometry</div>
-  
+  <div><strong><a href="https://github.com/luohongk/MiniVIO">luohongk/MiniVIO</a></strong><div>MiniVIO: A Minimal, Robust and Easy-to-Learn Visual-Inertial Odometry</div></div>
+  <div><div class="meta">C++ · ★ 3 · 更新 2026-05-29 · score 6</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/gyuridad/basalt-like-vio">gyuridad/basalt-like-vio</a></strong>
-  <div class="meta">C++ · ★ 0 · 更新 2026-05-28 · score 6</div>
-  <div>A ROS2/Isaac Sim project implementing Basalt-style visual-inertial odometry components, including IMU preintegration, bias correction, and log-based validation.</div>
-  
+  <div><strong><a href="https://github.com/gyuridad/basalt-like-vio">gyuridad/basalt-like-vio</a></strong><div>A ROS2/Isaac Sim project implementing Basalt-style visual-inertial odometry components, including IMU preintegration, bias correction, and log-based validation.</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-05-28 · score 6</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/GabrieleRoncolato/vio-pipeline">GabrieleRoncolato/vio-pipeline</a></strong>
-  <div class="meta">C++ · ★ 0 · 更新 2026-05-27 · score 6</div>
-  <div>C++ visual-inertial odometry pipeline for EuRoC</div>
-  
+  <div><strong><a href="https://github.com/GabrieleRoncolato/vio-pipeline">GabrieleRoncolato/vio-pipeline</a></strong><div>C++ visual-inertial odometry pipeline for EuRoC</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-05-27 · score 6</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/ParkerJamison/VisualOdometry">ParkerJamison/VisualOdometry</a></strong>
-  <div class="meta">Python · ★ 0 · 更新 2026-05-31 · score 3</div>
-  <div></div>
-  
+  <div><strong><a href="https://github.com/ParkerJamison/VisualOdometry">ParkerJamison/VisualOdometry</a></strong></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-05-31 · score 3</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/umunevich/visual-odometry">umunevich/visual-odometry</a></strong>
-  <div class="meta">TeX · ★ 0 · 更新 2026-05-31 · score 3</div>
-  <div></div>
-  
+  <div><strong><a href="https://github.com/umunevich/visual-odometry">umunevich/visual-odometry</a></strong></div>
+  <div><div class="meta">TeX · ★ 0 · 更新 2026-05-31 · score 3</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/RomanStadlhuber/livo-handheld">RomanStadlhuber/livo-handheld</a></strong>
-  <div class="meta">C++ · ★ 26 · 更新 2026-05-31 · score 2</div>
-  <div>Setup of the handheld device used for LiDAR Visual Inertial Odometry.</div>
-  
+  <div><strong><a href="https://github.com/RomanStadlhuber/livo-handheld">RomanStadlhuber/livo-handheld</a></strong><div>Setup of the handheld device used for LiDAR Visual Inertial Odometry.</div></div>
+  <div><div class="meta">C++ · ★ 26 · 更新 2026-05-31 · score 2</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/aryanssargiyas-rgb/Axis">aryanssargiyas-rgb/Axis</a></strong>
-  <div class="meta">★ 0 · 更新 2026-05-31 · score 2</div>
-  <div>Enhance your shell with a fast, local-first runtime that improves navigation, prompts, and command history without any setup.</div>
-  <div class="meta">Topics：alert, css, gtsam, illusion, lidar</div>
+  <div><strong><a href="https://github.com/aryanssargiyas-rgb/Axis">aryanssargiyas-rgb/Axis</a></strong><div>Enhance your shell with a fast, local-first runtime that improves navigation, prompts, and command history without any setup.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-05-31 · score 2</div><div class="meta">Topics：alert, css, gtsam, illusion, lidar</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/Ryan0114/TDS_project">Ryan0114/TDS_project</a></strong>
-  <div class="meta">Python · ★ 0 · 更新 2026-05-31 · score 2</div>
-  <div>This repository is about comparing the choice of different retractions in 3D visual SLAM via RGB-D camera using post-graph optimization method.</div>
-  
+  <div><strong><a href="https://github.com/Ryan0114/TDS_project">Ryan0114/TDS_project</a></strong><div>This repository is about comparing the choice of different retractions in 3D visual SLAM via RGB-D camera using post-graph optimization method.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-05-31 · score 2</div></div>
 </div>
 <div class="repo">
-  <strong><a href="https://github.com/JuanAngulo1/realsense-d435-ros2">JuanAngulo1/realsense-d435-ros2</a></strong>
-  <div class="meta">Python · ★ 0 · 更新 2026-05-29 · score 2</div>
-  <div>Mapeo y navegacion con Intel RealSense D435 en ROS 2 Jazzy: simulacion en Gazebo (EKF + slam_toolbox) y mapeo RGB-D real con RTAB-Map</div>
-  
+  <div><strong><a href="https://github.com/JuanAngulo1/realsense-d435-ros2">JuanAngulo1/realsense-d435-ros2</a></strong><div>Mapeo y navegacion con Intel RealSense D435 en ROS 2 Jazzy: simulacion en Gazebo (EKF + slam_toolbox) y mapeo RGB-D real con RTAB-Map</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-05-29 · score 2</div></div>
 </div></div>
 </section>
 
