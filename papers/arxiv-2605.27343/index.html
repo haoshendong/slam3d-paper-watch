@@ -7,19 +7,21 @@
   <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
-<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-01/index.html">今日</a><a href="../../archive/index.html">归档</a></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap">
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-06-01/index.html">← 返回 2026-06-01 日报</a></div>
   <div class="meta">跟踪 · 日期 2026-05-27 · score 4 · cs.CV, cs.LG</div>
-  <h1>Towards Controllable Image Generation through Representation-Conditioned Diffusion Models</h1>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用表示条件扩散模型提升可控图像生成</span><span class="lang lang-en lang-inline" data-lang="en">Towards Controllable Image Generation through Representation-Conditioned Diffusion Models</span></h1>
   <div class="meta">作者：Nithesh Chandher Karthikeyan, Jonas Unger, Gabriel Eilertsen</div>
   <div class="links"><a href="https://arxiv.org/abs/2605.27343">abs</a><a href="https://arxiv.org/pdf/2605.27343">PDF</a></div>
 </section>
+<section class="section score-panel"><span class="score">评分 5.6/10</span><p>技术上有参考意义，但与 SLAM/GNSS/三维重建主线距离较远，当前更适合作为合成数据或语义先验背景阅读。</p><div class="tags"><span class="tag">扩散模型</span><span class="tag">表示学习</span><span class="tag">合成数据</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用自监督表示作为扩散模型的控制信号，为可控图像生成和潜在合成数据生成提供一种轻量条件方式。</p></section>
 <section class="section">
   <h2>摘要</h2>
-  <p>Diffusion models have emerged as powerful tools for high-quality image generation and editing, but guiding these models to produce specific outputs remains a challenge. Conventional approaches rely on conditioning mechanisms, such as text prompts or semantic maps, which require extensively annotated datasets. In this preliminary work, we explore diffusion models conditioned on representations from a pre-trained self-supervised model. The self-conditioning mechanism not only improves the quality of unconditional image generation, but also provides a representation space that can be used to control the generation. We explore this conditioning space by identifying directions of variations, and demonstrate promising properties in terms of smoothness and disentanglement.</p>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文探索用预训练自监督模型的表示作为扩散模型条件，替代对文本提示或密集语义标注的强依赖。作者分析表示空间中的变化方向，展示该条件空间能在一定程度上控制生成结果，并改善无条件生成质量。该工作更偏生成模型和表示学习，与 SLAM/GNSS 的直接关系较弱。</p><p class="lang lang-en lang-block" data-lang="en">Diffusion models have emerged as powerful tools for high-quality image generation and editing, but guiding these models to produce specific outputs remains a challenge. Conventional approaches rely on conditioning mechanisms, such as text prompts or semantic maps, which require extensively annotated datasets. In this preliminary work, we explore diffusion models conditioned on representations from a pre-trained self-supervised model. The self-conditioning mechanism not only improves the quality of unconditional image generation, but also provides a representation space that can be used to control the generation. We explore this conditioning space by identifying directions of variations, and demonstrate promising properties in terms of smoothness and disentanglement.</p>
 </section>
 <section class="section brief"><h2>中文解读摘录</h2><ul>
 <li>日期：2026-05-27</li>

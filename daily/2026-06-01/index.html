@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
-<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap">
 
 <section class="hero">
@@ -15,49 +15,64 @@
   <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
   <p class="muted">密集卡片视图，优先展示新论文、PDF 抽取图和中文简报摘录。</p>
   <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
-  <div class="stats"><span class="stat">论文：5</span><span class="stat">新论文：2</span><span class="stat">仓库：29</span><span class="stat">新仓库：</span></div>
+  <div class="stats"><span class="stat">论文：5</span><span class="stat">新论文：2</span><span class="stat">仓库：29</span><span class="stat">新仓库：0</span></div>
 </section>
 <section class="section brief"><h2>今日概览</h2><p>今日信号偏向 <strong>视觉/惯性基础模块、开放词汇 3D 语义地图与 3D grounding</strong>；候选论文 5 篇（新 2、跟踪/更新 3），候选仓库 29 个（新 0、跟踪/更新 29）。直接 GNSS/GNSS-SLAM 相关条目 2 个（均为仓库），另有 1 篇 IMU 预积分论文可作为 GNSS/INS/SLAM 紧耦合因子图基础技术关注。</p></section>
 <section class="section" id="papers">
   <h2>重点论文</h2>
   <div class="grid"><article class="card">
   <a class="thumb" href="../../papers/arxiv-2605.25901/index.html"><img src="../../assets/media/2026-06-01/arxiv-2605.25901/fig-001.webp" alt="AgentGrounder: Zero-Shot 3D Visual Pointcloud Grounding using Multimodal Language Models" loading="lazy"></a>
-  <h3><a href="../../papers/arxiv-2605.25901/index.html">AgentGrounder: Zero-Shot 3D Visual Pointcloud Grounding using Multimodal Language Models</a></h3>
+  <h3><a href="../../papers/arxiv-2605.25901/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AgentGrounder：用多模态语言模型做零样本 3D 点云视觉定位</span><span class="lang lang-en lang-inline" data-lang="en">AgentGrounder: Zero-Shot 3D Visual Pointcloud Grounding using Multimodal Language Models</span></a></h3>
   <div class="meta">新论文 · 日期 2026-05-25 · score 5 · cs.CV, cs.RO</div>
   <div class="meta">作者：Cuong Huynh, Maxim Popov, Denis Gridusov, Sergey Kolyubin</div>
-  <p>3D Visual Grounding (3DVG) is an essential capability for embodied AI, requiring agents to localize objects in 3D scenes based on natural language descriptions. Recent zero-shot methods leverage 2D vision-lang…</p>
+  <span class="score">评分 8.1/10</span>
+  <div class="tags"><span class="tag">3D grounding</span><span class="tag">点云理解</span><span class="tag">语义地图</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把点云实例表、几何打分和多模态 agent 结合起来，实现无需专门训练的开放词汇 3D 对象定位。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">把点云实例表、几何打分和多模态 agent 结合起来，实现无需专门训练的开放词汇 3D 对象定位。</p><p class="lang lang-en lang-block" data-lang="en">3D Visual Grounding (3DVG) is an essential capability for embodied AI, requiring agents to localize objects in 3D scenes based on natural language descriptions. Recent zero-shot methods leverage 2D vision-lang…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.25901">abs</a><a href="https://arxiv.org/pdf/2605.25901">PDF</a><a href="../../papers/arxiv-2605.25901/index.html">详情</a></div>
 </article>
 <article class="card">
   <a class="thumb" href="../../papers/arxiv-2605.28279/index.html"><img src="../../assets/media/2026-06-01/arxiv-2605.28279/fig-001.webp" alt="IMU Propagation as Preintegration" loading="lazy"></a>
-  <h3><a href="../../papers/arxiv-2605.28279/index.html">IMU Propagation as Preintegration</a></h3>
+  <h3><a href="../../papers/arxiv-2605.28279/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">把 IMU 传播视为预积分</span><span class="lang lang-en lang-inline" data-lang="en">IMU Propagation as Preintegration</span></a></h3>
   <div class="meta">新论文 · 日期 2026-05-27 · score 3 · cs.RO</div>
   <div class="meta">作者：Jianzhu Huai</div>
-  <p>IMU preintegration is widely used in factor-graph-based visual--inertial, lidar--inertial, and radar--inertial state estimation, yet it is often treated as a specialized implementation separate from convention…</p>
+  <span class="score">评分 8.4/10</span>
+  <div class="tags"><span class="tag">IMU 预积分</span><span class="tag">因子图</span><span class="tag">GNSS/INS 基础</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>统一解释 IMU propagation 与 preintegration，帮助紧耦合 SLAM/GNSS-INS 后端复用和校验惯性因子实现。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">统一解释 IMU propagation 与 preintegration，帮助紧耦合 SLAM/GNSS-INS 后端复用和校验惯性因子实现。</p><p class="lang lang-en lang-block" data-lang="en">IMU preintegration is widely used in factor-graph-based visual--inertial, lidar--inertial, and radar--inertial state estimation, yet it is often treated as a specialized implementation separate from convention…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.28279">abs</a><a href="https://arxiv.org/pdf/2605.28279">PDF</a><a href="../../papers/arxiv-2605.28279/index.html">详情</a></div>
 </article>
 <article class="card">
   <a class="thumb" href="../../papers/arxiv-2605.26831/index.html"><img src="../../assets/media/2026-06-01/arxiv-2605.26831/page-001.webp" alt="OSMa-Bench++: Toward Open-Ended Benchmarking of Semantic Mapping for Manipulation with Prompt-Generated Synthetic Scenes" loading="lazy"></a>
-  <h3><a href="../../papers/arxiv-2605.26831/index.html">OSMa-Bench++: Toward Open-Ended Benchmarking of Semantic Mapping for Manipulation with Prompt-Generated Synthetic Scenes</a></h3>
+  <h3><a href="../../papers/arxiv-2605.26831/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">OSMa-Bench++：用提示生成合成场景来开放式评测语义地图</span><span class="lang lang-en lang-inline" data-lang="en">OSMa-Bench++: Toward Open-Ended Benchmarking of Semantic Mapping for Manipulation with Prompt-Generated Synthetic Scenes</span></a></h3>
   <div class="meta">跟踪 · 日期 2026-05-26 · score 12 · cs.CV, cs.RO</div>
   <div class="meta">作者：Regina Kurkova, Maxim Popov, Sergey Kolyubin</div>
-  <p>Semantic mapping methods are increasingly used as intermediate scene representations for downstream robotic reasoning and manipulation, yet their evaluation is still largely tied to fixed benchmark datasets wi…</p>
+  <span class="score">评分 7.9/10</span>
+  <div class="tags"><span class="tag">语义地图评测</span><span class="tag">合成场景</span><span class="tag">机器人操作</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用文本提示自动生成可控合成场景，系统性压力测试语义地图在操作任务中的表现。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">用文本提示自动生成可控合成场景，系统性压力测试语义地图在操作任务中的表现。</p><p class="lang lang-en lang-block" data-lang="en">Semantic mapping methods are increasingly used as intermediate scene representations for downstream robotic reasoning and manipulation, yet their evaluation is still largely tied to fixed benchmark datasets wi…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.26831">abs</a><a href="https://arxiv.org/pdf/2605.26831">PDF</a><a href="../../papers/arxiv-2605.26831/index.html">详情</a></div>
 </article>
 <article class="card">
   <a class="thumb" href="../../papers/arxiv-2605.29879/index.html"><img src="../../assets/media/2026-06-01/arxiv-2605.29879/fig-001.webp" alt="DGSG-Mind: Dynamic 3D Gaussian Scene Graphs for Long-Term Scene Understanding and Grounding" loading="lazy"></a>
-  <h3><a href="../../papers/arxiv-2605.29879/index.html">DGSG-Mind: Dynamic 3D Gaussian Scene Graphs for Long-Term Scene Understanding and Grounding</a></h3>
+  <h3><a href="../../papers/arxiv-2605.29879/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DGSG-Mind：面向长期场景理解与定位的动态 3D Gaussian 场景图</span><span class="lang lang-en lang-inline" data-lang="en">DGSG-Mind: Dynamic 3D Gaussian Scene Graphs for Long-Term Scene Understanding and Grounding</span></a></h3>
   <div class="meta">跟踪 · 日期 2026-05-28 · score 11 · cs.CV, cs.RO</div>
   <div class="meta">作者：Luzhou Ge, Xiangyu Zhu, Jinyan Liu, Xuesong Li</div>
-  <p>Integrating open-vocabulary semantic information into dynamic 3D scene representations is essential for long-term embodied scene understanding. However, existing methods often suffer from fragile instance asso…</p>
+  <span class="score">评分 8.6/10</span>
+  <div class="tags"><span class="tag">3DGS</span><span class="tag">动态语义地图</span><span class="tag">场景图</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把动态 3D Gaussian 地图升级为可推理的实例级语义场景图，用于长期机器人场景理解和 grounding。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">把动态 3D Gaussian 地图升级为可推理的实例级语义场景图，用于长期机器人场景理解和 grounding。</p><p class="lang lang-en lang-block" data-lang="en">Integrating open-vocabulary semantic information into dynamic 3D scene representations is essential for long-term embodied scene understanding. However, existing methods often suffer from fragile instance asso…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.29879">abs</a><a href="https://arxiv.org/pdf/2605.29879">PDF</a><a href="../../papers/arxiv-2605.29879/index.html">详情</a></div>
 </article>
 <article class="card">
   <a class="thumb" href="../../papers/arxiv-2605.27343/index.html"><img src="../../assets/media/2026-06-01/arxiv-2605.27343/fig-001.webp" alt="Towards Controllable Image Generation through Representation-Conditioned Diffusion Models" loading="lazy"></a>
-  <h3><a href="../../papers/arxiv-2605.27343/index.html">Towards Controllable Image Generation through Representation-Conditioned Diffusion Models</a></h3>
+  <h3><a href="../../papers/arxiv-2605.27343/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">用表示条件扩散模型提升可控图像生成</span><span class="lang lang-en lang-inline" data-lang="en">Towards Controllable Image Generation through Representation-Conditioned Diffusion Models</span></a></h3>
   <div class="meta">跟踪 · 日期 2026-05-27 · score 4 · cs.CV, cs.LG</div>
   <div class="meta">作者：Nithesh Chandher Karthikeyan, Jonas Unger, Gabriel Eilertsen</div>
-  <p>Diffusion models have emerged as powerful tools for high-quality image generation and editing, but guiding these models to produce specific outputs remains a challenge. Conventional approaches rely on conditio…</p>
+  <span class="score">评分 5.6/10</span>
+  <div class="tags"><span class="tag">扩散模型</span><span class="tag">表示学习</span><span class="tag">合成数据</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用自监督表示作为扩散模型的控制信号，为可控图像生成和潜在合成数据生成提供一种轻量条件方式。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">用自监督表示作为扩散模型的控制信号，为可控图像生成和潜在合成数据生成提供一种轻量条件方式。</p><p class="lang lang-en lang-block" data-lang="en">Diffusion models have emerged as powerful tools for high-quality image generation and editing, but guiding these models to produce specific outputs remains a challenge. Conventional approaches rely on conditio…</p></div>
   <div class="links"><a href="https://arxiv.org/abs/2605.27343">abs</a><a href="https://arxiv.org/pdf/2605.27343">PDF</a><a href="../../papers/arxiv-2605.27343/index.html">详情</a></div>
 </article></div>
 </section>
