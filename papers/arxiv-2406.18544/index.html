@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-04/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-04/index.html">← 返回 2026-06-04 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 12 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GS-ROR²：面向反射物体重光照与重建的 3DGS/SDF 双向引导</span><span class="lang lang-en lang-inline" data-lang="en">GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction</span></h1>
+  <div class="meta">作者：Zuo-Liang Zhu, Beibei Wang, Jian Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2406.18544">abs</a><a href="https://arxiv.org/pdf/2406.18544">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>对 3DGS-SLAM 后端的几何一致性和 mesh 化有参考价值，尤其覆盖反射/高光退化场景。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">SDF</span><span class="tag">反射物体</span><span class="tag">Relighting</span><span class="tag">Mesh</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 3DGS 与 SDF 双向约束补足反射物体下的几何、法向和重光照能力。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作用 SDF 约束 3DGS 的深度和法向，避免昂贵的 SDF 体渲染；同时用 Gaussian blended normal 反向细化 SDF，并通过 SDF-aware pruning 去除 floater。目标是在反射物体上同时获得高效渲染、合理法向、真实 relighting 和更高质量 mesh。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has shown a powerful capability for novel view synthesis due to its detailed expressive ability and highly efficient rendering speed. Unfortunately, creating relightable 3D assets and reconstructing faithful geometry with 3DGS is still problematic, particularly for reflective objects, as its discontinuous representation raises difficulties in constraining geometries. Volumetric signed distance field (SDF) methods provide robust geometry reconstruction, while the expensive ray marching hinders its real-time application and slows the training. Besides, these methods struggle to capture sharp geometric details. To this end, we propose to guide 3DGS and SDF bidirectionally in a complementary manner, including an SDF-aided Gaussian splatting for efficient optimization of the relighting model and a GS-guided SDF enhancement for high-quality geometry reconstruction. At the core of our SDF-aided Gaussian splatting is the mutual supervision of the depth and normal between blended Gaussians and SDF, which avoids the expensive volume rendering of SDF. Thanks to this mutual supervision, the learned blended Gaussians are well-constrained with a minimal time cost. As the Gaussians are rendered in a deferred shading mode, the alpha-blended Gaussians are smooth, while individual Gaussians may still be outliers, yielding floater artifacts. Therefore, we introduce an SDF-aware pruning strategy to remove Gaussian outliers located distant from the surface defined by SDF, avoiding floater issue. This way, our GS framework provides reasonable normal and achieves realistic relighting, while the mesh from depth is still problematic. Therefore, we design a GS-guided SDF refinement, which utilizes the blended normal from Gaussians to finetune SDF. With this enhancement, our method can further provide high-quality meshes for reflective objects at the cost of 17% extra training time.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-03</li>
+<li>链接：<a href="https://arxiv.org/abs/2406.18544">arXiv</a> / <a href="https://arxiv.org/pdf/2406.18544">PDF</a></li>
+<li>作者：Zuo-Liang Zhu, Beibei Wang, Jian Yang</li>
+<li>领域标签：3DGS / SDF / 反射物体重建 / relighting / mesh</li>
+<li>背景/动机：3DGS 渲染效率高，但表示不连续，几何约束弱；反射物体下 normal、depth 和 mesh 更难稳定。SDF 几何更稳，但 ray marching 训练和渲染成本高。</li>
+<li>主要创新点/工作：用 SDF 辅助 Gaussian splatting 的 depth/normal 监督，避免昂贵 SDF volume rendering；再用 Gaussian blended normal 反向细化 SDF；同时引入 SDF-aware pruning 去除远离表面的 floater。</li>
+<li>为什么值得关注：这类 3DGS+SDF 混合表示对 3DGS-SLAM 后端很关键：既保留实时渲染，又补上几何/法向/mesh 质量。反射物体虽然偏资产重建，但问题本身也是室内/工业 SLAM 的常见退化场景。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2406.18544/fig-001.webp"><img src="../../assets/media/2026-06-04/arxiv-2406.18544/fig-001.webp" alt="GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2406.18544/fig-002.webp"><img src="../../assets/media/2026-06-04/arxiv-2406.18544/fig-002.webp" alt="GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2406.18544/fig-003.webp"><img src="../../assets/media/2026-06-04/arxiv-2406.18544/fig-003.webp" alt="GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2406.18544/fig-004.webp"><img src="../../assets/media/2026-06-04/arxiv-2406.18544/fig-004.webp" alt="GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2406.18544/fig-005.webp"><img src="../../assets/media/2026-06-04/arxiv-2406.18544/fig-005.webp" alt="GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2406.18544/fig-006.webp"><img src="../../assets/media/2026-06-04/arxiv-2406.18544/fig-006.webp" alt="GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

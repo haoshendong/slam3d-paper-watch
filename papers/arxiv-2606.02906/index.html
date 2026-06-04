@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Depth from Dual Differential Defocus and Stereo Consensus</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-04/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-04/index.html">← 返回 2026-06-04 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 5 · eess.IV, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">D³S Consensus：融合双差分散焦和双目一致性的深度估计</span><span class="lang lang-en lang-inline" data-lang="en">Depth from Dual Differential Defocus and Stereo Consensus</span></h1>
+  <div class="meta">作者：Junjie Luo, Wei Xu, Dylan Chu, Emma Alexander, Qi Guo</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02906">abs</a><a href="https://arxiv.org/pdf/2606.02906">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>对小型机器人、手持扫描和近距离 RGB-D 替代方案有直接参考价值。</p><div class="tags"><span class="tag">深度估计</span><span class="tag">Stereo</span><span class="tag">Defocus</span><span class="tag">小基线</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用散焦与双目的一致性让小基线被动相机也能做高精度近距离深度。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该方法用 Dual Differential Defocus 与 stereo 生成一组过定深度估计，再通过物理独立 cue 的一致性选择可信结果。原型只有 4 mm baseline 和 12 mm EFL，却可在 0.3–1.64 m 范围内输出高分辨率深度图。</p><p class="lang lang-en lang-block" data-lang="en">We introduce D^3S Consensus, a physics-based, closed-form algorithm that unifies depth-from-defocus (DfD) and stereo to achieve highly accurate depth estimation throughout an extended working range beyond the depth-of-field (DoF) of cameras. Given a pair of dual-defocus stereo images, the method estimates an overdetermined set of depth using a novel DfD theory, Dual Differential Defocus (D^3), and (S)tereo in a coupled fashion. It then picks the most confident depth prediction from the set by enforcing consensus between these physically independent cues to reject unreliable estimates. Analysis shows that D^3S achieves a comparable working range under the same error tolerance with 10x smaller baseline than previous triangulation-based depth estimation systems. This enables compact passive binocular rangefinders with substantially smaller form factors than conventional stereo and DfD designs. We demonstrate the first D^3S prototype with only 4 mm baseline and 12 mm EFL. It generates up to 900 x 1800-pixel depth maps with 1-cm mean absolute error over 0.3-1.64 m from a snapshot acquisition. This has surpassed the reported accuracy of certain commercially available stereo cameras with much larger form factors.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-03</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.02906">arXiv</a> / <a href="https://arxiv.org/pdf/2606.02906">PDF</a></li>
+<li>作者：Junjie Luo, Wei Xu, Dylan Chu, Emma Alexander, Qi Guo</li>
+<li>领域标签：深度估计 / stereo / defocus / 小基线传感器</li>
+<li>背景/动机：传统双目深度依赖足够基线，Depth-from-Defocus 工作范围受景深限制；小型设备希望在很小 baseline 下仍有高精度深度。</li>
+<li>主要创新点/工作：提出 D^3S Consensus，把 Dual Differential Defocus 与 stereo 形成一组过定深度估计，再用两类物理独立 cue 的一致性选择可信深度，拒绝不可靠估计。</li>
+<li>为什么值得关注：报告 4 mm baseline、12 mm EFL 原型可输出 900×1800 深度图，0.3–1.64 m 范围内 MAE 约 1 cm。对小型机器人、手持建图、近距离 RGB-D 替代方案有参考价值。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>From Local Training to Large-Scale Mapping: A Comparative Assessment of Machine Learning and Deep Learning for Transferable Satellite-Derived Bathymetry</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-04/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-04/index.html">← 返回 2026-06-04 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 6 · cs.CV, physics.comp-ph</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">From Local Training to Large-Scale Mapping: A Comparative Assessment of Machine Learning and Deep Learning for Transferable Satellite-Derived Bathymetry</span><span class="lang lang-en lang-inline" data-lang="en">From Local Training to Large-Scale Mapping: A Comparative Assessment of Machine Learning and Deep Learning for Transferable Satellite-Derived Bathymetry</span></h1>
+  <div class="meta">作者：Hsiao-Jou Hsu, Joachim Moortgat</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02764">abs</a><a href="https://arxiv.org/pdf/2606.02764">PDF</a></div>
+</section>
+
+
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Satellite-derived bathymetry (SDB) from multispectral imagery is cost-effective but scales poorly across regions, especially in optically complex coastal environments. We evaluate machine learning and deep learning for transferable SDB over the 0-20 m depth range using Sentinel-2 imagery. A Random Forest baseline and four CNNs (ResNet-50, ResNet-101, EfficientNet-B4, ConvNeXt-Large) are trained on Pratas Island and selected Great Barrier Reef regions, then evaluated on spatially independent intra- and cross-regional test areas. Preserving spatial continuity during training, by keeping contiguous reef blocks rather than random patches, is the single most impactful design choice; we further introduce a Smooth Weight Function (SWF)-weighted RMSE loss that emphasizes near-surface depths. With these choices, intra-regional RMSE ranges from 1.15 to 1.92 m over 0-20 m and is as low as 0.26 m for depths &lt;= 3 m. Random Forest degrades sharply under cross-regional transfer (RMSE 1.53 m -&gt; 2.99-3.78 m), while the deep models stay more robust (2.46-2.98 m). On the public MagicBathyNet aerial-RGB benchmark (0-16 m) the proposed networks reach 0.19-0.22 m RMSE, outperforming a U-Net baseline and a task-specific transformer architecture with substantially fewer parameters. We further exploit multi-temporal repeat imagery: training on it broadens diversity, and median-aggregating predictions across passes at inference reduces noise from changing sun angles, atmospheric conditions, water properties, and tides. We release optimized architectures and pretrained weights to enable scalable transfer to new sites.</p><p class="lang lang-en lang-block" data-lang="en">Satellite-derived bathymetry (SDB) from multispectral imagery is cost-effective but scales poorly across regions, especially in optically complex coastal environments. We evaluate machine learning and deep learning for transferable SDB over the 0-20 m depth range using Sentinel-2 imagery. A Random Forest baseline and four CNNs (ResNet-50, ResNet-101, EfficientNet-B4, ConvNeXt-Large) are trained on Pratas Island and selected Great Barrier Reef regions, then evaluated on spatially independent intra- and cross-regional test areas. Preserving spatial continuity during training, by keeping contiguous reef blocks rather than random patches, is the single most impactful design choice; we further introduce a Smooth Weight Function (SWF)-weighted RMSE loss that emphasizes near-surface depths. With these choices, intra-regional RMSE ranges from 1.15 to 1.92 m over 0-20 m and is as low as 0.26 m for depths &lt;= 3 m. Random Forest degrades sharply under cross-regional transfer (RMSE 1.53 m -&gt; 2.99-3.78 m), while the deep models stay more robust (2.46-2.98 m). On the public MagicBathyNet aerial-RGB benchmark (0-16 m) the proposed networks reach 0.19-0.22 m RMSE, outperforming a U-Net baseline and a task-specific transformer architecture with substantially fewer parameters. We further exploit multi-temporal repeat imagery: training on it broadens diversity, and median-aggregating predictions across passes at inference reduces noise from changing sun angles, atmospheric conditions, water properties, and tides. We release optimized architectures and pretrained weights to enable scalable transfer to new sites.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

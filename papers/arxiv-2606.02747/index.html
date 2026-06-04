@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Plan2Map: A Multimodal Benchmark for Document-Grounded Geospatial Boundary Reconstruction from Planning Records</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-04/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-04/index.html">← 返回 2026-06-04 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 7 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Plan2Map：从规划文档重建地理边界的多模态基准</span><span class="lang lang-en lang-inline" data-lang="en">Plan2Map: A Multimodal Benchmark for Document-Grounded Geospatial Boundary Reconstruction from Planning Records</span></h1>
+  <div class="meta">作者：Fabian Degen, Oishi Deb, Jindong Gu, Junchi Yu, Samuele Marro, Philip Torr, Jialin Yu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02747">abs</a><a href="https://arxiv.org/pdf/2606.02747">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.4/10</span><p>不是传统 SLAM，但与地图配准、地图更新和地理先验自动化有关。</p><div class="tags"><span class="tag">地理空间</span><span class="tag">地图配准</span><span class="tag">GeoJSON</span><span class="tag">多模态</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把规划文档、地图版面和标注转成可验证的地理边界重建流程。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Plan2Map 用 UK planning records 构建 208 个文档到 GeoJSON 边界重建任务；GeoPlanAgent 将任务拆成证据提取、定位、地图配准、边界分割、投影和验证，显著优于直接 VLM-to-GeoJSON。</p><p class="lang lang-en lang-block" data-lang="en">Planning records define restrictions over geographic areas, but their source documents often provide only indirect spatial evidence rather than machine-readable boundaries. We introduce Plan2Map, a 208-case multimodal benchmark for document-grounded geospatial boundary reconstruction from UK planning records. Given only a source planning document, systems must reconstruct a valid geospatial boundary from notice text, schedules, map plates, map labels, and boundary annotations; the reference GeoJSON is held out for scoring. We propose GeoPlanAgent, a document-grounded, geospatial-tool-in-the-loop system that decomposes the task into evidence extraction, localisation, map registration, boundary segmentation, projection, and verification. On Plan2Map, GeoPlanAgent achieves 0.736 mean IoU and 0.904 median IoU, with 67.8\% of predictions at or above 0.8 IoU, substantially outperforming direct VLM-to-GeoJSON baselines. Diagnostic analysis shows that direct VLM prediction remains unreliable, while remaining errors are concentrated in localisation and map registration, and supervised boundary segmentation substantially improves pixel-level mask quality. Plan2Map provides a concrete testbed for multimodal geospatial reconstruction from public planning records. Project page: https://odeb1.github.io/Plan2Map_Project_Page/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-03</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.02747">arXiv</a> / <a href="https://arxiv.org/pdf/2606.02747">PDF</a> / <a href="https://odeb1.github.io/Plan2Map_Project_Page/">Project</a></li>
+<li>作者简写：F. Degen, O. Deb, J. Gu 等</li>
+<li>领域标签：地理空间重建 / map registration / multimodal agent / GeoJSON</li>
+<li>背景/动机：规划文档中的边界往往只以文字、地图版面、标注和 schedule 间接描述，不是机器可读的 GeoJSON。</li>
+<li>主要创新点/工作：构建 208 个 UK planning records benchmark；GeoPlanAgent 将任务拆成 evidence extraction、localisation、map registration、boundary segmentation、projection 和 verification。</li>
+<li>为什么值得关注：不属于传统 SLAM，但“文档/地图证据 → 地理边界重建”的工具链与地图配准、地图验证、地理先验融合有关，可作为自动化地图生产/更新的边缘方向。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

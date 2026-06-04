@@ -19,12 +19,445 @@
     <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
     <div class="links"><a class="btn" href="daily/2026-06-04/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">论文：0</span><span class="stat">新论文：0</span><span class="stat">仓库：38</span><span class="stat">新仓库：17</span></div>
+  <div class="stats"><span class="stat">论文：39</span><span class="stat">新论文：39</span><span class="stat">仓库：38</span><span class="stat">新仓库：10</span></div>
 </section>
-<section class="section brief"><h2>今日概览</h2><p>今日信号偏向 <strong>GNSS/INS/ODO 滤波融合、ROS 2 传感器融合 SDK、COLMAP/3DGS 工具链和 3DGS-SLAM 不确定性建图</strong>；候选论文 0 篇（arXiv 超时），候选仓库 38 个（新 17）。GNSS/GNSS-SLAM 相关条目：论文 0 篇，仓库约 10 个（新 8；手工筛选后高相关约 5 个）。</p></section>
+<section class="section brief"><h2>今日概览</h2><p>今日主线有三条：</p>
+<ol>
+<li><strong>4D/3D Gaussian Splatting 从重建走向物理约束、可重光照和几何可编辑</strong>：<code>PersistGS</code> 用可微刚体物理维持遮挡期间的对象持续性；<code>GS-ROR^2</code> 用 3DGS 与 SDF 双向约束处理反射物体的重建与 relighting。</li>
+<li><strong>GNSS/INS 安全与滤波链路值得关注</strong>：<code>Chasing Lightning</code> 系统分析并定位空间基 GNSS 干扰源；另有 IMU heave 估计与自适应 Kalman filtering，可作为组合导航鲁棒估计的相关材料。</li>
+<li><strong>工程仓库侧 GNSS/RTK/PPP 和移动端 3DGS 增多</strong>：<code>gnssplusplus-library</code> 是今天最强 GNSS 工程信号；<code>Spann3R-Mobile-3DGS-Reconstruction</code> 把移动端采集、云端训练和微信小程序轻量渲染串成流程。</li>
+</ol></section>
 <section class="section" id="papers">
   <h2>重点论文</h2>
-  <div class="grid"><p class="muted">暂无论文候选。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="papers/arxiv-2606.03479/index.html"><img src="assets/media/2026-06-04/arxiv-2606.03479/fig-001.webp" alt="PersistGS: Differentiable Physics for Object Permanence in 4D Gaussian Splatting" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.03479/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PersistGS：用可微物理维持 4D Gaussian Splatting 中的对象持续性</span><span class="lang lang-en lang-inline" data-lang="en">PersistGS: Differentiable Physics for Object Permanence in 4D Gaussian Splatting</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 12 · cs.CV, cs.GR</div>
+  <div class="meta">作者：Adrian Ramlal, John S. Zelek</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">4DGS</span><span class="tag">动态重建</span><span class="tag">可微物理</span><span class="tag">遮挡补全</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把可微刚体物理引入 4DGS，用对象级运动先验解决完全遮挡时的动态重建退化。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">动态 3DGS 在物体被所有训练相机完全遮挡时会失去光度监督，导致对应 Gaussian 退化。PersistGS 将对象级 Gaussian 与碰撞网格结合，用可微刚体仿真从遮挡前轨迹估计摩擦和速度，并在遮挡期预测满足物理规律的 SE(3) 轨迹，从而改善遮挡期间的动态场景重建。</p><p class="lang lang-en lang-block" data-lang="en">Dynamic 3D Gaussian Splatting (3DGS) methods reconstruct time-varying scenes from synchronized multi-camera video using photometric supervision. When a moving object becomes fully occluded from all training ca…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03479">abs</a><a href="https://arxiv.org/pdf/2606.03479">PDF</a><a href="papers/arxiv-2606.03479/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2406.18544/index.html"><img src="assets/media/2026-06-04/arxiv-2406.18544/fig-001.webp" alt="GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2406.18544/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GS-ROR²：面向反射物体重光照与重建的 3DGS/SDF 双向引导</span><span class="lang lang-en lang-inline" data-lang="en">GS-ROR$^2$: Bidirectional-guided 3DGS and SDF for Reflective Object Relighting and Reconstruction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 12 · cs.CV, cs.GR</div>
+  <div class="meta">作者：Zuo-Liang Zhu, Beibei Wang, Jian Yang</div>
+  <span class="score">评分 8.6/10</span>
+  <div class="tags"><span class="tag">3DGS</span><span class="tag">SDF</span><span class="tag">反射物体</span><span class="tag">Relighting</span><span class="tag">Mesh</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用 3DGS 与 SDF 双向约束补足反射物体下的几何、法向和重光照能力。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">该工作用 SDF 约束 3DGS 的深度和法向，避免昂贵的 SDF 体渲染；同时用 Gaussian blended normal 反向细化 SDF，并通过 SDF-aware pruning 去除 floater。目标是在反射物体上同时获得高效渲染、合理法向、真实 relighting 和更高质量 mesh。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has shown a powerful capability for novel view synthesis due to its detailed expressive ability and highly efficient rendering speed. Unfortunately, creating relightable 3D assets…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2406.18544">abs</a><a href="https://arxiv.org/pdf/2406.18544">PDF</a><a href="papers/arxiv-2406.18544/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2606.03940/index.html"><img src="assets/media/2026-06-04/arxiv-2606.03940/fig-001.webp" alt="SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.03940/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SEAOTTER：面向高效重建的传感器端自编码与一次性转码</span><span class="lang lang-en lang-inline" data-lang="en">SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 11 · eess.IV, cs.CV, cs.LG, cs.RO</div>
+  <div class="meta">作者：Dan Jacobellis, Neeraja J. Yadwadkar</div>
+  <span class="score">评分 8.2/10</span>
+  <div class="tags"><span class="tag">机器人视觉</span><span class="tag">压缩</span><span class="tag">云端机器人</span><span class="tag">重建数据链路</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用 learned latent + JPEG 兼容转码降低机器人视觉数据上传和云端重建成本。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">SEAOTTER 面向云端机器人视觉数据链路，在传感器端生成 learned latent，并通过一次性转码生成兼容 JPEG 基础设施的文件；可学习的 JPEG 颜色和量化变换用于减少压缩对密集感知和视觉语言任务的损伤。</p><p class="lang lang-en lang-block" data-lang="en">In robotics systems, vast amounts of visual data are easily captured at high resolution using low-cost, low-power hardware. Yet, limited bandwidth and on-device compute resources prevent full utilization when…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03940">abs</a><a href="https://arxiv.org/pdf/2606.03940">PDF</a><a href="papers/arxiv-2606.03940/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.03746/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.03746/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Qwen-Image-Flash: Beyond Objective Design</span><span class="lang lang-en lang-inline" data-lang="en">Qwen-Image-Flash: Beyond Objective Design</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 9 · cs.CV, cs.AI, cs.GR, cs.LG</div>
+  <div class="meta">作者：Tianhe Wu, Kun Yan, Zikai Zhou, Lihan Jiang, Jiahao Li, Jie Zhang, Kaiyuan Gao, Ningyuan Tang, Shengming Yin, Xiaoyue Chen, Xiao Xu, Yilei Chen, Yuxiang Chen, Yan Shu, Yixian Xu, Yanran Zhang, Zihao Liu, Zhendong Wang, Zekai Zhang, Deqing Li, Liang Peng, Yi Wang, Jingren Zhou, Chenfei Wu</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Few-step distillation has become an effective strategy for accelerating advanced visual generative models, yet prior work has largely focused on distillation objectives. In this work, we revisit few-step disti…</p><p class="lang lang-en lang-block" data-lang="en">Few-step distillation has become an effective strategy for accelerating advanced visual generative models, yet prior work has largely focused on distillation objectives. In this work, we revisit few-step disti…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03746">abs</a><a href="https://arxiv.org/pdf/2606.03746">PDF</a><a href="papers/arxiv-2606.03746/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02639/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02639/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Sparse-View Lung Nodule Volumetry from Digitally Reconstructed Radiographs via AReT: Anatomy-Regularized TensoRF</span><span class="lang lang-en lang-inline" data-lang="en">Sparse-View Lung Nodule Volumetry from Digitally Reconstructed Radiographs via AReT: Anatomy-Regularized TensoRF</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 9 · eess.IV, cs.AI, cs.CV</div>
+  <div class="meta">作者：Spoorthi M, Suja Palaniswamy</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">We identify and resolve a previously unreported failure mode in TensoRF when applied to X-ray attenuation fields: the default density shift of -10, originally introduced for RGB scene reconstruction, suppresse…</p><p class="lang lang-en lang-block" data-lang="en">We identify and resolve a previously unreported failure mode in TensoRF when applied to X-ray attenuation fields: the default density shift of -10, originally introduced for RGB scene reconstruction, suppresse…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02639">abs</a><a href="https://arxiv.org/pdf/2606.02639">PDF</a><a href="papers/arxiv-2606.02639/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02747/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02747/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Plan2Map：从规划文档重建地理边界的多模态基准</span><span class="lang lang-en lang-inline" data-lang="en">Plan2Map: A Multimodal Benchmark for Document-Grounded Geospatial Boundary Reconstruction from Planning Records</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 7 · cs.CV, cs.AI</div>
+  <div class="meta">作者：Fabian Degen, Oishi Deb, Jindong Gu, Junchi Yu, Samuele Marro, Philip Torr, Jialin Yu</div>
+  <span class="score">评分 7.4/10</span>
+  <div class="tags"><span class="tag">地理空间</span><span class="tag">地图配准</span><span class="tag">GeoJSON</span><span class="tag">多模态</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把规划文档、地图版面和标注转成可验证的地理边界重建流程。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Plan2Map 用 UK planning records 构建 208 个文档到 GeoJSON 边界重建任务；GeoPlanAgent 将任务拆成证据提取、定位、地图配准、边界分割、投影和验证，显著优于直接 VLM-to-GeoJSON。</p><p class="lang lang-en lang-block" data-lang="en">Planning records define restrictions over geographic areas, but their source documents often provide only indirect spatial evidence rather than machine-readable boundaries. We introduce Plan2Map, a 208-case mu…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02747">abs</a><a href="https://arxiv.org/pdf/2606.02747">PDF</a><a href="papers/arxiv-2606.02747/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02661/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02661/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Learning to Refine: Spectral-Decoupled Iterative Refinement Framework for Precipitation Nowcasting</span><span class="lang lang-en lang-inline" data-lang="en">Learning to Refine: Spectral-Decoupled Iterative Refinement Framework for Precipitation Nowcasting</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 7 · eess.IV, cs.AI, cs.LG</div>
+  <div class="meta">作者：Yunlong Zhou, Chen Zhao, Danyang Peng, Fanfan Ji, Xiao-Tong Yuan</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Accurate precipitation nowcasting is vital for disaster mitigation, but deep learning methods face a key trade-off: regression models produce over-smoothed, spectrally decaying predictions that blur convective…</p><p class="lang lang-en lang-block" data-lang="en">Accurate precipitation nowcasting is vital for disaster mitigation, but deep learning methods face a key trade-off: regression models produce over-smoothed, spectrally decaying predictions that blur convective…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02661">abs</a><a href="https://arxiv.org/pdf/2606.02661">PDF</a><a href="papers/arxiv-2606.02661/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02605/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02605/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Cross-Modal Contrastive Learning of ECG and Angiography Representations for Severe Stenosis Classification</span><span class="lang lang-en lang-inline" data-lang="en">Cross-Modal Contrastive Learning of ECG and Angiography Representations for Severe Stenosis Classification</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 7 · cs.LG, cs.AI, eess.IV</div>
+  <div class="meta">作者：Nikola Cenikj, \&quot;Ozg\&quot;un Turgut, Alexander M\&quot;uller, Alexander Steger, Jan Kehrer, Marcus Brugger, Daniel Rueckert, Philip M\&quot;uller</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Coronary artery stenosis is a common cardiovascular disease, with severe, untreated cases posing significant risks of heart attack. Although coronary (X-ray) angiograms remain the standard for stenosis diagnos…</p><p class="lang lang-en lang-block" data-lang="en">Coronary artery stenosis is a common cardiovascular disease, with severe, untreated cases posing significant risks of heart attack. Although coronary (X-ray) angiograms remain the standard for stenosis diagnos…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02605">abs</a><a href="https://arxiv.org/pdf/2606.02605">PDF</a><a href="papers/arxiv-2606.02605/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02764/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02764/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">From Local Training to Large-Scale Mapping: A Comparative Assessment of Machine Learning and Deep Learning for Transferable Satellite-Derived Bathymetry</span><span class="lang lang-en lang-inline" data-lang="en">From Local Training to Large-Scale Mapping: A Comparative Assessment of Machine Learning and Deep Learning for Transferable Satellite-Derived Bathymetry</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 6 · cs.CV, physics.comp-ph</div>
+  <div class="meta">作者：Hsiao-Jou Hsu, Joachim Moortgat</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Satellite-derived bathymetry (SDB) from multispectral imagery is cost-effective but scales poorly across regions, especially in optically complex coastal environments. We evaluate machine learning and deep lea…</p><p class="lang lang-en lang-block" data-lang="en">Satellite-derived bathymetry (SDB) from multispectral imagery is cost-effective but scales poorly across regions, especially in optically complex coastal environments. We evaluate machine learning and deep lea…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02764">abs</a><a href="https://arxiv.org/pdf/2606.02764">PDF</a><a href="papers/arxiv-2606.02764/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02735/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02735/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">See Less, Specify More: Visual Evidence Budgets for Generalizable VLAs</span><span class="lang lang-en lang-inline" data-lang="en">See Less, Specify More: Visual Evidence Budgets for Generalizable VLAs</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 6 · cs.RO, cs.AI, cs.LG</div>
+  <div class="meta">作者：Yueh-Hua Wu, Tatsuya Matsushima, Kei Ota</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Generalization remains a central bottleneck for vision-language-action (VLA) models: under distractors, appearance shifts, and semantically similar tasks, the policy must often infer local execution details fr…</p><p class="lang lang-en lang-block" data-lang="en">Generalization remains a central bottleneck for vision-language-action (VLA) models: under distractors, appearance shifts, and semantically similar tasks, the policy must often infer local execution details fr…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02735">abs</a><a href="https://arxiv.org/pdf/2606.02735">PDF</a><a href="papers/arxiv-2606.02735/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02798/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02798/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">BehaviorBench: Modeling Real-World User Decisions from Behavioral Traces</span><span class="lang lang-en lang-inline" data-lang="en">BehaviorBench: Modeling Real-World User Decisions from Behavioral Traces</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 6 · cs.AI</div>
+  <div class="meta">作者：Liangwei Yang, Jielin Qiu, Zixiang Chen, Ming Zhu, Juntao Tan, Zhiwei Liu, Wenting Zhao, Zhujun Lan, Akshara Prabhakar, Silvio Savarese, Huan Wang, Shelby Heinecke</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Many decision-support settings require systems that adapt to individual users, but evaluation data for this problem remain limited. Existing benchmarks for user understanding often rely on simulated users or m…</p><p class="lang lang-en lang-block" data-lang="en">Many decision-support settings require systems that adapt to individual users, but evaluation data for this problem remain limited. Existing benchmarks for user understanding often rely on simulated users or m…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02798">abs</a><a href="https://arxiv.org/pdf/2606.02798">PDF</a><a href="papers/arxiv-2606.02798/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.03673/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.03673/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Chasing Lightning：空间基 GNSS 干扰源的检测、刻画与识别</span><span class="lang lang-en lang-inline" data-lang="en">Chasing Lightning: Detecting, Characterizing, and Identifying a Powerful Space-Based GNSS Interference Source</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 6 · eess.SP</div>
+  <div class="meta">作者：Zachary L. Clements, Argyris Kriezis, Todd E. Humphreys</div>
+  <span class="score">评分 8.8/10</span>
+  <div class="tags"><span class="tag">GNSS</span><span class="tag">干扰检测</span><span class="tag">TDOA</span><span class="tag">安全定位</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>从参考站网络层面识别空间基 GNSS 干扰源，为鲁棒定位提供威胁模型。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文基于 2019–2026 年地面 GNSS 参考站网络数据，检测并分析覆盖欧洲、格陵兰和加拿大的强瞬态广域干扰事件；通过 received-power 与 TDOA 技术组合，将干扰源定位为 Molniya 轨道上的俄罗斯早期预警卫星星座。</p><p class="lang lang-en lang-block" data-lang="en">This paper analyzes and identifies a space-based Global Navigation Satellite System (GNSS) interference source that has caused scores of powerful transient wide-area interference events over continental Europe…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03673">abs</a><a href="https://arxiv.org/pdf/2606.03673">PDF</a><a href="papers/arxiv-2606.03673/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02906/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02906/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">D³S Consensus：融合双差分散焦和双目一致性的深度估计</span><span class="lang lang-en lang-inline" data-lang="en">Depth from Dual Differential Defocus and Stereo Consensus</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 5 · eess.IV, cs.CV</div>
+  <div class="meta">作者：Junjie Luo, Wei Xu, Dylan Chu, Emma Alexander, Qi Guo</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">深度估计</span><span class="tag">Stereo</span><span class="tag">Defocus</span><span class="tag">小基线</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用散焦与双目的一致性让小基线被动相机也能做高精度近距离深度。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">该方法用 Dual Differential Defocus 与 stereo 生成一组过定深度估计，再通过物理独立 cue 的一致性选择可信结果。原型只有 4 mm baseline 和 12 mm EFL，却可在 0.3–1.64 m 范围内输出高分辨率深度图。</p><p class="lang lang-en lang-block" data-lang="en">We introduce D^3S Consensus, a physics-based, closed-form algorithm that unifies depth-from-defocus (DfD) and stereo to achieve highly accurate depth estimation throughout an extended working range beyond the…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02906">abs</a><a href="https://arxiv.org/pdf/2606.02906">PDF</a><a href="papers/arxiv-2606.02906/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02961/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02961/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AtlasGS: Brain MRI Spatial Resolution Harmonization With Shared Gaussian Geometry</span><span class="lang lang-en lang-inline" data-lang="en">AtlasGS: Brain MRI Spatial Resolution Harmonization With Shared Gaussian Geometry</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 5 · eess.IV</div>
+  <div class="meta">作者：Yifan Gao, Peiran Xu, Yimeng He, Haoran Li, Ziyang Long, Yufeng Wang, Ju Dong Yang, Debiao Li</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Splatting (GS)-based shared geometry framework adopts a two-stage training strategy, in which an explicit, subject-specific Gaussian scaffold encoding anatomical geometry is first learned from the isotropic st…</p><p class="lang lang-en lang-block" data-lang="en">Splatting (GS)-based shared geometry framework adopts a two-stage training strategy, in which an explicit, subject-specific Gaussian scaffold encoding anatomical geometry is first learned from the isotropic st…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02961">abs</a><a href="https://arxiv.org/pdf/2606.02961">PDF</a><a href="papers/arxiv-2606.02961/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02603/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02603/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">COD10K-C: Benchmarking Robustness of Camouflaged Object Detection Under Natural Image Corruptions</span><span class="lang lang-en lang-inline" data-lang="en">COD10K-C: Benchmarking Robustness of Camouflaged Object Detection Under Natural Image Corruptions</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.CV, cs.LG</div>
+  <div class="meta">作者：Arafat Hossain Sayem</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Camouflaged object detection has improved substantially, but most standard benchmarks evaluate models only on clean images. This is not realistic because real cameras often capture blur, sensor noise, weather…</p><p class="lang lang-en lang-block" data-lang="en">Camouflaged object detection has improved substantially, but most standard benchmarks evaluate models only on clean images. This is not realistic because real cameras often capture blur, sensor noise, weather…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02603">abs</a><a href="https://arxiv.org/pdf/2606.02603">PDF</a><a href="papers/arxiv-2606.02603/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02724/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02724/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AVTrack: Audio-Visual Tracking in Human-centric Complex Scenes</span><span class="lang lang-en lang-inline" data-lang="en">AVTrack: Audio-Visual Tracking in Human-centric Complex Scenes</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.CV, cs.AI</div>
+  <div class="meta">作者：Yaoting Wang, Yun Zhou, Zipei Zhang, Henghui Ding</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Audio-visual speaker tracking aims to localize and track active speakers by leveraging auditory and visual cues, enabling fine-grained, human-centric scene understanding. This capability is essential for real-…</p><p class="lang lang-en lang-block" data-lang="en">Audio-visual speaker tracking aims to localize and track active speakers by leveraging auditory and visual cues, enabling fine-grained, human-centric scene understanding. This capability is essential for real-…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02724">abs</a><a href="https://arxiv.org/pdf/2606.02724">PDF</a><a href="papers/arxiv-2606.02724/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02753/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02753/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MetaWorld: Scaling Multi-Agent Video World Model from Single-view Video Data</span><span class="lang lang-en lang-inline" data-lang="en">MetaWorld: Scaling Multi-Agent Video World Model from Single-view Video Data</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.CV, cs.AI</div>
+  <div class="meta">作者：Teng Hu, Mingchun Lu, Yating Wang, Jiangning Zhang, Jinkun Hao, Ye Pan, Ran Yi, Lizhuang Ma, Dacheng Tao</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Video world models are a foundational generative technology for embodied AI and the Metaverse, yet existing approaches are inherently limited to a single agent observing from a single perspective. Extending th…</p><p class="lang lang-en lang-block" data-lang="en">Video world models are a foundational generative technology for embodied AI and the Metaverse, yet existing approaches are inherently limited to a single agent observing from a single perspective. Extending th…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02753">abs</a><a href="https://arxiv.org/pdf/2606.02753">PDF</a><a href="papers/arxiv-2606.02753/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02636/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02636/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Too Much of a Good Thing: When sim2real Efforts Impede Policy Learning (And What to Do About It)</span><span class="lang lang-en lang-inline" data-lang="en">Too Much of a Good Thing: When sim2real Efforts Impede Policy Learning (And What to Do About It)</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.RO, cs.AI</div>
+  <div class="meta">作者：Kyle Morgenstein, Bharath Masetty, Stephen Welch, Luis Sentis</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">While sim2real efforts are necessary for effective policy transfer to hardware, there is such a thing as too much of a good thing. We argue that sim2real efforts have led to misaligned incentives with policy l…</p><p class="lang lang-en lang-block" data-lang="en">While sim2real efforts are necessary for effective policy transfer to hardware, there is such a thing as too much of a good thing. We argue that sim2real efforts have led to misaligned incentives with policy l…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02636">abs</a><a href="https://arxiv.org/pdf/2606.02636">PDF</a><a href="papers/arxiv-2606.02636/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02641/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02641/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CARVE: Certified Affordable Repair of Vetoed Maneuvers via Envelopes for Interactive Driving</span><span class="lang lang-en lang-inline" data-lang="en">CARVE: Certified Affordable Repair of Vetoed Maneuvers via Envelopes for Interactive Driving</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.RO, cs.AI</div>
+  <div class="meta">作者：Yifan Wang</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Interactive driving exposes a failure mode that is easy to miss in rule-aware autonomous-driving stacks: a hard-rule margin can be negative for an ego candidate even though a small lawful accommodation by a no…</p><p class="lang lang-en lang-block" data-lang="en">Interactive driving exposes a failure mode that is easy to miss in rule-aware autonomous-driving stacks: a hard-rule margin can be negative for an ego candidate even though a small lawful accommodation by a no…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02641">abs</a><a href="https://arxiv.org/pdf/2606.02641">PDF</a><a href="papers/arxiv-2606.02641/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02745/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02745/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SeeTraceAct: Visibility-Aware Latent Planning from Cross-Embodiment Demonstration Videos</span><span class="lang lang-en lang-inline" data-lang="en">SeeTraceAct: Visibility-Aware Latent Planning from Cross-Embodiment Demonstration Videos</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.RO, cs.LG</div>
+  <div class="meta">作者：Jaehyeon Son, Junhyun Kim, Kyle Kam, Jeremiah Coholich, Seok Joon Kim, Jinhoo Kim, Chris Dongjoo Kim, Jaemin Cho, Dieter Fox, Zsolt Kira</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Vision-language-action models (VLAs) are promising general-purpose robot policies, but adapting them to new tasks typically requires costly task-specific teleoperation data. As an alternative, we study one-sho…</p><p class="lang lang-en lang-block" data-lang="en">Vision-language-action models (VLAs) are promising general-purpose robot policies, but adapting them to new tasks typically requires costly task-specific teleoperation data. As an alternative, we study one-sho…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02745">abs</a><a href="https://arxiv.org/pdf/2606.02745">PDF</a><a href="papers/arxiv-2606.02745/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02767/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02767/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Hybrid Adaptive Kalman Filtering：数据高效的联合跟踪与分类</span><span class="lang lang-en lang-inline" data-lang="en">Hybrid Adaptive Kalman Filtering for Data-Efficient Joint Tracking and Classification</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.RO, cs.LG</div>
+  <div class="meta">作者：Jiho Lee, Nisar R. Ahmed, Rebecca Russell</div>
+  <span class="score">评分 7.2/10</span>
+  <div class="tags"><span class="tag">Kalman</span><span class="tag">自监督</span><span class="tag">跟踪</span><span class="tag">不确定性</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>在保留 Kalman 滤波概率结构的同时，用自监督学习修正模型失配和噪声协方差。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出自监督 Hybrid Adaptive Kalman Filter，从测量中学习系统动力学和过程噪声协方差的结构化修正，同时保留滤波器概率结构和 innovation likelihood，用于模型分类和不确定性一致估计。</p><p class="lang lang-en lang-block" data-lang="en">Kalman filtering performance is highly sensitive to model mismatch and noise covariance tuning. Learning-based approaches address these limitations but typically rely on supervised training with large datasets…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02767">abs</a><a href="https://arxiv.org/pdf/2606.02767">PDF</a><a href="papers/arxiv-2606.02767/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.03506/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.03506/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AvatarMix: Identity-Preserving Cross-Avatar Composition for Outfit Personalization</span><span class="lang lang-en lang-inline" data-lang="en">AvatarMix: Identity-Preserving Cross-Avatar Composition for Outfit Personalization</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.CV, cs.GR</div>
+  <div class="meta">作者：Zhaorong Wang, Yoshihiro Kanamori, Yuki Endo</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Existing 3D avatar outfit transfer methods face distinct challenges: approaches that lift 2D edits to 3D often suffer from outfit or identity quality degradation, while those that separately model body and clo…</p><p class="lang lang-en lang-block" data-lang="en">Existing 3D avatar outfit transfer methods face distinct challenges: approaches that lift 2D edits to 3D often suffer from outfit or identity quality degradation, while those that separately model body and clo…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03506">abs</a><a href="https://arxiv.org/pdf/2606.03506">PDF</a><a href="papers/arxiv-2606.03506/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2605.16813/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2605.16813/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">QuadLink：通过点关系学习生成四边形主导网格</span><span class="lang lang-en lang-inline" data-lang="en">QuadLink: Autoregressive Quad-Dominant Mesh Generation via Point-Relation Learning</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.GR, cs.CV</div>
+  <div class="meta">作者：Yiheng Zhang, Zhe Zhu, Tingrui Shen, Zhuojiang Cai, Tianxiao Li, Zixing Zhao, Qiujie Dong, Zhiyang Dou, Jiepeng Wang, Le Wan, Yuwang Wang, Wenping Wang, Yuan Liu, Cheng Lin</div>
+  <span class="score">评分 7.7/10</span>
+  <div class="tags"><span class="tag">点云</span><span class="tag">Mesh</span><span class="tag">四边形网格</span><span class="tag">三维资产</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把点云后处理成更适合生产和数字孪生使用的四边形主导网格。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">QuadLink 将点云到 polygon mesh 的生成表述为 centroid-conditioned vertex linking，先预测顶点和面中心 anchors，再学习两者关联，并用 quad-first 策略和几何校验组装稀疏、各向异性的四边形主导网格。</p><p class="lang lang-en lang-block" data-lang="en">The generation of production-ready quad-dominant meshes is a cornerstone of modern 3D content creation. Generating anisotropic quad-dominant meshes from point clouds is challenging, as existing methods are typ…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2605.16813">abs</a><a href="https://arxiv.org/pdf/2605.16813">PDF</a><a href="papers/arxiv-2605.16813/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02634/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02634/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Echo-POSED: Geometric Self-Distillation for Echocardiography Guidance</span><span class="lang lang-en lang-inline" data-lang="en">Echo-POSED: Geometric Self-Distillation for Echocardiography Guidance</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · eess.IV, cs.AI</div>
+  <div class="meta">作者：Elias Stenhede, Edvart Gr\&quot;uner Bjerke, Joanna Sulkowska, Eivind Bj{\o}rkan Orstad, Ole Jakob Elle, Ulysse C\^ot\&#x27;e-Allard, Arian Ranjbar</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">We introduce Echo-POSED, a self-supervised framework for real-time transthoracic echocardiography (TTE) guidance that recommends probe adjustments directly from 2D ultrasound images, without the need for exper…</p><p class="lang lang-en lang-block" data-lang="en">We introduce Echo-POSED, a self-supervised framework for real-time transthoracic echocardiography (TTE) guidance that recommends probe adjustments directly from 2D ultrasound images, without the need for exper…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02634">abs</a><a href="https://arxiv.org/pdf/2606.02634">PDF</a><a href="papers/arxiv-2606.02634/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02673/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02673/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Visual Graph Scaffolds for Structural Reasoning in Large Language Models</span><span class="lang lang-en lang-inline" data-lang="en">Visual Graph Scaffolds for Structural Reasoning in Large Language Models</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.AI, cs.LG</div>
+  <div class="meta">作者：Runlin Lei, Xiaokui Xiao, Zhewei Wei</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Graphs have been used to enhance large language models (LLMs) for structured reasoning, mostly as external knowledge sources are provided to models at test time. In this paper, we take a different view: the va…</p><p class="lang lang-en lang-block" data-lang="en">Graphs have been used to enhance large language models (LLMs) for structured reasoning, mostly as external knowledge sources are provided to models at test time. In this paper, we take a different view: the va…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02673">abs</a><a href="https://arxiv.org/pdf/2606.02673">PDF</a><a href="papers/arxiv-2606.02673/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02775/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02775/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AURA: Action-Gated Memory for Robot Policies at Constant VRAM</span><span class="lang lang-en lang-inline" data-lang="en">AURA: Action-Gated Memory for Robot Policies at Constant VRAM</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.AI, cs.AR, cs.DC, cs.PF</div>
+  <div class="meta">作者：Josef Chen</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">The KV-cache is the right memory for datacenters but the wrong memory for robots. Datacenter inference batches many short requests and resets them, amortizing an attention cache across a crowd. Embodied agents…</p><p class="lang lang-en lang-block" data-lang="en">The KV-cache is the right memory for datacenters but the wrong memory for robots. Datacenter inference batches many short requests and resets them, amortizing an attention cache across a crowd. Embodied agents…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02775">abs</a><a href="https://arxiv.org/pdf/2606.02775">PDF</a><a href="papers/arxiv-2606.02775/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02602/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02602/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Graph Mamba Survival Analysis Based on Topology-Aware ordering</span><span class="lang lang-en lang-inline" data-lang="en">Graph Mamba Survival Analysis Based on Topology-Aware ordering</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.LG, cs.CV</div>
+  <div class="meta">作者：Yuanfang Chen, Peiqiang Yan, Yuntao Shou, Qian Zhao, Xiangyong Cao</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">In computational pathology, Whole Slide Images (WSIs) survival analysis is crucial for patient prognosis assessment, but it faces multiple technical challenges. Although the Transformer captures long-range dep…</p><p class="lang lang-en lang-block" data-lang="en">In computational pathology, Whole Slide Images (WSIs) survival analysis is crucial for patient prognosis assessment, but it faces multiple technical challenges. Although the Transformer captures long-range dep…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02602">abs</a><a href="https://arxiv.org/pdf/2606.02602">PDF</a><a href="papers/arxiv-2606.02602/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02604/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02604/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Auditable Climate Risk Intelligence from Fragmented ESG Data: Deterministic Orchestration and Imbalance-Aware Learning for Scope 1-3 Validation</span><span class="lang lang-en lang-inline" data-lang="en">Auditable Climate Risk Intelligence from Fragmented ESG Data: Deterministic Orchestration and Imbalance-Aware Learning for Scope 1-3 Validation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.LG, cs.AI</div>
+  <div class="meta">作者：Karan Sehgal, Khawar Naveed Bhatti</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">ESG and climate risk data remain fragmented across heterogeneous Scope 1, Scope 2, and Scope 3 reporting environments, while conventional validation pipelines lack provenance aware auditability, hidden drift d…</p><p class="lang lang-en lang-block" data-lang="en">ESG and climate risk data remain fragmented across heterogeneous Scope 1, Scope 2, and Scope 3 reporting environments, while conventional validation pipelines lack provenance aware auditability, hidden drift d…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02604">abs</a><a href="https://arxiv.org/pdf/2606.02604">PDF</a><a href="papers/arxiv-2606.02604/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02872/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02872/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Terminal Time and Angle-Constrained Nonlinear Intercept Guidance</span><span class="lang lang-en lang-inline" data-lang="en">Terminal Time and Angle-Constrained Nonlinear Intercept Guidance</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · eess.SY, cs.MA, cs.RO, cs.SY</div>
+  <div class="meta">作者：Shivam Bajpai, Abhinav Sinha</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">This paper considers the problem of simultaneously controlling an interceptor&#x27;s impact time and impact angle using its lateral acceleration as the sole control input. With a single control input, the nonlinear…</p><p class="lang lang-en lang-block" data-lang="en">This paper considers the problem of simultaneously controlling an interceptor&#x27;s impact time and impact angle using its lateral acceleration as the sole control input. With a single control input, the nonlinear…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02872">abs</a><a href="https://arxiv.org/pdf/2606.02872">PDF</a><a href="papers/arxiv-2606.02872/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02938/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02938/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Koopman operator learning for predictive control via Khatri-Rao kernel regression</span><span class="lang lang-en lang-inline" data-lang="en">Koopman operator learning for predictive control via Khatri-Rao kernel regression</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · math.OC, cs.SY, eess.SY</div>
+  <div class="meta">作者：Mircea Lazar</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">This paper develops a data-driven realization of the generalized Koopman operator (GeKo), in which states and inputs are lifted independently and the dynamics are expressed as a tensor bilinear system. The fir…</p><p class="lang lang-en lang-block" data-lang="en">This paper develops a data-driven realization of the generalized Koopman operator (GeKo), in which states and inputs are lifted independently and the dynamics are expressed as a tensor bilinear system. The fir…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02938">abs</a><a href="https://arxiv.org/pdf/2606.02938">PDF</a><a href="papers/arxiv-2606.02938/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02774/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02774/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GeoDrive-Bench: Benchmarking Region-Specific Multimodal Reasoning in Autonomous Driving</span><span class="lang lang-en lang-inline" data-lang="en">GeoDrive-Bench: Benchmarking Region-Specific Multimodal Reasoning in Autonomous Driving</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · cs.CV</div>
+  <div class="meta">作者：Yingzi Ma, Chaowei Xiao, Ming Jiang</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Vision-language models (VLMs) for autonomous driving have shown promising performance, but their ability to handle region-specific traffic rules remains underexplored, raising uncertainties about their deploym…</p><p class="lang lang-en lang-block" data-lang="en">Vision-language models (VLMs) for autonomous driving have shown promising performance, but their ability to handle region-specific traffic rules remains underexplored, raising uncertainties about their deploym…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02774">abs</a><a href="https://arxiv.org/pdf/2606.02774">PDF</a><a href="papers/arxiv-2606.02774/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02789/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02789/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Diagnosis of Human Object Interaction Detectors for Real World Educational Applications</span><span class="lang lang-en lang-inline" data-lang="en">Diagnosis of Human Object Interaction Detectors for Real World Educational Applications</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · cs.CV</div>
+  <div class="meta">作者：Divya Mereddy, Ashwin Tudur Sadashiva, Marcos Quinones-Grueiro, Gautam Biswas</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Human-object interaction (HOI) recognition is critical for automatically analyzing student behavior in complex educational environments. Although state-of-the-art (SOTA) HOI detectors perform well on benchmark…</p><p class="lang lang-en lang-block" data-lang="en">Human-object interaction (HOI) recognition is critical for automatically analyzing student behavior in complex educational environments. Although state-of-the-art (SOTA) HOI detectors perform well on benchmark…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02789">abs</a><a href="https://arxiv.org/pdf/2606.02789">PDF</a><a href="papers/arxiv-2606.02789/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02796/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02796/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">A Measurement-Driven Digital Twin Architecture for Plant-Level Biomass Estimation and Growth Forecasting in Hydroponic Systems</span><span class="lang lang-en lang-inline" data-lang="en">A Measurement-Driven Digital Twin Architecture for Plant-Level Biomass Estimation and Growth Forecasting in Hydroponic Systems</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · cs.RO</div>
+  <div class="meta">作者：Morgan Mayborne, Abhisesh Silwal, George Kantor</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Alternatives to soil-based horticulture, such as hydroponics, have been developed to respond to food distribution concerns for dense urban centers. A new system was developed to track an individual lettuce pla…</p><p class="lang lang-en lang-block" data-lang="en">Alternatives to soil-based horticulture, such as hydroponics, have been developed to respond to food distribution concerns for dense urban centers. A new system was developed to track an individual lettuce pla…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02796">abs</a><a href="https://arxiv.org/pdf/2606.02796">PDF</a><a href="papers/arxiv-2606.02796/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02812/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02812/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Traj-Evolve: A Self-Evolving Multi-Agent System for Patient Trajectory Modeling in Lung Cancer Early Detection</span><span class="lang lang-en lang-inline" data-lang="en">Traj-Evolve: A Self-Evolving Multi-Agent System for Patient Trajectory Modeling in Lung Cancer Early Detection</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · cs.AI, cs.CL</div>
+  <div class="meta">作者：Sihang Zeng, Matthew Thompson, Ruth Etzioni, Meliha Yetisgen</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Modeling patient trajectories from longitudinal electronic health records (EHRs) requires reasoning over sparse, noisy, and long-context multimodal sequences. Existing LLM-based multi-agent systems address con…</p><p class="lang lang-en lang-block" data-lang="en">Modeling patient trajectories from longitudinal electronic health records (EHRs) requires reasoning over sparse, noisy, and long-context multimodal sequences. Existing LLM-based multi-agent systems address con…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02812">abs</a><a href="https://arxiv.org/pdf/2606.02812">PDF</a><a href="papers/arxiv-2606.02812/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02771/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02771/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">A data-driven filter bank framework for IMU-based heave motion estimation</span><span class="lang lang-en lang-inline" data-lang="en">A data-driven filter bank framework for IMU-based heave motion estimation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · eess.SP</div>
+  <div class="meta">作者：Aybars Tokta</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">In this study, we address the IMU-based heave motion estimation problem for inertial navigation systems. Unlike existing approaches, we propose a data-driven framework in which a bank of IIR filters, each asso…</p><p class="lang lang-en lang-block" data-lang="en">In this study, we address the IMU-based heave motion estimation problem for inertial navigation systems. Unlike existing approaches, we propose a data-driven framework in which a bank of IIR filters, each asso…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02771">abs</a><a href="https://arxiv.org/pdf/2606.02771">PDF</a><a href="papers/arxiv-2606.02771/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02782/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02782/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Short-Acquisition Contrast-Free Super-Resolution Microvascular Imaging in Rabbit Kidney</span><span class="lang lang-en lang-inline" data-lang="en">Short-Acquisition Contrast-Free Super-Resolution Microvascular Imaging in Rabbit Kidney</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · eess.SP</div>
+  <div class="meta">作者：Zhengchang Kou, Yuning Zhao, Mingrui Liu, Rita J. Miller, Michael L. Oelze</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Ultrasound localization microscopy (ULM) enables micrometer-scale microvascular imaging by localizing and tracking intravascular microbubbles, but its dependence on exogenous contrast agents and long acquisiti…</p><p class="lang lang-en lang-block" data-lang="en">Ultrasound localization microscopy (ULM) enables micrometer-scale microvascular imaging by localizing and tracking intravascular microbubbles, but its dependence on exogenous contrast agents and long acquisiti…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02782">abs</a><a href="https://arxiv.org/pdf/2606.02782">PDF</a><a href="papers/arxiv-2606.02782/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02820/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02820/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Fairness as an Investment: Dynamic Participation and Long-Run Profit in Virtual Power Plants</span><span class="lang lang-en lang-inline" data-lang="en">Fairness as an Investment: Dynamic Participation and Long-Run Profit in Virtual Power Plants</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · eess.SY, cs.SY</div>
+  <div class="meta">作者：Liudong Chen, Bolun Xu</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">We show that incorporating fairness constraints into virtual power plant (VPP) operations can incentivize consumer participation and thus improve the aggregator&#x27;s long-run profitability. VPPs rely on sustained…</p><p class="lang lang-en lang-block" data-lang="en">We show that incorporating fairness constraints into virtual power plant (VPP) operations can incentivize consumer participation and thus improve the aggregator&#x27;s long-run profitability. VPPs rely on sustained…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02820">abs</a><a href="https://arxiv.org/pdf/2606.02820">PDF</a><a href="papers/arxiv-2606.02820/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02878/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02878/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Package-Embedded Coupled Inductor Arrays for High-Performance Computing Power Delivery</span><span class="lang lang-en lang-inline" data-lang="en">Package-Embedded Coupled Inductor Arrays for High-Performance Computing Power Delivery</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · eess.SY, cs.SY</div>
+  <div class="meta">作者：Rami Rasheedi, Salma Abdelzaher, Inna Partin-Vaisband</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">A novel power delivery framework, comprising a package-embedded inductor topology and an inductance-island methodology, is introduced to maximize both inductance and current densities in vertical power deliver…</p><p class="lang lang-en lang-block" data-lang="en">A novel power delivery framework, comprising a package-embedded inductor topology and an inductance-island methodology, is introduced to maximize both inductance and current densities in vertical power deliver…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02878">abs</a><a href="https://arxiv.org/pdf/2606.02878">PDF</a><a href="papers/arxiv-2606.02878/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="papers/arxiv-2606.02925/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.02925/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">One-Shot Optimization with Additional Inequality Constraints</span><span class="lang lang-en lang-inline" data-lang="en">One-Shot Optimization with Additional Inequality Constraints</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 3 · math.OC</div>
+  <div class="meta">作者：Lea Fischer, Nicolas R. Gauger, Lisa Kusch</div>
+
+
+
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">The one-shot approach is a powerful simultaneous optimization framework for design tasks governed by computationally expensive steady-state systems. While previous formulations mainly focused on additional equ…</p><p class="lang lang-en lang-block" data-lang="en">The one-shot approach is a powerful simultaneous optimization framework for design tasks governed by computationally expensive steady-state systems. While previous formulations mainly focused on additional equ…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02925">abs</a><a href="https://arxiv.org/pdf/2606.02925">PDF</a><a href="papers/arxiv-2606.02925/index.html">详情</a></div>
+</article></div>
 </section>
 <section class="section" id="repos">
   <div class="section-head">
@@ -32,116 +465,124 @@
     <p class="muted repo-note">默认显示 8 个精选；新仓库、高分仓库和 GNSS/GPS/RTK 相关仓库优先，可展开查看完整候选。</p>
   </div>
   <div class="repo-list"><div class="repo">
-  <div><strong><a href="https://github.com/Ubaid-ur-Rahman/visual-inertial-odometry">Ubaid-ur-Rahman/visual-inertial-odometry</a></strong><div>The code implements a sensor fusion model for visual-inertial odometry (VIO)</div></div>
-  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-06-03 · score 12</div></div>
+  <div><strong><a href="https://github.com/rsasaki0109/gnssplusplus-library">rsasaki0109/gnssplusplus-library</a></strong><div>Modern C++ GNSS/RTK/PPP/CLAS toolkit.</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 162 · 更新 2026-06-04 · score 10</div><div class="meta">Topics：c-plus-plus, gnss, localization, positioning, ppp</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/p-trom/haf-gnss-ins-simulation">p-trom/haf-gnss-ins-simulation</a></strong><div>Hybrid Alternative Filter (HAF) for GNSS/INS - PhD simulation framework</div></div>
-  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-06-03 · score 9</div></div>
+  <div><strong><a href="https://github.com/praneetth/GPS_tracker_ESP32-S3-A7670E-4G">praneetth/GPS_tracker_ESP32-S3-A7670E-4G</a></strong><div>ESP32-S3 Smart Emergency GPS Tracker using the A7670E 4G LTE/GNSS module and Circuit Digest GeoLinker Cloud API. It enables real-time GPS tracking, automatic cloud updates, emergency SMS alerts with Google Maps links, one-touch calling, an…</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 1 · 更新 2026-06-04 · score 5</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/manankharwar/fusioncore">manankharwar/fusioncore</a></strong><div>ROS 2 sensor fusion SDK: UKF, 3D native, proper GNSS, zero manual tuning. Apache 2.0.</div></div>
-  <div><div class="meta">新项目 · C++ · ★ 249 · 更新 2026-06-03 · score 7</div><div class="meta">Topics：autonomous-robots, autonomous-systems, gazebo, gazebo-ros, gnss</div></div>
+  <div><strong><a href="https://github.com/bzlowrance/gnss-survey-csv-converter">bzlowrance/gnss-survey-csv-converter</a></strong><div>GNSS survey CSV import/export tool for SC60/CAD workflows</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-04 · score 4</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/sparkfun/SparkFun_RTK_Postcard">sparkfun/SparkFun_RTK_Postcard</a></strong><div>The SparkFun RTK Postcard is a compact development board for your high-precision positioning and navigation needs.</div></div>
-  <div><div class="meta">新项目 · HTML · ★ 7 · 更新 2026-06-03 · score 5</div><div class="meta">Topics：esp32, gnss, qwiic, sparkfun-tutorial, wifi</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/sparkfun/SparkFun_RTK_mosaic-X5">sparkfun/SparkFun_RTK_mosaic-X5</a></strong><div>The SparkFun RTK mosaic-X5 is a GNSS station based on the Septentrio mosaic-X5 GNSS receiver. It features an aluminum enclosure, support for a WiFi network bridge, data logging, and multiple power options, including PoE.</div></div>
-  <div><div class="meta">新项目 · C · ★ 6 · 更新 2026-06-03 · score 5</div><div class="meta">Topics：gnss, sparkfun-tutorial</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/Jakob-Jorgensen/GNSS-Free_Mobile_Robotics_Using_Vision-Based_Systems">Jakob-Jorgensen/GNSS-Free_Mobile_Robotics_Using_Vision-Based_Systems</a></strong></div>
+  <div><strong><a href="https://github.com/zzzzzz6/IMU-GNSS_EKF">zzzzzz6/IMU-GNSS_EKF</a></strong></div>
   <div><div class="meta">新项目 · ★ 0 · 更新 2026-06-04 · score 4</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/zhang123-1999/ins-gnss-odo-nhc-fusion">zhang123-1999/ins-gnss-odo-nhc-fusion</a></strong><div>INS/GNSS/ODO/NHC integrated navigation framework comparing InEKF and ESKF under GNSS outage and large initial errors.</div></div>
-  <div><div class="meta">新项目 · C++ · ★ 17 · 更新 2026-06-03 · score 4</div><div class="meta">Topics：cpp, eskf, gnss, gnss-outage, inekf</div></div>
+  <div><strong><a href="https://github.com/Fidelis-Machines/fm-ntrip">Fidelis-Machines/fm-ntrip</a></strong><div>A small, single-file Rust application that acts as a combined NTRIP server and caster, bridging a GNSS base station to RTK rover clients over the network.</div></div>
+  <div><div class="meta">新项目 · Rust · ★ 0 · 更新 2026-06-04 · score 2</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/bobvan/PePPAR-Fix">bobvan/PePPAR-Fix</a></strong><div>Fixed-Position PPP-AR Disciplined Oscillator — carrier-phase GNSS for sub-nanosecond UTC alignment</div></div>
-  <div><div class="meta">新项目 · HTML · ★ 3 · 更新 2026-06-03 · score 2</div></div>
+  <div><strong><a href="https://github.com/nuki019/Spann3R-Mobile-3DGS-Reconstruction">nuki019/Spann3R-Mobile-3DGS-Reconstruction</a></strong><div>Mobile 3D scene reconstruction system based on 3D Gaussian Splatting and Spann3R, supporting end-to-end capture, cloud training and lightweight rendering on WeChat Mini Program.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-04 · score 9</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/12345frth/slam-STU">12345frth/slam-STU</a></strong><div>stu_chassic_slam</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-04 · score 7</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/SankoWorking/slam_2d">SankoWorking/slam_2d</a></strong></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-06-04 · score 7</div></div>
 </div></div>
   <details class="repo-more"><summary>还有 30 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
-  <div><strong><a href="https://github.com/jremick/dragy-dash">jremick/dragy-dash</a></strong><div>Experimental iOS dashboard for Dragy Pro BLE GNSS telemetry</div></div>
-  <div><div class="meta">新项目 · Swift · ★ 0 · 更新 2026-06-03 · score 2</div><div class="meta">Topics：activitykit, bluetooth-le, dragy, gps, ios</div></div>
+  <div><strong><a href="https://github.com/KrisWonka/SlamWalker">KrisWonka/SlamWalker</a></strong><div>LiDAR-SLAM walking robot with locomotion-aware frontier exploration (undergraduate thesis, Jetson Orin Nano + ROS 2 Humble + Nav2)</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-06-04 · score 7</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/adamburhan/depth-uncertainty-slam">adamburhan/depth-uncertainty-slam</a></strong></div>
-  <div><div class="meta">新项目 · Jupyter Notebook · ★ 0 · 更新 2026-06-03 · score 7</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/MeetNotFound/HYBRID-ARX-3D-Reconstruction-Engine">MeetNotFound/HYBRID-ARX-3D-Reconstruction-Engine</a></strong><div>Automated monocular video-to-3D reconstruction engine using SfM, MVS, Poisson meshing, COLMAP, and WebXR for XR-ready GLB model generation.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-03 · score 7</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/chordee/colmap-camera-tracking">chordee/colmap-camera-tracking</a></strong><div>Automated camera tracking &amp; 3D reconstruction pipeline using COLMAP. Features NeRF export (transforms.json), Houdini (.hip) scene generation, and lens undistortion.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-03 · score 6</div><div class="meta">Topics：automation, camera-tracking, colmap, glomap, houdini</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/nicolasdiolez/360Extractor">nicolasdiolez/360Extractor</a></strong><div>High-performance desktop application for 360° video preprocessing. This tool generates optimized datasets for Gaussian Splatting and photogrammetry (COLMAP, RealityScan) by converting equirectangular footage into rectilinear pinhole views…</div></div>
-  <div><div class="meta">新项目 · Python · ★ 124 · 更新 2026-06-03 · score 5</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/ColmapView/Colmapview.github.io">ColmapView/Colmapview.github.io</a></strong><div>Drag n&#x27; drop colmap dataset viewer</div></div>
-  <div><div class="meta">新项目 · TypeScript · ★ 47 · 更新 2026-06-03 · score 5</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/anhthuan1999/varsplat">anhthuan1999/varsplat</a></strong><div>[CVPR 2026] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM</div></div>
-  <div><div class="meta">新项目 · Python · ★ 22 · 更新 2026-06-03 · score 5</div><div class="meta">Topics：3dgs, 3dgs-slam, gaussian-splatting, slam</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/vahur6/RTABMap-ROS2-PX4">vahur6/RTABMap-ROS2-PX4</a></strong><div>Simulate drones and map environments using ROS 2 and RTAB-Map SLAM in a ready-to-use Docker image, featuring 3D scanning and visualization.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 9 · 更新 2026-06-03 · score 2</div><div class="meta">Topics：3d-reconstruction, docker, docker-image, drone, gazebo</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/rsasaki0109/BEVMatch">rsasaki0109/BEVMatch</a></strong><div>Same-Place Comparison OSS: retrieve, align, compare, and validate same-place observations across time, sensors, and maps.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-06-03 · score 2</div><div class="meta">Topics：autonomous-driving, bev, change-detection, lidar, localization</div></div>
+  <div><strong><a href="https://github.com/Zhangdong1977/lidar-slam">Zhangdong1977/lidar-slam</a></strong></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-04 · score 7</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/rsasaki0109/visloc-rs">rsasaki0109/visloc-rs</a></strong><div>GPS-denied visual &amp; visual-inertial localization for robots and UAVs, in pure Rust — stereo VO, map-reuse PnP, loop closure &amp; pose-graph/BA. Tuned on KITTI &amp; EuRoC MAV.</div></div>
-  <div><div class="meta">Rust · ★ 2 · 更新 2026-06-03 · score 10</div><div class="meta">Topics：autonomous-driving, colmap, computer-vision, gnss, gps-denied</div></div>
+  <div><div class="meta">Rust · ★ 2 · 更新 2026-06-04 · score 10</div><div class="meta">Topics：autonomous-driving, colmap, computer-vision, gnss, gps-denied</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Ubaid-ur-Rahman/visual-inertial-odometry">Ubaid-ur-Rahman/visual-inertial-odometry</a></strong><div>The code implements a sensor fusion model for visual-inertial odometry (VIO)</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-06-03 · score 12</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM">3D-Vision-World/awesome-NeRF-and-3DGS-SLAM</a></strong><div>A comprehensive list of Implicit Representations, NeRF and 3D Gaussian Splatting papers relating to SLAM/Robotics domain, including papers, videos, codes, and related websites</div></div>
-  <div><div class="meta">★ 2024 · 更新 2026-06-01 · score 20</div><div class="meta">Topics：3dgs, awesome, gaussiansplatting, lidar-slam, nerf</div></div>
+  <div><div class="meta">★ 2025 · 更新 2026-06-01 · score 20</div><div class="meta">Topics：3dgs, awesome, gaussiansplatting, lidar-slam, nerf</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/kurajulii/slamAI-istanbulCanyon">kurajulii/slamAI-istanbulCanyon</a></strong><div>Enhance drone navigation with robust Visual Odometry and SLAM for urban canyons, focusing on realistic İstanbul environments and machine learning solutions.</div></div>
-  <div><div class="meta">Python · ★ 1 · 更新 2026-06-03 · score 11</div><div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-06-04 · score 11</div><div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/MOLAorg/mola_lidar_odometry">MOLAorg/mola_lidar_odometry</a></strong><div>MOLA LiDAR odometry and localization</div></div>
-  <div><div class="meta">C++ · ★ 109 · 更新 2026-06-03 · score 10</div><div class="meta">Topics：cpp, lidar, lidar-point-cloud, localization, mapping</div></div>
+  <div><strong><a href="https://github.com/zhang123-1999/ins-gnss-odo-nhc-fusion">zhang123-1999/ins-gnss-odo-nhc-fusion</a></strong><div>INS/GNSS/ODO/NHC integrated navigation framework comparing InEKF and ESKF under GNSS outage and large initial errors.</div></div>
+  <div><div class="meta">C++ · ★ 17 · 更新 2026-06-03 · score 4</div><div class="meta">Topics：cpp, eskf, gnss, gnss-outage, inekf</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/bobvan/PePPAR-Fix">bobvan/PePPAR-Fix</a></strong><div>Fixed-Position PPP-AR Disciplined Oscillator — carrier-phase GNSS for sub-nanosecond UTC alignment</div></div>
+  <div><div class="meta">HTML · ★ 3 · 更新 2026-06-04 · score 2</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Kostya123123-cloud/GurionSLAM">Kostya123123-cloud/GurionSLAM</a></strong><div>Simulate robot SLAM using concurrent Java microservices to fuse camera, LiDAR, and GPS data into a real-time global landmark map.</div></div>
+  <div><div class="meta">Java · ★ 0 · 更新 2026-06-04 · score 8</div><div class="meta">Topics：amazon-web-services, chatgpt, combinatorics, distributed-computing, embedded-systems</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/HadiHShali/GNSS_SensorFusion_KF_Cpp">HadiHShali/GNSS_SensorFusion_KF_Cpp</a></strong><div>6-month C++ learning journey: GNSS positioning, GPS solver, Kalman filtering, INS/GPS sensor fusion, Orbit determination, etc.</div></div>
   <div><div class="meta">C++ · ★ 0 · 更新 2026-06-03 · score 5</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Hotsauce09/aided">Hotsauce09/aided</a></strong><div>✨ Simplify UI development with Aided, a minimal JavaScript library that enables direct DOM manipulation for responsive and efficient user interfaces.</div></div>
-  <div><div class="meta">★ 1 · 更新 2026-06-03 · score 5</div><div class="meta">Topics：catkin, computer-vision, dataset, elasticsearch-plugin, few-shot-learning</div></div>
+  <div><strong><a href="https://github.com/MeetNotFound/HYBRID-ARX-3D-Reconstruction-Engine">MeetNotFound/HYBRID-ARX-3D-Reconstruction-Engine</a></strong><div>Automated monocular video-to-3D reconstruction engine using SfM, MVS, Poisson meshing, COLMAP, and WebXR for XR-ready GLB model generation.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-06-03 · score 7</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/y1s3ra150/lidar_inertial_odometry">y1s3ra150/lidar_inertial_odometry</a></strong><div>Accelerate LiDAR-Inertial odometry for accurate motion tracking with advanced estimation and efficient data management using pre-computed surfels.</div></div>
-  <div><div class="meta">HTML · ★ 1 · 更新 2026-06-04 · score 9</div><div class="meta">Topics：3d-mapping, 3d-reconstruction, colored-point-cloud, lidar, lidar-camera-synchronization</div></div>
+  <div><strong><a href="https://github.com/rsasaki0109/aqua_localization">rsasaki0109/aqua_localization</a></strong><div>ROS 2 underwater localization: IMU, pressure, DVL, sonar scan matching, and pose graph demos on public AUV/ROV bags.</div></div>
+  <div><div class="meta">Python · ★ 8 · 更新 2026-06-04 · score 6</div><div class="meta">Topics：auv, bathymetry, bluerov2, dvl, g2o</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chordee/colmap-camera-tracking">chordee/colmap-camera-tracking</a></strong><div>Automated camera tracking &amp; 3D reconstruction pipeline using COLMAP. Features NeRF export (transforms.json), Houdini (.hip) scene generation, and lens undistortion.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-06-03 · score 6</div><div class="meta">Topics：automation, camera-tracking, colmap, glomap, houdini</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ColmapView/Colmapview.github.io">ColmapView/Colmapview.github.io</a></strong><div>Drag n&#x27; drop colmap dataset viewer</div></div>
+  <div><div class="meta">TypeScript · ★ 47 · 更新 2026-06-04 · score 5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/nicolasdiolez/360Extractor">nicolasdiolez/360Extractor</a></strong><div>High-performance desktop application for 360° video preprocessing. This tool generates optimized datasets for Gaussian Splatting and photogrammetry (COLMAP, RealityScan) by converting equirectangular footage into rectilinear pinhole views…</div></div>
+  <div><div class="meta">Python · ★ 124 · 更新 2026-06-03 · score 5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/anhthuan1999/varsplat">anhthuan1999/varsplat</a></strong><div>[CVPR 2026] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM</div></div>
+  <div><div class="meta">Python · ★ 22 · 更新 2026-06-03 · score 5</div><div class="meta">Topics：3dgs, 3dgs-slam, gaussian-splatting, slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/BEVMatch">rsasaki0109/BEVMatch</a></strong><div>Same-Place Comparison OSS: retrieve, align, compare, and validate same-place observations across time, sensors, and maps.</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-06-04 · score 2</div><div class="meta">Topics：autonomous-driving, bev, change-detection, lidar, localization</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/mdtajnur22/kiss-slam">mdtajnur22/kiss-slam</a></strong><div>A LiDAR SLAM system that just works</div></div>
-  <div><div class="meta">Python · ★ 5 · 更新 2026-06-03 · score 9</div><div class="meta">Topics：996, censorship, china, china-dictatorship, chinese-communist-party</div></div>
+  <div><div class="meta">Python · ★ 5 · 更新 2026-06-04 · score 9</div><div class="meta">Topics：996, censorship, china, china-dictatorship, chinese-communist-party</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/CNU-Bot-Group/ru4dslam">CNU-Bot-Group/ru4dslam</a></strong><div>[CVPR Findings 2026] RU4D-SLAM: Reweighting Uncertainty in Gaussian Splatting SLAM for 4D Scene Reconstruction</div></div>
-  <div><div class="meta">Python · ★ 12 · 更新 2026-06-01 · score 9</div><div class="meta">Topics：4d-gaussian-splatting, 4d-reconstruction, computer-vision, cvpr2026, gaussian-splatting</div></div>
+  <div><div class="meta">Python · ★ 13 · 更新 2026-06-01 · score 9</div><div class="meta">Topics：4d-gaussian-splatting, 4d-reconstruction, computer-vision, cvpr2026, gaussian-splatting</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/ainolf/PX4-ROS2-SLAM-Control">ainolf/PX4-ROS2-SLAM-Control</a></strong><div>Integrate PX4, ROS 2, and Gazebo for drone SLAM, mapping, and control with LiDAR and RGBD camera support in simulation.</div></div>
-  <div><div class="meta">Python · ★ 14 · 更新 2026-06-03 · score 8</div><div class="meta">Topics：drl, drone, gazebo, lidar, px4</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-06-04 · score 8</div><div class="meta">Topics：drl, drone, gazebo, lidar, px4</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/yeicor-docker/colmap-openmvs">yeicor-docker/colmap-openmvs</a></strong><div>Full photogrammetry pipeline.</div></div>
-  <div><div class="meta">Shell · ★ 4 · 更新 2026-06-03 · score 8</div></div>
+  <div><div class="meta">Shell · ★ 4 · 更新 2026-06-04 · score 8</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/IsmailHossain120/vista-slam">IsmailHossain120/vista-slam</a></strong><div>Explore visual SLAM with ViSTA-SLAM, utilizing symmetric two-view association for accurate mapping and navigation in diverse environments.</div></div>
+  <div><div class="meta">★ 1 · 更新 2026-06-04 · score 8</div><div class="meta">Topics：monocular-slam, neural-slam, slam</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/yeicor/colmap-openmvs-app">yeicor/colmap-openmvs-app</a></strong></div>
@@ -156,16 +597,12 @@
   <div><div class="meta">★ 0 · 更新 2026-05-31 · score 8</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Cavilach/lidar_odometry">Cavilach/lidar_odometry</a></strong><div>Achieve real-time LiDAR odometry with robust state estimation using Probabilistic Kernel Optimization for SLAM applications.</div></div>
-  <div><div class="meta">★ 2 · 更新 2026-06-03 · score 7</div><div class="meta">Topics：colored-point-cloud, ct-icp, gaussian-splatting, gtsam, iros</div></div>
-</div>
-<div class="repo">
   <div><strong><a href="https://github.com/jbernalfa/voxel_svio">jbernalfa/voxel_svio</a></strong><div>[RA-L 2025] A stereo visual-inertial odometry system based on voxel map</div></div>
-  <div><div class="meta">C++ · ★ 15 · 更新 2026-06-03 · score 6</div></div>
+  <div><div class="meta">C++ · ★ 15 · 更新 2026-06-04 · score 6</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/luohongk/Embodied-AI-Daily">luohongk/Embodied-AI-Daily</a></strong><div>这个仓库是在arxiv上收集的有关VLN，VLA，World Model，SLAM，Gaussian Splatting,非线性优化等相关论文。每天都会自动更新！issue区域是最新10篇论文</div></div>
-  <div><div class="meta">Python · ★ 270 · 更新 2026-06-02 · score 6</div><div class="meta">Topics：deep-learning, gaussian-splatting, lio, slam, vio</div></div>
+  <div><div class="meta">Python · ★ 271 · 更新 2026-06-02 · score 6</div><div class="meta">Topics：deep-learning, gaussian-splatting, lio, slam, vio</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/U-AMC/UAMHD-Mapping">U-AMC/UAMHD-Mapping</a></strong><div>UAMHD is a personnal Handheld Mapping device setup project that I&#x27;ve made as a hobby. Mostly in purpose of running LVI related SLAM tasks (not Gaussian Splattings n stuff).</div></div>
@@ -176,12 +613,8 @@
   <div><div class="meta">Shell · ★ 0 · 更新 2026-06-03 · score 4</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/maxefe7476/Axioma_robot">maxefe7476/Axioma_robot</a></strong><div>Build and explore an autonomous 4WD robot using C++, Python, ROS2, and Gazebo for advanced navigation and mapping capabilities.</div></div>
-  <div><div class="meta">Python · ★ 4 · 更新 2026-06-03 · score 2</div><div class="meta">Topics：amcl, arduino, autonomous-navigation, autonomous-robots, cpp</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/cawkei/TTT3R">cawkei/TTT3R</a></strong><div>Enhance 3D reconstruction with TTT3R, a test-time training method that boosts length generalization and improves performance for CUT3R applications.</div></div>
-  <div><div class="meta">Python · ★ 2 · 更新 2026-06-03 · score 2</div><div class="meta">Topics：3d-reconstruction, rnn-model, slam</div></div>
+  <div><strong><a href="https://github.com/Rheacoutinho/humanoid-perception-3d-reconstruction">Rheacoutinho/humanoid-perception-3d-reconstruction</a></strong></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-06-04 · score 3</div></div>
 </div></div></details>
 </section>
 

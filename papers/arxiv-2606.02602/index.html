@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Graph Mamba Survival Analysis Based on Topology-Aware ordering</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-04/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-04/index.html">← 返回 2026-06-04 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.LG, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Graph Mamba Survival Analysis Based on Topology-Aware ordering</span><span class="lang lang-en lang-inline" data-lang="en">Graph Mamba Survival Analysis Based on Topology-Aware ordering</span></h1>
+  <div class="meta">作者：Yuanfang Chen, Peiqiang Yan, Yuntao Shou, Qian Zhao, Xiangyong Cao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.02602">abs</a><a href="https://arxiv.org/pdf/2606.02602">PDF</a></div>
+</section>
+
+
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">In computational pathology, Whole Slide Images (WSIs) survival analysis is crucial for patient prognosis assessment, but it faces multiple technical challenges. Although the Transformer captures long-range dependencies through its self-attention mechanism, its $O(N^2)$ time complexity causes a severe computational bottleneck in large-scale WSIs graph structures. The Mamba model breaks through the Transformer&#x27;s computational bottleneck with linear complexity. But, owing to Mamba&#x27;s high sensitivity to the order of input data, traditional node sorting methods in Graph Mamba, such as those based on node degree or subgraph size, fail to adequately account for the topological connectivity of graph data. This inadequacy consequently restricts the performance of Mamba&#x27;s sequential modeling. Moreover, its unidirectional architecture cannot leverage the bidirectional spatial structure of images. To address these challenges, this paper proposes a novel Graph Mamba survival analysis framework based on topology-aware ordering (TopoMamSurv) to adapt to the sequential sensitivity of Mamba. Our visualization experiments further confirmed that the nodes extracted through the topology-aware ordering (TAO) strategy indeed exhibit higher similarity. Furthermore, we designed a bidirectional Mamba module and integrated a Graph Convolutional Network (GCN) to achieve bidirectional spatial context modeling of images, forming a hierarchical feature learning architecture for &quot;local aggregation - global capture.&quot; This framework effectively reconciles the contradiction between long-range dependency modeling, computational efficiency, and spatial structure utilization in WSIs analysis through its systematic design of TAO, bidirectional semantic modeling, and hierarchical feature fusion. This framework has been validated for its comprehensive performance advantage on five TCGA datasets.</p><p class="lang lang-en lang-block" data-lang="en">In computational pathology, Whole Slide Images (WSIs) survival analysis is crucial for patient prognosis assessment, but it faces multiple technical challenges. Although the Transformer captures long-range dependencies through its self-attention mechanism, its $O(N^2)$ time complexity causes a severe computational bottleneck in large-scale WSIs graph structures. The Mamba model breaks through the Transformer&#x27;s computational bottleneck with linear complexity. But, owing to Mamba&#x27;s high sensitivity to the order of input data, traditional node sorting methods in Graph Mamba, such as those based on node degree or subgraph size, fail to adequately account for the topological connectivity of graph data. This inadequacy consequently restricts the performance of Mamba&#x27;s sequential modeling. Moreover, its unidirectional architecture cannot leverage the bidirectional spatial structure of images. To address these challenges, this paper proposes a novel Graph Mamba survival analysis framework based on topology-aware ordering (TopoMamSurv) to adapt to the sequential sensitivity of Mamba. Our visualization experiments further confirmed that the nodes extracted through the topology-aware ordering (TAO) strategy indeed exhibit higher similarity. Furthermore, we designed a bidirectional Mamba module and integrated a Graph Convolutional Network (GCN) to achieve bidirectional spatial context modeling of images, forming a hierarchical feature learning architecture for &quot;local aggregation - global capture.&quot; This framework effectively reconciles the contradiction between long-range dependency modeling, computational efficiency, and spatial structure utilization in WSIs analysis through its systematic design of TAO, bidirectional semantic modeling, and hierarchical feature fusion. This framework has been validated for its comprehensive performance advantage on five TCGA datasets.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PersistGS: Differentiable Physics for Object Permanence in 4D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-04/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-04/index.html">← 返回 2026-06-04 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 12 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PersistGS：用可微物理维持 4D Gaussian Splatting 中的对象持续性</span><span class="lang lang-en lang-inline" data-lang="en">PersistGS: Differentiable Physics for Object Permanence in 4D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Adrian Ramlal, John S. Zelek</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03479">abs</a><a href="https://arxiv.org/pdf/2606.03479">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>方向与动态 3DGS/SLAM 地图维护高度相关，物理约束切中遮挡期间无梯度这一核心问题。</p><div class="tags"><span class="tag">4DGS</span><span class="tag">动态重建</span><span class="tag">可微物理</span><span class="tag">遮挡补全</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把可微刚体物理引入 4DGS，用对象级运动先验解决完全遮挡时的动态重建退化。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">动态 3DGS 在物体被所有训练相机完全遮挡时会失去光度监督，导致对应 Gaussian 退化。PersistGS 将对象级 Gaussian 与碰撞网格结合，用可微刚体仿真从遮挡前轨迹估计摩擦和速度，并在遮挡期预测满足物理规律的 SE(3) 轨迹，从而改善遮挡期间的动态场景重建。</p><p class="lang lang-en lang-block" data-lang="en">Dynamic 3D Gaussian Splatting (3DGS) methods reconstruct time-varying scenes from synchronized multi-camera video using photometric supervision. When a moving object becomes fully occluded from all training cameras, this supervision vanishes: the Gaussians representing it receive no gradient signal and degrade. Existing approaches to incomplete observations in neural reconstruction rely on learned generative priors that prioritize visual plausibility over physical correctness. We propose $\textbf{PersistGS}$, a method that restores object permanence during occlusion by coupling differentiable rigid body simulation with 3D Gaussian Splatting. Our approach decomposes the scene into per-object Gaussians and collision meshes, estimates friction and velocity from the observed pre-occlusion trajectory via differentiable simulation, and uses the resulting SE(3) trajectory to position object Gaussians throughout the occlusion period. Because the predicted trajectory satisfies the governing equations of rigid body dynamics, it faithfully captures contact events (bounces, friction-based deceleration, direction changes) that kinematic extrapolation cannot model. We introduce a centroid silhouette loss that isolates positional gradients from appearance noise, yielding 40% lower trajectory error than photometric supervision. We evaluate using cameras withheld from training that observe the object during its occlusion. Experiments on synthetic scenes show that PersistGS outperforms constant velocity extrapolation by +2.46dB PSNR and comes within 0.19dB of a ground-truth trajectory upper bound.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-03</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.03479">arXiv</a> / <a href="https://arxiv.org/pdf/2606.03479">PDF</a></li>
+<li>作者：Adrian Ramlal, John S. Zelek</li>
+<li>领域标签：4DGS / 动态场景重建 / 可微物理 / 遮挡补全</li>
+<li>背景/动机：动态 3DGS 在物体被所有训练相机完全遮挡时失去 photometric gradient，物体 Gaussian 容易漂移或退化；纯外观先验通常保证“看起来合理”，但不保证物理轨迹正确。</li>
+<li>主要创新点/工作：将场景拆成对象级 Gaussians 与碰撞 mesh，根据遮挡前轨迹用可微刚体仿真估计摩擦和速度，并用物理 SE(3) 轨迹在遮挡期定位对象；提出 centroid silhouette loss，把位置梯度与外观噪声分开。</li>
+<li>为什么值得关注：对动态 SLAM/4D mapping 很有启发——遮挡期间的地图维护可以不只靠外观插值，而是把物理约束作为对象级 motion prior。论文报告轨迹误差比 photometric supervision 低 40%，PSNR 相比常速度外推提升 2.46 dB。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03479/fig-001.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03479/fig-001.webp" alt="PersistGS: Differentiable Physics for Object Permanence in 4D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03479/fig-002.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03479/fig-002.webp" alt="PersistGS: Differentiable Physics for Object Permanence in 4D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03479/fig-003.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03479/fig-003.webp" alt="PersistGS: Differentiable Physics for Object Permanence in 4D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">image · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

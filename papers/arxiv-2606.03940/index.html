@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-04/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-04/index.html">← 返回 2026-06-04 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 11 · eess.IV, cs.CV, cs.LG, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SEAOTTER：面向高效重建的传感器端自编码与一次性转码</span><span class="lang lang-en lang-inline" data-lang="en">SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction</span></h1>
+  <div class="meta">作者：Dan Jacobellis, Neeraja J. Yadwadkar</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03940">abs</a><a href="https://arxiv.org/pdf/2606.03940">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>不是 SLAM 后端，但直接影响多机器人/边缘-云重建的数据传输链路。</p><div class="tags"><span class="tag">机器人视觉</span><span class="tag">压缩</span><span class="tag">云端机器人</span><span class="tag">重建数据链路</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 learned latent + JPEG 兼容转码降低机器人视觉数据上传和云端重建成本。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SEAOTTER 面向云端机器人视觉数据链路，在传感器端生成 learned latent，并通过一次性转码生成兼容 JPEG 基础设施的文件；可学习的 JPEG 颜色和量化变换用于减少压缩对密集感知和视觉语言任务的损伤。</p><p class="lang lang-en lang-block" data-lang="en">In robotics systems, vast amounts of visual data are easily captured at high resolution using low-cost, low-power hardware. Yet, limited bandwidth and on-device compute resources prevent full utilization when transmitted via conventional codecs like JPEG/MPEG. Newer codecs, like AV1/AVIF, improve the rate-distortion trade-off, but demand far more resources for encoding, impractical without custom ASICs. Recent asymmetric autoencoders deliver high quality under extreme power and bandwidth constraints, but add prohibitive decoding cost and use bespoke formats that ignore decades of infrastructure built around standards like JPEG. To address these limitations, we introduce a compression framework for cloud robotics based on a Sensor Embedded Autoencoder paired with a One-Time Transcode for Efficient Reconstruction (SEAOTTER). Because the sensor, cloud, and consumer stages face very different power and bandwidth budgets, SEAOTTER combines the compactness of a learned latent with the broad usability of a standard JPEG file. Since naive transcoding degrades performance, we propose a learnable JPEG color and quantization transform that enables increased accuracy for global, dense, and vision-language-based perception. Using SEAOTTER, we train both general-purpose and task-aware transcoding pipelines for a pre-trained, frozen encoder. At a compression ratio of 200:1 and compared to AVIF, we observe 7 times faster encoding, 3.5 times faster decoding, and +8% ImageNet top-1 accuracy, while retaining compatibility with JPEG infrastructure. Our code is available at https://github.com/UT-SysML/seaotter .</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-03</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.03940">arXiv</a> / <a href="https://arxiv.org/pdf/2606.03940">PDF</a> / <a href="https://github.com/UT-SysML/seaotter">Code</a></li>
+<li>作者：Dan Jacobellis, Neeraja J. Yadwadkar</li>
+<li>领域标签：机器人视觉 / 云端机器人 / 图像压缩 / 低带宽感知</li>
+<li>背景/动机：机器人和低功耗传感器能采高分辨率视觉数据，但带宽、端侧算力和编码成本限制了云端重建/感知；AVIF 等新 codec 编码代价仍高。</li>
+<li>主要创新点/工作：传感器端输出 learned latent，再通过 One-Time Transcode 变成兼容 JPEG 基础设施的文件；设计可学习 JPEG color/quantization transform，使压缩后仍服务 dense perception 和 VLM 感知。</li>
+<li>为什么值得关注：不是 SLAM 后端算法，但很贴近多机器人/边缘-云地图构建的数据链路。200:1 压缩下报告编码比 AVIF 快 7 倍、解码快 3.5 倍，并提升 ImageNet top-1 8%，值得看其对特征匹配、深度估计和重建质量的影响。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03940/fig-001.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03940/fig-001.webp" alt="SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03940/fig-002.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03940/fig-002.webp" alt="SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03940/fig-003.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03940/fig-003.webp" alt="SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03940/fig-004.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03940/fig-004.webp" alt="SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03940/fig-005.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03940/fig-005.webp" alt="SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-04/arxiv-2606.03940/fig-006.webp"><img src="../../assets/media/2026-06-04/arxiv-2606.03940/fig-006.webp" alt="SEAOTTER: Sensor Embedded Autoencoding with One-Time Transcode for Efficient Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

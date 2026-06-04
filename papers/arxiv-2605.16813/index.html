@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>QuadLink: Autoregressive Quad-Dominant Mesh Generation via Point-Relation Learning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-04/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-04/index.html">← 返回 2026-06-04 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 4 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">QuadLink：通过点关系学习生成四边形主导网格</span><span class="lang lang-en lang-inline" data-lang="en">QuadLink: Autoregressive Quad-Dominant Mesh Generation via Point-Relation Learning</span></h1>
+  <div class="meta">作者：Yiheng Zhang, Zhe Zhu, Tingrui Shen, Zhuojiang Cai, Tianxiao Li, Zixing Zhao, Qiujie Dong, Zhiyang Dou, Jiepeng Wang, Le Wan, Yuwang Wang, Wenping Wang, Yuan Liu, Cheng Lin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2605.16813">abs</a><a href="https://arxiv.org/pdf/2605.16813">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.7/10</span><p>偏重建后处理，但对 SLAM/3DGS 输出进入 CAD/仿真链路有价值。</p><div class="tags"><span class="tag">点云</span><span class="tag">Mesh</span><span class="tag">四边形网格</span><span class="tag">三维资产</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把点云后处理成更适合生产和数字孪生使用的四边形主导网格。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">QuadLink 将点云到 polygon mesh 的生成表述为 centroid-conditioned vertex linking，先预测顶点和面中心 anchors，再学习两者关联，并用 quad-first 策略和几何校验组装稀疏、各向异性的四边形主导网格。</p><p class="lang lang-en lang-block" data-lang="en">The generation of production-ready quad-dominant meshes is a cornerstone of modern 3D content creation. Generating anisotropic quad-dominant meshes from point clouds is challenging, as existing methods are typically limited to producing either pure triangular meshes or pure quadrilateral meshes with isotropic densities. In this paper, we present QuadLink, a unified framework consisting of three stages for quad-dominant mesh generation by linking points into structured faces. QuadLink formulates polygonal mesh generation as a hybrid centroid-conditioned vertex linking model: it first predicts a unified set of anchors (vertices and face centroids), then learns centroid-conditioned links that associate vertices with face centroids, and finally assembles polygonal faces with a quad-first strategy guided by robust geometric verification strategies. This link-based formulation enables efficient generation of sparse and anisotropic quad-dominant meshes with coherent edge flow and meanwhile supporting hybrid polygonal topology. To construct training data for this model, we further introduce a Tri-to-Quad Operator that converts artistic triangle meshes into quad-dominant training data via global merge selection. Extensive experiments show that QuadLink produces production-ready quad-dominant meshes from point clouds and achieves improved geometric fidelity and topological quality compared to prior baselines. Our method natively supports hybrid polygonal topology, generalizing to arbitrary n-gon meshes without architectural changes.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-03</li>
+<li>链接：<a href="https://arxiv.org/abs/2605.16813">arXiv</a> / <a href="https://arxiv.org/pdf/2605.16813">PDF</a></li>
+<li>作者简写：Y. Zhang, Z. Zhu, T. Shen 等</li>
+<li>领域标签：点云处理 / mesh generation / quad mesh / 三维资产</li>
+<li>背景/动机：从点云直接生成 production-ready quad-dominant mesh 很难；现有方法常偏三角网格或各向同性四边形网格，edge flow 与拓扑质量不足。</li>
+<li>主要创新点/工作：把 polygon mesh generation 表述为 centroid-conditioned vertex linking：预测 vertex/face-centroid anchors，再学习 vertex 与 centroid 的关联，最后用 quad-first 策略和几何校验组装 faces。</li>
+<li>为什么值得关注：SLAM/3DGS 输出若要进入 CAD/仿真/数字孪生，最终仍常需要 mesh 化与拓扑整理。QuadLink 从点云到四边形主导网格的链路，可作为重建后处理方向跟踪。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
