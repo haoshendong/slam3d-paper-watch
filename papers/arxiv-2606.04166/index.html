@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>End-to-End Text Line Detection and Ordering</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 3 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">端到端文本行检测与排序</span><span class="lang lang-en lang-inline" data-lang="en">End-to-End Text Line Detection and Ordering</span></h1>
+  <div class="meta">作者：Benjamin Kiessling (ALMAnaCH)</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04166">abs</a><a href="https://arxiv.org/pdf/2606.04166">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 1.5/10</span><p>文档 OCR/版面分析，与用户关注方向无关。</p><div class="tags"><span class="tag">OCR</span><span class="tag">文档分析</span><span class="tag">文本行检测</span><span class="tag">无关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把文档文本行检测和阅读顺序估计统一成端到端模型。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Orli 将历史文档版面分析中的文本行检测和阅读顺序估计合并为端到端模型，避免检测后再依赖手写几何启发式排序，以更好处理边注、多栏、表格和特定文献格式。</p><p class="lang lang-en lang-block" data-lang="en">Practical text-recognition pipelines for historical documents typically decompose layout analysis into line detection followed by a separate reading-order step, with the latter most often handled by a hand-coded geometric heuristic that struggles with marginalia, multiple columns, tables, and source-specific editorial conventions. This article introduces Orli (Ordered Regression of Lines), an end-to-end model that casts both sub-tasks as a single image-to-sequence problem: from a page image, Orli autoregressively generates text-line baselines directly in reading order. Baselines are represented in a chord-frame parameterization that anchors a line&#x27;s position, orientation, and extent while encoding local geometry through perpendicular offsets; an iterative refinement head and a local visual refiner produce the final curve. Trained on a heterogeneous corpus of 196,691 pages spanning ten writing systems, Orli marginally exceeds the previously reported state of the art for cBAD line detection without dataset-specific training, reaches near perfect coverage and ordering on multiple reading-order benchmarks zero-shot, and adapts to more specialized out-of-domain layouts with limited fine-tuning. The method&#x27;s source code and model weights are available under an open license at https://github.com/mittagessen/orli.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

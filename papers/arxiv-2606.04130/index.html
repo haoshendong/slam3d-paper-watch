@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CLAW: Learning Continuous Latent Action World Models via Adversarial Latent Regularization</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 3 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CLAW：通过对抗潜变量正则学习连续潜动作世界模型</span><span class="lang lang-en lang-inline" data-lang="en">CLAW: Learning Continuous Latent Action World Models via Adversarial Latent Regularization</span></h1>
+  <div class="meta">作者：Tewodros Ayalew, Matthew Jeung, Samuel Wheeler, Xiao Zhang, Andre de la Cruz Arce, Kaylene Stocking, Michael Maire, Matthew R. Walter</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04130">abs</a><a href="https://arxiv.org/pdf/2606.04130">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.5/10</span><p>与视觉世界模型和规划有关，可为 embodied SLAM 后的决策层提供参考，但不直接解决几何定位。</p><div class="tags"><span class="tag">世界模型</span><span class="tag">潜动作</span><span class="tag">视觉规划</span><span class="tag">自监督</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从无动作视频中联合学习潜动作和世界模型，用于观察模仿与目标规划。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">CLAW 是从无动作标注视频中端到端自监督学习世界模型和连续潜动作表示的框架。它用对抗潜变量正则和扩散视频生成来捕捉结构化动作表示与环境动态，可用于从观察中模仿学习和目标导向规划。</p><p class="lang lang-en lang-block" data-lang="en">We introduce CLAW, a fully end-to-end self-supervised framework for learning a world model jointly with continuous latent action representations directly from action-free videos. Our approach leverages adversarial latent regularization and diffusion-based video generation to capture structured and semantically meaningful action representations while modeling rich, predictive environment dynamics, without relying on any action labels or annotations. By simultaneously training the Latent Action Model and world model, CLAW learns to reason about how inferred actions induce environment transitions from visual observations alone. We show that the resulting latent action world model supports both imitation learning from observation and goal-directed planning. In imitation learning, latent actions extracted from raw videos enable behavior cloning. For planning, CLAW generates sequences of latent actions and maps them to executable actions to reach desired goals. Extensive experiments across diverse tasks and embodiments demonstrate that CLAW produces semantically meaningful latent action representations, supports effective action transfer, and enables planning and imitation from observation, outperforming existing methods.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

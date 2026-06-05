@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>FUSE-Flow: A Decoupled Framework for Calibration and Stateless Real-Time Multi-View Point Cloud Fusion</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 5 · eess.IV, cs.MM</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">FUSE-Flow：解耦标定与无状态实时多视角点云融合</span><span class="lang lang-en lang-inline" data-lang="en">FUSE-Flow: A Decoupled Framework for Calibration and Stateless Real-Time Multi-View Point Cloud Fusion</span></h1>
+  <div class="meta">作者：Chentian Sun</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04376">abs</a><a href="https://arxiv.org/pdf/2606.04376">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.3/10</span><p>与多相机重建、外参标定和 SLAM 前端融合工程高度相关。</p><div class="tags"><span class="tag">多视角重建</span><span class="tag">点云融合</span><span class="tag">外参标定</span><span class="tag">实时系统</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过解耦外参标定和置信度点云融合，实现可扩展的实时多视角三维重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">FUSE-Flow 将实时多相机三维重建拆为 GMAC 外参标定和 FUSE 点云融合两个协作模块。GMAC 利用几何约束和多视角重建 transformer 在无需标定板、密集图像或全局 BA 的情况下细化外参；FUSE 使用置信度加权和自适应空间哈希进行无状态融合，以线性时间和内存实现可扩展实时点云重建。</p><p class="lang lang-en lang-block" data-lang="en">Real-time multi-camera 3D reconstruction is a key foundation for immersive media, remote interaction and spatial computing. While synchronized camera arrays are widely adopted, achieving geometrically consistent and scalable real-time reconstruction remains challenging. A key challenge is the close linkage among extrinsic calibration, multi-view fusion and global optimization, which causes fluctuating reconstruction results, cumulative errors and poor system expandability. We propose a decoupled framework for calibration and stateless real-time multi-view point cloud fusion (FUSE-Flow), a framework with two collaborative components: geometry-aligned multi-view extrinsic calibration (GMAC) and reliability-guided multi-view point cloud fusion (FUSE). This split design avoids conflicting optimization objectives for targeted improvement. The GMAC module refines camera extrinsics via geometric constraints and multi-view reconstruction transformers, enabling accurate sparse-view calibration without calibration targets, dense images or global bundle adjustment. The FUSE module integrates confidence weighting and adaptive spatial hashing for stateless fusion, ensuring linear time and memory consumption. The two modules mutually reinforce each other: accurate camera poses boost fusion accuracy, and confidence-aware fusion corrects calibration biases. Validated on public datasets and real camera setups, FUSE-Flow outperforms mainstream real-time reconstruction methods in visual effect, dynamic stability and scalability, providing a practical solution for large-scale real-time 3D reconstruction.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.04376">arXiv</a> / <a href="https://arxiv.org/pdf/2606.04376">PDF</a></li>
+<li>作者：Chentian Sun</li>
+<li>领域标签：三维重建 / 多视角点云融合 / 外参标定 / 实时系统</li>
+<li>背景/动机：同步多相机实时三维重建常把外参标定、多视角融合、全局优化绑在一起，容易产生结果波动、累计误差和扩展性问题。</li>
+<li>主要创新点/工作：提出解耦框架 FUSE-Flow：GMAC 模块用几何约束和 multi-view reconstruction transformers 做稀疏视角无标定板外参细化；FUSE 模块用置信度加权和 adaptive spatial hashing 做 stateless point cloud fusion，保证线性时间和内存。</li>
+<li>为什么值得关注：对实时 RGB/RGB-D 多相机重建、空间计算和多传感器 SLAM 前端有工程参考价值，尤其是“标定—融合”解耦和无状态融合的系统设计。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

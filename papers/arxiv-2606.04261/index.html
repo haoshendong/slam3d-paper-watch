@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Can Generalist Agents Automate Data Curation?</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 6 · cs.AI, cs.CL, cs.CV, cs.ET</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通用智能体能否自动化数据策展？</span><span class="lang lang-en lang-inline" data-lang="en">Can Generalist Agents Automate Data Curation?</span></h1>
+  <div class="meta">作者：Feiyang Kang, Hanze Li, Adam Nguyen, Mahavir Dabas, Jiaqi W. Ma, Frederic Sala, Dawn Song, Ruoxi Jia</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04261">abs</a><a href="https://arxiv.org/pdf/2606.04261">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 1.8/10</span><p>主要关注数据工程和 AI agent，与用户关注方向几乎无直接关系。</p><div class="tags"><span class="tag">数据策展</span><span class="tag">AI Agent</span><span class="tag">基准</span><span class="tag">弱相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用基准评估编程智能体自动迭代数据策展策略的能力。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出 Curation-Bench，用固定模型、训练配方和评估套件考察通用编程智能体是否能自动提出、实现、评估和修订数据策略，从而自动化训练数据策展循环。</p><p class="lang lang-en lang-block" data-lang="en">Curating training data is among the most consequential yet labor-intensive parts of modern AI development: practitioners iteratively propose, implement, evaluate, and revise data policies against noisy benchmark feedback. We ask whether generalist coding agents can automate this data-curation loop. We introduce *Curation-Bench*, an agent-centric benchmark that fixes the model, training recipe, and evaluation suite while giving agents command-line access to inspect data, implement policies, submit them to a fixed training/evaluation pipeline, and revise. In a vision-language instruction-tuning instantiation, out-of-the-box agents reach strong published data-selection baselines within ten iterations. However, trajectory analysis reveals a persistent *execution-research gap*: agents mainly tune local policy variants rather than explore new policy families, even when given strategy guides and paper references. Scaffolds requiring each iteration to cite, instantiate, and adapt a prior method shift agents toward method-guided exploration. The scaffolded agent autonomously composes -- without human design input -- a data-selection policy that outperforms strong published baselines at one-tenth their data budget. Overall, current agents can run the curation loop, but reliable data research requires scaffolded method adaptation, not open-ended prompting alone. Code and benchmark are open-sourced.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

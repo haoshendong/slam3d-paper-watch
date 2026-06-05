@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Early Detection of Alzheimer&#x27;s Disease Using Explainable Machine Learning on Clinical Biomarkers: A Multi-Class Classification Study Using the Alzheimer&#x27;s Disease Neuroimaging Initiative (ADNI) Dataset</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · cs.LG, cs.AI, q-bio.QM</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于临床生物标志物的可解释机器学习早期检测阿尔茨海默病</span><span class="lang lang-en lang-inline" data-lang="en">Early Detection of Alzheimer&#x27;s Disease Using Explainable Machine Learning on Clinical Biomarkers: A Multi-Class Classification Study Using the Alzheimer&#x27;s Disease Neuroimaging Initiative (ADNI) Dataset</span></h1>
+  <div class="meta">作者：Afshan Hashmi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03995">abs</a><a href="https://arxiv.org/pdf/2606.03995">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 1.4/10</span><p>医学分类任务，与用户关注方向无关。</p><div class="tags"><span class="tag">医学</span><span class="tag">机器学习</span><span class="tag">分类</span><span class="tag">无关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用可解释 XGBoost 基于临床指标进行阿尔茨海默病多分类检测。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该研究使用 ADNI 数据集中的临床特征训练 XGBoost，对正常认知、轻度认知障碍和阿尔茨海默病进行三分类，并强调可解释性分析。</p><p class="lang lang-en lang-block" data-lang="en">Background: Alzheimer&#x27;s disease (AD) affects over 55 million people worldwide. Accurate, interpretable detection of normal cognition (NC), mild cognitive impairment (MCI), and AD from routine clinical assessments remains a critical unmet need. Methods: An XGBoost classifier was developed for three-class detection using eight clinical features from the Alzheimer&#x27;s Disease Neuroimaging Initiative (ADNI): MMSE, CDR Global, CDR Sum of Boxes (CDR-SB), MoCA, FAQ, age, sex, and education. Hyperparameters were optimised using Optuna (50 trials); class imbalance was addressed with SMOTE. Performance was evaluated by macro AUC-ROC with 1,000-iteration bootstrap 95% confidence intervals, macro F1, balanced accuracy, and Cohen&#x27;s kappa. SHAP values provided feature-level explainability. Results: The dataset comprised 1,641 baseline subjects (608 NC, 767 MCI, 266 AD). On five-fold cross-validation, mean macro AUC was 0.983 (SD 0.007), accuracy 0.944 (SD 0.006), and macro F1 0.929 (SD 0.008). On the held-out test set (n = 247), macro AUC was 0.982 (95% CI: 0.965--0.995), accuracy 0.943, balanced accuracy 0.932, macro F1 0.927, and Cohen&#x27;s kappa 0.909. SHAP analysis identified CDR Global as the dominant predictor for NC and MCI, while CDR-SB and MMSE together drove AD classification. Conclusion: An explainable machine learning model trained on routine clinical assessments achieves near-perfect three-class Alzheimer&#x27;s detection. SHAP analysis reveals clinically plausible, class-specific feature importance patterns supporting clinical validity. Future work will extend this framework with speech biomarkers for multimodal detection.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

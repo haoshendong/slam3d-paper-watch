@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CoPark: Learning Reactive Parking via Self-Play</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 3 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CoPark：通过自博弈学习反应式停车</span><span class="lang lang-en lang-inline" data-lang="en">CoPark: Learning Reactive Parking via Self-Play</span></h1>
+  <div class="meta">作者：Jiarong Wei, Yanxing Chen, Sinuo Song, Yin Wu, Anna Rehr, Abhinav Valada</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04149">abs</a><a href="https://arxiv.org/pdf/2606.04149">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 4.8/10</span><p>与自动驾驶局部规划有关，但不包含 SLAM/GNSS 融合或三维重建贡献。</p><div class="tags"><span class="tag">自动泊车</span><span class="tag">自博弈</span><span class="tag">局部规划</span><span class="tag">自动驾驶</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用自博弈学习兼顾几何精度和交互安全的自动泊车策略。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">CoPark 研究自动泊车中精确到达目标与安全应对其他车辆之间的冲突，利用多车自博弈学习 reactive parking 策略，使车辆在动态交互中既能保持几何精度，又能在其他车辆入侵时安全调整。</p><p class="lang lang-en lang-block" data-lang="en">Learning a single policy that reaches a goal with high geometric precision while interacting safely with nearby agents poses conflicting objectives. Precision favors commitment to a fixed geometric plan, whereas interaction requires immediate deviation when another agent intrudes, causing policies optimized for one objective to often fail at the other. We study this problem in the context of reactive autonomous parking, where multiple vehicles must reach assigned slots with sub-meter terminal accuracy while remaining responsive to neighboring vehicles throughout the maneuver. We propose CoPark, a multi-agent self-play RL approach built on a residual-policy architecture. A precomputed offline plan provides a fixed action prior, while a residual head learns the reactive corrections. The residual policy learns behaviors under self-play, where data and scripting fall short, while the fixed prior holds the slot-frame geometry that pure policies struggle to reach reliably. The key design is a partner-threat-modulated, channel-asymmetric release of the prior. A continuous threat signal shifts authority of the longitudinal channel to the residual head to enable yielding, while the lateral channel remains anchored to the precomputed reference to preserve sub-meter slot alignment. A closed-loop refinement layer corrects residual terminal error from action-grid discretization. We train our policy on six parking lots and evaluate zero-shot on our new reactive-parking benchmark spanning Dragon Lake Parking (DLP) and DeepScenario Open 3D (DSC3D). CoPark achieves ~70-85% success with only 3-6% collision rate, substantially outperforming classical, imitation-learning, and large-scale RL baselines. Importantly, the results demonstrate emergent interaction behaviors such as reverse-yielding, mid-maneuver yielding, tight-corridor passing, and queuing.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

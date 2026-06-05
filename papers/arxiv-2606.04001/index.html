@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Geometry-Structured Channel Reconstruction for Conventional and Fluid Antenna Systems: Bayesian Inference and Fundamental Limits</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 5 · eess.SP, cs.IT, math.IT</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">传统与流体天线系统的几何结构化信道重建</span><span class="lang lang-en lang-inline" data-lang="en">Geometry-Structured Channel Reconstruction for Conventional and Fluid Antenna Systems: Bayesian Inference and Fundamental Limits</span></h1>
+  <div class="meta">作者：Zhentian Zhang, Kai-Kit Wong, Kaitao Meng, David Morales-Jimenez, Hao Jiang, Christos Masouros, Hyundong Shin, Zaichen Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04001">abs</a><a href="https://arxiv.org/pdf/2606.04001">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 3/10</span><p>有几何结构和信号重建思想，但主要属于无线通信信道估计，不是 GNSS 定位。</p><div class="tags"><span class="tag">无线通信</span><span class="tag">信道重建</span><span class="tag">贝叶斯推断</span><span class="tag">几何结构</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">利用无线信道的几何结构减少多端口天线系统的信道重建成本。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文研究流体天线系统中大量候选端口位置的 CSI 获取问题，利用信道在空间上的几何结构，通过贝叶斯推断和理论界分析减少直接逐端口估计的导频开销。</p><p class="lang lang-en lang-block" data-lang="en">Accurate channel state information (CSI) acquisition is critical for exploiting the spatial flexibility of fluid antenna systems (FASs). However, port selection and transmission optimization require CSI over a large number of candidate port positions, making direct port-wise estimation prohibitively costly in terms of pilot overhead. This paper addresses this challenge through geometry-structured channel reconstruction, which exploits the fact that the port-domain CSI can be parameterized by a small number of dominant propagation paths. We first establish fundamental mean square error (MSE) and normalized MSE (NMSE) benchmarks for both geometry-structured and unstructured channel reconstruction, providing analytical references for evaluating the intrinsic benefit of geometric modeling in conventional antenna systems and FASs. Motivated by the strong spatial correlation induced by densely distributed fluid antenna ports, we further propose a Bayesian reconstruction framework, termed geometry-structured expectation-maximization approximate message passing (GS-EM-AMP). The proposed algorithm incorporates geometric channel structure into the EM-AMP procedure and adaptively learns unknown statistical parameters from noisy observations. Numerical results demonstrate that GS-EM-AMP achieves near-bound reconstruction accuracy while maintaining strong robustness against steering-domain correlation, thereby offering an efficient and reliable solution for large-scale CSI acquisition in FASs.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

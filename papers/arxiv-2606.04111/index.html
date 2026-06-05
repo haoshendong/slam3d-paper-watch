@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>AgenticDiffusion: Agentic Diffusion-based Path Planning for Vision-Based UAV Navigation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 6 · cs.RO, cs.AI, cs.SY, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">AgenticDiffusion：面向视觉 UAV 导航的智能体扩散路径规划</span><span class="lang lang-en lang-inline" data-lang="en">AgenticDiffusion: Agentic Diffusion-based Path Planning for Vision-Based UAV Navigation</span></h1>
+  <div class="meta">作者：Faryal Batool, Muhammad Ahsan Mustafa, Fawad Mehboob, Valerii Serpiva, Dzmitry Tsetserukou</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04111">abs</a><a href="https://arxiv.org/pdf/2606.04111">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>与视觉导航和遮挡场景下的视角选择相关，但几何建图/定位部分不是重点。</p><div class="tags"><span class="tag">UAV导航</span><span class="tag">Diffusion Planning</span><span class="tag">开放词汇</span><span class="tag">多视角</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把多视角观察、语义目标定位、扩散规划和 NMPC 组合成视觉 UAV 导航流程。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">AgenticDiffusion 面向室内 UAV 导航，将语言引导推理、开放词汇目标 grounding、视觉扩散规划和 NMPC 统一起来。系统利用同步 FPV 与 top-view 观察选择最有信息量的视角并生成任务计划，再由视角特定 diffusion planner 生成可执行轨迹；真实 UAV 实验中报告 80% 任务成功率和 100% 轨迹生成成功率。</p><p class="lang lang-en lang-block" data-lang="en">Indoor UAV navigation requires efficient exploration, scene understanding, and reliable trajectory execution under limited field-of-view observations. Existing vision-based navigation frameworks typically rely on single-view observations, limiting their ability to reason about occlusions, target visibility, and global scene structure. In this work, we propose AgenticDiffusion, a multi-view UAV navigation framework that coordinates language-guided reasoning, open-vocabulary target grounding, vision-based diffusion planning, and NMPC within a unified aerial navigation pipeline. Given a natural language instruction and synchronized first-person-view (FPV) and top-view observations, the framework determines the most informative viewpoint for navigation and generates a mission plan prior to trajectory execution. The targets are localized using an open-vocabulary grounding model, after which viewpoint-specific diffusion planners generate navigation trajectories for UAV execution. Using complementary viewpoints, the proposed framework reduces repeated target exploration and improves navigation efficiency in cluttered indoor environments. The framework was validated in four real-world UAV navigation scenarios involving adaptive viewpoint selection, multi-stage mission execution, long-horizon navigation, and safe landing-site selection. The experimental results demonstrated an overall mission success rate of 80% in 40 real-world trials, while the diffusion planners achieved a trajectory generation success rate of 100%.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.04111">arXiv</a> / <a href="https://arxiv.org/pdf/2606.04111">PDF</a></li>
+<li>作者简写：F. Batool, M. A. Mustafa, F. Mehboob 等</li>
+<li>领域标签：视觉导航 / UAV / diffusion planning / open-vocabulary grounding</li>
+<li>背景/动机：室内 UAV 只依赖单视角观察时难以处理遮挡、目标可见性和全局场景结构，导致重复探索或任务失败。</li>
+<li>主要创新点/工作：用语言引导推理、开放词汇目标 grounding、视觉 diffusion planning 和 NMPC 组成多视角 UAV 导航流程；在 FPV 与 top-view 之间选择更有信息量的视角并生成任务计划。</li>
+<li>为什么值得关注：与传统 SLAM 关系较间接，但适合跟踪“视觉地图/多视角观察 + 语义任务规划”的自主导航链路，尤其是遮挡场景下的 viewpoint selection。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

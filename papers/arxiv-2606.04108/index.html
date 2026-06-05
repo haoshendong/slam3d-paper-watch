@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SymTRELLIS: Symmetry-Enforced Voxel Latents for 3D Generation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 9 · cs.GR, cs.AI, cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SymTRELLIS：带对称约束的 3D 生成体素潜变量</span><span class="lang lang-en lang-inline" data-lang="en">SymTRELLIS: Symmetry-Enforced Voxel Latents for 3D Generation</span></h1>
+  <div class="meta">作者：Guangda Ji, Qimin Chen, Qinchan Li, Mingrui Zhao, Kai Wang, Hao Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04108">abs</a><a href="https://arxiv.org/pdf/2606.04108">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.4/10</span><p>偏 3D 资产生成而非 SLAM，但结构约束对数字孪生、仿真资产和地图后处理有参考价值。</p><div class="tags"><span class="tag">3D生成</span><span class="tag">对称性</span><span class="tag">Voxel Latent</span><span class="tag">结构约束</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在 3D 生成的潜空间中施加旋转/反射等对称约束，使生成几何更符合结构要求。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SymTRELLIS 面向单图三维生成中的结构对称性问题，在不重训底层 TRELLIS.2 VAE 或 flow model 的情况下，学习空间变换在体素潜变量上的线性近似，并在生成 ODE 过程中对对称等价变换的速度进行平均。方法可自动估计或由用户指定对称群，在严格对称物体基准上明显降低对称误差。</p><p class="lang lang-en lang-block" data-lang="en">Single-view 3D generative models have achieved impressive visual quality, yet they are not designed to satisfy structural or functional requirements, and in practice, often fall short. Symmetry is one such requirement: violations, even subtle ones, on symmetry can render a model physically unusable. We present SymTRELLIS, a method that enforces arbitrary finite point group symmetries (rotational, reflectional, and polyhedral) during the flow-based 3D generation of TRELLIS.2, without retraining the underlying VAE or flow model. Our key idea is to approximate the latent-space action of spatial transformations as a learned linear operator on voxel latents, implemented as a lightweight spatial-transform latent mapper trained on generic, non-symmetric 3D data. At generation time, we enforce symmetry by averaging predicted flow velocities across all symmetry-equivalent transformations at each ODE step, a process we call velocity symmetrization. The symmetry specification can be estimated automatically from an initial TRELLIS.2 generation or supplied by the user, enabling deliberate fold manipulation beyond what the input image suggests. On a curated benchmark of 266 strictly symmetric objects spanning 2- to 20-fold rotations and polyhedral symmetry groups, SymTRELLIS substantially reduces all symmetry error metrics compared to TRELLIS.2, Hunyuan3D-2.1, and TripoSG, while maintaining reconstruction accuracy comparable to the base model.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.04108">arXiv</a> / <a href="https://arxiv.org/pdf/2606.04108">PDF</a></li>
+<li>作者简写：G. Ji, Q. Chen, Q. Li 等</li>
+<li>领域标签：三维生成 / voxel latent / 对称约束 / 3D asset</li>
+<li>背景/动机：单图三维生成视觉质量提升很快，但常违反对称性等结构/功能约束，导致生成模型在工程或仿真中不可用。</li>
+<li>主要创新点/工作：在 TRELLIS.2 的 flow-based 3D generation 中不重训 VAE/flow model，而是在 latent space 学习空间变换的线性近似，并在 ODE step 中做 velocity symmetrization。</li>
+<li>为什么值得关注：偏 3D 资产生成，不是 SLAM；但“结构约束优先于纯视觉质量”的思路适合三维地图后处理、数字孪生资产化和可制造几何生成。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

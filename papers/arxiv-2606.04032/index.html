@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Do Transformers Need Three Projections? Systematic Study of QKV Variants</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · cs.LG, cs.AI, cs.CL, cs.PF</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Transformer 是否需要三个投影？QKV 变体系统研究</span><span class="lang lang-en lang-inline" data-lang="en">Do Transformers Need Three Projections? Systematic Study of QKV Variants</span></h1>
+  <div class="meta">作者：Ali Kayyam, Anusha Madan Gopal, M Anthony Lewis</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04032">abs</a><a href="https://arxiv.org/pdf/2606.04032">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 1.8/10</span><p>基础模型结构研究，与定位建图关系很弱。</p><div class="tags"><span class="tag">Transformer</span><span class="tag">注意力</span><span class="tag">模型结构</span><span class="tag">弱相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">系统评估 Transformer 注意力中 QKV 投影共享/简化的影响。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文系统比较 Transformer 注意力中 Q、K、V 三个投影的共享或省略变体，包括共享 key-value、共享 query-key 和单投影设置，分析不同约束对模型表现的影响。</p><p class="lang lang-en lang-block" data-lang="en">Transformers have become the standard solution for various AI tasks, with the query, key, and value (QKV) attention formulation playing a central role. However, the individual contribution of these three projections and the impact of omitting some remain poorly understood. We systematically evaluate three projection sharing constraints: a) Q-K=V (shared key-value), b) Q=K-V (shared query-key), and c) Q=K=V (single projection). The last two variants produce symmetric attention maps; to address this, we also explore asymmetric attention via 2D positional encodings. Through experiments spanning synthetic tasks, vision (MNIST, CIFAR, TinyImageNet, anomaly), and language modeling (300M and 1.2B parameter models on 10B tokens), we discovered that our transformers perform on par or occasionally better than the QKV transformer. In language modeling, Q-K=V projection sharing achieves 50% KV cache reduction with only 3.1% perplexity degradation. Crucially, projection sharing is complementary to head sharing (GQA/MQA): combining Q-K=V with GQA-4 yields 87.5% cache reduction, while Q-K=V + MQA achieves 96.9%, enabling practical on-device inference. We show that Q-K=V preserves quality because keys and values can occupy similar representational spaces and attention operates in a low-rank regime, whereas Q=K-V breaks attention directionality. Our results systematically characterize projection sharing as an underexplored instance of weight tying in attention, with direct, quantifiable inference memory benefits, particularly valuable for edge deployment. The code is publicly available at https://github.com/anushamadan02/Do-Transformers-Need-3-Projections</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

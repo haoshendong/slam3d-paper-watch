@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Gravity-Aware Hierarchical Routing for Lightweight SensorLLM on Human Activity Recognition</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · eess.SP, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向轻量 SensorLLM 人体活动识别的重力感知层次路由</span><span class="lang lang-en lang-inline" data-lang="en">Gravity-Aware Hierarchical Routing for Lightweight SensorLLM on Human Activity Recognition</span></h1>
+  <div class="meta">作者：Hao Li, Mingrui Zheng, Yasuyuki Tahara, Yuichi Sei</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04019">abs</a><a href="https://arxiv.org/pdf/2606.04019">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 2.5/10</span><p>与 IMU/传感器建模有边缘关系，但任务为人体活动识别，不是导航估计。</p><div class="tags"><span class="tag">传感器</span><span class="tag">IMU</span><span class="tag">人体活动识别</span><span class="tag">弱相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为轻量传感器语言模型加入重力感知路由以提升人体活动识别。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文研究可穿戴传感器到语言模型对齐框架在轻量化后对重力相关运动的识别失效问题，提出 gravity-aware hierarchical routing 来改善压缩 SensorLLM 在人体活动识别中的表现。</p><p class="lang lang-en lang-block" data-lang="en">Recent studies on sensor-language alignment have shown that two-stage frameworks can improve the semantic modeling ability of wearable-sensor human activity recognition (HAR), where SensorLLM-style methods first perform motion-to-language alignment and then fine-tune the model for downstream tasks. However, our experiments reveal a consistent failure mode when the Stage 2 backbone is compressed to a compact model such as TinyLlama: recognition of dynamic activities remains relatively strong, while the discrimination of low-motion static classes such as standing, sitting, and lying degrades substantially. To address this issue, we propose a gravity-aware hierarchical routing head as a lightweight post-alignment adaptation built on top of an already aligned model, rather than a new large-scale pretraining framework. The method uses the per-channel mean and std from the Chronos tokenizer state to extract statistical cues related to posture and gravity direction, and adaptively combines a static expert and a full expert through soft routing, together with a load-balancing loss for stable training. On the MHealth dataset, this design significantly improves macro-F1 with minimal parameter overhead, and the gains are concentrated mainly on static classes while preserving strong performance on dynamic activities. As a first arXiv disclosure, the current paper reports results on a single dataset only, with the goal of highlighting the core method and laying the groundwork for broader evaluation in future work.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

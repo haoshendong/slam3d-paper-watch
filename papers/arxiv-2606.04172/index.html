@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Affordance2Action: Task-Conditioned Scene-level Affordance Grounding for Real-Time Manipulation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 3 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Affordance2Action：实时操作的任务条件场景级可供性 grounding</span><span class="lang lang-en lang-inline" data-lang="en">Affordance2Action: Task-Conditioned Scene-level Affordance Grounding for Real-Time Manipulation</span></h1>
+  <div class="meta">作者：Litao Liu, Yifan Han, Pengfei Yi, Wenbo Yu, Hanqing Wang, Haoran Du, Enze Yuan, Zilin Yuan, Ruiding Feng, Michael Liu, Qi Zhang, Jingjin Yu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04172">abs</a><a href="https://arxiv.org/pdf/2606.04172">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 4/10</span><p>与机器人操作和语义场景理解相关，但不属于 SLAM/三维重建核心。</p><div class="tags"><span class="tag">机器人操作</span><span class="tag">可供性</span><span class="tag">场景理解</span><span class="tag">实时</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">根据任务指令在场景中实时定位可操作功能区域。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Affordance2Action 面向任务条件操作，要求模型在杂乱场景中根据指令定位功能区域而非物体类别。论文提出场景级 affordance grounding 方法，以处理同一物体在不同任务下可供性不同、同一任务可对应多个区域的情况。</p><p class="lang lang-en lang-block" data-lang="en">Task-conditioned manipulation requires grounding instructions to task-relevant functional parts rather than object categories. This setting is scene-dependent and often one-to-many in cluttered scenes: the same object may afford different interactions across tasks, while a single task may correspond to either one functional region or multiple valid functional regions, depending on the scene layout. Existing affordance datasets and benchmarks remain misaligned with this setting, as they typically focus on grasping or object-level affordances, rely on synthetic scenes, or assume a single instruction-region correspondence. We present Affordance2Action (A2A), a benchmark-centered learning framework for scene-level, task-conditioned part affordance grounding. At its core is A2A-Bench, a manipulation-oriented benchmark that covers both single-region and multi-region instruction correspondences in everyday scenes, with the latter highlighting the ambiguity and diversity of affordance grounding in realistic multi-object environments. To construct it at scale, we build A2A-AffordGen, an agent-assisted annotation pipeline that combines language-model filtering, interactive part segmentation, instance-level mask-out refinement, task-reasoning instruction generation, and human verification. A2A-Bench&#x27;s supervision further supports diverse downstream applications, with real-time affordance grounding and affordance-conditioned manipulation policies as two representative examples. Experiments show that A2A exposes substantial gaps in generic segmentation, VLM-based grounding, and affordance distillation baselines, while improving task-level localization and providing useful spatial priors for downstream manipulation. All datasets and code will be publicly released to promote open research.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

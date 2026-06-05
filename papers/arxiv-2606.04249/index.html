@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Prospective Dynamic 3D MRI Reconstruction via Latent-Space Motion Tracking from Single Measurement</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 7 · cs.CV, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PDMR：从单次测量进行潜空间运动跟踪的动态 3D MRI 前瞻重建</span><span class="lang lang-en lang-inline" data-lang="en">Prospective Dynamic 3D MRI Reconstruction via Latent-Space Motion Tracking from Single Measurement</span></h1>
+  <div class="meta">作者：Lixuan Chen, Zhongnan Liu, Jesse Hamilton, James M. Balter, Jeong Joon Park, Liyue Shen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04249">abs</a><a href="https://arxiv.org/pdf/2606.04249">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 3.2/10</span><p>涉及动态 3D 重建和运动场估计，但应用为医学 MRI，与机器人 SLAM 关联较弱。</p><div class="tags"><span class="tag">医学影像</span><span class="tag">动态3D重建</span><span class="tag">运动跟踪</span><span class="tag">弱相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用离线学习的低维运动潜流形加速动态 3D MRI 的在线重建与运动估计。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PDMR 面向 MRI 引导放疗等低延迟场景，先离线学习低维运动场潜流形，再在在线阶段用 tri-plane 表示快速适配变形向量场，从稀疏当前测量中完成动态三维 MRI 重建和运动估计。实验显示其在数字体模和腹部 MRI 上取得高保真、时间一致的重建结果。</p><p class="lang lang-en lang-block" data-lang="en">Prospective reconstruction is crucial in many clinical applications such as MRI-guided radiotherapy, which demands accurate image reconstruction and fast motion estimation from currently acquired measurements. However, prospective reconstruction remains challenging due to ultra-sparse sampling and stringent latency requirements. In this work, we propose PDMR, a Prospective Dynamic 3D MRI Reconstruction framework with latent-space motion tracking. Our core idea is to learn an efficient and generalizable latent manifold of motion fields offline, enabling rapid online adaptation for prospective reconstruction. Specifically, we parameterize the deformation vector fields (DVFs) on a low-dimensional manifold, effectively reducing the search space for fast online adaptation, and employ a tri-plane representation to achieve geometry-aware and memory-efficient encoding of 3D motion. Experiments on both XCAT digital phantoms and in-house abdominal MRI datasets demonstrate that PDMR achieves high-fidelity and temporally consistent reconstruction across multiple prospective scenarios (Immediate and After-2min), outperforming state-of-the-art retrospective and online methods. Our results suggest a promising pathway toward ultra-fast, motion-aware prospective MRI reconstruction in clinical practice.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.04249/fig-001.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.04249/fig-001.webp" alt="Prospective Dynamic 3D MRI Reconstruction via Latent-Space Motion Tracking from Single Measurement" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.04249/fig-002.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.04249/fig-002.webp" alt="Prospective Dynamic 3D MRI Reconstruction via Latent-Space Motion Tracking from Single Measurement" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.04249/fig-003.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.04249/fig-003.webp" alt="Prospective Dynamic 3D MRI Reconstruction via Latent-Space Motion Tracking from Single Measurement" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.04249/fig-004.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.04249/fig-004.webp" alt="Prospective Dynamic 3D MRI Reconstruction via Latent-Space Motion Tracking from Single Measurement" loading="lazy"></a><figcaption class="meta">image · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.04249/fig-005.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.04249/fig-005.webp" alt="Prospective Dynamic 3D MRI Reconstruction via Latent-Space Motion Tracking from Single Measurement" loading="lazy"></a><figcaption class="meta">image · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.04249/fig-006.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.04249/fig-006.webp" alt="Prospective Dynamic 3D MRI Reconstruction via Latent-Space Motion Tracking from Single Measurement" loading="lazy"></a><figcaption class="meta">image · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

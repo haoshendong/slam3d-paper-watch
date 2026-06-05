@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CADET: A Modular Platform for Evaluating Distributed Cooperative Autonomy in Connected Autonomous Vehicles</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 6 · cs.RO, cs.DC, cs.LG, cs.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CADET：评估联网自动驾驶分布式协同自治的模块化平台</span><span class="lang lang-en lang-inline" data-lang="en">CADET: A Modular Platform for Evaluating Distributed Cooperative Autonomy in Connected Autonomous Vehicles</span></h1>
+  <div class="meta">作者：Pragya Sharma, Brian Wang, Mani Srivastava</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04072">abs</a><a href="https://arxiv.org/pdf/2606.04072">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.2/10</span><p>对协同定位、协同 SLAM 和车路云感知系统的模块划分及时延评估有参考价值。</p><div class="tags"><span class="tag">协同自治</span><span class="tag">V2X</span><span class="tag">自动驾驶</span><span class="tag">系统评测</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">提供可复现实验平台来评估 V2V/V2I/边缘云部署对自动驾驶协同感知与控制安全性的影响。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">CADET 将自动驾驶感知、规划和控制栈拆成可组合模块，可灵活部署在车辆、路侧基础设施、边缘和云端，并结合 trace-driven 网络/负载仿真与同步指标记录。论文通过 V2V/V2I 实验说明不同分布式部署策略会显著改变安全性，例如 V2V intent packets 优于云端感知，RSU 感知在过载前能维持安全。</p><p class="lang lang-en lang-block" data-lang="en">Deep learning models are increasingly central to autonomous vehicle (AV) pipelines, yet their integration has traditionally followed a monolithic design where perception, planning, and control execute on a single onboard computer. This design overlooks the emerging paradigm of cooperative autonomy, where vehicles interact with roadside units (RSUs), edge servers, and cloud-hosted intelligence through vehicle-to-everything (V2X) connectivity. Cooperative perception and control improve safety and efficiency, but also introduce systems-level challenges: network latency, compute heterogeneity, and multi-tenant contention, all critically affect real-time decision-making. These challenges are further amplified by the increasing reliance on large foundation models, whose scale necessitates cloud deployment. We present CADET (Cooperative Autonomy through Distributed Experimentation Toolkit), a modular platform for systematic and reproducible evaluation of distributed cooperative autonomy systems under realistic deployment conditions. CADET decouples the AV stack into composable modules that can be flexibly deployed across vehicles, infrastructure, and edge/cloud tiers. The framework integrates state-of-the-art models, incorporates trace-driven network and workload emulation, and provides synchronized model-, system-, and task-level instrumentation. Through V2V and V2I experiments, we show that distributed deployment choices fundamentally shape safety, with V2V intent packets outperforming cloud-based perception and RSU-assisted perception sustaining safety until overloaded by concurrent requests. Although designed for AV pipelines, CADET also supports dataset-driven experimentation, enabling systems and ML researchers to benchmark distributed inference workloads independently of full vehicle simulation. CADET is open source, with code and demo available at https://nesl.github.io/cadet-web.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.04072">arXiv</a> / <a href="https://arxiv.org/pdf/2606.04072">PDF</a></li>
+<li>作者：P. Sharma, B. Wang, M. Srivastava</li>
+<li>领域标签：自动驾驶 / V2X / 协同感知 / 分布式系统</li>
+<li>背景/动机：自动驾驶感知/规划/控制正在从单车单机走向 V2V/V2I/RSU/edge/cloud 协同，但网络延迟、异构计算和多租户争用会直接影响安全。</li>
+<li>主要创新点/工作：CADET 将 AV stack 拆为可组合模块，允许部署在车辆、路侧、边缘和云端；结合 trace-driven network/workload emulation，并同步模型级、系统级和任务级指标。</li>
+<li>为什么值得关注：对协同 SLAM/协同定位也有参考意义：决定哪些地图/感知/规划模块放在车端、路侧或云端，需要类似的可复现实验平台和时延安全评估。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Scaling Datasets for Multi-Sensor, Multi-Agent, and Multi-Domain Learning in Autonomous Systems</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · eess.IV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向多传感器、多智能体和多域自治学习的数据集扩展</span><span class="lang lang-en lang-inline" data-lang="en">Scaling Datasets for Multi-Sensor, Multi-Agent, and Multi-Domain Learning in Autonomous Systems</span></h1>
+  <div class="meta">作者：R. Spencer Hallyburton, David Hunt, Miroslav Pajic</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04444">abs</a><a href="https://arxiv.org/pdf/2606.04444">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>对多传感器融合、协同感知和 GNSS/视觉/激光算法评测有数据基础价值。</p><div class="tags"><span class="tag">数据集</span><span class="tag">多传感器</span><span class="tag">多智能体</span><span class="tag">CARLA</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 AVstack 和 CARLA 生成大规模多传感器多智能体自治系统真值数据。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该论文提出基于 AVstack 和 CARLA 的模块化数据生成管线，用于生成 TB 级带真值数据，覆盖地面、空中和基础设施系统。管线支持单/多智能体配置和灵活传感器套件，可用于可控条件下的感知、融合和协同自治实验。</p><p class="lang lang-en lang-block" data-lang="en">Existing datasets cannot support large-scale learning in multi-agent, multi-sensor, or multi-domain autonomy, where diversity and coordination are essential. We present a modular dataset generation pipeline that creates terabyte-scale, ground-truth-labeled data for ground, aerial, and infrastructure-based systems using the AVstack framework and CARLA simulator. Supporting single- and multi-agent configurations with flexible sensor suites, the pipeline enables controllable experimentation across challenging conditions. Representative perception and fusion studies show how generated data can support application-specific training and collaborative autonomy.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.04444">arXiv</a> / <a href="https://arxiv.org/pdf/2606.04444">PDF</a></li>
+<li>作者：R. S. Hallyburton, D. Hunt, M. Pajic</li>
+<li>领域标签：多传感器 / 多智能体 / 自动驾驶数据集 / 仿真</li>
+<li>背景/动机：现有数据集难以覆盖多智能体、多传感器、多域自治系统训练所需的多样性和协同关系。</li>
+<li>主要创新点/工作：基于 AVstack 与 CARLA 构建模块化数据生成管线，生成 TB 级带真值数据，覆盖地面、空中和基础设施系统，支持单/多智能体和灵活传感器套件。</li>
+<li>为什么值得关注：对 GNSS/INS/视觉/激光融合算法的数据闭环很有用，尤其适合做协同感知、传感器布设和失效/域迁移实验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

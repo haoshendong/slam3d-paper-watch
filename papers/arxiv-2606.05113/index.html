@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>3D-GlioPREDICT: 3D Latent Diffusion for Post-Radiotherapy Brain MRI Prediction in Patients with Glioma</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 3 · eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">3D-GlioPREDICT：用于胶质瘤放疗后脑 MRI 预测的 3D 潜扩散</span><span class="lang lang-en lang-inline" data-lang="en">3D-GlioPREDICT: 3D Latent Diffusion for Post-Radiotherapy Brain MRI Prediction in Patients with Glioma</span></h1>
+  <div class="meta">作者：Nordin Belkacemi, Selena Huisman, Vera C. Keil, Joost J. C. Verhoeff, Szabolcs David</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.05113">abs</a><a href="https://arxiv.org/pdf/2606.05113">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 2/10</span><p>虽含 3D 扩散和医学三维影像，但与机器人三维重建/SLAM 基本无关。</p><div class="tags"><span class="tag">医学影像</span><span class="tag">3D扩散</span><span class="tag">MRI预测</span><span class="tag">弱相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 3D latent diffusion 根据放疗前信息预测胶质瘤患者后续 MRI 变化。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D-GlioPREDICT 使用三维潜扩散模型从治疗前 MRI 和放疗信息预测胶质瘤患者放疗后的脑部结构变化，以支持治疗反应分析和图像结局预测。</p><p class="lang lang-en lang-block" data-lang="en">Radiotherapy is a cornerstone of glioma treatment inducing complex structural changes in brain tissue that are difficult to anticipate. Predicting these changes from pretreatment data could improve understanding of treatment-related effects and support the development of image-based outcome prediction methods. Recent studies have shown that follow-up brain magnetic resonance imaging can be synthesized from baseline imaging and treatment information, but most existing approaches operate on single 2D slices and represent treatment as a global parameter, rather than a spatially dynamic variable. In this work, we address both limitations with a 3D latent diffusion framework that conditions image generation on the spatially resolved voxel-wise dose distribution, alongside a pretreatment image and follow-up time. To make volumetric synthesis computationally feasible, the model combines latent-space compression with ControlNet-based spatial conditioning. The method was trained and evaluated on a public dataset comprising 257 scans from 25 glioma patients. Prediction quality was assessed using mean squared error, peak signal-to-noise ratio, and structural similarity index. Anatomical consistency was further evaluated using Dice scores for cerebrospinal fluid, gray matter, and white matter segmentations, together with hippocampus volume prediction error and deformation analysis based on log Jacobian determinant maps. Compared with our previously proposed 2D approach, the 3D model achieved improved image similarity while maintaining good agreement with ground truth anatomy and deformation patterns. Overall, these results support the feasibility of 3D treatment-aware generative modeling for predicting post-radiotherapy brain MRI using only pretreatment information. Code is available at https://github.com/nordinbelkacemi/fu-pred-3d</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

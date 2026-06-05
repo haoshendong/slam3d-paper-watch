@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Position: Deployed Reinforcement Learning should be Continual</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · cs.LG, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">立场论文：部署后的强化学习应当是持续学习的</span><span class="lang lang-en lang-inline" data-lang="en">Position: Deployed Reinforcement Learning should be Continual</span></h1>
+  <div class="meta">作者：Parnian Behdin, Kevin Roice, Golnaz Mesbahi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04029">abs</a><a href="https://arxiv.org/pdf/2606.04029">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 2.8/10</span><p>对机器人策略部署有宏观启发，但不涉及定位、建图或传感器融合。</p><div class="tags"><span class="tag">强化学习</span><span class="tag">持续学习</span><span class="tag">部署</span><span class="tag">弱相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">主张现实部署的强化学习系统应在交互中持续学习而非固定不变。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文认为现实部署中的强化学习系统不应停留在 train-then-fix 范式，因为智能体在运行中仍会接收奖励信号且环境会变化，因此部署后无法持续学习会带来性能退化和再训练成本。</p><p class="lang lang-en lang-block" data-lang="en">Reinforcement Learning (RL) has received increasing attention and adoption in real-world use cases. Most of these systems follow a train-then-fix paradigm, where trained agents do not learn while interacting with the world until performance degrades and retraining becomes necessary. In this position paper, we argue that deploying an agent that is incapable of optimality, but receives an evaluative reward signal, is inherently a continual RL problem. We identify four sources of non-stationarity after deployment that necessitate never-ending learning, and highlight why the best deployed agents never stop adapting. We analyze successful examples of continual RL in the real world, and present the community with the advantages and measures to move away from the current train-then-fix paradigm.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

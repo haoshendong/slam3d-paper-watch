@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Neural Radiated-Noise Fields for Unmanned Underwater Vehicle Noise Spectrum Prediction in Three-Dimensional Scenes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · eess.SP, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">三维场景中无人水下航行器噪声谱预测的神经辐射噪声场</span><span class="lang lang-en lang-inline" data-lang="en">Neural Radiated-Noise Fields for Unmanned Underwater Vehicle Noise Spectrum Prediction in Three-Dimensional Scenes</span></h1>
+  <div class="meta">作者：Yan Wu, Yang Yang, Jun Fan, Bin Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04008">abs</a><a href="https://arxiv.org/pdf/2606.04008">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 3.8/10</span><p>涉及三维场景神经场但应用是水下声学签名预测，与视觉/激光重建关联有限。</p><div class="tags"><span class="tag">神经场</span><span class="tag">三维场景</span><span class="tag">水下航行器</span><span class="tag">声学</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用神经场连续预测 UUV 在三维场景中的辐射噪声谱。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出 Neural Radiated-Noise Fields，用于在三维场景中连续建模无人水下航行器辐射噪声的空间谱响应，降低传统物理仿真对结构信息和环境边界条件的依赖。</p><p class="lang lang-en lang-block" data-lang="en">Radiated noise in unmanned underwater vehicles (UUVs) is an important indicator for characterizing acoustic signatures and evaluating platform performance. To address the strong dependence of traditional physics-based modeling and numerical simulation methods on target structural information and environmental boundary conditions, and their inability to achieve continuous spatial spectrum-response modeling in three-dimensional scenes, this paper proposes a neural radiated-noise field (NRNF). An NRNF represents the UUV radiated-noise spectrum as a continuous function of the three-dimensional UUV position, the three-dimensional hydrophone position, the UUV yaw angle, and the frequency, enabling query-based prediction at arbitrary spatial locations. The proposed method employs sinusoidal encoding for position and frequency, and introduces a learnable three-dimensional scene feature grid to explicitly represent environmental structure and propagation effects. A spectrum-prediction dataset is constructed from lake trials, and the proposed model is evaluated under three settings: horizontal extrapolation, depth extrapolation, and cross-run generalization. Results show that the NRNF achieves an average prediction error of 3.5 dB in the 50 to 5000 Hz band. Horizontal extrapolation is easiest, depth extrapolation is the most challenging, and cross-run generalization is of intermediate difficulty. Further ablation results demonstrate that the scene feature grid significantly improves the prediction stability and spatial generalization of the model.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Near-Optimal Decentralized Stochastic Convex Optimization over Networks</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · math.OC, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">网络上的近最优去中心化随机凸优化</span><span class="lang lang-en lang-inline" data-lang="en">Near-Optimal Decentralized Stochastic Convex Optimization over Networks</span></h1>
+  <div class="meta">作者：Nitai Kluger, Amit Attia, Tomer Koren</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04757">abs</a><a href="https://arxiv.org/pdf/2606.04757">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 3.5/10</span><p>对多机器人分布式优化有方法论参考，但没有直接 SLAM 因子图或传感器融合实验。</p><div class="tags"><span class="tag">分布式优化</span><span class="tag">去中心化</span><span class="tag">网络</span><span class="tag">方法论</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">给出去中心化随机凸优化在网络通信约束下接近集中式统计速率的算法与界。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该论文研究固定 gossip 网络上多个 worker 的去中心化随机光滑凸优化，在总梯度样本预算下分析可使用多少 worker 仍保持集中式统计速率，并提出加速去中心化方法。</p><p class="lang lang-en lang-block" data-lang="en">We study decentralized stochastic smooth convex optimization, where $M$ workers minimize an average objective using local stochastic gradients and neighbor-only communication over a fixed gossip network. A central question in this setting is to determine the largest number of workers that can be used under a total budget of $N$ gradient samples while still preserving the centralized $O(1/\sqrt N)$ statistical rate. We introduce an accelerated decentralized method that preserves this rate for up to $\smash{M\lesssim \sqrt{\rho}\,N^{3/4}}$ workers, where $\rho$ is the spectral gap of the gossip network, improving the best prior maximal scaling of $\smash{M\lesssim \rho\sqrt N}$. The method is based on a one-step-delayed stochastic acceleration scheme that enables workers to interleave minibatching with accelerated gossip while controlling residual disagreement, and its guarantee depends only logarithmically on the optimum-local heterogeneity. We also establish a matching lower bound for linear-span decentralized first-order methods, showing that the method is optimal up to logarithmic factors.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

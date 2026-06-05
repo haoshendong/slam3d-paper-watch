@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Pseudospectral Bounds for Transient Amplification in Coupled Gradient Descent</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · cs.LG, math.OC, stat.ML</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">耦合梯度下降中瞬态放大的伪谱界</span><span class="lang lang-en lang-inline" data-lang="en">Pseudospectral Bounds for Transient Amplification in Coupled Gradient Descent</span></h1>
+  <div class="meta">作者：Ahanaf Hasan Ariq</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04031">abs</a><a href="https://arxiv.org/pdf/2606.04031">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 2.4/10</span><p>优化理论可间接影响学习算法，但与 SLAM/GNSS 应用距离较远。</p><div class="tags"><span class="tag">优化理论</span><span class="tag">伪谱</span><span class="tag">梯度下降</span><span class="tag">弱相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用伪谱理论刻画耦合梯度下降在收敛前可能出现的瞬态放大。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文研究双层优化、两时间尺度随机逼近和对抗训练中常见的耦合梯度下降，当耦合 Jacobian 为块三角时，虽然渐近稳定性由对角块谱半径控制，但非正规性可导致收敛前巨大瞬态放大；作者给出相应伪谱理论界。</p><p class="lang lang-en lang-block" data-lang="en">Coupled gradient descent--where the update of one parameter block depends on another--underlies bilevel optimization, two-time-scale stochastic approximation, and adversarial training. When the coupled Jacobian is block-triangular, asymptotic stability is governed by the spectral radii of the diagonal blocks, yet transient amplification before convergence can be arbitrarily large due to non-normality. We develop a sharp pseudospectral theory for such block-triangular Jacobians, proving that the Kreiss constant satisfies $K(J) \leq 2/(1-\gamma) + \|C\|/(4(1-\gamma))$ when the diagonal blocks are symmetric with spectral radii at most $\gamma &lt; 1$, and we establish matching minimax lower bounds. We characterize the critical coupling threshold for spectral instability and extend the analysis to nearly self-referential systems via a Neumann-series perturbation framework. As a consequence, we obtain a finite-horizon iteration-complexity bound of $O(K(J)^2 \log(1/\delta))$ for stochastic coupled descent. Framed as scaling laws for non-stationary two-time-scale optimization, our results expose a non-asymptotic, instance-dependent regime of high-dimensional learning dynamics that is invisible to spectral-radius analysis. Experiments on linear-quadratic problems, IQC-based comparisons, and neural-network training confirm the theory.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

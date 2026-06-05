@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Nonlocal Mean Field Schr\&quot;{o}dinger Bridge with Learned Interactions</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · math.OC, cs.LG, cs.NA, math.NA</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">带学习交互的非局部平均场 Schrödinger Bridge</span><span class="lang lang-en lang-inline" data-lang="en">Nonlocal Mean Field Schr\&quot;{o}dinger Bridge with Learned Interactions</span></h1>
+  <div class="meta">作者：Daisuke Inoue, Mathieu Lauri\`ere, Dante Kalise</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04265">abs</a><a href="https://arxiv.org/pdf/2606.04265">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 2.6/10</span><p>随机控制/生成理论与机器人规划有远期联系，但当前不面向 SLAM 或 GNSS。</p><div class="tags"><span class="tag">Schrödinger Bridge</span><span class="tag">随机控制</span><span class="tag">平均场</span><span class="tag">弱相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用学习交互降低非局部平均场 Schrödinger Bridge 在大规模粒子系统中的计算成本。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文研究带非局部交互的平均场 Schrödinger Bridge，用于构造连接初末分布且能量最小的随机过程；为解决粒子系统中分布项计算随粒子数二次增长的问题，引入学习交互近似。</p><p class="lang lang-en lang-block" data-lang="en">The Schr\&quot;odinger Bridge Problem constructs a stochastic process that connects an initial distribution to a terminal distribution with minimum energy. This work considers its mean-field extension, the Mean-Field Schr\&quot;odinger Bridge, for interacting particle systems. With nonlocal interactions, evaluating the resulting particle-dependent distributional terms can scale quadratically with the population size, which makes large-scale problems intractable. We address this bottleneck by approximating the nonlocal interactions with neural network surrogates. The resulting four-stage alternating algorithm reduces the per-step cost from quadratic to linear in the population size at inference. We also derive Gr\&quot;onwall-type stability bounds that show how surrogate errors propagate to the generated trajectories. In numerical experiments on navigation and opinion-dynamics tasks, the proposed method reproduces trajectories obtained with analytical evaluation and reduces training time.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

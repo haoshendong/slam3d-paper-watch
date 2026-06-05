@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PureLight: Learning Complex Luminaires with Light Tracing</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 4 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PureLight：用光线追踪学习复杂灯具外观</span><span class="lang lang-en lang-inline" data-lang="en">PureLight: Learning Complex Luminaires with Light Tracing</span></h1>
+  <div class="meta">作者：Pedro Figueiredo, Zixuan Li, Beibei Wang, Milo\v{s} Ha\v{s}an, Nima Khademi Kalantari</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04319">abs</a><a href="https://arxiv.org/pdf/2606.04319">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.4/10</span><p>与神经渲染和 relighting 相关，对高保真场景重建有边缘价值，但非定位建图主线。</p><div class="tags"><span class="tag">神经渲染</span><span class="tag">光照</span><span class="tag">Relighting</span><span class="tag">图形学</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过 light tracing 和分布学习估计复杂灯具的出射外观。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PureLight 关注具有复杂光传输的灯具外观估计，例如小发光体被多个镜面层包围的情形。方法用 light tracing 构造从发光体到出射面的路径，并把外观估计表述为分布学习问题，以更好模拟难以用传统双向路径追踪处理的复杂光照。</p><p class="lang lang-en lang-block" data-lang="en">We propose a neural formulation for estimating the appearance of complex luminaires. We focus on challenging luminaires with complex light transport (e.g., small emitters enclosed by multiple specular layers) that are difficult for (bidirectional) path tracing. To this end, we use light tracing to construct paths from emitters to the exit surfaces and formulate appearance estimation as a distribution learning problem. Specifically, we model the probability density function (pdf) of outgoing radiance on the exit surfaces using a large normalizing flow network, and recover the outgoing radiance as the product of the estimated pdf and flux. To enable efficient inference, we distill the learned appearance into a lightweight MLP that directly estimates radiance on the exit surfaces. We additionally train a sampling network for effective direct illumination computation from the luminaire, and a blending network to composite the luminaire into the scene. Our formulation makes it feasible to render challenging luminaires using low sample counts in arbitrary scenes.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
