@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Optimizing 3D Gaussian Splatting via Point Cloud Upsampling</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-05-30 · score 15 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通过点云上采样优化 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Optimizing 3D Gaussian Splatting via Point Cloud Upsampling</span></h1>
+  <div class="meta">作者：Adrian Ramlal, Yan Song Hu, John S. Zelek</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.00450">abs</a><a href="https://arxiv.org/pdf/2606.00450">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.1/10</span><p>方法朴素但工程价值明确，适合优化 COLMAP 到 3DGS 的初始化链路。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">点云上采样</span><span class="tag">SfM</span><span class="tag">初始化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从 seed point 质量入手提升 3DGS 初始化和重建效果。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文系统评估多种 3DGS 初始点云上采样策略，包括线性/三角插值、样条曲面重建、MLS 和 Voronoi 点生成，并提出 depth-guided point lifting 来保持与 SfM 重建的几何一致性。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) is a technique for creating and rendering 3D scenes, however its performance depends heavily on the quality of initial seed points. To improve 3DGS initialization, this study presents and evaluates several point cloud upsampling approaches: linear interpolation, triangular interpolation, spline-based surface reconstruction, moving least squares surface fitting, and Voronoi-based point generation. Additionally, this research introduces a depth-guided point lifting method that leverages depth maps to maintain geometric consistency with Structure-from-Motion (SfM) reconstructions. Through extensive experiments on the Mip-NeRF360 and Replica datasets, the proposed methods demonstrate improvements in reconstruction quality across diverse scene types. Results indicate that different upsampling strategies excel in different scenarios: surface reconstruction methods perform better with organic, detailed scenes, while simpler interpolation approaches are more suited for scenes dominated by piecewise-smooth geometries. In comparison, the depth-guided approach shows promise for adding geometry-aware points across the entire scene, importantly in texture-less regions. These findings, which provide preliminary practical guidelines for selecting appropriate upsampling methods based on scene characteristics and computational constraints, advances the understanding of how point cloud initialization affects 3DGS quality.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>ZipSplat：<a href="https://arxiv.org/abs/2606.05102">arXiv</a></li>
+<li>Geometry Gaussians：<a href="https://arxiv.org/abs/2606.05124">arXiv</a></li>
+<li>Optimizing 3DGS via Point Cloud Upsampling：<a href="https://arxiv.org/abs/2606.00450">arXiv</a></li>
+<li>领域标签：3DGS / 几何表示 / 初始化 / 高效表示</li>
+<li>观察：<code>ZipSplat</code> 通过 token 聚类减少 Gaussian 数量；<code>Geometry Gaussians</code> 解耦外观 opacity 和 geometry opacity；点云上采样工作则直接针对 3DGS seed point 质量做优化。</li>
+<li>为什么值得关注：这些工作都在补 3DGS 从渲染表示走向几何地图时的短板：表示预算、几何一致性和初始化质量。对 3DGS-SLAM 后端很有参考价值。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.00450/fig-001.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.00450/fig-001.webp" alt="Optimizing 3D Gaussian Splatting via Point Cloud Upsampling" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.00450/fig-002.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.00450/fig-002.webp" alt="Optimizing 3D Gaussian Splatting via Point Cloud Upsampling" loading="lazy"></a><figcaption class="meta">image · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

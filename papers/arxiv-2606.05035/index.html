@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Anchor3R: Streaming 3D Reconstruction with Transient Anchors for Long-Horizon Visual Mapping</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 15 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Anchor3R：用于长时视觉建图的流式三维重建</span><span class="lang lang-en lang-inline" data-lang="en">Anchor3R: Streaming 3D Reconstruction with Transient Anchors for Long-Horizon Visual Mapping</span></h1>
+  <div class="meta">作者：Peilin Tao, Chong Cheng, Yuansen Du, Caiwei Song, Zhengqing Chen, Xiaoyang Guo, Wei Yin, Weiqiang Ren</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.05035">abs</a><a href="https://arxiv.org/pdf/2606.05035">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>与 long-horizon visual mapping、streaming reconstruction 和回环融合高度相关，值得优先阅读。</p><div class="tags"><span class="tag">流式重建</span><span class="tag">视觉建图</span><span class="tag">Feed-forward重建</span><span class="tag">回环</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把视觉基础模型式重建转成 SLAM 可用的相对测量生成器，服务长序列在线建图。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Anchor3R 将 feed-forward 三维重建从固定全局坐标回归改为当前帧坐标系下的局部测量预测。每个时间步输出窗口相对位姿和局部 pointmap，再通过在线位姿更新、回环重插入和 motion averaging 拼接成长时全局重建，缓解首帧锚定和长期漂移问题。</p><p class="lang lang-en lang-block" data-lang="en">Long-horizon online visual mapping is a core capability for robot perception, requiring continuous camera-motion and scene-geometry estimation from visual streams under bounded memory and computation. Recent feed-forward 3D reconstruction models provide strong geometric priors, but their streaming variants often predict poses in a fixed coordinate system tied to the first frame or a persistent scene memory. This fixed-gauge design leads to train--test mismatch, attention bias toward early anchors, and accumulated drift on sequences much longer than those seen during training. We propose \emph{Anchor3R}, a streaming 3D reconstruction framework that treats feed-forward reconstruction as current-centric local measurement prediction rather than persistent global-gauge regression. At each time step, Anchor3R predicts window-relative poses and a local pointmap in the current-frame coordinate system, turning streaming reconstruction into relative-pose measurement generation. These measurements support online pose updates, while loop-closure reinsertion and motion averaging align the trajectory and transform local pointmaps into a coherent global reconstruction. Experiments on indoor, outdoor, driving, and RGB-D benchmarks show that Anchor3R improves long-horizon pose accuracy and dense reconstruction quality over existing streaming baselines, while supporting bounded-memory online inference.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.05035">arXiv</a> / <a href="https://arxiv.org/pdf/2606.05035">PDF</a></li>
+<li>作者简写：P. Tao, C. Cheng, Y. Du 等</li>
+<li>领域标签：流式三维重建 / 长时视觉建图 / feed-forward reconstruction / loop closure</li>
+<li>背景/动机：现有 feed-forward 3D reconstruction 模型几何先验强，但流式版本通常把全局坐标系绑定到首帧或长期记忆，长序列上会产生 train-test mismatch、早期锚点偏置和累计漂移。</li>
+<li>主要创新点/工作：把 feed-forward 重建改成“当前帧坐标系下的局部测量预测”：每个时刻输出窗口相对位姿和 local pointmap，再通过在线位姿更新、loop-closure reinsertion 和 motion averaging 拼成全局重建。</li>
+<li>为什么值得关注：它把视觉基础模型式 3D 重建转成 SLAM 可用的相对测量生成器，思路很适合与 pose graph / bundle adjustment / 回环模块结合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.05035/fig-001.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.05035/fig-001.webp" alt="Anchor3R: Streaming 3D Reconstruction with Transient Anchors for Long-Horizon Visual Mapping" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.05035/fig-002.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.05035/fig-002.webp" alt="Anchor3R: Streaming 3D Reconstruction with Transient Anchors for Long-Horizon Visual Mapping" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.05035/fig-003.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.05035/fig-003.webp" alt="Anchor3R: Streaming 3D Reconstruction with Transient Anchors for Long-Horizon Visual Mapping" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.05035/fig-004.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.05035/fig-004.webp" alt="Anchor3R: Streaming 3D Reconstruction with Transient Anchors for Long-Horizon Visual Mapping" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.05035/fig-005.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.05035/fig-005.webp" alt="Anchor3R: Streaming 3D Reconstruction with Transient Anchors for Long-Horizon Visual Mapping" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.05035/fig-006.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.05035/fig-006.webp" alt="Anchor3R: Streaming 3D Reconstruction with Transient Anchors for Long-Horizon Visual Mapping" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-05 · score 14 · eess.SY, eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RTK 增强与 INS 集成对 GNSS 精度和连续性的影响</span><span class="lang lang-en lang-inline" data-lang="en">Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways</span></h1>
+  <div class="meta">作者：Yan-Yun Zhang, Jef Billet, Jan Swevers, Peter Slaets</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.06358">abs</a><a href="https://arxiv.org/pdf/2606.06358">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>直接服务 GNSS/INS 鲁棒定位建模，尤其适合做接收机输出可信度和恢复跳变分析。</p><div class="tags"><span class="tag">GNSS</span><span class="tag">RTK</span><span class="tag">INS</span><span class="tag">实测Benchmark</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用真实水道实验量化 RTK loss 与 INS 融合瞬态对定位连续性和闭环控制的影响。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该研究在内河航道场景实测 AsteRx-i3 D Pro+ GNSS/INS 接收机，比较 standalone GNSS、GNSS+INS、RTK GNSS、RTK GNSS+INS 四种配置。结果显示桥下通行会造成 RTK 改正丢失、定位不确定性增大和恢复阶段超过 1 m 的状态跳变。</p><p class="lang lang-en lang-block" data-lang="en">RTK augmentation andINS integration are widely used to improve GNSS positioning performance. However, on inland waterways, bridges and surrounding structures can degrade satellite visibility and correction availability, causing RTK augmentation loss, and GNSS/INS fusion transients. Since these effects depend on the local environment and sensor configuration, nominal receiver specifications are insufficient, and deployment-specific characterization is required. This paper presents a benchmarking study of an AsteRx-i3 D Pro+ GNSS/INS receiver installed within the mobile Sensor Box developed at KU Leuven. The study combines a real-world bridge-passage case study, static benchmarking, and closed-loop path-following experiments. The static benchmarking evaluates four receiver configurations: standalone GNSS, standalone GNSS with INS integration, RTK-augmented GNSS, and RTK-augmented GNSS with INS integration. The closed-loop experiments use INS-integrated GNSS as the navigation input and compare path-following operational performance with and without RTK augmentation. Results show that correction loss during bridge passage causes reduced positioning accuracy, increased positioning uncertainty and recovery-induced state jumps exceeding 1 m. Static benchmarking and closed-loop experiments confirm that RTK augmentation substantially improves positioning precision and uncertainty consistency, while INS integration supports short-term continuity during RTK unavailability but may introduce drift, bias, or transient uncertainty variations. By characterizing the deployment-specific receiver behavior with RTK augmentation and INS integration, this study motivates higher-level state estimation as a necessary next step toward spatially continuous and uncertainty-consistent positioning on inland waterway. The experimental data are released at: https://doi.org/10.5281/zenodo.20541733.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-05</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.06358">arXiv</a> / <a href="https://arxiv.org/pdf/2606.06358">PDF</a></li>
+<li>作者：Y. Zhang, J. Billet, J. Swevers, P. Slaets</li>
+<li>领域标签：GNSS / RTK / INS / 定位连续性 / 实测 benchmark</li>
+<li>背景/动机：桥梁和岸边结构会导致卫星可见性和改正数可用性下降，RTK loss 与 GNSS/INS fusion transient 取决于具体环境和设备配置，不能只看接收机标称指标。</li>
+<li>主要创新点/工作：用 KU Leuven mobile Sensor Box 上的 AsteRx-i3 D Pro+ 做水道场景实测，比较 standalone GNSS、GNSS+INS、RTK GNSS、RTK GNSS+INS，并包含桥下通行、静态 benchmark 和闭环路径跟踪实验。</li>
+<li>为什么值得关注：这是今天 GNSS/INS 最直接的实测材料。它明确指出 RTK 改正丢失会带来定位精度下降、不确定性膨胀和超过 1 m 的恢复跳变，说明上层状态估计不能把接收机输出当成平滑真值。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.06358/fig-001.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.06358/fig-001.webp" alt="Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.06358/fig-002.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.06358/fig-002.webp" alt="Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways" loading="lazy"></a><figcaption class="meta">image · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.06358/fig-003.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.06358/fig-003.webp" alt="Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways" loading="lazy"></a><figcaption class="meta">image · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.06358/fig-004.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.06358/fig-004.webp" alt="Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways" loading="lazy"></a><figcaption class="meta">image · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.06358/fig-005.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.06358/fig-005.webp" alt="Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.06358/fig-006.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.06358/fig-006.webp" alt="Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

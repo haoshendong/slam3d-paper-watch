@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Meridian: Metric-Semantic Primitive Matching for Cross-View Geo-Localization Beyond Urban Environments</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 9 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Meridian：非城市环境中的度量语义跨视角地理定位</span><span class="lang lang-en lang-inline" data-lang="en">Meridian: Metric-Semantic Primitive Matching for Cross-View Geo-Localization Beyond Urban Environments</span></h1>
+  <div class="meta">作者：Mason Peterson, Qingyuan Li, Yixuan Jia, Fernando Cladera, Carlos Nieto-Granda, Camillo Jose Taylor, Jonathan P. How</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.06312">abs</a><a href="https://arxiv.org/pdf/2606.06312">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.3/10</span><p>对大范围重定位、地图先验融合和 GNSS 缺失场景有实际价值。</p><div class="tags"><span class="tag">地理定位</span><span class="tag">GNSS-denied</span><span class="tag">RGB-D</span><span class="tag">Pose Graph</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用航空图和地面 RGB-D 的语义几何 primitive 匹配，为 GNSS-denied SLAM 提供全局定位先验。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Meridian 使用高层 metric-semantic primitives 匹配航空影像和地面机器人 RGB-D 数据，在不针对特定区域训练或调参的情况下实现全局定位。方法通过一致性指标估计 submap pose 分布，并在 robust pose graph optimization 中剔除外点。</p><p class="lang lang-en lang-block" data-lang="en">Successful robot automation requires accurate global localization to support repeatability, task planning, goal specification, and safe operation. However, reliable localization in GNSS-denied environments remains an open problem. Overhead aerial imagery offers a promising solution, but existing approaches primarily target structured urban environments and have been rarely demonstrated in unstructured natural terrain. Limitations of the state-of-the-art include a reliance on models trained for specific environments, as well as difficulty handling repetitive geometries and featureless landscapes commonly found in natural outdoor areas. To overcome these challenges, we present Meridian, a method for matching high-level metric-semantic primitives across aerial images and ground robot RGB-D camera data that achieves accurate global localization and generalizes well across diverse environments, all without any training or algorithmic fine-tuning on area-specific data. We formulate novel consistency metrics to estimate a distribution over robot submap poses and to reject outlier hypotheses in a robust pose graph optimization step for accurate robot trajectory estimation. We demonstrate that our algorithm can localize a ground robot across a wide variety of environments, including an autonomous driving dataset, a park and campus area, and a wilderness camp, with an average optimized trajectory error of 2.4 m over 19 km of ground traversal.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.06312">arXiv</a> / <a href="https://arxiv.org/pdf/2606.06312">PDF</a></li>
+<li>作者简写：M. Peterson, Q. Li, Y. Jia 等</li>
+<li>领域标签：跨视角地理定位 / GNSS-denied / RGB-D submap / pose graph</li>
+<li>背景/动机：GNSS-denied 环境中的全局定位仍难，利用航空影像与地面视角匹配是可行方向，但多数方法依赖城市结构和特定训练域。</li>
+<li>主要创新点/工作：用高层 metric-semantic primitives 匹配 aerial image 与地面机器人 RGB-D 数据，构造一致性指标估计 submap pose 分布，并通过 robust pose graph optimization 剔除外点。</li>
+<li>为什么值得关注：不是 GNSS 原始观测融合，但能为 SLAM 提供全局重定位候选和地图先验；论文覆盖自然地形、园区和自动驾驶数据，总里程 19 km，平均优化轨迹误差 2.4 m。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

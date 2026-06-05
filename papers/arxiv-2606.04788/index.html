@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Z-FLoc: Zero-Shot Floorplan Localization via Geometric Primitives</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 10 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Z-FLoc：基于几何 Primitive 的零样本平面图定位</span><span class="lang lang-en lang-inline" data-lang="en">Z-FLoc: Zero-Shot Floorplan Localization via Geometric Primitives</span></h1>
+  <div class="meta">作者：Ayumi Umemura, Toshinori Kuwahara, Marc Pollefeys, Daniel Barath</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04788">abs</a><a href="https://arxiv.org/pdf/2606.04788">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>适合作为视觉/激光 SLAM 的全局初始化和重定位模块参考。</p><div class="tags"><span class="tag">室内定位</span><span class="tag">Floorplan</span><span class="tag">Zero-shot</span><span class="tag">重定位</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从 floorplan 几何 primitive 出发完成零样本室内定位。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Z-FLoc 研究只有 floorplan 先验时如何完成室内全局定位。它利用几何 primitives 做 zero-shot localization，降低对环境专用训练数据和密集视觉地图的依赖，适合室内机器人初始化和重定位。</p><p class="lang lang-en lang-block" data-lang="en">Visual localization -- estimating a camera pose within a pre-existing map -- is a fundamental problem in computer vision. Floorplans are an attractive map representation: they are readily available for most buildings, compact, and inherently invariant to visual appearance changes. However, bridging the severe domain gap between camera observations and floorplan geometry remains challenging. Existing methods address this gap through data-driven learning, yet they require large-scale training data and environment-specific retraining, limiting their practical deployment. We propose a zero-shot floorplan localization method that generalizes to novel environments without any retraining. Our key insight is that dominant geometric primitives -- lines and circles -- are ubiquitous in human-made environments and provide appearance-invariant structural constraints. We extract these primitives from a bird&#x27;s-eye-view (BEV) projection of monocular 3D reconstructions and match them to the floorplan via dedicated minimal solvers within a robust estimation framework. Experiments on both simulated and real-world datasets show that our approach outperforms state-of-the-art learning-based methods on unseen environments, while using a single fixed set of hyperparameters across all experiments. The source code will be made publicly available.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-03</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.04788">arXiv</a> / <a href="https://arxiv.org/pdf/2606.04788">PDF</a></li>
+<li>作者简写：M. Salehi, D. Nilsson, T. Svärm 等</li>
+<li>领域标签：室内定位 / floorplan localization / zero-shot / 几何 primitive</li>
+<li>背景/动机：室内全局定位常依赖训练数据或预建视觉地图；如果只有 floorplan，如何从局部观测直接定位仍有工程价值。</li>
+<li>主要创新点/工作：利用几何 primitives 做 zero-shot floorplan localization，减少对环境特定训练和密集地图的依赖。</li>
+<li>为什么值得关注：适合与视觉/激光 SLAM 的全局初始化、重定位、楼层地图约束结合，尤其对建筑内部机器人有实用价值。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

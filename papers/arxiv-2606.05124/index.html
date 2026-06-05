@@ -16,23 +16,22 @@
   <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
   <div class="meta">新论文 · 日期 2026-06-04 · score 14 · cs.GR, cs.CV, cs.LG</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">Geometry Gaussians：解耦 Gaussian Splatting 中的外观与几何</span><span class="lang lang-en lang-inline" data-lang="en">Geometry Gaussians: Decoupling Appearance and Geometry in Gaussian Splatting</span></h1>
-  <div class="meta">作者：Hongyu Zhou, Zorah L\&quot;ahner</div>
+  <div class="meta">作者：Hongyu Zhou, Zorah Lähner</div>
   <div class="links"><a href="https://arxiv.org/abs/2606.05124">abs</a><a href="https://arxiv.org/pdf/2606.05124">PDF</a></div>
 </section>
-<section class="section score-panel"><span class="score">评分 9/10</span><p>与 3DGS 地图几何化、3DGS-SLAM 后端和高质量三维重建高度相关，且方法轻量易迁移。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">三维重建</span><span class="tag">几何表示</span><span class="tag">透明物体</span></div></section>
-<section class="section"><h2>一句话工作总结</h2><p class="insight">通过给每个 Gaussian 增加独立几何不透明度，缓解 3DGS 外观渲染与几何表面表达之间的冲突。</p></section>
+<section class="section score-panel"><span class="score">评分 8.5/10</span><p>对 3DGS-SLAM 后端、mesh 提取和可交互地图表示有重要参考价值。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">几何表示</span><span class="tag">透明物体</span><span class="tag">地图后端</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过独立几何不透明度缓解 3DGS 渲染质量和几何表面质量之间的冲突。</p></section>
 <section class="section">
   <h2>摘要</h2>
-  <p class="lang lang-zh lang-block" data-lang="zh">该工作指出标准 3DGS 天然不适合同时表达纹理外观和准确几何，直接提取表面信息常会牺牲渲染质量。作者为每个 splat 增加独立的几何不透明度参数，并配合透明区域优化流程，使 appearance opacity 与 geometry opacity 分离，从而在多类数据、尤其透明物体场景中同时提升渲染和几何表现。</p><p class="lang lang-en lang-block" data-lang="en">After the success of 3D Gaussian Splatting (3DGS) for novel view synthesis, many works have explored how to also use it for geometric surface representation. However, extracting accurate geometric information directly from 3DGS remains challenging and can often reduce the appearance rendering quality. In this work, we show that 3DGS in its default form is inheritedly unsuited to represent texture and geometry at the same time, by training with complete ground-truth texture and geometry information. We also propose a simple solution by applying a single additional geometry opacity parameter to each splat, together with an optional transparency-curated optimization pipeline. Our experiments, both with ground-truth and vision foundation model geometric input, show that this change leads to improved rendering and geometry performance on a wide variety of dataset, and especially complex scenes with transparent objects benefit significantly from our method.</p>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作指出标准 3DGS 同时表达外观和几何时会互相牵制。作者为每个 splat 增加独立 geometry opacity，使 appearance opacity 与 geometry opacity 解耦，并在透明物体和复杂场景中提升几何与渲染质量。</p><p class="lang lang-en lang-block" data-lang="en">After the success of 3D Gaussian Splatting (3DGS) for novel view synthesis, many works have explored how to also use it for geometric surface representation. However, extracting accurate geometric information directly from 3DGS remains challenging and can often reduce the appearance rendering quality. In this work, we show that 3DGS in its default form is inheritedly unsuited to represent texture and geometry at the same time, by training with complete ground-truth texture and geometry information. We also propose a simple solution by applying a single additional geometry opacity parameter to each splat, together with an optional transparency-curated optimization pipeline. Our experiments, both with ground-truth and vision foundation model geometric input, show that this change leads to improved rendering and geometry performance on a wide variety of dataset, and especially complex scenes with transparent objects benefit significantly from our method.</p>
 </section>
 <section class="section brief"><h2>中文解读摘录</h2><ul>
-<li>日期：2026-06-04</li>
-<li>链接：<a href="https://arxiv.org/abs/2606.05124">arXiv</a> / <a href="https://arxiv.org/pdf/2606.05124">PDF</a></li>
-<li>作者简写：H. Zhou, Z. Lähner</li>
-<li>领域标签：三维重建 / 3DGS / 几何表示 / 透明物体</li>
-<li>背景/动机：标准 3DGS 同时承担外观渲染和几何表面表达时会互相牵制，直接从 splat 中提取准确几何常导致渲染质量下降；透明/半透明区域尤其容易退化。</li>
-<li>主要创新点/工作：为每个 splat 增加独立的 <strong>geometry opacity</strong>，将 appearance opacity 与 geometry opacity 解耦，并配合可选的 transparency-curated optimization pipeline；实验同时使用 GT 几何和视觉基础模型几何输入。</li>
-<li>为什么值得关注：对 3DGS-SLAM/3DGS mapping 后端很关键——SLAM 不只要渲染好看，还要稳定表面、深度、mesh 和可交互几何。该思路可作为把渲染型 3DGS 改造成几何地图的轻量改法。</li>
+<li>ZipSplat：<a href="https://arxiv.org/abs/2606.05102">arXiv</a></li>
+<li>Geometry Gaussians：<a href="https://arxiv.org/abs/2606.05124">arXiv</a></li>
+<li>Optimizing 3DGS via Point Cloud Upsampling：<a href="https://arxiv.org/abs/2606.00450">arXiv</a></li>
+<li>领域标签：3DGS / 几何表示 / 初始化 / 高效表示</li>
+<li>观察：<code>ZipSplat</code> 通过 token 聚类减少 Gaussian 数量；<code>Geometry Gaussians</code> 解耦外观 opacity 和 geometry opacity；点云上采样工作则直接针对 3DGS seed point 质量做优化。</li>
+<li>为什么值得关注：这些工作都在补 3DGS 从渲染表示走向几何地图时的短板：表示预算、几何一致性和初始化质量。对 3DGS-SLAM 后端很有参考价值。</li>
 </ul></section>
 <section class="section">
   <h2>图表/页面预览</h2>

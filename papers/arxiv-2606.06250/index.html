@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Breaking Time: A Fully Gaussian Framework for Distributed and Continuous-Time SLAM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 9 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Breaking Time：分布式连续时间 SLAM 的全 Gaussian 框架</span><span class="lang lang-en lang-inline" data-lang="en">Breaking Time: A Fully Gaussian Framework for Distributed and Continuous-Time SLAM</span></h1>
+  <div class="meta">作者：Davide Ceriola, Simone Ferrari, Luca Di Giammarino, Leonardo Brizi, Giorgio Grisetti</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.06250">abs</a><a href="https://arxiv.org/pdf/2606.06250">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.8/10</span><p>对异步多传感器、GNSS/INS/LiDAR/Camera 紧耦合和分布式优化都有直接参考价值。</p><div class="tags"><span class="tag">连续时间SLAM</span><span class="tag">GBP</span><span class="tag">Gaussian Process</span><span class="tag">分布式优化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 GBP 和 GP 运动先验构建可分布式的连续时间 SLAM 求解器。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出 G-solver，将 Gaussian Belief Propagation 与 Gaussian Process 运动先验结合，用全 Gaussian 表达完成连续时间轨迹估计。该框架适合滚动快门、LiDAR 扫描、雷达和事件相机等异步传感器，也自然支持分布式多相机优化。</p><p class="lang lang-en lang-block" data-lang="en">Continuous-time SLAM provides a principled framework for fusing heterogeneous sensors while estimating smooth trajectories, and is particularly well-suited for handling heterogeneous, asynchronous sensor streams with non-uniform readout patterns, such as rolling shutter cameras, LiDAR scanners, radar sweeps, or event-based sensors. In this work, we introduce G-solver, a fully Gaussian and distributed framework that combines Gaussian Belief Propagation (GBP) with Gaussian Process (GP) motion priors for continuous-time trajectory estimation. Our GP model provides a probabilistic representation of the trajectory, enabling consistent interpolation and the use of data-driven hyperparameters, while GBP offers a scalable message-passing formulation well-suited for decentralized settings. The resulting solver naturally extends to multi-camera scenarios without specialized synchronization or engineering effort. We evaluate the approach on synthetic and real data, including rolling shutter and distributed multi-camera optimization, demonstrating accurate and stable estimation with runtimes comparable to existing continuous-time methods. An open-source implementation is released.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.06250">arXiv</a> / <a href="https://arxiv.org/pdf/2606.06250">PDF</a></li>
+<li>作者简写：D. Ceriola, S. Ferrari, L. Di Giammarino 等</li>
+<li>领域标签：连续时间 SLAM / Gaussian Belief Propagation / Gaussian Process / 分布式优化</li>
+<li>背景/动机：滚动快门相机、LiDAR 扫描、雷达 sweep、事件相机等异步传感器需要连续时间轨迹表达；多相机/分布式系统还要求优化可拆分、可扩展。</li>
+<li>主要创新点/工作：G-solver 将 Gaussian Belief Propagation 与 Gaussian Process 运动先验结合，用全 Gaussian 表示完成连续时间轨迹估计，并自然支持分布式多相机优化。</li>
+<li>为什么值得关注：这条线非常适合 GNSS/INS/LiDAR/Camera 的异步紧耦合系统。若开源实现稳定，值得拿来与传统 batch continuous-time spline / factor graph 方法做对比。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

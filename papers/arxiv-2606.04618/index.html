@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>BPDA-GMM: Bayesian Probabilistic Data Association via Gaussian Mixture Models for Semantic SLAM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-03 · score 11 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">BPDA-GMM：面向语义 SLAM 的 GMM 贝叶斯概率数据关联</span><span class="lang lang-en lang-inline" data-lang="en">BPDA-GMM: Bayesian Probabilistic Data Association via Gaussian Mixture Models for Semantic SLAM</span></h1>
+  <div class="meta">作者：Thanh Nguyen Canh, Haolan Zhang, Xiem HoangVan, Antonio Sgorbissa, Nak Young Chong</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.04618">abs</a><a href="https://arxiv.org/pdf/2606.04618">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.1/10</span><p>语义关联是语义 SLAM 的关键薄弱环节，方法方向明确且与建图质量直接相关。</p><div class="tags"><span class="tag">语义SLAM</span><span class="tag">数据关联</span><span class="tag">GMM</span><span class="tag">不确定性</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 GMM 不确定性建模改进语义 SLAM 的对象级数据关联。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">BPDA-GMM 面向语义 SLAM 中的 object-level landmark 关联问题，用 Gaussian Mixture Models 表达观测和语义 landmark 的不确定性，并通过 Bayesian probabilistic data association 降低误关联对地图的污染。</p><p class="lang lang-en lang-block" data-lang="en">Probabilistic data association (PDA) improves semantic SLAM in perceptually aliased scenes, but existing methods often assume a fixed landmark set, recompute association weights as the map grows, or rely on hand-tuned null-hypothesis weights. To address these limitations, we propose \textbf{BPDA-GMM}, an online Bayesian PDA framework for semantic SLAM with a growing object-level map. BPDA-GMM uses a Dirichlet-process prior to induce a Chinese Restaurant Process (CRP) association model, where accumulated evidence favors existing landmarks, and the concentration parameter assigns probability mass to new landmarks. For each semantic detection, plausible candidates are selected by a joint semantic-geometric gate, CRP-weighted association probabilities are computed, and object landmarks are updated as semantic Gaussians in closed form. The resulting landmark set forms a Gaussian mixture model, and its dominant component is passed to the back-end as a max-mixture semantic factor. When association weights are inconclusive, an ambiguity-triggered $α$-divergence tempering step improves discrimination. Finally, a decoupled back-end zeroes the pose Jacobian of semantic factors, allowing noisy detections to refine landmarks without directly perturbing the trajectory. Experiments in simulation and on a real indoor dataset demonstrate improved trajectory accuracy, semantic mapping quality, and robustness to perceptual aliasing and classifier errors over state-of-the-art baselines. Code and video are publicly available at https://github.com/thanhnguyencanh/BPDA-SLAM.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-03</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.04618">arXiv</a> / <a href="https://arxiv.org/pdf/2606.04618">PDF</a></li>
+<li>作者简写：J. Yin, Y. Sun, M. Tian 等</li>
+<li>领域标签：语义 SLAM / 数据关联 / GMM / 不确定性</li>
+<li>背景/动机：语义 SLAM 中 object-level landmark 的数据关联容易受感知噪声、遮挡和重复物体影响，错误关联会直接污染地图。</li>
+<li>主要创新点/工作：用 Gaussian Mixture Models 表达语义 landmark/观测的不确定性，并在 Bayesian probabilistic data association 框架下完成更稳健的语义关联。</li>
+<li>为什么值得关注：这类数据关联问题是语义 SLAM 的长期痛点，适合和几何残差、类别概率、实例级跟踪一起看。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
