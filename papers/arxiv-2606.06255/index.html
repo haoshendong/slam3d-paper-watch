@@ -14,7 +14,7 @@
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-06-06/index.html">← 返回 2026-06-06 日报</a></div>
-  <div class="meta">跟踪 · 日期 2026-06-04 · score 8 · cs.RO, cs.CV, cs.DC</div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 8 · cs.RO, cs.CV, cs.DC</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">RadiusFPS：通过球形体素剪枝在 CPU/GPU 上高效执行最远点采样</span><span class="lang lang-en lang-inline" data-lang="en">RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning</span></h1>
   <div class="meta">作者：Ziyang Yu, Xiang Li, Qiong Chang, Jun Miyazaki</div>
   <div class="links"><a href="https://arxiv.org/abs/2606.06255">abs</a><a href="https://arxiv.org/pdf/2606.06255">PDF</a></div>
@@ -28,15 +28,18 @@
 <section class="section brief"><h2>中文解读摘录</h2><ul>
 <li>日期：2026-06-04</li>
 <li>链接：<a href="https://arxiv.org/abs/2606.06255">arXiv</a> / <a href="https://arxiv.org/pdf/2606.06255">PDF</a></li>
-<li>作者简写：Z. Yu, X. Li, Q. Chang, J. Miyazaki</li>
-<li>领域标签：点云处理 / LiDAR SLAM 前端 / GPU 加速 / 下采样</li>
-<li>背景/动机：FPS 能保持点云覆盖质量，但在百万点/秒 LiDAR 数据上常成为实时感知瓶颈。</li>
-<li>主要创新点/工作：用 spherical voxel pruning 给标准 FPS 更新建立保守几何剪枝，并实现 warp-level GPU 版本 RadiusFPS-G，减少冗余距离计算和显存往返。</li>
-<li>为什么值得关注：高质量点云下采样直接影响 LiDAR SLAM、点云分割和建图前端延迟；论文声称最高 2.5x GPU 加速且显存约减半。</li>
+<li>作者简写：Ziyang Yu, Xiang Li, Qiong Chang, Jun Miyazaki</li>
+<li>类别：cs.RO, cs.CV, cs.DC；score=8</li>
+<li>为什么值得关注：用球形体素剪枝和 GPU kernel 融合加速点云 FPS 下采样，降低 LiDAR/点云前端延迟。</li>
 </ul></section>
 <section class="section">
   <h2>图表/页面预览</h2>
-  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06255/fig-001.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06255/fig-001.webp" alt="RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06255/fig-002.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06255/fig-002.webp" alt="RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06255/fig-003.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06255/fig-003.webp" alt="RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06255/fig-004.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06255/fig-004.webp" alt="RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06255/fig-005.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06255/fig-005.webp" alt="RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06255/fig-006.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06255/fig-006.webp" alt="RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure></div>
 </section>
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
