@@ -9,40 +9,40 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-06/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero paper-head">
-  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-06-01 · score 21 · cs.RO, cs.CV</div>
+  <div><a href="../../daily/2026-06-06/index.html">← 返回 2026-06-06 日报</a></div>
+  <div class="meta">跟踪 · 日期 2026-06-01 · score 21 · cs.RO, cs.CV</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">ActMVS：面向主动场景重建的单目多视图立体</span><span class="lang lang-en lang-inline" data-lang="en">ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo</span></h1>
   <div class="meta">作者：Guo Pu, Yixuan Han, Zhouhui Lian</div>
   <div class="links"><a href="https://arxiv.org/abs/2606.01367">abs</a><a href="https://arxiv.org/pdf/2606.01367">PDF</a></div>
 </section>
-<section class="section score-panel"><span class="score">评分 9.2/10</span><p>高度贴合机器人在线建图、主动感知和轻量平台三维重建，是今天最强相关论文之一。</p><div class="tags"><span class="tag">主动重建</span><span class="tag">单目MVS</span><span class="tag">机器人探索</span><span class="tag">占据地图</span></div></section>
-<section class="section"><h2>一句话工作总结</h2><p class="insight">把单目 MVS 推向主动探索闭环，使轻量机器人能够在线重建并维护可规划占据地图。</p></section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>高度贴合机器人主动 SLAM、单目三维重建和在线地图维护，是本批次最强相关论文之一。</p><div class="tags"><span class="tag">主动重建</span><span class="tag">单目MVS</span><span class="tag">机器人探索</span><span class="tag">占据地图</span><span class="tag">在线SLAM</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把单目 MVS 引入主动重建闭环，使轻量机器人能在线预测一致深度并维护占据地图。</p></section>
 <section class="section">
   <h2>摘要</h2>
-  <p class="lang lang-zh lang-block" data-lang="zh">ActMVS 面向机器人和 UAV 的主动三维重建，目标是在没有深度传感器的情况下边规划轨迹边生成可用于避障的高置信占据地图。方法通过 view factor graph 组织多视角深度预测，并加入全局深度优化，使单目输入也能在线输出较一致的 dense depth map。</p><p class="lang lang-en lang-block" data-lang="en">Active scene reconstruction enables robots/UAVs to autonomously plan trajectories and reconstruct environments without costly manual data acquisition. Unlike passive methods, active reconstruction requires real-time construction of high-confidence occupancy maps for collision-free navigation. Existing approaches rely on depth sensors for occupancy map updates, increasing platform cost and weight. To advance spatial intelligence, we aim for a vision-only monocular solution. However, current monocular scene reconstruction methods operate offline and fail to deliver globally consistent dense depth at the frame rates required for robots/UAVs navigation. To bridge this gap, we introduce ActMVS, the first framework for monocular active reconstruction. Our framework integrates a view factor graph construction for informed Multi-View Stereo depth prediction, along with a global depth optimization, to enable the online generation of high-quality, globally consistent dense depth maps. This enables monocular robots/UAVs to maintain reliable occupancy maps for safe trajectory planning during reconstruction. Experiments on Replica datasets demonstrate performance competitive with RGB-D methods. Our code and data are available at https://github.com/TrickyGo/ActMVS.</p>
+  <p class="lang lang-zh lang-block" data-lang="zh">ActMVS 面向机器人和 UAV 的主动场景重建，目标是在没有深度传感器的情况下在线维护可避障的高置信占据地图。框架通过 view factor graph 组织多视角深度预测，并加入全局深度优化，在线生成高质量、全局一致的 dense depth maps，从而支持单目机器人进行安全轨迹规划和环境重建，在 Replica 数据集上达到接近 RGB-D 方法的性能。</p><p class="lang lang-en lang-block" data-lang="en">Active scene reconstruction enables robots/UAVs to autonomously plan trajectories and reconstruct environments without costly manual data acquisition. Unlike passive methods, active reconstruction requires real-time construction of high-confidence occupancy maps for collision-free navigation. Existing approaches rely on depth sensors for occupancy map updates, increasing platform cost and weight. To advance spatial intelligence, we aim for a vision-only monocular solution. However, current monocular scene reconstruction methods operate offline and fail to deliver globally consistent dense depth at the frame rates required for robots/UAVs navigation. To bridge this gap, we introduce ActMVS, the first framework for monocular active reconstruction. Our framework integrates a view factor graph construction for informed Multi-View Stereo depth prediction, along with a global depth optimization, to enable the online generation of high-quality, globally consistent dense depth maps. This enables monocular robots/UAVs to maintain reliable occupancy maps for safe trajectory planning during reconstruction. Experiments on Replica datasets demonstrate performance competitive with RGB-D methods. Our code and data are available at https://github.com/TrickyGo/ActMVS.</p>
 </section>
 <section class="section brief"><h2>中文解读摘录</h2><ul>
-<li>日期：2026-06-02</li>
+<li>日期：2026-06-01</li>
 <li>链接：<a href="https://arxiv.org/abs/2606.01367">arXiv</a> / <a href="https://arxiv.org/pdf/2606.01367">PDF</a></li>
-<li>作者简写：Z. Zhu, D. Yuan, F. Wang 等</li>
+<li>作者简写：G. Pu, Y. Han, Z. Lian</li>
 <li>领域标签：主动三维重建 / 单目 MVS / 机器人探索 / 占据地图</li>
-<li>背景/动机：主动重建要求机器人一边规划轨迹一边维护可避障的高置信占据地图，但现有方法常依赖深度传感器；单目方案成本低、重量轻，却难以实时输出全局一致 dense depth。</li>
-<li>主要创新点/工作：构建 view factor graph 来组织多视角深度预测，并加入全局深度优化，使单目机器人/UAV 能在线生成一致的 dense depth map，用于安全轨迹规划和环境重建。</li>
-<li>为什么值得关注：这是今天最贴近“机器人在线建图闭环”的论文之一。它把单目 MVS 从离线重建推进到主动探索场景，可作为轻量 UAV/移动机器人无深度传感器建图方案的重点跟踪对象。</li>
+<li>背景/动机：主动重建需要机器人边走边构建高置信占据地图，但 RGB-D/深度传感器会增加成本和负载；单目 MVS 以往又偏离线，难以满足导航实时性。</li>
+<li>主要创新点/工作：引入 view factor graph 组织多视角深度预测，并用全局深度优化输出在线、较一致的 dense depth，用于 occupancy map 更新和轨迹规划。</li>
+<li>为什么值得关注：这是“视觉重建模型进入机器人主动建图闭环”的强相关线索，适合对比传统 RGB-D active SLAM 和轻量 UAV 单目方案。</li>
 </ul></section>
 <section class="section">
   <h2>图表/页面预览</h2>
-  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.01367/fig-001.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.01367/fig-001.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.01367/fig-002.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.01367/fig-002.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.01367/fig-003.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.01367/fig-003.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.01367/fig-004.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.01367/fig-004.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.01367/fig-005.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.01367/fig-005.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.01367/fig-006.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.01367/fig-006.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-06-05/arxiv-2606.01367/table-001.webp"><img src="../../assets/media/2026-06-05/arxiv-2606.01367/table-001.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.01367/fig-001.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.01367/fig-001.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.01367/fig-002.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.01367/fig-002.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.01367/fig-003.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.01367/fig-003.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.01367/fig-004.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.01367/fig-004.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.01367/fig-005.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.01367/fig-005.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.01367/fig-006.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.01367/fig-006.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.01367/table-001.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.01367/table-001.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
 </section>
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>

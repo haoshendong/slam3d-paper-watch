@@ -9,23 +9,31 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-06/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero paper-head">
-  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-06-02 · score 7 · cs.CV</div>
-  <h1><span class="lang lang-zh lang-inline" data-lang="zh">BA-T: An Iterative Transformer for Two-View Bundle Adjustment</span><span class="lang lang-en lang-inline" data-lang="en">BA-T: An Iterative Transformer for Two-View Bundle Adjustment</span></h1>
+  <div><a href="../../daily/2026-06-06/index.html">← 返回 2026-06-06 日报</a></div>
+  <div class="meta">跟踪 · 日期 2026-06-02 · score 7 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">BA-T：用于两视图 Bundle Adjustment 的迭代 Transformer</span><span class="lang lang-en lang-inline" data-lang="en">BA-T: An Iterative Transformer for Two-View Bundle Adjustment</span></h1>
   <div class="meta">作者：Ganlin Zhang, Weirong Chen, Daniel Cremers, Xi Wang</div>
   <div class="links"><a href="https://arxiv.org/abs/2606.03287">abs</a><a href="https://arxiv.org/pdf/2606.03287">PDF</a></div>
 </section>
-
-
+<section class="section score-panel"><span class="score">评分 8.1/10</span><p>直接关联 SfM/BA 与学习式重建，可启发 SLAM 局部窗口优化和神经几何前端。</p><div class="tags"><span class="tag">Bundle Adjustment</span><span class="tag">Transformer</span><span class="tag">两视图重建</span><span class="tag">SfM</span><span class="tag">几何优化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 BA 的迭代残差 refinement 机制嵌入轻量 Transformer，用于两视图位姿和重建优化。</p></section>
 <section class="section">
   <h2>摘要</h2>
-  <p class="lang lang-zh lang-block" data-lang="zh">Feed-forward models for 3D reconstruction have achieved strong performance using deep cross-view attention to exchange information across images. However, these approaches often depend on heavy decoder stacks and lack a structured mechanism for geometry refinement, resulting in poor multi-view consistency. We address this by drawing inspiration from classical bundle adjustment (BA), which can be viewed as an iterative information propagation process between poses and local geometry. Inspired by BA, we propose BA-T, an iterative Transformer that implements BA-style structured updates as a repeatable layer in implicit token space. Instead of relying on deep attention stacks, BA-T refines predictions based on latent residual by a single lightweight layer. Experiments demonstrate that BA-T progressively improves pose and reconstruction accuracy across iterations, achieves stronger cross-view consistency than conventional decoders, and matches or surpasses substantially larger models while using only 16% of their decoder parameters. BA-T provides a compact, efficient, and structural alternative to depth-heavy attention, enabling accurate 3D reconstruction within a lightweight architecture. The code will be made publicly at https://github.com/zhangganlin/BA-T.</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward models for 3D reconstruction have achieved strong performance using deep cross-view attention to exchange information across images. However, these approaches often depend on heavy decoder stacks and lack a structured mechanism for geometry refinement, resulting in poor multi-view consistency. We address this by drawing inspiration from classical bundle adjustment (BA), which can be viewed as an iterative information propagation process between poses and local geometry. Inspired by BA, we propose BA-T, an iterative Transformer that implements BA-style structured updates as a repeatable layer in implicit token space. Instead of relying on deep attention stacks, BA-T refines predictions based on latent residual by a single lightweight layer. Experiments demonstrate that BA-T progressively improves pose and reconstruction accuracy across iterations, achieves stronger cross-view consistency than conventional decoders, and matches or surpasses substantially larger models while using only 16% of their decoder parameters. BA-T provides a compact, efficient, and structural alternative to depth-heavy attention, enabling accurate 3D reconstruction within a lightweight architecture. The code will be made publicly at https://github.com/zhangganlin/BA-T.</p>
+  <p class="lang lang-zh lang-block" data-lang="zh">BA-T 从经典 bundle adjustment 中 pose 与局部几何反复传播信息的机制出发，将 BA 风格结构化更新写成可重复的轻量 Transformer 层，在隐式 token 空间中基于 latent residual 逐步细化位姿和重建。实验显示其迭代过程能提升 pose 与 reconstruction accuracy，并以较少 decoder 参数达到或超过更大模型。</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward models for 3D reconstruction have achieved strong performance using deep cross-view attention to exchange information across images. However, these approaches often depend on heavy decoder stacks and lack a structured mechanism for geometry refinement, resulting in poor multi-view consistency. We address this by drawing inspiration from classical bundle adjustment (BA), which can be viewed as an iterative information propagation process between poses and local geometry. Inspired by BA, we propose BA-T, an iterative Transformer that implements BA-style structured updates as a repeatable layer in implicit token space. Instead of relying on deep attention stacks, BA-T refines predictions based on latent residual by a single lightweight layer. Experiments demonstrate that BA-T progressively improves pose and reconstruction accuracy across iterations, achieves stronger cross-view consistency than conventional decoders, and matches or surpasses substantially larger models while using only 16% of their decoder parameters. BA-T provides a compact, efficient, and structural alternative to depth-heavy attention, enabling accurate 3D reconstruction within a lightweight architecture. The code will be made publicly at https://github.com/zhangganlin/BA-T.</p>
 </section>
-
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-02</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.03287">arXiv</a> / <a href="https://arxiv.org/pdf/2606.03287">PDF</a></li>
+<li>作者简写：G. Zhang, W. Chen, D. Cremers, X. Wang</li>
+<li>领域标签：Bundle Adjustment / 两视图重建 / Transformer / 几何优化</li>
+<li>背景/动机：feed-forward 3D reconstruction 模型常依赖很深的 cross-view decoder，但缺少像 BA 一样反复传播 pose 与局部几何残差的结构化 refinement。</li>
+<li>主要创新点/工作：将 BA 式迭代更新写入轻量 Transformer 层，在隐式 token 空间中基于 latent residual 反复细化位姿和重建。</li>
+<li>为什么值得关注：这类“学习模型 + BA 结构先验”的做法可被移植到轻量 SfM、前端匹配后 refinement、甚至神经 SLAM 局部窗口优化。</li>
+</ul></section>
 <section class="section">
   <h2>图表/页面预览</h2>
   <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>

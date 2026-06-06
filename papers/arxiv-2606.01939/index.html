@@ -9,23 +9,31 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-06/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero paper-head">
-  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-06-01 · score 8 · cs.CV</div>
-  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SAVMap: Structure-Aided Visual Mapping of Large-Scale 2.5D Manhattan Wireframes from Panoramic Video</span><span class="lang lang-en lang-inline" data-lang="en">SAVMap: Structure-Aided Visual Mapping of Large-Scale 2.5D Manhattan Wireframes from Panoramic Video</span></h1>
+  <div><a href="../../daily/2026-06-06/index.html">← 返回 2026-06-06 日报</a></div>
+  <div class="meta">跟踪 · 日期 2026-06-01 · score 8 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SAVMap：由全景视频生成大规模 2.5D Manhattan 语义线框地图</span><span class="lang lang-en lang-inline" data-lang="en">SAVMap: Structure-Aided Visual Mapping of Large-Scale 2.5D Manhattan Wireframes from Panoramic Video</span></h1>
   <div class="meta">作者：Howard Huang, Bharath Surianarayanan, Keifer Lee, Chenyu Wang, Chen Feng</div>
   <div class="links"><a href="https://arxiv.org/abs/2606.01939">abs</a><a href="https://arxiv.org/pdf/2606.01939">PDF</a></div>
 </section>
-
-
+<section class="section score-panel"><span class="score">评分 7.4/10</span><p>对工业视觉建图、结构约束 SfM 和轻量数字孪生很有参考价值。</p><div class="tags"><span class="tag">视觉建图</span><span class="tag">结构约束SfM</span><span class="tag">全景视频</span><span class="tag">工业地图</span><span class="tag">线框重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">利用语义结构点和 Manhattan 约束，从全景视频构建大规模工业环境线框地图。</p></section>
 <section class="section">
   <h2>摘要</h2>
-  <p class="lang lang-zh lang-block" data-lang="zh">Precise 3D representations of industrial environments enable tasks such as robot localization and digital twin generation. We propose SAVMap, a method for generating a semantic wireframe map of warehouse shelf and light structures using only a panoramic video camera as the sensor input. Sequences of rectified images with shelf and ceiling-facing views are extracted from a panoramic video captured along the warehouse aisles. Using a semantic segmentation network front end, a set of sparse, semantic structure feature points (e.g., corners of shelf structures, centers of lights) are extracted from each image and tracked across the sequences. By accounting for real-world geometric relationships among the points such as Manhattan grids, a constrained structure-from-motion algorithm yields the 3D points that form a wireframe map. We demonstrate the scalability and accuracy of our proposal in a warehouse with 46 shelving rows, each with faces spanning 55\,m by 7\,m. From an hour of panoramic video content, we create wireframe maps for over 5000 shelf elements across the rows, achieving an aggregate mean absolute error of 4.8\,cm with respect to ground-truth.</p><p class="lang lang-en lang-block" data-lang="en">Precise 3D representations of industrial environments enable tasks such as robot localization and digital twin generation. We propose SAVMap, a method for generating a semantic wireframe map of warehouse shelf and light structures using only a panoramic video camera as the sensor input. Sequences of rectified images with shelf and ceiling-facing views are extracted from a panoramic video captured along the warehouse aisles. Using a semantic segmentation network front end, a set of sparse, semantic structure feature points (e.g., corners of shelf structures, centers of lights) are extracted from each image and tracked across the sequences. By accounting for real-world geometric relationships among the points such as Manhattan grids, a constrained structure-from-motion algorithm yields the 3D points that form a wireframe map. We demonstrate the scalability and accuracy of our proposal in a warehouse with 46 shelving rows, each with faces spanning 55\,m by 7\,m. From an hour of panoramic video content, we create wireframe maps for over 5000 shelf elements across the rows, achieving an aggregate mean absolute error of 4.8\,cm with respect to ground-truth.</p>
+  <p class="lang lang-zh lang-block" data-lang="zh">SAVMap 使用单个全景视频相机为仓库货架和灯具结构生成语义线框地图。方法从全景视频中抽取货架和天花板视角图像，用语义分割提取结构特征点并跨帧跟踪，再通过考虑 Manhattan grid 等真实几何关系的约束 SfM 生成 3D 线框点。论文在 46 排货架的大仓库中从约一小时视频生成 5000 多个 shelf elements，平均绝对误差 4.8 cm。</p><p class="lang lang-en lang-block" data-lang="en">Precise 3D representations of industrial environments enable tasks such as robot localization and digital twin generation. We propose SAVMap, a method for generating a semantic wireframe map of warehouse shelf and light structures using only a panoramic video camera as the sensor input. Sequences of rectified images with shelf and ceiling-facing views are extracted from a panoramic video captured along the warehouse aisles. Using a semantic segmentation network front end, a set of sparse, semantic structure feature points (e.g., corners of shelf structures, centers of lights) are extracted from each image and tracked across the sequences. By accounting for real-world geometric relationships among the points such as Manhattan grids, a constrained structure-from-motion algorithm yields the 3D points that form a wireframe map. We demonstrate the scalability and accuracy of our proposal in a warehouse with 46 shelving rows, each with faces spanning 55\,m by 7\,m. From an hour of panoramic video content, we create wireframe maps for over 5000 shelf elements across the rows, achieving an aggregate mean absolute error of 4.8\,cm with respect to ground-truth.</p>
 </section>
-
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-01</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.01939">arXiv</a> / <a href="https://arxiv.org/pdf/2606.01939">PDF</a></li>
+<li>作者简写：H. Huang, B. Surianarayanan, K. Lee 等</li>
+<li>领域标签：视觉建图 / 结构约束 SfM / 工业场景 / 语义线框</li>
+<li>背景/动机：仓库、工厂等工业环境需要精确但轻量的数字地图，完整稠密重建并不总是必要；语义结构点和 Manhattan 几何约束可以显著提升可用性。</li>
+<li>主要创新点/工作：从全景视频中抽取货架/灯具等语义结构点，结合真实几何关系做约束 SfM，生成大规模 2.5D Manhattan wireframe map。</li>
+<li>为什么值得关注：只用约 1 小时全景视频就覆盖 46 排货架、5000+ shelf elements，平均绝对误差 4.8 cm；适合工业机器人定位、数字孪生和地图压缩。</li>
+</ul></section>
 <section class="section">
   <h2>图表/页面预览</h2>
   <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
