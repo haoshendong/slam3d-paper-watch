@@ -14,7 +14,7 @@
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-06-06/index.html">← 返回 2026-06-06 日报</a></div>
-  <div class="meta">跟踪 · 日期 2026-06-04 · score 7 · cs.CV</div>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 7 · cs.CV</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向锥束 CT 截断重建的纹理保持隐式神经表示</span><span class="lang lang-en lang-inline" data-lang="en">Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction</span></h1>
   <div class="meta">作者：Genyuan Zhang, Junyao Wang, Haoran Lan, Chuandong Tan, Songtao Zhu, Fenglin Liu</div>
   <div class="links"><a href="https://arxiv.org/abs/2606.06039">abs</a><a href="https://arxiv.org/pdf/2606.06039">PDF</a></div>
@@ -25,10 +25,23 @@
   <h2>摘要</h2>
   <p class="lang lang-zh lang-block" data-lang="zh">论文针对 CBCT 截断导致的严重伪影和视野受限，提出自监督三维重建框架：先用神经场直接从空间坐标映射到放射密度并接受投影监督，实现连续三维外推和环状伪影抑制；再加入物理迭代 refinement，从原始投影逐步重新注入高频纹理，以缓解坐标网络的频谱偏置。</p><p class="lang lang-en lang-block" data-lang="en">Cone-beam computed tomography (CBCT) frequently suffers from data truncation, which introduces severe artifacts and limits the effective field of view (FOV). Existing deep learning methods for truncated cone-beam computed tomography (CBCT) reconstruction suffer from serious limitations, including a strict reliance on supervised ground truth and a failure to account for continuous 3D spatial truncation variations. To address these challenges, we introduce a self-supervised 3D reconstruction framework based on neural scene representations. By directly mapping spatial coordinates to radiodensity under projection supervision, our approach inherently bypasses traditional filtering and backprojection operations, thereby fundamentally eliminating truncation-induced ring artifacts while enabling robust continuous 3D data extrapolation. However, coordinate networks are susceptible to an inherent spectral bias, which leads to a severe loss of clinically vital high-frequency textures. To resolve this bottleneck, we further incorporate a physics-based iterative refinement module into the neural scene representation architecture. Leveraging the artifact-free, extrapolated volume from the coordinate network as an optimal initialization, this module progressively re-extracts and injects high-frequency structural information from the original projections back into the volume. Extensive experiments on both simulated and real-world datasets demonstrate that our method successfully unifies the exceptional artifact suppression and extrapolation capabilities of neural networks with the high-fidelity detail preservation of iterative algorithms.</p>
 </section>
-
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.06039">arXiv</a> / <a href="https://arxiv.org/pdf/2606.06039">PDF</a></li>
+<li>作者简写：Genyuan Zhang, Junyao Wang, Haoran Lan, Chuandong Tan</li>
+<li>类别：cs.CV；score=7</li>
+<li>为什么值得关注：结合神经场外推和物理迭代细化来抑制 CBCT 截断伪影并保留高频纹理。</li>
+</ul></section>
 <section class="section">
   <h2>图表/页面预览</h2>
-  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06039/fig-001.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06039/fig-001.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06039/fig-002.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06039/fig-002.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06039/fig-003.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06039/fig-003.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06039/fig-004.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06039/fig-004.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06039/fig-005.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06039/fig-005.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06039/fig-006.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06039/fig-006.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06039/table-001.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06039/table-001.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06039/table-002.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06039/table-002.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
 </section>
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>

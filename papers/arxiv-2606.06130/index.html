@@ -9,26 +9,36 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-06/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero paper-head">
-  <div><a href="../../daily/2026-06-05/index.html">← 返回 2026-06-05 日报</a></div>
+  <div><a href="../../daily/2026-06-06/index.html">← 返回 2026-06-06 日报</a></div>
   <div class="meta">新论文 · 日期 2026-06-04 · score 3 · cs.RO</div>
-  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向真实感 3D 声呐仿真的模块化框架</span><span class="lang lang-en lang-inline" data-lang="en">Towards Realistic 3D Sonar Simulation</span></h1>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">迈向真实感三维声呐仿真</span><span class="lang lang-en lang-inline" data-lang="en">Towards Realistic 3D Sonar Simulation</span></h1>
   <div class="meta">作者：Youssef Attia, Davide Costa, Francesco Wanderlingh, Filippo Campagnaro, Enrico Simetti</div>
   <div class="links"><a href="https://arxiv.org/abs/2606.06130">abs</a><a href="https://arxiv.org/pdf/2606.06130">PDF</a></div>
 </section>
-<section class="section score-panel"><span class="score">评分 6.4/10</span><p>与水下 SLAM、仿真到真实和多传感器融合相关，应用较专门但价值明确。</p><div class="tags"><span class="tag">水下SLAM</span><span class="tag">声呐仿真</span><span class="tag">Isaac Sim</span><span class="tag">FastLIO2</span></div></section>
-<section class="section"><h2>一句话工作总结</h2><p class="insight">为水下机器人提供更真实的 3D 声呐仿真和 SLAM 验证环境。</p></section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>与水下 SLAM、多传感器仿真和 sim-to-real 验证相关，应用专门但方向明确。</p><div class="tags"><span class="tag">水下SLAM</span><span class="tag">声呐仿真</span><span class="tag">Isaac Sim</span><span class="tag">DVL</span><span class="tag">FastLIO2</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在 Isaac Sim 中构建更真实的 3D 声呐仿真，并用 FastLIO2 管线验证水下多传感器 SLAM。</p></section>
 <section class="section">
   <h2>摘要</h2>
-  <p class="lang lang-zh lang-block" data-lang="zh">论文在 Isaac Sim 中实现 3D 声呐模型，并接入水下仿真框架，结合 FastLIO2 SLAM pipeline、DVL、IMU 和压力数据做硬件在环验证，分析声呐仿真与真实港口数据之间的差距。</p><p class="lang lang-en lang-block" data-lang="en">As underwater robotics research increasingly addresses complex 3D perception and autonomous navigation, the fidelity of sonar simulation has become a key factor in algorithm development. Current simulation frameworks typically rely on geometry-driven rendering, approximating 3D sonar as an underwater equivalent to LiDAR, which fails to account for fundamental acoustic phenomena such as refraction, multi-path interference, and phase-dependent signal formation. This paper proposes a modular architecture for realistic 3D sonar simulation that integrates GPU-accelerated graphics engines with physically grounded acoustic propagation principles. We implement a volumetric 3D sonar model within the NVIDIA Isaac Sim environment, modeled after the Water Linked 3D-15 sensor, and integrate it into a comprehensive underwater simulation framework. The system is validated through a hardware-in-the-loop configuration, where a modified FastLIO2 SLAM pipeline, executed on an NVIDIA Jetson Orin Nano, performs sensor fusion using synthetic 3D sonar, DVL, IMU, and pressure data. Finally, a qualitative comparison between simulated outputs and real-world data from harbor sheet-pile inspections is provided, characterizing the remaining sim-to-real gap and establishing a roadmap toward fully acoustics-driven volumetric sensing.</p>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出用于真实 3D 声呐仿真的模块化架构，在 NVIDIA Isaac Sim 中实现类似 Water Linked 3D-15 的体积声呐模型，并将其接入水下仿真框架。系统通过硬件在环方式验证：在 Jetson Orin Nano 上运行改造 FastLIO2 SLAM pipeline，融合合成 3D 声呐、DVL、IMU 和压力数据，并与港口 sheet-pile 检测真实数据做定性对比。</p><p class="lang lang-en lang-block" data-lang="en">As underwater robotics research increasingly addresses complex 3D perception and autonomous navigation, the fidelity of sonar simulation has become a key factor in algorithm development. Current simulation frameworks typically rely on geometry-driven rendering, approximating 3D sonar as an underwater equivalent to LiDAR, which fails to account for fundamental acoustic phenomena such as refraction, multi-path interference, and phase-dependent signal formation. This paper proposes a modular architecture for realistic 3D sonar simulation that integrates GPU-accelerated graphics engines with physically grounded acoustic propagation principles. We implement a volumetric 3D sonar model within the NVIDIA Isaac Sim environment, modeled after the Water Linked 3D-15 sensor, and integrate it into a comprehensive underwater simulation framework. The system is validated through a hardware-in-the-loop configuration, where a modified FastLIO2 SLAM pipeline, executed on an NVIDIA Jetson Orin Nano, performs sensor fusion using synthetic 3D sonar, DVL, IMU, and pressure data. Finally, a qualitative comparison between simulated outputs and real-world data from harbor sheet-pile inspections is provided, characterizing the remaining sim-to-real gap and establishing a roadmap toward fully acoustics-driven volumetric sensing.</p>
 </section>
-
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>日期：2026-06-04</li>
+<li>链接：<a href="https://arxiv.org/abs/2606.06130">arXiv</a> / <a href="https://arxiv.org/pdf/2606.06130">PDF</a></li>
+<li>作者简写：Youssef Attia, Davide Costa, Francesco Wanderlingh, Filippo Campagnaro</li>
+<li>类别：cs.RO；score=3</li>
+<li>为什么值得关注：在 Isaac Sim 中构建更真实的 3D 声呐仿真，并用 FastLIO2 管线验证水下多传感器 SLAM。</li>
+</ul></section>
 <section class="section">
   <h2>图表/页面预览</h2>
-  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06130/fig-001.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06130/fig-001.webp" alt="Towards Realistic 3D Sonar Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06130/fig-002.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06130/fig-002.webp" alt="Towards Realistic 3D Sonar Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06130/fig-003.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06130/fig-003.webp" alt="Towards Realistic 3D Sonar Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06130/fig-004.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06130/fig-004.webp" alt="Towards Realistic 3D Sonar Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-06/arxiv-2606.06130/fig-005.webp"><img src="../../assets/media/2026-06-06/arxiv-2606.06130/fig-005.webp" alt="Towards Realistic 3D Sonar Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
 </section>
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
