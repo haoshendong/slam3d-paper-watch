@@ -19,121 +19,12 @@
     <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
     <div class="links"><a class="btn" href="daily/2026-06-06/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：15</span><span class="stat">推荐论文：10</span><span class="stat">新论文：0</span><span class="stat">仓库：40</span><span class="stat">新仓库：8</span></div>
+  <div class="stats"><span class="stat">候选论文：0</span><span class="stat">推荐论文：0</span><span class="stat">新论文：0</span><span class="stat">仓库：40</span><span class="stat">新仓库：8</span></div>
 </section>
-<section class="section brief"><h2>今日概览</h2><p>今天没有新增 arXiv 论文，但 GitHub 侧出现 8 个新仓库；整体趋势是：<strong>在线三维重建继续向机器人闭环建图靠拢，同时 GNSS/INS 的遮挡连续性、GPS-denied 全局重定位和低成本 VO/SLAM 工程仓库值得持续观察</strong>。候选规模：论文 15 篇（新 0），仓库 40 个（新 8）。按标题/摘要/主题粗筛，GNSS/GNSS-SLAM 相关约 11 条（论文 2、仓库约 9；其中新仓库约 3）。</p></section>
+<section class="section brief"><h2>今日概览</h2><p>今天没有新增 arXiv 论文；为避免和昨天重复，网页与简报均不展开已见过论文。GitHub 侧仍有 8 个新仓库，可作为今天的主要跟踪对象。候选统计：新增论文 0 篇，已过滤重复论文 15 篇；仓库 40 个（新 8）。</p></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">从 15 篇候选中推荐前 10 篇；靠后候选不在网页中展开。</p></div>
-  <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2606.01367/index.html"><img src="assets/media/2026-06-06/arxiv-2606.01367/fig-001.webp" alt="ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.01367/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ActMVS：面向主动场景重建的单目多视图立体</span><span class="lang lang-en lang-inline" data-lang="en">ActMVS: Active Scene Reconstruction with Monocular Multi-View Stereo</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-01 · score 21 · cs.RO, cs.CV</div>
-  <div class="meta">作者：Guo Pu, Yixuan Han, Zhouhui Lian</div>
-  <span class="score">评分 9/10</span>
-  <div class="tags"><span class="tag">主动重建</span><span class="tag">单目MVS</span><span class="tag">机器人探索</span><span class="tag">占据地图</span><span class="tag">在线SLAM</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>把单目 MVS 引入主动重建闭环，使轻量机器人能在线预测一致深度并维护占据地图。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">ActMVS 面向机器人和 UAV 的主动场景重建，目标是在没有深度传感器的情况下在线维护可避障的高置信占据地图。框架通过 view factor graph 组织多视角深度预测，并加入全局深度优化，在线生成高质量、全局一致的 dense depth maps，从而支持单目机器人进行安全轨迹规划和环境重建，在 Replica 数据集上达到接近 RGB-D 方法的性能。</p><p class="lang lang-en lang-block" data-lang="en">Active scene reconstruction enables robots/UAVs to autonomously plan trajectories and reconstruct environments without costly manual data acquisition. Unlike passive methods, active reconstruction requires rea…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.01367">abs</a><a href="https://arxiv.org/pdf/2606.01367">PDF</a><a href="papers/arxiv-2606.01367/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.00450/index.html"><img src="assets/media/2026-06-06/arxiv-2606.00450/fig-001.webp" alt="Optimizing 3D Gaussian Splatting via Point Cloud Upsampling" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.00450/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">通过点云上采样优化 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Optimizing 3D Gaussian Splatting via Point Cloud Upsampling</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-05-30 · score 15 · cs.CV, cs.GR</div>
-  <div class="meta">作者：Adrian Ramlal, Yan Song Hu, John S. Zelek</div>
-  <span class="score">评分 7.8/10</span>
-  <div class="tags"><span class="tag">3DGS</span><span class="tag">点云上采样</span><span class="tag">SfM</span><span class="tag">初始化</span><span class="tag">深度引导</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>从 SfM seed point 上采样和深度引导补点入手提升 3DGS 初始化与重建质量。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文研究 3D Gaussian Splatting 对初始 seed point 质量的依赖，系统评估线性插值、三角插值、样条曲面重建、moving least squares 和 Voronoi 点生成等点云上采样策略，并提出 depth-guided point lifting 以利用深度图保持与 SfM 重建的几何一致性。在 Mip-NeRF360 与 Replica 上，结果显示不同场景适合不同上采样方式…</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) is a technique for creating and rendering 3D scenes, however its performance depends heavily on the quality of initial seed points. To improve 3DGS initialization, this study prese…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.00450">abs</a><a href="https://arxiv.org/pdf/2606.00450">PDF</a><a href="papers/arxiv-2606.00450/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.06358/index.html"><img src="assets/media/2026-06-06/arxiv-2606.06358/fig-001.webp" alt="Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.06358/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RTK 增强与 INS 集成对 GNSS 定位精度和连续性的影响</span><span class="lang lang-en lang-inline" data-lang="en">Impact of RTK Augmentation and INS Integration on GNSS Positioning Accuracy and Continuity: A Benchmarking Study on Inland Waterways</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-05 · score 14 · eess.SY, eess.SP</div>
-  <div class="meta">作者：Yan-Yun Zhang, Jef Billet, Jan Swevers, Peter Slaets</div>
-  <span class="score">评分 8.8/10</span>
-  <div class="tags"><span class="tag">GNSS</span><span class="tag">RTK</span><span class="tag">INS</span><span class="tag">定位连续性</span><span class="tag">实测Benchmark</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>用真实水道实验量化 RTK loss 与 INS 集成对 GNSS 定位连续性、恢复跳变和控制性能的影响。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文在内河航道场景中实测 AsteRx-i3 D Pro+ GNSS/INS 接收机，比较 standalone GNSS、GNSS+INS、RTK GNSS、RTK GNSS+INS 四种配置，并分析桥下通行、静态测试和闭环路径跟踪中的精度与连续性。结果显示桥梁遮挡和 RTK 改正丢失会导致精度下降、不确定性增大，以及恢复阶段超过 1 m 的状态跳变；INS 能短时维持连续性，但也可能引入漂移和瞬态不确定性变化。</p><p class="lang lang-en lang-block" data-lang="en">RTK augmentation andINS integration are widely used to improve GNSS positioning performance. However, on inland waterways, bridges and surrounding structures can degrade satellite visibility and correction ava…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06358">abs</a><a href="https://arxiv.org/pdf/2606.06358">PDF</a><a href="papers/arxiv-2606.06358/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.06312/index.html"><img src="assets/media/2026-06-06/arxiv-2606.06312/fig-001.webp" alt="Meridian: Metric-Semantic Primitive Matching for Cross-View Geo-Localization Beyond Urban Environments" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.06312/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Meridian：面向非城市环境的度量语义 Primitive 跨视角地理定位</span><span class="lang lang-en lang-inline" data-lang="en">Meridian: Metric-Semantic Primitive Matching for Cross-View Geo-Localization Beyond Urban Environments</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-04 · score 9 · cs.RO</div>
-  <div class="meta">作者：Mason Peterson, Qingyuan Li, Yixuan Jia, Fernando Cladera</div>
-  <span class="score">评分 8.4/10</span>
-  <div class="tags"><span class="tag">GNSS-denied</span><span class="tag">跨视角定位</span><span class="tag">RGB-D</span><span class="tag">Pose Graph</span><span class="tag">语义几何</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>通过航空图与地面 RGB-D 语义几何 primitive 匹配，为 GNSS-denied SLAM 提供全局重定位和漂移约束。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Meridian 用高层 metric-semantic primitives 匹配航空影像和地面机器人 RGB-D 子图，在无需针对目标区域训练或调参的情况下实现全局定位。方法构造一致性指标来估计子图位姿分布，并在鲁棒 pose graph optimization 中剔除外点，最终在自动驾驶、园区和野外环境共 19 km 轨迹上取得平均 2.4 m 的优化轨迹误差。</p><p class="lang lang-en lang-block" data-lang="en">Successful robot automation requires accurate global localization to support repeatability, task planning, goal specification, and safe operation. However, reliable localization in GNSS-denied environments rem…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06312">abs</a><a href="https://arxiv.org/pdf/2606.06312">PDF</a><a href="papers/arxiv-2606.06312/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.06250/index.html"><img src="assets/media/2026-06-06/arxiv-2606.06250/fig-001.webp" alt="Breaking Time: A Fully Gaussian Framework for Distributed and Continuous-Time SLAM" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.06250/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Breaking Time：用于分布式连续时间 SLAM 的全 Gaussian 框架</span><span class="lang lang-en lang-inline" data-lang="en">Breaking Time: A Fully Gaussian Framework for Distributed and Continuous-Time SLAM</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-04 · score 9 · cs.RO</div>
-  <div class="meta">作者：Davide Ceriola, Simone Ferrari, Luca Di Giammarino, Leonardo Brizi</div>
-  <span class="score">评分 8.7/10</span>
-  <div class="tags"><span class="tag">连续时间SLAM</span><span class="tag">GBP</span><span class="tag">Gaussian Process</span><span class="tag">分布式优化</span><span class="tag">多传感器融合</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>用 GBP 和 GP 运动先验构建可分布式的连续时间 SLAM 求解器，面向异步多传感器轨迹估计。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出 G-solver，将 Gaussian Belief Propagation 与 Gaussian Process 运动先验结合，用全 Gaussian 表示进行连续时间轨迹估计。该框架能处理滚动快门相机、LiDAR、雷达和事件相机等异步传感器流，并自然扩展到分布式多相机优化，在合成和真实数据上展示了稳定精度与接近现有连续时间方法的运行效率。</p><p class="lang lang-en lang-block" data-lang="en">Continuous-time SLAM provides a principled framework for fusing heterogeneous sensors while estimating smooth trajectories, and is particularly well-suited for handling heterogeneous, asynchronous sensor strea…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06250">abs</a><a href="https://arxiv.org/pdf/2606.06250">PDF</a><a href="papers/arxiv-2606.06250/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2606.06255/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2606.06255/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RadiusFPS：通过球形体素剪枝在 CPU/GPU 上高效执行最远点采样</span><span class="lang lang-en lang-inline" data-lang="en">RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-04 · score 8 · cs.RO, cs.CV, cs.DC</div>
-  <div class="meta">作者：Ziyang Yu, Xiang Li, Qiong Chang, Jun Miyazaki</div>
-  <span class="score">评分 7.5/10</span>
-  <div class="tags"><span class="tag">点云</span><span class="tag">LiDAR SLAM</span><span class="tag">下采样</span><span class="tag">GPU加速</span><span class="tag">FPS</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>用球形体素剪枝和 GPU kernel 融合加速点云 FPS 下采样，降低 LiDAR/点云前端延迟。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">RadiusFPS 面向点云下采样中的 FPS 延迟瓶颈，利用球形体素建立保守几何界来剪枝每轮冗余距离计算，并加入坐标级 point-skip 测试进一步减少更新。其 GPU 版本 RadiusFPS-G 将体素选择、剪枝和距离更新融合到 warp-level memory-coalesced kernels 中，在 S3DIS、ScanNet 和 SemanticKITTI 上达到最高约 2.5 倍 GPU FP…</p><p class="lang lang-en lang-block" data-lang="en">Point clouds are a primary sensory representation for robotic perception, underpinning LiDAR-based autonomous driving, simultaneous localization and mapping (SLAM), and navigation. Within these pipelines, Fart…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06255">abs</a><a href="https://arxiv.org/pdf/2606.06255">PDF</a><a href="papers/arxiv-2606.06255/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2606.05998/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2606.05998/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">基于 2D 口内图像的深度学习三维口腔重建</span><span class="lang lang-en lang-inline" data-lang="en">Deep Learning-based 3D Oral Cavity Reconstruction Using 2D Intraoral Images</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-04 · score 8 · cs.CV, cs.AI</div>
-  <div class="meta">作者：Jihun Cho, Soo-Yeon Jeong, Eun-Jeong Bae, Sun-Young Ihm</div>
-  <span class="score">评分 4.2/10</span>
-  <div class="tags"><span class="tag">三维重建</span><span class="tag">多视图</span><span class="tag">医学影像</span><span class="tag">点云预测</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>用多视角 2D 口内照片和注意力融合预测口腔三维点模型。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">该工作使用十张不同角度的 2D 口内图像重建三维口腔模型，以降低传统取模和口内扫描仪的成本与不适。模型在 Dental3DS 数据集上训练，采用 MobileNetV2 图像编码器和 Multi-head Attention 进行多视图特征融合，报告最近邻阈值匹配准确率为 77.49%，但预测点存在向高密度真值区域聚集的问题。</p><p class="lang lang-en lang-block" data-lang="en">Oral 3D modelling is one of the most essential stages in dentistry, and many different approaches, such as impression taking and intraoral scanning, are commonly used for this phase, each with notable limitati…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.05998">abs</a><a href="https://arxiv.org/pdf/2606.05998">PDF</a><a href="papers/arxiv-2606.05998/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2606.01939/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2606.01939/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SAVMap：由全景视频生成大规模 2.5D Manhattan 语义线框地图</span><span class="lang lang-en lang-inline" data-lang="en">SAVMap: Structure-Aided Visual Mapping of Large-Scale 2.5D Manhattan Wireframes from Panoramic Video</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-01 · score 8 · cs.CV</div>
-  <div class="meta">作者：Howard Huang, Bharath Surianarayanan, Keifer Lee, Chenyu Wang</div>
-  <span class="score">评分 7.4/10</span>
-  <div class="tags"><span class="tag">视觉建图</span><span class="tag">结构约束SfM</span><span class="tag">全景视频</span><span class="tag">工业地图</span><span class="tag">线框重建</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>利用语义结构点和 Manhattan 约束，从全景视频构建大规模工业环境线框地图。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">SAVMap 使用单个全景视频相机为仓库货架和灯具结构生成语义线框地图。方法从全景视频中抽取货架和天花板视角图像，用语义分割提取结构特征点并跨帧跟踪，再通过考虑 Manhattan grid 等真实几何关系的约束 SfM 生成 3D 线框点。论文在 46 排货架的大仓库中从约一小时视频生成 5000 多个 shelf elements，平均绝对误差 4.8 cm。</p><p class="lang lang-en lang-block" data-lang="en">Precise 3D representations of industrial environments enable tasks such as robot localization and digital twin generation. We propose SAVMap, a method for generating a semantic wireframe map of warehouse shelf…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.01939">abs</a><a href="https://arxiv.org/pdf/2606.01939">PDF</a><a href="papers/arxiv-2606.01939/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2606.06039/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2606.06039/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向锥束 CT 截断重建的纹理保持隐式神经表示</span><span class="lang lang-en lang-inline" data-lang="en">Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-04 · score 7 · cs.CV</div>
-  <div class="meta">作者：Genyuan Zhang, Junyao Wang, Haoran Lan, Chuandong Tan</div>
-  <span class="score">评分 4.8/10</span>
-  <div class="tags"><span class="tag">隐式神经表示</span><span class="tag">CBCT</span><span class="tag">三维重建</span><span class="tag">自监督</span><span class="tag">高频纹理</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>结合神经场外推和物理迭代细化来抑制 CBCT 截断伪影并保留高频纹理。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文针对 CBCT 截断导致的严重伪影和视野受限，提出自监督三维重建框架：先用神经场直接从空间坐标映射到放射密度并接受投影监督，实现连续三维外推和环状伪影抑制；再加入物理迭代 refinement，从原始投影逐步重新注入高频纹理，以缓解坐标网络的频谱偏置。</p><p class="lang lang-en lang-block" data-lang="en">Cone-beam computed tomography (CBCT) frequently suffers from data truncation, which introduces severe artifacts and limits the effective field of view (FOV). Existing deep learning methods for truncated cone-b…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06039">abs</a><a href="https://arxiv.org/pdf/2606.06039">PDF</a><a href="papers/arxiv-2606.06039/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2606.03287/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2606.03287/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">BA-T：用于两视图 Bundle Adjustment 的迭代 Transformer</span><span class="lang lang-en lang-inline" data-lang="en">BA-T: An Iterative Transformer for Two-View Bundle Adjustment</span></a></h3>
-  <div class="meta">跟踪 · 日期 2026-06-02 · score 7 · cs.CV</div>
-  <div class="meta">作者：Ganlin Zhang, Weirong Chen, Daniel Cremers, Xi Wang</div>
-  <span class="score">评分 8.1/10</span>
-  <div class="tags"><span class="tag">Bundle Adjustment</span><span class="tag">Transformer</span><span class="tag">两视图重建</span><span class="tag">SfM</span><span class="tag">几何优化</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>把 BA 的迭代残差 refinement 机制嵌入轻量 Transformer，用于两视图位姿和重建优化。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">BA-T 从经典 bundle adjustment 中 pose 与局部几何反复传播信息的机制出发，将 BA 风格结构化更新写成可重复的轻量 Transformer 层，在隐式 token 空间中基于 latent residual 逐步细化位姿和重建。实验显示其迭代过程能提升 pose 与 reconstruction accuracy，并以较少 decoder 参数达到或超过更大模型。</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward models for 3D reconstruction have achieved strong performance using deep cross-view attention to exchange information across images. However, these approaches often depend on heavy decoder stacks…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.03287">abs</a><a href="https://arxiv.org/pdf/2606.03287">PDF</a><a href="papers/arxiv-2606.03287/index.html">详情</a></div>
-</article></div>
+  <div class="section-head"><h2>重点论文</h2></div>
+  <div class="grid"><p class="muted">暂无论文候选。</p></div>
 </section>
 <section class="section" id="repos">
   <div class="section-head">
