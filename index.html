@@ -4,135 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
-  <title>Daily Paper Reader 2026-06-06</title>
+  <title>Daily Paper Reader 2026-06-07</title>
   <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-06-06/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-06-07/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="meta">静态网页 · 2026-06-06</div>
+    <div class="meta">静态网页 · 2026-06-07</div>
     <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
     <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-06-06/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="daily/2026-06-07/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：12</span><span class="stat">推荐论文：10</span><span class="stat">新论文：12</span><span class="stat">仓库：40</span><span class="stat">新仓库：8</span></div>
+  <div class="stats"><span class="stat">候选论文：2</span><span class="stat">推荐论文：2</span><span class="stat">新论文：2</span><span class="stat">仓库：39</span><span class="stat">新仓库：8</span></div>
 </section>
-<section class="section brief"><h2>今日概览</h2><p>今天没有全新 arXiv 批次意义上的大规模新增；但昨天候选池中仍有 12 篇此前未在页面展开的论文。修正后的去重口径只过滤“已经推荐过”的论文，而不是过滤所有曾经被抓到的候选，因此今天补充推荐这些未展示过的条目。GitHub 侧新仓库仍为 8 个。</p></section>
+<section class="section brief"><h2>今日概览</h2><p>今天新增论文 2 篇，均来自 cs.CV：一篇是面向自动驾驶实时部署的环视稠密三维几何模型 <strong>LiAuto-GeoX</strong>，另一篇是将 Segment Anything 扩展到跨视图共可见区域建模的鲁棒特征匹配方法 <strong>SAMatcher</strong>。已过滤历史重复论文 12 篇；按照任务规则，旧论文不作为“跟踪/更新”补进重点论文。</p>
+<p>仓库侧新增 8 个项目，整体以低星新建仓库为主：COLMAP/3DGS 输入预处理、街景 Gaussian/COLMAP 流程、GNSS Android/RINEX 质量分析、立体 VIO 初始化和 ROS2 无人机地面站均值得后续打开 README 与代码结构核验。</p></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">从 12 篇候选中推荐前 10 篇；靠后候选不在网页中展开。</p></div>
+  <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">今日推荐 2 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2606.06312/index.html"><img src="assets/media/2026-06-06/arxiv-2606.06312/fig-001.webp" alt="Meridian: Metric-Semantic Primitive Matching for Cross-View Geo-Localization Beyond Urban Environments" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.06312/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Meridian：面向非城市环境的度量语义 Primitive 跨视角地理定位</span><span class="lang lang-en lang-inline" data-lang="en">Meridian: Metric-Semantic Primitive Matching for Cross-View Geo-Localization Beyond Urban Environments</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-04 · score 9 · cs.RO</div>
-  <div class="meta">作者：Mason Peterson, Qingyuan Li, Yixuan Jia, Fernando Cladera</div>
-  <span class="score">评分 8.4/10</span>
-  <div class="tags"><span class="tag">GNSS-denied</span><span class="tag">跨视角定位</span><span class="tag">RGB-D</span><span class="tag">Pose Graph</span><span class="tag">语义几何</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>通过航空图与地面 RGB-D 语义几何 primitive 匹配，为 GNSS-denied SLAM 提供全局重定位和漂移约束。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Meridian 用高层 metric-semantic primitives 匹配航空影像和地面机器人 RGB-D 子图，在无需针对目标区域训练或调参的情况下实现全局定位。方法构造一致性指标来估计子图位姿分布，并在鲁棒 pose graph optimization 中剔除外点，最终在自动驾驶、园区和野外环境共 19 km 轨迹上取得平均 2.4 m 的优化轨迹误差。</p><p class="lang lang-en lang-block" data-lang="en">Successful robot automation requires accurate global localization to support repeatability, task planning, goal specification, and safe operation. However, reliable localization in GNSS-denied environments rem…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06312">abs</a><a href="https://arxiv.org/pdf/2606.06312">PDF</a><a href="papers/arxiv-2606.06312/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.06250/index.html"><img src="assets/media/2026-06-06/arxiv-2606.06250/fig-001.webp" alt="Breaking Time: A Fully Gaussian Framework for Distributed and Continuous-Time SLAM" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.06250/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Breaking Time：用于分布式连续时间 SLAM 的全 Gaussian 框架</span><span class="lang lang-en lang-inline" data-lang="en">Breaking Time: A Fully Gaussian Framework for Distributed and Continuous-Time SLAM</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-04 · score 9 · cs.RO</div>
-  <div class="meta">作者：Davide Ceriola, Simone Ferrari, Luca Di Giammarino, Leonardo Brizi</div>
-  <span class="score">评分 8.7/10</span>
-  <div class="tags"><span class="tag">连续时间SLAM</span><span class="tag">GBP</span><span class="tag">Gaussian Process</span><span class="tag">分布式优化</span><span class="tag">多传感器融合</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>用 GBP 和 GP 运动先验构建可分布式的连续时间 SLAM 求解器，面向异步多传感器轨迹估计。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出 G-solver，将 Gaussian Belief Propagation 与 Gaussian Process 运动先验结合，用全 Gaussian 表示进行连续时间轨迹估计。该框架能处理滚动快门相机、LiDAR、雷达和事件相机等异步传感器流，并自然扩展到分布式多相机优化，在合成和真实数据上展示了稳定精度与接近现有连续时间方法的运行效率。</p><p class="lang lang-en lang-block" data-lang="en">Continuous-time SLAM provides a principled framework for fusing heterogeneous sensors while estimating smooth trajectories, and is particularly well-suited for handling heterogeneous, asynchronous sensor strea…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06250">abs</a><a href="https://arxiv.org/pdf/2606.06250">PDF</a><a href="papers/arxiv-2606.06250/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.06255/index.html"><img src="assets/media/2026-06-06/arxiv-2606.06255/fig-001.webp" alt="RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.06255/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RadiusFPS：通过球形体素剪枝在 CPU/GPU 上高效执行最远点采样</span><span class="lang lang-en lang-inline" data-lang="en">RadiusFPS: Efficient Farthest Point Sampling on CPUs and GPUs via Spherical Voxel Pruning</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-04 · score 8 · cs.RO, cs.CV, cs.DC</div>
-  <div class="meta">作者：Ziyang Yu, Xiang Li, Qiong Chang, Jun Miyazaki</div>
-  <span class="score">评分 7.5/10</span>
-  <div class="tags"><span class="tag">点云</span><span class="tag">LiDAR SLAM</span><span class="tag">下采样</span><span class="tag">GPU加速</span><span class="tag">FPS</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>用球形体素剪枝和 GPU kernel 融合加速点云 FPS 下采样，降低 LiDAR/点云前端延迟。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">RadiusFPS 面向点云下采样中的 FPS 延迟瓶颈，利用球形体素建立保守几何界来剪枝每轮冗余距离计算，并加入坐标级 point-skip 测试进一步减少更新。其 GPU 版本 RadiusFPS-G 将体素选择、剪枝和距离更新融合到 warp-level memory-coalesced kernels 中，在 S3DIS、ScanNet 和 SemanticKITTI 上达到最高约 2.5 倍 GPU FP…</p><p class="lang lang-en lang-block" data-lang="en">Point clouds are a primary sensory representation for robotic perception, underpinning LiDAR-based autonomous driving, simultaneous localization and mapping (SLAM), and navigation. Within these pipelines, Fart…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06255">abs</a><a href="https://arxiv.org/pdf/2606.06255">PDF</a><a href="papers/arxiv-2606.06255/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.05998/index.html"><img src="assets/media/2026-06-06/arxiv-2606.05998/fig-001.webp" alt="Deep Learning-based 3D Oral Cavity Reconstruction Using 2D Intraoral Images" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.05998/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">基于 2D 口内图像的深度学习三维口腔重建</span><span class="lang lang-en lang-inline" data-lang="en">Deep Learning-based 3D Oral Cavity Reconstruction Using 2D Intraoral Images</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-04 · score 8 · cs.CV, cs.AI</div>
-  <div class="meta">作者：Jihun Cho, Soo-Yeon Jeong, Eun-Jeong Bae, Sun-Young Ihm</div>
-  <span class="score">评分 4.2/10</span>
-  <div class="tags"><span class="tag">三维重建</span><span class="tag">多视图</span><span class="tag">医学影像</span><span class="tag">点云预测</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>用多视角 2D 口内照片和注意力融合预测口腔三维点模型。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">该工作使用十张不同角度的 2D 口内图像重建三维口腔模型，以降低传统取模和口内扫描仪的成本与不适。模型在 Dental3DS 数据集上训练，采用 MobileNetV2 图像编码器和 Multi-head Attention 进行多视图特征融合，报告最近邻阈值匹配准确率为 77.49%，但预测点存在向高密度真值区域聚集的问题。</p><p class="lang lang-en lang-block" data-lang="en">Oral 3D modelling is one of the most essential stages in dentistry, and many different approaches, such as impression taking and intraoral scanning, are commonly used for this phase, each with notable limitati…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.05998">abs</a><a href="https://arxiv.org/pdf/2606.05998">PDF</a><a href="papers/arxiv-2606.05998/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.01939/index.html"><img src="assets/media/2026-06-06/arxiv-2606.01939/fig-001.webp" alt="SAVMap: Structure-Aided Visual Mapping of Large-Scale 2.5D Manhattan Wireframes from Panoramic Video" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.01939/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SAVMap：由全景视频生成大规模 2.5D Manhattan 语义线框地图</span><span class="lang lang-en lang-inline" data-lang="en">SAVMap: Structure-Aided Visual Mapping of Large-Scale 2.5D Manhattan Wireframes from Panoramic Video</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-01 · score 8 · cs.CV</div>
-  <div class="meta">作者：Howard Huang, Bharath Surianarayanan, Keifer Lee, Chenyu Wang</div>
-  <span class="score">评分 7.4/10</span>
-  <div class="tags"><span class="tag">视觉建图</span><span class="tag">结构约束SfM</span><span class="tag">全景视频</span><span class="tag">工业地图</span><span class="tag">线框重建</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>利用语义结构点和 Manhattan 约束，从全景视频构建大规模工业环境线框地图。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">SAVMap 使用单个全景视频相机为仓库货架和灯具结构生成语义线框地图。方法从全景视频中抽取货架和天花板视角图像，用语义分割提取结构特征点并跨帧跟踪，再通过考虑 Manhattan grid 等真实几何关系的约束 SfM 生成 3D 线框点。论文在 46 排货架的大仓库中从约一小时视频生成 5000 多个 shelf elements，平均绝对误差 4.8 cm。</p><p class="lang lang-en lang-block" data-lang="en">Precise 3D representations of industrial environments enable tasks such as robot localization and digital twin generation. We propose SAVMap, a method for generating a semantic wireframe map of warehouse shelf…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.01939">abs</a><a href="https://arxiv.org/pdf/2606.01939">PDF</a><a href="papers/arxiv-2606.01939/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.06039/index.html"><img src="assets/media/2026-06-06/arxiv-2606.06039/fig-001.webp" alt="Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.06039/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向锥束 CT 截断重建的纹理保持隐式神经表示</span><span class="lang lang-en lang-inline" data-lang="en">Texture-preserving implicit neural representation for Cone beam CT truncated reconstruction</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-04 · score 7 · cs.CV</div>
-  <div class="meta">作者：Genyuan Zhang, Junyao Wang, Haoran Lan, Chuandong Tan</div>
-  <span class="score">评分 4.8/10</span>
-  <div class="tags"><span class="tag">隐式神经表示</span><span class="tag">CBCT</span><span class="tag">三维重建</span><span class="tag">自监督</span><span class="tag">高频纹理</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>结合神经场外推和物理迭代细化来抑制 CBCT 截断伪影并保留高频纹理。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文针对 CBCT 截断导致的严重伪影和视野受限，提出自监督三维重建框架：先用神经场直接从空间坐标映射到放射密度并接受投影监督，实现连续三维外推和环状伪影抑制；再加入物理迭代 refinement，从原始投影逐步重新注入高频纹理，以缓解坐标网络的频谱偏置。</p><p class="lang lang-en lang-block" data-lang="en">Cone-beam computed tomography (CBCT) frequently suffers from data truncation, which introduces severe artifacts and limits the effective field of view (FOV). Existing deep learning methods for truncated cone-b…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06039">abs</a><a href="https://arxiv.org/pdf/2606.06039">PDF</a><a href="papers/arxiv-2606.06039/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.03287/index.html"><img src="assets/media/2026-06-06/arxiv-2606.03287/fig-001.webp" alt="BA-T: An Iterative Transformer for Two-View Bundle Adjustment" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.03287/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">BA-T：用于两视图 Bundle Adjustment 的迭代 Transformer</span><span class="lang lang-en lang-inline" data-lang="en">BA-T: An Iterative Transformer for Two-View Bundle Adjustment</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-02 · score 7 · cs.CV</div>
-  <div class="meta">作者：Ganlin Zhang, Weirong Chen, Daniel Cremers, Xi Wang</div>
-  <span class="score">评分 8.1/10</span>
-  <div class="tags"><span class="tag">Bundle Adjustment</span><span class="tag">Transformer</span><span class="tag">两视图重建</span><span class="tag">SfM</span><span class="tag">几何优化</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>把 BA 的迭代残差 refinement 机制嵌入轻量 Transformer，用于两视图位姿和重建优化。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">BA-T 从经典 bundle adjustment 中 pose 与局部几何反复传播信息的机制出发，将 BA 风格结构化更新写成可重复的轻量 Transformer 层，在隐式 token 空间中基于 latent residual 逐步细化位姿和重建。实验显示其迭代过程能提升 pose 与 reconstruction accuracy，并以较少 decoder 参数达到或超过更大模型。</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward models for 3D reconstruction have achieved strong performance using deep cross-view attention to exchange information across images. However, these approaches often depend on heavy decoder stacks…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.03287">abs</a><a href="https://arxiv.org/pdf/2606.03287">PDF</a><a href="papers/arxiv-2606.03287/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.04376/index.html"><img src="assets/media/2026-06-06/arxiv-2606.04376/fig-001.webp" alt="FUSE-Flow: A Decoupled Framework for Calibration and Stateless Real-Time Multi-View Point Cloud Fusion" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.04376/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">FUSE-Flow：解耦标定与无状态实时多视角点云融合框架</span><span class="lang lang-en lang-inline" data-lang="en">FUSE-Flow: A Decoupled Framework for Calibration and Stateless Real-Time Multi-View Point Cloud Fusion</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-03 · score 5 · eess.IV, cs.MM</div>
-  <div class="meta">作者：Chentian Sun</div>
+  <a class="thumb" href="papers/arxiv-2606.05774/index.html"><img src="assets/media/2026-06-07/arxiv-2606.05774/fig-001.webp" alt="LiAuto-GeoX: Efficient Grounded Driving Transformer" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.05774/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">LiAuto-GeoX：高效的几何约束驾驶 Transformer</span><span class="lang lang-en lang-inline" data-lang="en">LiAuto-GeoX: Efficient Grounded Driving Transformer</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 3 · cs.CV</div>
+  <div class="meta">作者：Jiawei Lian, Haoyi Sun, Yang Wu, Lifu Mu</div>
   <span class="score">评分 7.2/10</span>
-  <div class="tags"><span class="tag">多视角重建</span><span class="tag">点云融合</span><span class="tag">外参标定</span><span class="tag">实时系统</span><span class="tag">空间哈希</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>通过解耦外参细化和置信度引导融合，实现可扩展的实时多视角点云重建。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">FUSE-Flow 面向实时多相机三维重建，将外参标定和点云融合解耦为 GMAC 与 FUSE 两个模块。GMAC 通过几何约束和多视角重建 transformer 细化相机外参，FUSE 使用置信度加权和 adaptive spatial hashing 完成无状态线性复杂度融合；二者互相促进，提高稀疏视角标定、动态稳定性和系统可扩展性。</p><p class="lang lang-en lang-block" data-lang="en">Real-time multi-camera 3D reconstruction is a key foundation for immersive media, remote interaction and spatial computing. While synchronized camera arrays are widely adopted, achieving geometrically consiste…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.04376">abs</a><a href="https://arxiv.org/pdf/2606.04376">PDF</a><a href="papers/arxiv-2606.04376/index.html">详情</a></div>
+  <div class="tags"><span class="tag">自动驾驶</span><span class="tag">稠密三维重建</span><span class="tag">LiDAR先验</span><span class="tag">几何蒸馏</span><span class="tag">多相机</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用 LiDAR 几何先验和蒸馏把大规模驾驶三维重建模型压缩成实时车载几何表示。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">LiAuto-GeoX 面向自动驾驶实时稠密三维场景理解，先用大规模环视数据和稀疏 LiDAR 先验训练高容量 driving geometry model，再通过几何保持蒸馏压缩为 155M 参数车载模型。蒸馏包括 mask-guided depth-aware distillation 和 relative-pose relational distillation，以保留远距离几何、细粒度度量结构和跨视角一致性…</p><p class="lang lang-en lang-block" data-lang="en">Dense 3D reconstruction has demonstrated immense potential for spatial understanding, yet its viability as a real-time, onboard representation for autonomous driving remains an open challenge. Existing large-s…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.05774">abs</a><a href="https://arxiv.org/pdf/2606.05774">PDF</a><a href="papers/arxiv-2606.05774/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.01261/index.html"><img src="assets/media/2026-06-06/arxiv-2606.01261/fig-001.webp" alt="RFDT-Channel: RGB-LiDAR-Based RF Digital Twin Scene Construction for 28 GHz Indoor Ray-Tracing Channel Simulation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.01261/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RFDT-Channel：基于 RGB-LiDAR 的 28GHz 室内射频数字孪生场景构建</span><span class="lang lang-en lang-inline" data-lang="en">RFDT-Channel: RGB-LiDAR-Based RF Digital Twin Scene Construction for 28 GHz Indoor Ray-Tracing Channel Simulation</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-05-31 · score 4 · eess.IV</div>
-  <div class="meta">作者：Chengyang Yao, Cunhua Pan, Jiaming Zeng, Yuquan Sun</div>
-  <span class="score">评分 6.7/10</span>
-  <div class="tags"><span class="tag">数字孪生</span><span class="tag">RGB-LiDAR</span><span class="tag">COLMAP</span><span class="tag">3DGS</span><span class="tag">Ray Tracing</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>将 RGB-LiDAR、COLMAP、3DGS/SuGaR 和语义材料绑定串成室内 RF 数字孪生建模流程。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">RFDT-Channel 面向室内毫米波 ray-tracing 仿真中的场景建模效率和材料绑定问题，使用 Jetson Orin 平台采集 RGB 视频与 LiDAR 点云，通过 COLMAP、3D Gaussian Splatting 和 SuGaR 生成初始三角网格，再用 LiDAR 提供几何与尺度参考，在 Blender 中进行 RF-oriented 规则化和拓扑修复，最后用 OpenScene 分割绑定…</p><p class="lang lang-en lang-block" data-lang="en">Real-scene indoor millimeter-wave simulation requires efficient modeling of radio frequency (RF)-computable geometry and electromagnetic material properties. To address the low efficiency of manual scene model…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.01261">abs</a><a href="https://arxiv.org/pdf/2606.01261">PDF</a><a href="papers/arxiv-2606.01261/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.06130/index.html"><img src="assets/media/2026-06-06/arxiv-2606.06130/fig-001.webp" alt="Towards Realistic 3D Sonar Simulation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.06130/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">迈向真实感三维声呐仿真</span><span class="lang lang-en lang-inline" data-lang="en">Towards Realistic 3D Sonar Simulation</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-04 · score 3 · cs.RO</div>
-  <div class="meta">作者：Youssef Attia, Davide Costa, Francesco Wanderlingh, Filippo Campagnaro</div>
-  <span class="score">评分 6.8/10</span>
-  <div class="tags"><span class="tag">水下SLAM</span><span class="tag">声呐仿真</span><span class="tag">Isaac Sim</span><span class="tag">DVL</span><span class="tag">FastLIO2</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>在 Isaac Sim 中构建更真实的 3D 声呐仿真，并用 FastLIO2 管线验证水下多传感器 SLAM。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出用于真实 3D 声呐仿真的模块化架构，在 NVIDIA Isaac Sim 中实现类似 Water Linked 3D-15 的体积声呐模型，并将其接入水下仿真框架。系统通过硬件在环方式验证：在 Jetson Orin Nano 上运行改造 FastLIO2 SLAM pipeline，融合合成 3D 声呐、DVL、IMU 和压力数据，并与港口 sheet-pile 检测真实数据做定性对比。</p><p class="lang lang-en lang-block" data-lang="en">As underwater robotics research increasingly addresses complex 3D perception and autonomous navigation, the fidelity of sonar simulation has become a key factor in algorithm development. Current simulation fra…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.06130">abs</a><a href="https://arxiv.org/pdf/2606.06130">PDF</a><a href="papers/arxiv-2606.06130/index.html">详情</a></div>
+  <a class="thumb" href="papers/arxiv-2606.03406/index.html"><img src="assets/media/2026-06-07/arxiv-2606.03406/fig-001.webp" alt="SAMatcher: Co-Visibility Modeling with Segment Anything for Robust Feature Matching" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.03406/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SAMatcher：结合 Segment Anything 的共可见性建模鲁棒特征匹配</span><span class="lang lang-en lang-inline" data-lang="en">SAMatcher: Co-Visibility Modeling with Segment Anything for Robust Feature Matching</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-02 · score 3 · cs.CV</div>
+  <div class="meta">作者：Xu Pan, Qiyuan Ma, Mingyue Dong, He Chen</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">特征匹配</span><span class="tag">共可见性</span><span class="tag">SAM</span><span class="tag">SfM</span><span class="tag">视觉定位</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用 SAM 预测共可见区域作为先验，增强大视角变化下的图像特征匹配。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">SAMatcher 将特征匹配建模为共可见区域预测问题，先基于 SAM 预测跨视图共可见 mask 和 bounding box，再将其作为结构化先验进行对应估计。方法引入对称 cross-view interaction 做双向特征交换和语义对齐，并通过 mask learning、box regression 和 mask-box consistency 统一监督，在大视角和尺度变化下提升匹配鲁棒性。</p><p class="lang lang-en lang-block" data-lang="en">Reliable correspondence estimation is a fundamental problem in image processing, underpinning applications such as Structure from Motion, visual localization, and image registration. Existing learning-based me…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03406">abs</a><a href="https://arxiv.org/pdf/2606.03406">PDF</a><a href="papers/arxiv-2606.03406/index.html">详情</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -141,64 +54,60 @@
     <p class="muted repo-note">默认显示 8 个精选；新仓库、高分仓库和 GNSS/GPS/RTK 相关仓库优先，可展开查看完整候选。</p>
   </div>
   <div class="repo-list"><div class="repo">
-  <div><strong><a href="https://github.com/godswill12/Hybrid-SLAM-Localization-ROS2">godswill12/Hybrid-SLAM-Localization-ROS2</a></strong><div>Hybrid EKF/EIF + RTAB-Map localization framework for dynamic environments using ROS 2, TurtleBot3, Gazebo and Navigation2.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-05 · score 11</div></div>
+  <div><strong><a href="https://github.com/frankhdprado2-maker/Lab4-GNSS-Android">frankhdprado2-maker/Lab4-GNSS-Android</a></strong></div>
+  <div><div class="meta">新项目 · Kotlin · ★ 0 · 更新 2026-06-06 · score 4</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/ifiksel1/slam-agent">ifiksel1/slam-agent</a></strong><div>AI-guided SLAM integration agent for GPS-denied autonomous UAVs. Phase-based architecture with learning system.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 3 · 更新 2026-06-05 · score 8</div></div>
+  <div><strong><a href="https://github.com/DweepSaha/gnss-rinex-pipeline-">DweepSaha/gnss-rinex-pipeline-</a></strong><div>Project - GNSS Quality Analyzer</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-06 · score 4</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/AirdroperUA/gnss-filter-user-docs">AirdroperUA/gnss-filter-user-docs</a></strong><div>The gnss filter docs</div></div>
-  <div><div class="meta">新项目 · ★ 2 · 更新 2026-06-05 · score 4</div></div>
+  <div><strong><a href="https://github.com/SlamtyORG/Slamty">SlamtyORG/Slamty</a></strong></div>
+  <div><div class="meta">新项目 · C# · ★ 0 · 更新 2026-06-06 · score 7</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/matthewsmawfield/TEP-GNSS-MGEX">matthewsmawfield/TEP-GNSS-MGEX</a></strong></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-05 · score 4</div></div>
+  <div><strong><a href="https://github.com/sunshinejuanjuan123/colmap_streetgaussian_ns">sunshinejuanjuan123/colmap_streetgaussian_ns</a></strong></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-06-06 · score 7</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/cao-s-work/dual_mid360_slam">cao-s-work/dual_mid360_slam</a></strong></div>
-  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-06-05 · score 7</div></div>
+  <div><strong><a href="https://github.com/koroltony/UCLA_Gateway_Plaza_3DGS">koroltony/UCLA_Gateway_Plaza_3DGS</a></strong><div>3DGS Reconstruction of UCLA Gateway Plaza from unstaged outdoor scene video</div></div>
+  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-06-06 · score 4</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/swanbeck/coral_hyla_slam">swanbeck/coral_hyla_slam</a></strong><div>Coral skillset for Hyla-SLAM</div></div>
-  <div><div class="meta">新项目 · Dockerfile · ★ 0 · 更新 2026-06-05 · score 7</div><div class="meta">Topics：coral</div></div>
+  <div><strong><a href="https://github.com/toruhashimoto/unreflectanything-batch">toruhashimoto/unreflectanything-batch</a></strong><div>Batch specular-reflection / highlight removal (UnReflectAnything) for 3D Gaussian Splatting and photogrammetry input photos. CLI + Streamlit GUI, EXIF/format-preserving, with optional COLMAP and 3DGS (LichtFeld) A/B harnesses.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-06 · score 3</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/redddddyyyyy/visual-odometry">redddddyyyyy/visual-odometry</a></strong><div>Monocular visual odometry pipeline using ORB feature matching for ego-motion estimation and 3D trajectory reconstruction.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-05 · score 5</div><div class="meta">Topics：computer-vision, monocular, orb-features, perception, python</div></div>
+  <div><strong><a href="https://github.com/Qiu0336/DSInit">Qiu0336/DSInit</a></strong><div>Code for the paper: Direct Sparse Initialization for Stereo Visual-Inertial Odometry</div></div>
+  <div><div class="meta">新项目 · ★ 6 · 更新 2026-06-06 · score 2</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/mayet16/Stereo_Visual_Odometry">mayet16/Stereo_Visual_Odometry</a></strong><div>Develop Monocular Visual Odometry then extend to Stereo Visual Odometry (Metric Scale) on TUM VI</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-05 · score 4</div></div>
+  <div><strong><a href="https://github.com/lluisestape-upc/drone-gcs">lluisestape-upc/drone-gcs</a></strong><div>Autonomous UAV ground control station — Electron + ROS2 + LiDAR SLAM + MAVLink · Raspberry Pi 5 onboard</div></div>
+  <div><div class="meta">新项目 · JavaScript · ★ 0 · 更新 2026-06-06 · score 2</div></div>
 </div></div>
-  <details class="repo-more"><summary>还有 32 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <details class="repo-more"><summary>还有 31 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam_ros2">rsasaki0109/lidar_slam_ros2</a></strong><div>ROS 2 LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
+  <div><div class="meta">HTML · ★ 816 · 更新 2026-06-06 · score 14</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
+</div>
+<div class="repo">
   <div><strong><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM">3D-Vision-World/awesome-NeRF-and-3DGS-SLAM</a></strong><div>A comprehensive list of Implicit Representations, NeRF and 3D Gaussian Splatting papers relating to SLAM/Robotics domain, including papers, videos, codes, and related websites</div></div>
   <div><div class="meta">★ 2028 · 更新 2026-06-01 · score 20</div><div class="meta">Topics：3dgs, awesome, gaussiansplatting, lidar-slam, nerf</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/kurajulii/slamAI-istanbulCanyon">kurajulii/slamAI-istanbulCanyon</a></strong><div>Enhance drone navigation with robust Visual Odometry and SLAM for urban canyons, focusing on realistic İstanbul environments and machine learning solutions.</div></div>
-  <div><div class="meta">Python · ★ 1 · 更新 2026-06-05 · score 11</div><div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-06-06 · score 11</div><div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/colmap/colmap">colmap/colmap</a></strong><div>COLMAP - Structure-from-Motion and Multi-View Stereo</div></div>
-  <div><div class="meta">C++ · ★ 11858 · 更新 2026-06-05 · score 10</div><div class="meta">Topics：computer-vision, geometry, multi-view-stereo, reconstruction, structure-from-motion</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/renan-utida/CentimeterX-API-CSharp">renan-utida/CentimeterX-API-CSharp</a></strong><div>Centimeter-X: High-Precision Positioning as a Service (HPaaS) - API REST para gestão de rovers, estações GNSS, sessões de correção PPP e ocorrências de campo | .NET 8 + Oracle | Global Solution 2026 - FIAP</div></div>
-  <div><div class="meta">C# · ★ 0 · 更新 2026-06-05 · score 2</div></div>
+  <div><div class="meta">C++ · ★ 11862 · 更新 2026-06-05 · score 10</div><div class="meta">Topics：computer-vision, geometry, multi-view-stereo, reconstruction, structure-from-motion</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/rsasaki0109/visloc-rs">rsasaki0109/visloc-rs</a></strong><div>Pure-Rust visual &amp; visual-inertial SLAM for GPS-denied robots and UAVs</div></div>
-  <div><div class="meta">Rust · ★ 3 · 更新 2026-06-05 · score 9</div><div class="meta">Topics：autonomous-driving, colmap, computer-vision, gnss, gps-denied</div></div>
+  <div><div class="meta">Rust · ★ 2 · 更新 2026-06-06 · score 9</div><div class="meta">Topics：autonomous-driving, colmap, computer-vision, gnss, gps-denied</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/Kostya123123-cloud/GurionSLAM">Kostya123123-cloud/GurionSLAM</a></strong><div>Simulate robot SLAM using concurrent Java microservices to fuse camera, LiDAR, and GPS data into a real-time global landmark map.</div></div>
-  <div><div class="meta">Java · ★ 0 · 更新 2026-06-05 · score 8</div><div class="meta">Topics：amazon-web-services, chatgpt, combinatorics, distributed-computing, embedded-systems</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/jesrockr/stm32_f9p_gnss_rover_logger">jesrockr/stm32_f9p_gnss_rover_logger</a></strong><div>STM32 + ZED-F9P RTK rover logger with SD UBX backup, HC-05 NMEA pass-through, OLED status, button point averaging, CSV output, and rod-height correction.</div></div>
-  <div><div class="meta">C · ★ 0 · 更新 2026-06-05 · score 5</div></div>
+  <div><div class="meta">Java · ★ 0 · 更新 2026-06-06 · score 8</div><div class="meta">Topics：amazon-web-services, chatgpt, combinatorics, distributed-computing, embedded-systems</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/HadiHShali/GNSS_SensorFusion_KF_Cpp">HadiHShali/GNSS_SensorFusion_KF_Cpp</a></strong><div>6-month C++ learning journey: GNSS positioning, GPS solver, Kalman filtering, INS/GPS sensor fusion, Orbit determination, etc.</div></div>
@@ -206,43 +115,27 @@
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/turbinate-unclesam507/GNSS-Satellite-Soil-Moisture-Retrieval">turbinate-unclesam507/GNSS-Satellite-Soil-Moisture-Retrieval</a></strong><div>Calculate soil moisture from CYGNSS satellite data using a deep learning platform for hydrological assessment and data analysis.</div></div>
-  <div><div class="meta">★ 0 · 更新 2026-06-05 · score 4</div><div class="meta">Topics：bluetooth-low-energy, checkpoint-firewall, cisco-images, cisco-images-for-eve-ng, cisco-router-images</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-06-06 · score 4</div><div class="meta">Topics：bluetooth-low-energy, checkpoint-firewall, cisco-images, cisco-images-for-eve-ng, cisco-router-images</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/Xenonpioneer/GNSS_INS_fusionNav">Xenonpioneer/GNSS_INS_fusionNav</a></strong></div>
-  <div><div class="meta">C++ · ★ 0 · 更新 2026-06-05 · score 4</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-06-06 · score 4</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/zhang123-1999/ins-gnss-odo-nhc-fusion">zhang123-1999/ins-gnss-odo-nhc-fusion</a></strong><div>INS/GNSS/ODO/NHC integrated navigation framework comparing InEKF and ESKF under GNSS outage and large initial errors.</div></div>
   <div><div class="meta">C++ · ★ 17 · 更新 2026-06-03 · score 4</div><div class="meta">Topics：cpp, eskf, gnss, gnss-outage, inekf</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/ArthurBrussee/brush">ArthurBrussee/brush</a></strong><div>3D Reconstruction for all</div></div>
-  <div><div class="meta">Rust · ★ 4687 · 更新 2026-06-05 · score 5</div><div class="meta">Topics：gaussian-splatting, graphics, reconstruction</div></div>
+  <div><strong><a href="https://github.com/bobvan/PePPAR-Fix">bobvan/PePPAR-Fix</a></strong><div>Fixed-Position PPP-AR Disciplined Oscillator — carrier-phase GNSS for sub-nanosecond UTC alignment</div></div>
+  <div><div class="meta">HTML · ★ 3 · 更新 2026-06-06 · score 2</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/quantroninblue/semantic_spacial_mapping">quantroninblue/semantic_spacial_mapping</a></strong><div>Modular semantic spatial mapping framework integrating RGBD perception, semantic segmentation, visual odometry, world-frame geometry accumulation, and persistent spatial reasoning for robotics applications.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-06-05 · score 5</div></div>
+  <div><strong><a href="https://github.com/lorenzocl3940/gsd-2">lorenzocl3940/gsd-2</a></strong><div>Develop a coding agent that improves task automation by integrating directly with language models for efficient programming workflows.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：aml, amlx, db2, db2-warehouse, fgo</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/jashshah999/gtsam-splatfactors">jashshah999/gtsam-splatfactors</a></strong><div>Gaussian Splatting meets Factor Graph SLAM — iSAM2 pose optimization with differentiable rendering factors</div></div>
-  <div><div class="meta">Python · ★ 11 · 更新 2026-06-05 · score 3</div><div class="meta">Topics：3d-reconstruction, factor-graph, gaussian-splatting, gtsam, isam2</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/mateosss/colder">mateosss/colder</a></strong><div>Export a synthetic Blender scene to COLMAP text format for 3D reconstruction</div></div>
-  <div><div class="meta">Python · ★ 1 · 更新 2026-06-04 · score 2</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/dawodnasr/kingdom-3d-twin">dawodnasr/kingdom-3d-twin</a></strong><div>Kingdom Tower 3D Twin Builder - video/photos -&gt; COLMAP -&gt; Gaussian Splatting</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-06-04 · score 2</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/mdtajnur22/kiss-slam">mdtajnur22/kiss-slam</a></strong><div>A LiDAR SLAM system that just works</div></div>
-  <div><div class="meta">Python · ★ 5 · 更新 2026-06-05 · score 9</div><div class="meta">Topics：996, censorship, china, china-dictatorship, chinese-communist-party</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/y1s3ra150/lidar_inertial_odometry">y1s3ra150/lidar_inertial_odometry</a></strong><div>Accelerate LiDAR-Inertial odometry for accurate motion tracking with advanced estimation and efficient data management using pre-computed surfels.</div></div>
-  <div><div class="meta">HTML · ★ 1 · 更新 2026-06-05 · score 9</div><div class="meta">Topics：3d-mapping, 3d-reconstruction, colored-point-cloud, lidar, lidar-camera-synchronization</div></div>
+  <div><strong><a href="https://github.com/xeeqr/speed-reader">xeeqr/speed-reader</a></strong><div>⚡ Boost your reading speed with this web-based tool using RSVP and ORP, ensuring privacy with offline functionality and EPUB/TXT file support.</div></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：blazor, brave-extension, cross-platform-speedreader, ebooks, gnss</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/CNU-Bot-Group/ru4dslam">CNU-Bot-Group/ru4dslam</a></strong><div>[CVPR Findings 2026] RU4D-SLAM: Reweighting Uncertainty in Gaussian Splatting SLAM for 4D Scene Reconstruction</div></div>
@@ -250,55 +143,71 @@
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/yeicor-docker/colmap-openmvs">yeicor-docker/colmap-openmvs</a></strong><div>Full photogrammetry pipeline.</div></div>
-  <div><div class="meta">Shell · ★ 4 · 更新 2026-06-05 · score 8</div></div>
+  <div><div class="meta">Shell · ★ 4 · 更新 2026-06-06 · score 8</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/yeicor/colmap-openmvs-app">yeicor/colmap-openmvs-app</a></strong></div>
-  <div><div class="meta">Rust · ★ 1 · 更新 2026-06-05 · score 8</div></div>
+  <div><div class="meta">Rust · ★ 1 · 更新 2026-06-06 · score 8</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/BrnoMarsRover/visual_inertial_odometry">BrnoMarsRover/visual_inertial_odometry</a></strong><div>Repo for vio files and documentation</div></div>
-  <div><div class="meta">MATLAB · ★ 0 · 更新 2026-06-05 · score 8</div></div>
+  <div><div class="meta">MATLAB · ★ 0 · 更新 2026-06-06 · score 8</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jcevasco2003/f_vigs_slam">jcevasco2003/f_vigs_slam</a></strong><div>Este repositorio es para guardar la implementación de mi tesis de Licenciatura en Ciencias de Datos. Implementa un algoritmo de Gaussian Splatting aplicado a SLAM en el marco de ROS2.</div></div>
+  <div><div class="meta">C++ · ★ 1 · 更新 2026-06-01 · score 8</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/Delon123/solidstate-lidar-slam">Delon123/solidstate-lidar-slam</a></strong><div>Adapt solid-state LiDAR for SLAM and benchmark performance in short-range, small-FoV, and degenerate scenarios robustly.</div></div>
-  <div><div class="meta">HTML · ★ 1 · 更新 2026-06-05 · score 7</div><div class="meta">Topics：buidler, camera-calibration, data-fusion, eth, gatsby-starter-kit</div></div>
+  <div><div class="meta">HTML · ★ 1 · 更新 2026-06-06 · score 7</div><div class="meta">Topics：buidler, camera-calibration, data-fusion, eth, gatsby-starter-kit</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/cgingold/slam-guesser-daily-game">cgingold/slam-guesser-daily-game</a></strong><div>Slam Guesser</div></div>
-  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-05 · score 7</div></div>
+  <div><strong><a href="https://github.com/jbernalfa/voxel_svio">jbernalfa/voxel_svio</a></strong><div>[RA-L 2025] A stereo visual-inertial odometry system based on voxel map</div></div>
+  <div><div class="meta">C++ · ★ 15 · 更新 2026-06-06 · score 6</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/luohongk/Embodied-AI-Daily">luohongk/Embodied-AI-Daily</a></strong><div>这个仓库是在arxiv上收集的有关VLN，VLA，World Model，SLAM，Gaussian Splatting,非线性优化等相关论文。每天都会自动更新！issue区域是最新10篇论文</div></div>
   <div><div class="meta">Python · ★ 271 · 更新 2026-06-05 · score 6</div><div class="meta">Topics：deep-learning, gaussian-splatting, lio, slam, vio</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/jbernalfa/voxel_svio">jbernalfa/voxel_svio</a></strong><div>[RA-L 2025] A stereo visual-inertial odometry system based on voxel map</div></div>
-  <div><div class="meta">C++ · ★ 15 · 更新 2026-06-05 · score 6</div></div>
+  <div><strong><a href="https://github.com/quantroninblue/semantic_spacial_mapping">quantroninblue/semantic_spacial_mapping</a></strong><div>Modular semantic spatial mapping framework integrating RGBD perception, semantic segmentation, visual odometry, world-frame geometry accumulation, and persistent spatial reasoning for robotics applications.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-06-06 · score 5</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/anhthuan1999/varsplat">anhthuan1999/varsplat</a></strong><div>[CVPR 2026] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM</div></div>
   <div><div class="meta">Python · ★ 23 · 更新 2026-06-03 · score 5</div><div class="meta">Topics：3dgs, 3dgs-slam, gaussian-splatting, slam</div></div>
 </div>
 <div class="repo">
+  <div><strong><a href="https://github.com/Gaunah/runpod-colmap-brush">Gaunah/runpod-colmap-brush</a></strong></div>
+  <div><div class="meta">Shell · ★ 0 · 更新 2026-06-06 · score 4</div></div>
+</div>
+<div class="repo">
   <div><strong><a href="https://github.com/rsasaki0109/gs-mapper">rsasaki0109/gs-mapper</a></strong><div>Photos, robotics logs, and external SLAM outputs to browser-viewable 3D Gaussian Splats</div></div>
   <div><div class="meta">Python · ★ 4 · 更新 2026-06-05 · score 4</div><div class="meta">Topics：3d-gaussian-splatting, 3d-reconstruction, 3dgs, 3dgs-slam, autonomous-driving</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Rheacoutinho/humanoid-perception-3d-reconstruction">Rheacoutinho/humanoid-perception-3d-reconstruction</a></strong></div>
-  <div><div class="meta">Jupyter Notebook · ★ 0 · 更新 2026-06-05 · score 3</div></div>
+  <div><strong><a href="https://github.com/rsasaki0109/dynamic-3d-object-removal">rsasaki0109/dynamic-3d-object-removal</a></strong><div>Numpy-only dynamic object removal for LiDAR point clouds — 3D box crop + temporal filtering. No GPU, no deep learning.</div></div>
+  <div><div class="meta">Python · ★ 72 · 更新 2026-06-06 · score 3</div><div class="meta">Topics：argoverse, autonomous-driving, dynamic-object-removal, kitti, lidar</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/beltoforion/lichtloch-3d-reconstruction">beltoforion/lichtloch-3d-reconstruction</a></strong></div>
-  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-05 · score 3</div></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-06 · score 3</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/maxefe7476/Axioma_robot">maxefe7476/Axioma_robot</a></strong><div>Build and explore an autonomous 4WD robot using C++, Python, ROS2, and Gazebo for advanced navigation and mapping capabilities.</div></div>
-  <div><div class="meta">Python · ★ 4 · 更新 2026-06-05 · score 2</div><div class="meta">Topics：amcl, arduino, autonomous-navigation, autonomous-robots, cpp</div></div>
+  <div><strong><a href="https://github.com/jashshah999/gtsam-splatfactors">jashshah999/gtsam-splatfactors</a></strong><div>Gaussian Splatting meets Factor Graph SLAM — iSAM2 pose optimization with differentiable rendering factors</div></div>
+  <div><div class="meta">Python · ★ 11 · 更新 2026-06-05 · score 3</div><div class="meta">Topics：3d-reconstruction, factor-graph, gaussian-splatting, gtsam, isam2</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/cawkei/TTT3R">cawkei/TTT3R</a></strong><div>Enhance 3D reconstruction with TTT3R, a test-time training method that boosts length generalization and improves performance for CUT3R applications.</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：3d-reconstruction, rnn-model, slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/nicoleravenous266/pyoctomapRT">nicoleravenous266/pyoctomapRT</a></strong><div>Accelerate 3D occupancy grid mapping with this Python wrapper for OctoMap-RT that uses GPU ray-tracing for real-time volumetric data processing.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：3d-mapping, cuda, gpu, nanobind, nvidia-optix</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/aryanssargiyas-rgb/Axis">aryanssargiyas-rgb/Axis</a></strong><div>Enhance your shell with a fast, local-first runtime that improves navigation, prompts, and command history without any setup.</div></div>
-  <div><div class="meta">★ 0 · 更新 2026-06-05 · score 2</div><div class="meta">Topics：alert, css, gtsam, illusion, lidar</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：alert, css, gtsam, illusion, lidar</div></div>
 </div></div></details>
 </section>
 

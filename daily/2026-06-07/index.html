@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-06-07</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-06-07</div>
+    <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
+    <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：2</span><span class="stat">推荐论文：2</span><span class="stat">新论文：2</span><span class="stat">仓库：39</span><span class="stat">新仓库：8</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><p>今天新增论文 2 篇，均来自 cs.CV：一篇是面向自动驾驶实时部署的环视稠密三维几何模型 <strong>LiAuto-GeoX</strong>，另一篇是将 Segment Anything 扩展到跨视图共可见区域建模的鲁棒特征匹配方法 <strong>SAMatcher</strong>。已过滤历史重复论文 12 篇；按照任务规则，旧论文不作为“跟踪/更新”补进重点论文。</p>
+<p>仓库侧新增 8 个项目，整体以低星新建仓库为主：COLMAP/3DGS 输入预处理、街景 Gaussian/COLMAP 流程、GNSS Android/RINEX 质量分析、立体 VIO 初始化和 ROS2 无人机地面站均值得后续打开 README 与代码结构核验。</p></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">今日推荐 2 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2606.05774/index.html"><img src="../../assets/media/2026-06-07/arxiv-2606.05774/fig-001.webp" alt="LiAuto-GeoX: Efficient Grounded Driving Transformer" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2606.05774/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">LiAuto-GeoX：高效的几何约束驾驶 Transformer</span><span class="lang lang-en lang-inline" data-lang="en">LiAuto-GeoX: Efficient Grounded Driving Transformer</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-04 · score 3 · cs.CV</div>
+  <div class="meta">作者：Jiawei Lian, Haoyi Sun, Yang Wu, Lifu Mu</div>
+  <span class="score">评分 7.2/10</span>
+  <div class="tags"><span class="tag">自动驾驶</span><span class="tag">稠密三维重建</span><span class="tag">LiDAR先验</span><span class="tag">几何蒸馏</span><span class="tag">多相机</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用 LiDAR 几何先验和蒸馏把大规模驾驶三维重建模型压缩成实时车载几何表示。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">LiAuto-GeoX 面向自动驾驶实时稠密三维场景理解，先用大规模环视数据和稀疏 LiDAR 先验训练高容量 driving geometry model，再通过几何保持蒸馏压缩为 155M 参数车载模型。蒸馏包括 mask-guided depth-aware distillation 和 relative-pose relational distillation，以保留远距离几何、细粒度度量结构和跨视角一致性…</p><p class="lang lang-en lang-block" data-lang="en">Dense 3D reconstruction has demonstrated immense potential for spatial understanding, yet its viability as a real-time, onboard representation for autonomous driving remains an open challenge. Existing large-s…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.05774">abs</a><a href="https://arxiv.org/pdf/2606.05774">PDF</a><a href="../../papers/arxiv-2606.05774/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2606.03406/index.html"><img src="../../assets/media/2026-06-07/arxiv-2606.03406/fig-001.webp" alt="SAMatcher: Co-Visibility Modeling with Segment Anything for Robust Feature Matching" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2606.03406/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SAMatcher：结合 Segment Anything 的共可见性建模鲁棒特征匹配</span><span class="lang lang-en lang-inline" data-lang="en">SAMatcher: Co-Visibility Modeling with Segment Anything for Robust Feature Matching</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-02 · score 3 · cs.CV</div>
+  <div class="meta">作者：Xu Pan, Qiyuan Ma, Mingyue Dong, He Chen</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">特征匹配</span><span class="tag">共可见性</span><span class="tag">SAM</span><span class="tag">SfM</span><span class="tag">视觉定位</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用 SAM 预测共可见区域作为先验，增强大视角变化下的图像特征匹配。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">SAMatcher 将特征匹配建模为共可见区域预测问题，先基于 SAM 预测跨视图共可见 mask 和 bounding box，再将其作为结构化先验进行对应估计。方法引入对称 cross-view interaction 做双向特征交换和语义对齐，并通过 mask learning、box regression 和 mask-box consistency 统一监督，在大视角和尺度变化下提升匹配鲁棒性。</p><p class="lang lang-en lang-block" data-lang="en">Reliable correspondence estimation is a fundamental problem in image processing, underpinning applications such as Structure from Motion, visual localization, and image registration. Existing learning-based me…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.03406">abs</a><a href="https://arxiv.org/pdf/2606.03406">PDF</a><a href="../../papers/arxiv-2606.03406/index.html">详情</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；新仓库、高分仓库和 GNSS/GPS/RTK 相关仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/frankhdprado2-maker/Lab4-GNSS-Android">frankhdprado2-maker/Lab4-GNSS-Android</a></strong></div>
+  <div><div class="meta">新项目 · Kotlin · ★ 0 · 更新 2026-06-06 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/DweepSaha/gnss-rinex-pipeline-">DweepSaha/gnss-rinex-pipeline-</a></strong><div>Project - GNSS Quality Analyzer</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-06 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/SlamtyORG/Slamty">SlamtyORG/Slamty</a></strong></div>
+  <div><div class="meta">新项目 · C# · ★ 0 · 更新 2026-06-06 · score 7</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sunshinejuanjuan123/colmap_streetgaussian_ns">sunshinejuanjuan123/colmap_streetgaussian_ns</a></strong></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-06-06 · score 7</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/koroltony/UCLA_Gateway_Plaza_3DGS">koroltony/UCLA_Gateway_Plaza_3DGS</a></strong><div>3DGS Reconstruction of UCLA Gateway Plaza from unstaged outdoor scene video</div></div>
+  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-06-06 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/toruhashimoto/unreflectanything-batch">toruhashimoto/unreflectanything-batch</a></strong><div>Batch specular-reflection / highlight removal (UnReflectAnything) for 3D Gaussian Splatting and photogrammetry input photos. CLI + Streamlit GUI, EXIF/format-preserving, with optional COLMAP and 3DGS (LichtFeld) A/B harnesses.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-06 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Qiu0336/DSInit">Qiu0336/DSInit</a></strong><div>Code for the paper: Direct Sparse Initialization for Stereo Visual-Inertial Odometry</div></div>
+  <div><div class="meta">新项目 · ★ 6 · 更新 2026-06-06 · score 2</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lluisestape-upc/drone-gcs">lluisestape-upc/drone-gcs</a></strong><div>Autonomous UAV ground control station — Electron + ROS2 + LiDAR SLAM + MAVLink · Raspberry Pi 5 onboard</div></div>
+  <div><div class="meta">新项目 · JavaScript · ★ 0 · 更新 2026-06-06 · score 2</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 31 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam_ros2">rsasaki0109/lidar_slam_ros2</a></strong><div>ROS 2 LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
+  <div><div class="meta">HTML · ★ 816 · 更新 2026-06-06 · score 14</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM">3D-Vision-World/awesome-NeRF-and-3DGS-SLAM</a></strong><div>A comprehensive list of Implicit Representations, NeRF and 3D Gaussian Splatting papers relating to SLAM/Robotics domain, including papers, videos, codes, and related websites</div></div>
+  <div><div class="meta">★ 2028 · 更新 2026-06-01 · score 20</div><div class="meta">Topics：3dgs, awesome, gaussiansplatting, lidar-slam, nerf</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kurajulii/slamAI-istanbulCanyon">kurajulii/slamAI-istanbulCanyon</a></strong><div>Enhance drone navigation with robust Visual Odometry and SLAM for urban canyons, focusing on realistic İstanbul environments and machine learning solutions.</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-06-06 · score 11</div><div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/colmap/colmap">colmap/colmap</a></strong><div>COLMAP - Structure-from-Motion and Multi-View Stereo</div></div>
+  <div><div class="meta">C++ · ★ 11862 · 更新 2026-06-05 · score 10</div><div class="meta">Topics：computer-vision, geometry, multi-view-stereo, reconstruction, structure-from-motion</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/visloc-rs">rsasaki0109/visloc-rs</a></strong><div>Pure-Rust visual &amp; visual-inertial SLAM for GPS-denied robots and UAVs</div></div>
+  <div><div class="meta">Rust · ★ 2 · 更新 2026-06-06 · score 9</div><div class="meta">Topics：autonomous-driving, colmap, computer-vision, gnss, gps-denied</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Kostya123123-cloud/GurionSLAM">Kostya123123-cloud/GurionSLAM</a></strong><div>Simulate robot SLAM using concurrent Java microservices to fuse camera, LiDAR, and GPS data into a real-time global landmark map.</div></div>
+  <div><div class="meta">Java · ★ 0 · 更新 2026-06-06 · score 8</div><div class="meta">Topics：amazon-web-services, chatgpt, combinatorics, distributed-computing, embedded-systems</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/HadiHShali/GNSS_SensorFusion_KF_Cpp">HadiHShali/GNSS_SensorFusion_KF_Cpp</a></strong><div>6-month C++ learning journey: GNSS positioning, GPS solver, Kalman filtering, INS/GPS sensor fusion, Orbit determination, etc.</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-06-05 · score 5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/turbinate-unclesam507/GNSS-Satellite-Soil-Moisture-Retrieval">turbinate-unclesam507/GNSS-Satellite-Soil-Moisture-Retrieval</a></strong><div>Calculate soil moisture from CYGNSS satellite data using a deep learning platform for hydrological assessment and data analysis.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-06-06 · score 4</div><div class="meta">Topics：bluetooth-low-energy, checkpoint-firewall, cisco-images, cisco-images-for-eve-ng, cisco-router-images</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Xenonpioneer/GNSS_INS_fusionNav">Xenonpioneer/GNSS_INS_fusionNav</a></strong></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-06-06 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/zhang123-1999/ins-gnss-odo-nhc-fusion">zhang123-1999/ins-gnss-odo-nhc-fusion</a></strong><div>INS/GNSS/ODO/NHC integrated navigation framework comparing InEKF and ESKF under GNSS outage and large initial errors.</div></div>
+  <div><div class="meta">C++ · ★ 17 · 更新 2026-06-03 · score 4</div><div class="meta">Topics：cpp, eskf, gnss, gnss-outage, inekf</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/bobvan/PePPAR-Fix">bobvan/PePPAR-Fix</a></strong><div>Fixed-Position PPP-AR Disciplined Oscillator — carrier-phase GNSS for sub-nanosecond UTC alignment</div></div>
+  <div><div class="meta">HTML · ★ 3 · 更新 2026-06-06 · score 2</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lorenzocl3940/gsd-2">lorenzocl3940/gsd-2</a></strong><div>Develop a coding agent that improves task automation by integrating directly with language models for efficient programming workflows.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：aml, amlx, db2, db2-warehouse, fgo</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/xeeqr/speed-reader">xeeqr/speed-reader</a></strong><div>⚡ Boost your reading speed with this web-based tool using RSVP and ORP, ensuring privacy with offline functionality and EPUB/TXT file support.</div></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：blazor, brave-extension, cross-platform-speedreader, ebooks, gnss</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/CNU-Bot-Group/ru4dslam">CNU-Bot-Group/ru4dslam</a></strong><div>[CVPR Findings 2026] RU4D-SLAM: Reweighting Uncertainty in Gaussian Splatting SLAM for 4D Scene Reconstruction</div></div>
+  <div><div class="meta">Python · ★ 13 · 更新 2026-06-01 · score 9</div><div class="meta">Topics：4d-gaussian-splatting, 4d-reconstruction, computer-vision, cvpr2026, gaussian-splatting</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yeicor-docker/colmap-openmvs">yeicor-docker/colmap-openmvs</a></strong><div>Full photogrammetry pipeline.</div></div>
+  <div><div class="meta">Shell · ★ 4 · 更新 2026-06-06 · score 8</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yeicor/colmap-openmvs-app">yeicor/colmap-openmvs-app</a></strong></div>
+  <div><div class="meta">Rust · ★ 1 · 更新 2026-06-06 · score 8</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/BrnoMarsRover/visual_inertial_odometry">BrnoMarsRover/visual_inertial_odometry</a></strong><div>Repo for vio files and documentation</div></div>
+  <div><div class="meta">MATLAB · ★ 0 · 更新 2026-06-06 · score 8</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jcevasco2003/f_vigs_slam">jcevasco2003/f_vigs_slam</a></strong><div>Este repositorio es para guardar la implementación de mi tesis de Licenciatura en Ciencias de Datos. Implementa un algoritmo de Gaussian Splatting aplicado a SLAM en el marco de ROS2.</div></div>
+  <div><div class="meta">C++ · ★ 1 · 更新 2026-06-01 · score 8</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Delon123/solidstate-lidar-slam">Delon123/solidstate-lidar-slam</a></strong><div>Adapt solid-state LiDAR for SLAM and benchmark performance in short-range, small-FoV, and degenerate scenarios robustly.</div></div>
+  <div><div class="meta">HTML · ★ 1 · 更新 2026-06-06 · score 7</div><div class="meta">Topics：buidler, camera-calibration, data-fusion, eth, gatsby-starter-kit</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jbernalfa/voxel_svio">jbernalfa/voxel_svio</a></strong><div>[RA-L 2025] A stereo visual-inertial odometry system based on voxel map</div></div>
+  <div><div class="meta">C++ · ★ 15 · 更新 2026-06-06 · score 6</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/luohongk/Embodied-AI-Daily">luohongk/Embodied-AI-Daily</a></strong><div>这个仓库是在arxiv上收集的有关VLN，VLA，World Model，SLAM，Gaussian Splatting,非线性优化等相关论文。每天都会自动更新！issue区域是最新10篇论文</div></div>
+  <div><div class="meta">Python · ★ 271 · 更新 2026-06-05 · score 6</div><div class="meta">Topics：deep-learning, gaussian-splatting, lio, slam, vio</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/quantroninblue/semantic_spacial_mapping">quantroninblue/semantic_spacial_mapping</a></strong><div>Modular semantic spatial mapping framework integrating RGBD perception, semantic segmentation, visual odometry, world-frame geometry accumulation, and persistent spatial reasoning for robotics applications.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-06-06 · score 5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/anhthuan1999/varsplat">anhthuan1999/varsplat</a></strong><div>[CVPR 2026] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM</div></div>
+  <div><div class="meta">Python · ★ 23 · 更新 2026-06-03 · score 5</div><div class="meta">Topics：3dgs, 3dgs-slam, gaussian-splatting, slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Gaunah/runpod-colmap-brush">Gaunah/runpod-colmap-brush</a></strong></div>
+  <div><div class="meta">Shell · ★ 0 · 更新 2026-06-06 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/gs-mapper">rsasaki0109/gs-mapper</a></strong><div>Photos, robotics logs, and external SLAM outputs to browser-viewable 3D Gaussian Splats</div></div>
+  <div><div class="meta">Python · ★ 4 · 更新 2026-06-05 · score 4</div><div class="meta">Topics：3d-gaussian-splatting, 3d-reconstruction, 3dgs, 3dgs-slam, autonomous-driving</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/dynamic-3d-object-removal">rsasaki0109/dynamic-3d-object-removal</a></strong><div>Numpy-only dynamic object removal for LiDAR point clouds — 3D box crop + temporal filtering. No GPU, no deep learning.</div></div>
+  <div><div class="meta">Python · ★ 72 · 更新 2026-06-06 · score 3</div><div class="meta">Topics：argoverse, autonomous-driving, dynamic-object-removal, kitti, lidar</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/beltoforion/lichtloch-3d-reconstruction">beltoforion/lichtloch-3d-reconstruction</a></strong></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-06 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jashshah999/gtsam-splatfactors">jashshah999/gtsam-splatfactors</a></strong><div>Gaussian Splatting meets Factor Graph SLAM — iSAM2 pose optimization with differentiable rendering factors</div></div>
+  <div><div class="meta">Python · ★ 11 · 更新 2026-06-05 · score 3</div><div class="meta">Topics：3d-reconstruction, factor-graph, gaussian-splatting, gtsam, isam2</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/cawkei/TTT3R">cawkei/TTT3R</a></strong><div>Enhance 3D reconstruction with TTT3R, a test-time training method that boosts length generalization and improves performance for CUT3R applications.</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：3d-reconstruction, rnn-model, slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/nicoleravenous266/pyoctomapRT">nicoleravenous266/pyoctomapRT</a></strong><div>Accelerate 3D occupancy grid mapping with this Python wrapper for OctoMap-RT that uses GPU ray-tracing for real-time volumetric data processing.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：3d-mapping, cuda, gpu, nanobind, nvidia-optix</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/aryanssargiyas-rgb/Axis">aryanssargiyas-rgb/Axis</a></strong><div>Enhance your shell with a fast, local-first runtime that improves navigation, prompts, and command history without any setup.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-06-06 · score 2</div><div class="meta">Topics：alert, css, gtsam, illusion, lidar</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
