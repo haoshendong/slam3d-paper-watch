@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MaterialClusterGS: Palette-Based Material Decomposition and Physically-Based Relighting with 2D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-10/index.html">← 返回 2026-06-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-08 · score 9 · cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MaterialClusterGS：基于调色板材料分解的 2DGS 物理重光照</span><span class="lang lang-en lang-inline" data-lang="en">MaterialClusterGS: Palette-Based Material Decomposition and Physically-Based Relighting with 2D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Hao Zhang, Ang Li, Boyan Du, Junke Zhu, Fei Zhu, Meng Gai, Zhangjin Huang, Guoping Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.09018">abs</a><a href="https://arxiv.org/pdf/2606.09018">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.3/10</span><p>偏图形学与数字孪生后处理，离 SLAM/GNSS 主线较远；但对 Gaussian 地图的材质一致性与可编辑性有参考价值。</p><div class="tags"><span class="tag">2DGS</span><span class="tag">材质分解</span><span class="tag">BRDF 调色板</span><span class="tag">物理重光照</span><span class="tag">数字孪生</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">MaterialClusterGS 用共享 BRDF 调色板和连续材料场约束 2DGS inverse rendering，让材质编辑和重光照更一致。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">MaterialClusterGS 是一个面向 2D Gaussian Splatting 的调色板式材料分解框架，支持基于物理的 relighting 和 material editing。现有 Gaussian inverse rendering 方法通常为每个 primitive 独立分配 BRDF 参数，虽然灵活，但材料恢复高度欠约束：阴影、间接光照、几何误差和可见性残差可能被吸收到大量略有差异的局部材料估计中。本文用紧凑全局 palette 表示共享 BRDF prototypes，并通过连续空间材料场分配这些原型，使同一材料区域的编辑能够一致传播。方法在物理渲染目标下联合优化材料场、palette prototypes 和环境光，输出可直接用于材料编辑、重光照和迁移的紧凑空间一致属性。</p><p class="lang lang-en lang-block" data-lang="en">We present MaterialClusterGS, a palette-based material decomposition framework for 2D Gaussian Splatting that enables physically based relighting and material editing. Existing Gaussian inverse rendering methods typically assign independent BRDF parameters to individual primitives. While flexible, this local fitting strategy makes material recovery highly under-constrained: shadows, indirect illumination, geometric errors, and visibility residuals can be absorbed into thousands of slightly different local material estimates. Meanwhile, recent palette-based appearance methods operate solely in RGB space without modeling physical materials or illumination. To bridge this gap, we represent scene materials using a compact global palette of shared BRDF prototypes assigned via a continuous spatial material field. Without shared material structure, editing one region does not propagate consistently to others of the same material, making per-primitive decompositions impractical for editing. We jointly optimize the material field, palette prototypes, and environment lighting under a physically based rendering objective. The resulting framework recovers compact, spatially coherent attributes directly usable for material editing, relighting, and transfer.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Yongfei Guo, Qizhou Huo, Xuan Sun, Yuanhao Gong；类别：cs.CV / cs.GR / cs.MM / eess.IV / math.OC；发布日期：2026-06-06；采集 score=17</li>
+<li>核心问题：标准 3DGS photometric loss 对平坦区和结构丰富区一视同仁，容易牺牲边缘、轮廓和细节；EGGS 虽引入 edge-guided weighting，但主要依赖一阶梯度和线性权重。</li>
+<li>方法亮点：LEGS 用二阶 Laplacian 结构响应替代一阶梯度响应，并通过非线性 response-to-weight 函数生成 pixel-wise loss 权重；渲染管线不变，属于可插拔的 loss-level 扩展。</li>
+<li>结果信号：在完整 Tanks&amp;Temples 与 Mip-NeRF360 上，论文称相对 3DGS 最高提升 1.68 dB PSNR，相对 EGGS 最高提升 0.52 dB；迁移到 FastGS/FasterGS 后最高仍可提升 1.69 dB。</li>
+<li>关注价值：如果代码可复现，它是低侵入式提升 3DGS 地图边缘清晰度和细节保真的方法，适合与 SLAM/重建后的 Gaussian 地图优化阶段结合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

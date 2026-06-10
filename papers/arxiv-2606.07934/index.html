@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-10/index.html">← 返回 2026-06-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-06 · score 4 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">X-OP：通过 MPC 重定向实现跨形态全身遥操作</span><span class="lang lang-en lang-inline" data-lang="en">X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting</span></h1>
+  <div class="meta">作者：Jen-Wei Wang, Sarthak Kaingade, Andrea Tagliabue, Nicholas Morozovsky</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.07934">abs</a><a href="https://arxiv.org/pdf/2606.07934">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.4/10</span><p>主要是机器人遥操作系统论文，与 SLAM 关系在全局位姿反馈和数据采集平台；可作为集成方案跟踪。</p><div class="tags"><span class="tag">机器人遥操作</span><span class="tag">MPC 重定向</span><span class="tag">SLAM 全局反馈</span><span class="tag">跨形态机器人</span><span class="tag">数据采集</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">X-OP 用 MPC 把单 XR 设备操作者意图重定向到不同机器人，并用 SLAM 全局位姿反馈降低遥操作漂移。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">全身遥操作对于 loco-manipulation 数据采集很重要，但外骨骼或多相机系统成本高、复杂且受环境限制。单 XR 设备加端到端 RL 的近期方法降低了门槛，却常需要针对每种机器人重新训练策略，且 motion retargeting 忽略动态可行性。X-OP 提出一个由单 XR 设备驱动的分层全身遥操作框架，可跨不同机器人形态泛化而无需机器人特定策略重训。核心是基于 MPC 的 motion retargeter，同时优化与操作者意图的对齐和机器人动态可行性，为已有低层控制器生成命令。为保证在线鲁棒性，系统在每个 MPC step 重置 simulator state 以处理真实测量噪声和接触敏感性，并集成 SLAM-based global pose feedback 缓解长时漂移。仿真和真实实验展示了在人形机器人与移动机械臂上的部署效果。</p><p class="lang lang-en lang-block" data-lang="en">Whole-body teleoperation is essential for scalable robot data collection in loco-manipulation tasks, yet existing approaches relying on exoskeleton suits or multi-camera setups impose prohibitive cost, complexity, and environmental constraints. Recent methods using a single extended reality (XR) device with end-to-end reinforcement learning policies partially address these limitations but require robot-specific retraining, suffer from out-of-distribution failures, and rely on motion retargeting that neglects dynamic feasibility. We propose a hierarchical whole-body teleoperation framework driven by a single XR device that generalizes across diverse robot morphologies without retraining robot-specific policies. A Model Predictive Control (MPC)-based motion retargeter jointly optimizes alignment with the operator&#x27;s intent and the robot&#x27;s dynamic feasibility, generating optimal commands for existing low-level controllers. To ensure robust online execution, we introduce a state synchronization method that resets the simulator state at each MPC step to handle noisy real-world measurements and contact sensitivity, and integrate SLAM-based global pose feedback to mitigate long-term drift. Simulation results show higher success rates on whole-body control tasks for both a humanoid (over 30% lower completion time and 20% lower power consumption) and a mobile manipulator (zero collisions) compared to baselines. Real-world experiments further validate the effectiveness and flexibility of our method, demonstrating the successful deployment of the proposed retargeter on both platforms for whole-body control tasks and the ease of allowing users to adjust teleoperation behavior based on their preferences. This plug-and-play framework offers a scalable, morphology-agnostic solution for whole-body robot teleoperation, enabling real-time behavioral customization and broad applicability across platforms.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Yongfei Guo, Qizhou Huo, Xuan Sun, Yuanhao Gong；类别：cs.CV / cs.GR / cs.MM / eess.IV / math.OC；发布日期：2026-06-06；采集 score=17</li>
+<li>核心问题：标准 3DGS photometric loss 对平坦区和结构丰富区一视同仁，容易牺牲边缘、轮廓和细节；EGGS 虽引入 edge-guided weighting，但主要依赖一阶梯度和线性权重。</li>
+<li>方法亮点：LEGS 用二阶 Laplacian 结构响应替代一阶梯度响应，并通过非线性 response-to-weight 函数生成 pixel-wise loss 权重；渲染管线不变，属于可插拔的 loss-level 扩展。</li>
+<li>结果信号：在完整 Tanks&amp;Temples 与 Mip-NeRF360 上，论文称相对 3DGS 最高提升 1.68 dB PSNR，相对 EGGS 最高提升 0.52 dB；迁移到 FastGS/FasterGS 后最高仍可提升 1.69 dB。</li>
+<li>关注价值：如果代码可复现，它是低侵入式提升 3DGS 地图边缘清晰度和细节保真的方法，适合与 SLAM/重建后的 Gaussian 地图优化阶段结合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.07934/fig-001.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.07934/fig-001.webp" alt="X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.07934/fig-002.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.07934/fig-002.webp" alt="X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.07934/fig-003.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.07934/fig-003.webp" alt="X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.07934/fig-004.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.07934/fig-004.webp" alt="X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.07934/table-001.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.07934/table-001.webp" alt="X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.07934/table-002.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.07934/table-002.webp" alt="X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.07934/table-003.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.07934/table-003.webp" alt="X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.07934/table-004.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.07934/table-004.webp" alt="X-OP: Cross-Morphology Whole-Body Teleoperation via MPC Retargeting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

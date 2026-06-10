@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>G2G: Exploiting Intra-Group Geometry for Inter-Group Pose Estimation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-10/index.html">← 返回 2026-06-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-07 · score 6 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">G2G：利用组内几何进行组间位姿估计</span><span class="lang lang-en lang-inline" data-lang="en">G2G: Exploiting Intra-Group Geometry for Inter-Group Pose Estimation</span></h1>
+  <div class="meta">作者：Yufei Wei, Shuhao Ye, Chenxiao Hu, Yiyuan Pan, Dongyu Feng, Rong Xiong, Yue Wang, Yanmei Jiao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.08284">abs</a><a href="https://arxiv.org/pdf/2606.08284">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.1/10</span><p>直接面向跨序列重定位和多相机 rig odometry，代码已公布；评分受采集 score 较低和需要复现验证影响。</p><div class="tags"><span class="tag">跨序列重定位</span><span class="tag">多相机里程计</span><span class="tag">相对位姿</span><span class="tag">Foundation Model Adapter</span><span class="tag">Sim-to-real</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">G2G 冻结多视图 foundation model，用轻量跨组桥接模块显式估计两组图像的相对位姿。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">恢复两组图像之间的相对 6-DoF 位姿是跨序列重定位和多相机 rig 里程计的基础。每个图像组通常携带来自视觉里程计或 rig 标定的已知组内几何，预训练多视图 backbone 也已能把这类几何融合进视觉特征；但当前模型常把所有视图当作无结构集合，缺少跨组推理。G2G 冻结 foundation model，仅增加三个轻量可训练模块：perceiver resampler、带 merged self-attention 的 cross-group bridge，以及 multi-frame pose head。可训练参数约 32M，不到完整模型 6%，且只用相对位姿监督。论文在四个覆盖室内/室外仿真、真实跨季节采集和 zero-shot sim-to-real 的数据集上实现 SOTA，并给出代码链接。</p><p class="lang lang-en lang-block" data-lang="en">Recovering the relative 6-DoF pose between two image groups underlies cross-sequence relocalization and multi-camera rig odometry. Each group carries known intra-group geometry from visual odometry or rig calibration, and pretrained multi-view backbones already fuse such geometry into visual features. Yet current models treat all views as an unstructured set, leaving cross-group reasoning as the missing piece. We introduce \ours{}, which keeps the foundation model entirely frozen and adds three lightweight trainable modules to bridge the two groups: a perceiver resampler, a cross-group bridge with merged self-attention, and a multi-frame pose head. The trainable footprint totals about 32M parameters, under 6\% of the full model, and is supervised only by relative poses. Across four datasets that span indoor and outdoor simulation, real-world cross-season capture, and zero-shot sim-to-real transfer, \ours{} attains state-of-the-art accuracy on both tasks, while every baseline is retrained with its full original supervision. Code is available at https://github.com/WeiYuFei0217/G2G.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Yongfei Guo, Qizhou Huo, Xuan Sun, Yuanhao Gong；类别：cs.CV / cs.GR / cs.MM / eess.IV / math.OC；发布日期：2026-06-06；采集 score=17</li>
+<li>核心问题：标准 3DGS photometric loss 对平坦区和结构丰富区一视同仁，容易牺牲边缘、轮廓和细节；EGGS 虽引入 edge-guided weighting，但主要依赖一阶梯度和线性权重。</li>
+<li>方法亮点：LEGS 用二阶 Laplacian 结构响应替代一阶梯度响应，并通过非线性 response-to-weight 函数生成 pixel-wise loss 权重；渲染管线不变，属于可插拔的 loss-level 扩展。</li>
+<li>结果信号：在完整 Tanks&amp;Temples 与 Mip-NeRF360 上，论文称相对 3DGS 最高提升 1.68 dB PSNR，相对 EGGS 最高提升 0.52 dB；迁移到 FastGS/FasterGS 后最高仍可提升 1.69 dB。</li>
+<li>关注价值：如果代码可复现，它是低侵入式提升 3DGS 地图边缘清晰度和细节保真的方法，适合与 SLAM/重建后的 Gaussian 地图优化阶段结合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.08284/fig-001.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.08284/fig-001.webp" alt="G2G: Exploiting Intra-Group Geometry for Inter-Group Pose Estimation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.08284/fig-002.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.08284/fig-002.webp" alt="G2G: Exploiting Intra-Group Geometry for Inter-Group Pose Estimation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.08284/fig-003.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.08284/fig-003.webp" alt="G2G: Exploiting Intra-Group Geometry for Inter-Group Pose Estimation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.08284/table-001.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.08284/table-001.webp" alt="G2G: Exploiting Intra-Group Geometry for Inter-Group Pose Estimation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.08284/table-002.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.08284/table-002.webp" alt="G2G: Exploiting Intra-Group Geometry for Inter-Group Pose Estimation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.08284/table-003.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.08284/table-003.webp" alt="G2G: Exploiting Intra-Group Geometry for Inter-Group Pose Estimation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-10/index.html">← 返回 2026-06-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-08 · score 11 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向多相机系统视觉惯性相对位姿估计的高效最小解</span><span class="lang lang-en lang-inline" data-lang="en">Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems</span></h1>
+  <div class="meta">作者：Tao Li, Zhenbao Yu, Banglei Guan, Jianli Han, Weimin Lv</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.09477">abs</a><a href="https://arxiv.org/pdf/2606.09477">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>直接面向视觉惯性里程计和多相机 rig，相对位姿前端实用性强；后续需看噪声、IMU 先验误差和外点率下的鲁棒性。</p><div class="tags"><span class="tag">视觉惯性</span><span class="tag">多相机系统</span><span class="tag">相对位姿</span><span class="tag">最小解</span><span class="tag">RANSAC</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">论文提出利用 IMU 方向先验的 4 点多相机相对位姿最小解，可降低 VIO/VO RANSAC 前端的求解成本。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">多相机系统相对位姿估计是自动驾驶、移动设备和 UAV 中的基础问题。既有方案通常计算复杂度高，或需要过多点对应，限制了真实系统中的 RANSAC 效率。本文基于新的参数化提出两个高效 minimal solvers：第一个使用 IMU 提供的竖直方向先验，第二个使用 IMU 提供的旋转轴方向先验。两种方法都只需要 4 个点对应，并把多相机相对位姿估计化简为求解一元 6 次多项式，相比常见 8 次多项式方案降低了复杂度。合成数据和 KITTI benchmark 评估表明，这些 solver 在计算效率上优于相关方法，并保持有竞争力的精度，尤其适合集成到 RANSAC 框架中。</p><p class="lang lang-en lang-block" data-lang="en">Estimating the relative poses of multi-camera systems is a fundamental problem in computer vision, with critical applications in autonomous vehicles, mobile devices, and unmanned aerial vehicles (UAVs). However, existing solutions often suffer from high computational complexity or rely on an excessive number of point correspondences, limiting their real-world applicability. To address these limitations, we propose two efficient minimal solvers for estimating the relative poses of multi-camera systems using a novel parameterization. The first solver leverages the vertical direction prior provided by Inertial Measurement Units (IMUs), while the second utilizes the rotation axis direction prior from IMUs. Our methods require only four point correspondences and reduce the problem of multi-camera relative pose estimation to solving a univariate 6th-degree polynomial, a significant improvement over existing approaches, which typically involve 8th-degree polynomials. This reduction in computational complexity and correspondence requirements makes our solvers particularly effective when integrated into RANSAC frameworks, demonstrating strong potential for visual odometry applications. Through rigorous evaluations on synthetic data and the KITTI benchmark, our methods achieved superior computational efficiency and competitive accuracy compared to state-of-the-art algorithms.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Yongfei Guo, Qizhou Huo, Xuan Sun, Yuanhao Gong；类别：cs.CV / cs.GR / cs.MM / eess.IV / math.OC；发布日期：2026-06-06；采集 score=17</li>
+<li>核心问题：标准 3DGS photometric loss 对平坦区和结构丰富区一视同仁，容易牺牲边缘、轮廓和细节；EGGS 虽引入 edge-guided weighting，但主要依赖一阶梯度和线性权重。</li>
+<li>方法亮点：LEGS 用二阶 Laplacian 结构响应替代一阶梯度响应，并通过非线性 response-to-weight 函数生成 pixel-wise loss 权重；渲染管线不变，属于可插拔的 loss-level 扩展。</li>
+<li>结果信号：在完整 Tanks&amp;Temples 与 Mip-NeRF360 上，论文称相对 3DGS 最高提升 1.68 dB PSNR，相对 EGGS 最高提升 0.52 dB；迁移到 FastGS/FasterGS 后最高仍可提升 1.69 dB。</li>
+<li>关注价值：如果代码可复现，它是低侵入式提升 3DGS 地图边缘清晰度和细节保真的方法，适合与 SLAM/重建后的 Gaussian 地图优化阶段结合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09477/fig-001.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09477/fig-001.webp" alt="Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09477/fig-002.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09477/fig-002.webp" alt="Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09477/fig-003.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09477/fig-003.webp" alt="Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09477/fig-004.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09477/fig-004.webp" alt="Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09477/fig-005.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09477/fig-005.webp" alt="Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09477/fig-006.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09477/fig-006.webp" alt="Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09477/table-001.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09477/table-001.webp" alt="Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09477/table-002.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09477/table-002.webp" alt="Efficient Minimal Solvers for Visual-Inertial Relative Pose Estimation in Multi-Camera Systems" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
