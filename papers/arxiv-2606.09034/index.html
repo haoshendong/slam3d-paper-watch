@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Leveraging NeRF-Rendered Images for 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-10/index.html">← 返回 2026-06-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-08 · score 14 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">利用 NeRF 渲染图像训练 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Leveraging NeRF-Rendered Images for 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Mizuki Morikawa, Yuta Shimizu, Chunyu Li, Yusuke Monno, Masatoshi Okutomi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.09034">abs</a><a href="https://arxiv.org/pdf/2606.09034">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.9/10</span><p>面向街景三维重建和自动驾驶地图，有明确工程价值；创新点更多是训练数据生成/teacher-student 组合，需关注 NeRF 预训练成本。</p><div class="tags"><span class="tag">街景重建</span><span class="tag">3DGS</span><span class="tag">NeRF 教师模型</span><span class="tag">动态物体去除</span><span class="tag">鸟瞰视角</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该方法把高质量但较慢的街景 NeRF 当作 teacher，为快速 3DGS 提供去瞬态物体和鸟瞰补视角训练图像。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">NeRF 与 3DGS 在新视角合成中具有互补特性：3DGS 渲染速度快，NeRF 通常渲染质量更高。本文面向街景场景，提出使用预训练的街景专用 NeRF 为目标 3DGS 生成训练图像。NeRF 渲染图像在 3DGS 训练中承担两类作用：替换含瞬态物体的街景输入视图，以继承 NeRF 对动态/瞬态干扰的清理能力；生成 bird&#x27;s-eye views 作为附加视角，为 3DGS 提供更完整的几何与外观监督。作者还引入 diffusion-based image enhancement 提升附加视图质量。实验覆盖一个合成数据集和两个真实数据集，结果表明该策略可改善街景渲染，同时保持 3DGS 的速度优势和 NeRF 的质量优势。</p><p class="lang lang-en lang-block" data-lang="en">Neural radiance field (NeRF) and 3D Gaussian splatting (3DGS) are two mainstream approaches for novel view synthesis. They often show complementary performance, i.e., 3DGS demonstrating faster rendering speed and NeRF demonstrating higher rendering quality. Motivated by this, we propose leveraging NeRF-rendered images for 3DGS. Specifically, we target street scenes and utilize a pre-trained street-specific NeRF method to produce training images for a target 3DGS method. In our 3DGS training, NeRF-rendered images are used to remove transient objects in street-level input views and to generate bird&#x27;s-eye views as additional views, inheriting the higher-quality rendering of NeRF into 3DGS. We further incorporate a diffusion-based image enhancement to improve the image quality of the additional views. Experimental results on one synthetic and two real datasets demonstrate that our proposed method improves street-scene rendering while preserving the speed of 3DGS and the quality of NeRF.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Yongfei Guo, Qizhou Huo, Xuan Sun, Yuanhao Gong；类别：cs.CV / cs.GR / cs.MM / eess.IV / math.OC；发布日期：2026-06-06；采集 score=17</li>
+<li>核心问题：标准 3DGS photometric loss 对平坦区和结构丰富区一视同仁，容易牺牲边缘、轮廓和细节；EGGS 虽引入 edge-guided weighting，但主要依赖一阶梯度和线性权重。</li>
+<li>方法亮点：LEGS 用二阶 Laplacian 结构响应替代一阶梯度响应，并通过非线性 response-to-weight 函数生成 pixel-wise loss 权重；渲染管线不变，属于可插拔的 loss-level 扩展。</li>
+<li>结果信号：在完整 Tanks&amp;Temples 与 Mip-NeRF360 上，论文称相对 3DGS 最高提升 1.68 dB PSNR，相对 EGGS 最高提升 0.52 dB；迁移到 FastGS/FasterGS 后最高仍可提升 1.69 dB。</li>
+<li>关注价值：如果代码可复现，它是低侵入式提升 3DGS 地图边缘清晰度和细节保真的方法，适合与 SLAM/重建后的 Gaussian 地图优化阶段结合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/fig-001.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/fig-001.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/fig-002.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/fig-002.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/fig-003.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/fig-003.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/fig-004.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/fig-004.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/fig-005.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/fig-005.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/fig-006.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/fig-006.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/table-001.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/table-001.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/table-002.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/table-002.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-10/arxiv-2606.09034/table-003.webp"><img src="../../assets/media/2026-06-10/arxiv-2606.09034/table-003.webp" alt="Leveraging NeRF-Rendered Images for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
