@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-11/index.html">← 返回 2026-06-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-09 · score 5 · cs.RO, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">利用 jerk 增广模型和 IMU-only 扰动拒止的自主农机鲁棒导航</span><span class="lang lang-en lang-inline" data-lang="en">Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection</span></h1>
+  <div class="meta">作者：Batu Candan, Mohammed Atallah, Simone Servadio, Saeed Arabi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.10971">abs</a><a href="https://arxiv.org/pdf/2606.10971">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>今天最接近 GNSS/INS/鲁棒导航的论文，面向传感器 outage 和越野振动；但没有直接覆盖 RTK/PPP 或因子图紧耦合。</p><div class="tags"><span class="tag">GNSS outage</span><span class="tag">惯性导航</span><span class="tag">鲁棒 EKF</span><span class="tag">农业机器人</span><span class="tag">扰动拒止</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该方法用 jerk 增广 EKF 和多调谐因子自适应协方差，在 GNSS/LiDAR/视觉失效和强振动下增强农机导航鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">自主农业机器人在越野环境中常因 GNSS、LiDAR 或视觉传感器失效以及高频振动而导致精确状态估计受损。本文提出一种基于 jerk-augmented EKF 并结合 Multiple Tuning Factor 自适应方法的鲁棒导航算法。不同于假设测量噪声恒定的标准 EKF，该方法实时动态调整测量协方差矩阵，使系统能够应对突发扰动和传感器离群。作者在 Salin247 自主机器人真实数据上评估，结果表明 jerk augmentation 与 MTF adaptation 相比 baseline EKF 显著降低 3D 位置 RMSE，并提供更强 dead-reckoning 能力。</p><p class="lang lang-en lang-block" data-lang="en">Precise state estimation for navigation of autonomous agricultural robots is often compromised by sensor outages (GNSS/LiDAR/Visual) and high-frequency vibrations inherent in off-road environments. This paper proposes a robust navigation algorithm based on a jerk-augmented Extended Kalman Filter (EKF) integrated with a Multiple Tuning Factor (MTF) adaptation method. Unlike standard EKF approaches that assume constant measurement noise, our method dynamically adjusts the measurement covariance matrix in real-time, allowing the system to cope with sudden disturbances and sensor outliers. We evaluate the algorithm using real-world data from a Salin247 autonomous robot. Results demonstrate that jerk-augmentation combined with MTF adaptation significantly reduces 3D position Root Mean Square Error (RMSE) compared to baseline EKF models, providing superior dead-reckoning capabilities.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits；类别：cs.CV / cs.AI / cs.RO；发布日期：2026-06-09；备注：16 pages, 12 figures；采集 score=14</li>
+<li>核心问题：局部点云配准在 LiDAR/RGB-D tracking 中通常依赖 correspondences 或 ICP 类最近邻，特征稀疏、退化或外观变化时容易漂移；RKHS/CVO 类 correspondence-free 方法更稳但一阶优化速度偏慢。</li>
+<li>方法亮点：把点云表示为带 point-wise anisotropic kernels 的连续函数，核函数编码局部几何，使法向方向更强约束、切向方向更宽松；优化上提出带近似 Riemannian Hessian 的二阶流形优化。</li>
+<li>结果信号：相对以往一阶 RKHS 配准 solver 最高加速约 10×；在驾驶域 LiDAR tracking 的特征稀疏场景中，平移和旋转漂移均降低超过 55%；RGB-D 与物体配准 benchmark 也显示比 ICP 类方法更稳。</li>
+<li>关注价值：这是今天最接近 SLAM 前端/里程计的工作。若开源或实现成本可控，值得尝试替换/增强 frame-to-frame LiDAR odometry、RGB-D odometry 和全局初始化后的精配准模块。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10971/fig-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10971/fig-001.webp" alt="Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10971/fig-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10971/fig-002.webp" alt="Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10971/fig-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10971/fig-003.webp" alt="Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10971/fig-004.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10971/fig-004.webp" alt="Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10971/fig-005.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10971/fig-005.webp" alt="Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10971/fig-006.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10971/fig-006.webp" alt="Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

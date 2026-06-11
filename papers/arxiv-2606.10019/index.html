@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-11/index.html">← 返回 2026-06-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-09 · score 14 · cs.CV, cs.AI, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Generalized-CVO：基于二阶黎曼优化的快速无对应点局部点云配准</span><span class="lang lang-en lang-inline" data-lang="en">Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization</span></h1>
+  <div class="meta">作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.10019">abs</a><a href="https://arxiv.org/pdf/2606.10019">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.4/10</span><p>与 SLAM 前端、点云配准和 LiDAR/RGB-D tracking 高度相关；摘要给出 10× solver 加速和 &gt;55% 漂移降低，工程潜力强。</p><div class="tags"><span class="tag">点云配准</span><span class="tag">LiDAR/RGB-D 里程计</span><span class="tag">无对应点优化</span><span class="tag">RKHS</span><span class="tag">黎曼二阶优化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">Generalized-CVO 用各向异性 RKHS 表示和二阶黎曼优化做无对应点点云配准，直接服务 LiDAR/RGB-D 里程计前端。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出一种快速、无需显式对应关系的局部点云配准方法，结合几何表面结构与再生核希尔伯特空间（RKHS）嵌入。方法把点云表示为连续函数，并为每个点使用编码局部几何的各向异性核，从而在表面法向上强化对齐，在切向上放宽约束。为求解配准问题，作者提出带近似黎曼 Hessian 的二阶流形优化，相比以往 correspondence-free RKHS 方法中的一阶 solver 最高可加速 10 倍。实验覆盖室内外 LiDAR 与 RGB-D tracking、物体配准和全局初始化后的精配准；在驾驶域特征稀疏 LiDAR tracking 中，平移与旋转漂移均降低超过 55%。</p><p class="lang lang-en lang-block" data-lang="en">We propose a fast and correspondence-free local point cloud registration method that leverages geometric surface structure and reproducing kernel Hilbert space (RKHS) embeddings. The method represents point clouds as continuous functions with point-wise anisotropic kernels that encode local geometry. This formulation improves alignment along surface normals while relaxing alignment along tangential directions. To solve the resulting registration problem, we propose a second-order on-manifold optimization scheme with approximate Riemannian Hessians, achieving a speedup of up to 10x over the first-order solvers used in prior correspondence-free RKHS-based methods. We demonstrate improved frame-to-frame LiDAR and RGB-D tracking accuracy across diverse indoor and outdoor datasets. On a LiDAR tracking registration task in the driving domain, we achieve a reduction of $&gt;55\%$ in both translational and rotational drift in challenging feature-sparse environments. On object registration benchmarks, we show improved robustness over ICP-based methods and further gains when refining global initialization, particularly under moderate misalignment.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits；类别：cs.CV / cs.AI / cs.RO；发布日期：2026-06-09；备注：16 pages, 12 figures；采集 score=14</li>
+<li>核心问题：局部点云配准在 LiDAR/RGB-D tracking 中通常依赖 correspondences 或 ICP 类最近邻，特征稀疏、退化或外观变化时容易漂移；RKHS/CVO 类 correspondence-free 方法更稳但一阶优化速度偏慢。</li>
+<li>方法亮点：把点云表示为带 point-wise anisotropic kernels 的连续函数，核函数编码局部几何，使法向方向更强约束、切向方向更宽松；优化上提出带近似 Riemannian Hessian 的二阶流形优化。</li>
+<li>结果信号：相对以往一阶 RKHS 配准 solver 最高加速约 10×；在驾驶域 LiDAR tracking 的特征稀疏场景中，平移和旋转漂移均降低超过 55%；RGB-D 与物体配准 benchmark 也显示比 ICP 类方法更稳。</li>
+<li>关注价值：这是今天最接近 SLAM 前端/里程计的工作。若开源或实现成本可控，值得尝试替换/增强 frame-to-frame LiDAR odometry、RGB-D odometry 和全局初始化后的精配准模块。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/fig-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/fig-001.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/fig-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/fig-002.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/fig-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/fig-003.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/fig-004.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/fig-004.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/fig-005.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/fig-005.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/fig-006.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/fig-006.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/table-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/table-001.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/table-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/table-002.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/table-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/table-003.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10019/table-004.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10019/table-004.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

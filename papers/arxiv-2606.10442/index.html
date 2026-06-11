@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-11/index.html">← 返回 2026-06-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-09 · score 7 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于方差加权子图拼接的信息保持连续占据建图</span><span class="lang lang-en lang-inline" data-lang="en">Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining</span></h1>
+  <div class="meta">作者：Zhuhua Bai, Yingyu Wang, Liang Zhao, Shoudong Huang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.10442">abs</a><a href="https://arxiv.org/pdf/2606.10442">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>直接命中 SLAM 后端/地图融合问题，强调不确定性和解析 Jacobian；后续关键是规模、实时性和开源实现。</p><div class="tags"><span class="tag">占据建图</span><span class="tag">子图拼接</span><span class="tag">大尺度 SLAM</span><span class="tag">不确定性</span><span class="tag">连续地图表示</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作把 occupancy 子图拼接从离散栅格推进到带方差估计的连续 log-odds 场，面向大尺度 SLAM 全局一致性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">大尺度 SLAM 面临轨迹漂移累积和维护全局一致性的计算成本增长。子图拼接通过先构建局部一致子图、再融合为全局地图来缓解这些问题，但现有 occupancy-based 方法通常在离散栅格上操作，优化梯度不平滑且忽略占据估计不确定性。本文提出首个连续概率子图拼接框架，在 latent log-odds 空间中联合优化子图位姿和全局 occupancy field。框架使用信息保持的 sparse Bayesian formulation，把原始 occupancy observations 压缩为 sufficient-statistic log-odds tuples，同时保留后验信息；由此得到预测均值和方差闭式解，并导出带解析 Jacobian 的子图拼接目标。实验显示该方法在模拟和大尺度真实数据上提升位姿精度、全局一致性和不确定性校准。</p><p class="lang lang-en lang-block" data-lang="en">Large-scale SLAM remains challenging due to accumulated trajectory drift and the increasing computational cost of maintaining global consistency. Submap joining alleviates these issues by constructing locally consistent submaps and subsequently fusing them into a global map. However, existing occupancy-based submap joining methods operate on discrete grids, resulting in non-smooth gradients during optimization and neglecting the uncertainty associated with occupancy estimates. We propose the first continuous probabilistic submap joining framework that jointly optimizes submap poses and a global occupancy field in the latent log-odds space. The framework employs an information-preserving sparse Bayesian formulation that compresses raw occupancy observations into sufficient-statistic log-odds tuples while retaining the posterior information of the original observations. This yields closed-form predictive mean and variance estimates for occupancy mapping, which directly enable a submap joining formulation with analytical Jacobians, leading to more accurate submap joining and yielding a closed-form optimal global map upon pose convergence. Experiments on both simulated and large-scale real-world datasets demonstrate that the proposed method achieves higher pose accuracy and improved global consistency than state-of-the-art grid-based submap joining approaches, while producing more compact map representations and better-calibrated uncertainty estimates than existing continuous occupancy mapping methods.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits；类别：cs.CV / cs.AI / cs.RO；发布日期：2026-06-09；备注：16 pages, 12 figures；采集 score=14</li>
+<li>核心问题：局部点云配准在 LiDAR/RGB-D tracking 中通常依赖 correspondences 或 ICP 类最近邻，特征稀疏、退化或外观变化时容易漂移；RKHS/CVO 类 correspondence-free 方法更稳但一阶优化速度偏慢。</li>
+<li>方法亮点：把点云表示为带 point-wise anisotropic kernels 的连续函数，核函数编码局部几何，使法向方向更强约束、切向方向更宽松；优化上提出带近似 Riemannian Hessian 的二阶流形优化。</li>
+<li>结果信号：相对以往一阶 RKHS 配准 solver 最高加速约 10×；在驾驶域 LiDAR tracking 的特征稀疏场景中，平移和旋转漂移均降低超过 55%；RGB-D 与物体配准 benchmark 也显示比 ICP 类方法更稳。</li>
+<li>关注价值：这是今天最接近 SLAM 前端/里程计的工作。若开源或实现成本可控，值得尝试替换/增强 frame-to-frame LiDAR odometry、RGB-D odometry 和全局初始化后的精配准模块。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10442/fig-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10442/fig-001.webp" alt="Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10442/fig-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10442/fig-002.webp" alt="Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10442/fig-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10442/fig-003.webp" alt="Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10442/fig-004.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10442/fig-004.webp" alt="Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10442/table-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10442/table-001.webp" alt="Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10442/table-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10442/table-002.webp" alt="Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10442/table-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10442/table-003.webp" alt="Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

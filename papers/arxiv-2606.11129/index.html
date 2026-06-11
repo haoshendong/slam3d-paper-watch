@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>WorldOlympiad: Can Your World Model Survive a Triathlon?</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-11/index.html">← 返回 2026-06-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 3 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">WorldOlympiad：面向物理、几何和交互的世界模型三项赛评测</span><span class="lang lang-en lang-inline" data-lang="en">WorldOlympiad: Can Your World Model Survive a Triathlon?</span></h1>
+  <div class="meta">作者：Yuke Zhao, Wangbo Zhao, Weijie Wang, Zeyu Zhang, Dakai An, Akide Liu, Yinghao Yu, Jiasheng Tang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11129">abs</a><a href="https://arxiv.org/pdf/2606.11129">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.5/10</span><p>方法本身不是 SLAM，但几何评测 protocol 对机器人仿真、世界模型数据合成和生成视频 3D 一致性筛选有参考价值。</p><div class="tags"><span class="tag">World Model</span><span class="tag">3D 一致性评测</span><span class="tag">Gaussian Splatting</span><span class="tag">机器人仿真</span><span class="tag">Benchmark</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">WorldOlympiad 用物理、几何和交互三条赛道评测世界模型，其中几何赛道通过 Gaussian splatting 检查 3D 一致性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">WorldOlympiad 是一个用于诊断视频世界模型的 benchmark，覆盖物理真实性、几何一致性和交互保真度。现有 benchmark 多关注视觉质量、语义对齐或短期时序一致性，难以判断生成视频是否遵守物理规则、保持连贯 3D 结构并支撑长时可控交互。WorldOlympiad 将评测拆为三个互补维度：physical track 使用对象分割和 MLLM-as-judge 评估力学、热现象和材料属性；geometry track 使用 Gaussian splatting 重建生成视频，并评估结构一致性、跨视角一致性和相机轨迹对齐；interaction track 评估复杂动作提示和跨视频块连续性。该 benchmark 覆盖游戏、机器人和通用真实视频场景，实验揭示当前 SOTA 模型在物理推理、3D 一致性和长时交互方面仍有明显缺口。</p><p class="lang lang-en lang-block" data-lang="en">We introduce WorldOlympiad, a benchmark for diagnosing video-based world models across physical faithfulness, geometric consistency, and interaction fidelity. While existing benchmarks often focus on visual quality, semantic alignment, or short-term temporal coherence, they provide limited insight into whether generated videos obey physical rules, preserve coherent 3D structure, and sustain controllable interactions over long horizons. To address this gap, WorldOlympiad decomposes world-model evaluation into three complementary dimensions. The physical track uses object segmentation and MLLM-as-judge to assess whether generated videos follow interpretable rules in mechanics, thermal phenomena, and material properties. The geometry track reconstructs generated videos with Gaussian splatting and evaluates structural consistency, cross-view coherence, and camera-trajectory alignment. The interaction track assesses whether generated rollouts follow complex action prompts and maintain smooth, coherent transitions across consecutive video chunks. WorldOlympiad further covers three major downstream scenarios, including gaming, robotics, and general real-world videos, capturing diverse challenges from interactive control and embodied manipulation to open-domain motion and camera dynamics. Together, these tracks and scenarios form a scalable and interpretable evaluation suite that exposes failure modes beyond generic video quality. Experiments on state-of-the-art models reveal substantial gaps in physical reasoning, 3D consistency, and long-horizon interaction, underscoring the need for more structured evaluation protocols for generative world models.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits；类别：cs.CV / cs.AI / cs.RO；发布日期：2026-06-09；备注：16 pages, 12 figures；采集 score=14</li>
+<li>核心问题：局部点云配准在 LiDAR/RGB-D tracking 中通常依赖 correspondences 或 ICP 类最近邻，特征稀疏、退化或外观变化时容易漂移；RKHS/CVO 类 correspondence-free 方法更稳但一阶优化速度偏慢。</li>
+<li>方法亮点：把点云表示为带 point-wise anisotropic kernels 的连续函数，核函数编码局部几何，使法向方向更强约束、切向方向更宽松；优化上提出带近似 Riemannian Hessian 的二阶流形优化。</li>
+<li>结果信号：相对以往一阶 RKHS 配准 solver 最高加速约 10×；在驾驶域 LiDAR tracking 的特征稀疏场景中，平移和旋转漂移均降低超过 55%；RGB-D 与物体配准 benchmark 也显示比 ICP 类方法更稳。</li>
+<li>关注价值：这是今天最接近 SLAM 前端/里程计的工作。若开源或实现成本可控，值得尝试替换/增强 frame-to-frame LiDAR odometry、RGB-D odometry 和全局初始化后的精配准模块。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.11129/fig-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.11129/fig-001.webp" alt="WorldOlympiad: Can Your World Model Survive a Triathlon?" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.11129/fig-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.11129/fig-002.webp" alt="WorldOlympiad: Can Your World Model Survive a Triathlon?" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.11129/fig-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.11129/fig-003.webp" alt="WorldOlympiad: Can Your World Model Survive a Triathlon?" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.11129/fig-004.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.11129/fig-004.webp" alt="WorldOlympiad: Can Your World Model Survive a Triathlon?" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.11129/table-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.11129/table-001.webp" alt="WorldOlympiad: Can Your World Model Survive a Triathlon?" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.11129/table-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.11129/table-002.webp" alt="WorldOlympiad: Can Your World Model Survive a Triathlon?" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
