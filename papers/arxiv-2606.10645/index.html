@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-11/index.html">← 返回 2026-06-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-09 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ManiSplat：通过解耦 3DGS 从单目视频合成机器人操作轨迹</span><span class="lang lang-en lang-inline" data-lang="en">ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Wenhao Hu, Haonan Zhou, Liu Liu, Yun Du, Xinjie Wang, Ziang Li, Zhizhong Su, Gaoang Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.10645">abs</a><a href="https://arxiv.org/pdf/2606.10645">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.4/10</span><p>与机器人交互场景重建、动态物体解耦和仿真数据生成相关；对经典 SLAM 的价值主要在动态地图表达。</p><div class="tags"><span class="tag">动态 3DGS</span><span class="tag">机器人操作</span><span class="tag">单目视频重建</span><span class="tag">场景图</span><span class="tag">数字孪生</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">ManiSplat 将机器人、物体和背景解耦为 Gaussian 子场，用单目操作视频重建可控动态数字孪生。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">从真实观测重建动态交互三维场景是计算机视觉和机器人中的基础挑战。静态 3DGS 已能实现高质量重建，但扩展到含机械臂和可操作物体的交互环境时，会受到复杂接触和突发位姿变化影响。ManiSplat 从单目 ego-view 机器人视频中重建可控、解耦的 Gaussian digital twins。方法提出 Graph-Structured Disentangled Representation，把机器人、物体和背景分离为在场景图中组织的独立 Gaussian subfields；Task-Oriented Spatio-Temporal Alignment 利用操作任务中 Motion/Skill 阶段交替的逻辑来构造更准确的伪真值轨迹；再通过联合 photometric-geometric optimization 保持时间一致、物理一致和仿真可用。</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing dynamic and interactive 3D scenes from real-world observations remains a fundamental challenge in computer vision and robotics. While recent advances in 3D Gaussian Splatting have enabled high-fidelity static reconstruction, extending it to interactive environments with articulated robots and manipulable objects remains difficult due to complex contact interactions and abrupt pose changes. To address these challenges, we introduce ManiSplat, a unified framework that reconstructs controllable and decoupled Gaussian digital twins directly from monocular ego-view robotic videos. Our method introduces a Graph-Structured Disentangled Representation that separates the robot, objects, and background into independently optimizable Gaussian subfields organized within a scene graph. To ensure stability, we propose a Task-Oriented Spatio-Temporal Alignment module that leverages the inherent logic of manipulation tasks-alternating between Motion and Skill phases-to construct accurate pseudo-ground-truth trajectories. Finally, a joint photometric-geometric optimization ensures the reconstructed scenes are temporally coherent, physically consistent, and simulation-ready. Extensive experiments demonstrate that our approach reconstructs interaction-driven dynamic scenes with high fidelity and controllability, effectively supporting downstream robotic tasks and policy learning.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits；类别：cs.CV / cs.AI / cs.RO；发布日期：2026-06-09；备注：16 pages, 12 figures；采集 score=14</li>
+<li>核心问题：局部点云配准在 LiDAR/RGB-D tracking 中通常依赖 correspondences 或 ICP 类最近邻，特征稀疏、退化或外观变化时容易漂移；RKHS/CVO 类 correspondence-free 方法更稳但一阶优化速度偏慢。</li>
+<li>方法亮点：把点云表示为带 point-wise anisotropic kernels 的连续函数，核函数编码局部几何，使法向方向更强约束、切向方向更宽松；优化上提出带近似 Riemannian Hessian 的二阶流形优化。</li>
+<li>结果信号：相对以往一阶 RKHS 配准 solver 最高加速约 10×；在驾驶域 LiDAR tracking 的特征稀疏场景中，平移和旋转漂移均降低超过 55%；RGB-D 与物体配准 benchmark 也显示比 ICP 类方法更稳。</li>
+<li>关注价值：这是今天最接近 SLAM 前端/里程计的工作。若开源或实现成本可控，值得尝试替换/增强 frame-to-frame LiDAR odometry、RGB-D odometry 和全局初始化后的精配准模块。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10645/fig-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10645/fig-001.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10645/fig-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10645/fig-002.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10645/fig-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10645/fig-003.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10645/fig-004.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10645/fig-004.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10645/fig-005.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10645/fig-005.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10645/table-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10645/table-001.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10645/table-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10645/table-002.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10645/table-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10645/table-003.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

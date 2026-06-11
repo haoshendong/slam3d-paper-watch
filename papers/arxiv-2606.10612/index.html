@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-11/index.html">← 返回 2026-06-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-09 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GaussTrace：基于证据和 LLM 推理的 3DGS 模型溯源分析</span><span class="lang lang-en lang-inline" data-lang="en">GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning</span></h1>
+  <div class="meta">作者：Haoliang Han, Ziyuan Luo, Renjie Wan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.10612">abs</a><a href="https://arxiv.org/pdf/2606.10612">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.9/10</span><p>偏 3DGS 资产治理和取证，离 SLAM/GNSS 主线较远；但对地图/数字孪生模型版本溯源有一定边缘价值。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">模型溯源</span><span class="tag">LLM 推理</span><span class="tag">数字资产治理</span><span class="tag">取证分析</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">GaussTrace 用 3DGS 参数统计、编辑模拟和 LLM 证据推理追踪 Gaussian 模型的演化来源。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 已成为高质量 3D asset 生成技术，但 3DGS 模型在数字平台上被共享、编辑和迭代后，会带来知识产权保护和取证追踪挑战。GaussTrace 提出一个用于构建 3DGS 模型有向 provenance graph 的框架，把溯源分析表述为基于证据的推理问题。方法先对 3DGS 参数做属性级统计画像，捕捉模型内在属性；再通过假设驱动的编辑模拟生成常见操作下的辅助证据；最后让 LLM 基于这些统计与模拟线索进行结构化推理，输出方向性 provenance inference 和可解释边理由。实验表明，该方法不需要模型训练或访问编辑历史，也能构建较准确、可解释且鲁棒的演化关系图。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) is a powerful technique for creating high-fidelity 3D assets. However, the widespread sharing and iterative modification of 3DGS models across digital platforms create pressing challenges for intellectual property protection and forensic traceability. To address this, we propose GaussTrace, a novel framework for constructing directed provenance graphs for 3DGS models. GaussTrace formulates provenance analysis as an evidence-based reasoning problem. It builds upon attribute-wise statistical profiling of 3DGS parameters to capture intrinsic properties. Moreover, we introduce hypothesis-driven editing simulations of common operations to provide auxiliary evidence for plausible transformation pathways. These statistical and simulated cues jointly enable a Large Language Model (LLM) to perform structured Chain-of-Thought (CoT) reasoning, yielding directional provenance inferences and explainable edge reasons. Experimental results demonstrate that GaussTrace effectively constructs evolutionary relationships among diverse 3DGS models, delivering accurate, interpretable, and robust provenance graphs without requiring model training or access to editing histories. Project page: https://haolianghan.github.io/GaussTrace.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits；类别：cs.CV / cs.AI / cs.RO；发布日期：2026-06-09；备注：16 pages, 12 figures；采集 score=14</li>
+<li>核心问题：局部点云配准在 LiDAR/RGB-D tracking 中通常依赖 correspondences 或 ICP 类最近邻，特征稀疏、退化或外观变化时容易漂移；RKHS/CVO 类 correspondence-free 方法更稳但一阶优化速度偏慢。</li>
+<li>方法亮点：把点云表示为带 point-wise anisotropic kernels 的连续函数，核函数编码局部几何，使法向方向更强约束、切向方向更宽松；优化上提出带近似 Riemannian Hessian 的二阶流形优化。</li>
+<li>结果信号：相对以往一阶 RKHS 配准 solver 最高加速约 10×；在驾驶域 LiDAR tracking 的特征稀疏场景中，平移和旋转漂移均降低超过 55%；RGB-D 与物体配准 benchmark 也显示比 ICP 类方法更稳。</li>
+<li>关注价值：这是今天最接近 SLAM 前端/里程计的工作。若开源或实现成本可控，值得尝试替换/增强 frame-to-frame LiDAR odometry、RGB-D odometry 和全局初始化后的精配准模块。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10612/fig-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10612/fig-001.webp" alt="GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10612/fig-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10612/fig-002.webp" alt="GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10612/fig-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10612/fig-003.webp" alt="GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10612/fig-004.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10612/fig-004.webp" alt="GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10612/table-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10612/table-001.webp" alt="GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10612/table-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10612/table-002.webp" alt="GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

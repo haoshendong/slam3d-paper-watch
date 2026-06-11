@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-11/index.html">← 返回 2026-06-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-09 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">UAV 多光谱影像中的多角度反射各向异性观测</span><span class="lang lang-en lang-inline" data-lang="en">Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery</span></h1>
+  <div class="meta">作者：Zhenqiang Qin, Chenguang Dai, Min Wang, Xian Li</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.10350">abs</a><a href="https://arxiv.org/pdf/2606.10350">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.2/10</span><p>偏航测遥感与辐射校正，非 SLAM 核心；但对 UAV 三维重建、正射产品和多光谱地图质量有实际意义。</p><div class="tags"><span class="tag">UAV</span><span class="tag">SFM</span><span class="tag">多光谱影像</span><span class="tag">BRDF</span><span class="tag">航测重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该研究用 SFM 几何回投提取 UAV 多光谱多角度观测，量化视角对反射率一致性的影响。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">低空 UAV 多光谱影像由于飞行高度低和视场宽，天然包含多角度观测，这可能引入由几何驱动的辐射变化。本文提出一个几何感知的多角度观测提取流程，从 BRDF 角度量化观察几何效应。方法首先通过结构光束法（SFM）精化相机内外参，然后把正射图上的同质区域回投到不同视角的多个原始子图，从而为同一地物目标联合提取多波段 reflectance 和观测几何参数。随后在 VZA/RAA 域中进行极坐标可视化分析。草地目标结果显示十个波段均存在明显反射各向异性，红边和近红外波段最大/最小反射差异达到 119–137%。</p><p class="lang lang-en lang-block" data-lang="en">UAV multispectral imagery naturally contains multi-angular observations due to low flight altitude and wide field-of-view imaging, which may introduce geometry-driven radiometric variability. This study proposes a geometry-aware multi-angular observation extraction workflow to quantify observation-geometry effects from a BRDF perspective. Specifically, camera intrinsics and extrinsics are refined via structure-from-motion (SFM), and homogeneous regions annotated on an orthomosaic are reprojected onto multiple raw sub-images acquired from different viewpoints. This enables joint extraction of multi-band reflectance and observation geometry parameters for the same ground targets under varying viewing directions. The extracted observations are further analyzed using band-wise polar visualization in the (VZA, RAA) domain. Results on a grassland target show clear reflectance anisotropy across ten bands, with red-edge and nearinfrared bands exhibiting 119-137% variability between maximum and minimum reflectance, indicating non-negligible observation-geometry effects on radiometric consistency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits；类别：cs.CV / cs.AI / cs.RO；发布日期：2026-06-09；备注：16 pages, 12 figures；采集 score=14</li>
+<li>核心问题：局部点云配准在 LiDAR/RGB-D tracking 中通常依赖 correspondences 或 ICP 类最近邻，特征稀疏、退化或外观变化时容易漂移；RKHS/CVO 类 correspondence-free 方法更稳但一阶优化速度偏慢。</li>
+<li>方法亮点：把点云表示为带 point-wise anisotropic kernels 的连续函数，核函数编码局部几何，使法向方向更强约束、切向方向更宽松；优化上提出带近似 Riemannian Hessian 的二阶流形优化。</li>
+<li>结果信号：相对以往一阶 RKHS 配准 solver 最高加速约 10×；在驾驶域 LiDAR tracking 的特征稀疏场景中，平移和旋转漂移均降低超过 55%；RGB-D 与物体配准 benchmark 也显示比 ICP 类方法更稳。</li>
+<li>关注价值：这是今天最接近 SLAM 前端/里程计的工作。若开源或实现成本可控，值得尝试替换/增强 frame-to-frame LiDAR odometry、RGB-D odometry 和全局初始化后的精配准模块。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10350/fig-001.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10350/fig-001.webp" alt="Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10350/fig-002.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10350/fig-002.webp" alt="Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10350/fig-003.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10350/fig-003.webp" alt="Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10350/fig-004.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10350/fig-004.webp" alt="Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-11/arxiv-2606.10350/fig-005.webp"><img src="../../assets/media/2026-06-11/arxiv-2606.10350/fig-005.webp" alt="Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
