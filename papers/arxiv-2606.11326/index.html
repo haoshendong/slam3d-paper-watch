@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-12/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-12/index.html">← 返回 2026-06-12 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">DarkVGGT：利用热红外几何在黑暗中三维感知且不牺牲白天性能</span><span class="lang lang-en lang-inline" data-lang="en">DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax</span></h1>
+  <div class="meta">作者：Minseong Kweon, Wenyuan Zhao, Nuo Chen, Lulin Liu, Huiwen Han, Zihao Zhu, Srinivas Shakkottai, Chao Tian</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11326">abs</a><a href="https://arxiv.org/pdf/2606.11326">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>今天最接近视觉/热红外里程计与弱光 SLAM 鲁棒性的论文；采集分低但方向价值高，需关注数据、实时性和 VIO/LIO 接口。</p><div class="tags"><span class="tag">RGB-T</span><span class="tag">低光 SLAM</span><span class="tag">前馈三维重建</span><span class="tag">相机位姿估计</span><span class="tag">热红外几何</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">DarkVGGT 把物理感知热红外线索注入 VGGT 类前馈几何模型，在黑暗环境中改善深度和相机位姿估计。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">近期前馈式三维重建方法能从图像流高效端到端估计场景几何，但它们依赖可见光外观，因此在黑暗和低能见度环境中容易失效：RGB 线索严重退化，几何证据变得模糊。DarkVGGT 是一个 RGB-T 前馈几何框架，用物理感知热建模增强低光场景中的鲁棒三维估计。它包含两个互补模块：第一，physics-inspired thermal factorization 提取发射主导、几何一致的热红外线索，同时隔离可能造成几何歧义的稀疏反射残差；第二，geometry-shared thermal routing 从热红外特有模式中分离跨模态几何结构，并选择性地把可靠结构引导注入 RGB 流。实验在低能见度 RGB-T benchmark 上显示，DarkVGGT 相比现有前馈几何 baseline 在深度和相机位姿估计上持续提升，同时基本保留明亮环境下的性能。</p><p class="lang lang-en lang-block" data-lang="en">Recent feed-forward 3D reconstruction methods have demonstrated strong performance and flexibility in efficient end-to-end scene geometry estimation from image streams. However, their reliance on visible-light appearance makes them vulnerable in dark and low-visibility environments, where RGB cues are severely degraded and geometric evidence becomes ambiguous. To address this challenge, we propose DarkVGGT, an RGB-T feed-forward geometry framework that uses physics-aware thermal modeling for robust 3D estimation in low-light scenes. DarkVGGT introduces two complementary modules. First, physics-inspired thermal factorization extracts emissive-dominant, geometry-consistent thermal cues while isolating sparse reflective residuals that may introduce geometric ambiguity. Second, geometry-shared thermal routing isolates modality-invariant geometric structures from thermal-specific patterns, selectively injecting reliability-aware structural guidance into the RGB stream. Together, these components enable accurate thermal-informed geometry estimation under degraded RGB conditions while largely preserving performance in well-lit environments. Experiments on low-visibility RGB-T benchmarks demonstrate consistent improvements in both depth and camera pose estimation over existing feed-forward geometry baselines.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Matthew Cong, Francis Williams, Jonathan Swartz, Mark Harris, Sanja Fidler, Ken Museth；类别：cs.CV / cs.DC / cs.GR / cs.LG；发布日期：2026-06-10；备注：14 pages, 6 tables, 2 figures；采集 score=13</li>
+<li>核心问题：3DGS 在真实大场景重建中受单 GPU 显存与算力限制，难以扩大到城市级、街景级细节，同时多卡分布式实现通常要求模型代码显式处理跨设备通信。</li>
+<li>方法亮点：提出一个 PyTorch backend，把 Gaussian 参数和 splatting operators 通过 CUDA unified memory 与 NVLink 分布到多 GPU；分布发生在 operator 层，模型代码可把多张 GPU 视作聚合 PyTorch device，不需要手写跨设备通信。</li>
+<li>结果信号：展示了包含 <strong>超过 10 亿 Gaussian splats</strong> 的城市级重建，数量超过当前 SOTA 25 倍以上，并保持街景级细节。</li>
+<li>关注价值：这更像 3DGS 系统/基础设施论文，不是 SLAM 算法；但对大尺度机器人地图、城市数字孪生和长序列 Nerfstudio/3DGS 重建非常关键。后续应关注显存分页、NVLink 依赖、训练/渲染吞吐，以及是否能接入已有 COLMAP/SLAM 位姿和地图分块流程。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11326/fig-001.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11326/fig-001.webp" alt="DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11326/fig-002.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11326/fig-002.webp" alt="DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11326/fig-003.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11326/fig-003.webp" alt="DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11326/fig-004.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11326/fig-004.webp" alt="DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11326/table-001.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11326/table-001.webp" alt="DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11326/table-002.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11326/table-002.webp" alt="DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11326/table-003.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11326/table-003.webp" alt="DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

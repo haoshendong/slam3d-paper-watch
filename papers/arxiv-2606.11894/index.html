@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-12/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-12/index.html">← 返回 2026-06-12 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Wild3R：从非受控稀疏照片集进行前馈式 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection</span></h1>
+  <div class="meta">作者：Yuto Furutani, Takashi Otonari, Kaede Shiohara, Toshihiko Yamasaki</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11894">abs</a><a href="https://arxiv.org/pdf/2606.11894">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>对众包照片、城市巡检和快速 3DGS 地图生成有潜力；需进一步确认相机位姿假设和几何尺度稳定性。</p><div class="tags"><span class="tag">前馈 3DGS</span><span class="tag">稀疏照片集</span><span class="tag">动态/瞬态物体</span><span class="tag">城市重建</span><span class="tag">数据集</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">Wild3R 通过 WildCity 大规模数据学习在光照变化和瞬态物体下从稀疏照片前馈生成 3DGS。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">前馈式 3DGS 省去了传统 3DGS 逐场景优化的耗时步骤，但现有前馈方法难以处理真实照片集中常见的光照多样性和瞬态物体。本文提出 Wild3R，面向非受控稀疏照片集的前馈式方法。主要瓶颈在于缺少同时包含多视角、多光照和瞬态变化的训练数据。为此，作者构建 WildCity 数据集，包含 200 个场景、170 种光照条件和瞬态物体，总计 337,500 张图像。借助该数据集，模型学习以参考视图为条件的跨视角外观一致性，同时移除瞬态内容。大量实验表明，该方法优于现有前馈方法，并达到与部分逐场景优化方法相竞争的结果。</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 3D Gaussian Splatting (3DGS) removes the need for time-consuming per-scene optimization required by traditional 3DGS. However, existing feed-forward approaches struggle with real-world photo collections that include diverse lighting conditions and transient objects. In this paper, we present Wild3R, a feed-forward approach for unconstrained sparse photo collections. The main bottleneck is the lack of training data that provides multiple viewpoints, a variety of illuminations, and transient variations necessary for learning robust scene representations. To address this, we introduce the WildCity dataset, which comprises 200 scenes, 170 lighting conditions, and transient objects, resulting in 337,500 images in total. By leveraging the dataset, our model learns appearance consistency across viewpoints conditioned on reference views, while removing transient content. Extensive experiments demonstrate that our method outperforms existing feed-forward approaches and achieves results competitive with prior per-scene optimization-based methods.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Matthew Cong, Francis Williams, Jonathan Swartz, Mark Harris, Sanja Fidler, Ken Museth；类别：cs.CV / cs.DC / cs.GR / cs.LG；发布日期：2026-06-10；备注：14 pages, 6 tables, 2 figures；采集 score=13</li>
+<li>核心问题：3DGS 在真实大场景重建中受单 GPU 显存与算力限制，难以扩大到城市级、街景级细节，同时多卡分布式实现通常要求模型代码显式处理跨设备通信。</li>
+<li>方法亮点：提出一个 PyTorch backend，把 Gaussian 参数和 splatting operators 通过 CUDA unified memory 与 NVLink 分布到多 GPU；分布发生在 operator 层，模型代码可把多张 GPU 视作聚合 PyTorch device，不需要手写跨设备通信。</li>
+<li>结果信号：展示了包含 <strong>超过 10 亿 Gaussian splats</strong> 的城市级重建，数量超过当前 SOTA 25 倍以上，并保持街景级细节。</li>
+<li>关注价值：这更像 3DGS 系统/基础设施论文，不是 SLAM 算法；但对大尺度机器人地图、城市数字孪生和长序列 Nerfstudio/3DGS 重建非常关键。后续应关注显存分页、NVLink 依赖、训练/渲染吞吐，以及是否能接入已有 COLMAP/SLAM 位姿和地图分块流程。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11894/fig-001.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11894/fig-001.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11894/fig-002.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11894/fig-002.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11894/fig-003.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11894/fig-003.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11894/fig-004.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11894/fig-004.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11894/fig-005.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11894/fig-005.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11894/fig-006.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11894/fig-006.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11894/table-001.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11894/table-001.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11894/table-002.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11894/table-002.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
