@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Seeing What Matters: Perceptual Wrapper with Common Randomness for 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-12/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-12/index.html">← 返回 2026-06-12 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Seeing What Matters：带共同随机性的 3DGS 感知增强包装器</span><span class="lang lang-en lang-inline" data-lang="en">Seeing What Matters: Perceptual Wrapper with Common Randomness for 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：He-Bi Yang, Jing-Zhong Chen, Yen-Kuan Ho, Sang NguyenQuang, Fan-Yi Hsu, Yun-Yu Lee, Jui-Chiu Chiang, Wen-Hsiao Peng</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11782">abs</a><a href="https://arxiv.org/pdf/2606.11782">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.6/10</span><p>对 3DGS 地图展示、压缩和远程发布有价值；但合成纹理可能影响测绘可量测性，和定位精度关系弱。</p><div class="tags"><span class="tag">3DGS 渲染增强</span><span class="tag">感知质量</span><span class="tag">压缩</span><span class="tag">RDO</span><span class="tag">纹理合成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作在 3DGS 渲染输出后接入轻量感知网络，用统计匹配补高频纹理，服务压缩与可视化质量。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 虽然能实现优秀的实时渲染，但常难以合成高频纹理；在内存受限和率失真优化 pipeline 中，这一缺陷会被进一步放大。本文提出一个通用的 2D perceptual wrapper，以内容和视角相关方式增强现有 3DGS 表示的渲染输出。方法使用一个轻量 synthesis network，并以伪随机 Gaussian noise 为条件来合成感知上合理的纹理；网络由 Wasserstein Distortion 监督，学习匹配局部特征统计，而不是严格做逐像素重建，从而缓解标准框架的模糊问题。作者展示了该可插拔方法可用于 vanilla、内存受限和 RDO 3DGS 方法，并在主观与客观实验中提升感知质量，同时显著降低文件或模型尺寸。</p><p class="lang lang-en lang-block" data-lang="en">While 3D Gaussian Splatting (3DGS) achieves impressive real-time rendering, it frequently struggles to synthesize high-frequency textures, a limitation heavily exacerbated in memory-constrained and rate-distortion-optimized (RDO) pipelines. To address this, we propose a versatile 2D perceptual wrapper that enhances the rendered outputs of existing 3DGS representations in a content- and view-dependent manner. Our method leverages a lightweight synthesis network conditioned on pseudo-random Gaussian noise to synthesize perceptually plausible textures. Supervised by Wasserstein Distortion, the network learns to match local feature statistics rather than strictly enforcing pixel-wise reconstruction fidelity, effectively mitigating the blurriness inherent in standard frameworks. We demonstrate the broad applicability of our plug-and-play approach across vanilla, memory-constrained, and RDO 3DGS methods. Comprehensive subjective and objective experiments confirm that our method significantly improves over existing baselines, yielding superior perceptual quality at sharply reduced file or model sizes.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Matthew Cong, Francis Williams, Jonathan Swartz, Mark Harris, Sanja Fidler, Ken Museth；类别：cs.CV / cs.DC / cs.GR / cs.LG；发布日期：2026-06-10；备注：14 pages, 6 tables, 2 figures；采集 score=13</li>
+<li>核心问题：3DGS 在真实大场景重建中受单 GPU 显存与算力限制，难以扩大到城市级、街景级细节，同时多卡分布式实现通常要求模型代码显式处理跨设备通信。</li>
+<li>方法亮点：提出一个 PyTorch backend，把 Gaussian 参数和 splatting operators 通过 CUDA unified memory 与 NVLink 分布到多 GPU；分布发生在 operator 层，模型代码可把多张 GPU 视作聚合 PyTorch device，不需要手写跨设备通信。</li>
+<li>结果信号：展示了包含 <strong>超过 10 亿 Gaussian splats</strong> 的城市级重建，数量超过当前 SOTA 25 倍以上，并保持街景级细节。</li>
+<li>关注价值：这更像 3DGS 系统/基础设施论文，不是 SLAM 算法；但对大尺度机器人地图、城市数字孪生和长序列 Nerfstudio/3DGS 重建非常关键。后续应关注显存分页、NVLink 依赖、训练/渲染吞吐，以及是否能接入已有 COLMAP/SLAM 位姿和地图分块流程。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

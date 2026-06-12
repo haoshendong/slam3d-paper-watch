@@ -4,136 +4,114 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
-  <title>Daily Paper Reader 2026-06-11</title>
+  <title>Daily Paper Reader 2026-06-12</title>
   <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-06-11/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-06-12/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="meta">静态网页 · 2026-06-11</div>
+    <div class="meta">静态网页 · 2026-06-12</div>
     <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
     <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-06-11/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="daily/2026-06-12/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：10</span><span class="stat">推荐论文：10</span><span class="stat">新论文：10</span><span class="stat">仓库：25</span><span class="stat">新仓库：5</span></div>
+  <div class="stats"><span class="stat">候选论文：8</span><span class="stat">推荐论文：8</span><span class="stat">新论文：8</span><span class="stat">仓库：40</span><span class="stat">新仓库：10</span></div>
 </section>
-<section class="section brief"><h2>今日概览</h2><p>今天有 <strong>10 篇新增 arXiv 论文</strong>，网页/简报推荐 10 篇，达到但未超过 10 篇上限；本次没有历史重复论文被过滤，也没有把 <code>is_new=false</code> 论文补入重点论文。主题上，今天比前几天更偏“可落地定位/建图模块”：<strong>Generalized-CVO</strong> 直接面向 LiDAR/RGB-D frame-to-frame registration，<strong>连续占据子图拼接</strong> 面向大尺度 SLAM 全局一致性，<strong>农机鲁棒导航</strong> 处理 GNSS/LiDAR/视觉失效和振动，<strong>WARG</strong> 则给出无 GNSS 月面 rover 的跨视角全局定位方案。</p>
-<p>3D 表示与重建方向也很活跃：Envision4D、ManiSplat、GaussTrace、3D-CoS 和 WorldOlympiad 分别覆盖 4DGS 未来视图预测、机器人交互场景 Gaussian digital twin、3DGS 模型溯源、VLM 生成 Blender 代码式重建，以及 world model 的几何一致性评测。UAV 多光谱 SFM 论文虽不是 SLAM 主线，但对航测/三维重建中的相机几何与辐射一致性很有参考价值。</p></section>
+<section class="section brief"><h2>今日概览</h2><p>今天有 <strong>8 篇新增 arXiv 论文</strong>，网页/简报推荐 8 篇，未超过 10 篇上限；本次没有历史重复论文被过滤，也没有把 <code>is_new=false</code> 论文补进重点论文。主题明显偏向 <strong>3D Gaussian Splatting / 点式可微渲染 / feed-forward 三维重建</strong>：多 GPU 3DGS 扩展到十亿级 splats，低光 3DGS 伪真值生成、野外稀疏照片 feed-forward 3DGS、3DGS 感知增强、可编辑/重光照神经渲染和跨平台点式可微渲染都集中出现。</p>
+<p>与 SLAM/GNSS 主线直接相关的论文较少；最值得工程侧留意的是 <strong>DarkVGGT</strong>，它把热红外几何引入低光 feed-forward 三维估计，并报告深度与相机位姿改进。GNSS/INS/紧耦合定位论文今天没有新增，但仓库侧出现了多传感器惯导融合、四足 VIO/运动学 EKF、GNSS/INS 处理和 GNSS 噪声仿真等信号。</p></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">今日推荐 10 篇论文。</p></div>
+  <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">今日推荐 8 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10019/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10019/fig-001.webp" alt="Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10019/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Generalized-CVO：基于二阶黎曼优化的快速无对应点局部点云配准</span><span class="lang lang-en lang-inline" data-lang="en">Generalized-CVO: Fast and Correspondence-Free Local Point Cloud Registration with Second Order Riemannian Optimization</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 14 · cs.CV, cs.AI, cs.RO</div>
-  <div class="meta">作者：Ray Zhang, Marcus Greiff, Thomas Lew, John Subosits</div>
-  <span class="score">评分 9.4/10</span>
-  <div class="tags"><span class="tag">点云配准</span><span class="tag">LiDAR/RGB-D 里程计</span><span class="tag">无对应点优化</span><span class="tag">RKHS</span><span class="tag">黎曼二阶优化</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>Generalized-CVO 用各向异性 RKHS 表示和二阶黎曼优化做无对应点点云配准，直接服务 LiDAR/RGB-D 里程计前端。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文提出一种快速、无需显式对应关系的局部点云配准方法，结合几何表面结构与再生核希尔伯特空间（RKHS）嵌入。方法把点云表示为连续函数，并为每个点使用编码局部几何的各向异性核，从而在表面法向上强化对齐，在切向上放宽约束。为求解配准问题，作者提出带近似黎曼 Hessian 的二阶流形优化，相比以往 correspondence-free RKHS 方法中的一阶 solver 最高可加速 10 倍。实验覆盖室内外 LiD…</p><p class="lang lang-en lang-block" data-lang="en">We propose a fast and correspondence-free local point cloud registration method that leverages geometric surface structure and reproducing kernel Hilbert space (RKHS) embeddings. The method represents point cl…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10019">abs</a><a href="https://arxiv.org/pdf/2606.10019">PDF</a><a href="papers/arxiv-2606.10019/index.html">详情</a></div>
+  <a class="thumb" href="papers/arxiv-2606.11390/index.html"><img src="assets/media/2026-06-12/arxiv-2606.11390/fig-001.webp" alt="A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.11390/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向多 GPU 高斯溅射的可扩展 PyTorch 抽象</span><span class="lang lang-en lang-inline" data-lang="en">A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 13 · cs.CV, cs.DC, cs.GR, cs.LG</div>
+  <div class="meta">作者：Matthew Cong, Francis Williams, Jonathan Swartz, Mark Harris</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">3DGS</span><span class="tag">多 GPU</span><span class="tag">大尺度重建</span><span class="tag">PyTorch 后端</span><span class="tag">城市数字孪生</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>该工作用 PyTorch 后端把 3DGS 参数与算子透明分布到多 GPU，展示十亿级 splats 的城市级重建。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 已成为真实世界神经重建中的热门方法，但常受计算和显存限制，难以扩展到更高分辨率和更大场景。本文提出一种多 GPU Gaussian Splatting 方法，通过一个 PyTorch backend 将 Gaussian 参数和 splatting operators 分布到多张 GPU。该 backend 使用 CUDA unified memory 与 NVLink，…</p><p class="lang lang-en lang-block" data-lang="en">Gaussian splatting methods have become increasingly popular for neural reconstruction of the real world. However, they are often limited in scale and resolution due to compute and memory constraints. We presen…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11390">abs</a><a href="https://arxiv.org/pdf/2606.11390">PDF</a><a href="papers/arxiv-2606.11390/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10656/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10656/fig-001.webp" alt="Envision4D: Envisioning Visual Futures via Feed-forward 4D Gaussian Splatting for Autonomous Driving" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10656/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Envision4D：面向自动驾驶的前馈式 4D 高斯溅射未来视觉预测</span><span class="lang lang-en lang-inline" data-lang="en">Envision4D: Envisioning Visual Futures via Feed-forward 4D Gaussian Splatting for Autonomous Driving</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 10 · cs.CV</div>
-  <div class="meta">作者：Qi Song, Yifei He, Chi Zhang, Zheng Fu</div>
-  <span class="score">评分 7.5/10</span>
-  <div class="tags"><span class="tag">4DGS</span><span class="tag">自动驾驶</span><span class="tag">未来视图合成</span><span class="tag">动态场景</span><span class="tag">World Model</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>Envision4D 用前馈 4DGS 和未来相机位姿预测做自动驾驶动态场景未来视图外推。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">动态场景未来演化预测对自动驾驶非常关键，但现有前馈范式主要面向插值；当扩展到未来外推时，面对大位移会出现 ghosting，并常受限于简化运动假设或严格未来先验。Envision4D 是一个完全自监督、前馈式、pose-free 的未来外推框架。它通过 Future Pose Prediction 模块以迭代去噪方式推断未来相机参数；通过 In-layer Temporal Attention 与 Conditio…</p><p class="lang lang-en lang-block" data-lang="en">Forecasting the future evolution of dynamic scenes is crucial in autonomous driving. However, existing feed-forward paradigms are primarily designed for interpolation. When extended to future extrapolation, th…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10656">abs</a><a href="https://arxiv.org/pdf/2606.10656">PDF</a><a href="papers/arxiv-2606.10656/index.html">详情</a></div>
+  <a class="thumb" href="papers/arxiv-2606.11841/index.html"><img src="assets/media/2026-06-12/arxiv-2606.11841/fig-001.webp" alt="Scene-Adaptive Nonlinear Tone Curves for Pseudo Ground-Truth Generation in Low-Light 3D Gaussian Splatting" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.11841/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">用于低光 3DGS 伪真值生成的场景自适应非线性 tone curve</span><span class="lang lang-en lang-inline" data-lang="en">Scene-Adaptive Nonlinear Tone Curves for Pseudo Ground-Truth Generation in Low-Light 3D Gaussian Splatting</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 12 · cs.CV</div>
+  <div class="meta">作者：Mingzhe Lyu, Jinqiang Cui, Hong Zhang</div>
+  <span class="score">评分 8.2/10</span>
+  <div class="tags"><span class="tag">低光重建</span><span class="tag">3DGS</span><span class="tag">伪真值生成</span><span class="tag">Tone Mapping</span><span class="tag">新视角合成</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>该方法用场景自适应非线性 tone curve 改善低光 3DGS 伪真值，提升暗光多视图重建质量且不改 backbone。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">低光新视角合成很困难，因为暗光多视图图像含有噪声、结构细节弱且动态范围被压缩。近期 3DGS 方法在没有成对正常光参考时，会生成伪真值图像作为监督目标；但现有方法通常对所有像素使用统一线性增益，容易使亮区过曝，同时暗区增强不足。本文提出一个场景自适应非线性 tone-curve 框架，用非线性伪真值替代线性伪真值。框架包括面向跨场景应用的 percentile-based normalisation、自动黑电平调整…</p><p class="lang lang-en lang-block" data-lang="en">Low-light novel view synthesis is challenging because dark multi-view images contain noise, weak structural detail, and compressed dynamic range. Recent 3D Gaussian Splatting (3DGS) methods address these chall…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11841">abs</a><a href="https://arxiv.org/pdf/2606.11841">PDF</a><a href="papers/arxiv-2606.11841/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10612/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10612/fig-001.webp" alt="GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10612/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GaussTrace：基于证据和 LLM 推理的 3DGS 模型溯源分析</span><span class="lang lang-en lang-inline" data-lang="en">GaussTrace: Provenance Analysis of 3D Gaussian Splatting Models with Evidence-based LLM Reasoning</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 10 · cs.CV</div>
-  <div class="meta">作者：Haoliang Han, Ziyuan Luo, Renjie Wan</div>
-  <span class="score">评分 5.9/10</span>
-  <div class="tags"><span class="tag">3DGS</span><span class="tag">模型溯源</span><span class="tag">LLM 推理</span><span class="tag">数字资产治理</span><span class="tag">取证分析</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>GaussTrace 用 3DGS 参数统计、编辑模拟和 LLM 证据推理追踪 Gaussian 模型的演化来源。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 已成为高质量 3D asset 生成技术，但 3DGS 模型在数字平台上被共享、编辑和迭代后，会带来知识产权保护和取证追踪挑战。GaussTrace 提出一个用于构建 3DGS 模型有向 provenance graph 的框架，把溯源分析表述为基于证据的推理问题。方法先对 3DGS 参数做属性级统计画像，捕捉模型内在属性；再通过假设驱动的编辑模拟生成常见操作下的辅助证据…</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) is a powerful technique for creating high-fidelity 3D assets. However, the widespread sharing and iterative modification of 3DGS models across digital platforms create pressing cha…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10612">abs</a><a href="https://arxiv.org/pdf/2606.10612">PDF</a><a href="papers/arxiv-2606.10612/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10478/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10478/fig-001.webp" alt="3D-CoS: A New 3D Reconstruction Paradigm Based on VLM Code Synthesis" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10478/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">3D-CoS：基于 VLM 代码合成的三维重建新范式</span><span class="lang lang-en lang-inline" data-lang="en">3D-CoS: A New 3D Reconstruction Paradigm Based on VLM Code Synthesis</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 10 · cs.CV</div>
-  <div class="meta">作者：Yuhao Wang, Puyi Wang, Linjie Li, Zhengyuan Yang</div>
-  <span class="score">评分 6.8/10</span>
-  <div class="tags"><span class="tag">三维重建</span><span class="tag">VLM</span><span class="tag">Blender 代码</span><span class="tag">可编辑表示</span><span class="tag">数字孪生</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>3D-CoS 把三维重建转成 VLM 生成 Blender 代码的问题，强调程序化可控与局部编辑。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">近期三维重建和编辑系统多使用 NeRF、点云、网格等隐式或显式低层表示，这些表示能高保真渲染，却很难进行程序化控制。3D-CoS 提出把三维资产构造为可执行 Blender 代码的 3D Code Synthesis 范式，并系统评估当前开源和闭源 VLM 在代码式三维重建中的能力。作者还引入多种结构化代码合成流程，包括 blueprint-based planning、基于 Blender API 文档的 RAG…</p><p class="lang lang-en lang-block" data-lang="en">Most recent 3D reconstruction and editing systems operate on implicit and explicit representations such as NeRF, point clouds, or meshes. While these representations enable high-fidelity rendering, they are fu…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10478">abs</a><a href="https://arxiv.org/pdf/2606.10478">PDF</a><a href="papers/arxiv-2606.10478/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10645/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10645/fig-001.webp" alt="ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10645/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ManiSplat：通过解耦 3DGS 从单目视频合成机器人操作轨迹</span><span class="lang lang-en lang-inline" data-lang="en">ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 9 · cs.CV</div>
-  <div class="meta">作者：Wenhao Hu, Haonan Zhou, Liu Liu, Yun Du</div>
-  <span class="score">评分 7.4/10</span>
-  <div class="tags"><span class="tag">动态 3DGS</span><span class="tag">机器人操作</span><span class="tag">单目视频重建</span><span class="tag">场景图</span><span class="tag">数字孪生</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>ManiSplat 将机器人、物体和背景解耦为 Gaussian 子场，用单目操作视频重建可控动态数字孪生。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">从真实观测重建动态交互三维场景是计算机视觉和机器人中的基础挑战。静态 3DGS 已能实现高质量重建，但扩展到含机械臂和可操作物体的交互环境时，会受到复杂接触和突发位姿变化影响。ManiSplat 从单目 ego-view 机器人视频中重建可控、解耦的 Gaussian digital twins。方法提出 Graph-Structured Disentangled Representation，把机器人、物体和背景…</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing dynamic and interactive 3D scenes from real-world observations remains a fundamental challenge in computer vision and robotics. While recent advances in 3D Gaussian Splatting have enabled high-f…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10645">abs</a><a href="https://arxiv.org/pdf/2606.10645">PDF</a><a href="papers/arxiv-2606.10645/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10442/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10442/fig-001.webp" alt="Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10442/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">基于方差加权子图拼接的信息保持连续占据建图</span><span class="lang lang-en lang-inline" data-lang="en">Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 7 · cs.RO</div>
-  <div class="meta">作者：Zhuhua Bai, Yingyu Wang, Liang Zhao, Shoudong Huang</div>
-  <span class="score">评分 8.7/10</span>
-  <div class="tags"><span class="tag">占据建图</span><span class="tag">子图拼接</span><span class="tag">大尺度 SLAM</span><span class="tag">不确定性</span><span class="tag">连续地图表示</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>该工作把 occupancy 子图拼接从离散栅格推进到带方差估计的连续 log-odds 场，面向大尺度 SLAM 全局一致性。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">大尺度 SLAM 面临轨迹漂移累积和维护全局一致性的计算成本增长。子图拼接通过先构建局部一致子图、再融合为全局地图来缓解这些问题，但现有 occupancy-based 方法通常在离散栅格上操作，优化梯度不平滑且忽略占据估计不确定性。本文提出首个连续概率子图拼接框架，在 latent log-odds 空间中联合优化子图位姿和全局 occupancy field。框架使用信息保持的 sparse Bayesian…</p><p class="lang lang-en lang-block" data-lang="en">Large-scale SLAM remains challenging due to accumulated trajectory drift and the increasing computational cost of maintaining global consistency. Submap joining alleviates these issues by constructing locally…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10442">abs</a><a href="https://arxiv.org/pdf/2606.10442">PDF</a><a href="papers/arxiv-2606.10442/index.html">详情</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10971/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10971/fig-001.webp" alt="Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10971/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">利用 jerk 增广模型和 IMU-only 扰动拒止的自主农机鲁棒导航</span><span class="lang lang-en lang-inline" data-lang="en">Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 5 · cs.RO, eess.SY</div>
-  <div class="meta">作者：Batu Candan, Mohammed Atallah, Simone Servadio, Saeed Arabi</div>
+  <a class="thumb" href="papers/arxiv-2606.11894/index.html"><img src="assets/media/2026-06-12/arxiv-2606.11894/fig-001.webp" alt="Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.11894/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Wild3R：从非受控稀疏照片集进行前馈式 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Wild3R: Feed-Forward 3D Gaussian Splatting from Unconstrained Sparse Photo Collection</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 10 · cs.CV</div>
+  <div class="meta">作者：Yuto Furutani, Takashi Otonari, Kaede Shiohara, Toshihiko Yamasaki</div>
   <span class="score">评分 7.8/10</span>
-  <div class="tags"><span class="tag">GNSS outage</span><span class="tag">惯性导航</span><span class="tag">鲁棒 EKF</span><span class="tag">农业机器人</span><span class="tag">扰动拒止</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>该方法用 jerk 增广 EKF 和多调谐因子自适应协方差，在 GNSS/LiDAR/视觉失效和强振动下增强农机导航鲁棒性。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">自主农业机器人在越野环境中常因 GNSS、LiDAR 或视觉传感器失效以及高频振动而导致精确状态估计受损。本文提出一种基于 jerk-augmented EKF 并结合 Multiple Tuning Factor 自适应方法的鲁棒导航算法。不同于假设测量噪声恒定的标准 EKF，该方法实时动态调整测量协方差矩阵，使系统能够应对突发扰动和传感器离群。作者在 Salin247 自主机器人真实数据上评估，结果表明 jer…</p><p class="lang lang-en lang-block" data-lang="en">Precise state estimation for navigation of autonomous agricultural robots is often compromised by sensor outages (GNSS/LiDAR/Visual) and high-frequency vibrations inherent in off-road environments. This paper…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10971">abs</a><a href="https://arxiv.org/pdf/2606.10971">PDF</a><a href="papers/arxiv-2606.10971/index.html">详情</a></div>
+  <div class="tags"><span class="tag">前馈 3DGS</span><span class="tag">稀疏照片集</span><span class="tag">动态/瞬态物体</span><span class="tag">城市重建</span><span class="tag">数据集</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>Wild3R 通过 WildCity 大规模数据学习在光照变化和瞬态物体下从稀疏照片前馈生成 3DGS。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">前馈式 3DGS 省去了传统 3DGS 逐场景优化的耗时步骤，但现有前馈方法难以处理真实照片集中常见的光照多样性和瞬态物体。本文提出 Wild3R，面向非受控稀疏照片集的前馈式方法。主要瓶颈在于缺少同时包含多视角、多光照和瞬态变化的训练数据。为此，作者构建 WildCity 数据集，包含 200 个场景、170 种光照条件和瞬态物体，总计 337,500 张图像。借助该数据集，模型学习以参考视图为条件的跨视角外观一…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 3D Gaussian Splatting (3DGS) removes the need for time-consuming per-scene optimization required by traditional 3DGS. However, existing feed-forward approaches struggle with real-world photo colle…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11894">abs</a><a href="https://arxiv.org/pdf/2606.11894">PDF</a><a href="papers/arxiv-2606.11894/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10602/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10602/fig-001.webp" alt="Globally Localizing Lunar Rover in Pixels via Graph Alignment" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10602/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WARG：通过图对齐实现月球车像素级全局定位</span><span class="lang lang-en lang-inline" data-lang="en">Globally Localizing Lunar Rover in Pixels via Graph Alignment</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 5 · cs.CV</div>
-  <div class="meta">作者：Mao Chen, Xu Yang, Chuankai Liu, Xiangkai Zhang</div>
-  <span class="score">评分 8.3/10</span>
-  <div class="tags"><span class="tag">无 GNSS 定位</span><span class="tag">跨视角定位</span><span class="tag">图匹配</span><span class="tag">月球车</span><span class="tag">遥感辅助重定位</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>WARG 用 rover 图像与卫星/轨道图像的重投影图匹配，在无 GNSS 月面场景中实现米级全局定位。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">精确 rover 定位是自主月球探索的前提，但月面没有 GNSS，局部定位方法又会累计漂移。跨视角定位通过匹配 rover-view 与 satellite-view 图像提供一种无漂移全局方案，但月面存在实体纠缠、跨视角差异和仿真到真实域偏移。本文提出 WARG（Warped Alignment of Reprojected Graphs），使用统一图学习和重投影图匹配来实现稳健跨视角对齐。在合成 LuSNAR…</p><p class="lang lang-en lang-block" data-lang="en">Precise rover localization is a prerequisite for autonomous lunar exploration, yet the absence of Global Navigation Satellite System (GNSS) signals and the cumulative drift of local localization methods severe…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10602">abs</a><a href="https://arxiv.org/pdf/2606.10602">PDF</a><a href="papers/arxiv-2606.10602/index.html">详情</a></div>
+  <a class="thumb placeholder" href="papers/arxiv-2606.11782/index.html">论文预览</a>
+  <h3><a href="papers/arxiv-2606.11782/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Seeing What Matters：带共同随机性的 3DGS 感知增强包装器</span><span class="lang lang-en lang-inline" data-lang="en">Seeing What Matters: Perceptual Wrapper with Common Randomness for 3D Gaussian Splatting</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 10 · cs.CV</div>
+  <div class="meta">作者：He-Bi Yang, Jing-Zhong Chen, Yen-Kuan Ho, Sang NguyenQuang</div>
+  <span class="score">评分 6.6/10</span>
+  <div class="tags"><span class="tag">3DGS 渲染增强</span><span class="tag">感知质量</span><span class="tag">压缩</span><span class="tag">RDO</span><span class="tag">纹理合成</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>该工作在 3DGS 渲染输出后接入轻量感知网络，用统计匹配补高频纹理，服务压缩与可视化质量。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 虽然能实现优秀的实时渲染，但常难以合成高频纹理；在内存受限和率失真优化 pipeline 中，这一缺陷会被进一步放大。本文提出一个通用的 2D perceptual wrapper，以内容和视角相关方式增强现有 3DGS 表示的渲染输出。方法使用一个轻量 synthesis network，并以伪随机 Gaussian noise 为条件来合成感知上合理的纹理；网络由 W…</p><p class="lang lang-en lang-block" data-lang="en">While 3D Gaussian Splatting (3DGS) achieves impressive real-time rendering, it frequently struggles to synthesize high-frequency textures, a limitation heavily exacerbated in memory-constrained and rate-distor…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11782">abs</a><a href="https://arxiv.org/pdf/2606.11782">PDF</a><a href="papers/arxiv-2606.11782/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.10350/index.html"><img src="assets/media/2026-06-11/arxiv-2606.10350/fig-001.webp" alt="Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.10350/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">UAV 多光谱影像中的多角度反射各向异性观测</span><span class="lang lang-en lang-inline" data-lang="en">Multi-Angular Reflectance Anisotropy Observed from UAV Multispectral Imagery</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-09 · score 4 · cs.CV</div>
-  <div class="meta">作者：Zhenqiang Qin, Chenguang Dai, Min Wang, Xian Li</div>
-  <span class="score">评分 6.2/10</span>
-  <div class="tags"><span class="tag">UAV</span><span class="tag">SFM</span><span class="tag">多光谱影像</span><span class="tag">BRDF</span><span class="tag">航测重建</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>该研究用 SFM 几何回投提取 UAV 多光谱多角度观测，量化视角对反射率一致性的影响。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">低空 UAV 多光谱影像由于飞行高度低和视场宽，天然包含多角度观测，这可能引入由几何驱动的辐射变化。本文提出一个几何感知的多角度观测提取流程，从 BRDF 角度量化观察几何效应。方法首先通过结构光束法（SFM）精化相机内外参，然后把正射图上的同质区域回投到不同视角的多个原始子图，从而为同一地物目标联合提取多波段 reflectance 和观测几何参数。随后在 VZA/RAA 域中进行极坐标可视化分析。草地目标结果显…</p><p class="lang lang-en lang-block" data-lang="en">UAV multispectral imagery naturally contains multi-angular observations due to low flight altitude and wide field-of-view imaging, which may introduce geometry-driven radiometric variability. This study propos…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.10350">abs</a><a href="https://arxiv.org/pdf/2606.10350">PDF</a><a href="papers/arxiv-2606.10350/index.html">详情</a></div>
+  <a class="thumb" href="papers/arxiv-2606.11314/index.html"><img src="assets/media/2026-06-12/arxiv-2606.11314/fig-001.webp" alt="TRON: Tracing Rays to Orchestrate a Neural Renderer for 3D Gaussian Reconstructions" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.11314/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">TRON：用射线追踪编排 3D Gaussian 重建的神经渲染器</span><span class="lang lang-en lang-inline" data-lang="en">TRON: Tracing Rays to Orchestrate a Neural Renderer for 3D Gaussian Reconstructions</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 9 · cs.CV, cs.GR</div>
+  <div class="meta">作者：Or Perel, Hassan Abu Alhaija, Zian Wang, Jacob Munkberg</div>
+  <span class="score">评分 7.4/10</span>
+  <div class="tags"><span class="tag">3DGS</span><span class="tag">神经渲染</span><span class="tag">重光照</span><span class="tag">可编辑场景</span><span class="tag">数字孪生</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>TRON 把 Gaussian ray tracing 作为显式 3D scaffold，再用神经渲染实现可控重光照、对象插入和材质编辑。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">TRON 是一个结合 3D Gaussian ray tracing 与神经渲染的框架，可在新光照、动态物体运动、对象插入和材质编辑下对真实 3D 场景进行真实且可控的渲染。仅依赖 Gaussian 表示 PBR 的方法常因重建几何、材质估计和光传输估计误差而难以真实重光照；而神经渲染方法又缺少显式场景表示，限制了细粒度交互编辑。TRON 使用来自学习式逆渲染模型的 intrinsic decomposition…</p><p class="lang lang-en lang-block" data-lang="en">We introduce TRON, a rendering framework that combines 3D Gaussian ray tracing with neural rendering to enable realistic and controllable rendering of real-world 3D scenes under novel lighting, dynamic object…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11314">abs</a><a href="https://arxiv.org/pdf/2606.11314">PDF</a><a href="papers/arxiv-2606.11314/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.11129/index.html"><img src="assets/media/2026-06-11/arxiv-2606.11129/fig-001.webp" alt="WorldOlympiad: Can Your World Model Survive a Triathlon?" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.11129/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WorldOlympiad：面向物理、几何和交互的世界模型三项赛评测</span><span class="lang lang-en lang-inline" data-lang="en">WorldOlympiad: Can Your World Model Survive a Triathlon?</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-06-10 · score 3 · cs.CV</div>
-  <div class="meta">作者：Yuke Zhao, Wangbo Zhao, Weijie Wang, Zeyu Zhang</div>
-  <span class="score">评分 6.5/10</span>
-  <div class="tags"><span class="tag">World Model</span><span class="tag">3D 一致性评测</span><span class="tag">Gaussian Splatting</span><span class="tag">机器人仿真</span><span class="tag">Benchmark</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>WorldOlympiad 用物理、几何和交互三条赛道评测世界模型，其中几何赛道通过 Gaussian splatting 检查 3D 一致性。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">WorldOlympiad 是一个用于诊断视频世界模型的 benchmark，覆盖物理真实性、几何一致性和交互保真度。现有 benchmark 多关注视觉质量、语义对齐或短期时序一致性，难以判断生成视频是否遵守物理规则、保持连贯 3D 结构并支撑长时可控交互。WorldOlympiad 将评测拆为三个互补维度：physical track 使用对象分割和 MLLM-as-judge 评估力学、热现象和材料属性；ge…</p><p class="lang lang-en lang-block" data-lang="en">We introduce WorldOlympiad, a benchmark for diagnosing video-based world models across physical faithfulness, geometric consistency, and interaction fidelity. While existing benchmarks often focus on visual qu…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.11129">abs</a><a href="https://arxiv.org/pdf/2606.11129">PDF</a><a href="papers/arxiv-2606.11129/index.html">详情</a></div>
+  <a class="thumb" href="papers/arxiv-2606.11529/index.html"><img src="assets/media/2026-06-12/arxiv-2606.11529/fig-001.webp" alt="XPR: An Extensible Cross-Platform Point-Based Differentiable Renderer" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.11529/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">XPR：可扩展跨平台点式可微渲染器</span><span class="lang lang-en lang-inline" data-lang="en">XPR: An Extensible Cross-Platform Point-Based Differentiable Renderer</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 6 · cs.GR, cs.CV, cs.PF</div>
+  <div class="meta">作者：Steve Rhyner, Sankeerth Durvasula, Aleksandr Kovalev, Hansel Jia</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">可微渲染</span><span class="tag">点式表示</span><span class="tag">XLA</span><span class="tag">跨平台</span><span class="tag">3DGS 基础设施</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>XPR 用高层接口和 XLA 编译降低点式可微渲染实现门槛，可快速实现 3DGS/3DGUT/LinPrim 等方法。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">点式可微渲染支撑现代三维重建、新视角合成和学习式图形 pipeline，但开发新渲染方法通常需要大量底层实现、硬件相关 kernel 和手写反向传播，限制了快速原型、复现、探索和部署。本文提出 XPR，一个可扩展、跨平台的点式可微渲染框架。XPR 提供高层编程接口，将方法特定逻辑与共享渲染 pipeline 分离，使用户能用少量代码实现新方法。它把渲染 pipeline 分解为模块化、静态 shape 的并行操作，…</p><p class="lang lang-en lang-block" data-lang="en">Point-based differentiable rendering underpins modern 3D reconstruction, novel-view synthesis, and learning-based graphics pipelines, but developing new rendering methods often requires extensive low-level imp…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11529">abs</a><a href="https://arxiv.org/pdf/2606.11529">PDF</a><a href="papers/arxiv-2606.11529/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2606.11326/index.html"><img src="assets/media/2026-06-12/arxiv-2606.11326/fig-001.webp" alt="DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.11326/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DarkVGGT：利用热红外几何在黑暗中三维感知且不牺牲白天性能</span><span class="lang lang-en lang-inline" data-lang="en">DarkVGGT: Seeing Through Darkness Using Thermal Geometry without Daylight Tax</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 4 · cs.CV</div>
+  <div class="meta">作者：Minseong Kweon, Wenyuan Zhao, Nuo Chen, Lulin Liu</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">RGB-T</span><span class="tag">低光 SLAM</span><span class="tag">前馈三维重建</span><span class="tag">相机位姿估计</span><span class="tag">热红外几何</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>DarkVGGT 把物理感知热红外线索注入 VGGT 类前馈几何模型，在黑暗环境中改善深度和相机位姿估计。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">近期前馈式三维重建方法能从图像流高效端到端估计场景几何，但它们依赖可见光外观，因此在黑暗和低能见度环境中容易失效：RGB 线索严重退化，几何证据变得模糊。DarkVGGT 是一个 RGB-T 前馈几何框架，用物理感知热建模增强低光场景中的鲁棒三维估计。它包含两个互补模块：第一，physics-inspired thermal factorization 提取发射主导、几何一致的热红外线索，同时隔离可能造成几何歧义的…</p><p class="lang lang-en lang-block" data-lang="en">Recent feed-forward 3D reconstruction methods have demonstrated strong performance and flexibility in efficient end-to-end scene geometry estimation from image streams. However, their reliance on visible-light…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11326">abs</a><a href="https://arxiv.org/pdf/2606.11326">PDF</a><a href="papers/arxiv-2606.11326/index.html">详情</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2606.12340/index.html"><img src="assets/media/2026-06-12/arxiv-2606.12340/fig-001.webp" alt="Echoes of the Prior: A Computational Phenomenology of Forgetting" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2606.12340/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">先验的回声：关于遗忘的计算现象学</span><span class="lang lang-en lang-inline" data-lang="en">Echoes of the Prior: A Computational Phenomenology of Forgetting</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-06-11 · score 3 · cs.CV</div>
+  <div class="meta">作者：Gege Gao, Bernhard Schölkopf, Andreas Geiger</div>
+  <span class="score">评分 3.2/10</span>
+  <div class="tags"><span class="tag">三维重建</span><span class="tag">模型退化</span><span class="tag">交互艺术</span><span class="tag">认知隐喻</span><span class="tag">低优先级</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>该交互式艺术作品通过让前馈三维重建模型受控退化，展示“先验遗忘”对三维感知输出的影响。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">记忆不仅是数据存储，也被视作现实感的脚手架。当生物记忆消退时，世界并不只是变黑，而会回退为难以识别的混沌。Echoes of the Prior 是一个交互式装置，试图可视化这种关于遗忘的主观现象学。作者通过在前馈式三维重建模型中引入受控突触衰退，构造关于大脑预测先验被侵蚀的艺术类比。该作品将神经网络定位为认知代理，而非工程工具；其结构性退化用于唤起失去世界把握时的迷失、诗意和恐惧体验。作者希望这一框架能促使社区探…</p><p class="lang lang-en lang-block" data-lang="en">Memory is not merely the storage of data; it is the scaffolding of reality. When biological memory fades, the world does not simply turn black; it regresses into an unrecognizable chaos. Echoes of the Prior is…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.12340">abs</a><a href="https://arxiv.org/pdf/2606.12340">PDF</a><a href="papers/arxiv-2606.12340/index.html">详情</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -142,104 +120,164 @@
     <p class="muted repo-note">默认显示 8 个精选；新仓库、高分仓库和 GNSS/GPS/RTK 相关仓库优先，可展开查看完整候选。</p>
   </div>
   <div class="repo-list"><div class="repo">
-  <div><strong><a href="https://github.com/rsasaki0109/3dgs-robotics">rsasaki0109/3dgs-robotics</a></strong><div>Map, localize, and simulate — 3D Gaussian Splatting for robotics</div></div>
-  <div><div class="meta">新项目 · Python · ★ 10 · 更新 2026-06-10 · score 8</div><div class="meta">Topics：3d-gaussian-splatting, 3d-reconstruction, 3dgs, 3dgs-slam, autonomous-driving</div></div>
+  <div><strong><a href="https://github.com/rpng/MINS">rpng/MINS</a></strong><div>An efficient and robust multisensor-aided inertial navigation system with online calibration that is capable of fusing IMU, camera, LiDAR, GPS/GNSS, and wheel sensors. Use cases: VINS/VIO, GPS-INS, LINS/LIO, multi-sensor fusion for localiz…</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 710 · 更新 2026-06-10 · score 11</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/EIZRER/COLMAP_OpenMVS_python_pipeline_document">EIZRER/COLMAP_OpenMVS_python_pipeline_document</a></strong><div>This is the repository for my graduation thesis document written in latex, also contains the compiled PDF file.</div></div>
-  <div><div class="meta">新项目 · TeX · ★ 0 · 更新 2026-06-10 · score 8</div></div>
+  <div><strong><a href="https://github.com/naman4u13/gnssAug">naman4u13/gnssAug</a></strong><div>GNSS/INS integrated processing</div></div>
+  <div><div class="meta">新项目 · Java · ★ 2 · 更新 2026-06-11 · score 5</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/AndersonPhan/Autonomous-Mapping-Rover">AndersonPhan/Autonomous-Mapping-Rover</a></strong><div>Autonomous Mapping Rover that uses SLAM to create a 2D map of an arena and can do pathfinding through the map.</div></div>
-  <div><div class="meta">新项目 · ★ 0 · 更新 2026-06-10 · score 5</div></div>
+  <div><strong><a href="https://github.com/xqc-debug/GNSS-R-InSAR-Deformation-Monitoring">xqc-debug/GNSS-R-InSAR-Deformation-Monitoring</a></strong><div>MATLAB codes for the paper: A GNSS-R InSAR Method for Deformation Monitoring Based on BeiDou Dual-Frequency Signal Fusion</div></div>
+  <div><div class="meta">新项目 · ★ 1 · 更新 2026-06-09 · score 4</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/3113179244/visual_odometry">3113179244/visual_odometry</a></strong><div>视觉slam</div></div>
-  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-06-10 · score 4</div></div>
+  <div><strong><a href="https://github.com/sasabanjac/rgns">sasabanjac/rgns</a></strong><div>Royanis GPS Noise Simulator - Realistic GNSS measurement noise for fleet-scale simulation — research-calibrated, bit-deterministic, continental coverage</div></div>
+  <div><div class="meta">新项目 · C · ★ 0 · 更新 2026-06-11 · score 2</div><div class="meta">Topics：gnss, gps, simulation, telematics</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/leiverkus/effigies">leiverkus/effigies</a></strong><div>NodeODM-compatible WebODM engine: COLMAP sparse + full OpenMVS chain (ReconstructMesh/RefineMesh) for close-range photogrammetry</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-10 · score 2</div></div>
+  <div><strong><a href="https://github.com/Daceyyreal/nerf-prep">Daceyyreal/nerf-prep</a></strong><div>Dockerized one-command COLMAP→Nerfstudio dataset prep — auto matcher selection, GPU/CPU detect, headless, input validation.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-11 · score 9</div><div class="meta">Topics：3d-gaussian-splatting, 3d-reconstruction, cli, colamp, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kenchikuliu/slam-ai-skill-gateway">kenchikuliu/slam-ai-skill-gateway</a></strong><div>HTTP and MCP gateway for the local SLAM AI literature corpus</div></div>
+  <div><div class="meta">新项目 · PowerShell · ★ 0 · 更新 2026-06-11 · score 7</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Qingtiam/legged-vio-ekf">Qingtiam/legged-vio-ekf</a></strong><div>Consistent EKF for Quadruped Visual-Inertial-Kinematic Odometry</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-06-11 · score 6</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/joch04Qtacad/Colmap-TLOE">joch04Qtacad/Colmap-TLOE</a></strong><div>Addon Blender pour normaliser un import Colmap</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-06-11 · score 4</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 32 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/Vampire-js/transformer-visual-odometry">Vampire-js/transformer-visual-odometry</a></strong></div>
+  <div><div class="meta">新项目 · Jupyter Notebook · ★ 0 · 更新 2026-06-11 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ayushyadav1783-cmd/DS685-Assignments">ayushyadav1783-cmd/DS685-Assignments</a></strong><div>Language-Embedded 3D Gaussian Splatting for Robot Manipulation — COLMAP, gsplat, CLIP, ROS2 perception pipeline | NJIT DS685</div></div>
+  <div><div class="meta">新项目 · Jupyter Notebook · ★ 0 · 更新 2026-06-11 · score 2</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam_ros2">rsasaki0109/lidar_slam_ros2</a></strong><div>ROS 2 LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
+  <div><div class="meta">HTML · ★ 820 · 更新 2026-06-11 · score 14</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/gnssplusplus-library">rsasaki0109/gnssplusplus-library</a></strong><div>Modern C++ GNSS/RTK/PPP/CLAS toolkit.</div></div>
+  <div><div class="meta">Python · ★ 168 · 更新 2026-06-11 · score 10</div><div class="meta">Topics：c-plus-plus, gnss, localization, positioning, ppp</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/3D-Vision-World/awesome-NeRF-and-3DGS-SLAM">3D-Vision-World/awesome-NeRF-and-3DGS-SLAM</a></strong><div>A comprehensive list of Implicit Representations, NeRF and 3D Gaussian Splatting papers relating to SLAM/Robotics domain, including papers, videos, codes, and related websites</div></div>
+  <div><div class="meta">★ 2033 · 更新 2026-06-10 · score 20</div><div class="meta">Topics：3dgs, awesome, gaussiansplatting, lidar-slam, nerf</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/kurajulii/slamAI-istanbulCanyon">kurajulii/slamAI-istanbulCanyon</a></strong><div>Enhance drone navigation with robust Visual Odometry and SLAM for urban canyons, focusing on realistic İstanbul environments and machine learning solutions.</div></div>
-  <div><div class="meta">Python · ★ 1 · 更新 2026-06-10 · score 11</div><div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-06-11 · score 11</div><div class="meta">Topics：airsim, computer-vision, drone, localization, mapping</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/shivansh-2611/axis-lang">shivansh-2611/axis-lang</a></strong><div>Create efficient programs with AXIS, a minimalist language that offers Python-like syntax and dual modes: interpreted scripts or direct x86-64 compilation.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-06-10 · score 3</div><div class="meta">Topics：css, gps, gtsam, illusion, language</div></div>
+  <div><strong><a href="https://github.com/dkadam77/LiOS">dkadam77/LiOS</a></strong><div>Run Linux applications on iOS devices using a hypervisor, leveraging ARM architecture for enhanced performance and reduced overhead.</div></div>
+  <div><div class="meta">★ 1 · 更新 2026-06-12 · score 4</div><div class="meta">Topics：3d-mapping, bytecode, compiler, gps, gtsam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/HadiHShali/GNSS_SensorFusion_KF_Cpp">HadiHShali/GNSS_SensorFusion_KF_Cpp</a></strong><div>6-month C++ learning journey: GNSS positioning, GPS solver, Kalman filtering, INS/GPS sensor fusion, Orbit determination, etc.</div></div>
+  <div><div class="meta">C++ · ★ 2 · 更新 2026-06-11 · score 5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jclark/satpulse">jclark/satpulse</a></strong><div>Precision timing and positioning for computer systems with modern GNSS receivers</div></div>
+  <div><div class="meta">Go · ★ 53 · 更新 2026-06-11 · score 4</div><div class="meta">Topics：chrony, gnss, go, gps, linuxptp</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/commaai/gnss-data">commaai/gnss-data</a></strong></div>
+  <div><div class="meta">Shell · ★ 19 · 更新 2026-06-11 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/DweepSaha/gnss-rinex-pipeline-">DweepSaha/gnss-rinex-pipeline-</a></strong><div>Project - GNSS Quality Analyzer</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-06-11 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/bobvan/PePPAR-Fix">bobvan/PePPAR-Fix</a></strong><div>Fixed-Position PPP-AR Disciplined Oscillator — carrier-phase GNSS for sub-nanosecond UTC alignment</div></div>
+  <div><div class="meta">HTML · ★ 3 · 更新 2026-06-11 · score 2</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Hotsauce09/aided">Hotsauce09/aided</a></strong><div>✨ Simplify UI development with Aided, a minimal JavaScript library that enables direct DOM manipulation for responsive and efficient user interfaces.</div></div>
+  <div><div class="meta">★ 1 · 更新 2026-06-11 · score 5</div><div class="meta">Topics：catkin, computer-vision, dataset, elasticsearch-plugin, few-shot-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/vahur6/RTABMap-ROS2-PX4">vahur6/RTABMap-ROS2-PX4</a></strong><div>Simulate drones and map environments using ROS 2 and RTAB-Map SLAM in a ready-to-use Docker image, featuring 3D scanning and visualization.</div></div>
+  <div><div class="meta">Python · ★ 9 · 更新 2026-06-11 · score 2</div><div class="meta">Topics：3d-reconstruction, docker, docker-image, drone, gazebo</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/rsasaki0109/lidar_localization_ros2">rsasaki0109/lidar_localization_ros2</a></strong><div>3D LIDAR Localization using NDT/GICP and pointcloud map in ROS 2 (Not SLAM)</div></div>
-  <div><div class="meta">Python · ★ 516 · 更新 2026-06-10 · score 9</div><div class="meta">Topics：gicp, lidar, localization, ndt, pcl</div></div>
-</div></div>
-  <details class="repo-more"><summary>还有 17 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
-  <div><strong><a href="https://github.com/KuoFengYuan/reconstudio">KuoFengYuan/reconstudio</a></strong><div>Local web panel for an end-to-end 3D reconstruction pipeline: video → sharp frames → COLMAP → 3D Gaussian Splatting (GS-2M) training → mesh.</div></div>
-  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-10 · score 4</div><div class="meta">Topics：3d-reconstruction, 3dgs, colmap, computer-vision, fastapi</div></div>
+  <div><div class="meta">Python · ★ 516 · 更新 2026-06-11 · score 9</div><div class="meta">Topics：gicp, lidar, localization, ndt, pcl</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/leobbs89-hub/visual-odometry">leobbs89-hub/visual-odometry</a></strong><div>Pipeline de odometria visual monocular com ORB, AKAZE, SuperPoint, LoFTR e MatchFormer</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-06-10 · score 3</div></div>
+  <div><strong><a href="https://github.com/mdtajnur22/kiss-slam">mdtajnur22/kiss-slam</a></strong><div>A LiDAR SLAM system that just works</div></div>
+  <div><div class="meta">Python · ★ 5 · 更新 2026-06-11 · score 9</div><div class="meta">Topics：996, censorship, china, china-dictatorship, chinese-communist-party</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/y1s3ra150/lidar_inertial_odometry">y1s3ra150/lidar_inertial_odometry</a></strong><div>Accelerate LiDAR-Inertial odometry for accurate motion tracking with advanced estimation and efficient data management using pre-computed surfels.</div></div>
-  <div><div class="meta">HTML · ★ 1 · 更新 2026-06-10 · score 9</div><div class="meta">Topics：3d-mapping, 3d-reconstruction, colored-point-cloud, lidar, lidar-camera-synchronization</div></div>
+  <div><div class="meta">HTML · ★ 1 · 更新 2026-06-11 · score 9</div><div class="meta">Topics：3d-mapping, 3d-reconstruction, colored-point-cloud, lidar, lidar-camera-synchronization</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/yeicor-docker/colmap-openmvs">yeicor-docker/colmap-openmvs</a></strong><div>Full photogrammetry pipeline.</div></div>
-  <div><div class="meta">Shell · ★ 4 · 更新 2026-06-10 · score 8</div></div>
+  <div><strong><a href="https://github.com/ainolf/PX4-ROS2-SLAM-Control">ainolf/PX4-ROS2-SLAM-Control</a></strong><div>Integrate PX4, ROS 2, and Gazebo for drone SLAM, mapping, and control with LiDAR and RGBD camera support in simulation.</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-06-11 · score 8</div><div class="meta">Topics：drl, drone, gazebo, lidar, px4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/3dgs-robotics">rsasaki0109/3dgs-robotics</a></strong><div>Map, localize, and simulate — 3D Gaussian Splatting for robotics</div></div>
+  <div><div class="meta">Python · ★ 10 · 更新 2026-06-11 · score 8</div><div class="meta">Topics：3d-gaussian-splatting, 3d-reconstruction, 3dgs, 3dgs-slam, autonomous-driving</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/yeicor/colmap-openmvs-app">yeicor/colmap-openmvs-app</a></strong><div>One-click photogrammetry. Turn photos into 3D models using the latest COLMAP + OpenMVS — no command line needed.</div></div>
-  <div><div class="meta">Rust · ★ 1 · 更新 2026-06-10 · score 8</div></div>
+  <div><div class="meta">Rust · ★ 5 · 更新 2026-06-11 · score 8</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/BrnoMarsRover/visual_inertial_odometry">BrnoMarsRover/visual_inertial_odometry</a></strong><div>Repo for vio files and documentation</div></div>
-  <div><div class="meta">MATLAB · ★ 0 · 更新 2026-06-10 · score 8</div></div>
+  <div><strong><a href="https://github.com/yeicor-docker/colmap-openmvs">yeicor-docker/colmap-openmvs</a></strong><div>Full photogrammetry pipeline.</div></div>
+  <div><div class="meta">Shell · ★ 4 · 更新 2026-06-11 · score 8</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jcevasco2003/f_vigs_slam">jcevasco2003/f_vigs_slam</a></strong><div>Este repositorio es para guardar la implementación de mi tesis de Licenciatura en Ciencias de Datos. Implementa un algoritmo de Gaussian Splatting aplicado a SLAM en el marco de ROS2.</div></div>
+  <div><div class="meta">C++ · ★ 1 · 更新 2026-06-11 · score 8</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/Cavilach/lidar_odometry">Cavilach/lidar_odometry</a></strong><div>Achieve real-time LiDAR odometry with robust state estimation using Probabilistic Kernel Optimization for SLAM applications.</div></div>
-  <div><div class="meta">★ 2 · 更新 2026-06-10 · score 7</div><div class="meta">Topics：colored-point-cloud, ct-icp, gaussian-splatting, gtsam, iros</div></div>
+  <div><div class="meta">★ 2 · 更新 2026-06-11 · score 7</div><div class="meta">Topics：colored-point-cloud, ct-icp, gaussian-splatting, gtsam, iros</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/rsasaki0109/localization_zoo">rsasaki0109/localization_zoo</a></strong><div>C++ from-paper reimplementations of LiDAR localization &amp; odometry papers — honestly benchmarked on KITTI, with tests.</div></div>
-  <div><div class="meta">C++ · ★ 36 · 更新 2026-06-10 · score 6</div><div class="meta">Topics：cpp, icp, lidar, lio, localization</div></div>
+  <div><strong><a href="https://github.com/luohongk/Embodied-AI-Daily">luohongk/Embodied-AI-Daily</a></strong><div>这个仓库是在arxiv上收集的有关VLN，VLA，World Model，SLAM，Gaussian Splatting,非线性优化等相关论文。每天都会自动更新！issue区域是最新10篇论文</div></div>
+  <div><div class="meta">HTML · ★ 308 · 更新 2026-06-11 · score 6</div><div class="meta">Topics：deep-learning, gaussian-splatting, lio, slam, vio</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/jbernalfa/voxel_svio">jbernalfa/voxel_svio</a></strong><div>[RA-L 2025] A stereo visual-inertial odometry system based on voxel map</div></div>
-  <div><div class="meta">C++ · ★ 15 · 更新 2026-06-10 · score 6</div></div>
+  <div><div class="meta">C++ · ★ 15 · 更新 2026-06-11 · score 6</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/koroltony/UCLA_Gateway_Plaza_3DGS">koroltony/UCLA_Gateway_Plaza_3DGS</a></strong><div>3DGS Reconstruction of UCLA Gateway Plaza from unstaged outdoor scene video</div></div>
-  <div><div class="meta">Python · ★ 1 · 更新 2026-06-10 · score 4</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-06-11 · score 4</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/konthis/Visual_Odometry_base">konthis/Visual_Odometry_base</a></strong><div>Visual Odometry on openCV/cpp</div></div>
-  <div><div class="meta">C++ · ★ 0 · 更新 2026-06-10 · score 4</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/KC-nishihana/colmap_chack">KC-nishihana/colmap_chack</a></strong></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-06-10 · score 4</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/rsasaki0109/dynamic-3d-object-removal">rsasaki0109/dynamic-3d-object-removal</a></strong><div>Numpy-only dynamic object removal for LiDAR point clouds — 3D box crop + temporal filtering. No GPU, no deep learning.</div></div>
-  <div><div class="meta">Python · ★ 74 · 更新 2026-06-10 · score 3</div><div class="meta">Topics：argoverse, autonomous-driving, dynamic-object-removal, kitti, lidar</div></div>
+  <div><strong><a href="https://github.com/3113179244/visual_odometry">3113179244/visual_odometry</a></strong><div>视觉slam</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-06-11 · score 4</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/Archerkattri/archerkattri.github.io">Archerkattri/archerkattri.github.io</a></strong><div>Personal research portfolio — robotics &amp; AI, visuo-tactile SLAM, 3D reconstruction, Gaussian Splatting, and robot perception.</div></div>
   <div><div class="meta">JavaScript · ★ 0 · 更新 2026-06-10 · score 3</div><div class="meta">Topics：3d-reconstruction, gaussian-splatting, github-pages, machine-learning, portfolio</div></div>
 </div>
 <div class="repo">
+  <div><strong><a href="https://github.com/leiverkus/effigies">leiverkus/effigies</a></strong><div>NodeODM-compatible WebODM engine: COLMAP sparse + full OpenMVS chain (ReconstructMesh/RefineMesh) for close-range photogrammetry</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-06-12 · score 2</div></div>
+</div>
+<div class="repo">
   <div><strong><a href="https://github.com/maxefe7476/Axioma_robot">maxefe7476/Axioma_robot</a></strong><div>Build and explore an autonomous 4WD robot using C++, Python, ROS2, and Gazebo for advanced navigation and mapping capabilities.</div></div>
-  <div><div class="meta">Python · ★ 4 · 更新 2026-06-10 · score 2</div><div class="meta">Topics：amcl, arduino, autonomous-navigation, autonomous-robots, cpp</div></div>
+  <div><div class="meta">Python · ★ 4 · 更新 2026-06-11 · score 2</div><div class="meta">Topics：amcl, arduino, autonomous-navigation, autonomous-robots, cpp</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/cawkei/TTT3R">cawkei/TTT3R</a></strong><div>Enhance 3D reconstruction with TTT3R, a test-time training method that boosts length generalization and improves performance for CUT3R applications.</div></div>
-  <div><div class="meta">Python · ★ 2 · 更新 2026-06-10 · score 2</div><div class="meta">Topics：3d-reconstruction, rnn-model, slam</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-06-11 · score 2</div><div class="meta">Topics：3d-reconstruction, rnn-model, slam</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/FAISALODAY/EvoTokenDLM">FAISALODAY/EvoTokenDLM</a></strong><div>Develop EvoToken-DLM, an innovative language model enhancing diffusion with soft token distributions for improved performance and flexibility.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-06-10 · score 2</div><div class="meta">Topics：benchmark, cloud-api, dapps, dlms, euroc</div></div>
+  <div><strong><a href="https://github.com/ptrckfrnk/humanoid-video-to-3D">ptrckfrnk/humanoid-video-to-3D</a></strong><div>Feed-forward video-to-3D scene reconstruction using VGGT (CVPR 2025) with open-vocabulary semantic labeling via SAM 2.1 + CLIP. One command, no COLMAP, Apple Silicon + CUDA.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-06-11 · score 2</div><div class="meta">Topics：3d-reconstruction, apple-silicon, computer-vision, depth-estimation, feed-forward</div></div>
 </div></div></details>
 </section>
 

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-12/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-12/index.html">← 返回 2026-06-12 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-10 · score 13 · cs.CV, cs.DC, cs.GR, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向多 GPU 高斯溅射的可扩展 PyTorch 抽象</span><span class="lang lang-en lang-inline" data-lang="en">A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting</span></h1>
+  <div class="meta">作者：Matthew Cong, Francis Williams, Jonathan Swartz, Mark Harris, Sanja Fidler, Ken Museth</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.11390">abs</a><a href="https://arxiv.org/pdf/2606.11390">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>对大尺度 3DGS 地图、城市数字孪生和机器人数据后处理很关键；与 SLAM 前后端算法不直接相关，但工程基础设施价值很高。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">多 GPU</span><span class="tag">大尺度重建</span><span class="tag">PyTorch 后端</span><span class="tag">城市数字孪生</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作用 PyTorch 后端把 3DGS 参数与算子透明分布到多 GPU，展示十亿级 splats 的城市级重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 已成为真实世界神经重建中的热门方法，但常受计算和显存限制，难以扩展到更高分辨率和更大场景。本文提出一种多 GPU Gaussian Splatting 方法，通过一个 PyTorch backend 将 Gaussian 参数和 splatting operators 分布到多张 GPU。该 backend 使用 CUDA unified memory 与 NVLink，在 operator 层完成分布式执行，因此模型代码无需显式处理跨设备通信。更广义地，该 backend 将多 GPU 暴露为一个聚合 PyTorch device，并可支持其他 PyTorch operators。作者展示了包含超过 10 亿 Gaussian splats、具有街景细节的城市级重建，规模超过当前 SOTA 25 倍以上。</p><p class="lang lang-en lang-block" data-lang="en">Gaussian splatting methods have become increasingly popular for neural reconstruction of the real world. However, they are often limited in scale and resolution due to compute and memory constraints. We present a multi-GPU Gaussian splatting approach that scales reconstruction to higher resolutions and larger scenes while abstracting away the code complexity typically associated with distributing a model. To accomplish this, we propose a PyTorch backend that distributes the Gaussian parameters and splatting operators across GPUs via CUDA unified memory and NVLink. Because distribution occurs at the operator level, the model code requires no explicit cross-device communication. More broadly, the backend exposes multiple GPUs as an aggregate PyTorch device and supports other PyTorch operators. We demonstrate city-scale reconstructions with street-level detail consisting of over 1 billion Gaussian splats, more than 25 times as many as the current state of the art.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Matthew Cong, Francis Williams, Jonathan Swartz, Mark Harris, Sanja Fidler, Ken Museth；类别：cs.CV / cs.DC / cs.GR / cs.LG；发布日期：2026-06-10；备注：14 pages, 6 tables, 2 figures；采集 score=13</li>
+<li>核心问题：3DGS 在真实大场景重建中受单 GPU 显存与算力限制，难以扩大到城市级、街景级细节，同时多卡分布式实现通常要求模型代码显式处理跨设备通信。</li>
+<li>方法亮点：提出一个 PyTorch backend，把 Gaussian 参数和 splatting operators 通过 CUDA unified memory 与 NVLink 分布到多 GPU；分布发生在 operator 层，模型代码可把多张 GPU 视作聚合 PyTorch device，不需要手写跨设备通信。</li>
+<li>结果信号：展示了包含 <strong>超过 10 亿 Gaussian splats</strong> 的城市级重建，数量超过当前 SOTA 25 倍以上，并保持街景级细节。</li>
+<li>关注价值：这更像 3DGS 系统/基础设施论文，不是 SLAM 算法；但对大尺度机器人地图、城市数字孪生和长序列 Nerfstudio/3DGS 重建非常关键。后续应关注显存分页、NVLink 依赖、训练/渲染吞吐，以及是否能接入已有 COLMAP/SLAM 位姿和地图分块流程。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11390/fig-001.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11390/fig-001.webp" alt="A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11390/fig-002.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11390/fig-002.webp" alt="A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11390/table-001.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11390/table-001.webp" alt="A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11390/table-002.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11390/table-002.webp" alt="A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11390/table-003.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11390/table-003.webp" alt="A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11390/table-004.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11390/table-004.webp" alt="A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-12/arxiv-2606.11390/table-005.webp"><img src="../../assets/media/2026-06-12/arxiv-2606.11390/table-005.webp" alt="A Scalable PyTorch Abstraction for Multi-GPU Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
