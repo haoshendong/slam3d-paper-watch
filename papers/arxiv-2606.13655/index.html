@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-13/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-13/index.html">← 返回 2026-06-13 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-12 · score 8 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Flex4DHuman：灵活多视角视频扩散用于 4D 人体重建</span><span class="lang lang-en lang-inline" data-lang="en">Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction</span></h1>
+  <div class="meta">作者：Jen-Hao Cheng, Yipeng Wang, Hao Zhang, Gengshan Yang, Jenq-Neng Hwang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.13655">abs</a><a href="https://arxiv.org/pdf/2606.13655">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.4/10</span><p>对动态 4DGS、AR/VR、仿真和人体/动物资产生成有价值；与 SLAM/GNSS 定位关系间接，重点应看位姿噪声容忍度和 4DGS 几何一致性。</p><div class="tags"><span class="tag">4D 重建</span><span class="tag">视频扩散</span><span class="tag">4D Gaussian Splatting</span><span class="tag">相机位姿条件</span><span class="tag">动态人体</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">Flex4DHuman 用相对相机位姿条件的视频扩散生成同步多视角视频，再接 4DGS 重建动态主体，降低了显式几何先验依赖。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出 Flex4DHuman，一个多视角视频扩散模型，可将单目或稀疏多视角动态主体视频转换为同步 dense multi-view videos，并且只依赖相对相机位姿条件。不同于依赖骨架、深度、法线或目标视角几何渲染的人体方法，Flex4DHuman 不需要显式几何先验，而是通过相对相机位姿位置编码控制生成；生成视频可直接输入下游重建管线生成动态 4D Gaussian splats。方法基于 Wan 2.1 1.3B text-to-video 模型，保持 backbone 结构，通过五轴位置编码把时空 RoPE 扩展到 view index 和连续 SE(3) 相对相机几何，并用三阶段 curriculum 学习 pose following、灵活参考到目标视角生成和 temporal rollout。DNA-Rendering 与 ActorsHQ 实验显示其超过既有方法，混合人/动物训练后还可泛化到动物类别。</p><p class="lang lang-en lang-block" data-lang="en">We present Flex4DHuman, a multi-view video diffusion model that transforms a monocular or sparse multi-view video of a dynamic subject into synchronized dense multi-view videos using only relative camera-pose conditioning. Unlike prior human-centric methods that rely on skeletons, depth maps, normals, or rendered target-view geometry, Flex4DHuman requires no explicit geometry priors and instead conditions generation through relative camera-pose positional encoding. The generated videos can be directly ingested by downstream reconstruction pipelines to create dynamic 4D Gaussian splats. Built on the Wan 2.1 1.3B text-to-video model, Flex4DHuman preserves the backbone architecture and encodes camera and view information through a five-axis positional encoding that extends spatio-temporal RoPE with view indices and continuous SE(3) relative camera geometry. A three-stage curriculum progressively trains the model for pose following, flexible reference-to-target view generation, and temporal rollout. To support temporal rollout, we train with clean historical target-view tokens. We also add multi-view captions to enable test-time text control. Combined with an off-the-shelf 4D Gaussian Splatting stage, our framework lifts monocular static-camera videos into dynamic 4D Gaussian splats. Experiments on DNA-Rendering and ActorsHQ show that Flex4DHuman surpasses prior state-of-the-art methods, while the same formulation generalizes to animal categories after mixed human-animal training. These capabilities make Flex4DHuman a practical step toward scalable 4D content creation from casual monocular videos for simulation, gaming, AR/VR, and video re-shooting.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>作者：Siyu Zhou, Zhongliang Jiang；类别：cs.CV；发布日期：2026-06-11；采集 score=9</li>
+<li>核心问题：partial-to-full 点云配准在重叠率变化、点密度波动和噪声存在时容易失稳；已有 Transformer 点云方法多偏全局上下文聚合，容易忽略建立精确对应所需的局部几何。</li>
+<li>方法亮点：提出 <strong>GAPR-Net</strong>，采用 coarse-to-fine 框架，把卷积和 Transformer 模块结合起来，并通过 cross-attention 在局部/全局层面融合 partial 与 full 点云信息；核心是一个变换不变的 point-wise geometric feature，用相邻点相对几何描述单点局部结构。</li>
+<li>结果信号：在胫骨、股骨、骨盆、胸椎软骨四类几何差异明显的骨骼数据上，registration recall 达到 <strong>94.2%</strong>，RMSE 为 <strong>1.992 mm</strong>，旋转和平移的 $R^2$ 分别为 0.908 和 0.974。</li>
+<li>关注价值：直接命中点云配准，尤其适合关注低重叠、局部几何描述子和 partial observation 的研究者。局限是场景偏手术导航，代码需双盲评审后开放；后续应确认它在室外 LiDAR、稀疏/非均匀扫描和大尺度地图上的泛化性。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-13/arxiv-2606.13655/fig-001.webp"><img src="../../assets/media/2026-06-13/arxiv-2606.13655/fig-001.webp" alt="Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-13/arxiv-2606.13655/fig-002.webp"><img src="../../assets/media/2026-06-13/arxiv-2606.13655/fig-002.webp" alt="Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-13/arxiv-2606.13655/fig-003.webp"><img src="../../assets/media/2026-06-13/arxiv-2606.13655/fig-003.webp" alt="Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-13/arxiv-2606.13655/fig-004.webp"><img src="../../assets/media/2026-06-13/arxiv-2606.13655/fig-004.webp" alt="Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-13/arxiv-2606.13655/table-001.webp"><img src="../../assets/media/2026-06-13/arxiv-2606.13655/table-001.webp" alt="Flex4DHuman: Flexible Multi-view Video Diffusion for 4D Human Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
