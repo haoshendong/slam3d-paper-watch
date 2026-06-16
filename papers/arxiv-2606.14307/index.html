@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Pano3D: Unified 3D Reconstruction and Panoptic Segmentation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-16/index.html">← 返回 2026-06-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-12 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Pano3D：统一三维重建与全景分割</span><span class="lang lang-en lang-inline" data-lang="en">Pano3D: Unified 3D Reconstruction and Panoptic Segmentation</span></h1>
+  <div class="meta">作者：Victor Barberteguy, Ahmet Iscen, Mathilde Caron, Alireza Fathi, Gül Varol, Cordelia Schmid</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14307">abs</a><a href="https://arxiv.org/pdf/2606.14307">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>对语义地图、动态目标剔除和可导航三维表示有潜在价值；但与在线 SLAM/位姿估计的耦合仍不明确，需要关注实时性、增量更新和位姿噪声鲁棒性。</p><div class="tags"><span class="tag">三维重建</span><span class="tag">Panoptic Segmentation</span><span class="tag">语义地图</span><span class="tag">Feedforward Reconstruction</span><span class="tag">ScanNet</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">Pano3D 在无相机参数的 feedforward 三维重建 backbone 上联合训练全景分割，使几何和语义能力相互增强。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">近期 feedforward 3D reconstruction 网络在无需相机参数的稠密图像重建上表现突出，但将鲁棒语义理解融入这些模型仍是开放问题。Pano3D 在现有 3D 重建模型上加入 set-based mask decoder，在统一框架中同时执行 3D reconstruction 和 3D panoptic segmentation。模型通过几何损失与语义损失联合训练，二者相互促进；特征先由几何信息初始化，再微调为同时捕获几何与语义。该框架可适用于 online 和 all-to-all attention 两类重建 backbone，并在 ScanNet、ScanNet200、ScanNet++ 上取得 3D panoptic segmentation 的 SOTA 表现。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in 3D feedforward reconstruction neural networks have achieved remarkable success in dense reconstruction from images without any camera parameters. Yet, equipping these models with robust semantic understanding remains an open problem. Here we introduce an approach that performs 3D reconstruction and 3D panoptic segmentation in a unified framework. We build on existing 3D reconstruction models and augment them with a set-based mask decoder. The approach is jointly trained with a geometric and semantic loss, which are shown to be mutually beneficial. More precisely, the features are initialized from the geometric information and then finetuned to capture jointly geometry and semantics. We demonstrate the generality of our approach by successfully applying our framework both to online and all-to-all attention reconstruction backbones. Our method achieves state-of-the-art performance in 3D panoptic segmentation across ScanNet, ScanNet200, and ScanNet++ datasets. Ablation studies show that such joint training of a unified model equips 3D feedforward reconstruction neural networks with panoptic segmentation and yields mutually beneficial improvements.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.14307">abs</a> / <a href="https://arxiv.org/pdf/2606.14307">PDF</a>；项目页：https://victorbbt.github.io/Pano3D/；类别：cs.CV；采集 score=10。</li>
+<li>核心思路：在不依赖相机参数的 feedforward 3D reconstruction backbone 上增加 set-based mask decoder，统一做 3D 重建与 3D panoptic segmentation。</li>
+<li>方法要点：几何损失与语义损失联合训练；先由几何信息初始化特征，再微调为几何-语义联合表示；可适配 online 与 all-to-all attention 重建 backbone。</li>
+<li>关注点：对语义地图、动态场景过滤和可导航 3D 表示有潜在价值；需看其与 SLAM 在线增量建图、位姿噪声、稀疏视角和跨数据集泛化的兼容性。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14307/fig-001.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14307/fig-001.webp" alt="Pano3D: Unified 3D Reconstruction and Panoptic Segmentation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14307/fig-002.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14307/fig-002.webp" alt="Pano3D: Unified 3D Reconstruction and Panoptic Segmentation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14307/fig-003.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14307/fig-003.webp" alt="Pano3D: Unified 3D Reconstruction and Panoptic Segmentation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

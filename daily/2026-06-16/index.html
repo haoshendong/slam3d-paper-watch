@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
   <title>Daily Paper Reader 2026-06-16</title>
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-06-16/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -17,7 +17,7 @@
     <div class="meta">静态网页 · 2026-06-16</div>
     <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
     <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-06-16/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：6</span><span class="stat">推荐论文：6</span><span class="stat">新论文：6</span><span class="stat">仓库：18</span><span class="stat">新仓库：1</span></div>
 </section>
@@ -33,70 +33,70 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">今日推荐 6 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2606.14389/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2606.14389/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MooMIns：基于多实例的单目三维重建与物体位姿估计</span><span class="lang lang-en lang-inline" data-lang="en">MooMIns -- Monocular 3D Reconstruction and Object Pose Estimation from Multiple Instances</span></a></h3>
+  <a class="thumb placeholder" href="../../papers/arxiv-2606.14389/index.html">论文预览</a>
+  <h3><a href="../../papers/arxiv-2606.14389/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MooMIns：基于多实例的单目三维重建与物体位姿估计</span><span class="lang lang-en lang-inline" data-lang="en">MooMIns -- Monocular 3D Reconstruction and Object Pose Estimation from Multiple Instances</span></a></h3>
   <div class="meta">新论文 · 日期 2026-06-12 · score 12 · cs.CV</div>
   <div class="meta">作者：Robert Langendörfer, Markus Hillemann, Markus Ulrich</div>
   <span class="score">评分 8.3/10</span>
   <div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">单目三维重建</span><span class="tag">6D 位姿估计</span><span class="tag">Structure-from-Motion</span><span class="tag">工业抓取</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>MooMIns 把单图中的多个同类物体实例当作隐式多视角，用 3DGS + 改造 SfM 同时做物体级重建和 6D pose。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">从单张单目图像同时进行三维重建和 6D 物体位姿估计本质上是病态问题。但在工业场景中，同一物体的多个实例常被随机堆放在料箱中，这使单张图像内部隐含了同一物体的多个视角。本文提出 MooMIns，一种基于 Gaussian Splatting 的方法：它反转传统 3DGS 的表述，不再从多相机渲染一个场景，而是在单相机下渲染多个物体实例。方法由 SAM3 实例分割掩码和改造后的 SfM 管线初始化，并强调从图像证据执…</p><p class="lang lang-en lang-block" data-lang="en">Simultaneous 3D reconstruction and 6D object pose estimation from a single monocular image is an inherently ill-posed problem. In industrial settings, however, multiple instances of an object are often randoml…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.14389">abs</a><a href="https://arxiv.org/pdf/2606.14389">PDF</a><a href="papers/arxiv-2606.14389/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14389">abs</a><a href="https://arxiv.org/pdf/2606.14389">PDF</a><a href="../../papers/arxiv-2606.14389/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.14307/index.html"><img src="assets/media/2026-06-16/arxiv-2606.14307/fig-001.webp" alt="Pano3D: Unified 3D Reconstruction and Panoptic Segmentation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.14307/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Pano3D：统一三维重建与全景分割</span><span class="lang lang-en lang-inline" data-lang="en">Pano3D: Unified 3D Reconstruction and Panoptic Segmentation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2606.14307/index.html"><img src="../../assets/media/2026-06-16/arxiv-2606.14307/fig-001.webp" alt="Pano3D: Unified 3D Reconstruction and Panoptic Segmentation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2606.14307/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Pano3D：统一三维重建与全景分割</span><span class="lang lang-en lang-inline" data-lang="en">Pano3D: Unified 3D Reconstruction and Panoptic Segmentation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-06-12 · score 10 · cs.CV</div>
   <div class="meta">作者：Victor Barberteguy, Ahmet Iscen, Mathilde Caron, Alireza Fathi</div>
   <span class="score">评分 8/10</span>
   <div class="tags"><span class="tag">三维重建</span><span class="tag">Panoptic Segmentation</span><span class="tag">语义地图</span><span class="tag">Feedforward Reconstruction</span><span class="tag">ScanNet</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>Pano3D 在无相机参数的 feedforward 三维重建 backbone 上联合训练全景分割，使几何和语义能力相互增强。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">近期 feedforward 3D reconstruction 网络在无需相机参数的稠密图像重建上表现突出，但将鲁棒语义理解融入这些模型仍是开放问题。Pano3D 在现有 3D 重建模型上加入 set-based mask decoder，在统一框架中同时执行 3D reconstruction 和 3D panoptic segmentation。模型通过几何损失与语义损失联合训练，二者相互促进；特征先由几何信…</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in 3D feedforward reconstruction neural networks have achieved remarkable success in dense reconstruction from images without any camera parameters. Yet, equipping these models with robust sema…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.14307">abs</a><a href="https://arxiv.org/pdf/2606.14307">PDF</a><a href="papers/arxiv-2606.14307/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14307">abs</a><a href="https://arxiv.org/pdf/2606.14307">PDF</a><a href="../../papers/arxiv-2606.14307/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.13990/index.html"><img src="assets/media/2026-06-16/arxiv-2606.13990/fig-001.webp" alt="SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.13990/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SplatlessDF：使用非渲染高斯的连续距离场建图</span><span class="lang lang-en lang-inline" data-lang="en">SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2606.13990/index.html"><img src="../../assets/media/2026-06-16/arxiv-2606.13990/fig-001.webp" alt="SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2606.13990/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SplatlessDF：使用非渲染高斯的连续距离场建图</span><span class="lang lang-en lang-inline" data-lang="en">SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians</span></a></h3>
   <div class="meta">新论文 · 日期 2026-06-12 · score 10 · cs.RO</div>
   <div class="meta">作者：Monisha Mushtary Uttsha, Lan Wu, Teresa Vidal-Calleja</div>
   <span class="score">评分 8.8/10</span>
   <div class="tags"><span class="tag">连续距离场</span><span class="tag">Gaussian Primitives</span><span class="tag">机器人导航</span><span class="tag">地图表示</span><span class="tag">2DGS</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>SplatlessDF 把高斯从渲染元素变成空间距离场 primitive，可查询连续距离和梯度，直接面向机器人导航与建图。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Gaussian Splatting 已证明可用可优化高斯高效表示场景以实现高质量重建与渲染。本文提出 SplatlessDF，一个连续 distance field 建图框架，它从空间而非光度角度使用各向异性高斯元素。SplatlessDF 直接参数化并优化高斯以恢复可微 DF，使机器人导航等下游任务可以在空间域查询距离和梯度。框架既可作为独立 DF-only 形式，也可与 2D Gaussian Splatti…</p><p class="lang lang-en lang-block" data-lang="en">Recent Gaussian splatting (GS) methods have shown that scenes can be represented efficiently with optimisable Gaussians for high-quality reconstruction and rendering. In this paper, building on this principle,…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.13990">abs</a><a href="https://arxiv.org/pdf/2606.13990">PDF</a><a href="papers/arxiv-2606.13990/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.13990">abs</a><a href="https://arxiv.org/pdf/2606.13990">PDF</a><a href="../../papers/arxiv-2606.13990/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.14534/index.html"><img src="assets/media/2026-06-16/arxiv-2606.14534/fig-001.webp" alt="A Lightweight Fiducial-Based Pipeline for 3D Hyperspectral Mapping of ex-vivo Lumpectomy Specimens" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.14534/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向离体乳腺肿瘤标本三维高光谱映射的轻量级基准标记管线</span><span class="lang lang-en lang-inline" data-lang="en">A Lightweight Fiducial-Based Pipeline for 3D Hyperspectral Mapping of ex-vivo Lumpectomy Specimens</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2606.14534/index.html"><img src="../../assets/media/2026-06-16/arxiv-2606.14534/fig-001.webp" alt="A Lightweight Fiducial-Based Pipeline for 3D Hyperspectral Mapping of ex-vivo Lumpectomy Specimens" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2606.14534/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向离体乳腺肿瘤标本三维高光谱映射的轻量级基准标记管线</span><span class="lang lang-en lang-inline" data-lang="en">A Lightweight Fiducial-Based Pipeline for 3D Hyperspectral Mapping of ex-vivo Lumpectomy Specimens</span></a></h3>
   <div class="meta">新论文 · 日期 2026-06-12 · score 10 · cs.CV</div>
   <div class="meta">作者：Anna Bicchi, Alberto Rota, Leonardo Passoni, Nicola Ancellotti</div>
   <span class="score">评分 6.9/10</span>
   <div class="tags"><span class="tag">Structure-from-Motion</span><span class="tag">Bundle Adjustment</span><span class="tag">跨模态配准</span><span class="tag">ArUco</span><span class="tag">三维高光谱映射</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>该管线用 SfM、ArUco 约束 BA 和跨模态 homography，把 HSI 光谱图精确投到三维点云上，达到毫米级注册。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">高光谱成像有望用于乳腺保乳手术中的切缘评估，但临床转化需要把二维光谱信息精确对齐到切除组织的三维形状上。本文提出一个全自动、无需标定的管线，用消费级 RGB 图像和一次顶视 HSI 采集生成离体标本的 3D hyperspectral point cloud。三维几何由深度学习 SfM backbone 重建，并通过自定义 bundle adjustment 利用放置在标本周围的四个 ArUco marker 角点…</p><p class="lang lang-en lang-block" data-lang="en">Hyperspectral Imaging (HSI) is a promising modality for intraoperative assessment of resection margins in Breast-Conserving Surgery (BCS), but its clinical translation requires aligning the inherently 2D spect…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.14534">abs</a><a href="https://arxiv.org/pdf/2606.14534">PDF</a><a href="papers/arxiv-2606.14534/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14534">abs</a><a href="https://arxiv.org/pdf/2606.14534">PDF</a><a href="../../papers/arxiv-2606.14534/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.14056/index.html"><img src="assets/media/2026-06-16/arxiv-2606.14056/fig-001.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.14056/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">通过多卫星数据集成评估空间基 GNSS 射频干扰检测</span><span class="lang lang-en lang-inline" data-lang="en">Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2606.14056/index.html"><img src="../../assets/media/2026-06-16/arxiv-2606.14056/fig-001.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2606.14056/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">通过多卫星数据集成评估空间基 GNSS 射频干扰检测</span><span class="lang lang-en lang-inline" data-lang="en">Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration</span></a></h3>
   <div class="meta">新论文 · 日期 2026-06-12 · score 6 · eess.SP</div>
   <div class="meta">作者：Anouar Boumeftah, Peter Klimas, Gunes Karabulut Kurt</div>
   <span class="score">评分 6.4/10</span>
   <div class="tags"><span class="tag">GNSS-R</span><span class="tag">射频干扰检测</span><span class="tag">CYGNSS</span><span class="tag">多卫星融合</span><span class="tag">观测质量监测</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>该工作用 CYGNSS 多星 DDM 数据评估 GNSS-R RFI 检测，量化星座规模对检测延迟、覆盖和持久性监测的收益。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">空间基 GNSS reflectometry 可通过 delay-Doppler map forbidden zones 中升高的噪声功率检测地面射频干扰。本文利用 NASA PO.DAAC 归档中七颗 CYGNSS 卫星三个月的 Level 1 delay-Doppler 观测，评估星座规模对检测性能的影响。研究分析 detection latency、spatial coverage、spatial coher…</p><p class="lang lang-en lang-block" data-lang="en">Space-based GNSS reflectometry (GNSS-R) can detect terrestrial radio frequency interference (RFI) through elevated noise power in delay-Doppler map forbidden zones. This study evaluates how constellation size…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.14056">abs</a><a href="https://arxiv.org/pdf/2606.14056">PDF</a><a href="papers/arxiv-2606.14056/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14056">abs</a><a href="https://arxiv.org/pdf/2606.14056">PDF</a><a href="../../papers/arxiv-2606.14056/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2606.14562/index.html"><img src="assets/media/2026-06-16/arxiv-2606.14562/fig-001.webp" alt="NEST3D: A High-Resolution Multimodal Dataset of Sociable Weaver Tree Nests" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2606.14562/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">NEST3D：社交织巢鸟树巢的高分辨率多模态数据集</span><span class="lang lang-en lang-inline" data-lang="en">NEST3D: A High-Resolution Multimodal Dataset of Sociable Weaver Tree Nests</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2606.14562/index.html"><img src="../../assets/media/2026-06-16/arxiv-2606.14562/fig-001.webp" alt="NEST3D: A High-Resolution Multimodal Dataset of Sociable Weaver Tree Nests" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2606.14562/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">NEST3D：社交织巢鸟树巢的高分辨率多模态数据集</span><span class="lang lang-en lang-inline" data-lang="en">NEST3D: A High-Resolution Multimodal Dataset of Sociable Weaver Tree Nests</span></a></h3>
   <div class="meta">新论文 · 日期 2026-06-12 · score 5 · cs.CV, cs.LG</div>
   <div class="meta">作者：Constanza A. Molina Catricheo, Simon Boeder, Ting-Jia Guo, Giacomo May</div>
   <span class="score">评分 6.3/10</span>
   <div class="tags"><span class="tag">无人机数据集</span><span class="tag">点云语义分割</span><span class="tag">多光谱</span><span class="tag">三维重建</span><span class="tag">非结构化场景</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>NEST3D 发布 1.4 TB 无人机 RGB/多光谱/点云/语义标注数据，可作为复杂植被和不规则结构下的三维重建与点云分割 benchmark。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">社交织巢鸟巢是复杂生态结构，但既有数据集缺乏细粒度三维结构。由于鸟巢几何不规则且与复杂宿主植被融合，生成可用且准确的三维数据十分困难。NEST3D 提供一个开放的 1.4 TB 多模态无人机数据集，覆盖 104 棵带巢树，包含 27,945 张 RGB 图像、111,780 张多光谱图像、约 7.81 亿三维点以及专家标注的语义分割标签。作者用 KPConv、RandLA-Net 和 Point Transform…</p><p class="lang lang-en lang-block" data-lang="en">Sociable weaver nests function as complex ecological structures offering thermoregulatory microhabitats and sustaining diverse species; however, datasets used in prior studies lack fine-grained 3D structural d…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2606.14562">abs</a><a href="https://arxiv.org/pdf/2606.14562">PDF</a><a href="papers/arxiv-2606.14562/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14562">abs</a><a href="https://arxiv.org/pdf/2606.14562">PDF</a><a href="../../papers/arxiv-2606.14562/index.html">详情</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -180,6 +180,6 @@
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>

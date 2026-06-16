@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MooMIns -- Monocular 3D Reconstruction and Object Pose Estimation from Multiple Instances</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-16/index.html">← 返回 2026-06-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-12 · score 12 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MooMIns：基于多实例的单目三维重建与物体位姿估计</span><span class="lang lang-en lang-inline" data-lang="en">MooMIns -- Monocular 3D Reconstruction and Object Pose Estimation from Multiple Instances</span></h1>
+  <div class="meta">作者：Robert Langendörfer, Markus Hillemann, Markus Ulrich</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14389">abs</a><a href="https://arxiv.org/pdf/2606.14389">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.3/10</span><p>与 3DGS、SfM 和物体级三维重建高度相关，工业 bin-picking 设定明确；但不是通用 SLAM/GNSS 定位系统，需验证实例对应、遮挡和对称物体下的鲁棒性。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">单目三维重建</span><span class="tag">6D 位姿估计</span><span class="tag">Structure-from-Motion</span><span class="tag">工业抓取</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">MooMIns 把单图中的多个同类物体实例当作隐式多视角，用 3DGS + 改造 SfM 同时做物体级重建和 6D pose。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">从单张单目图像同时进行三维重建和 6D 物体位姿估计本质上是病态问题。但在工业场景中，同一物体的多个实例常被随机堆放在料箱中，这使单张图像内部隐含了同一物体的多个视角。本文提出 MooMIns，一种基于 Gaussian Splatting 的方法：它反转传统 3DGS 的表述，不再从多相机渲染一个场景，而是在单相机下渲染多个物体实例。方法由 SAM3 实例分割掩码和改造后的 SfM 管线初始化，并强调从图像证据执行真实几何重建，避免学习式单目深度先验带来的幻觉。实验覆盖合成与真实 bin-picking 场景，展示了对未见物体的重建和单个实例位姿估计能力。</p><p class="lang lang-en lang-block" data-lang="en">Simultaneous 3D reconstruction and 6D object pose estimation from a single monocular image is an inherently ill-posed problem. In industrial settings, however, multiple instances of an object are often randomly arranged in bins, implicitly providing several views of the same object within a single image. We show that this implicit multi-view geometry can be exploited to simultaneously reconstruct the object in 3D and estimate the 6D pose of each visible object instance. We present MooMIns, a new Gaussian-splatting-based approach that inverts the original Gaussian splatting formulation: instead of rendering a single scene from multiple cameras, we render multiple object instances from a single camera. Our method is initialized with SAM3 instance segmentation masks and a modified Structure from Motion (SfM) pipeline. In contrast to learned monocular depth estimation, we perform true geometry-based reconstruction from image evidence, avoiding hallucinations caused by training data priors. We evaluate MooMIns on synthetic and real bin-picking scenarios, and demonstrate accurate reconstruction of previously unseen objects as well as reliable pose estimation of individual instance</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.14389">abs</a> / <a href="https://arxiv.org/pdf/2606.14389">PDF</a>；作者：Robert Langendörfer, Markus Hillemann, Markus Ulrich；类别：cs.CV；采集 score=12。</li>
+<li>核心思路：把单张图像中随机堆放的多个同类物体实例视为“同一物体的多个视角”，反转传统 3DGS 的“多相机渲染单场景”范式，改为“单相机渲染多个物体实例”。</li>
+<li>方法要点：用 SAM3 实例分割初始化，并结合改造的 SfM pipeline；强调基于真实图像几何证据重建，而不是依赖 monocular depth prior 幻觉深度。</li>
+<li>关注点：适合工业 bin-picking、物体级 6D pose 和无 CAD 模型重建；需要重点看实例间基线是否足够、对遮挡/同形对称物体的鲁棒性，以及 modified SfM 如何处理实例对应关系。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

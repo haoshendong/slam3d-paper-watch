@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-16/index.html">← 返回 2026-06-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-12 · score 6 · eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通过多卫星数据集成评估空间基 GNSS 射频干扰检测</span><span class="lang lang-en lang-inline" data-lang="en">Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration</span></h1>
+  <div class="meta">作者：Anouar Boumeftah, Peter Klimas, Gunes Karabulut Kurt</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14056">abs</a><a href="https://arxiv.org/pdf/2606.14056">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.4/10</span><p>对 GNSS 干扰监测和观测质量风险标注有价值；但它不做 GNSS/INS/SLAM 融合定位，也不涉及 RTK/PPP 或整数模糊度。</p><div class="tags"><span class="tag">GNSS-R</span><span class="tag">射频干扰检测</span><span class="tag">CYGNSS</span><span class="tag">多卫星融合</span><span class="tag">观测质量监测</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作用 CYGNSS 多星 DDM 数据评估 GNSS-R RFI 检测，量化星座规模对检测延迟、覆盖和持久性监测的收益。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">空间基 GNSS reflectometry 可通过 delay-Doppler map forbidden zones 中升高的噪声功率检测地面射频干扰。本文利用 NASA PO.DAAC 归档中七颗 CYGNSS 卫星三个月的 Level 1 delay-Doppler 观测，评估星座规模对检测性能的影响。研究分析 detection latency、spatial coverage、spatial coherence 和 persistence monitoring reliability 四类指标。结果显示，相比单星，七星星座使中位检测延迟降低 4.7 倍，5 分钟发射的拦截概率从 2% 提升到 11.5%，足迹 revisit time 从 5.8 小时改善到 2 小时以内；单星会使最多 72% 的源结构无法分辨，持久性监测可比单星早 39 天确认干扰起始。最大收益出现在一到三星之间，三颗卫星被认为是最低有效星座规模。</p><p class="lang lang-en lang-block" data-lang="en">Space-based GNSS reflectometry (GNSS-R) can detect terrestrial radio frequency interference (RFI) through elevated noise power in delay-Doppler map forbidden zones. This study evaluates how constellation size affects detection performance using Level 1 delay-Doppler observations from seven CYGNSS spacecraft collected over three months from the NASA PO.DAAC archive. Four metrics are analysed: detection latency, spatial coverage, spatial coherence, and persistence monitoring reliability. Results show that the full seven-satellite constellation reduces median detection latency by a factor of 4.7 compared with a single satellite and increases interception probability for a 5-minute emission from 2\% to 11.5\%. Median footprint revisit time improves from 5.8 hours to under 2.0 hours. Spatial coherence analysis indicates that a single satellite leaves up to 72\% of source structure unresolved. Persistence monitoring confirms interference onset 39 days earlier than single-satellite deployment. The largest gains occur between one and three satellites, establishing three satellites as the minimum effective constellation size.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.14056">abs</a> / <a href="https://arxiv.org/pdf/2606.14056">PDF</a>；类别：eess.SP；采集 score=6。</li>
+<li>核心思路：利用 CYGNSS 多星 Level 1 delay-Doppler observations，在 forbidden zones 的噪声功率异常中检测地面 GNSS RFI，并评估星座规模对检测性能的影响。</li>
+<li>方法要点：分析 detection latency、spatial coverage、spatial coherence、persistence monitoring reliability 四类指标；七星相对单星使 median detection latency 降低 4.7 倍，5 分钟发射拦截概率从 2% 提升到 11.5%，revisit time 从 5.8 小时改善到 2 小时以内。</li>
+<li>关注点：不是 GNSS/INS/SLAM 融合定位论文，但可作为 GNSS 干扰监测、城市峡谷鲁棒定位风险标注和外部先验告警线索；最大收益出现在 1 到 3 星，作者认为 3 星是最低有效星座规模。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14056/fig-001.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14056/fig-001.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14056/fig-002.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14056/fig-002.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14056/fig-003.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14056/fig-003.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14056/fig-004.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14056/fig-004.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14056/fig-005.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14056/fig-005.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14056/fig-006.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14056/fig-006.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.14056/table-001.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.14056/table-001.webp" alt="Space-Based GNSS Radio Frequency Interference Detection Evaluation Through Multi-Satellite Data Integration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

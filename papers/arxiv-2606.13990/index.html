@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-16/index.html">← 返回 2026-06-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-12 · score 10 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SplatlessDF：使用非渲染高斯的连续距离场建图</span><span class="lang lang-en lang-inline" data-lang="en">SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians</span></h1>
+  <div class="meta">作者：Monisha Mushtary Uttsha, Lan Wu, Teresa Vidal-Calleja</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.13990">abs</a><a href="https://arxiv.org/pdf/2606.13990">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.8/10</span><p>今天最贴近机器人建图和导航后端的论文，连接 Gaussian 表示、连续 DF、距离/梯度查询和规划接口；需进一步验证在线更新、闭环后地图一致性和大场景效率。</p><div class="tags"><span class="tag">连续距离场</span><span class="tag">Gaussian Primitives</span><span class="tag">机器人导航</span><span class="tag">地图表示</span><span class="tag">2DGS</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">SplatlessDF 把高斯从渲染元素变成空间距离场 primitive，可查询连续距离和梯度，直接面向机器人导航与建图。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Gaussian Splatting 已证明可用可优化高斯高效表示场景以实现高质量重建与渲染。本文提出 SplatlessDF，一个连续 distance field 建图框架，它从空间而非光度角度使用各向异性高斯元素。SplatlessDF 直接参数化并优化高斯以恢复可微 DF，使机器人导航等下游任务可以在空间域查询距离和梯度。框架既可作为独立 DF-only 形式，也可与 2D Gaussian Splatting 结合，形成只基于 Gaussian primitives 的统一连续 DF、表面模型和光度渲染框架。实验显示，独立形式可高效准确查询距离/梯度，联合形式可同时改善渲染几何并建模连续 DF。</p><p class="lang lang-en lang-block" data-lang="en">Recent Gaussian splatting (GS) methods have shown that scenes can be represented efficiently with optimisable Gaussians for high-quality reconstruction and rendering. In this paper, building on this principle, we introduce SplatlessDF, a continuous distance field (DF) mapping framework that uses anisotropic Gaussian elements from a spatial rather than photometric perspective. SplatlessDF directly parameterises the Gaussians and optimises to recover a differentiable DF, enabling distances and gradients to be queried in the spatial domain for downstream robotic tasks such as navigation. Furthermore, SplatlessDF can be coupled with 2D Gaussian splatting (2DGS), providing a unified framework based solely on Gaussian primitives that can learn continuous DF and surface models and supports photometric rendering. We consider two settings: a standalone DF-only formulation and a joint DF-rendering formulation coupled with 2DGS. Experiments show that the standalone formulation provides efficient and accurate distance and gradient queries, while the joint formulation improves rendering geometry and simultaneously models a continuous DF. These results highlight the potential of GS-style representations not only for surface modelling and rendering but also for mapping representations suited to robotic navigation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.13990">abs</a> / <a href="https://arxiv.org/pdf/2606.13990">PDF</a>；作者：Monisha Mushtary Uttsha, Lan Wu, Teresa Vidal-Calleja；类别：cs.RO；采集 score=10。</li>
+<li>核心思路：把 anisotropic Gaussians 从 photometric rendering primitives 改造成 spatial distance-field primitives，学习可微连续 DF，支持空间域距离与梯度查询。</li>
+<li>方法要点：提供 DF-only standalone formulation，也可与 2D Gaussian Splatting 联合训练，同时获得 photometric rendering、surface model 和 continuous DF。</li>
+<li>关注点：这是今天最贴近机器人导航/建图后端的论文；重点看 DF 查询延迟、梯度稳定性、动态更新能力、与局部规划/碰撞检测/ESDF 的接口，以及在稀疏或退化观测中的几何一致性。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.13990/fig-001.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.13990/fig-001.webp" alt="SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-16/arxiv-2606.13990/fig-002.webp"><img src="../../assets/media/2026-06-16/arxiv-2606.13990/fig-002.webp" alt="SplatlessDF: Continuous Distance Field Mapping with Non-Splatting Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
