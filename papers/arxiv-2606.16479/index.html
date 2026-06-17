@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-17/index.html">← 返回 2026-06-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-15 · score 7 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">VGGT 的不确定性质量：基于 DTU 基准数据集的分析</span><span class="lang lang-en lang-inline" data-lang="en">Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset</span></h1>
+  <div class="meta">作者：Markus Hillemann, Robert Langendörfer, Steven Landgraf, Markus Ulrich</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.16479">abs</a><a href="https://arxiv.org/pdf/2606.16479">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.9/10</span><p>不确定性估计对把 VGGT 类模型接入工程测量、点云过滤或 SLAM 前端很重要；但论文主要是分析与阈值研究，不是新的 SLAM/重建算法。</p><div class="tags"><span class="tag">VGGT</span><span class="tag">不确定性估计</span><span class="tag">三维重建质量</span><span class="tag">DTU</span><span class="tag">Feed-forward Geometry</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作评估 VGGT 输出置信度在 DTU 上的可用性，寻找过滤阈值，为 feed-forward 三维重建的质量控制提供依据。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">VGGT 因 CVPR 2025 Best Paper 获得大量关注，与 DUSt3R 和 MASt3R 类似，它试图用统一的 feed-forward 网络替代 bundle adjustment 和特征匹配，直接从多张图像预测相机位姿、深度图和稠密三维结构，并可在一次前向传播中一致处理任意数量视图。对于摄影测量，高精度之外，高质量 uncertainty estimate 也很关键，因为它能建立信任并支持质量保证。本文研究 VGGT 不确定性预测质量，在 DTU benchmark 上分析原始输出，识别有效 confidence threshold，并展示提升 uncertainty quality 对改善三维重建精度有明显潜力。</p><p class="lang lang-en lang-block" data-lang="en">Visual Geometry Grounded Transformer (VGGT) has already attracted a great deal of attention in a short period of time, not least due to the Best Paper Award at CVPR-2025. Similar to DUSt3R and MASt3R, VGGT aims to bring about a paradigm shift by replacing established methods like bundle adjustment and feature matching with a simple, unified, feed-forward neural network that predicts camera poses, depth maps, and dense 3D structure directly from multiple images of a scene in a few seconds. A key aspect is its ability to process an arbitrary number of views consistently in a single forward pass without any post-processing or iterative optimization. For photogrammetry, this opens new possibilities for real-time, scalable, and accessible 3D reconstruction. In this context, not only high reconstruction accuracy but also high-quality uncertainty estimates are crucial, as they foster trust and enable robust quality assurance. This paper therefore investigates the quality of VGGT&#x27;s uncertainty predictions. The analysis identifies an effective confidence threshold for filtering VGGT&#x27;s raw output and demonstrates that enhancing uncertainty quality holds strong potential for improving the accuracy of its 3D reconstructions.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.16479">abs</a> / <a href="https://arxiv.org/pdf/2606.16479">PDF</a>；作者：Markus Hillemann, Robert Langendörfer, Steven Landgraf, Markus Ulrich；类别：cs.CV, cs.AI；采集 score=7。</li>
+<li>核心思路：VGGT 等 feed-forward 多视图几何模型在几秒内输出相机位姿、深度和稠密结构；本文关注其 uncertainty prediction 是否足以支撑质量保证。</li>
+<li>方法要点：在 DTU benchmark 上分析 VGGT 原始输出置信度，识别有效 confidence threshold，并说明提升 uncertainty quality 可进一步改善三维重建精度。</li>
+<li>关注点：对把 VGGT/DUSt3R/MASt3R 类模型接入工程测量或 SLAM 前端很重要；置信度能否作为点云过滤、BA 初始化权重、重建质量告警的依据值得继续验证。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16479/fig-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16479/fig-001.webp" alt="Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16479/fig-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16479/fig-002.webp" alt="Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16479/fig-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16479/fig-003.webp" alt="Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16479/fig-004.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16479/fig-004.webp" alt="Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16479/fig-005.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16479/fig-005.webp" alt="Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16479/table-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16479/table-001.webp" alt="Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16479/table-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16479/table-002.webp" alt="Uncertainty Quality of VGGT: An Analysis on the DTU Benchmark Dataset" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

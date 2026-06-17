@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-17/index.html">← 返回 2026-06-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-15 · score 12 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RealityBridge：连接可编辑 3DGS 驾驶仿真与真实世界视频</span><span class="lang lang-en lang-inline" data-lang="en">RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos</span></h1>
+  <div class="meta">作者：Zhenhua Wu, Yun Pang, Mingkun Chang, Yuwei Ning, Liangzhi Wang, Yi Xiao, Guanbin Li</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.16278">abs</a><a href="https://arxiv.org/pdf/2606.16278">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.9/10</span><p>与 3DGS 自动驾驶仿真和长尾数据生成相关，但不是定位、建图或重建后端；适合关注仿真数据质量与 3DGS 场景编辑的后续专题。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">自动驾驶仿真</span><span class="tag">Sim-to-Real</span><span class="tag">视频修复</span><span class="tag">长尾场景</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">RealityBridge 用多模态控制和长视频训练修复可编辑 3DGS 驾驶仿真视频，重点降低伪影和时间不一致。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">面向安全的自动驾驶需要长尾危险场景，但真实采集与复现困难。可编辑 3D Gaussian Splatting 仿真可重建真实驾驶场景并支持可控编辑，但编辑后的 3DGS 渲染视频存在明显 sim-to-real gap，包括渲染伪影、前景资产退化、光照不一致和时间闪烁。RealityBridge 提出结构保持、资产感知的 sim-to-real 框架，使用渲染视频、前景掩码、边缘图和语义掩码等多模态控制，并通过轻量 GateNet 在 backbone 层之间自适应分配条件。作者还构建目标训练数据，引入自回归长视频训练和 reward-guided post-training，以改善修复质量、时间稳定性和幻觉抑制。实验表明该方法在内部和公开驾驶数据集上优于既有方法。</p><p class="lang lang-en lang-block" data-lang="en">Long-tail hazardous scenarios are essential for safety-oriented autonomous driving, yet they are difficult to collect and reproduce at scale. Editable 3D Gaussian Splatting (3DGS) simulation offers a promising alternative by reconstructing real driving scenes and supporting controllable scene editing. However, edited 3DGS-rendered videos still suffer from a significant Sim-to-Real gap, including rendering artifacts, degraded foreground assets, inconsistent illumination, and temporal flickering. Existing restoration and video generation methods are insufficient for this task, as they often fail to jointly repair 3DGS-specific artifacts, improve visual realism, and ensure temporal consistency. To fill this gap, we propose RealityBridge, a structure-preserving and asset-aware Sim-to-Real framework for edited 3DGS driving videos. RealityBridge uses multimodal controls, including rendered videos, foreground masks, edge maps, and semantic masks, together with a lightweight GateNet for adaptive condition allocation across backbone layers. We further construct targeted training data and introduce autoregressive long-video training with reward-guided post-training to improve restoration quality, temporal stability, and hallucination suppression. Extensive experiments on internal and public driving datasets show that RealityBridge outperforms existing methods in artifact removal, illumination harmonization, and long-sequence temporal consistency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.16278">abs</a> / <a href="https://arxiv.org/pdf/2606.16278">PDF</a>；作者：Zhenhua Wu, Yun Pang, Mingkun Chang, Yuwei Ning, Liangzhi Wang, Yi Xiao, Guanbin Li；类别：cs.CV, cs.AI；采集 score=12。</li>
+<li>核心思路：针对可编辑 3DGS 自动驾驶仿真视频中的渲染伪影、前景资产退化、光照不一致和时间闪烁，做结构保持、资产感知的 sim-to-real 修复。</li>
+<li>方法要点：输入 rendered videos、foreground masks、edge maps、semantic masks 等多模态控制；用轻量 GateNet 自适应分配条件；再通过 autoregressive long-video training 和 reward-guided post-training 提升长序列一致性。</li>
+<li>关注点：更偏感知仿真和数据生成，不是 SLAM 建图；但对 3DGS 驱动场景编辑、自动驾驶长尾数据和仿真到真实视觉质量控制有参考价值。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16278/fig-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16278/fig-001.webp" alt="RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16278/fig-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16278/fig-002.webp" alt="RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16278/fig-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16278/fig-003.webp" alt="RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16278/fig-004.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16278/fig-004.webp" alt="RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16278/fig-005.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16278/fig-005.webp" alt="RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16278/table-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16278/table-001.webp" alt="RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16278/table-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16278/table-002.webp" alt="RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16278/table-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16278/table-003.webp" alt="RealityBridge: Bridging Editable 3D Gaussian Splatting Driving Simulations and Real-World Videos" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

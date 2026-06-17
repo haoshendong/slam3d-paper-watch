@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>S23DR 2026: End-to-End 3D Wireframe Prediction via DETR-Style Set Prediction with Contrastive Denoising</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-17/index.html">← 返回 2026-06-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-12 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">S23DR 2026：通过 DETR 式集合预测和对比去噪实现端到端 3D 线框预测</span><span class="lang lang-en lang-inline" data-lang="en">S23DR 2026: End-to-End 3D Wireframe Prediction via DETR-Style Set Prediction with Contrastive Denoising</span></h1>
+  <div class="meta">作者：Nitiz Khanal</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.14811">abs</a><a href="https://arxiv.org/pdf/2606.14811">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.2/10</span><p>与 COLMAP 点云、建筑结构化三维重建和挑战赛基线相关；但主题偏线框拓扑提取，和 SLAM/GNSS 定位系统直接关系较弱。</p><div class="tags"><span class="tag">3D Wireframe</span><span class="tag">COLMAP 点云</span><span class="tag">DETR</span><span class="tag">结构化三维重建</span><span class="tag">S23DR</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">WireframeDETR 从 COLMAP 点云直接预测建筑 3D wireframe 边集合，用对比去噪稳定 DETR 式 Hungarian matching。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文介绍 WireframeDETR，作者提交给 S23DR 2026 Challenge 的技术报告。任务是从多视角 COLMAP 点云预测三维建筑 wireframe。方法将 DETR 风格 set prediction 直接应用于三维点云，把 wireframe 表示为边坐标对集合，不需要中间顶点检测阶段。三项技术贡献包括：用 contrastive denoising training 稳定早期 noisy Hungarian matching；用 multi-scale encoder 通过可学习标量权重聚合最后 encoder 层输出；用 progressive auxiliary loss weighting 把梯度信号集中到最受益的 decoder 层。模型在公开测试集上达到 HSS 0.575，对应 F1 约 0.664、IoU 约 0.516，并在清洗验证集上达到最佳 HSS 0.534。</p><p class="lang lang-en lang-block" data-lang="en">We present WireframeDETR, our submission to the Structured Semantic 3D Reconstruction (S23DR) 2026 Challenge, which requires predicting a 3D building wireframe from multi-view COLMAP point clouds. Our method applies DETR-style set prediction directly to 3D point clouds, producing wireframes as sets of edge coordinate pairs without any intermediate vertex detection stage. We introduce three technical contributions: (1) contrastive denoising training that stabilises noisy Hungarian matching in early epochs; (2) a multi-scale encoder that aggregates the last encoder layer outputs via learned scalar weights; and (3) progressive auxiliary loss weighting that concentrates gradient signal on the decoder layers that most benefit from it. Our model achieves a public test HSS of 0.575 (F1~=~0.664, IoU~=~0.516) and a best validation HSS of 0.534 on the cleaned val split.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.14811">abs</a> / <a href="https://arxiv.org/pdf/2606.14811">PDF</a>；作者：Nitiz Khanal；类别：cs.CV；采集 score=4；S23DR 2026 Challenge 技术报告。</li>
+<li>核心思路：从多视角 COLMAP 点云直接预测建筑 3D wireframe，用 DETR 风格 set prediction 输出边坐标集合，避免中间顶点检测阶段。</li>
+<li>方法要点：contrastive denoising 稳定早期 Hungarian matching；multi-scale encoder 聚合最后编码层输出；progressive auxiliary loss weighting 把梯度集中到收益最大的 decoder 层。</li>
+<li>关注点：与通用 SLAM/GNSS 关系较间接，但对建筑级结构化三维重建、从 SfM 点云生成拓扑线框和挑战赛基线有参考价值。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.14811/fig-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.14811/fig-001.webp" alt="S23DR 2026: End-to-End 3D Wireframe Prediction via DETR-Style Set Prediction with Contrastive Denoising" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.14811/fig-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.14811/fig-002.webp" alt="S23DR 2026: End-to-End 3D Wireframe Prediction via DETR-Style Set Prediction with Contrastive Denoising" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.14811/fig-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.14811/fig-003.webp" alt="S23DR 2026: End-to-End 3D Wireframe Prediction via DETR-Style Set Prediction with Contrastive Denoising" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.14811/fig-004.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.14811/fig-004.webp" alt="S23DR 2026: End-to-End 3D Wireframe Prediction via DETR-Style Set Prediction with Contrastive Denoising" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.14811/table-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.14811/table-001.webp" alt="S23DR 2026: End-to-End 3D Wireframe Prediction via DETR-Style Set Prediction with Contrastive Denoising" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

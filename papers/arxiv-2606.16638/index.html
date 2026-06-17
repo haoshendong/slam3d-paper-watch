@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-17/index.html">← 返回 2026-06-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-15 · score 12 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MVM-IOD：用于评估三维重建方法的工业物体中心基准数据集</span><span class="lang lang-en lang-inline" data-lang="en">MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods</span></h1>
+  <div class="meta">作者：Robert Langendörfer, Markus Hillemann, Markus Ulrich</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.16638">abs</a><a href="https://arxiv.org/pdf/2606.16638">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.4/10</span><p>对工业三维重建、相机位姿估计和 feed-forward 重建模型评测很有价值；与在线 SLAM/GNSS 关系间接，但可作为物体级重建 benchmark。</p><div class="tags"><span class="tag">工业三维重建</span><span class="tag">数据集</span><span class="tag">相机位姿估计</span><span class="tag">SfM/MVS</span><span class="tag">VGGT</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">MVM-IOD 用机器人半球采集工业物体，提供参考位姿和点云，用于比较 SfM/MVS、VGGT、π3 与 2DGS 等重建方法。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">工业应用中的三维物体重建和相机位姿估计要求高精度且常受计算时间限制，工业物体复杂形状进一步增加难度。MVM-IOD 提供更贴近真实工业测量的数据：相机安装在工业机器人末端，沿物体周围半球轨迹系统采集图像。数据集包含 9 个典型工业物体、2 种背景共 18 个场景，提供参考相机位姿、参考三维点云和 RGB 图像，可评估基于图像的三维重建、相机位姿估计和新视角合成方法。作者基于 MVM-IOD 评估 SfM、MVS、VGGT、π3、2D Gaussian Splatting 等方法，发现工业采集会产生 feed-forward 方法的分布外图像，导致点云和位姿质量下降；简单预处理能缓解但工业场景使用仍需谨慎。</p><p class="lang lang-en lang-block" data-lang="en">3D object reconstruction, and camera pose estimation in industrial applications are challenging tasks, as errors are costly while the computation time is often limited. The complexity of typical industrial objects further complicates these tasks. Most of the existing datasets in this context do not depict realistic industrial scenarios. Therefore, we introduce the Machine Vision Metrology Industrial Object Dataset (MVM-IOD). Images of typical industrial objects are captured systematically, by moving a camera, mounted at the end effector of an industrial robot arm, on a hemisphere around the objects. MVM-IOD contains reference camera poses and reference 3D point clouds, the acquired RGB images of 9 objects and 2 background choices resulting in 18 scenes, which allows evaluation of all image based methods that compute a 3D reconstruction, camera poses, or novel views of a scene. Based on MVM-IOD, we extensively evaluate current SOTA 3D reconstruction and camera pose estimation methods, such as Structure from Motion, Multi-View Stereo, recent feed forward methods (Visual Geometry Grounded Transformer, π3), and 2D Gaussian Splatting and report our findings as a baseline for future research. The experiments show that capture setups like ours generate out-of distribution images for feed forward methods, leading to suboptimal point clouds and camera poses. However, these out-of-distribution images can be shifted closer to the training distribution by applying simple preprocessing steps. Consequently, in certain industrial applications, feed forward methods should be used with caution.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.16638">abs</a> / <a href="https://arxiv.org/pdf/2606.16638">PDF</a>；作者：Robert Langendörfer, Markus Hillemann, Markus Ulrich；类别：cs.CV；采集 score=12。</li>
+<li>核心思路：为工业物体三维重建、相机位姿估计和 novel view synthesis 提供更贴近真实工业测量场景的数据集。</li>
+<li>方法要点：相机安装在工业机器人末端，沿半球轨迹系统采集 9 个物体、2 种背景共 18 个场景；提供 reference camera poses、reference 3D point clouds 和 RGB 图像；对 SfM、MVS、VGGT、π3、2D Gaussian Splatting 等方法做 baseline。</li>
+<li>关注点：对物体级重建、SfM/MVS 与 feed-forward 方法对比很有价值；作者指出工业采集会让 feed-forward 方法遇到 out-of-distribution 图像，简单预处理可缓解但实际应用需谨慎。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16638/fig-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16638/fig-001.webp" alt="MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16638/fig-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16638/fig-002.webp" alt="MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16638/fig-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16638/fig-003.webp" alt="MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16638/table-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16638/table-001.webp" alt="MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16638/table-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16638/table-002.webp" alt="MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16638/table-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16638/table-003.webp" alt="MVM-IOD: An Industrial Object-Centric Benchmark Dataset for the Evaluation of 3D Reconstruction Methods" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CrossMaps: Confidence-Aware Open-Vocabulary Semantic Mapping for Rover Navigation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-17/index.html">← 返回 2026-06-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-16 · score 16 · cs.RO, cs.AI, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CrossMaps：面向火星车导航的置信感知开放词汇语义地图</span><span class="lang lang-en lang-inline" data-lang="en">CrossMaps: Confidence-Aware Open-Vocabulary Semantic Mapping for Rover Navigation</span></h1>
+  <div class="meta">作者：Jan-Niklas Klein, Sona Ghahremani, Christian Medeiros Adriano, Holger Giese</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.16935">abs</a><a href="https://arxiv.org/pdf/2606.16935">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>与机器人语义建图、导航代价和 SLAM 系统集成高度相关，且明确强调 Jetson Orin 实时部署；主要不确定点是底层 SLAM 位姿不确定性、动态环境和长期地图一致性的处理细节。</p><div class="tags"><span class="tag">语义地图</span><span class="tag">Open-Vocabulary</span><span class="tag">CLIP</span><span class="tag">Rover Navigation</span><span class="tag">RGB-D SLAM</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">CrossMaps 把 CLIP 开放词汇语义、RGB-D 几何置信度和短/长期记忆结合起来，生成可查询的实时 rover 语义地图。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Rover 依赖感知系统维护空间地图，地图不仅需要编码物体语义，也需要编码传感质量，例如测距可靠性、光照伪影和数据密度，从而指导数据融合、语义嵌入更新和部分可观测条件下的导航。CrossMaps 提出一个实时置信感知开放词汇语义建图管线，从 RGB-D 数据构建可自然语言查询的地图。方法继承 VLMaps 风格，集成多尺度 CLIP 嵌入、置信感知融合，以及由短期记忆和长期记忆组成的双记忆架构。短期记忆用几何、语义和时间置信 cues 聚合噪声视觉观测；置信且一致的栅格会被提升到长期记忆，作为持久语义 landmark。系统面向 Jetson Orin 驱动的 UGV 与 SLAM 并行部署，可实时生成语义 heatmap，用自然语言查询指导 rover 导航。</p><p class="lang lang-en lang-block" data-lang="en">Rovers rely on perception to maintain spatial maps that encode both objects and sensor quality (e.g., range reliability, lighting artifacts, data density), guiding data fusion, embedding updates, and navigation under partial observability. To study these coupled perception-navigation processes, we present CrossMaps, a real-time confidence-aware open-vocabulary semantic mapping pipeline that constructs language-queryable maps from RGB-D data. Building on VLMaps-style approaches, CrossMaps integrates multi-scale CLIP embeddings with confidence-aware fusion and a dual-memory architecture consisting of Short-Term Memory (STM) and Long-Term Memory (LTM). The STM aggregates noisy visual observations using geometric, semantic, and temporal confidence cues, while confident and coherent cells are promoted to the LTM as persistent semantic landmarks. Designed for deployment with a Jetson Orin-powered UGV alongside SLAM, CrossMaps runs in real time and produces semantic heatmaps that can be queried with natural language to guide rover navigation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.16935">abs</a> / <a href="https://arxiv.org/pdf/2606.16935">PDF</a>；作者：Jan-Niklas Klein, Sona Ghahremani, Christian Medeiros Adriano, Holger Giese；类别：cs.RO, cs.AI, cs.LG；采集 score=16。</li>
+<li>核心思路：面向 rover 导航构建可自然语言查询的语义地图，同时显式建模传感质量、几何置信度、语义置信度和时间一致性。</li>
+<li>方法要点：在 VLMaps 风格 RGB-D 语义建图上集成多尺度 CLIP embedding；使用 Short-Term Memory 聚合噪声观测，并把置信且一致的栅格提升到 Long-Term Memory，形成持久语义 landmark。</li>
+<li>关注点：与 SLAM 并行部署在 Jetson Orin UGV 上，强调实时性；建议重点看其地图坐标系如何接入 SLAM 位姿、置信融合是否能抵抗光照/深度噪声，以及语义 heatmap 如何转成导航代价。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16935/fig-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16935/fig-001.webp" alt="CrossMaps: Confidence-Aware Open-Vocabulary Semantic Mapping for Rover Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16935/fig-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16935/fig-002.webp" alt="CrossMaps: Confidence-Aware Open-Vocabulary Semantic Mapping for Rover Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16935/fig-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16935/fig-003.webp" alt="CrossMaps: Confidence-Aware Open-Vocabulary Semantic Mapping for Rover Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

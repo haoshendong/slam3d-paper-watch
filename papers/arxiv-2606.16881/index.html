@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-17/index.html">← 返回 2026-06-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-15 · score 13 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SGM-SLAM：面向数据高效分布式 SLAM 的场景图匹配</span><span class="lang lang-en lang-inline" data-lang="en">SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM</span></h1>
+  <div class="meta">作者：Yewei Huang, Tixiao Shan, Abhinav Rajvanshi, Niluthpol Chowdhury Mithun, Yaxuan Li, Brendan Englot, Han-Pang Chiu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.16881">abs</a><a href="https://arxiv.org/pdf/2606.16881">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>今天最贴近 SLAM 后端和多机器人协作定位的论文，覆盖 LiDAR、camera、IMU 和真实机器人数据；需要进一步核验物体检测误差、动态目标和大规模图匹配下的鲁棒性。</p><div class="tags"><span class="tag">分布式 SLAM</span><span class="tag">Scene Graph</span><span class="tag">多机器人</span><span class="tag">RGB-LiDAR</span><span class="tag">通信高效</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">SGM-SLAM 用物体标签和质心构成 scene graph，通过轻量图匹配产生多机器人间约束，减少分布式 SLAM 通信量。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出一个面向多机器人团队的数据高效分布式 SLAM 框架，机器人装备 LiDAR、相机和惯性传感器。框架用场景图匹配识别机器人间测量约束，不像以往依赖特征级匹配的方法，它只使用物体标签和质心执行 scene graph matching。系统通过融合 RGB-LiDAR 点云构建语义分割点云层和离散有界物体层，并与估计轨迹共同组成场景图。机器人与邻居交换和匹配物体数据，通过多步数据交换与优化过程最大化通信效率。作者在仿真和 legged robot 室内外真实数据上验证了有效性与效率。</p><p class="lang lang-en lang-block" data-lang="en">We introduce a data-efficient distributed Simultaneous Localization and Mapping (SLAM) framework designed for a team of robots equipped with LiDAR, cameras, and inertial sensors. Our framework uses scene graph matching to identify inter-robot measurement constraints. Unlike prior approaches that rely on feature-level matching, our framework is the first to perform scene graph matching using only object labels and centroids. Our approach constructs a scene graph by using fused RGB-LiDAR point clouds to generate both a semantically segmented point cloud layer, and a layer of discrete bounded objects, to accompany estimated robot trajectories. Scene graph matching is performed collaboratively through exchanging and matching object data with neighboring robots. To maximize communication efficiency, we utilize a multi-step data exchange and optimization process. We demonstrate the effectiveness and efficiency of our approach using both simulation and real-world datasets collected by legged robots in indoor and outdoor environments.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.16881">abs</a> / <a href="https://arxiv.org/pdf/2606.16881">PDF</a>；作者：Yewei Huang, Tixiao Shan, Abhinav Rajvanshi, Niluthpol Chowdhury Mithun, Yaxuan Li, Brendan Englot, Han-Pang Chiu；类别：cs.RO；采集 score=13。</li>
+<li>核心思路：多机器人分布式 SLAM 不交换密集特征，而是用物体标签和质心构成 scene graph，通过图匹配寻找机器人间约束。</li>
+<li>方法要点：融合 RGB-LiDAR 点云生成语义分割点云层、离散 bounded object 层和轨迹层；相邻机器人交换精简物体数据并做多步匹配与优化，以降低通信量。</li>
+<li>关注点：这是今天最贴近多机器人 SLAM 后端和通信受限协作定位的工作；建议检查图匹配误匹配抑制、动态物体处理、跨视角物体检测一致性和真实 legged robot 数据规模。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16881/fig-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16881/fig-001.webp" alt="SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16881/fig-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16881/fig-002.webp" alt="SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16881/fig-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16881/fig-003.webp" alt="SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16881/fig-004.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16881/fig-004.webp" alt="SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16881/fig-005.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16881/fig-005.webp" alt="SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16881/fig-006.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16881/fig-006.webp" alt="SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16881/table-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16881/table-001.webp" alt="SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16881/table-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16881/table-002.webp" alt="SGM-SLAM: Scene Graph Matching for Data-Efficient Distributed SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

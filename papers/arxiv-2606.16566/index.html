@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-17/index.html">← 返回 2026-06-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-15 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Local-GS：通过瓦片局部 Warp 一致性加速 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence</span></h1>
+  <div class="meta">作者：Yang Luo, Yan Gong, Yongsheng Gao, Jie Zhao, Xinyu Zhang, Huaping Liu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.16566">abs</a><a href="https://arxiv.org/pdf/2606.16566">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.5/10</span><p>对 3DGS-SLAM 或在线重建中的实时渲染瓶颈有工程参考价值；但论文核心是渲染加速，不直接处理定位、地图更新或闭环一致性。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">渲染加速</span><span class="tag">GPU</span><span class="tag">Warp Coherence</span><span class="tag">实时重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">Local-GS 从 GPU warp 执行一致性角度重排 3DGS 渲染，减少分支和冗余计算，可作为 3DGS 系统的即插即用加速。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 已成为实时新视角合成的重要表示，但高斯 primitive 的不规则空间分布常导致 GPU 利用率低下，warp divergence 和冗余计算会降低渲染性能。Local-GS 提出一种 warp-coherent rendering 范式，按照 SIMT 执行边界而非场景几何组织高斯。方法包含三个 warp-coherent 阶段：在 tile level 预计算共享参数的 hoisting 阶段，丢弃无贡献 warp 的 culling 阶段，以及用统一指令流替代 per-pixel branching 的 blending 阶段。多数据集实验显示 Local-GS 能在不降低质量的情况下提升效率，并可作为 plug-and-play 优化叠加到多个 baseline，在 Deep Blending 场景最高达到 7.76 倍加速。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has significantly advanced real-time novel view synthesis by representing scenes as dense collections of anisotropic 3D Gaussian primitives. However, the irregular spatial distribution of Gaussians often leads to poor GPU utilization, as warp divergence and redundant computation degrade rendering performance. To address this, we present Local-GS, a warp-coherent rendering paradigm that, organizes Gaussian primitives with respect to SIMT (Single Instruction, Multiple Threads) execution boundaries rather than scene geometry. Specifically, we propose three warp-coherent stages: a hoisting stage that precomputes shared parameters at tile level, a culling stage that discards warps with no contribution, and a blending stage that replaces per-pixel branching with a uniform instruction stream. Across extensive benchmarks on multiple datasets, Local-GS improves efficiency without compromising quality. As a plug-and-play optimization, it provides additional performance gains to all tested baselines, culminating in a $7.76\times$ speedup on Deep Blending scenes.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.16566">abs</a> / <a href="https://arxiv.org/pdf/2606.16566">PDF</a>；作者：Yang Luo, Yan Gong, Yongsheng Gao, Jie Zhao, Xinyu Zhang, Huaping Liu；类别：cs.CV；采集 score=10。</li>
+<li>核心思路：3DGS 的高斯空间分布不规则会造成 GPU warp divergence 和重复计算；Local-GS 按 SIMT 执行边界而非场景几何组织渲染流程。</li>
+<li>方法要点：提出 tile-level 参数 hoisting、无贡献 warp culling、用统一指令流替代 per-pixel branching 的 blending 三阶段；作为 plug-and-play 优化可叠加到多个 baseline。</li>
+<li>关注点：如果 3DGS-SLAM 或在线重建系统瓶颈在渲染/重渲染，该类工程优化值得跟踪；摘要报告 Deep Blending 场景最高 7.76 倍加速，需要看质量损失、内存开销和真实移动端 GPU 适配。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16566/fig-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16566/fig-001.webp" alt="Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16566/fig-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16566/fig-002.webp" alt="Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16566/fig-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16566/fig-003.webp" alt="Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16566/fig-004.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16566/fig-004.webp" alt="Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16566/table-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16566/table-001.webp" alt="Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16566/table-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16566/table-002.webp" alt="Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16566/table-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16566/table-003.webp" alt="Local-GS: Accelerating 3D Gaussian Splatting via Tile-Local Warp Coherence" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

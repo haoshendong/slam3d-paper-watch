@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-17/index.html">← 返回 2026-06-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-15 · score 13 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MVOFormer：用于鲁棒单目视觉里程计的光流-语义 Transformer</span><span class="lang lang-en lang-inline" data-lang="en">MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry</span></h1>
+  <div class="meta">作者：Jituo Li, Shunwang Sun, Jialu Zhang, Xinqi Liu, Jinyao Hu, Zhicheng Lu, Sajad Saeedi, Guodong Lu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.16474">abs</a><a href="https://arxiv.org/pdf/2606.16474">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>直接面向视觉里程计，且动态物体抑制和跨域泛化对机器人前端很重要；但摘要看起来偏 frame-to-frame VO，长期漂移、闭环和实时性还需查原文。</p><div class="tags"><span class="tag">单目视觉里程计</span><span class="tag">Transformer</span><span class="tag">光流</span><span class="tag">语义先验</span><span class="tag">跨域泛化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">MVOFormer 用光流和语义双分支 transformer 抑制动态干扰并迭代优化位姿，主打单目 VO 的跨域鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">单目视觉里程计是自主导航和机器人定位的基础，但既有学习式 MVO 方法常受限于缺少可解释的互补特征，或依赖复杂多阶段架构，导致鲁棒性和跨域泛化能力不足。MVOFormer 提出一种新的 transformer 框架：Flow-Semantic Dual Branch Encoder 融合稠密几何运动线索和物体级语义先验，显式区分静态结构和动态干扰；Iterative Multimodal Decoder 进行由粗到细的位姿修正，并动态抑制不可靠区域注意力。实验显示，在无目标域微调条件下，MVOFormer 在 TartanAir、KITTI、TUM-RGBD 和 ETH3D-SLAM 等基准上相比既有学习式 frame-to-frame 方法有更好的 zero-shot 泛化和鲁棒性。</p><p class="lang lang-en lang-block" data-lang="en">Monocular visual odometry (MVO) is foundational to autonomous navigation and robotic localization. However, existing learning-based MVO approaches often struggle with either a lack of interpretable, complementary features or overly complex multi-stage architectures. These limitations inherently restrict their robustness and cross-domain generalization. In this work, we propose MVOFormer, a novel transformer framework for robust monocular visual odometry. Our architecture features a Flow-Semantic Dual Branch Encoder that synergizes dense geometric motion cues with object-centric semantic priors, explicitly distinguishing static structures from dynamic distractors. These representations are then fused by an Iterative Multimodal Decoder, enabling coarse-to-fine pose refinement while dynamically suppressing attention on unreliable regions. Extensive evaluations demonstrate that, without any target-domain fine-tuning, MVOFormer achieves superior zero-shot generalization and robustness, significantly outperforming prior learning-based frame-to-frame methods across diverse benchmarks including TartanAir, KITTI, TUM-RGBD, and ETH3D-SLAM.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.16474">abs</a> / <a href="https://arxiv.org/pdf/2606.16474">PDF</a>；作者：Jituo Li, Shunwang Sun, Jialu Zhang, Xinqi Liu, Jinyao Hu, Zhicheng Lu, Sajad Saeedi, Guodong Lu；类别：cs.CV, cs.RO；采集 score=13；RA-L 接收。</li>
+<li>核心思路：用 flow + semantic 双分支 transformer 同时利用稠密几何运动线索和物体级语义先验，提升单目 VO 在动态干扰和跨域场景下的鲁棒性。</li>
+<li>方法要点：Flow-Semantic Dual Branch Encoder 区分静态结构与动态干扰；Iterative Multimodal Decoder 做由粗到细的位姿修正，并抑制不可靠区域注意力。</li>
+<li>关注点：摘要强调 TartanAir、KITTI、TUM-RGBD、ETH3D-SLAM 上无需目标域微调的 zero-shot 泛化；需要进一步看是否只是 frame-to-frame VO、长期漂移/闭环能力，以及语义模型带来的实时成本。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/fig-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/fig-001.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/fig-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/fig-002.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/fig-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/fig-003.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/fig-004.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/fig-004.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/fig-005.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/fig-005.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/fig-006.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/fig-006.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/table-001.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/table-001.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/table-002.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/table-002.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/table-003.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/table-003.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/table-004.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/table-004.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/table-005.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/table-005.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-17/arxiv-2606.16474/table-006.webp"><img src="../../assets/media/2026-06-17/arxiv-2606.16474/table-006.webp" alt="MVOFormer: Flow-Semantic Transformer for Robust Monocular Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
