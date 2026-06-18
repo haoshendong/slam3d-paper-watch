@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>RICH-SLAM: Radar SLAM with Incremental and Continuous Hilbert Mapping</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-18/index.html">← 返回 2026-06-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-16 · score 15 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RICH-SLAM：带增量连续 Hilbert 映射的雷达 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">RICH-SLAM: Radar SLAM with Incremental and Continuous Hilbert Mapping</span></h1>
+  <div class="meta">作者：Bingbing Zhang, Huan Yin, Yang Xu, Shuo Liu, Shaojie Shen, Fumin Zhang, Wen Xu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.17534">abs</a><a href="https://arxiv.org/pdf/2606.17534">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>今天最直接命中 SLAM 主线的论文，覆盖雷达定位、连续占据地图、不确定度和移动机器人规划；需要重点核验实时性、粒子数/地图秩选择和与现有雷达/LiDAR SLAM 的对比。</p><div class="tags"><span class="tag">雷达 SLAM</span><span class="tag">Hilbert Mapping</span><span class="tag">Rao-Blackwellized PF</span><span class="tag">连续占据地图</span><span class="tag">不确定度</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">RICH-SLAM 用粒子滤波后端和 Hilbert 空间降秩 GP，把稀疏雷达量测转成连续、带不确定度的占据地图。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">雷达传感器因对恶劣天气和光照条件具有天然鲁棒性，越来越适合机器人 SLAM；但雷达量测相比 LiDAR 和视觉更稀疏、噪声更强，使得构建稠密、连续且一致的地图很困难。RICH-SLAM 提出一个雷达 SLAM 框架：后端采用 Rao-Blackwellized particle filter，以粒子滤波估计位姿、以 Kalman filtering 更新地图；地图端采用增量 Hilbert 空间降秩 Gaussian Process 映射，使稀疏雷达输入也能形成连续且带不确定度的占据表示；此外提出 posterior-aware particle weighting，用地图参数完整后验分布进行更稳健的 likelihood 评估。作者在自采数据和公开 ColoRadar 数据集上展示了连续占据地图构建和不确定性感知规划能力。</p><p class="lang lang-en lang-block" data-lang="en">Simultaneous localization and mapping using radar sensors has gained increasing attention due to radar&#x27;s inherent robustness to adverse weather and lighting conditions. However, radar measurements are characteristically sparse and noisy compared to LiDAR and visual data, posing significant challenges in achieving dense, continuous, and consistent map representations. In this paper, we present RICH-SLAM, a radar SLAM framework designed to address these challenges. Our approach features a Rao-Blackwellized particle filter-based back end that employs particle filtering for pose estimation and Kalman filtering for map updates. We propose an incremental Hilbert-space reduced-rank Gaussian process mapping strategy that enables continuous and uncertainty-aware map representations given sparse radar inputs. We further introduce a posterior-aware particle weighting scheme that leverages the full posterior distribution of map parameters for more robust likelihood evaluation. Experiments on self-collected and public ColoRadar datasets show that RICH-SLAM constructs continuous occupancy maps from sparse radar measurements and supports uncertainty-aware planning for mobile robots.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.17534">abs</a> / <a href="https://arxiv.org/pdf/2606.17534">PDF</a>；作者：Bingbing Zhang, Huan Yin, Yang Xu, Shuo Liu, Shaojie Shen, Fumin Zhang, Wen Xu；类别：cs.RO；采集 score=15。</li>
+<li>核心思路：针对毫米波/雷达量测稀疏且噪声强的问题，用 <strong>Rao-Blackwellized particle filter</strong> 估计位姿，并用 Kalman filtering 增量更新 Hilbert 空间降秩 Gaussian Process 占据地图。</li>
+<li>方法要点：把地图表达成连续、可给出不确定度的函数表示；posterior-aware particle weighting 在粒子权重中利用地图参数完整后验，而不是只看点估计 likelihood。</li>
+<li>关注点：这是今天最直接的 SLAM 论文，适合重点看其雷达前端观测模型、粒子数/地图秩与实时性的权衡、ColoRadar 上和 LiDAR/雷达 SLAM baseline 的定位与地图一致性对比，以及不确定度地图如何服务规划。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.17534/fig-001.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.17534/fig-001.webp" alt="RICH-SLAM: Radar SLAM with Incremental and Continuous Hilbert Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.17534/fig-002.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.17534/fig-002.webp" alt="RICH-SLAM: Radar SLAM with Incremental and Continuous Hilbert Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.17534/fig-003.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.17534/fig-003.webp" alt="RICH-SLAM: Radar SLAM with Incremental and Continuous Hilbert Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.17534/table-001.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.17534/table-001.webp" alt="RICH-SLAM: Radar SLAM with Incremental and Continuous Hilbert Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

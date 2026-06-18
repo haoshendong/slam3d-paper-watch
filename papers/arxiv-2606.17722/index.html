@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GSPan: A Continuous Gaussian Primitive Representation for Arbitrary-Scale Pansharpening</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-18/index.html">← 返回 2026-06-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-16 · score 6 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GSPan：用于任意尺度 Pansharpening 的连续 Gaussian Primitive 表示</span><span class="lang lang-en lang-inline" data-lang="en">GSPan: A Continuous Gaussian Primitive Representation for Arbitrary-Scale Pansharpening</span></h1>
+  <div class="meta">作者：Fangyi Li, Xiaoyuan Yang, Yixiao Li, Zongyang Sui, Kangqing Shen, Gemine Vivone</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.17722">abs</a><a href="https://arxiv.org/pdf/2606.17722">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.4/10</span><p>属于遥感图像融合和连续表示方向，和 GNSS/SLAM 定位无直接关系；但 2DGS 任意尺度渲染、大场景效率和遥感场景可作为外围参考。</p><div class="tags"><span class="tag">遥感</span><span class="tag">Pansharpening</span><span class="tag">2D Gaussian Splatting</span><span class="tag">连续表示</span><span class="tag">任意尺度</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">GSPan 用连续 2D Gaussian primitives 表示多光谱残差细节，使遥感 pansharpening 支持任意尺度渲染和高效大场景推理。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Pansharpening 旨在融合低分辨率多光谱图像和全色图像，生成高分辨率多光谱图像。多数深度学习方法把 pansharpening 看作固定网格预测，限制了尺度适应性。GSPan 将 2D Gaussian Splatting 引入 pansharpening，不直接预测像素，而是把各波段残差细节表示成连续可学习的 2D Gaussian primitives。作者设计 Dual-Stream Hierarchical Interaction 架构和 Spatial-Spectral Interactive Attention 模块，从互补的 PAN 与 MS 观测估计 primitives；随后把 primitives 渲染为残差细节场并注入上采样 MS 图像。连续表示允许模型在任意目标采样网格上渲染融合图像，无需特定尺度重训练；Scale-Decoupled Asymmetric Inference 还可在降低分辨率估计 primitives、目标分辨率渲染图像，以提升大场景效率。QuickBird、GaoFen-2、WorldView-3 等数据集实验显示其达到 SOTA 并显著加速推理。</p><p class="lang lang-en lang-block" data-lang="en">Pansharpening aims to generate high-resolution multispectral (HRMS) images by fusing low-resolution multispectral (LRMS) and panchromatic (PAN) observations. Most existing deep learning methods treat pansharpening as fixed-grid prediction, which limits scale adaptation. To address this, we propose GSPan, a framework that introduces 2D Gaussian Splatting (GS) into pansharpening. Instead of directly predicting pixels, GSPan represents band-wise residual details as continuous and learnable 2D Gaussian primitives. We design a Dual-Stream Hierarchical Interaction (DSHI) architecture with a Spatial-Spectral Interactive Attention (SSIA) module to estimate these primitives from complementary PAN and MS observations. The predicted primitives are rendered as a residual detail field and injected into the upsampled MS image. This continuous representation allows GSPan to render fused images on arbitrary target sampling grids without scale-specific retraining. It further enables a Scale-Decoupled Asymmetric Inference (SDAI) strategy, which estimates primitives at a reduced resolution and renders the fused image at the target resolution for efficient large-scene pansharpening. Experiments on QuickBird, GaoFen-2, WorldView-3, and WorldView-3-4K datasets show that GSPan delivers state-of-the-art fusion performance. Moreover, SDAI markedly accelerates inference, achieving a favorable trade-off between computational efficiency and fusion quality. Our results demonstrate the potential of continuous Gaussian residual representations as a flexible and scale-decoupled alternative to fixed-grid prediction.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.17722">abs</a> / <a href="https://arxiv.org/pdf/2606.17722">PDF</a>；作者：Fangyi Li, Xiaoyuan Yang, Yixiao Li, Zongyang Sui, Kangqing Shen, Gemine Vivone；类别：cs.CV；采集 score=6。</li>
+<li>核心思路：把遥感 pansharpening 中的 band-wise residual details 表示成连续可学习 2D Gaussian primitives，从而支持任意目标采样网格和尺度无关推理。</li>
+<li>方法要点：Dual-Stream Hierarchical Interaction 和 Spatial-Spectral Interactive Attention 从 PAN/MS 观测估计 Gaussian primitives；Scale-Decoupled Asymmetric Inference 在低分辨率估计 primitive、目标分辨率渲染，提升大场景效率。</li>
+<li>关注点：与 GNSS/SLAM 无直接关系，但在遥感影像融合、连续图像表示、任意尺度渲染方面可作外围参考。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-18/index.html">← 返回 2026-06-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-17 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">未来动态三维重建：解耦自运动的三维世界模型</span><span class="lang lang-en lang-inline" data-lang="en">Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion</span></h1>
+  <div class="meta">作者：Nils Morbitzer, Jonathan Evers, Artem Savkin, Thomas Stauner, Nassir Navab, Federico Tombari, Stefano Gasperini</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.18250">abs</a><a href="https://arxiv.org/pdf/2606.18250">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.7/10</span><p>不是定位/建图后端，但与动态场景理解、预测式三维地图和自动驾驶 world model 相关；值得关注其 3D 表示能否与 SLAM 地图、占据预测或 NeRF/3DGS 接口结合。</p><div class="tags"><span class="tag">动态三维重建</span><span class="tag">World Model</span><span class="tag">Ego-motion 解耦</span><span class="tag">单目预测</span><span class="tag">自动驾驶</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">FR3D 用持久 3D latent 表示预测未来动态场景，并显式把 ego-motion 与世界动态解耦，以减少 2D world model 的几何不一致。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">预测动态环境演化对自主智能体很重要。近期生成式 world model 在 2D 视频合成上取得高真实感，但常把自车运动和环境动态混在图像平面内，导致长时域中出现物体形变或消失等物理不一致。FR3D 提出一个预测未来动态三维重建持久 3D latent 表示的世界模型。与把世界看作图像特征序列的方法不同，FR3D 显式解耦场景三维演化和智能体轨迹，把推断出的 ego-motion 当作 latent action proxy，从而降低 self-motion 与 world-motion 的歧义并保持未来几何一致性。方法还引入 teacher-student distillation，借助现成 foundation model 的空间常识提升 zero-shot 泛化。多数据集实验显示，FR3D 能从单目观测预测未来动态 3D 重建，时域可达约 2 秒。</p><p class="lang lang-en lang-block" data-lang="en">Forecasting the evolution of dynamic environments is crucial for autonomous agents. While generative world models have recently achieved high photorealism in 2D video synthesis by mixing ego-motion and environmental dynamics within the image plane, they exhibit physical inconsistencies, such as morphing or vanishing objects, especially over long time horizons. In this paper, we propose FR3D, a world model that predicts a persistent 3D latent representation for future dynamic 3D reconstruction. Unlike prior works that treat the world as a sequence of image-based features, FR3D explicitly decouples the 3D evolution of the scene from the agent&#x27;s trajectory, treating the inferred ego-motion as a latent proxy for action. This disentanglement resolves the ambiguities between self-motion and world-motion, ensuring geometric consistency into the future. Furthermore, we introduce a teacher-student distillation strategy that leverages the spatial &quot;common sense&quot; of off-the-shelf foundation models, leading to robust zero-shot generalization. Extensive experiments demonstrate FR3D&#x27;s strong performance for future dynamic 3D reconstruction from monocular observations across multiple datasets, even 2 seconds into the future. Project page: https://fr3d-wm.github.io.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.18250">abs</a> / <a href="https://arxiv.org/pdf/2606.18250">PDF</a>；项目页：https://fr3d-wm.github.io；作者：Nils Morbitzer, Jonathan Evers, Artem Savkin, Thomas Stauner, Nassir Navab, Federico Tombari, Stefano Gasperini；类别：cs.CV；采集 score=9；ICML 2026。</li>
+<li>核心思路：从单目观测预测未来动态环境的持久 3D latent 表示，同时把自车运动作为 latent action/proxy 与世界动态解耦。</li>
+<li>方法要点：避免传统 2D 视频 world model 把 ego-motion 和物体运动混在图像平面里导致物体形变/消失；通过 teacher-student distillation 借助 foundation model 的空间先验提升 zero-shot 泛化。</li>
+<li>关注点：它不是 SLAM 后端，但对自动驾驶/机器人预测式地图、动态占据场景和未来 3D 重建有参考价值；建议看输出 3D 表示是否能和轨迹/占据网格/NeRF-3DGS 地图接口对齐。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.18250/fig-001.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.18250/fig-001.webp" alt="Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.18250/fig-002.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.18250/fig-002.webp" alt="Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.18250/table-001.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.18250/table-001.webp" alt="Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.18250/table-002.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.18250/table-002.webp" alt="Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.18250/table-003.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.18250/table-003.webp" alt="Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.18250/table-004.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.18250/table-004.webp" alt="Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.18250/table-005.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.18250/table-005.webp" alt="Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-18/arxiv-2606.18250/table-006.webp"><img src="../../assets/media/2026-06-18/arxiv-2606.18250/table-006.webp" alt="Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

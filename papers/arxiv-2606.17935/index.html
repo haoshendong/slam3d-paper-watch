@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MoonSplat: Monocular Online Gaussian Splatting with Sim(3) Global Optimization</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-18/index.html">← 返回 2026-06-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-16 · score 13 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MoonSplat：结合 Sim(3) 全局优化的单目在线 Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">MoonSplat: Monocular Online Gaussian Splatting with Sim(3) Global Optimization</span></h1>
+  <div class="meta">作者：Guo Pu, Yixuan Han, Haofeng Li, Yao Zhang, Hui Zhou, Zhouhui Lian</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.17935">abs</a><a href="https://arxiv.org/pdf/2606.17935">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>与 3DGS-SLAM、单目在线重建、相机跟踪和全局一致性高度相关，且摘要给出代码/数据链接；主要待验证点是回环对高斯地图的一致性维护、尺度约束和真实实时性能。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">单目在线重建</span><span class="tag">Sim(3) 优化</span><span class="tag">回环闭合</span><span class="tag">UAV 重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">MoonSplat 把单目在线 3DGS 与 Sim(3) 全局优化/回环闭合结合，用 voxelized 3DGS 和颜色残差学习提升长序列重建稳定性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">单目图像序列在线三维重建仍然困难。3D Gaussian Splatting 具备高质量实时渲染能力，但现有在线 3DGS 方法常受相机位姿估计脆弱、缺少全局优化以及大规模长序列优化效率低的限制。MoonSplat 提出一种鲁棒高效的在线 voxelized 3DGS 重建框架，并集成全局 Sim(3) 优化，使相机跟踪更可靠，同时支持相机位姿和 voxelized 3DGS 的全局回环闭合。为加快 voxelized 3DGS 收敛，方法还引入颜色残差学习策略，提升优化速度和渲染质量。实验覆盖多种室内外数据集，显示其在相机位姿估计和渲染质量上达到 SOTA，同时保持实时效率；作者还开发并部署了基于 UAV 的真实主动重建系统。</p><p class="lang lang-en lang-block" data-lang="en">Online 3D reconstruction from monocular image sequences is a challenging and ongoing research topic. 3D Gaussian Splatting (3DGS), leveraging its high-quality real-time rendering capability, empowers online 3D reconstruction to represent dense scenes with enhanced expressiveness, and thus holds great promise for a wide range of applications such as robotics and AR/VR. However, existing online 3DGS methods still suffer from some key challenges: fragile camera pose estimation due to the lack of global optimization, and low optimization efficiency in large-scale or long-sequence scenarios. To address these issues, we propose a robust and efficient online voxelized 3DGS reconstruction framework integrated with global $\text{Sim}(3)$ optimization, which enables reliable camera tracking and efficient global loop closure for both camera poses and voxelized 3DGS. To accelerate the convergence of the voxelized 3DGS, we further introduce a color residual learning strategy, which not only boosts optimization speed but also enhances rendering quality. Extensive experiments on diverse indoor and outdoor datasets demonstrate that our method achieves state-of-the-art performance in both camera pose estimation accuracy and rendering quality, while retaining real-time efficiency. Additionally, we develop and deploy a real-world UAV-based active reconstruction system grounded on our proposed method, validating its robustness and generalizability for practical online 3D reconstruction tasks. Our code and data are available at https://github.com/TrickyGo/MoonSplat.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.17935">abs</a> / <a href="https://arxiv.org/pdf/2606.17935">PDF</a>；代码/数据：https://github.com/TrickyGo/MoonSplat；作者：Guo Pu, Yixuan Han, Haofeng Li, Yao Zhang, Hui Zhou, Zhouhui Lian；类别：cs.CV；采集 score=13；SIGGRAPH 2026。</li>
+<li>核心思路：把单目在线 3DGS 重建中的相机跟踪脆弱和长序列效率问题，用 <strong>voxelized 3DGS + Sim(3) 全局优化</strong> 统一处理。</li>
+<li>方法要点：Sim(3) 优化同时作用于相机轨迹和 voxelized 3DGS，支持全局回环；颜色残差学习用于加快 voxelized 3DGS 收敛并提升渲染质量；还部署了 UAV 主动重建系统验证实用性。</li>
+<li>关注点：和 3DGS-SLAM/在线重建高度相关。建议优先检查回环闭合是否真正维护高斯地图全局一致性、尺度漂移如何约束、优化频率与实时性、动态场景鲁棒性，以及开源仓库是否包含可复现实验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
