@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-19/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-19/index.html">← 返回 2026-06-19 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 7 · eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用学习式 k-space 划分优化多对比度自监督 MRI 重建</span><span class="lang lang-en lang-inline" data-lang="en">Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning</span></h1>
+  <div class="meta">作者：Brenden Kadota, Charles Millard, Mark Chiew</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.19182">abs</a><a href="https://arxiv.org/pdf/2606.19182">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 3.2/10</span><p>医学 MRI 重建与 SLAM/GNSS/三维几何关系较弱；仅可作为自监督采样/重建策略的外围参考。</p><div class="tags"><span class="tag">MRI 重建</span><span class="tag">自监督学习</span><span class="tag">k-space</span><span class="tag">多对比度</span><span class="tag">外围参考</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该 MRI 工作把多对比度自监督重建与可学习 k-space 数据划分结合，以在无全采样参考时提升图像重建质量。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">深度学习已用于从欠采样数据重建高质量 MRI 图像。已有多对比度方法可利用不同 contrast 之间的信息，但常依赖 fully sampled k-space 监督；SSDU 则通过把欠采样 k-space 划分为两部分，使网络在欠采样数据上自监督训练。本文提出多对比度自监督学习框架，在无需 fully sampled k-space 参考的情况下联合训练多个欠采样 contrasts，并端到端学习每个 contrast 的最优自监督数据划分。具体做法是学习一个 partitioning probability distribution，从中采样生成划分 mask。两个公开多对比度 MRI 数据集实验显示，多对比度自监督结合学习式划分优于当前单对比度自监督方法，学习划分还能进一步提升重建保真度。</p><p class="lang lang-en lang-block" data-lang="en">Objective: Deep Learning has shown promise in accelerating MRI by reconstructing high-quality images from under-sampled data. While recent work has leveraged multi-contrast information to improve reconstruction performance, these methods rely on supervised learning, which requires fully sampled k-space for training. One method, self-supervised learning via data undersampling (SSDU), enables direct training on under-sampled k-space by partitioning it into two sets, with a network mapping between the two. In this work, we improve MRI self-supervised MRI reconstruction with two modifications. Methods: We propose a multi-contrast self-supervised learning framework that jointly trains on multiple under-sampled contrasts without requiring fully sampled k-space data as a reference. Moreover, we learn an optimal self-supervised data partitioning for each contrast in an end-to-end manner, further enhancing reconstruction quality. Specifically, we learn an optimal partitioning probability distribution, which is sampled to generate a mask for partitioning. Results: Experiments on two publicly available multi-contrast MRI datasets demonstrate the improved reconstruction quality of our proposed self-supervised multi-contrast learned partitioning method compared to the current single-contrast self-supervised learning methods. We also demonstrate that learning the partitioning of k-space data further enhances the fidelity of reconstructions. Conclusion: Multi-contrast reconstruction combined with learned partitioning improves reconstruction fidelity over single-contrast self-supervised MRI reconstructions. Significance: Our method can facilitate higher image fidelity and/or accelerated MRI protocol times compared to previous self-supervised methods, and without requiring fully sampled k-space for training.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.19182">abs</a> / <a href="https://arxiv.org/pdf/2606.19182">PDF</a>；作者：Brenden Kadota, Charles Millard, Mark Chiew；类别：eess.IV；采集 score=7。</li>
+<li>核心思路：面向欠采样 MRI，自监督地联合利用多对比度数据，并端到端学习每个 contrast 的 k-space partitioning probability distribution，以提升 SSDU 类方法的重建质量。</li>
+<li>与用户方向的关系：这是医学成像重建，不是三维几何/SLAM；可作为“自监督重建 + 数据划分策略学习”的外围参考。</li>
+<li>关注点：若只关注机器人三维重建，可低优先级浏览；除非后续工作将类似 learned partitioning 用于稀疏视角/稀疏 LiDAR 的自监督采样设计。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.19182/fig-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.19182/fig-001.webp" alt="Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.19182/fig-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.19182/fig-002.webp" alt="Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.19182/fig-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.19182/fig-003.webp" alt="Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.19182/fig-004.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.19182/fig-004.webp" alt="Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.19182/fig-005.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.19182/fig-005.webp" alt="Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.19182/fig-006.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.19182/fig-006.webp" alt="Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.19182/table-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.19182/table-001.webp" alt="Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.19182/table-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.19182/table-002.webp" alt="Optimized Multi-Contrast Self-Supervised MRI Reconstruction using Learned k-space Partitioning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

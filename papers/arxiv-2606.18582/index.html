@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-19/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-19/index.html">← 返回 2026-06-19 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 6 · cs.CV, cs.RO, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ICRA 2026 GOOSE 细粒度语义分割挑战技术报告：用 DINOv3 增强野外机器人户外场景理解</span><span class="lang lang-en lang-inline" data-lang="en">Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics</span></h1>
+  <div class="meta">作者：Jaeil Park, Hyobin Choi, Sangjin Lee, Hyungtae Lim, Sung-Hoon Yoon</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.18582">abs</a><a href="https://arxiv.org/pdf/2606.18582">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.7/10</span><p>与野外/越野机器人语义理解和语义地图前端相关，但不是 SLAM 后端；适合作为 field robotics perception 方案跟踪。</p><div class="tags"><span class="tag">Field Robotics</span><span class="tag">语义分割</span><span class="tag">DINOv3</span><span class="tag">Mask2Former</span><span class="tag">越野场景理解</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该技术报告用 DINOv3 + ViT-Adapter + Mask2Former 和 TTA/ensemble 获得 GOOSE 野外机器人语义分割挑战第一名。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">GOOSE 2D Fine-Grained Semantic Segmentation Challenge 是 ICRA 2026 Field Robotics Workshop 上的越野图像稠密语义分割挑战，使用 64 个细粒度类别和 11 个非 void 粗类别进行评测。本文给出第一名方案：网络层面结合自监督 DINOv3 ViT-L/16 backbone、ViT-Adapter 和 Mask2Former mask-classification decoder，并对全局 CLS token 加入 coarse-category auxiliary loss；推理层面采用 multi-scale 与 horizontal-flip test-time augmentation，并集成 Codabench 分数最高的三个 checkpoints。方法官方 composite score 为 76.57%，其中 fine-class mIoU 为 69.32%，category-level mIoU 为 83.81%，在最终阶段排行榜第一。</p><p class="lang lang-en lang-block" data-lang="en">The GOOSE 2D Fine-Grained Semantic Segmentation Challenge at the ICRA 2026 Workshop on Field Robotics evaluates dense semantic segmentation of off-road imagery over a fine-grained taxonomy of 64 classes and 11 evaluated non-void coarse categories. We present the first-place solution to this challenge. Our solution comprises two complementary improvements: (a) a network-level design that combines a self-supervised DINOv3 ViT-L/16 backbone, a ViT-Adapter, and a Mask2Former mask-classification decoder, together with a coarse-category auxiliary loss on the global [CLS] token; and (b) an inference-time aggregation strategy based on multi-scale and horizontal-flip test-time augmentation and an ensemble of the top three checkpoints selected using Codabench scores. Our method achieves an official composite score of 76.57%, consisting of 69.32% fine-class mIoU and 83.81% category-level mIoU, and ranks first on the final phase leaderboard: www.codabench.org/competitions/14257/#/results-tab.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.18582">abs</a> / <a href="https://arxiv.org/pdf/2606.18582">PDF</a>；作者：Jaeil Park, Hyobin Choi, Sangjin Lee, Hyungtae Lim, Sung-Hoon Yoon；类别：cs.CV, cs.RO, eess.IV；采集 score=6。</li>
+<li>核心思路：ICRA 2026 Field Robotics Workshop 的 GOOSE 2D 细粒度语义分割挑战第一名方案，使用 DINOv3 ViT-L/16 backbone、ViT-Adapter、Mask2Former mask-classification decoder，并加入 coarse-category auxiliary loss。</li>
+<li>方法要点：推理时使用 multi-scale、horizontal-flip TTA 和 top-3 checkpoints ensemble；官方 composite score 76.57%，fine-class mIoU 69.32%，category-level mIoU 83.81%。</li>
+<li>关注点：对越野/野外机器人语义地图、可通行区域理解和鲁棒场景理解有参考价值；需注意它是 2D 分割挑战方案，不直接提供定位/建图后端。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18582/fig-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18582/fig-001.webp" alt="Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18582/fig-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18582/fig-002.webp" alt="Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18582/fig-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18582/fig-003.webp" alt="Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18582/fig-004.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18582/fig-004.webp" alt="Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18582/table-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18582/table-001.webp" alt="Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18582/table-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18582/table-002.webp" alt="Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

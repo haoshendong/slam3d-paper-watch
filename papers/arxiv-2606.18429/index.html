@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CAOA -- Completion-Assisted Object-CAD Alignment</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-19/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-19/index.html">← 返回 2026-06-19 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 7 · cs.CV, cs.AI, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CAOA：由点云补全辅助的物体-CAD 对齐</span><span class="lang lang-en lang-inline" data-lang="en">CAOA -- Completion-Assisted Object-CAD Alignment</span></h1>
+  <div class="meta">作者：Hiranya Garbha Kumar, Minhas Kamal, Balakrishnan Prabhakaran</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.18429">abs</a><a href="https://arxiv.org/pdf/2606.18429">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>与 RGB-D 三维重建、CAD map、对象级 SLAM 和语义建图直接相关；需重点看其对分割误差、对称歧义和真实扫描噪声的鲁棒性。</p><div class="tags"><span class="tag">对象级三维重建</span><span class="tag">CAD 对齐</span><span class="tag">点云补全</span><span class="tag">RGB-D</span><span class="tag">Scan2CAD</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">CAOA 先补全真实 RGB-D 扫描物体点云，再用对称性感知位姿估计完成 CAD 9DoF 对齐，面向对象级三维语义重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">在室内 RGB-D 扫描中把 CAD 模型精确对齐到对应物体，是三维语义重建的重要挑战。该任务需要估计包含位置、旋转和三轴尺度在内的 9DoF 位姿，但真实扫描的噪声、不完整性和分割误差会导致几何畸变。CAOA 将一个语义与上下文感知的点云补全模块和一个对称性感知相对位姿估计算法结合，用补全缓解缺失扫描造成的形状偏差，再用 symmetry-aware loss 处理对称物体的姿态歧义。作者还提出面向室内场景的合成数据生成策略以缩小 synthetic-to-real gap，并发布 S2C-Completion：基于 Scan2CAD、包含 8500+ expert-annotated object-CAD pairs 的真实室内单物体补全基准。CAOA 在 Scan2CAD benchmark 上相对 SOTA 提升约 17% accuracy。</p><p class="lang lang-en lang-block" data-lang="en">Accurately aligning CAD models to their corresponding objects in indoor RGB-D scans is a central challenge in 3D semantic reconstruction. The task requires estimating a 9-Degree-of-Freedom (DoF) pose-position, rotation, and scale along three axes-but is hindered by noisy and incomplete scans, as well as segmentation errors that cause geometric distortions. We present Completion-Assisted Object-CAD Alignment (CAOA), a method that integrates a semantically and contextually aware point cloud completion module with a symmetry-aware relative pose estimation algorithm, enabling precise alignment of CAD models to scanned objects. Existing completion methods are typically trained and evaluated on synthetic datasets, which often fail to generalize to real-world scans. To bridge this gap, we introduce a synthetic data generation strategy tailored to indoor scenes, significantly reducing the synthetic-to-real domain gap-validated through quantitative comparisons with widely used completion datasets. In addition, we release S2C-Completion, an expert-annotated dataset of over 8,500 object-CAD pairs from Scan2CAD, created for real-world indoor single-object completion and intended as a new benchmark for this task. For object-CAD alignment, we incorporate symmetry information via a symmetry-aware loss, improving robustness to symmetric ambiguities. On the Scan2CAD benchmark, CAOA achieves a 17% accuracy improvement over state-of-the-art methods.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.18429">abs</a> / <a href="https://arxiv.org/pdf/2606.18429">PDF</a>；作者：Hiranya Garbha Kumar, Minhas Kamal, Balakrishnan Prabhakaran；类别：cs.CV, cs.AI, cs.LG；采集 score=7。</li>
+<li>核心思路：面向室内 RGB-D 扫描中的物体-CAD 9DoF 对齐，先用语义与上下文感知的点云补全模块缓解扫描缺失/噪声，再用 symmetry-aware relative pose estimation 提升对称物体下的鲁棒性。</li>
+<li>数据与效果：提出 S2C-Completion，包含 8500+ Scan2CAD object-CAD 对，用作真实室内单物体补全基准；在 Scan2CAD benchmark 上较 SOTA 提升约 17% accuracy。</li>
+<li>关注点：和语义三维重建、CAD map、object-level SLAM 有较高相关性；建议看补全模块是否能处理真实 RGB-D/SLAM 点云的分割误差，以及对称损失如何影响尺度/姿态歧义。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/fig-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/fig-001.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/fig-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/fig-002.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/fig-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/fig-003.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/fig-004.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/fig-004.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/fig-005.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/fig-005.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/fig-006.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/fig-006.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/table-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/table-001.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/table-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/table-002.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18429/table-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18429/table-003.webp" alt="CAOA -- Completion-Assisted Object-CAD Alignment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

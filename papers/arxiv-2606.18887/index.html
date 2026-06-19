@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Efficient Image Registration for Ultrasound Localization Microscopy by Obtaining Gradients via Integration Across Iterations</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-19/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-19/index.html">← 返回 2026-06-19 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 10 · eess.IV, physics.med-ph</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用跨迭代积分获取梯度的高效超声定位显微图像配准</span><span class="lang lang-en lang-inline" data-lang="en">Efficient Image Registration for Ultrasound Localization Microscopy by Obtaining Gradients via Integration Across Iterations</span></h1>
+  <div class="meta">作者：Jipeng Yan, Chang Liu, Hengchang Liu, Biao Huang, Meng-Xing Tang, Yingxiang Liu, Ying Tan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.18887">abs</a><a href="https://arxiv.org/pdf/2606.18887">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 4.2/10</span><p>核心是医学超声图像配准，与视觉里程计/SLAM 关系间接；可借鉴无显式梯度优化思想，但不是本方向重点论文。</p><div class="tags"><span class="tag">图像配准</span><span class="tag">Extremum Seeking Control</span><span class="tag">运动校正</span><span class="tag">医学成像</span><span class="tag">非刚性配准</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作用 ESC 从跨迭代相似度扰动中估计下降方向，降低医学图像配准中显式梯度计算成本。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">超声定位显微成像（ULM）需要通过图像配准进行组织运动校正。常见参数化配准会迭代更新运动参数以最大化图像相似度，优化过程通常依赖梯度，而显式计算相似度对运动参数的梯度可能很耗时。本文研究用 Extremum Seeking Control（ESC）替代显式导数评估：通过对扰动和解调后的相似度指标进行跨迭代积分来获得下降信息。作者先在由离体猪心跳动数据构造的仿真真值 affine 配准中比较 ESC 与梯度下降，结果显示 ESC 具备相近的配准精度和收敛行为，并将每迭代计算成本降低约 3.5 倍；随后把 ESC 用于 affine 全局组织运动补偿与 B-spline 局部形变校正的两阶段管线，在跳动离体猪心 ULM 上达到低于半波长衍射极限的空间分辨率。</p><p class="lang lang-en lang-block" data-lang="en">Tissue motion correction through image registration is essential for ultrasound localization microscopy (ULM). Parametric image registration is commonly formulated as an optimization problem where motion parameters are iteratively updated to maximize image similarity, and used optimization algorithms typically rely on gradient information, the explicit evaluation of which can become computationally demanding. This work investigates Extremum Seeking Control (ESC) as an alternative to explicit derivative evaluation in image registration. By obtaining descent information via integrating perturbed and demodulated image similarity metric across iterations, ESC avoids differentiation of the image similarity metric with respect to motion parameters in each iteration. The classical ESC, whose optimization behavior approximates that of classical gradient descent (GD), is first compared with GD for affine image registration using simulated ground-truth motions derived from a beating ex vivo porcine heart dataset. The results show that ESC achieves registration accuracy and convergence behavior comparable to GD while reducing per-iteration computational cost by approximately 3.5-fold. ESC is subsequently employed in a two-stage motion correction pipeline, where affine registration compensates for global tissue motion and B-spline registration corrects residual local deformation. The proposed method is applied to ULM imaging of a beating ex vivo porcine heart and achieves a spatial resolution of 219 um, substantially below the half-wavelength diffraction limit of 321 um associated with 2.4 MHz diverging-wave imaging. These results demonstrate that ESC provides an effective alternative to explicit derivative evaluation in ULM image registration, enabling accurate motion correction and high-quality super-resolution imaging.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.18887">abs</a> / <a href="https://arxiv.org/pdf/2606.18887">PDF</a>；作者：Jipeng Yan, Chang Liu, Hengchang Liu, Biao Huang, Meng-Xing Tang, Yingxiang Liu, Ying Tan；类别：eess.IV, physics.med-ph；采集 score=10。</li>
+<li>核心思路：把 Extremum Seeking Control 用于超声定位显微成像中的运动校正/图像配准，通过跨迭代扰动与解调积分获得下降方向，避免每次迭代显式计算相似度指标梯度。</li>
+<li>方法要点：在仿真 affine 配准中达到与梯度下降接近的精度，同时每迭代计算成本约降低 3.5 倍；随后用于 affine + B-spline 两阶段组织运动校正管线。</li>
+<li>关注点：这是医学图像配准，不是视觉里程计；可借鉴的是“无显式梯度的相似度优化”是否能启发稠密配准、非刚性配准或低成本 registration front-end。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18887/fig-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18887/fig-001.webp" alt="Efficient Image Registration for Ultrasound Localization Microscopy by Obtaining Gradients via Integration Across Iterations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18887/fig-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18887/fig-002.webp" alt="Efficient Image Registration for Ultrasound Localization Microscopy by Obtaining Gradients via Integration Across Iterations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18887/fig-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18887/fig-003.webp" alt="Efficient Image Registration for Ultrasound Localization Microscopy by Obtaining Gradients via Integration Across Iterations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18887/fig-004.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18887/fig-004.webp" alt="Efficient Image Registration for Ultrasound Localization Microscopy by Obtaining Gradients via Integration Across Iterations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18887/table-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18887/table-001.webp" alt="Efficient Image Registration for Ultrasound Localization Microscopy by Obtaining Gradients via Integration Across Iterations" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

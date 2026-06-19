@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Intrinsic 4D Gaussian Segmentation from Scene Cues</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-19/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-19/index.html">← 返回 2026-06-19 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 9 · cs.CV, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Intrinsic-GS：从场景内在线索进行 4D Gaussian 分割</span><span class="lang lang-en lang-inline" data-lang="en">Intrinsic 4D Gaussian Segmentation from Scene Cues</span></h1>
+  <div class="meta">作者：Hasan Yazar, Mohamed Rayan Barhdadi, Erchin Serpedin, Mehmet Tuncel, Hasan Kurban</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.18623">abs</a><a href="https://arxiv.org/pdf/2606.18623">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.1/10</span><p>与 3DGS/4DGS 动态场景表示、实例级地图维护和动态物体处理高度相关；对 3DGS-SLAM 后处理和语义/对象级建图有较高跟踪价值。</p><div class="tags"><span class="tag">4D Gaussian Splatting</span><span class="tag">动态场景分割</span><span class="tag">无监督分割</span><span class="tag">Leiden 聚类</span><span class="tag">3DGS-SLAM</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">Intrinsic-GS 直接利用 4D Gaussian primitives 的外观、几何、形变轨迹和渲染边界建立图并聚类，实现无需外部 mask 的动态场景分割。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">动态 4D Gaussian Splatting 能高保真重建形变场景，并越来越常作为动态三维场景表示。要对这些场景进行编辑、操作或运动分析，首先需要把 Gaussian primitives 分组成一致对象。现有流程常从 SAM 等基础模型生成 2D mask，再提升或蒸馏到 Gaussian 表示中，但动态场景下需要跨多帧多视角生成 mask，成本高且结果依赖外部 mask 质量。本文提出 Intrinsic-GS，一种无需训练、无需 mask 的方法，直接从 Gaussian primitives 的外观、朝向、尺度、形变轨迹以及非学习的渲染边界线索构建稀疏 affinity graph，并用 Leiden community detection 分割。其在 Neu3D 与 HyperNeRF 基准上无需 mask supervision 即恢复大量对象结构，在 Neu3D 上 geometry-only 变体达到 0.902 mIoU，在 HyperNeRF 上比 mask-supervised 流程中的 mask 生成与特征渲染阶段快 12.5 倍。</p><p class="lang lang-en lang-block" data-lang="en">Dynamic 4D Gaussian Splatting reconstructs deforming scenes with high fidelity and is increasingly adopted as a representation for dynamic 3D scenes. Putting such a scene to use, for editing, manipulation or motion analysis, first requires segmenting it: grouping the Gaussian primitives into coherent objects. Current pipelines obtain this grouping by importing 2D masks from foundation models such as SAM and lifting or distilling them into the Gaussian representation. In dynamic scenes these masks must be generated across many frames and views, which is costly, and the resulting segmentation can depend strongly on the quality and consistency of those external masks. We ask how much object-level structure can instead be recovered from the Gaussians themselves, and propose Intrinsic-GS, a training-free, mask-free method that builds a sparse affinity graph over Gaussian primitives from appearance, orientation, scale, deformation-trajectory and non-learned rendered-boundary cues. The graph is partitioned with Leiden community detection, requiring no foundation model and no learned feature field. On the standard 4D Gaussian segmentation benchmarks, Neu3D and HyperNeRF, Intrinsic-GS recovers substantial object structure without mask supervision, reaching 0.746 mIoU on Neu3D and 0.575 on HyperNeRF; on Neu3D, a geometry-only variant reaches 0.902 mIoU, matching SAM-supervised TRASE. On HyperNeRF, Intrinsic-GS runs 12.5x faster than the mask-generation and feature-rendering stages used by mask-supervised pipelines. These results suggest that much of the segmentation signal is already encoded in the Gaussians themselves, offering a fast, mask-free direction for 3D and 4D Gaussian segmentation that may also point toward more generalizable, robust segmentation in settings where external masks are unreliable or expensive.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.18623">abs</a> / <a href="https://arxiv.org/pdf/2606.18623">PDF</a>；作者：Hasan Yazar, Mohamed Rayan Barhdadi, Erchin Serpedin, Mehmet Tuncel, Hasan Kurban；类别：cs.CV, eess.IV；采集 score=9。</li>
+<li>核心思路：提出 <strong>Intrinsic-GS</strong>，不用 SAM 等外部 2D mask，也不训练新特征场，而是直接从 4D Gaussian primitives 的外观、朝向、尺度、形变轨迹和渲染边界线索构造稀疏 affinity graph，并用 Leiden community detection 分割动态场景。</li>
+<li>方法要点：在 Neu3D / HyperNeRF 分割基准上取得可观 mIoU；在 HyperNeRF 上相对 mask-supervised 流程的 mask 生成与 feature rendering 阶段快 12.5 倍。</li>
+<li>关注点：适合 3DGS-SLAM/动态场景建图方向跟踪，尤其是“地图 primitives 自带的物体结构信号”是否能用于动态物体剔除、实例级地图维护和长期场景编辑。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/fig-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/fig-001.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/fig-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/fig-002.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/fig-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/fig-003.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/fig-004.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/fig-004.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/table-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/table-001.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/table-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/table-002.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/table-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/table-003.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/table-004.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/table-004.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/table-005.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/table-005.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18623/table-006.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18623/table-006.webp" alt="Intrinsic 4D Gaussian Segmentation from Scene Cues" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

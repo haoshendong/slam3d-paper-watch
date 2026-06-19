@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Deep-Learning-Based Pixelated Microwave Filter Design and Characterization using Electro-Optical Electric-Field Measurements</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-19/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-19/index.html">← 返回 2026-06-19 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 6 · eess.SP, cs.AI, cs.AR, cs.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于深度学习的像素化微波滤波器设计及电光电场测量表征</span><span class="lang lang-en lang-inline" data-lang="en">Deep-Learning-Based Pixelated Microwave Filter Design and Characterization using Electro-Optical Electric-Field Measurements</span></h1>
+  <div class="meta">作者：Han Zhou, Richard Bannister, Caspar Pierce, Haojie Chang, David Widen, Ludvig Fornstedt, Gabriel Melin, Alexander Bohlin, Pontus Lindeberg Fredriksson, Dilbagh Singh, Christian Fager, Koen Buisman</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.18402">abs</a><a href="https://arxiv.org/pdf/2606.18402">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 1.7/10</span><p>主题是微波滤波器硬件设计，与定位/建图主线关系极弱；作为采集关键词噪声处理即可。</p><div class="tags"><span class="tag">微波滤波器</span><span class="tag">RF 设计</span><span class="tag">CNN</span><span class="tag">遗传算法</span><span class="tag">低相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作用 CNN 与遗传算法自动综合像素化微波滤波器，并通过 S 参数和电光电场测量验证设计。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">传统微波滤波器设计通常依赖迭代参数调节和预定义拓扑，限制设计空间并增加开发时间。本文使用结合卷积神经网络和 genetic algorithms 的深度学习方法，自动综合像素化微波滤波器。为实验验证该方法，作者分析了 S 参数和空间电场测量；综合得到的低通滤波器在仿真与测量之间吻合良好，实现 7 GHz 通带并在 9.5 GHz 之后有超过 20 dB 抑制。首次使用电光测量揭示了类似耦合传输线或 stub 结构的电场模式，从而解释 AI 生成设计的 emergent characteristics。</p><p class="lang lang-en lang-block" data-lang="en">Traditional microwave filter design typically relies on iterative parameter tuning and predefined topologies, which limits design space and increases development time. This study uses a deep learning approach combining convolutional neural networks with genetic algorithms to automate pixelated microwave filter synthesis. To validate the approach experimentally, both S-parameter and spatial electric-field measurements were analyzed. The synthesized low-pass filter demonstrated excellent agreement between simulated and measured performance, achieving a 7 GHz passband with over 20 dB suppression beyond 9.5 GHz. Electro-optical measurements, for the first time, revealed electric field patterns that resemble coupled transmission-lines or stub structures, providing insight into the emergent characteristics of AI-generated designs.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.18402">abs</a> / <a href="https://arxiv.org/pdf/2606.18402">PDF</a>；作者：Han Zhou, Richard Bannister, Caspar Pierce, Haojie Chang, David Widen, Ludvig Fornstedt, Gabriel Melin, Alexander Bohlin, Pontus Lindeberg Fredriksson, Dilbagh Singh, Christian Fager, Koen Buisman；类别：eess.SP, cs.AI, cs.AR, cs.SY, eess.SY；采集 score=6。</li>
+<li>核心思路：把 CNN 与 genetic algorithms 用于 pixelated microwave filter 自动综合，并用 S-parameter 与 electro-optical electric-field measurements 验证 AI 生成结构。</li>
+<li>与用户方向的关系：与 SLAM/GNSS 定位算法几乎无直接关系；可视为“深度学习辅助 RF 结构设计”的噪声候选。</li>
+<li>关注点：不建议占用主线阅读时间；若后续关注 RF sensing/无线数字孪生硬件，可再回看。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18402/fig-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18402/fig-001.webp" alt="Deep-Learning-Based Pixelated Microwave Filter Design and Characterization using Electro-Optical Electric-Field Measurements" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18402/fig-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18402/fig-002.webp" alt="Deep-Learning-Based Pixelated Microwave Filter Design and Characterization using Electro-Optical Electric-Field Measurements" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18402/fig-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18402/fig-003.webp" alt="Deep-Learning-Based Pixelated Microwave Filter Design and Characterization using Electro-Optical Electric-Field Measurements" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18402/fig-004.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18402/fig-004.webp" alt="Deep-Learning-Based Pixelated Microwave Filter Design and Characterization using Electro-Optical Electric-Field Measurements" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

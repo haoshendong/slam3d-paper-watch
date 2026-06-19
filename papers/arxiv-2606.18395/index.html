@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Deep Learning-Driven Inverse Design of Doherty Power Amplifiers Using Pixelated Combiners and Dual-State Impedance Synthesis</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-19/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-19/index.html">← 返回 2026-06-19 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 6 · eess.SP, cs.AI, cs.AR, cs.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用像素化合成器和双状态阻抗综合进行 Doherty 功放深度学习逆向设计</span><span class="lang lang-en lang-inline" data-lang="en">Deep Learning-Driven Inverse Design of Doherty Power Amplifiers Using Pixelated Combiners and Dual-State Impedance Synthesis</span></h1>
+  <div class="meta">作者：Han Zhou, Haojie Chang, David Widen, Christian Fager</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.18395">abs</a><a href="https://arxiv.org/pdf/2606.18395">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 1.8/10</span><p>与 GNSS/SLAM/三维重建算法几乎无直接关系，只在 RF front-end 自动设计层面有远外围参考价值。</p><div class="tags"><span class="tag">RF 硬件</span><span class="tag">Doherty 功放</span><span class="tag">逆向设计</span><span class="tag">CNN</span><span class="tag">低相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作用 CNN、像素化布局和遗传算法自动设计 Doherty 功放输出合成器，属于 RF 硬件逆向设计。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Doherty 功率放大器的输出合成器在单一网络中整合负载调制、阻抗匹配和相位补偿，因此设计和综合较困难。本文提出三端 Doherty combiner 设计方法，把深度卷积神经网络、像素化布局表示和 genetic algorithms 与双状态阻抗综合结合，同时处理峰值功率与 back-off 功率条件。作为概念验证，作者设计并制造了两个 GaN HEMT Doherty PA 原型，二者在 2.6-2.8 GHz 内测得饱和输出功率超过 44.2 dBm，峰值漏极效率超过 71.2%，6 dB back-off 下效率最高 64%；经数字预失真后，相邻信道泄漏比优于 -51.3 dBc。</p><p class="lang lang-en lang-block" data-lang="en">The output combiner of a Doherty power amplifier (PA) integrates load modulation, impedance matching, and phase compensation within a single network, making its design and synthesis highly challenging. In this paper, we propose a three-port Doherty combiner design methodology that combines deep convolutional neural networks (CNNs), pixelated layout representations, and genetic algorithms (GA) with dual-state impedance synthesis to address both peak and back-off power conditions. As a proof of concept, two GaN HEMT Doherty PA prototypes incorporating three-port pixelated combiners are designed and fabricated. Both prototypes achieve a measured saturated output power exceeding 44.2 dBm with peak drain efficiency above 71.2% within 2.6-2.8 GHz. Furthermore, a drain efficiency as high as 64% is measured at the 6-dB back-off level. After applying digital predistortion, each prototype achieves an adjacent channel leakage ratio (ACLR) better than -51.3 dBc.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.18395">abs</a> / <a href="https://arxiv.org/pdf/2606.18395">PDF</a>；作者：Han Zhou, Haojie Chang, David Widen, Christian Fager；类别：eess.SP, cs.AI, cs.AR, cs.SY, eess.SY；采集 score=6。</li>
+<li>核心思路：用 CNN、pixelated layout representations 和 genetic algorithms 自动设计三端 Doherty combiner，并同时满足 peak/back-off 两种功率状态下的阻抗综合。</li>
+<li>与用户方向的关系：属于射频功放/微波硬件逆向设计，不是 GNSS/SLAM/三维重建论文；仅在“无线系统硬件/信号处理”层面有远外围关系。</li>
+<li>关注点：一般不建议作为本方向重点阅读；若关注 GNSS 接收机硬件或 RF front-end 自动设计，可低优先级扫读。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18395/fig-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18395/fig-001.webp" alt="Deep Learning-Driven Inverse Design of Doherty Power Amplifiers Using Pixelated Combiners and Dual-State Impedance Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18395/fig-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18395/fig-002.webp" alt="Deep Learning-Driven Inverse Design of Doherty Power Amplifiers Using Pixelated Combiners and Dual-State Impedance Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18395/fig-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18395/fig-003.webp" alt="Deep Learning-Driven Inverse Design of Doherty Power Amplifiers Using Pixelated Combiners and Dual-State Impedance Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18395/fig-004.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18395/fig-004.webp" alt="Deep Learning-Driven Inverse Design of Doherty Power Amplifiers Using Pixelated Combiners and Dual-State Impedance Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18395/table-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18395/table-001.webp" alt="Deep Learning-Driven Inverse Design of Doherty Power Amplifiers Using Pixelated Combiners and Dual-State Impedance Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-19/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-19/index.html">← 返回 2026-06-19 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 12 · eess.SP, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PC-TGS：由点云辅助的切平面 Gaussian Splatting 局部统计信道预测</span><span class="lang lang-en lang-inline" data-lang="en">Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting</span></h1>
+  <div class="meta">作者：Ye Xue, Yiheng Wang, Xinhua Shao, Qi Yan, Shutao Zhang, Tsung-Hui Chang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.18734">abs</a><a href="https://arxiv.org/pdf/2606.18734">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.4/10</span><p>不属于 GNSS 定位或 SLAM 后端，但把点云、3DGS、城市几何和多路径传播建模结合起来；对无线数字孪生、NLOS/多路径理解和几何辅助定位有间接价值。</p><div class="tags"><span class="tag">点云</span><span class="tag">3D Gaussian Splatting</span><span class="tag">无线数字孪生</span><span class="tag">多路径</span><span class="tag">几何辅助信道预测</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">PC-TGS 用 LiDAR 点云初始化/优化 3D Gaussians，并把它们投影到局部角域，用于外推未测位置的无线多路径角功率谱。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">面向下一代无线网络优化，站点相关的精确信道信息非常关键。已有 localized statistical channel modeling（LSCM）可由参考信号接收功率（RSRP）测量建模多路径角功率谱（APS），但难以在缺少测量的大量位置外推 APS。本文提出 PC-TGS，把稀疏无线测量与密集 LiDAR 几何结合，用各向异性 3D Gaussians 表达环境散射体，并通过对原始点云的 relaxed-mean reparameterization 初始化和优化。方法用切平面投影把每个 Gaussian 映射到局部角域，再通过深度感知 electromagnetic splatting 聚合贡献；同时推导 APS bin 积分的闭式 Gaussian-weighted average 和误差界。在一个城市级 LiDAR 扫描数据集（5M 点、6310 个 RSRP 样本）上，PC-TGS 在 APS/RSRP 预测和推理速度上优于基线，展示了几何感知、数据高效的大规模无线数字孪生潜力。</p><p class="lang lang-en lang-block" data-lang="en">Accurate, site-specific channel information is crucial for optimizing next-generation wireless networks. Among various approaches, localized statistical channel modeling (LSCM), which models the channel multipath angular power spectrum (APS) from the reference signal received power (RSRP) measurement, has emerged as a state-of-the-art method tailored for efficient network optimization. However, despite its effectiveness, LSCM cannot predict APS at the vast majority of locations where no measurements are available, which significantly restricts its applicability in large-scale, real-world scenarios. To address this challenge, we present \emph{point-cloud-assisted tangent Gaussian splatting} (PC-TGS), the first framework to \emph{extrapolate} APS to unmeasured outdoor grids by integrating sparse radio measurements with dense LiDAR-based geometry. PC-TGS represents environmental scatterers as anisotropic 3D Gaussians, initialized and refined through a relaxed-mean reparameterization of the raw point cloud. A tangent-plane projection accurately maps each Gaussian into the local angular domain, while a depth-aware electromagnetic splatting process aggregates their contributions. To ensure practical deployment, we derive a closed-form Gaussian-weighted average (GWA) for APS bin integration and provide a provable error bound. { Evaluations on a LiDAR-scanned city-scale dataset (5M points, 6,310 RSRP samples) demonstrate that PC-TGS achieves better APS and RSRP prediction performance compared to state-of-the-art baselines and faster inference time for APS extrapolation task. These results highlight the potential of PC-TGS to enable geometry-aware and data-efficient channel prediction in large-scale wireless digital twins.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.18734">abs</a> / <a href="https://arxiv.org/pdf/2606.18734">PDF</a>；作者：Ye Xue, Yiheng Wang, Xinhua Shao, Qi Yan, Shutao Zhang, Tsung-Hui Chang；类别：eess.SP, cs.LG；采集 score=12。</li>
+<li>核心思路：提出 <strong>PC-TGS</strong>，把稀疏无线 RSRP 测量与密集 LiDAR 几何结合，用各向异性 3D Gaussians 表达环境散射体，并通过 tangent-plane projection / depth-aware electromagnetic splatting 外推未测位置的角功率谱（APS）。</li>
+<li>与用户方向的关系：不是 GNSS 定位论文，但它把点云、3D Gaussian Splatting、城市级几何和多路径/传播建模结合起来；对无线数字孪生、城市峡谷多路径理解、几何辅助信道/定位建模有间接参考价值。</li>
+<li>关注点：建议查看 5M 点 LiDAR、6310 个 RSRP 样本上的泛化设置、APS bin 积分的闭式 GWA 和误差界，以及模型是否能迁移到 GNSS/NLOS 多路径建模或 radio-SLAM 场景。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18734/fig-001.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18734/fig-001.webp" alt="Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18734/fig-002.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18734/fig-002.webp" alt="Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-19/arxiv-2606.18734/fig-003.webp"><img src="../../assets/media/2026-06-19/arxiv-2606.18734/fig-003.webp" alt="Point-Cloud-Assistant Localized Statistical Channel Prediction by Tangent Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
