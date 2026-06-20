@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-20/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-20/index.html">← 返回 2026-06-20 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 17 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MMD-SLAM：结构增强的多元 Gaussian 分布引导视觉 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM</span></h1>
+  <div class="meta">作者：Fan Zhu, Ziyu Chen, Peichen Liu, Yifan Zhao, Zhisong Xu, Hui Zhu, Hongxing Zhou, Sixun Liu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.19874">abs</a><a href="https://arxiv.org/pdf/2606.19874">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.1/10</span><p>直接属于 3DGS-based Visual SLAM；结构先验、线特征和 Gaussian evolution 对地图一致性有明确价值，但需关注 Atlanta World 对一般场景的限制。</p><div class="tags"><span class="tag">Visual SLAM</span><span class="tag">3DGS-SLAM</span><span class="tag">Atlanta World</span><span class="tag">点线融合</span><span class="tag">结构先验</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">MMD-SLAM 将点线融合、Atlanta World 结构先验和 Multi-Meta Gaussian 表示结合，用结构化 3DGS 地图同时提升跟踪和渲染。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 推动了新视角合成和高保真场景重建，也扩展了 3DGS-based Visual SLAM 的潜力。但多数现有系统未充分利用底层结构信息，限制了渲染质量并导致地图不一致。本文提出 MMD-SLAM，一个结构增强的 Visual SLAM 框架，利用 Atlanta World 假设引导 Multi-Meta Gaussian 表示进行逼真建图。首先，作者引入点-线融合 pose optimization，把 3D line segments 纳入跟踪约束；其次，设计带 dominant directions 的 Multi-Meta Gaussian 表示，显式编码 Atlanta World 结构先验；最后，提出 Gaussian evolution strategy，使 Gaussian 随场景几何自适应演化，并在全局优化中融合结构线索。实验显示该方法在跟踪精度和建图质量上达到 SOTA，例如相对 MonoGS 在 ScanNet 上 ATE RMSE 降低 48.56%，在 Replica 上 PSNR 提升 5.71%。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has significantly boosted novel view synthesis and high-fidelity scene reconstruction, expanding the potential of 3DGS-based Visual Simultaneous Localization and Mapping (SLAM) methods. However, most existing systems fail to fully exploit the underlying structural information, which limits rendering quality and often leads to inconsistent maps. To address these limitations, we propose MMD-SLAM, a structure-enhanced Visual SLAM framework that leverages the Atlanta World (AW) assumption to guide a Multi-Meta Gaussian representation for photorealistic mapping. First, we introduce a point-line fusion strategy for pose optimization, where 3D line segments are incorporated to improve tracking robustness and provide additional constraints for mapping. Second, we design a Multi-Meta Gaussian representation with dominant directions, explicitly encoding structural priors from the AW hypothesis. Finally, we propose a Gaussian evolution strategy that adapts to scene geometry and incorporates structural cues into global optimization. Extensive experiments demonstrate that these innovations enable MMD-SLAM to achieve state-of-the-art performance in both tracking accuracy and mapping quality. e.g., our method achieves a 48.56% reduction in ATE RMSE on ScanNet and a 5.71% improvement in PSNR on Replica, compared with MonoGS.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.19874">abs</a> / <a href="https://arxiv.org/pdf/2606.19874">PDF</a>；作者：Fan Zhu, Ziyu Chen, Peichen Liu, Yifan Zhao, Zhisong Xu, Hui Zhu, Hongxing Zhou, Sixun Liu；类别：cs.RO, cs.CV；备注：ICRA 2026；采集 score=17。</li>
+<li>核心思路：面向 3DGS-based Visual SLAM 中结构信息利用不足的问题，用 <strong>Atlanta World</strong> 假设引导 Multi-Meta Gaussian 表示，并把结构先验显式注入 photorealistic mapping。</li>
+<li>方法要点：点-线融合用于 pose optimization；Multi-Meta Gaussian 携带 dominant directions；Gaussian evolution strategy 根据场景几何自适应更新，并在全局优化中融合结构线索。摘要报告相对 MonoGS 在 ScanNet 上 ATE RMSE 降低 48.56%，在 Replica 上 PSNR 提升 5.71%。</li>
+<li>关注点：需要核验 Atlanta World 假设对非曼哈顿/室外场景的适用性，以及 point-line fusion 与 Gaussian evolution 是否能稳定提升跟踪而不只提升渲染。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/fig-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/fig-001.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/fig-002.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/fig-002.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/fig-003.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/fig-003.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/fig-004.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/fig-004.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/fig-005.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/fig-005.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/fig-006.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/fig-006.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/table-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/table-001.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/table-002.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/table-002.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19874/table-003.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19874/table-003.webp" alt="MMD-SLAM: Structure-Enhanced Multi-Meta Gaussian Distribution-Guided Visual SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

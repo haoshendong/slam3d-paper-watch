@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-20/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-20/index.html">← 返回 2026-06-20 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SpatialSV：通过任务导向视觉监督让 MLLM 内化可解释三维空间意识</span><span class="lang lang-en lang-inline" data-lang="en">SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision</span></h1>
+  <div class="meta">作者：Jiayu Tang, Yuchen Zhou, Chao Gou</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.19915">abs</a><a href="https://arxiv.org/pdf/2606.19915">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.8/10</span><p>不是定位/建图系统，但与三维几何监督、空间表示和机器人空间推理相关；适合作为 MLLM/VLA 空间智能外围跟踪。</p><div class="tags"><span class="tag">MLLM</span><span class="tag">3D Spatial Awareness</span><span class="tag">Depth</span><span class="tag">Camera Pose</span><span class="tag">Point Cloud</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">SpatialSV 用 depth、camera pose 和 point cloud 等任务监督训练 MLLM 的 2D-to-3D lifting，使其空间表示更可解释。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">解锁 multimodal large language model（MLLM）的空间智能，是理解和交互三维世界的关键。现有方法通常通过外部工具注入空间先验，带来显著推理开销；或依赖 latent feature distillation，但难以解释且缺少细粒度几何约束。本文提出 SpatialSV，旨在把鲁棒三维空间意识内化到 MLLM 中，同时提供内在可解释性。不同于被动特征模仿，SpatialSV 使用任务导向视觉监督，迫使模型主动将 2D visual features 提升为显式 3D representations，包括 depth maps、camera poses 和 point clouds。该 2D-to-3D lifting 过程为模型表示提供透明窗口：生成的三维重建可作为直观 proxy，用于可视化和诊断模型内在空间知识质量。多个模型和 benchmark 实验显示 SpatialSV 能增强并解释 MLLM 空间智能；其在半监督设置下也具备强泛化能力，显示可利用未标注视觉数据进行可扩展、可解释的空间表示学习。</p><p class="lang lang-en lang-block" data-lang="en">Unlocking the spatial intelligence of multimodal large language model (MLLMs) is crucial for understanding and interacting with the 3D world. Prevailing approaches typically inject spatial priors via external tools, which impose significant inference overhead, or rely on latent feature distillation, which remains uninterpretable and lacks fine-grained geometric constraints. To address these issues, we propose SpatialSV, a framework designed to internalize robust 3D spatial awareness within MLLMs while simultaneously offering inherent interpretability. Deviating from passive feature imitation, SpatialSV employs task-oriented visual supervision, compelling the model to actively lift its 2D visual features into explicit 3D representations, including depth maps, camera poses, and point clouds. Crucially, this 2D-to-3D lifting process provides a transparent window into the model&#x27;s representations: the resulting 3D reconstructions serve as an intuitive proxy for visualizing and diagnosing the quality of the model&#x27;s intrinsic spatial knowledge. Extensive experiments across multiple models and benchmarks demonstrate the effectiveness of SpatialSV in enhancing and interpreting MLLMs&#x27; spatial intelligence. Furthermore, the framework exhibits strong generalization in semi-supervised settings, validating its potential to leverage unlabeled visual data for scalable, interpretable spatial representation learning.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.19915">abs</a> / <a href="https://arxiv.org/pdf/2606.19915">PDF</a>；作者：Jiayu Tang, Yuchen Zhou, Chao Gou；类别：cs.CV；备注：IJCAI 2026；采集 score=4。</li>
+<li>核心思路：让 MLLM 通过任务导向视觉监督显式学习 2D-to-3D lifting，输出 depth maps、camera poses 和 point clouds，从而内化可解释的 3D spatial awareness。</li>
+<li>与用户方向的关系：不是 SLAM 算法，但其 supervision targets 与三维视觉/位姿/点云高度相关；可作为“空间智能模型如何借助可解释几何任务训练”的外围跟踪。</li>
+<li>关注点：建议关注其 camera pose / depth / point cloud 监督的标注来源、半监督泛化能力，以及是否能为机器人 VLA/VLN 的空间记忆或几何推理提供先验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/fig-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/fig-001.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/fig-002.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/fig-002.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/fig-003.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/fig-003.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/fig-004.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/fig-004.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/fig-005.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/fig-005.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/fig-006.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/fig-006.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/table-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/table-001.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/table-002.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/table-002.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/table-003.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/table-003.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/table-004.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/table-004.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19915/table-005.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19915/table-005.webp" alt="SpatialSV: Internalizing Interpretable 3D Spatial Awareness in MLLMs via Task-Oriented Visual Supervision" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

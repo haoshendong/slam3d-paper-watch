@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-20/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-20/index.html">← 返回 2026-06-20 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 7 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GNSS 退化环境下无人地面车 MEMS/GNSS 组合导航的路线约束鲁棒融合估计</span><span class="lang lang-en lang-inline" data-lang="en">Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments</span></h1>
+  <div class="meta">作者：Jingzhi Cui, Chao Zhang, Yuliang Mao, Shaolin Lü, Dongmei Li, Huan Che, Rong Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.19687">abs</a><a href="https://arxiv.org/pdf/2606.19687">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>今天最直接的 GNSS/INS 融合论文；路线约束、伪观测 EKF 和工程 fail-safe 对城市峡谷/隧道鲁棒导航有实际参考价值。</p><div class="tags"><span class="tag">GNSS 退化</span><span class="tag">MEMS/GNSS</span><span class="tag">EKF</span><span class="tag">HD Map Route Constraint</span><span class="tag">UGV 定位</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该方法把 HD map 任务路线与 dead-reckoning 轨迹匹配，生成伪位置观测注入 EKF，以抑制隧道等 GNSS outage 下 UGV 的 MEMS/GNSS 漂移。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">为解决结构化道路环境中无人地面车在严重 GNSS 信号遮挡下的累积定位漂移，本文提出鲁棒路线约束状态估计方法。在无卫星信号期间，方法建立历史 dead reckoning 轨迹与高清地图中 mission route 局部线段的对应关系，并通过二维刚体变换估计 route-referenced position。该估计位置随后作为伪位置观测注入 Extended Kalman Filter update。这样，道路级路线约束可连续注入统一状态估计框架，抑制相对任务路线的位置偏差，并间接改善方位估计。为增强实用性，作者还引入 trigger control、matching quality validation、route offset compensation、single update correction limiting 等工程策略。长隧道、多段隧道和弯曲隧道实验显示，该方法能抑制卫星中断期间的误差累积，降低大最大偏差风险，提升定位连续性和道路级可用性。</p><p class="lang lang-en lang-block" data-lang="en">To address cumulative localization drift of unmanned ground vehicles in structured road environments under severe Global Navigation Satellite System signal occlusion, this paper proposes a robust route-constrained state estimation method. During periods without satellite signals, the proposed method establishes the correspondence between the historical dead reckoning trajectory and local segments of the mission route extracted from a high-definition map, and estimates a route-referenced position via a two-dimensional rigid transformation. The estimated position is then formulated as a pseudo-position observation and incorporated into an Extended Kalman Filter update. In this way, route constraints at the road level can be continuously injected into a unified state estimation framework, thereby suppressing position deviation relative to the mission route while indirectly improving azimuth estimation. To enhance practical applicability, engineering strategies, such as trigger control, matching quality validation, route offset compensation, and single update correction limiting, are further introduced. Experiments in three representative scenarios, including a long tunnel, a multi-segment tunnel, and a curved tunnel, show that the proposed method effectively suppresses error accumulation during satellite outages, reduces the risk of large maximum deviation, and improves localization continuity and road-level usability.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.19687">abs</a> / <a href="https://arxiv.org/pdf/2606.19687">PDF</a>；作者：Jingzhi Cui, Chao Zhang, Yuliang Mao, Shaolin Lü, Dongmei Li, Huan Che, Rong Zhang；类别：cs.RO；备注：ICRA 2026 Robot Meets GNSS and Ranging workshop；采集 score=7。</li>
+<li>核心思路：面向 UGV 在隧道等 GNSS 严重遮挡环境下的 MEMS/GNSS integrated navigation，利用 HD map 中 mission route 的局部线段与历史 dead reckoning 轨迹匹配，通过二维刚体变换估计 route-referenced position。</li>
+<li>方法要点：把估计位置作为 pseudo-position observation 注入 EKF；同时加入 trigger control、matching quality validation、route offset compensation、single update correction limiting 等工程策略，减少卫星中断期间的路径偏离和方位漂移。</li>
+<li>关注点：这是今天 GNSS/INS 专项最直接条目。建议重点看路线约束是否只提供 road-level correction、伪观测协方差如何设定、隧道曲率/多段隧道中匹配质量如何判别，以及是否可扩展为因子图 map constraint。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19687/fig-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19687/fig-001.webp" alt="Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19687/fig-002.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19687/fig-002.webp" alt="Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19687/fig-003.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19687/fig-003.webp" alt="Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19687/fig-004.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19687/fig-004.webp" alt="Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19687/fig-005.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19687/fig-005.webp" alt="Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19687/fig-006.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19687/fig-006.webp" alt="Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.19687/table-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.19687/table-001.webp" alt="Route-Constrained Robust Fusion Estimation for MEMS/GNSS Integrated Navigation of Unmanned Ground Vehicles in GNSS Degraded Environments" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

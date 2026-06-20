@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Geometry-Preserving in 3D Gaussian Splatting for LiDAR-Camera Extrinsic Calibration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-20/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-20/index.html">← 返回 2026-06-20 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-18 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用于 LiDAR-相机外参标定的几何保持 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Geometry-Preserving in 3D Gaussian Splatting for LiDAR-Camera Extrinsic Calibration</span></h1>
+  <div class="meta">作者：Kyoleen Kwak, Daeho Kim, Jeong Woon Lee, Hyoseok Hwang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.20103">abs</a><a href="https://arxiv.org/pdf/2606.20103">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>与 LVI/LIO/VIO 系统中的外参标定和多模态融合前处理直接相关；3DGS 代理几何保持的思想也适用于可微重建和 SLAM 地图优化。</p><div class="tags"><span class="tag">LiDAR-Camera Calibration</span><span class="tag">Targetless Calibration</span><span class="tag">3D Gaussian Splatting</span><span class="tag">外参标定</span><span class="tag">几何保持</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该方法把 3DGS 用作 LiDAR-camera targetless calibration 的可微代理，同时用多视角 LiDAR 深度监督和 photometric gradient blocking 保持真实几何。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">准确 LiDAR-camera calibration 是鲁棒多模态感知的基础。Targetless 方法避免了人工靶标，但受限于跨模态判别特征稀缺。近期方法通过在可微模型中重建场景，使外参优化可由密集光度监督驱动；其中 3D Gaussian Splatting 常被用作连接 LiDAR 与相机的几何代理。但 3DGS 原本为新视角合成设计，已有方法倾向优先优化渲染质量，导致代理几何偏离真实 LiDAR 结构。本文提出一个保持 Gaussian proxy metric geometry 的框架：聚合多视角 LiDAR 观测进行 dense depth supervision，并阻断 photometric gradients 更新 Gaussian spatial parameters。作者在公开驾驶数据集上验证该方法，在标定精度上持续优于现有 targetless 方法。</p><p class="lang lang-en lang-block" data-lang="en">Accurate LiDAR-camera calibration is essential for robust multi-modal perception. Targetless approaches avoid manual setup but remain limited by the scarcity of discriminative cross-modal features. Recent methods address this by reconstructing the scene within a differentiable model, enabling extrinsic optimization through dense photometric supervision. Among these, 3D Gaussian Splatting (3DGS) has been widely adopted as a geometric proxy that bridges LiDAR and camera within a single differentiable framework. However, since 3DGS was originally designed for novel view synthesis, existing methods tend to prioritize rendering quality, causing the proxy geometry to drift from the true LiDAR structure. We propose a framework that preserves the metric geometry of the Gaussian proxy by aggregating multi-view LiDAR observations for dense depth supervision and blocking photometric gradients from updating the Gaussian spatial parameters. We validate our method on public driving datasets, where it consistently outperforms existing targetless methods in calibration accuracy.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.20103">abs</a> / <a href="https://arxiv.org/pdf/2606.20103">PDF</a>；作者：Kyoleen Kwak, Daeho Kim, Jeong Woon Lee, Hyoseok Hwang；类别：cs.CV；备注：ECCV 2026；采集 score=10。</li>
+<li>核心思路：针对 targetless LiDAR-camera calibration 中 3DGS 代理几何容易被 photometric objective 拉偏的问题，提出保持 Gaussian proxy metric geometry 的标定框架。</li>
+<li>方法要点：聚合多视角 LiDAR 观测提供 dense depth supervision，并阻断 photometric gradients 对 Gaussian spatial parameters 的更新，使 3DGS 作为可微跨模态桥梁时不牺牲真实 LiDAR 几何。</li>
+<li>关注点：这篇对自动驾驶/机器人多模态标定很直接。建议重点看外参优化变量、深度监督权重、photometric gradient blocking 的实现细节，以及 public driving datasets 上相对其他 targetless 方法的误差定义。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20103/fig-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20103/fig-001.webp" alt="Geometry-Preserving in 3D Gaussian Splatting for LiDAR-Camera Extrinsic Calibration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20103/fig-002.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20103/fig-002.webp" alt="Geometry-Preserving in 3D Gaussian Splatting for LiDAR-Camera Extrinsic Calibration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

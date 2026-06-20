@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-20/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-20/index.html">← 返回 2026-06-20 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-19 · score 20 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">LIT-GS：面向光照鲁棒建图的 LiDAR-惯性-热红外 Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping</span></h1>
+  <div class="meta">作者：Shikuan Shi, Chunran Zheng, Jiaming Xu, Tianyong Ye, Tao Yu, Yukang Cui</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.20424">abs</a><a href="https://arxiv.org/pdf/2606.20424">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.4/10</span><p>高度贴合多传感器 SLAM、3DGS 地图和视觉退化鲁棒建图；IROS 2026，值得优先阅读其跨模态关联、LiDAR 平面残差和 3DGS 几何正则化实现。</p><div class="tags"><span class="tag">LiDAR-惯性-热红外</span><span class="tag">3D Gaussian Splatting</span><span class="tag">多传感器 SLAM</span><span class="tag">光照鲁棒建图</span><span class="tag">点到平面约束</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">LIT-GS 把 LiDAR 平面几何、惯性和热红外引入 3DGS 建图，用 point-to-plane BA 与平面正则化 splatting 提升弱光/低纹理场景的结构稳定性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Gaussian Splatting 已支持实时神经渲染，但现有 LiDAR-惯性-视觉（LIV）Gaussian mapping 流水线仍依赖 RGB 光度线索，在光照变化和低纹理场景下容易失效。本文提出 LIT-GS，一个 LiDAR-惯性-热红外 Gaussian Splatting 框架，在位姿/结构 refinement 与 Gaussian 优化中显式注入 LiDAR 平面几何约束。方法用 LIV 视觉地图点作为置信度感知的跨模态锚点，建立可靠 thermal-LiDAR 关联，并在 bundle adjustment 中加入加权 LiDAR 点到平面残差，在弱热红外监督下联合优化相机位姿和 3D 点。基于 refined structure，作者进一步提出 LiDAR-plane-regularized differentiable splatting objective，约束渲染 3D 点与局部观测平面对齐，缓解低对比热红外图像中的表面变厚和结构漂移。实验显示 LIT-GS 在私有序列和公开数据集上优于现有 LIV-based Gaussian Splatting baseline，尤其在复杂光照下提升几何精度和渲染质量。</p><p class="lang lang-en lang-block" data-lang="en">Gaussian Splatting has enabled real-time neural rendering, yet existing LiDAR-inertial-visual (LIV) Gaussian mapping pipelines remain fragile under illumination changes and texture-deficient scenes due to their reliance on RGB photometric cues. We present LIT-GS, a LiDAR-inertial-thermal Gaussian Splatting framework that injects LiDAR-derived plane geometry as an explicit constraint in both pose/structure refinement and Gaussian optimization. Specifically, we exploit LIV visual map points as confidence-aware cross-modal anchors to establish reliable thermal-LiDAR associations, and incorporate weighted LiDAR point-to-plane residuals into bundle adjustment to jointly refine camera poses and 3D points under weak thermal supervision. Building on the refined structure, we further introduce a LiDAR-plane-regularized differentiable splatting objective that constrains rendered 3D points to align with locally observed planes, mitigating surface thickening and structural drift in low-contrast thermal imagery. Experiments on proprietary sequences and public datasets demonstrate that LIT-GS consistently improves geometric accuracy and rendering quality over state-of-the-art LIV-based Gaussian Splatting baselines, particularly in challenging lighting conditions.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：<a href="https://arxiv.org/abs/2606.20424">abs</a> / <a href="https://arxiv.org/pdf/2606.20424">PDF</a>；作者：Shikuan Shi, Chunran Zheng, Jiaming Xu, Tianyong Ye, Tao Yu, Yukang Cui；类别：cs.RO；备注：IROS 2026；采集 score=20。</li>
+<li>核心思路：提出 <strong>LiDAR-Inertial-Thermal Gaussian Splatting</strong>，针对 LIV/3DGS 建图在光照变化、低纹理、弱 RGB photometric cue 下的脆弱性，引入 LiDAR 平面几何作为显式约束。</li>
+<li>方法要点：用 LIV 视觉地图点作为置信度感知的跨模态 anchor，建立 thermal-LiDAR 关联；在 BA 中加入加权 LiDAR point-to-plane residual，共同优化相机位姿和 3D 点；再用 LiDAR-plane-regularized differentiable splatting objective 抑制热红外低对比图像下的表面变厚和结构漂移。</li>
+<li>关注点：这是今天最贴近“多传感器 SLAM + 3DGS 地图”的论文。建议重点看 LiDAR 平面残差如何进入 BA、thermal-LiDAR association 的可靠性判据、以及是否能迁移到夜间/烟尘/地下等视觉退化场景。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20424/fig-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20424/fig-001.webp" alt="LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20424/fig-002.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20424/fig-002.webp" alt="LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20424/fig-003.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20424/fig-003.webp" alt="LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20424/fig-004.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20424/fig-004.webp" alt="LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20424/fig-005.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20424/fig-005.webp" alt="LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20424/table-001.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20424/table-001.webp" alt="LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-20/arxiv-2606.20424/table-002.webp"><img src="../../assets/media/2026-06-20/arxiv-2606.20424/table-002.webp" alt="LIT-GS: LiDAR-Inertial-Thermal Gaussian Splatting for Illumination-Robust Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
