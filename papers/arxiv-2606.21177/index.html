@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-24/index.html">← 返回 2026-06-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-23 · score 7 · eess.IV, cs.AI, cs.CV, physics.med-ph</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通过语义锚定与临床先验实现解剖一致的 TMJ 关节盘分割</span><span class="lang lang-en lang-inline" data-lang="en">Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors</span></h1>
+  <div class="meta">作者：Dayun Ju, Chanyoung Kim, Sunyoung Jung, Hyo-Jung Jung, Chena Lee, Younjung Park, Seong Jae Hwang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.21177">abs</a><a href="https://arxiv.org/pdf/2606.21177">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.3/10</span><p>属于 3D 医学图像分割，和三维体数据处理有关，但与 SLAM/GNSS/重建主线关联较弱；作为基础模型特征锚定思路保留。</p><div class="tags"><span class="tag">3D 医学图像</span><span class="tag">分割</span><span class="tag">语义锚定</span><span class="tag">临床先验</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">面向 3D 医学 MRI，小目标分割通过基础模型语义锚定和临床先验获得更稳定、解剖一致的边界。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">TMJ 关节盘 MRI 分割受小尺寸、低对比度和形态变化影响，普通分割网络常产生碎片化或解剖不一致的 mask。TISC 框架先用 Prototypical Semantic Anchoring 聚合相邻切片的 MedDINOv3 特征，并形成 prototype-driven similarity map 以稳定定位关节盘；随后通过 Clinical-Metadata Point Refinement 模块利用 Mouth Open Limitation 等临床元数据调制边界点预测。在 1300 名患者、2488 个 PD MRI 体数据上，该方法相对强基线最高提升 4.96 Dice。</p><p class="lang lang-en lang-block" data-lang="en">Segmenting the temporomandibular joint (TMJ) disc from MRI is essential for accurate diagnosis of internal derangement, yet it remains unreliable in practice due to its small size, low contrast, and morphological variability. Existing methods, primarily adapted from general segmentation architectures, often produce fragmented or anatomically inconsistent masks, leading to unstable measurements of disc position and shape for downstream diagnosis. To address these challenges, we propose TISC, a TMJ disc segmentation framework that integrates semantic anchoring with clinical metadata-guided boundary refinement. The framework first establishes robust disc localization in the foundation model feature space via a Prototypical Semantic Anchoring (PSA) module that aggregates adjacent-slice MedDINOv3 features and derives a prototype-driven similarity map. It then performs targeted boundary refinement through a Clinical-Metadata Point Refinement (C-MPR) module, with point-wise predictions modulated by Mouth Open Limitation (MOL), a clinical indicator associated with disc displacement without reduction. On a large-scale cohort of 2,488 PD MRI volumes from 1,300 patients, our method achieves up to a 4.96 Dice improvement over strong baselines across diverse architectures, delivering more anatomically coherent and clinically reliable TMJ disc segmentation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Scene-Level Heterogeneous Physics Simulation with 3D Gaussian Splats</li>
+<li><strong>作者</strong>：Xiaoyang Liu, Shangzhe Wu, Kai Han</li>
+<li><strong>类别/来源</strong>：cs.GR, cs.AI, cs.CV；rss:cs.GR；采集 score=12；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：把 3DGS、网格和流体统一抽象为物理粒子，使捕获场景中的高斯资产能够参与真实交互和非刚体变形。</li>
+<li><strong>为什么值得看</strong>：与 3DGS 场景表示、交互式三维资产和机器人仿真高度相关；亮点在于从渲染表示跨到统一物理表示。需后续确认开源计划、运行成本和复杂真实场景鲁棒性。</li>
+<li><strong>标签</strong>：3DGS、物理仿真、场景级交互、非刚体变形</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.21753">abs</a> / <a href="https://arxiv.org/pdf/2606.21753">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.21177/fig-001.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.21177/fig-001.webp" alt="Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.21177/fig-002.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.21177/fig-002.webp" alt="Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.21177/fig-003.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.21177/fig-003.webp" alt="Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.21177/table-001.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.21177/table-001.webp" alt="Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.21177/table-002.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.21177/table-002.webp" alt="Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-24/index.html">← 返回 2026-06-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-23 · score 7 · cs.RO, cs.AI, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MAGNIFIED：面向自动驾驶运动规划的多模态大模型强化学习微调</span><span class="lang lang-en lang-inline" data-lang="en">MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning</span></h1>
+  <div class="meta">作者：Letian Chen, Yiren Lu, Justin Fu, Yichen Xie, Runsheng Xu, Jyh-Jing Hwang, Ben Sapp, Drago Anguelov</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.20641">abs</a><a href="https://arxiv.org/pdf/2606.20641">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>偏运动规划而非 SLAM，但对具身/自动驾驶系统中的感知-规划闭环有启发；建议关注其 reward 设计和真实部署泛化。</p><div class="tags"><span class="tag">自动驾驶</span><span class="tag">运动规划</span><span class="tag">MLLM</span><span class="tag">强化学习微调</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 MLLM 的文本轨迹输出接到规划奖励上做 RLFT，减少自动驾驶规划中的碰撞重叠和 off-road 行为。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">传统多模态大模型训练多依赖 next-token 预测和监督微调，容易只模仿文本坐标序列而忽视多步规划后果与安全/舒适目标。MAGNIFIED 将预测 token 映射为车辆轨迹，并用 token-level planning rewards 做强化学习微调，使模型直接优化自动驾驶规划指标。作者在 Waymo Open Motion Dataset 上使用栅格化鸟瞰图和 tokenized trajectories，先做 SFT，再做 RLFT；相较 SFT 基线，重叠率下降 10.5% 以上，越界率下降 38.9%。</p><p class="lang lang-en lang-block" data-lang="en">Multi-modal Large Language Models (MLLMs) have demonstrated remarkable capabilities in semantic understanding and common sense reasoning, making them promising candidates for solving planning problems in autonomous driving. However, the next-token text prediction objectives traditionally used in pre-training and supervised fine-tuning (SFT) of MLLMs may fall short of fulfilling the planning objectives for autonomous vehicles. The next-token prediction objective merely encourages per-token imitation in text, often irrespective of multi-step consequences and the alignment with crucial planning considerations such as giving space to other road actors. To overcome these limitations, we propose a reinforcement learning fine-tuning (RLFT) approach, MAGNIFIED, that aligns the MLLM-based driving agent with planning objectives by learning from token-level rewards. By mapping a sequence of predicted tokens to corresponding vehicle trajectories and learning from planning rewards, MAGNIFIED optimizes for the true planning objectives rather than focusing solely on token prediction accuracy, enabling the model to refine its understanding of the planning task beyond simple imitation. We validate our approach on the Waymo Open Motion Dataset with a novel setup incorporating rasterized birds-eye views and tokenized trajectories as inputs and planning-oriented outputs. An initial SFT phase establishes a strong baseline in outputting plan trajectories as sequences of X-Y coordinates in text, while subsequent RL fine-tuning substantially enhances planning performance relative to the SFT baseline (demonstrating over a 10.5% reduction in overlap rate and a 38.9% reduction in off-road rate), underscoring the potential of RLFT on MLLMs to achieve vehicle planning that is better aligned with compliant, comfortable, and efficient driving.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Scene-Level Heterogeneous Physics Simulation with 3D Gaussian Splats</li>
+<li><strong>作者</strong>：Xiaoyang Liu, Shangzhe Wu, Kai Han</li>
+<li><strong>类别/来源</strong>：cs.GR, cs.AI, cs.CV；rss:cs.GR；采集 score=12；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：把 3DGS、网格和流体统一抽象为物理粒子，使捕获场景中的高斯资产能够参与真实交互和非刚体变形。</li>
+<li><strong>为什么值得看</strong>：与 3DGS 场景表示、交互式三维资产和机器人仿真高度相关；亮点在于从渲染表示跨到统一物理表示。需后续确认开源计划、运行成本和复杂真实场景鲁棒性。</li>
+<li><strong>标签</strong>：3DGS、物理仿真、场景级交互、非刚体变形</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.21753">abs</a> / <a href="https://arxiv.org/pdf/2606.21753">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/fig-001.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/fig-001.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/fig-002.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/fig-002.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/fig-003.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/fig-003.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/fig-004.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/fig-004.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/fig-005.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/fig-005.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/fig-006.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/fig-006.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/table-001.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/table-001.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/table-002.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/table-002.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/table-003.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/table-003.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20641/table-004.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20641/table-004.webp" alt="MAGNIFIED: RL Fine-tuning of Multimodal Large Language Models for Motion Planning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

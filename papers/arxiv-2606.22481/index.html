@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Lighting-Consistent Object Transfer Across Radiance Fields</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-24/index.html">← 返回 2026-06-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-23 · score 7 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">跨辐射场的光照一致对象迁移</span><span class="lang lang-en lang-inline" data-lang="en">Lighting-Consistent Object Transfer Across Radiance Fields</span></h1>
+  <div class="meta">作者：Nicol\&#x27;as Violante, George Kopanas, Linus Franke, Julien Philip, George Drettakis</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.22481">abs</a><a href="https://arxiv.org/pdf/2606.22481">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.4/10</span><p>对 3DGS 编辑、场景增强和仿真数据生成有实用价值；对 SLAM/定位间接，但可服务重建结果的后处理和资产复用。</p><div class="tags"><span class="tag">3DGS 编辑</span><span class="tag">辐射场</span><span class="tag">对象迁移</span><span class="tag">光照一致性</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用扩散模型修正 3DGS 对象跨场景粘贴后的光照不一致，并通过后优化整合为新的三维表示。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">在 3DGS 或辐射场中把源场景物体直接贴入目标场景，常因光照条件不一致而显得不真实。本文训练一个扩散模型来 harmonize 光照不一致的合成视图，训练数据包含合成、生成和真实图像对。完整流程先从源 3DGS 场景中提取对象，渲染其与目标场景的初始组合视图，再逐视图进行光照一致化，最后通过 3DGS 后优化把一致化结果整合回三维表示。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) is widely used to capture and render real scenes. Compositing objects from one capture into another has applications in many domains, such as VFX, architecture and interior design, or marketing. However, extracting an object from a source scene and naively pasting it into a target scene will fail to produce realistic results due to the different lighting conditions between the two scenes. To address this problem, we introduce a diffusion model that harmonizes naively composited images with inconsistent lighting. The model is trained with a heterogeneous dataset of image pairs (inconsistent composite input, consistent output), combining synthetic, generated, and real data. Our complete 3D solution allows a user to extract an object from the source scene and composite it into the target scene. From this, the (inconsistent) views of the target scene with the composite object are rendered. Our diffusion model harmonizes each one of these views, which are finally consolidated in a 3DGS representation with a post-optimization step. Our method provides visually compelling results, making object transfer between 3DGS easy to use and significantly improving quality compared to previous methods.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Scene-Level Heterogeneous Physics Simulation with 3D Gaussian Splats</li>
+<li><strong>作者</strong>：Xiaoyang Liu, Shangzhe Wu, Kai Han</li>
+<li><strong>类别/来源</strong>：cs.GR, cs.AI, cs.CV；rss:cs.GR；采集 score=12；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：把 3DGS、网格和流体统一抽象为物理粒子，使捕获场景中的高斯资产能够参与真实交互和非刚体变形。</li>
+<li><strong>为什么值得看</strong>：与 3DGS 场景表示、交互式三维资产和机器人仿真高度相关；亮点在于从渲染表示跨到统一物理表示。需后续确认开源计划、运行成本和复杂真实场景鲁棒性。</li>
+<li><strong>标签</strong>：3DGS、物理仿真、场景级交互、非刚体变形</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.21753">abs</a> / <a href="https://arxiv.org/pdf/2606.21753">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

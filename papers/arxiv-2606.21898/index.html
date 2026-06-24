@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Mesh2GS: White-Box 3DGS Construction via Plenoptic Sampling</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-24/index.html">← 返回 2026-06-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-23 · score 10 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Mesh2GS：基于全光函数采样的白盒 3DGS 构建</span><span class="lang lang-en lang-inline" data-lang="en">Mesh2GS: White-Box 3DGS Construction via Plenoptic Sampling</span></h1>
+  <div class="meta">作者：Haoran Zhu, Youcheng Cai, Huangsheng Du, Jingyang Meng, Ligang Liu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.21898">abs</a><a href="https://arxiv.org/pdf/2606.21898">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>对三维重建/3DGS 资产管线有直接价值，尤其适合 mesh 与 splat 表示互转；短板是代码尚未发布且与在线 SLAM 关系间接。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">Mesh 转换</span><span class="tag">全光函数采样</span><span class="tag">全局光照</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从网格直接、可解释地生成 3DGS，面向可控资产转换、共享渲染和带全局光照的高质量场景表示。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">现有 3DGS 与网格结合工作多关注从多视图图像重建 mesh，或以启发式方式把高斯绑定到网格。Mesh2GS 反向研究从 mesh 直接构建 3DGS：作者基于 plenoptic sampling theory 推导采样视角数量与 3D Gaussian 分布，提出带 albedo-shading 分解的 3DGS 更新过程以高效捕获全局光照，并用神经光照增强模块处理非朗伯反射。实验显示其在高质量全局光照渲染和非朗伯高光捕获上优于基线，代码计划在接收后发布。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has emerged as a promising method for high-quality, real-time 3D reconstruction. To associate 3DGS with mesh representations, existing methods primarily focus on 3DGS-to-mesh reconstruction from multi-view images. In contrast, the problem of converting a mesh into 3DGS has received comparatively less attention. Instead of relying on heuristic strategies that bind 3D Gaussians to the mesh, we propose a novel white-box 3DGS construction framework, termed Mesh2GS, which generates 3DGS directly from mesh geometry based on plenoptic sampling theory, achieving Nyquist-level performance for high-quality global illumination rendering. Firstly, we propose a plenoptic sampling guided 3DGS construction strategy that theoretically derives the minimum sampling rate of the sampled views and the distribution of 3D Gaussians. Second, we propose a novel 3DGS update procedure with albedo--shading decomposition for efficient global-illumination capture. Finally, we introduce a neural illumination enhancement module to handle non-Lambertian effects. Experimental results demonstrate that our method surpasses state-of-the-art baselines and is practically effective for both real-time shared rendering and non-Lambertian effects capturing specular highlights. The project code will be released upon acceptance.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Scene-Level Heterogeneous Physics Simulation with 3D Gaussian Splats</li>
+<li><strong>作者</strong>：Xiaoyang Liu, Shangzhe Wu, Kai Han</li>
+<li><strong>类别/来源</strong>：cs.GR, cs.AI, cs.CV；rss:cs.GR；采集 score=12；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：把 3DGS、网格和流体统一抽象为物理粒子，使捕获场景中的高斯资产能够参与真实交互和非刚体变形。</li>
+<li><strong>为什么值得看</strong>：与 3DGS 场景表示、交互式三维资产和机器人仿真高度相关；亮点在于从渲染表示跨到统一物理表示。需后续确认开源计划、运行成本和复杂真实场景鲁棒性。</li>
+<li><strong>标签</strong>：3DGS、物理仿真、场景级交互、非刚体变形</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.21753">abs</a> / <a href="https://arxiv.org/pdf/2606.21753">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.21898/fig-001.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.21898/fig-001.webp" alt="Mesh2GS: White-Box 3DGS Construction via Plenoptic Sampling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.21898/fig-002.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.21898/fig-002.webp" alt="Mesh2GS: White-Box 3DGS Construction via Plenoptic Sampling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

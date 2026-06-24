@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MemoryVAM: Integrating Memory into Video Action Model for Robot Manipulation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-24/index.html">← 返回 2026-06-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-23 · score 6 · cs.RO, cs.AI, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MemoryVAM：为机器人操作视频动作模型引入情节记忆</span><span class="lang lang-en lang-inline" data-lang="en">MemoryVAM: Integrating Memory into Video Action Model for Robot Manipulation</span></h1>
+  <div class="meta">作者：Yuxin Jiang, Chang Yu, Yunuo Chen, Xiang Feng, Yin Yang, Nishank Gite, Chenfanfu Jiang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.20679">abs</a><a href="https://arxiv.org/pdf/2606.20679">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.7/10</span><p>对具身机器人与长期任务很有价值，虽非 SLAM 算法，但与视觉记忆、任务状态估计和操作策略相关。</p><div class="tags"><span class="tag">机器人操作</span><span class="tag">世界模型</span><span class="tag">情节记忆</span><span class="tag">长程任务</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为视频世界模型策略增加可注入的情节记忆，让机器人在长程操作中利用已经离开视野的历史事件。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">视频世界模型策略通常只条件于短观察窗口，长程操作中若关键事件已离开视野，决策会变成非马尔可夫问题。MemoryVAM 引入 Recap-Cue 记忆模块：Perceiver-based Recap Compressor 将逐帧 CLIP embedding 压缩为记忆 token，Cue Gate 根据记忆和语言估计任务完成状态，再把这些 token 注入视频 backbone 与动作 decoder。该机制可适配 UNet 和 DiT backbone，无需逐帧进度标签。LIBERO-Mem 平均成功率从 5% 提升至 42.5%，真实机器人计数、空间回忆、序列跟踪任务成功率约 75%–80%。</p><p class="lang lang-en lang-block" data-lang="en">Video-world-model policies learn action-relevant representations by predicting future observations. However, they condition on only a short observation window, which renders long-horizon manipulation non-Markovian when the correct action depends on earlier events that are no longer visible. We present MemoryVAM, an episodic memory mechanism for video-world-model policies. We employ a Recap-Cue (RC) module, in which a Perceiver-based Recap Compressor maps per-frame CLIP embeddings into compact memory tokens, and a lightweight Cue Gate estimates task completion from memory and language. These tokens are injected into both the video backbone and the action decoder, aligning policy imagination with episode progress and conditioning actions on history. Our model trains the memory module with video prediction, a delta-reconstruction auxiliary loss, and episode-boundary supervision, requiring no per-frame progress labels. The same mechanism applies to UNet and Diffusion Transformer (DiT) backbones by changing only the cross-attention injection interface. On LIBERO-Mem, our model improves average success from 5% to 42.5%. On real robots, it achieves 78.3% success on counting tasks, 80.0% on spatial recall, and 75.0% on sequential tracking. Project page: https://MemoryVAM.github.io/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Scene-Level Heterogeneous Physics Simulation with 3D Gaussian Splats</li>
+<li><strong>作者</strong>：Xiaoyang Liu, Shangzhe Wu, Kai Han</li>
+<li><strong>类别/来源</strong>：cs.GR, cs.AI, cs.CV；rss:cs.GR；采集 score=12；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：把 3DGS、网格和流体统一抽象为物理粒子，使捕获场景中的高斯资产能够参与真实交互和非刚体变形。</li>
+<li><strong>为什么值得看</strong>：与 3DGS 场景表示、交互式三维资产和机器人仿真高度相关；亮点在于从渲染表示跨到统一物理表示。需后续确认开源计划、运行成本和复杂真实场景鲁棒性。</li>
+<li><strong>标签</strong>：3DGS、物理仿真、场景级交互、非刚体变形</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.21753">abs</a> / <a href="https://arxiv.org/pdf/2606.21753">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20679/fig-001.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20679/fig-001.webp" alt="MemoryVAM: Integrating Memory into Video Action Model for Robot Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20679/fig-002.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20679/fig-002.webp" alt="MemoryVAM: Integrating Memory into Video Action Model for Robot Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20679/fig-003.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20679/fig-003.webp" alt="MemoryVAM: Integrating Memory into Video Action Model for Robot Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20679/fig-004.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20679/fig-004.webp" alt="MemoryVAM: Integrating Memory into Video Action Model for Robot Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20679/table-001.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20679/table-001.webp" alt="MemoryVAM: Integrating Memory into Video Action Model for Robot Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-24/arxiv-2606.20679/table-002.webp"><img src="../../assets/media/2026-06-24/arxiv-2606.20679/table-002.webp" alt="MemoryVAM: Integrating Memory into Video Action Model for Robot Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
