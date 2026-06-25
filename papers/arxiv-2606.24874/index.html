@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>FLUX3D: High-Fidelity 3D Gaussian Generation with Diffusion-Aligned Sparse Representation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-25/index.html">← 返回 2026-06-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-24 · score 9 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">FLUX3D：扩散对齐稀疏表示的高保真 3D 高斯生成</span><span class="lang lang-en lang-inline" data-lang="en">FLUX3D: High-Fidelity 3D Gaussian Generation with Diffusion-Aligned Sparse Representation</span></h1>
+  <div class="meta">作者：Haorui Ji, Weizhe Liu, Hongdong Li, Hengkai Guo</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.24874">abs</a><a href="https://arxiv.org/pdf/2606.24874">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.6/10</span><p>偏 3D 资产生成而非在线重建/定位；但对 3DGS 表示学习、稀疏 latent 和高保真资产生成有参考价值，若开源可作为仿真资产或补全工具跟踪。</p><div class="tags"><span class="tag">Image-to-3D</span><span class="tag">3DGS</span><span class="tag">扩散模型</span><span class="tag">稀疏表示</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过扩散对齐结构化 latent 和稀疏结构感知 DiT，提高 image-to-3DGS 生成中的细节保真与 2D-3D 对齐。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">现有基于稀疏 voxel 的 image-to-3DGS 方法在输入图像高频细节保持上存在瓶颈：一是构建稀疏 latent 时常使用偏语义抽象的判别式 2D 特征，削弱重建线索；二是生成阶段标准 diffusion transformer 难以将密集 2D 图像 token 与稀疏 3D voxel latent 对齐。FLUX3D 提出 Diffusion-Aligned Structured Latents 与 decoder-only 表示学习结构，提升 3DGS 重建保真度；同时设计 sparse-structure-aware diffusion 框架，包含 Sparse-structure Multimodal Diffusion Transformer 和 Modal-Aware RoPE，以改善几何无关的 2D-3D 对齐。</p><p class="lang lang-en lang-block" data-lang="en">Sparse voxel representation has emerged as a scalable foundation for image-to-3D Gaussian Splatting (3DGS) generation, yet current methods struggle to preserve high-frequency visual details of input images due to two structural bottlenecks. First, they adopt discriminative 2D features optimized for semantic abstraction to construct sparse voxel latents, which suppress reconstructive cues and induce a representation bottleneck. Second, in the generation stage, standard diffusion transformers lack effective mechanisms to align dense 2D image tokens with sparse 3D voxel latents, resulting in a cross-modal correspondence bottleneck. To address these issues, we propose FLUX3D, a scalable image-to-3DGS framework that boosts both representation learning and cross-modal alignment during generation. We first revisit 2D feature selection for sparse-voxel-based 3D representation learning, propose Diffusion-Aligned Structured Latents (DA-SLAT) and couple it with a decoder-only architecture to improve 3DGS reconstruction fidelity. We also design a sparse-structure-aware diffusion framework, which integrates the Sparse-structure Multimodal Diffusion Transformer (SMDiT) and Modal-Aware Rotary Positional Embedding (MARoPE) to achieve geometry-agnostic 2D-3D alignment. Extensive benchmark experiments demonstrate that FLUX3D yields substantial improvements in appearance fidelity and significantly outperforms all state-of-the-art (SOTA) methods in generating high-quality 3DGS assets.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Pocket-SLAM: Rendering-Area-Aware Pruning for Memory-Efficient 3DGS-SLAM</li>
+<li><strong>作者</strong>：Leshu Li, Jie Peng, Yang Zhao</li>
+<li><strong>类别/来源</strong>：cs.CV；comment: 2026 IEEE International Conference on Robotics and Automation (ICRA)；采集 score=17；阅读优先级=9.3/10。</li>
+<li><strong>一句话总结</strong>：用“对有效渲染区域的贡献”而不是单点 opacity/gradient 启发式来剪枝高斯，在保持定位/建图精度的同时显著降低 3DGS-SLAM 运行内存。</li>
+<li><strong>为什么值得看</strong>：这是今天最贴近 SLAM 主线的工作，直接面向大尺度/自动驾驶场景中 3DGS-SLAM 高斯点持续累积的问题；摘要报告 EuRoC/KITTI 上超过 60% 内存降低和 2 倍以上 FPS 提升，且给出了开源仓库地址。后续应复核其 pruning 触发策略、实时开销、对回环/长期地图维护的影响，以及和现有 keyframe/visibility 管理的关系。</li>
+<li><strong>标签</strong>：3DGS-SLAM、内存剪枝、实时建图、自动驾驶</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.24796">abs</a> / <a href="https://arxiv.org/pdf/2606.24796">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24874/fig-001.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24874/fig-001.webp" alt="FLUX3D: High-Fidelity 3D Gaussian Generation with Diffusion-Aligned Sparse Representation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24874/fig-002.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24874/fig-002.webp" alt="FLUX3D: High-Fidelity 3D Gaussian Generation with Diffusion-Aligned Sparse Representation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24874/fig-003.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24874/fig-003.webp" alt="FLUX3D: High-Fidelity 3D Gaussian Generation with Diffusion-Aligned Sparse Representation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24874/fig-004.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24874/fig-004.webp" alt="FLUX3D: High-Fidelity 3D Gaussian Generation with Diffusion-Aligned Sparse Representation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24874/fig-005.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24874/fig-005.webp" alt="FLUX3D: High-Fidelity 3D Gaussian Generation with Diffusion-Aligned Sparse Representation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

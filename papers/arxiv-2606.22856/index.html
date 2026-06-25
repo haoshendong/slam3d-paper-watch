@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-25/index.html">← 返回 2026-06-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-22 · score 8 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">G-MASt3R-SfM：面向鲁棒 SfM 的图视角剪枝与多阶段优化</span><span class="lang lang-en lang-inline" data-lang="en">G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM</span></h1>
+  <div class="meta">作者：Toshiki Watanabe, Shintaro Ito, Natsuki Takama, Koichi Ito, Takafumi Aoki</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.22856">abs</a><a href="https://arxiv.org/pdf/2606.22856">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>非常贴近三维重建/SfM 工程问题，尤其是新一代匹配器接入传统重建时的 outlier 处理；建议重点跟踪代码和与 COLMAP/hloc 的可集成性。</p><div class="tags"><span class="tag">SfM</span><span class="tag">MASt3R</span><span class="tag">视角图剪枝</span><span class="tag">三维重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用场景图剪枝过滤 MASt3R 非重叠误匹配，并通过局部到全局的多阶段优化提升 SfM 位姿和重建鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">MASt3R 等新型匹配方法在困难场景中很强，但也容易对非重叠图像对产生错误对应，导致 MASt3R-SfM 等直接把这些匹配输入优化的 pipeline 位姿估计退化。G-MASt3R-SfM 提出两个模块：Graph-based View Pruning 根据匹配置信度构造场景图并几何剪除离群视角；Multi-Stage Optimization 从局部一致性逐步扩展到全局一致性，逐阶段细化相机参数。ETH3D 实验显示其在相机位姿估计和三维重建上达到 SOTA，并有效抑制 outlier 噪声。</p><p class="lang lang-en lang-block" data-lang="en">Structure from Motion (SfM) is essential for multi-view 3D reconstruction, however, its accuracy heavily relies on the accuracy of image matching. While the recent correspondence matching method, MASt3R, enables robust matching even under challenging conditions, it tends to generate incorrect correspondences for non-overlapping image pairs. Consequently, existing SfM methods using MASt3R, such as MASt3R-SfM, suffer from significant degradation in pose estimation accuracy as they incorporate these unreliable matches directly into optimization. To address this issue, we propose G-MASt3R-SfM, a novel SfM pipeline that enhances robustness through two key modules. First, the Graph-based View Pruning (GVP) module constructs a scene graph from matching confidence and geometrically prunes outlier views. Second, the Multi-Stage Optimization (MSO) module progressively refines camera parameters by expanding the optimization scope from local consistency to the global consistency. Experiments on the ETH3D dataset demonstrate that our method achieves state-of-the-art accuracy in both camera pose estimation and 3D reconstruction, effectively suppressing noise caused by outliers.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Pocket-SLAM: Rendering-Area-Aware Pruning for Memory-Efficient 3DGS-SLAM</li>
+<li><strong>作者</strong>：Leshu Li, Jie Peng, Yang Zhao</li>
+<li><strong>类别/来源</strong>：cs.CV；comment: 2026 IEEE International Conference on Robotics and Automation (ICRA)；采集 score=17；阅读优先级=9.3/10。</li>
+<li><strong>一句话总结</strong>：用“对有效渲染区域的贡献”而不是单点 opacity/gradient 启发式来剪枝高斯，在保持定位/建图精度的同时显著降低 3DGS-SLAM 运行内存。</li>
+<li><strong>为什么值得看</strong>：这是今天最贴近 SLAM 主线的工作，直接面向大尺度/自动驾驶场景中 3DGS-SLAM 高斯点持续累积的问题；摘要报告 EuRoC/KITTI 上超过 60% 内存降低和 2 倍以上 FPS 提升，且给出了开源仓库地址。后续应复核其 pruning 触发策略、实时开销、对回环/长期地图维护的影响，以及和现有 keyframe/visibility 管理的关系。</li>
+<li><strong>标签</strong>：3DGS-SLAM、内存剪枝、实时建图、自动驾驶</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.24796">abs</a> / <a href="https://arxiv.org/pdf/2606.24796">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/fig-001.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/fig-001.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/fig-002.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/fig-002.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/fig-003.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/fig-003.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/fig-004.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/fig-004.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/fig-005.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/fig-005.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/fig-006.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/fig-006.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/table-001.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/table-001.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/table-002.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/table-002.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.22856/table-003.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.22856/table-003.webp" alt="G-MASt3R-SfM: Graph-based View Pruning and Multi-stage Optimization for Robust SfM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

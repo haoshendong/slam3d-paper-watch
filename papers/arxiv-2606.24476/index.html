@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>WiWorld-RealData: A Real-World Multi-Modal Dataset for 6G Wireless World Models</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-25/index.html">← 返回 2026-06-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-23 · score 3 · eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">WiWorld-RealData：面向 6G 无线世界模型的真实多模态数据集</span><span class="lang lang-en lang-inline" data-lang="en">WiWorld-RealData: A Real-World Multi-Modal Dataset for 6G Wireless World Models</span></h1>
+  <div class="meta">作者：Yinyin Jiao, Huixin Xu, Jianhua Zhang, Yuelong Qiu, Jingjing Wang, Shaoyi Liu, Yuxiang Zhang, Li Yu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.24476">abs</a><a href="https://arxiv.org/pdf/2606.24476">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.5/10</span><p>主线是无线信道世界模型而非定位融合算法，但其 GNSS 轨迹与多传感器对齐数据对环境辅助定位、无线数字孪生和多模态数据组织有参考价值。</p><div class="tags"><span class="tag">GNSS 轨迹</span><span class="tag">多模态数据集</span><span class="tag">无线世界模型</span><span class="tag">LiDAR/Radar</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">发布带 GNSS 轨迹、LiDAR、雷达、图像和双频信道响应对齐的真实校园移动路线多模态数据集。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">WiWorld-RealData 是面向 6G digital twin channel 和无线世界模型的真实户外多频信道与多模态感知数据集。数据沿校园移动路线采集，包含 3.7 GHz 和 6.775 GHz 信道冲激响应，以及多视角图像、全景图、LiDAR 点云、毫米波雷达记录和 GNSS 轨迹。数据通过统一文件组织和 metadata manifest 建立 channel response、环境观测、时间戳、路线、天线配置与质量标志的样本级对应；当前公开一个双频代表路线，并展示环境辅助 path-loss 预测可达 2.02 dB MAE 和 2.69 dB RMSE。</p><p class="lang lang-en lang-block" data-lang="en">Wireless world models aim to represent, predict, and reason about wireless propagation by jointly understanding physical environments and channel responses. Realizing such models in sixth-generation (6G) digital twin channels requires datasets that capture measured wireless responses and environment states under real-world propagation conditions. This paper presents WiWorld-RealData, a real-world outdoor multi-band channel and multi-modal sensing dataset collected along campus mobile routes. WiWorld-RealData provides measured channel impulse responses (CIRs) at 3.7 GHz and 6.775 GHz, together with multi-view images, panoramic images, light detection and ranging (LiDAR) point clouds, millimeter-wave (mmWave) radar records, and global navigation satellite system (GNSS) trajectories. Through unified file organization and metadata manifests, the dataset establishes sample-level correspondences among channel responses, environment observations, timestamps, route information, antenna configurations, and quality flags. The overall measurement campaign has produced 10 TB-level multi-modal field data. The current public release provides one representative dual-band route at 3.7 GHz and 6.775 GHz with complete channel-environment alignment, while the acquisition framework supports extension to more frequency bands and scenarios. A case study on environment-assisted path-loss prediction achieves a mean absolute error (MAE) of 2.02 dB and a root mean squared error (RMSE) of 2.69 dB, indicating that the aligned environment observations contain predictive information for channel variations. The dataset is available at https://scc.bupt.edu.cn/dataset-manage/datasets/44, and a ScienceDB mirror will be provided upon release.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Pocket-SLAM: Rendering-Area-Aware Pruning for Memory-Efficient 3DGS-SLAM</li>
+<li><strong>作者</strong>：Leshu Li, Jie Peng, Yang Zhao</li>
+<li><strong>类别/来源</strong>：cs.CV；comment: 2026 IEEE International Conference on Robotics and Automation (ICRA)；采集 score=17；阅读优先级=9.3/10。</li>
+<li><strong>一句话总结</strong>：用“对有效渲染区域的贡献”而不是单点 opacity/gradient 启发式来剪枝高斯，在保持定位/建图精度的同时显著降低 3DGS-SLAM 运行内存。</li>
+<li><strong>为什么值得看</strong>：这是今天最贴近 SLAM 主线的工作，直接面向大尺度/自动驾驶场景中 3DGS-SLAM 高斯点持续累积的问题；摘要报告 EuRoC/KITTI 上超过 60% 内存降低和 2 倍以上 FPS 提升，且给出了开源仓库地址。后续应复核其 pruning 触发策略、实时开销、对回环/长期地图维护的影响，以及和现有 keyframe/visibility 管理的关系。</li>
+<li><strong>标签</strong>：3DGS-SLAM、内存剪枝、实时建图、自动驾驶</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.24796">abs</a> / <a href="https://arxiv.org/pdf/2606.24796">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24476/fig-001.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24476/fig-001.webp" alt="WiWorld-RealData: A Real-World Multi-Modal Dataset for 6G Wireless World Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24476/fig-002.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24476/fig-002.webp" alt="WiWorld-RealData: A Real-World Multi-Modal Dataset for 6G Wireless World Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24476/fig-003.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24476/fig-003.webp" alt="WiWorld-RealData: A Real-World Multi-Modal Dataset for 6G Wireless World Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24476/fig-004.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24476/fig-004.webp" alt="WiWorld-RealData: A Real-World Multi-Modal Dataset for 6G Wireless World Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24476/table-001.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24476/table-001.webp" alt="WiWorld-RealData: A Real-World Multi-Modal Dataset for 6G Wireless World Models" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24476/table-002.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24476/table-002.webp" alt="WiWorld-RealData: A Real-World Multi-Modal Dataset for 6G Wireless World Models" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

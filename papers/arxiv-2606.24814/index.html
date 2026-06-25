@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-25/index.html">← 返回 2026-06-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-24 · score 12 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向内部物流的 VLM 推理上下文语义地图</span><span class="lang lang-en lang-inline" data-lang="en">Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics</span></h1>
+  <div class="meta">作者：Marvin Rüdt, Hao Pang, Constantin Enke, Zäzilia Seibold, Kai Furmans</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.24814">abs</a><a href="https://arxiv.org/pdf/2606.24814">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.5/10</span><p>适合关注仓储/内部物流机器人语义地图和动态环境导航的读者；工程 pipeline 清晰，但需复核 VLM 调用成本、prompt 稳定性和实例聚类误差传播。</p><div class="tags"><span class="tag">语义地图</span><span class="tag">VLM</span><span class="tag">SAM</span><span class="tag">移动机器人</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在 SLAM 几何地图上叠加 SAM 分割、跨视角聚类和 VLM 推理，构建包含物体类别与可移动性属性的语义地图。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作针对内部物流环境中的移动机器人，提出结合 SLAM 几何地图、SAM 实例分割、实例聚类和 VLM 多视图推理的上下文语义地图 pipeline。系统在零样本、开放词汇设置下聚合多视角观测，让 VLM 推断物体类别及可移动性等上下文属性，而不需要任务特定训练或预定义类别。实验比较三种 VLM 和两种 prompt 策略，报告语义分类 98.93% mIoU、物体可移动性估计 89.17% mAcc；组件分析显示 VLM 推理是上下文理解瓶颈，实例聚类是 panoptic 性能主要限制。</p><p class="lang lang-en lang-block" data-lang="en">Autonomous mobile robots operating in intralogistics environments rely on geometric maps for localization and navigation, but lack semantic understanding of objects and their contextual properties. We present a contextual semantic mapping pipeline that combines SLAM-based geometric mapping, SAM-based instance segmentation, instance clustering, and VLM multi-view reasoning to produce a contextual semantic map representation encoding geometric structure, object class, and object movability. By aggregating observations across multiple viewpoints and querying a VLM in a zero-shot, open-vocabulary setting, the pipeline infers contextual object properties--here demonstrated through movability--without requiring task-specific training or predefined object categories. We evaluate three VLMs under two prompting strategies and conduct a component-wise analysis of the pipeline. The proposed pipeline achieves 98.93 % mIoU for semantic classification and 89.17 % mAcc for object movability estimation. Component analysis identifies VLM reasoning as the primary bottleneck for contextual understanding and instance clustering as the main limitation for panoptic performance. The resulting semantic map supports context-aware filtering and robust navigation in dynamic intralogistics environments.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：Pocket-SLAM: Rendering-Area-Aware Pruning for Memory-Efficient 3DGS-SLAM</li>
+<li><strong>作者</strong>：Leshu Li, Jie Peng, Yang Zhao</li>
+<li><strong>类别/来源</strong>：cs.CV；comment: 2026 IEEE International Conference on Robotics and Automation (ICRA)；采集 score=17；阅读优先级=9.3/10。</li>
+<li><strong>一句话总结</strong>：用“对有效渲染区域的贡献”而不是单点 opacity/gradient 启发式来剪枝高斯，在保持定位/建图精度的同时显著降低 3DGS-SLAM 运行内存。</li>
+<li><strong>为什么值得看</strong>：这是今天最贴近 SLAM 主线的工作，直接面向大尺度/自动驾驶场景中 3DGS-SLAM 高斯点持续累积的问题；摘要报告 EuRoC/KITTI 上超过 60% 内存降低和 2 倍以上 FPS 提升，且给出了开源仓库地址。后续应复核其 pruning 触发策略、实时开销、对回环/长期地图维护的影响，以及和现有 keyframe/visibility 管理的关系。</li>
+<li><strong>标签</strong>：3DGS-SLAM、内存剪枝、实时建图、自动驾驶</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.24796">abs</a> / <a href="https://arxiv.org/pdf/2606.24796">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24814/fig-001.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24814/fig-001.webp" alt="Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24814/fig-002.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24814/fig-002.webp" alt="Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24814/fig-003.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24814/fig-003.webp" alt="Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24814/fig-004.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24814/fig-004.webp" alt="Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24814/table-001.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24814/table-001.webp" alt="Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-25/arxiv-2606.24814/table-002.webp"><img src="../../assets/media/2026-06-25/arxiv-2606.24814/table-002.webp" alt="Vision-Language Model Reasoning for Contextual Semantic Mapping in Intralogistics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
