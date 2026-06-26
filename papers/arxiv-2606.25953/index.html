@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-26/index.html">← 返回 2026-06-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-24 · score 12 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">DSP-SLAM++：野外多类别高保真对象 SLAM 统一框架</span><span class="lang lang-en lang-inline" data-lang="en">DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild</span></h1>
+  <div class="meta">作者：Ahmad Kourani, Ghina Daoud, Daniel Asmar, Imad Elhajj</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.25953">abs</a><a href="https://arxiv.org/pdf/2606.25953">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>对象级 SLAM 工程价值高，且摘要声称开源、延迟降低明显；后续应检查代码完整度、多类别泛化、异步线程一致性和回环/重观测处理。</p><div class="tags"><span class="tag">对象级 SLAM</span><span class="tag">多类别建图</span><span class="tag">鱼眼-LiDAR</span><span class="tag">异步 mapping</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在 DSP-SLAM 上加入异步对象建图和鱼眼-LiDAR 融合适配，使多类别高保真对象 SLAM 更接近实时部署。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">对象感知 SLAM 常在实时性、多类别支持和高保真语义对象模型之间取舍。DSP-SLAM++ 在 DSP-SLAM 基础上扩展出异步 mapping pipeline，以降低对象处理线程瓶颈，并针对单目鱼眼-LiDAR 传感器组合加入传感器融合适配。实验显示，系统能为多个对象类别生成细粒度、几何完整且语义一致的形状模型，同时相对 SOTA 基线将最大对象处理延迟降低最高 70%，支持具有挑战性的 25 Hz 多类别数据集。论文摘要给出开源代码地址 github.com/AUBVRL/DSP-SLAMpp，面向自动驾驶和机器人操作等真实应用。</p><p class="lang lang-en lang-block" data-lang="en">Existing object-aware SLAM systems force a trade-off between real-time performance, multi-class support, and the generation of high-fidelity, semantically coherent object models. To address this trade-off, we present DSP-SLAM++, which extends the DSP-SLAM framework with an asynchronous mapping pipeline for real-time performance and dedicated sensor fusion adaptations for a monocular fisheye-LiDAR suite. Experiments demonstrate that our system generates fine-grained, geometrically-complete shapes for multiple object classes while eliminating severe mapping thread bottlenecks by reducing maximum object processing latency by up to 70\% compared to the state-of-the-art baseline, enabling robust, real-time performance on a challenging 25 Hz multi-class datasets. This work makes high-fidelity, multi-class object SLAM more practical for real-world applications like autonomous driving and robotic manipulation by enabling its use on platforms with common fisheye-LiDAR sensor setups. The open-source code is available at: [github.com/AUBVRL/DSP-SLAMpp].</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：SA-LIVO: Efficient LiDAR-Inertial-Visual Odometry with Subspace-Aware Degeneracy Handling</li>
+<li><strong>作者</strong>：Yinong Cao, Xin He, Yuwei Chen, Shijie Liu, Chunlai Li, Jianyu Wang</li>
+<li><strong>类别/来源</strong>：cs.RO；20 pages, 12 figures, 5 tables；采集 score=15；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：在同一个 InEKF 优化环内对 LiDAR-visual 信息矩阵做特征分解，按可观测方向选择性融合视觉约束，让视觉主要补偿 LiDAR 退化方向而不干扰已约束方向。</li>
+<li><strong>为什么值得看</strong>：这篇非常贴近实际 LIVO 系统痛点：LiDAR 在走廊、平面、重复结构中退化，视觉又会受光照/纹理影响。SAIF 的“按 eigendirection 线性夹紧软门控”比传统 modality-level gating 更细粒度；摘要还声称视觉 Jacobian 可在迭代外复用，带来 12.3 ms/frame laptop CPU、26.8 ms/frame embedded ARM 且峰值内存降低 3.6–6.3x。后续应重点复核退化方向判定阈值、和 FAST-LIO/LIO-SAM/视觉直接法基线的公平性，以及代码开源进度。</li>
+<li><strong>标签</strong>：LIVO、LiDAR 退化、子空间融合、InEKF</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.25699">abs</a> / <a href="https://arxiv.org/pdf/2606.25699">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/fig-001.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/fig-001.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/fig-002.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/fig-002.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/fig-003.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/fig-003.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/fig-004.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/fig-004.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/fig-005.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/fig-005.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/fig-006.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/fig-006.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/table-001.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/table-001.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/table-002.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/table-002.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25953/table-003.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25953/table-003.webp" alt="DSP-SLAM++: A Unified Framework for Multi-Class, High-Fidelity Object SLAM in the Wild" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

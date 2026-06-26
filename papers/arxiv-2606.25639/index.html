@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Optimization-Based Velocity-Integral Sliding-Window Coarse Alignment: Attitude Error Analysis and Validation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-26/index.html">← 返回 2026-06-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-24 · score 6 · eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于速度积分滑窗 OBA 的 GNSS 辅助 SINS 粗对准误差传播分析</span><span class="lang lang-en lang-inline" data-lang="en">Optimization-Based Velocity-Integral Sliding-Window Coarse Alignment: Attitude Error Analysis and Validation</span></h1>
+  <div class="meta">作者：Xuyang Jiang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.25639">abs</a><a href="https://arxiv.org/pdf/2606.25639">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.2/10</span><p>虽然不是 SLAM 算法，但对 GNSS/INS 初始化质量评估、组合导航协方差建模和因子图先验设置有价值；需确认模型假设与复杂车辆工况下的鲁棒性。</p><div class="tags"><span class="tag">GNSS/INS</span><span class="tag">SINS 粗对准</span><span class="tag">误差传播</span><span class="tag">组合导航</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为 GNSS 辅助滑窗速度积分粗对准建立姿态误差解析传播模型，预测陀螺/加计/GNSS 速度/杆臂不确定性导致的姿态偏置与协方差。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">优化式对准（OBA）常把 SINS 粗对准转化为常初始姿态估计问题，是 GNSS 辅助运动中对准的重要技术。现有研究多关注姿态确定算法或鲁棒观测向量构造，但缺少从原始传感器和辅助速度不确定性到最终姿态误差的解析映射。本文针对固定长度滑窗速度积分 OBA 提出一阶姿态误差传播模型：先建立滑窗观测模型及离散实现，将陀螺误差、加计误差、GNSS 速度噪声和杆臂效应传播到未归一化观测向量；再用 Davenport q method 建立观测向量扰动到姿态失准的映射；最后解耦系统误差与随机噪声，分别推导确定性姿态偏置和协方差。Monte Carlo 与车载实测显示模型能捕捉偏置并可靠给出误差 envelope，稳态 RMSE 低于 0.00495 deg。</p><p class="lang lang-en lang-block" data-lang="en">The optimization-based alignment (OBA) approach transforms the strapdown inertial navigation system (SINS) coarse alignment into a constant initial attitude estimation problem, serving as a prevalent technique for global navigation satellite system (GNSS)-aided in-motion alignment. While existing studies focus on improving accuracy by refining attitude determination algorithms or constructing robust observation vectors, a rigorous analytical mapping to evaluate the resulting attitude errors from raw sensor and aiding-velocity uncertainties has yet to be established for fixed-length sliding-window velocity-integral OBA. To address this issue, this paper proposes a first-order attitude error propagation model for GNSS-aided sliding-window velocity-integral OBA. Specifically, a sliding-window observation model and its discrete implementation are formulated, through which gyroscope errors, accelerometer errors, GNSS velocity noise, and lever-arm effects are analytically propagated to non-normalized observation vectors. Subsequently, Davenport&#x27;s q method is used to establish the mapping from these vector perturbations to attitude misalignment. By decoupling systematic errors and stochastic noise, the deterministic attitude offsets and the attitude error covariances are respectively derived. Monte Carlo simulations demonstrate that the analytical model accurately captures the deterministic attitude offsets and precisely characterizes the statistical spread, yielding standard-deviation ratios between 0.929 and 1.060 with empirical coverage above 99.4%. Vehicle field tests further confirm its practical applicability, showing that the predicted covariance envelopes reliably bound the actual initial-attitude errors, with steady-state RMSEs strictly below 0.00495 deg. These results validate the proposed model for coarse-alignment attitude error assessment.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：SA-LIVO: Efficient LiDAR-Inertial-Visual Odometry with Subspace-Aware Degeneracy Handling</li>
+<li><strong>作者</strong>：Yinong Cao, Xin He, Yuwei Chen, Shijie Liu, Chunlai Li, Jianyu Wang</li>
+<li><strong>类别/来源</strong>：cs.RO；20 pages, 12 figures, 5 tables；采集 score=15；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：在同一个 InEKF 优化环内对 LiDAR-visual 信息矩阵做特征分解，按可观测方向选择性融合视觉约束，让视觉主要补偿 LiDAR 退化方向而不干扰已约束方向。</li>
+<li><strong>为什么值得看</strong>：这篇非常贴近实际 LIVO 系统痛点：LiDAR 在走廊、平面、重复结构中退化，视觉又会受光照/纹理影响。SAIF 的“按 eigendirection 线性夹紧软门控”比传统 modality-level gating 更细粒度；摘要还声称视觉 Jacobian 可在迭代外复用，带来 12.3 ms/frame laptop CPU、26.8 ms/frame embedded ARM 且峰值内存降低 3.6–6.3x。后续应重点复核退化方向判定阈值、和 FAST-LIO/LIO-SAM/视觉直接法基线的公平性，以及代码开源进度。</li>
+<li><strong>标签</strong>：LIVO、LiDAR 退化、子空间融合、InEKF</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.25699">abs</a> / <a href="https://arxiv.org/pdf/2606.25699">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25639/fig-001.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25639/fig-001.webp" alt="Optimization-Based Velocity-Integral Sliding-Window Coarse Alignment: Attitude Error Analysis and Validation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25639/fig-002.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25639/fig-002.webp" alt="Optimization-Based Velocity-Integral Sliding-Window Coarse Alignment: Attitude Error Analysis and Validation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25639/table-001.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25639/table-001.webp" alt="Optimization-Based Velocity-Integral Sliding-Window Coarse Alignment: Attitude Error Analysis and Validation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25639/table-002.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25639/table-002.webp" alt="Optimization-Based Velocity-Integral Sliding-Window Coarse Alignment: Attitude Error Analysis and Validation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25639/table-003.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25639/table-003.webp" alt="Optimization-Based Velocity-Integral Sliding-Window Coarse Alignment: Attitude Error Analysis and Validation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

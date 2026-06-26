@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>RoboAtlas: Contextual Active SLAM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-26/index.html">← 返回 2026-06-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-25 · score 13 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RoboAtlas：上下文主动 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">RoboAtlas: Contextual Active SLAM</span></h1>
+  <div class="meta">作者：Alexander Schperberg, Shivam K. Panda, Abraham P. Vinod, M. K. Jawed, Stefano Di Cairano</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.26046">abs</a><a href="https://arxiv.org/pdf/2606.26046">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>系统层面很贴近 Active SLAM、语义地图和具身导航的交叉方向，真实大场景和 GOAT-Bench 指标突出；需关注语义实例维护、VLM 调用成本和错误地图对任务规划的影响。</p><div class="tags"><span class="tag">Active SLAM</span><span class="tag">3D 语义地图</span><span class="tag">VLM</span><span class="tag">语义导航</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把主动探索、3D 语义地图和 VLM 任务推理通过 contextual bandit 连接起来，实现从几何探索到语义导航的自适应切换。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">RoboAtlas 是一个上下文主动 SLAM 框架，核心是用可扩展的 3D 语义地图系统 OpenRoboVox 为探索和任务导航提供 grounding。系统结合 frontier exploration、全局语义地图推理和 egocentric VLM 推理，并通过 contextual multi-armed bandit 随场景理解程度从几何探索逐步转向语义引导导航。作者在仿真和 Unitree Go2 真实机器人上评估，包括超过 1800 m²、约 3 万语义实例的大尺度真实环境；在 GOAT-Bench Val Unseen 上，使用 GPT-4o 达到 90.6% SR，相对最强先前基线提升 17.8 个百分点，使用更小的 Qwen2.5-VL-7B 也达到 88.8% SR。结果强调，大规模 3D 语义地图带来的信息增益比单纯替换 foundation model 更关键。</p><p class="lang lang-en lang-block" data-lang="en">We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that transitions from exploration to semantically guided navigation as scene understanding improves. We evaluate the system in simulation and on a Unitree Go2 robot in large-scale real-world environments exceeding 1800 m2 with approx. 30k mapped semantic instances, achieving a 100% task success rate. On the GOAT-Bench &quot;Val Unseen&quot; benchmark, RoboAtlas achieves state-of-the-art performance with highest reported success rate (SR) of 90.6%, using GPT-4o, improving over the strongest prior baseline by 17.8 percentage points in SR. Using the much smaller Qwen2.5-VL-7B model, it still achieves 88.8% SR, outperforming all baselines using GPT-4o in SR, and revealing the importance of the information gained by our semantic mapping framework over simply replacing the underlying foundation model. The results demonstrate that grounding foundation models with large-scale 3D semantic maps enables robust and efficient contextual Active SLAM.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：SA-LIVO: Efficient LiDAR-Inertial-Visual Odometry with Subspace-Aware Degeneracy Handling</li>
+<li><strong>作者</strong>：Yinong Cao, Xin He, Yuwei Chen, Shijie Liu, Chunlai Li, Jianyu Wang</li>
+<li><strong>类别/来源</strong>：cs.RO；20 pages, 12 figures, 5 tables；采集 score=15；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：在同一个 InEKF 优化环内对 LiDAR-visual 信息矩阵做特征分解，按可观测方向选择性融合视觉约束，让视觉主要补偿 LiDAR 退化方向而不干扰已约束方向。</li>
+<li><strong>为什么值得看</strong>：这篇非常贴近实际 LIVO 系统痛点：LiDAR 在走廊、平面、重复结构中退化，视觉又会受光照/纹理影响。SAIF 的“按 eigendirection 线性夹紧软门控”比传统 modality-level gating 更细粒度；摘要还声称视觉 Jacobian 可在迭代外复用，带来 12.3 ms/frame laptop CPU、26.8 ms/frame embedded ARM 且峰值内存降低 3.6–6.3x。后续应重点复核退化方向判定阈值、和 FAST-LIO/LIO-SAM/视觉直接法基线的公平性，以及代码开源进度。</li>
+<li><strong>标签</strong>：LIVO、LiDAR 退化、子空间融合、InEKF</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.25699">abs</a> / <a href="https://arxiv.org/pdf/2606.25699">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

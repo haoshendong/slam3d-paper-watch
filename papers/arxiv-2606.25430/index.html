@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-26/index.html">← 返回 2026-06-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-24 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PRISM：基于几何 warp-residual 建模的前馈单图三维重建</span><span class="lang lang-en lang-inline" data-lang="en">PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling</span></h1>
+  <div class="meta">作者：Zhijie Zheng, Xinhao Xiang, Jiawei Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.25430">abs</a><a href="https://arxiv.org/pdf/2606.25430">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>偏三维生成/重建而非在线 SLAM，但前馈速度和几何先验设计对仿真资产、场景补全和机器人数据生成有参考价值；需看遮挡补全和多视角一致性。</p><div class="tags"><span class="tag">单图三维重建</span><span class="tag">前馈重建</span><span class="tag">几何 warp</span><span class="tag">残差建模</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用几何前向 warp 作为无参数先验，再学习少量残差校正，实现无需扩散采样的前馈单图三维重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PRISM 面向单图三维场景重建，试图摆脱相机控制视频扩散模型在推理时需要迭代采样的高成本。作者观察到，几何 forward warping 本身已能从输入图像直接覆盖目标视图的大部分区域，模型主要需要学习紧凑的残差校正。因此，PRISM 将多视角 latent 预测拆成无需参数的几何先验和学习型 residual correction，推理时不需要 diffusion sampling。为提升纯合成训练到真实数据的泛化，论文采用两阶段训练：latent supervised distillation 促进几何泛化，perceptual fine-tuning 优化外观质量。三个 benchmark 上结果显示其质量接近扩散方法，同时单场景推理约 36 秒。</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing 3D scenes from a single image is a fundamental challenge in computer vision, with broad applications in virtual reality, robotics, and content creation. Recent methods achieve outstanding performance by leveraging camera-controlled video diffusion models, but rely on iterative diffusion sampling, which greatly limits their practical deployment. We observe that geometric forward warping alone can cover the majority of a target view directly from the input image, with only a compact residual left for the encoder to correct. Motivated by this observation, we propose PRISM, a feed-forward framework that decomposes multi-view latent prediction into a parameter-free geometric prior and a learned residual correction, with no diffusion sampling required at inference. To enable generalization from purely synthetic training data, we devise a two-stage training strategy combining latents supervised distillation for geometric generalization and perceptual fine-tuning for appearance quality optimization. Extensive experiments on three benchmarks demonstrate that PRISM achieves competitive reconstruction quality compared with diffusion-based methods, while reducing inference time dramatically to only 36 seconds per scene.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：SA-LIVO: Efficient LiDAR-Inertial-Visual Odometry with Subspace-Aware Degeneracy Handling</li>
+<li><strong>作者</strong>：Yinong Cao, Xin He, Yuwei Chen, Shijie Liu, Chunlai Li, Jianyu Wang</li>
+<li><strong>类别/来源</strong>：cs.RO；20 pages, 12 figures, 5 tables；采集 score=15；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：在同一个 InEKF 优化环内对 LiDAR-visual 信息矩阵做特征分解，按可观测方向选择性融合视觉约束，让视觉主要补偿 LiDAR 退化方向而不干扰已约束方向。</li>
+<li><strong>为什么值得看</strong>：这篇非常贴近实际 LIVO 系统痛点：LiDAR 在走廊、平面、重复结构中退化，视觉又会受光照/纹理影响。SAIF 的“按 eigendirection 线性夹紧软门控”比传统 modality-level gating 更细粒度；摘要还声称视觉 Jacobian 可在迭代外复用，带来 12.3 ms/frame laptop CPU、26.8 ms/frame embedded ARM 且峰值内存降低 3.6–6.3x。后续应重点复核退化方向判定阈值、和 FAST-LIO/LIO-SAM/视觉直接法基线的公平性，以及代码开源进度。</li>
+<li><strong>标签</strong>：LIVO、LiDAR 退化、子空间融合、InEKF</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.25699">abs</a> / <a href="https://arxiv.org/pdf/2606.25699">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/fig-001.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/fig-001.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/fig-002.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/fig-002.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/fig-003.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/fig-003.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/fig-004.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/fig-004.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/fig-005.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/fig-005.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/fig-006.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/fig-006.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/table-001.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/table-001.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/table-002.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/table-002.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25430/table-003.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25430/table-003.webp" alt="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

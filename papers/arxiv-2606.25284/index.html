@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Evaluation Protocols and Validation for Cameras in Indoor Healthcare Monitoring</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-26/index.html">← 返回 2026-06-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-24 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">室内 healthcare monitoring 相机评测协议与验证</span><span class="lang lang-en lang-inline" data-lang="en">Evaluation Protocols and Validation for Cameras in Indoor Healthcare Monitoring</span></h1>
+  <div class="meta">作者：Amirhossein Dadashzadeh, Jingjing Liu, Qianhui Men, Qiushuo Cheng, Kirsty Scott, Lisa Alcock, Ian Craddock, Majid Mirmehdi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.25284">abs</a><a href="https://arxiv.org/pdf/2606.25284">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.2/10</span><p>不是 SLAM 主线，但对室内 RGB-D 传感器选型、深度误差理解和 3D 重建 benchmark 设计有工程价值。</p><div class="tags"><span class="tag">RGB-D 相机评测</span><span class="tag">室内感知</span><span class="tag">深度误差</span><span class="tag">3D reconstruction</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">系统验证多款 RGB/RGB-D 相机在室内医疗监测场景中的深度、2D pose 和 3D reconstruction 表现，给出设备选择依据。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">相机监测系统越来越多用于医疗和家庭环境中的人体活动连续评估，但真实室内条件下设备计量性能与算法表现缺少系统验证。本文提出两个技术验证协议：一是评估 RGB/RGB-D 相机计量性能，二是评估其对人体姿态估计的支持。实验覆盖 5 款相机、照明变化、相机高度、视角和遮挡等因素，并结合 SOTA pose estimators。结果显示不同设备深度偏置差异很大：5 m 处从约 50 mm 到超过 1400 mm；2D pose mAP 大致在 78%–90%，但 3D reconstruction MPJPE 从 104 mm 到 365 mm，强烈反映底层深度质量。</p><p class="lang lang-en lang-block" data-lang="en">Camera-based monitoring systems are increasingly adopted in healthcare settings for the continuous assessment of patient movement and activities. However, their technical performance under real-world indoor conditions remains insufficiently characterised, preventing appropriate camera selection for clinical or home adoption and reproducibility. Existing validation studies typically assess either device metrological performance or algorithm accuracy in isolation, and often do not systematically account for practical deployment factors, such as lighting variability, occlusions, and camera positioning. We present two technical validation protocols: the first evaluates the metrological performance of RGB and RGB-D cameras, and the second assesses their use in supporting human pose estimation, validated using state-of-the-art pose estimators. The proposed protocols systematically assess five cameras, four RGB-D and one RGB, under controlled variations in lighting, camera height, viewing angle, and occlusion level within representative indoor scenarios. The experimental results show that metrological performance varies substantially across cameras, with depth bias at 5 m ranging from 50 mm to over 1400 mm depending on the device. For 2D pose estimation, all cameras achieve broadly comparable accuracy, with mean mAP between approximately 78% and 90% across cameras and estimators, whereas 3D reconstruction error differs markedly across devices, with MPJPE ranging from 104 mm to 365 mm, closely reflecting underlying depth-sensing quality. Environmental factors have a camera- and estimator-dependent effect on 3D performance, while camera mounting height has minimal influence within the evaluated range. This work provides evidence-based guidance for the selection and deployment of cameras in healthcare monitoring applications, addressing an important gap in current technical validation practice.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：SA-LIVO: Efficient LiDAR-Inertial-Visual Odometry with Subspace-Aware Degeneracy Handling</li>
+<li><strong>作者</strong>：Yinong Cao, Xin He, Yuwei Chen, Shijie Liu, Chunlai Li, Jianyu Wang</li>
+<li><strong>类别/来源</strong>：cs.RO；20 pages, 12 figures, 5 tables；采集 score=15；阅读优先级=9.2/10。</li>
+<li><strong>一句话总结</strong>：在同一个 InEKF 优化环内对 LiDAR-visual 信息矩阵做特征分解，按可观测方向选择性融合视觉约束，让视觉主要补偿 LiDAR 退化方向而不干扰已约束方向。</li>
+<li><strong>为什么值得看</strong>：这篇非常贴近实际 LIVO 系统痛点：LiDAR 在走廊、平面、重复结构中退化，视觉又会受光照/纹理影响。SAIF 的“按 eigendirection 线性夹紧软门控”比传统 modality-level gating 更细粒度；摘要还声称视觉 Jacobian 可在迭代外复用，带来 12.3 ms/frame laptop CPU、26.8 ms/frame embedded ARM 且峰值内存降低 3.6–6.3x。后续应重点复核退化方向判定阈值、和 FAST-LIO/LIO-SAM/视觉直接法基线的公平性，以及代码开源进度。</li>
+<li><strong>标签</strong>：LIVO、LiDAR 退化、子空间融合、InEKF</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.25699">abs</a> / <a href="https://arxiv.org/pdf/2606.25699">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25284/fig-001.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25284/fig-001.webp" alt="Evaluation Protocols and Validation for Cameras in Indoor Healthcare Monitoring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25284/fig-002.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25284/fig-002.webp" alt="Evaluation Protocols and Validation for Cameras in Indoor Healthcare Monitoring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25284/fig-003.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25284/fig-003.webp" alt="Evaluation Protocols and Validation for Cameras in Indoor Healthcare Monitoring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-26/arxiv-2606.25284/table-001.webp"><img src="../../assets/media/2026-06-26/arxiv-2606.25284/table-001.webp" alt="Evaluation Protocols and Validation for Cameras in Indoor Healthcare Monitoring" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
