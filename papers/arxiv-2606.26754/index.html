@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Capacity-Controlled Multi-View Stylization of 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-27/index.html">← 返回 2026-06-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-25 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">3D Gaussian Splatting 的容量受控多视角风格化</span><span class="lang lang-en lang-inline" data-lang="en">Capacity-Controlled Multi-View Stylization of 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Zhihao Wen, Yixin Yang, Bojian Wu, Yang Zhou, Dani Lischinski, Daniel Cohen-Or, Hui Huang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.26754">abs</a><a href="https://arxiv.org/pdf/2606.26754">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>偏图形学/风格化，不是定位建图主线；但其跨视角一致性约束与几何正则可能对真实 3DGS 重建质量优化有间接启发。</p><div class="tags"><span class="tag">3DGS 风格化</span><span class="tag">最优传输</span><span class="tag">跨视角一致性</span><span class="tag">几何正则</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用带列容量约束的最优传输和跨视角匹配指导，提升 3DGS 风格化的稳定性与多视角一致性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3DGS 适合高效新视角合成，但多视角风格化时常出现跨视角风格不一致、局部风格分配不稳定和 many-to-one feature reuse。本文把局部风格匹配重新表述为半平衡最优传输问题，并引入可调强度的显式列容量约束，以控制风格特征分配、提升覆盖和多样性。方法还加入跨视角匹配指导，约束场景内容与风格模式在不同视角中的对应关系，并为 vanilla 3DGS 设计多个几何正则，使 Gaussian primitives 更适合表示细粒度纹理。实验显示该方法改善多视角风格一致性，同时保持场景语义结构。</p><p class="lang lang-en lang-block" data-lang="en">While 3D Gaussian Splatting (3DGS) provides an efficient and explicit representation for novel view synthesis, enforcing stylistic coherence across viewpoints remains challenging. Existing 3D stylization methods typically apply 2D feature-matching losses independently per rendered view, which leads to unstable style allocation, many-to-one feature reuse, and limited cross-view consistency. We propose a capacity-controlled framework for multi-view stylization of 3DGS, grounded in optimal transport. Specifically, we reformulate local style matching as a semi-balanced optimal transport problem. By introducing explicit column-capacity constraints with tunable strength, our formulation mitigates many-to-one matching and enables controllable allocation of style features. This transport-based objective provides a principled mechanism for balancing feature coverage and stylistic diversity while maintaining stable correspondences across viewpoints. To further enhance cross-view coherence, we incorporate a novel cross-view matching guidance to constrain correspondences between scene content and style patterns. In addition, we introduce several geometric regularizations to enhance the vanilla 3DGS, thereby enabling optimized Gaussian primitives to represent finer-grained textures during stylization. Extensive experiments demonstrate that our approach significantly improves multi-view stylistic consistency and produces stable, expressive 3D stylizations while preserving the core semantic structure of the scene.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：SatSplatDiff: Geometry-preserving generative refinement for high-fidelity satellite Gaussian Splatting</li>
+<li><strong>作者</strong>：Jiyong Kim, Shuang Song, Ronjgun Qin</li>
+<li><strong>类别/来源</strong>：cs.CV；23 pages, 15 figures；采集 score=10；阅读优先级=8.2/10。</li>
+<li><strong>一句话总结</strong>：在 SatSplat 的摄影测量 DSM 初始化与 2DGS 阴影建模基础上，加入深度监督、多尺度几何细化和 shadow-guided generative refinement，试图提升卫星 3DGS 外观质量同时抑制扩散式细化带来的几何幻觉。</li>
+<li><strong>为什么值得看</strong>：卫星/航测场景的视角通常集中在顶部，建筑立面监督不足，3DGS 容易出现洞、立面不稳定和跨 tile 不一致。本文强调“生成式增强不能破坏几何一致性”，用几何计算阴影图约束监督图像更新；摘要报告 IARPA2016/DFC2019 上几何 MAE 最高降低 18%、FID-CLIP 改善 28–45%、可达 5x 分辨率增强，并给出源码 <code>https://github.com/GDAOSU/SatSplatDiff</code>。建议重点复核代码完整度、DSM/阴影先验依赖、跨 tile 泛化和是否存在外观 hallucination。</li>
+<li><strong>标签</strong>：卫星三维重建、3DGS、生成式细化、几何一致性</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27223">abs</a> / <a href="https://arxiv.org/pdf/2606.27223">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.26754/fig-001.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.26754/fig-001.webp" alt="Capacity-Controlled Multi-View Stylization of 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.26754/fig-002.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.26754/fig-002.webp" alt="Capacity-Controlled Multi-View Stylization of 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.26754/fig-003.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.26754/fig-003.webp" alt="Capacity-Controlled Multi-View Stylization of 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-27/index.html">← 返回 2026-06-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-25 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PanoImager：稀疏全景视角下的几何引导新视角合成与重建</span><span class="lang lang-en lang-inline" data-lang="en">PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views</span></h1>
+  <div class="meta">作者：Zhisong Xu, Takeshi Oishi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.27071">abs</a><a href="https://arxiv.org/pdf/2606.27071">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>与 SLAM 失败场景和稀疏视角三维重建直接相关，尤其适合作为弱视差/旋转主导采集的离线 fallback；需关注先验来源、合成视图偏差和与真实地图坐标系融合。</p><div class="tags"><span class="tag">全景重建</span><span class="tag">SfM-free</span><span class="tag">弱视差</span><span class="tag">3DGS</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">针对弱视差稀疏全景导致 SfM/SLAM 初始化失败的问题，用几何条件补视角和 depth-guided 3DGS 实现 SfM-free 重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">稀疏全景图像具备大视场覆盖，但当相机运动以旋转为主、平移视差弱时，传统 SfM/SLAM 初始化常病态且不可靠。PanoImager 提出一个 SfM-free 框架：先把少量全景图分解为局部透视视图，再利用前馈位姿/深度先验、几何条件扩散视图补全和 depth-guided 3DGS 优化来丰富稀疏观测并稳定跨视角一致性。论文在多个 benchmark 上显示极端稀疏输入下的稳定性提升，并将该方法定位为 SfM/SLAM 初始化失败时可运行的离线或后台地图细化组件。</p><p class="lang lang-en lang-block" data-lang="en">Panoramic sensing offers wide field-of-view coverage, yet 3D reconstruction from sparse panoramas remains challenging under rotation-dominant, weak-parallax motion. In such regimes, SfM/SLAM initialization is often ill-conditioned and unreliable. We present PanoImager, an SfM-free framework that combines feed-forward pose/depth priors, geometry-conditioned diffusion view completion, and depth-guided 3DGS optimization. Given only a few panoramic images, PanoImager decomposes them into local perspective views, synthesizes auxiliary observations to enrich sparse evidence, and stabilizes Gaussian optimization for improved cross-view consistency. Experiments on multiple benchmarks show improved stability under extreme sparsity, suggesting PanoImager as an offline/background component for map refinement when SfM/SLAM fails to initialize.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：SatSplatDiff: Geometry-preserving generative refinement for high-fidelity satellite Gaussian Splatting</li>
+<li><strong>作者</strong>：Jiyong Kim, Shuang Song, Ronjgun Qin</li>
+<li><strong>类别/来源</strong>：cs.CV；23 pages, 15 figures；采集 score=10；阅读优先级=8.2/10。</li>
+<li><strong>一句话总结</strong>：在 SatSplat 的摄影测量 DSM 初始化与 2DGS 阴影建模基础上，加入深度监督、多尺度几何细化和 shadow-guided generative refinement，试图提升卫星 3DGS 外观质量同时抑制扩散式细化带来的几何幻觉。</li>
+<li><strong>为什么值得看</strong>：卫星/航测场景的视角通常集中在顶部，建筑立面监督不足，3DGS 容易出现洞、立面不稳定和跨 tile 不一致。本文强调“生成式增强不能破坏几何一致性”，用几何计算阴影图约束监督图像更新；摘要报告 IARPA2016/DFC2019 上几何 MAE 最高降低 18%、FID-CLIP 改善 28–45%、可达 5x 分辨率增强，并给出源码 <code>https://github.com/GDAOSU/SatSplatDiff</code>。建议重点复核代码完整度、DSM/阴影先验依赖、跨 tile 泛化和是否存在外观 hallucination。</li>
+<li><strong>标签</strong>：卫星三维重建、3DGS、生成式细化、几何一致性</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27223">abs</a> / <a href="https://arxiv.org/pdf/2606.27223">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/fig-001.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/fig-001.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/fig-002.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/fig-002.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/fig-003.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/fig-003.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/fig-004.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/fig-004.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/fig-005.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/fig-005.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/fig-006.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/fig-006.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/table-001.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/table-001.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/table-002.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/table-002.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.27071/table-003.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.27071/table-003.webp" alt="PanoImager: Geometry-Guided Novel View Synthesis and Reconstruction from Sparse Panoramic Views" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

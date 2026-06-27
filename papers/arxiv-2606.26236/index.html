@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Rendering Novel Views of MRI Using 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-27/index.html">← 返回 2026-06-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-25 · score 13 · eess.IV, cs.CV, eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用 3D Gaussian Splatting 渲染 MRI 新视角</span><span class="lang lang-en lang-inline" data-lang="en">Rendering Novel Views of MRI Using 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Robin Y. Park, Mark C. Eid, Rhydian Windsor, Amir Jamaludin, Ana I. L. Namburete, João F. Henriques, Andrew Zisserman</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.26236">abs</a><a href="https://arxiv.org/pdf/2606.26236">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.5/10</span><p>采集关键词命中 3DGS 且方法涉及稀疏体重建，但应用场景是医学 MRI，和 SLAM/GNSS/机器人三维重建关系间接；可借鉴任务导向重采样与显式高斯体表示思路。</p><div class="tags"><span class="tag">医学 3DGS</span><span class="tag">体重建</span><span class="tag">稀疏采样</span><span class="tag">新视角重采样</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 3DGS 用于稀疏各向异性 MRI 的体重建和任意解剖平面重采样，以提升脊柱狭窄分级表现。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文目标是改进脊柱 MRI 上的放射学分级：原始稀疏各向异性扫描平面往往没有与目标解剖结构对齐，导致局部狭窄等病变不能完整落在平面内。作者将 3D Gaussian Splatting 改造成一种体重建表示，从稀疏 MRI 生成可按目标解剖方向采样的新视角/新平面图像，再用这些重采样图像预测局部狭窄严重程度等级。与基于反距离加权最近邻强度平均的体素插值重采样相比，Gaussian Splatting 重采样在多个狭窄条件下得到更准确的分级结果。该工作偏医学影像，不是机器人 SLAM，但展示了 3DGS 在稀疏体数据与任务导向重采样中的潜力。</p><p class="lang lang-en lang-block" data-lang="en">The objective of this paper is to improve radiological gradings measured on MRIs of spines, by resampling scans so that the new view planes are better aligned with the target anatomy than the original sparse images. To this end, we adapt 3D Gaussian Splatting to form a volumetric reconstruction starting from sparse anisotropic MRIs, and imaging planes aligned with the anatomy relevant for clinical evaluation are then sampled and rendered. The novel view plane is optimal for diagnostic radiological grading of the target anatomy, whereas the original MRI is not. The resampled scans are then used to predict ordinal severity grades of localised stenosis conditions in spinal MRIs. We compare our method against Voxel Interpolation resampling, which takes the average of inverse-distance weighted nearest neighbour intensities for each target coordinate. Experiments show that across all stenosis conditions, resampled scans using Gaussian Splatting produce more accurate stenosis gradings compared to the raw scans which do not include the complete anatomy in-plane, as well as images resampled using Voxel Interpolation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>英文题名</strong>：SatSplatDiff: Geometry-preserving generative refinement for high-fidelity satellite Gaussian Splatting</li>
+<li><strong>作者</strong>：Jiyong Kim, Shuang Song, Ronjgun Qin</li>
+<li><strong>类别/来源</strong>：cs.CV；23 pages, 15 figures；采集 score=10；阅读优先级=8.2/10。</li>
+<li><strong>一句话总结</strong>：在 SatSplat 的摄影测量 DSM 初始化与 2DGS 阴影建模基础上，加入深度监督、多尺度几何细化和 shadow-guided generative refinement，试图提升卫星 3DGS 外观质量同时抑制扩散式细化带来的几何幻觉。</li>
+<li><strong>为什么值得看</strong>：卫星/航测场景的视角通常集中在顶部，建筑立面监督不足，3DGS 容易出现洞、立面不稳定和跨 tile 不一致。本文强调“生成式增强不能破坏几何一致性”，用几何计算阴影图约束监督图像更新；摘要报告 IARPA2016/DFC2019 上几何 MAE 最高降低 18%、FID-CLIP 改善 28–45%、可达 5x 分辨率增强，并给出源码 <code>https://github.com/GDAOSU/SatSplatDiff</code>。建议重点复核代码完整度、DSM/阴影先验依赖、跨 tile 泛化和是否存在外观 hallucination。</li>
+<li><strong>标签</strong>：卫星三维重建、3DGS、生成式细化、几何一致性</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27223">abs</a> / <a href="https://arxiv.org/pdf/2606.27223">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.26236/fig-001.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.26236/fig-001.webp" alt="Rendering Novel Views of MRI Using 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.26236/fig-002.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.26236/fig-002.webp" alt="Rendering Novel Views of MRI Using 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.26236/fig-003.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.26236/fig-003.webp" alt="Rendering Novel Views of MRI Using 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.26236/fig-004.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.26236/fig-004.webp" alt="Rendering Novel Views of MRI Using 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-27/arxiv-2606.26236/fig-005.webp"><img src="../../assets/media/2026-06-27/arxiv-2606.26236/fig-005.webp" alt="Rendering Novel Views of MRI Using 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
