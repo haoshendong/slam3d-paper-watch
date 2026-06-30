@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Tortho-Gaussian: Splatting True Digital Orthophoto Maps</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 9.5 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Tortho-Gaussian：用 3D Gaussian Splatting 生成真数字正射影像</span><span class="lang lang-en lang-inline" data-lang="en">Tortho-Gaussian: Splatting True Digital Orthophoto Maps</span></h1>
+  <div class="meta">作者：Xin Wang, Wendi Zhang, Hong Xie, Haibin Ai, Qiangqiang Yuan, Zongqian Zhan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2411.19594">abs</a><a href="https://arxiv.org/pdf/2411.19594">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.5/10</span><p>与 3DGS、大规模城市重建、正射制图和数字孪生高度相关；工程问题明确，强调大尺度与传统摄影测量替代。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">正射影像</span><span class="tag">城市重建</span><span class="tag">数字孪生</span><span class="tag">摄影测量</span><span class="tag">GIS</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 3DGS 改造成面向大范围城市正射产品的生成管线，是三维重建、遥感制图和数字孪生之间很值得跟踪的交叉工作。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">真数字正射影像（TDOM）是数字孪生和 GIS 的重要产品，但传统摄影测量流程依赖 DSM、遮挡检测和复杂人工处理，在弱纹理、反光表面和建筑边界处容易退化。TOrtho-Gaussian 将 3D Gaussian Splatting 引入正射影像生成，通过各向异性高斯核的正交 splatting 直接生成 2D 正射视图，避免显式 DSM 和遮挡检测；同时采用分治策略支持大范围城市区域训练与渲染，并用全各向异性高斯核提升反光表面和细长结构质量。实验显示其在建筑边界精度、弱纹理区域和立面视觉质量上优于商业软件。</p><p class="lang lang-en lang-block" data-lang="en">True Digital Orthophoto Maps (TDOMs) are essential products for digital twins and Geographic Information Systems (GIS). Traditionally, TDOM generation involves a complex set of traditional photogrammetric process, which may deteriorate due to various challenges, including inaccurate Digital Surface Model (DSM), degenerated occlusion detections, and visual artifacts in weak texture regions and reflective surfaces, etc. To address these challenges, we introduce TOrtho-Gaussian, a novel method inspired by 3D Gaussian Splatting (3DGS) that generates TDOMs through orthogonal splatting of optimized anisotropic Gaussian kernel. More specifically, we first simplify the orthophoto generation by orthographically splatting the Gaussian kernels onto 2D image planes, formulating a geometrically elegant solution that avoids the need for explicit DSM and occlusion detection. Second, to produce TDOM of large-scale area, a divide-and-conquer strategy is adopted to optimize memory usage and time efficiency of training and rendering for 3DGS. Lastly, we design a fully anisotropic Gaussian kernel that adapts to the varying characteristics of different regions, particularly improving the rendering quality of reflective surfaces and slender structures. Extensive experimental evaluations demonstrate that our method outperforms existing commercial software in several aspects, including the accuracy of building boundaries, the visual quality of low-texture regions and building facades. These results underscore the potential of our approach for large-scale urban scene reconstruction, offering a robust alternative for enhancing TDOM quality and scalability.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：将 3D Gaussian Splatting 用到大范围城市正射产品生成，连接三维重建、摄影测量、GIS 与数字孪生。</li>
+<li><strong>方法要点</strong>：正交 splatting 优化后的各向异性 Gaussian kernel，绕开传统 TDOM 流程中的显式 DSM 和遮挡检测；用分治策略控制大范围训练/渲染显存和时间。</li>
+<li><strong>结果信号</strong>：在建筑边界、弱纹理区域和建筑立面质量上优于商业软件，尤其强调反光表面和细长结构。</li>
+<li><strong>跟踪建议</strong>：检查它是否需要稠密相机位姿/初始点云，以及大区域分块之间如何处理接缝；这决定它能否进入城市级重建生产线。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2411.19594">abs</a> · <a href="https://arxiv.org/pdf/2411.19594">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2411.19594/fig-001.webp"><img src="../../assets/media/2026-06-30/arxiv-2411.19594/fig-001.webp" alt="Tortho-Gaussian: Splatting True Digital Orthophoto Maps" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2411.19594/fig-002.webp"><img src="../../assets/media/2026-06-30/arxiv-2411.19594/fig-002.webp" alt="Tortho-Gaussian: Splatting True Digital Orthophoto Maps" loading="lazy"></a><figcaption class="meta">image · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2411.19594/fig-003.webp"><img src="../../assets/media/2026-06-30/arxiv-2411.19594/fig-003.webp" alt="Tortho-Gaussian: Splatting True Digital Orthophoto Maps" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2411.19594/fig-004.webp"><img src="../../assets/media/2026-06-30/arxiv-2411.19594/fig-004.webp" alt="Tortho-Gaussian: Splatting True Digital Orthophoto Maps" loading="lazy"></a><figcaption class="meta">image · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2411.19594/fig-005.webp"><img src="../../assets/media/2026-06-30/arxiv-2411.19594/fig-005.webp" alt="Tortho-Gaussian: Splatting True Digital Orthophoto Maps" loading="lazy"></a><figcaption class="meta">image · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2411.19594/fig-006.webp"><img src="../../assets/media/2026-06-30/arxiv-2411.19594/fig-006.webp" alt="Tortho-Gaussian: Splatting True Digital Orthophoto Maps" loading="lazy"></a><figcaption class="meta">image · page 9</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

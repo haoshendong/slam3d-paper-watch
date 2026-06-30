@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Not All Relations Rotate Alike: Transformation-Aware Decoupling for Viewpoint-Robust 3D Scene Graph Generation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 7.5 · cs.CV, cs.AI, cs.GR, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">TAD：面向视角鲁棒 3D 场景图生成的变换感知解耦</span><span class="lang lang-en lang-inline" data-lang="en">Not All Relations Rotate Alike: Transformation-Aware Decoupling for Viewpoint-Robust 3D Scene Graph Generation</span></h1>
+  <div class="meta">作者：Jingjun Sun, Chaowei Wang, Zhirui Liu, Jiaxu Tian, Ming Yang, Yaoxing Wang, Shan Gao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.27412">abs</a><a href="https://arxiv.org/pdf/2606.27412">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.5/10</span><p>与 3D 场景理解、语义地图和具身空间推理相关；可作为 SLAM 后端语义层/场景图鲁棒性的参考。</p><div class="tags"><span class="tag">3D场景图</span><span class="tag">视角鲁棒</span><span class="tag">语义地图</span><span class="tag">空间关系</span><span class="tag">具身智能</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作不做几何配准，但对机器人在不同视角下构建一致 3D 语义/关系地图有参考价值。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D 场景图生成将场景组织为物体-关系-物体图，但同一 3D 场景在不同 yaw 视角下，关系谓词的变换行为并不一致：left/front/right/behind 等方向关系应随观察坐标变换，而支撑、接触、附着等关系应保持稳定。TAD 将关系推理分为视角稳定分支和方向变换分支，并用变换描述子、分组辅助监督和稳定物体表示提升在 yaw 改变下的鲁棒性。3DSSG 实验表明，在不依赖训练时旋转增强的条件下，TAD 在视角变化鲁棒性上达到 SOTA，同时保持标准基准性能。</p><p class="lang lang-en lang-block" data-lang="en">3D Scene Graph Generation (3DSGG) represents 3D scenes as structured object-relation-object graphs, providing a compact relational abstraction for spatial understanding. In embodied intelligence settings, the same 3D scene may be observed by agents from viewpoints that differ by yaw rotations. However, current 3DSGG models often fail to produce relation predictions that follow the expected transformation behavior under such viewpoint shifts. This behavior reveals an empirical mismatch related to predicate-level transformation heterogeneity: directional predicates such as left, front, right, and behind should transform with the observation frame, whereas most contact, support, and semantic predicates such as standing on and attached to should remain stable. To reduce this mismatch, we propose Transformation-Aware Decoupling (TAD), a viewpoint-robust 3DSGG framework that decouples relation reasoning according to predicate transformation behavior and is supported by viewpoint-stable object representations. TAD decomposes relation reasoning into two parts: one learns cues that should stay stable across viewpoints, while the other learns directional cues that should change with the observation frame. The two parts are merged for standard multi-label predicate prediction. Transformation-specific descriptors and group-aware auxiliary supervision encourage the two branches to capture complementary relation cues. Extensive experiments on 3DSSG show that TAD achieves state-of-the-art robustness under yaw viewpoint changes without training-time rotation augmentation, while maintaining competitive performance under the standard benchmark. The project page is available at https://tad-predicate.github.io/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：语义 SLAM/具身地图最终需要稳定的 3D 场景关系；该文处理同一场景在不同 yaw 视角下关系谓词是否应变化的问题。</li>
+<li><strong>方法要点</strong>：将关系推理拆成“视角稳定”与“方向变换”两类分支，对 left/front/right/behind 等方向关系和支撑/接触/附着等稳定关系区别建模。</li>
+<li><strong>结果信号</strong>：3DSSG 上在不使用训练时旋转增强的条件下获得更强视角鲁棒性，同时保持标准 benchmark 性能。</li>
+<li><strong>跟踪建议</strong>：如果后续做语义地图或 3D scene graph 后端，可参考它的谓词分组和坐标系变换监督设计。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27412">abs</a> · <a href="https://arxiv.org/pdf/2606.27412">PDF</a> · 项目页：https://tad-predicate.github.io/</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27412/fig-001.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27412/fig-001.webp" alt="Not All Relations Rotate Alike: Transformation-Aware Decoupling for Viewpoint-Robust 3D Scene Graph Generation" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27412/fig-002.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27412/fig-002.webp" alt="Not All Relations Rotate Alike: Transformation-Aware Decoupling for Viewpoint-Robust 3D Scene Graph Generation" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27412/fig-003.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27412/fig-003.webp" alt="Not All Relations Rotate Alike: Transformation-Aware Decoupling for Viewpoint-Robust 3D Scene Graph Generation" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27412/fig-004.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27412/fig-004.webp" alt="Not All Relations Rotate Alike: Transformation-Aware Decoupling for Viewpoint-Robust 3D Scene Graph Generation" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27412/fig-005.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27412/fig-005.webp" alt="Not All Relations Rotate Alike: Transformation-Aware Decoupling for Viewpoint-Robust 3D Scene Graph Generation" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27412/fig-006.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27412/fig-006.webp" alt="Not All Relations Rotate Alike: Transformation-Aware Decoupling for Viewpoint-Robust 3D Scene Graph Generation" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

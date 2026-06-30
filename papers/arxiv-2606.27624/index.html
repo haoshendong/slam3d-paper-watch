@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Physics-Guided Robotic Radiation Source Localization along Arbitrary Measurement Paths in Unstructured Environments</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 6.2 · cs.RO, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向任意测量路径与非结构环境的物理引导机器人辐射源定位</span><span class="lang lang-en lang-inline" data-lang="en">Physics-Guided Robotic Radiation Source Localization along Arbitrary Measurement Paths in Unstructured Environments</span></h1>
+  <div class="meta">作者：Hojoon Son, Kai Tan, Fan Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.27624">abs</a><a href="https://arxiv.org/pdf/2606.27624">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.2/10</span><p>属于机器人定位/感知，但传感对象不是视觉/激光/GNSS；对未知环境中的物理约束定位和在线学习有借鉴价值。</p><div class="tags"><span class="tag">机器人定位</span><span class="tag">物理信息学习</span><span class="tag">源定位</span><span class="tag">未知环境</span><span class="tag">在线学习</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">虽是辐射感知场景，但它关注任意轨迹下的源定位和未知障碍衰减建模，可类比到稀疏传感定位问题。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">机器人辐射源定位常通过规划路径靠近辐射源以提高精度，但这会增加硬件受损风险，也限制任务灵活性。该工作提出物理信息机器学习框架，在未知环境和任意测量路径下估计辐射源位置。方法设计物理启发张量来处理未知障碍造成的衰减伽马通量，并并行计算多个模型以提升鲁棒性和精度。作者在 Monte Carlo 粒子输运仿真、多种随机环境和实体实验中验证，并在真实机器人部署中使用持续学习提升在线适应性。</p><p class="lang lang-en lang-block" data-lang="en">Using robots to estimate the location of the radiation source is an effective way to improve efficiency and safety. Existing methods focus on planning the robot&#x27;s path to achieve precise estimation, typically approaching the source. However, approaching the source increases the risk of radiation damage to a robot. In addition, a path-planning algorithm designed solely for radiation source localization (RSL) limits the flexibility of missions that deploy robots into radioactive environments. This study presents an automation framework for robotic RSL that leverages a physics-informed machine learning (PIML) model to precisely estimate the source location, regardless of measurement paths, in unknown environments. Physics-inspired model tensors have been designed for PIML to handle attenuated gamma-ray flux signals from unknown obstacles, and multiple models are computed in parallel to improve the robustness and precision of the RSL. The proposed method is evaluated in high-fidelity simulation environments using Monte Carlo particle transport across diverse randomized domains, including spatial scales, radiation source types, obstacle materials and geometries, and robot trajectories. The method is also validated through physical experiments on configurations that are not included in the simulation-based evaluation. The continuous learning technique is applied in real-robot deployment to enhance the practical applicability of the online robotic RSL system. The proposed method advances robot radiation perception from pointwise flux detection to spatial intelligence.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：传感对象不是视觉/激光/GNSS，但问题形式是“机器人沿任意路径在未知环境中定位源”，对稀疏物理传感定位有类比意义。</li>
+<li><strong>方法要点</strong>：用物理信息机器学习处理未知障碍导致的 gamma 通量衰减；并行多模型提升源定位鲁棒性和精度，真实机器人部署中加入持续学习。</li>
+<li><strong>结果信号</strong>：在 Monte Carlo 高保真仿真、多种随机域和实体实验中验证。</li>
+<li><strong>跟踪建议</strong>：可借鉴其“物理模型 + 学习 + 任意测量轨迹”框架，但不要直接等同于 SLAM/GNSS 定位。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27624">abs</a> · <a href="https://arxiv.org/pdf/2606.27624">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27624/fig-001.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27624/fig-001.webp" alt="Physics-Guided Robotic Radiation Source Localization along Arbitrary Measurement Paths in Unstructured Environments" loading="lazy"></a><figcaption class="meta">image · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27624/fig-002.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27624/fig-002.webp" alt="Physics-Guided Robotic Radiation Source Localization along Arbitrary Measurement Paths in Unstructured Environments" loading="lazy"></a><figcaption class="meta">image · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27624/fig-003.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27624/fig-003.webp" alt="Physics-Guided Robotic Radiation Source Localization along Arbitrary Measurement Paths in Unstructured Environments" loading="lazy"></a><figcaption class="meta">image · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27624/fig-004.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27624/fig-004.webp" alt="Physics-Guided Robotic Radiation Source Localization along Arbitrary Measurement Paths in Unstructured Environments" loading="lazy"></a><figcaption class="meta">image · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27624/fig-005.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27624/fig-005.webp" alt="Physics-Guided Robotic Radiation Source Localization along Arbitrary Measurement Paths in Unstructured Environments" loading="lazy"></a><figcaption class="meta">image · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27624/fig-006.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27624/fig-006.webp" alt="Physics-Guided Robotic Radiation Source Localization along Arbitrary Measurement Paths in Unstructured Environments" loading="lazy"></a><figcaption class="meta">image · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

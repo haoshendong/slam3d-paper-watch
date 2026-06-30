@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 6.8 · cs.RO, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SceneBot：接触提示的通用人形全身跟踪与场景交互</span><span class="lang lang-en lang-inline" data-lang="en">SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction</span></h1>
+  <div class="meta">作者：Sirui Chen, Shibo Zhao, Zhen Wu, Jiaman Li, Guanya Shi, C. Karen Liu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.27581">abs</a><a href="https://arxiv.org/pdf/2606.27581">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>偏机器人控制，但包含场景交互图、接触建模和重建数据生成，适合关注三维场景到控制接口的后续跟踪。</p><div class="tags"><span class="tag">人形机器人</span><span class="tag">场景交互</span><span class="tag">接触建模</span><span class="tag">强化学习</span><span class="tag">运动跟踪</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过重建场景-交互图和接触标签训练人形策略，对将三维场景理解用于机器人控制有参考意义。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">现有人形强化学习策略擅长自由空间运动，却难以处理与物体、地形的接触交互。SceneBot 在单一策略中同时条件化参考动作和每个连杆的接触标签，让策略显式知道预期环境交互。为弥补带标注交互数据不足，作者提出 hindsight scene reconstruction，从重定向人体运动中推断场景-交互图，并用约 7.5 小时接触丰富数据训练。实验显示，SceneBot 可泛化到未见动作和环境，完成搬箱上楼等长时程接触任务。</p><p class="lang lang-en lang-block" data-lang="en">Current humanoid reinforcement-learning policies excel at free-space motions but struggle with contact-rich tasks, as pure kinematic tracking cannot resolve the physical ambiguities of interacting with objects and uneven terrain. To address this, we introduce SceneBot, a unified motion-tracking framework capable of handling freespace locomotion, terrain traversal, and whole-body manipulation. SceneBot conditions a single policy on both reference motions and per-link contact labels, explicitly defining expected environmental interactions. To overcome the lack of annotated interaction data, we propose a hindsight scene reconstruction approach that infers scene-interaction graphs from retargeted human motion. Trained on 7.5 hours of this reconstructed, contact-rich data, SceneBot successfully generalizes to unseen motions and environments. Our results demonstrate that SceneBot is the first general framework to seamlessly unify free-space and contact-rich behaviors executing complex, long-horizon tasks like carrying a box upstairs and establishing contact conditioning as a powerful interface for humanoid control. All code and data will be open-sourced. More demos and information are available at: https://ericcsr.github.io/scenebot/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：从“场景-交互图”和接触标签出发训练人形机器人全身跟踪策略，体现三维场景理解进入控制的路径。</li>
+<li><strong>方法要点</strong>：单一策略同时条件化参考动作和每个 link 的接触标签；用 hindsight scene reconstruction 从重定向人体动作中推断场景交互图，缓解交互标注不足。</li>
+<li><strong>结果信号</strong>：7.5 小时接触丰富数据即可泛化到未见动作和环境，执行搬箱上楼等长时程接触任务。</li>
+<li><strong>跟踪建议</strong>：如果关注机器人在重建环境中的交互执行，建议看其场景重建粒度、接触标签格式和 sim-to-real 假设。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27581">abs</a> · <a href="https://arxiv.org/pdf/2606.27581">PDF</a> · 项目页：https://ericcsr.github.io/scenebot/</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27581/fig-001.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27581/fig-001.webp" alt="SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27581/fig-002.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27581/fig-002.webp" alt="SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27581/fig-003.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27581/fig-003.webp" alt="SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27581/fig-004.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27581/fig-004.webp" alt="SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27581/fig-005.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27581/fig-005.webp" alt="SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27581/fig-006.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27581/fig-006.webp" alt="SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

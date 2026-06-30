@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>DFM: Difference Feature Modeling with Text-Guided Gated Contrastive Loss for Remote Sensing Image Change Captioning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 5.8 · eess.IV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">DFM：用于遥感图像变化描述的差异特征建模与文本引导门控对比损失</span><span class="lang lang-en lang-inline" data-lang="en">DFM: Difference Feature Modeling with Text-Guided Gated Contrastive Loss for Remote Sensing Image Change Captioning</span></h1>
+  <div class="meta">作者：Yelin Wang, Zijia Song, Chuanguang Yang, Miaoyu Wang, Zhulin An, Libo Huang, Yongjun Xu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.27410">abs</a><a href="https://arxiv.org/pdf/2606.27410">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.8/10</span><p>不涉及几何重建或定位，但与遥感变化检测、城市地图更新和多时相场景理解有边缘相关性。</p><div class="tags"><span class="tag">遥感</span><span class="tag">变化检测</span><span class="tag">变化描述</span><span class="tag">多时相影像</span><span class="tag">地图更新</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">该工作偏遥感语义变化理解，可作为城市级地图更新、变化检测到文本解释链路的参考。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">遥感图像变化描述需要为不同时相影像之间的变化生成文字说明。现有方法多依赖单一自回归生成，容易学习常见词而忽视真正有判别力的图像差异。DFM 重构训练范式，引入文本引导门控对比损失，从文本模态视角引导视觉编码器提取关键变化；同时迁移预训练变化检测模型的稳定知识，并设计联合特征建模模块融合多尺度差异表示。多数据集实验验证了该方法的有效性。</p><p class="lang lang-en lang-block" data-lang="en">The primary goal of Remote Sensing Image Change Captioning (RSICC) is to automatically generate descriptions of changes between remote sensing images captured at different time points. Existing models still rely on a single autoregressive generation paradigm, which tends to prioritize learning easily generated vocabulary over capturing discriminative differences between images. To address this, we reframe the training paradigm and propose a novel Difference Feature Modeling (DFM) framework. Specifically, we introduce a Text-guided Gated Contrastive Loss (TGCL) to guide the vision encoder to extract critical features from a text-modal perspective. Additionally, we incorporate a pre-trained Change Detection model to transfer stable change detection knowledge. In order to further enhance the representation, we design a Joint Feature Modeling (JFM) module to achieve the fusion of multi-scale difference representations, thereby capturing comprehensive spatiotemporal variations between multi-temporal images. Extensive experiments on multiple datasets demonstrate the effectiveness of our approach.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：偏遥感语义变化描述，不是几何重建；但对城市级地图更新、变化检测解释和多时相场景理解有边缘价值。</li>
+<li><strong>方法要点</strong>：用文本引导门控对比损失让视觉编码器更关注文本相关的变化特征；迁移预训练变化检测模型，并融合多尺度差异表示。</li>
+<li><strong>结果信号</strong>：在多个 RSICC 数据集上验证有效。</li>
+<li><strong>跟踪建议</strong>：如果后续做城市地图/HD map 更新，可关注其从变化检测到自然语言解释的稳定性；若只关注几何 SLAM，可低优先级阅读。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27410">abs</a> · <a href="https://arxiv.org/pdf/2606.27410">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27410/fig-001.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27410/fig-001.webp" alt="DFM: Difference Feature Modeling with Text-Guided Gated Contrastive Loss for Remote Sensing Image Change Captioning" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27410/fig-002.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27410/fig-002.webp" alt="DFM: Difference Feature Modeling with Text-Guided Gated Contrastive Loss for Remote Sensing Image Change Captioning" loading="lazy"></a><figcaption class="meta">image · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27410/fig-003.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27410/fig-003.webp" alt="DFM: Difference Feature Modeling with Text-Guided Gated Contrastive Loss for Remote Sensing Image Change Captioning" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27410/fig-004.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27410/fig-004.webp" alt="DFM: Difference Feature Modeling with Text-Guided Gated Contrastive Loss for Remote Sensing Image Change Captioning" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27410/fig-005.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27410/fig-005.webp" alt="DFM: Difference Feature Modeling with Text-Guided Gated Contrastive Loss for Remote Sensing Image Change Captioning" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27410/fig-006.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27410/fig-006.webp" alt="DFM: Difference Feature Modeling with Text-Guided Gated Contrastive Loss for Remote Sensing Image Change Captioning" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

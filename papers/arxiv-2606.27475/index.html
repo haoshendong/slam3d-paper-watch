@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Support-Constrained RL Enables Real-World Policy Improvement without Real-World Experience</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 6.5 · cs.RO, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SCORE：无需真实世界再交互的支持约束强化学习策略改进</span><span class="lang lang-en lang-inline" data-lang="en">Support-Constrained RL Enables Real-World Policy Improvement without Real-World Experience</span></h1>
+  <div class="meta">作者：Raymond Yu, William Huey, Mustafa Mukadam, Anusha Nagabandi, Abhishek Gupta</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.27475">abs</a><a href="https://arxiv.org/pdf/2606.27475">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.5/10</span><p>主要是机器人学习；与 SLAM/GNSS 不直接相关，但对闭环机器人系统在真实数据约束下利用仿真改进有工程参考价值。</p><div class="tags"><span class="tag">Sim-to-Real</span><span class="tag">机器人学习</span><span class="tag">强化学习</span><span class="tag">策略改进</span><span class="tag">真实数据约束</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在真实数据支持集内做仿真策略改进，是减少 sim-to-real 风险的一种实用约束思路。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">用真实数据训练的机器人策略常不精确、慢且抗扰差；直接在真实世界用 RL 改进成本高，而无约束仿真 RL 又可能利用仿真-真实差异。SCORE 提出 real-to-sim-to-real 策略改进框架：在仿真中优化策略，但通过 flow steering 将动作限制在由真实数据预训练生成策略的支持集内，从而避免越过可迁移行为边界。八个真实多指灵巧操作任务中，平均成功率从 37.8% 提升到 89.9%，优于基线。</p><p class="lang lang-en lang-block" data-lang="en">Robots trained on real world data tend to be imprecise, slow, and brittle to perturbations. Improving these policies with reinforcement learning (RL) is an appealing alternative, but this process often requires expensive training in the real world. Performing policy improvement in simulation instead provides a far cheaper alternative, but unconstrained RL in simulation can exploit contact and dynamics mismatches, resulting in unsafe behaviors that do not transfer to hardware. Common forms of regularization can furthermore limit improvement by overconstraining to an imperfect behavior prior. In this work, we propose Support-Constrained Off-Domain REinforcement (SCORE), a real-to-sim-to-real framework that constrains RL in simulation to the support of a generative policy pretrained on real data. We instantiate this constraint through flow steering, restricting SCORE to actions the base policy can already produce, which ensures transferable behaviors while maximizing policy improvement. Improving a policy with SCORE requires minimal effort: it learns from sparse rewards, avoids distillation, and leaves the base policy untouched. Across eight real-world dexterous multi-fingered robotic manipulation tasks, SCORE improves average success rate from 37.8% to 89.9%, compared to 59.5% for the best baseline, and reaches success in 36.8% fewer steps than the base policy. Ultimately, through extensive experiments and ablations, we show that simulation can substantially improve real-world manipulation policies when policy optimization is appropriately constrained, introducing a new paradigm for real-to-sim-to-real policy improvement. Videos and code are available at https://weirdlabuw.github.io/score/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：虽然偏机器人学习，但其“在真实数据支持集内做仿真优化”的思想适合降低 sim-to-real 风险。</li>
+<li><strong>方法要点</strong>：SCORE 将仿真 RL 的动作限制在真实数据预训练生成策略可产生的支持集内，避免利用仿真接触/动力学漏洞；通过 flow steering 实现约束。</li>
+<li><strong>结果信号</strong>：八个真实多指灵巧操作任务中，平均成功率从 37.8% 提升到 89.9%，优于最佳基线 59.5%。</li>
+<li><strong>跟踪建议</strong>：关注它对 base policy 分布覆盖的依赖；若感知/定位误差导致状态偏移，支持集约束是否仍稳定值得验证。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27475">abs</a> · <a href="https://arxiv.org/pdf/2606.27475">PDF</a> · 项目页：https://weirdlabuw.github.io/score/</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

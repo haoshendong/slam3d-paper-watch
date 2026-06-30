@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 7.0 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">向动作头直接注入有根 3D 点以提升空间与任务泛化</span><span class="lang lang-en lang-inline" data-lang="en">Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization</span></h1>
+  <div class="meta">作者：Shiang-Feng Tsai, Jin-Cheng Jhang, Yen-Ling Tai, Jia-Hong Lai, Shih-Yun Wong, KangTung-Hsu, Yi-Ting Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.27663">abs</a><a href="https://arxiv.org/pdf/2606.27663">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>与机器人 3D 空间 grounding、视觉定位到动作闭环有关；不是 SLAM/GNSS，但对地图/感知输出如何进入策略有启发。</p><div class="tags"><span class="tag">机器人操作</span><span class="tag">3D grounding</span><span class="tag">VLA</span><span class="tag">空间泛化</span><span class="tag">动作头注入</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用显式 3D 几何 grounding 改善机器人策略泛化，说明 VLA 控制仍强依赖稳定空间坐标表达。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">视觉-语言-动作模型在测试时常因物体位置变化或指令变化而失效。作者认为关键不只是提供 2D/视觉/语言提示，而是如何表示并注入 grounding 信号：将目标提升为 3D 点，计算其相对夹爪位移，再通过自适应层归一化直接注入动作头。该模块仅为两层 MLP，不修改 VLA 主干或预训练流程。在 LIBERO-PRO 上，该方法显著提升 GR00T-N1.6 和 π0.5 在任务扰动、位置扰动下的成功率。</p><p class="lang lang-en lang-block" data-lang="en">Vision-Language-Action (VLA) models leverage large-scale vision-language pretraining for flexible robot manipulation, yet at test time they remain brittle along two axes: spatial generalization, when object positions differ from those seen during training, and task generalization, when a familiar scene is paired with a different language instruction than the one seen in training. A growing family of methods addresses this brittleness by endowing a policy with the spatial and task-aware information such as 2D pixel-coordinate for object localization and placement. However, we find that existing representation through language prompting or visual prompting does not address the limitations; in contrast, exploiting a 3D point-based representation and feeding it directly to the action head leads to substantial improvements-revealing that how the grounding signal is represented and injected into the VLA is the true game changer. Thus, we propose a lightweight, model-agnostic module that represents the grounding signal in 3D, computes its relative displacement to the gripper, and injects the resulting spatial embedding directly into the action head through adaptive layer normalization. The entire module is a two-layer MLP that requires no changes to the VLA backbone or pretraining pipeline. On LIBERO-PRO, our method improves the average success rate of GR00T-N1.6 from 31.2 to 77.5 points under task perturbation and from 28.1 to 60.2 points under position perturbation (gains of 46.3 and 32.1 points). Comparable gains are achieved for $\pi_{0.5}$ as well, demonstrating that the mechanism is backbone-agnostic. Together, these results support our central finding: given adequate grounding lifted into 3D, injecting it directly into the action head is what unlocks both spatial and task generalization in VLAs-achievable with nothing more than a lightweight module on top of a pretrained backbone.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：说明机器人策略泛化的关键可能不是“再提示一次目标”，而是把 grounding 提升为稳定 3D 几何量并直接进入动作头。</li>
+<li><strong>方法要点</strong>：把目标表示为 3D 点，计算相对夹爪位移，用两层 MLP 通过 adaptive layer norm 注入 VLA action head，不改动主干预训练。</li>
+<li><strong>结果信号</strong>：在 LIBERO-PRO 上显著提升 GR00T-N1.6 与 π0.5 的任务扰动和位置扰动成功率。</li>
+<li><strong>跟踪建议</strong>：对视觉/激光/SLAM 输出如何服务机器人策略有启发；可以关注其 3D 点来源、坐标系标定和误差敏感性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27663">abs</a> · <a href="https://arxiv.org/pdf/2606.27663">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27663/fig-001.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27663/fig-001.webp" alt="Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27663/fig-002.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27663/fig-002.webp" alt="Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27663/fig-003.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27663/fig-003.webp" alt="Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27663/fig-004.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27663/fig-004.webp" alt="Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27663/fig-005.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27663/fig-005.webp" alt="Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.27663/fig-006.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.27663/fig-006.webp" alt="Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

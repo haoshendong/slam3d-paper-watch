@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SemCityLoc: Aerial 6DoF Localization Using Semantic 3D City Models</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 10.0 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SemCityLoc：使用语义 3D 城市模型的航拍 6DoF 定位</span><span class="lang lang-en lang-inline" data-lang="en">SemCityLoc: Aerial 6DoF Localization Using Semantic 3D City Models</span></h1>
+  <div class="meta">作者：Jingfeng Mao, Xuyang Chen, Qilin Zhang, Oussema Dhaouadi, Guangming Wang, Brian Sheil, Daniel Cremers, Yan Xia, Olaf Wysocki</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.27444">abs</a><a href="https://arxiv.org/pdf/2606.27444">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 10/10</span><p>高度贴合城市峡谷鲁棒定位、GNSS 依赖降低、语义地图辅助定位和 3D 城市模型方向；有真实 UAV 基准、厘米级真值和代码/数据入口。</p><div class="tags"><span class="tag">航拍定位</span><span class="tag">6DoF</span><span class="tag">语义城市模型</span><span class="tag">GNSS 受限</span><span class="tag">城市峡谷</span><span class="tag">UAV</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用标准化语义 3D 城市模型替代重纹理重建，为 GNSS 受限城市峡谷中的 UAV 6DoF 定位提供了可扩展约束。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">航拍 6DoF 定位通常依赖高精度 GNSS 或带纹理的高保真 3D 重建，因而在城市峡谷、遮挡和大规模部署中受限。SemCityLoc 将航拍位姿估计表述为语义-几何表面对齐：把基础模型提取的视觉语义先验和单目深度，与符合 LoD 标准的轻量级语义 3D 建筑模型配准。作者还发布 SemCityLockeD 基准，包含厘米级 UAV 真值位姿、LoD1–LoD3 城市模型和低空影像。实验显示，在挑战性城市峡谷中，召回率最高提升 36%，平均位置误差由 9.89 m 降至 2.62 m。</p><p class="lang lang-en lang-block" data-lang="en">Aerial 6DoF localization typically relies on precise GNSS signals or radiometrically rich 3D reconstructions, limiting scalability and on-board deployment. We propose SemCityLoc, a semantic-geometric alignment system that reframes aerial pose estimation as structured surface registration between foundation-model-derived visual priors and standardized LoD-compliant 3D city models. Instead of matching sparse contours or dense texture, our method aligns semantic surfaces and monocular depth with lightweight semantic 3D building models, increasing pose discriminability in repetitive and occluded urban environments. To enable accurate evaluation, we introduce SemCityLockeD, the first real-world benchmark combining centimeter-accurate UAV poses with standardized LoD1--LoD3 semantic city models and challenging low-altitude imagery. Experiments demonstrate substantial improvements over existing map-based approaches, improving recall by up to 36% and reducing mean positional error from 9.89m to 2.62m in challenging urban canyons. Our results indicate that semantically structured geometry provides sufficient and scalable constraints for high-precision aerial localization without radiometric scene reconstructions. The code and data are available at https://albertchen98.github.io/SemCityLoc.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：最贴近今日重点。它直接针对“依赖精确 GNSS 或高保真纹理重建”的航拍定位痛点，把 UAV 6DoF 定位转成语义表面与轻量 LoD 城市模型的配准问题。</li>
+<li><strong>方法要点</strong>：使用基础模型提取的语义先验与单目深度，和 LoD1–LoD3 语义建筑模型做 semantic-geometric alignment；不要求 radiometric 3D reconstruction。</li>
+<li><strong>结果信号</strong>：发布 SemCityLockeD 基准，含厘米级 UAV 位姿真值、标准化城市模型和低空影像；城市峡谷实验中召回率最高提升 36%，均值位置误差从 9.89 m 降至 2.62 m。</li>
+<li><strong>跟踪建议</strong>：重点看其地图格式、语义类别、深度尺度处理和姿态优化代价函数，评估能否迁移到 GNSS/视觉/激光融合定位。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.27444">abs</a> · <a href="https://arxiv.org/pdf/2606.27444">PDF</a> · 项目页：https://albertchen98.github.io/SemCityLoc</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

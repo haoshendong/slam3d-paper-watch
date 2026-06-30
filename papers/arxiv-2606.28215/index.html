@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 8.5 · cs.CV, cs.AI, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HAT-4D：通过人机协作从单目视频提升 4D 多物体交互</span><span class="lang lang-en lang-inline" data-lang="en">HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration</span></h1>
+  <div class="meta">作者：Jiaxin Li, Yuxiang Wu, Zhenkai Zhang, Xinrui Shi, Haoyuan Wang, Yichen Zhao, Su Linxiang, Chenyang Yu, Mingyu Zhang, Yifan Ding, Boran Wen, Li Zhang, Ruiyang Liu, Yong-Lu Li</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.28215">abs</a><a href="https://arxiv.org/pdf/2606.28215">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.5/10</span><p>贴合单目 3D/4D 重建、动态场景理解和具身数据生成；虽不是 SLAM 系统，但对地图资产与交互数据构建有潜在价值。</p><div class="tags"><span class="tag">单目视频</span><span class="tag">4D重建</span><span class="tag">多物体交互</span><span class="tag">VLM</span><span class="tag">具身智能</span><span class="tag">动态场景</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">面向单目视频的 4D 多物体交互重建数据引擎，可作为机器人/具身学习中低成本获取动态 3D 资产的候选路线。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">从海量野外单目视频中恢复动态 4D 物体交互，可为具身智能和 VLA 训练提供可扩展数据，但现有单目 4D 重建常聚焦孤立物体，在多物体遮挡和复杂交互中失败。HAT-4D 是一个 agentic 框架，结合 VLM 与多层级 human-in-the-loop 反馈，在 3D 生成和 4D 传播阶段处理深度歧义、遮挡和交互约束，从单视频恢复多物体几何、时间动态和物理交互。作者还构建 MVOIK-4D 开放世界基准，并用物理合理性和时间一致性指标评估。</p><p class="lang lang-en lang-block" data-lang="en">Extracting dynamic 4D object interactions from massive, in-the-wild monocular videos offers a highly efficient data collection pathway for scaling Embodied AI and training VLAs. However, existing monocular 4D reconstruction methods primarily focus on isolated objects, often failing under the severe occlusions and complex dynamics inherent in multi-object interactions. To bridge this gap, we propose HAT-4D, the first agentic framework designed to reconstruct the 3D geometry, temporal dynamics, and physical interactions of multiple objects from a single video. By integrating VLMs with a multi-level human-in-the-loop feedback mechanism, HAT-4D efficiently resolves depth ambiguities and interaction-induced occlusions during 3D generation and 4D propagation, yielding physically plausible assets without relying on expensive multicamera rigs. As a scalable data engine, HAT-4D facilitates the creation of MVOIK-4D, an open-world benchmark for monocular 4D interaction reconstruction, accompanied by a novel multi-dimensional evaluation protocol focused on physical plausibility and temporal consistency. Extensive experiments demonstrate that HAT-4D achieves SOTA performance on most evaluation metrics, while maintaining competitive semantic alignment. Ablation studies show that introducing a small amount of human feedback improves interaction reconstruction. Moreover, the data produced by HAT-4D effectively improves baseline performance when used for fine-tuning. Our data and code are available at https://lijiaxin0111.github.io/HAT4D/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：面向从普通单目视频构建动态 4D 多物体交互资产，适合作为具身智能/机器人训练数据引擎观察。</li>
+<li><strong>方法要点</strong>：结合 VLM、agentic pipeline 和多层级 human-in-the-loop 反馈，在 3D 生成与 4D 传播阶段处理深度歧义、遮挡和交互约束。</li>
+<li><strong>结果信号</strong>：提出 MVOIK-4D benchmark，并强调物理合理性、时间一致性等多维评估；数据和代码已给出项目页。</li>
+<li><strong>跟踪建议</strong>：关注其对相机运动、尺度、遮挡恢复和物理接触的假设；若能稳定生成动态 3D 资产，可补充机器人仿真场景库。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.28215">abs</a> · <a href="https://arxiv.org/pdf/2606.28215">PDF</a> · 项目页：https://lijiaxin0111.github.io/HAT4D/</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.28215/fig-001.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.28215/fig-001.webp" alt="HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.28215/fig-002.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.28215/fig-002.webp" alt="HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.28215/fig-003.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.28215/fig-003.webp" alt="HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.28215/fig-004.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.28215/fig-004.webp" alt="HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.28215/fig-005.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.28215/fig-005.webp" alt="HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-06-30/arxiv-2606.28215/fig-006.webp"><img src="../../assets/media/2026-06-30/arxiv-2606.28215/fig-006.webp" alt="HAT-4D: Lifting Monocular Video for 4D Multi-Object Interactions via Human-Agent Collaboration" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

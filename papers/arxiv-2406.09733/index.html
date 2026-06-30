@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Unified Gaussian Primitives for Scene Representation and Rendering</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-06-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-06-30/index.html">← 返回 2026-06-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 8.0 · cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">统一高斯基元用于场景表示与渲染</span><span class="lang lang-en lang-inline" data-lang="en">Unified Gaussian Primitives for Scene Representation and Rendering</span></h1>
+  <div class="meta">作者：Yang Zhou, Songyin Wu, Lingqi Yan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2406.09733">abs</a><a href="https://arxiv.org/pdf/2406.09733">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>与 3DGS/辐射场场景表示密切相关，理论和渲染应用价值高；和定位/SLAM 的直接关系较弱。</p><div class="tags"><span class="tag">3D Gaussian</span><span class="tag">场景表示</span><span class="tag">可微渲染</span><span class="tag">全局光照</span><span class="tag">Radiance Field</span><span class="tag">图形学</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从渲染理论层面扩展 Gaussian primitive，有助于观察 3DGS 从快速新视角合成走向更统一、物理一致场景表示的趋势。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">作者提出一种通用 3D Gaussian 分布渲染基元，试图统一硬表面、高频细节、毛发/雾等模糊介质与全局光照。方法基于非指数传输推导与 Monte Carlo 路径追踪兼容的渲染操作，可从 mesh 和 3D Gaussian Splatting 转换，并通过可微的透射率优化继续细化。论文展示了全局光照、外观编辑以及辐射场重建/渲染等应用，强调在多种场景表示之间的转换与统一。</p><p class="lang lang-en lang-block" data-lang="en">Searching for a unified scene representation remains a research challenge in computer graphics. Traditional mesh-based representations are unsuitable for dense, fuzzy elements and introduce additional complexity for filtering and differentiable rendering. Conversely, voxel-based representations struggle to model hard surfaces and high-frequency details. We propose a general-purpose rendering primitive based on 3D Gaussian distributions for unified scene representation, featuring versatile appearance ranging from glossy surfaces to fuzzy elements, as well as physically based scattering to enable accurate global illumination. We formulate the rendering theory for the primitive based on non-exponential transport and derive efficient rendering operations to be compatible with Monte Carlo path tracing. The new representation can be converted from different sources, including meshes and 3D Gaussian splatting, and further refined via transmittance optimization thanks to its differentiability. We demonstrate the versatility of our representation in various rendering applications such as global illumination and appearance editing, while naturally supporting arbitrary lighting conditions. With suitable simplification, we further adapt our method to radiance field reconstruction and rendering. We conduct comprehensive comparisons of our representation with existing scene representations, highlighting its efficiency in capturing details and representing aggregate elements.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：这是 3DGS/辐射场表征向更统一、物理一致场景表示演进的图形学路线。</li>
+<li><strong>方法要点</strong>：提出可表示硬表面、模糊介质和高频细节的 3D Gaussian primitive，基于非指数传输并兼容 Monte Carlo path tracing；可由 mesh 或 3DGS 转换并可微优化。</li>
+<li><strong>结果信号</strong>：展示全局光照、外观编辑、radiance field reconstruction/rendering 等应用。</li>
+<li><strong>跟踪建议</strong>：重点看从现有 3DGS/mesh 转换后的几何保真度、渲染成本，以及是否可作为 SLAM 建图后的可视化/仿真表示。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2406.09733">abs</a> · <a href="https://arxiv.org/pdf/2406.09733">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
