@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Argus: Metric Panoramic 3D Reconstruction for Indoor Scenes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-01/index.html">← 返回 2026-07-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 12 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Argus：室内场景的度量全景 3D 重建</span><span class="lang lang-en lang-inline" data-lang="en">Argus: Metric Panoramic 3D Reconstruction for Indoor Scenes</span></h1>
+  <div class="meta">作者：Xi Li, Linyuan Li, Yan Wu, Tong Rao, Kai Zhang, Xinchen Hui, Cihui Pan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30047">abs</a><a href="https://arxiv.org/pdf/2606.30047">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>贴合室内三维重建、度量尺度、相机位姿估计和点云重建；对 SLAM 初始化/重定位有潜在参考。</p><div class="tags"><span class="tag">全景重建</span><span class="tag">度量尺度</span><span class="tag">相机位姿</span><span class="tag">深度估计</span><span class="tag">点云重建</span><span class="tag">RGB-D 数据集</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">Argus 通过大规模全景 RGB-D 数据和 covisibility 锚点选择，把全景重建推向可评测的度量相机位姿、深度和点云输出。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">全景 feed-forward 3D 重建长期缺少大规模 RGB-D 训练数据和可靠 metric supervision。该文提出 Realsee3D：包含 10K 室内场景、299K panoramic viewpoints 和精确度量标注的混合数据集；并提出 Argus 网络进行 metric panoramic 3D reconstruction。在 Realsee3D 的稀疏无序采集设置下，坐标锚选择不佳会造成全局位姿漂移，因此 Argus 设计 learned covisibility module 自动选择几何最优参考视图锚定世界坐标。它还将双向 pixel-to-world mapping 拆成可解释子步骤，并用逐步监督和跨坐标约束提升几何一致性。</p><p class="lang lang-en lang-block" data-lang="en">Metric feed-forward 3D reconstruction for panoramic data remains under-explored due to the lack of large-scale panoramic RGB-D training data. We present Realsee3D, a hybrid dataset of 10K indoor scenes (1K real, 9K synthetic) with 299K panoramic viewpoints and precise metric annotations, and Argus, a feed-forward network trained on it for metric panoramic 3D reconstruction. In the sparse unordered capture setting of Realsee3D, a poorly chosen coordinate anchor can cause global pose drift. Argus addresses this with a learned covisibility module that selects the geometrically optimal reference view to anchor the metric world frame. To further improve multi-task learning, we decompose the bidirectional pixel-to-world mapping into interpretable sub-steps with per-step supervision and cross-coordinate joint constraints, reinforcing geometric consistency across prediction branches. On the Realsee3D benchmark, Argus achieves state-of-the-art metric performance in camera pose estimation, depth estimation, and point cloud reconstruction. Project page: https://argus-paper.realsee.ai.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：补齐了全景 feed-forward 重建中“度量尺度”和“大规模 RGB-D 训练数据”不足的问题，并给出 Realsee3D 数据集。</li>
+<li><strong>方法要点</strong>：Realsee3D 包含 10K 室内场景、299K panoramic viewpoints 和精确 metric annotations；Argus 用 learned covisibility module 选择最优参考视图锚定世界坐标，减少 unordered sparse capture 下的全局位姿漂移。</li>
+<li><strong>结果信号</strong>：在 Realsee3D benchmark 上，camera pose estimation、depth estimation 和 point cloud reconstruction 均达到 SOTA。</li>
+<li><strong>跟踪建议</strong>：重点评估数据是否开放、坐标锚选择是否能迁移到 SLAM 初始化/重定位，以及对稀疏无序全景采集的鲁棒性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30047">abs</a> · <a href="https://arxiv.org/pdf/2606.30047">PDF</a> · 项目页：https://argus-paper.realsee.ai</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30047/fig-001.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30047/fig-001.webp" alt="Argus: Metric Panoramic 3D Reconstruction for Indoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30047/fig-002.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30047/fig-002.webp" alt="Argus: Metric Panoramic 3D Reconstruction for Indoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30047/fig-003.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30047/fig-003.webp" alt="Argus: Metric Panoramic 3D Reconstruction for Indoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30047/table-001.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30047/table-001.webp" alt="Argus: Metric Panoramic 3D Reconstruction for Indoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

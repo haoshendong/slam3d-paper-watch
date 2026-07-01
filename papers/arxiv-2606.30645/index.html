@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-01/index.html">← 返回 2026-07-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-30 · score 10 · cs.RO, cs.AI, cs.GR, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">VLK：从重建场景中的合成交互学习人形机器人移动操作</span><span class="lang lang-en lang-inline" data-lang="en">VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes</span></h1>
+  <div class="meta">作者：Yen-Jen Wang, Jiaman Li, Sirui Chen, Takara E. Truong, Pei Xu, Pieter Abbeel, Rocky Duan, Koushil Sreenath</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30645">abs</a><a href="https://arxiv.org/pdf/2606.30645">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.3/10</span><p>与 3DGS 重建、机器人训练数据生成和 sim-to-real 相关；不是定位论文，但体现重建场景向控制任务闭环的转化。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">人形机器人</span><span class="tag">移动操作</span><span class="tag">合成数据</span><span class="tag">视觉语言运动</span><span class="tag">Unitree G1</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">VLK 展示了从 3DGS 重建环境自动合成人形机器人视觉-语言-运动监督的路线，是重建场景服务机器人训练的代表信号。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">感知驱动的人形机器人移动操作需要把第一视角观测和任务指令映射到全身运动，但缺少同时包含 egocentric image、language command 和 robot-compatible kinematic trajectory 的大规模数据。VLK 管线使用 3D Gaussian Splatting 重建 metric-scale 室内环境，再利用 privileged scene information 合成导航与物体交互轨迹，随后渲染配对第一视角观测，自动生成 48,000 条视觉-语言-运动轨迹。作者训练 VLK policy 预测短时程全身 kinematic trajectory，并通过 whole-body tracker 在 Unitree G1 上执行导航和单物体搬运。</p><p class="lang lang-en lang-block" data-lang="en">Perception-based humanoid loco-manipulation requires connecting egocentric observations and task instructions to whole-body motion. Learning this mapping requires synchronized egocentric images, language commands, and robot-compatible kinematic trajectories, yet no existing data source provides this complete tuple at scale. We address this bottleneck by generating vision-language-kinematics (VLK) supervision synthetically in reconstructed scenes. Our pipeline leverages 3D Gaussian Splatting to reconstruct metric-scale indoor environments, synthesizes navigation and object-interaction trajectories using privileged scene information, and renders paired egocentric observations after the fact. We produce 48,000 paired trajectories with no human intervention and train a VLK policy that predicts short-horizon whole-body kinematic trajectories. A whole-body tracker converts these predictions into actions on the physical humanoid. We evaluate on the physical Unitree G1 performing navigation and single-object transport, demonstrating that synthesized interactions in reconstructed scenes provide effective supervision for sim-to-real perception-based humanoid loco-manipulation. Project Website: https://vision-language-kinematics.github.io/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：它把 3DGS 重建场景用于合成 egocentric observations、语言命令和 humanoid-compatible kinematic trajectories，属于“重建场景 → 机器人训练数据”的直接链路。</li>
+<li><strong>方法要点</strong>：在 metric-scale indoor 3DGS 场景中用 privileged scene information 合成导航和物体交互轨迹，再渲染第一视角观测，生成 48,000 条 paired trajectories 训练 VLK policy。</li>
+<li><strong>结果信号</strong>：在 Unitree G1 上验证导航和单物体搬运，说明重建场景中的合成交互可提供可迁移监督。</li>
+<li><strong>跟踪建议</strong>：关注 3DGS 场景的物理可交互性、物体几何/碰撞代理、轨迹合成质量和 sim-to-real 标定误差。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30645">abs</a> · <a href="https://arxiv.org/pdf/2606.30645">PDF</a> · 项目页：https://vision-language-kinematics.github.io/</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30645/fig-001.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30645/fig-001.webp" alt="VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30645/fig-002.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30645/fig-002.webp" alt="VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30645/fig-003.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30645/fig-003.webp" alt="VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30645/fig-004.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30645/fig-004.webp" alt="VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30645/fig-005.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30645/fig-005.webp" alt="VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30645/table-001.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30645/table-001.webp" alt="VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30645/table-002.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30645/table-002.webp" alt="VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

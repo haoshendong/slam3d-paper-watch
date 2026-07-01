@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Open-Vocabulary and Referring Segmentation for 3D Gaussians Using 2D Detectors</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-01/index.html">← 返回 2026-07-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-30 · score 8 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">使用 2D 检测器的 3D Gaussian 开放词表与指代表达分割</span><span class="lang lang-en lang-inline" data-lang="en">Open-Vocabulary and Referring Segmentation for 3D Gaussians Using 2D Detectors</span></h1>
+  <div class="meta">作者：Jameel Hassan, Yasiru Ranasinghe, Vishal Patel</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30638">abs</a><a href="https://arxiv.org/pdf/2606.30638">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>与语义地图、3DGS、开放词表分割和指代 grounding 相关；可作为 semantic SLAM 后端语义层的参考。</p><div class="tags"><span class="tag">语义 3DGS</span><span class="tag">开放词表</span><span class="tag">指代表达</span><span class="tag">实例分割</span><span class="tag">2D 检测器</span><span class="tag">具身智能</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">GaussDet 用多视角 2D 检测投票给 3D Gaussian 实例赋语义，适合语义 3DGS 地图和开放词表机器人场景理解。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 需要语言驱动的开放词表理解来支持 embodied AI 等应用。现有方法常把 CLIP dense features 蒸馏到场景表示中，但实例分组依赖预设实例数或 bottom-up grouping，且 CLIP 对复杂空间推理和指代表达能力有限。GaussDet 改用离散的开放词表 2D detector 和 referring expression detector：先为每个 Gaussian 学习 instance features 并分解出 3D instance groups，再渲染这些组，从多视角 2D detections 中聚合语义投票，得到 View-Aggregated Semantic Label Distribution。该策略可正则化噪声实例分组，并实现从简单名词到复杂指代 grounding 的 zero-shot 扩展。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has emerged at the forefront of 3D scene reconstruction. Extending 3DGS with language-driven, open-vocabulary understanding has gained significant attention for real-world applications such as embodied AI. Recent methods achieve this by learning an instance feature attribute and assigning semantics by distilling high-dimensional Contrastive Language-Image Pretraining (CLIP) features directly into the scene representation. However, the instance grouping mechanisms of these methods either require a predefined number of instances or suffer from noise in their bottom-up grouping strategies. Furthermore, the reliance on CLIP restricts semantic understanding to simple noun phrases, preventing complex spatial reasoning and referential expression grounding. We present GaussDet, a method that circumvents the need for dense CLIP features by leveraging discrete, open-vocabulary 2D object detectors with referring expression capabilities. We learn instance features for individual Gaussians to decompose the scene into 3D instance groups. By rendering these groups and aggregating semantic votes from multi-view 2D detections, we generate a robust View-Aggregated Semantic Label Distribution (VASD) for each 3D instance. This view-aggregation strategy acts as a strong regularizer, attenuating spurious labels caused by low-quality instance grouping. Our approach enables a straightforward, zero-shot extension from simple language queries to complex referential grounding. Extensive evaluations across two key tasks -- open-vocabulary segmentation (LeRF-OVS, ScanNet) and referring expression grounding (Ref-LeRF) -- demonstrate that GaussDet achieves consistent improvements over existing methods. Most notably, we achieve a substantial 16.7% mIoU improvement in referential grounding within a strict zero-shot setting.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：语义 3DGS/语义地图需要开放词表和复杂指代 grounding；GaussDet 试图绕开 CLIP dense feature 蒸馏的噪声与表达能力限制。</li>
+<li><strong>方法要点</strong>：为 Gaussians 学习 instance features，渲染实例组后从多视角 2D open-vocabulary/referring detectors 聚合语义投票，形成 View-Aggregated Semantic Label Distribution。</li>
+<li><strong>结果信号</strong>：在 open-vocabulary segmentation 和 referring expression grounding 上优于现有方法，尤其 zero-shot referential grounding mIoU 提升 16.7%。</li>
+<li><strong>跟踪建议</strong>：如果做 semantic SLAM/3DGS map，可关注它的 instance grouping 稳定性、多视角投票对遮挡/小物体的鲁棒性，以及无需 CLIP dense features 的工程收益。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30638">abs</a> · <a href="https://arxiv.org/pdf/2606.30638">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30638/fig-001.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30638/fig-001.webp" alt="Open-Vocabulary and Referring Segmentation for 3D Gaussians Using 2D Detectors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30638/fig-002.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30638/fig-002.webp" alt="Open-Vocabulary and Referring Segmentation for 3D Gaussians Using 2D Detectors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30638/fig-003.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30638/fig-003.webp" alt="Open-Vocabulary and Referring Segmentation for 3D Gaussians Using 2D Detectors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Robust and Efficient Monocular 3D Gaussian SLAM for Kilometer-Scale Outdoor Scenes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-01/index.html">← 返回 2026-07-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 15 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">公里级户外场景的鲁棒高效单目 3D Gaussian SLAM</span><span class="lang lang-en lang-inline" data-lang="en">Robust and Efficient Monocular 3D Gaussian SLAM for Kilometer-Scale Outdoor Scenes</span></h1>
+  <div class="meta">作者：Sicheng Yu, Dongxu Shen, Beizhen Zhao, Guanzhi Ding, Hao Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30436">abs</a><a href="https://arxiv.org/pdf/2606.30436">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.6/10</span><p>高度贴合 SLAM、3DGS、大规模户外建图和长程 tracking；核心指标是 10k+ frames 单 GPU 运行与漂移恢复策略。</p><div class="tags"><span class="tag">3DGS-SLAM</span><span class="tag">单目 SLAM</span><span class="tag">大尺度户外</span><span class="tag">长程跟踪</span><span class="tag">地图压缩</span><span class="tag">Gaussian Splatting</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">KiloGS-SLAM 同时处理长程单目跟踪漂移和 3DGS 地图内存膨胀，是 3DGS-SLAM 走向大尺度户外应用的重要候选。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">单目 3DGS-SLAM 扩展到公里级户外环境时，同时面临长时程 pose tracking 脆弱和大规模 Gaussian map 内存开销过高两个瓶颈。KiloGS-SLAM 用 motion-adaptive hybrid tracking 处理前者：根据条件触发在 Essential matrix、PnP 和按需 foundation model rescue 之间切换，以应对几何退化和灾难性漂移；建图侧则用 lifecycle-managed Gaussian mapping，结合概率初始化、分块多视图 densification 与 pruning 降低冗余 primitive。论文称在三个户外数据集上获得 SOTA tracking 和 rendering，并能在单 GPU 上处理超过 10,000 帧序列。</p><p class="lang lang-en lang-block" data-lang="en">Scaling monocular 3D Gaussian Splatting (3DGS) SLAM to kilometer-level outdoor environments poses two tightly coupled challenges: fragile long-term pose tracking and excessive memory overhead during large-scale mapping. In this paper, we propose KiloGS-SLAM, a highly efficient and robust monocular 3DGS-SLAM system that jointly addresses both bottlenecks. Since high-fidelity scene reconstruction fundamentally relies on drift-free camera poses, we first introduce a motion-adaptive hybrid tracking module. This module features a condition-triggered three-tier solving pipeline. It dynamically switches between Essential matrix and PnP models to handle geometric degeneracies. An on-demand foundation model can also be activated to rescue the trajectory from catastrophic drift. To ensure the system can sustain these long trajectories without memory exhaustion, we subsequently design a lifecycle-managed Gaussian mapping strategy. By integrating probabilistic initialization with chunk-based multi-view densification and pruning, this full-pipeline optimization effectively reduces primitive redundancy while preserving high-frequency details. Together, the robust tracking guarantees the geometric foundation required for accurate mapping, while the memory-efficient lifecycle-managed mapping enables large-scale operation. Extensive experiments across three challenging outdoor datasets demonstrate that our approach achieves state-of-the-art tracking accuracy and rendering quality, successfully scaling to sequences of over 10,000 frames on a single GPU.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：直接解决 monocular 3DGS-SLAM 在长距离户外序列中的两个核心瓶颈：长时程位姿漂移和 Gaussian map 内存膨胀。</li>
+<li><strong>方法要点</strong>：KiloGS-SLAM 采用 motion-adaptive hybrid tracking，根据运动状态在 Essential matrix、PnP 和按需 foundation model rescue 之间切换；建图侧用生命周期管理、chunk-based multi-view densification 和 pruning 降低冗余。</li>
+<li><strong>结果信号</strong>：宣称在三个户外数据集上达到 SOTA tracking/rendering，并可在单 GPU 上处理超过 10,000 帧序列。</li>
+<li><strong>跟踪建议</strong>：需要重点核查 rescue foundation model 的触发条件、失败恢复代价、轨迹尺度一致性和 map chunk 合并策略；这决定其是否可用于真实车载/机器人长程建图。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30436">abs</a> · <a href="https://arxiv.org/pdf/2606.30436">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

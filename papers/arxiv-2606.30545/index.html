@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>StereoGS: Sparse-View 3D Gaussian Splatting via Stereo Priors</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-01/index.html">← 返回 2026-07-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-30 · score 11 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">StereoGS：通过立体先验实现稀疏视角 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">StereoGS: Sparse-View 3D Gaussian Splatting via Stereo Priors</span></h1>
+  <div class="meta">作者：Wenhao Yuan, Yiyuan Ge, Deli Cai</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30545">abs</a><a href="https://arxiv.org/pdf/2606.30545">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>与稀疏视角重建、3DGS 几何正则和尺度一致性相关；对少视角预建图和机器人场景扫描有参考价值。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">稀疏视角</span><span class="tag">立体先验</span><span class="tag">深度正则</span><span class="tag">尺度一致性</span><span class="tag">ECCV 2026</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用立体先验替代纯单目深度约束，有望缓解稀疏视角 3DGS 的尺度歧义和几何过拟合问题。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">稀疏视角 3DGS 因几何约束不足容易过拟合；现有 monocular depth prior 又存在尺度歧义和跨视角不一致。StereoGS 通过在优化过程中构造 virtual stereo pairs，并利用 foundation stereo model 施加 Stereo Depth Regularization，以引入绝对尺度和双目一致结构。同时，它用 Consistency-Aware Dense Initialization 将 Gaussian primitive 锚定到较准确表面，并用 Gradient-Aware Opacity Decay 根据 opacity gradient 动态惩罚冗余 Gaussian。论文称在 LLFF、DTU、Mip-NeRF360 和 Blender 的 sparse-view 设置上达到 SOTA，且推理阶段没有额外开销。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has achieved remarkable success in real-time novel view synthesis, yet it suffers from severe overfitting under sparse-view settings due to insufficient geometric constraints. While recent methods introduce monocular depth priors to mitigate this, they inherently struggle with scale ambiguity and cross-view inconsistency, leading to defective geometry. In this paper, we propose StereoGS, a novel sparse-view 3DGS framework that integrates stereo priors to establish reliable binocular consistency. Unlike scale-agnostic monocular constraints, StereoGS introduces a Stereo Depth Regularization by constructing virtual stereo pairs during optimization and leveraging a foundation stereo model to enforce absolute scale and binocular-consistent structures. To further suppress overfitting and eliminate redundant primitives, we design a Gradient-Aware Opacity Decay strategy that dynamically penalizes Gaussians based on their relative opacity gradient magnitudes. Combined with a Consistency-Aware Dense Initialization using zero-shot multi-view depth estimation, StereoGS effectively anchors primitives to accurate scene surfaces. Extensive experiments on LLFF, DTU, Mip-NeRF360, and Blender datasets demonstrate that StereoGS achieves state-of-the-art performance in sparse-view settings without incurring any additional inference overhead. Project Page: https://stringerywh00.github.io/StereoGS_project_page/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：稀疏视角 3DGS 的几何约束不足会导致过拟合和尺度不一致；StereoGS 用 stereo prior 代替纯 monocular depth regularization，直指尺度与跨视角一致性问题。</li>
+<li><strong>方法要点</strong>：优化中构造 virtual stereo pairs，并用 foundation stereo model 施加 Stereo Depth Regularization；再结合 Consistency-Aware Dense Initialization 和 Gradient-Aware Opacity Decay 抑制冗余 Gaussian。</li>
+<li><strong>结果信号</strong>：论文已接收 ECCV 2026，称在 LLFF、DTU、Mip-NeRF360 和 Blender 稀疏视角设置下达到 SOTA，且不增加推理开销。</li>
+<li><strong>跟踪建议</strong>：关注 stereo foundation model 的域泛化和绝对尺度可靠性；若可稳定输出尺度一致几何，可服务少视角三维重建/机器人预建图。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30545">abs</a> · <a href="https://arxiv.org/pdf/2606.30545">PDF</a> · 项目页：https://stringerywh00.github.io/StereoGS_project_page/</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30545/fig-001.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30545/fig-001.webp" alt="StereoGS: Sparse-View 3D Gaussian Splatting via Stereo Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CSAR: Containerized System Architecture for Robotics</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-01/index.html">← 返回 2026-07-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-06-29 · score 5 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CSAR：面向机器人团队的容器化系统架构</span><span class="lang lang-en lang-inline" data-lang="en">CSAR: Containerized System Architecture for Robotics</span></h1>
+  <div class="meta">作者：Ambrosio-Cestero, Gregorio, Galindo Andrades, Cipriano, Gonzalez-Jimenez, Javier, Ruiz-Sarmiento, Jose-Raul</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30293">abs</a><a href="https://arxiv.org/pdf/2606.30293">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.8/10</span><p>不是算法论文，但与 3D SLAM 工程部署、ROS 2/DDS、GPU 语义建图和实验可复现性相关，适合作为系统架构参考。</p><div class="tags"><span class="tag">机器人系统</span><span class="tag">容器化</span><span class="tag">ROS 2</span><span class="tag">边缘计算</span><span class="tag">3D SLAM 部署</span><span class="tag">语义建图</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">CSAR 偏系统工程，但为多人机器人团队部署 3D SLAM、语义建图和共享 GPU/边缘资源提供了可复现架构参考。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">机器人应用越来越依赖嵌入式设备、边缘服务器和云资源组成的分布式计算基础设施，多用户团队在依赖隔离、兼容性、可复现性、共享专用硬件和跨异构环境部署方面面临复杂挑战。CSAR 是面向机器人团队和 edge-cloud continuum 的容器中心架构，结合 LXC/LXD system container、ROS 2/DDS 通信和三层 edge infrastructure，将计算组织为硬件亲和、持久且与实验负载解耦的执行环境。作者描述了学术机器人实验室的真实部署，并用 edge-offloaded 3D SLAM 与 GPU-accelerated semantic mapping 等用例评估。</p><p class="lang lang-en lang-block" data-lang="en">Robotic applications increasingly rely on distributed computational infrastructures that combine embedded devices, edge servers, and cloud resources. This evolution, together with the collaborative nature of robotics projects, has made the development, integration, deployment, and long-term operation of robotic systems significantly more complex. In practice, multi-user robotics software teams face persistent challenges related to dependency isolation, compatibility, reproducibility, efficient sharing of specialized hardware, and deployment across heterogeneous environments. In this paper, we present CSAR (Containerized System Architecture for Robotics), a container-centric architectural framework designed specifically for robotics teams and the edge-cloud continuum. CSAR combines LXC/LXD-based system containerization, ROS 2/DDS-based communication, and a three-layer edge infrastructure to organize computation into hardware-affine, persistent execution environments that remain decoupled from the volatility of experimental workloads. Through its Infrastructure Core, Platform and Multi-User Orchestration, and Compute and Acceleration layers, CSAR provides strong isolation, controlled resource sharing, and topology-aware networking for distributed robotic applications. To demonstrate its validity, we describe a real deployment of CSAR in an academic robotics laboratory and evaluate it through representative use cases involving edge-offloaded 3D SLAM and GPU-accelerated semantic mapping. The results indicate that CSAR simplifies software integration, improves the utilization of shared computational resources, and facilitates safe prototyping, as well as reproducible and collaborative experimentation in robotics teams. The implementation described in this paper, including deployment templates, configuration files, and documentation, is available at https://github.com/goyoambrosio/CSAR.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：偏系统工程，但和机器人实验室中 3D SLAM、GPU 语义建图、边缘/云资源共享的可复现部署直接相关。</li>
+<li><strong>方法要点</strong>：CSAR 结合 LXC/LXD system containers、ROS 2/DDS 通信和三层 edge infrastructure，把硬件亲和的持久执行环境与易变实验工作负载解耦。</li>
+<li><strong>结果信号</strong>：论文描述了真实学术实验室部署，并用 edge-offloaded 3D SLAM 与 GPU-accelerated semantic mapping 作为代表用例；实现模板和文档开源。</li>
+<li><strong>跟踪建议</strong>：可作为多人团队共享 LiDAR/GPU/边缘服务器时的工程参考；重点看 ROS 2 网络拓扑、设备透传、GPU 隔离和实验复现模板。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30293">abs</a> · <a href="https://arxiv.org/pdf/2606.30293">PDF</a> · 代码：https://github.com/goyoambrosio/CSAR</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30293/fig-001.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30293/fig-001.webp" alt="CSAR: Containerized System Architecture for Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30293/fig-002.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30293/fig-002.webp" alt="CSAR: Containerized System Architecture for Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30293/fig-003.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30293/fig-003.webp" alt="CSAR: Containerized System Architecture for Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30293/fig-004.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30293/fig-004.webp" alt="CSAR: Containerized System Architecture for Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30293/fig-005.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30293/fig-005.webp" alt="CSAR: Containerized System Architecture for Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-01/arxiv-2606.30293/fig-006.webp"><img src="../../assets/media/2026-07-01/arxiv-2606.30293/fig-006.webp" alt="CSAR: Containerized System Architecture for Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
