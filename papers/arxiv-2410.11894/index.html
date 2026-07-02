@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Automated Discovery of Operable Dynamics from Videos</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 7 · eess.SY, cs.LG, cs.SY, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">从视频自动发现可操作动力学</span><span class="lang lang-en lang-inline" data-lang="en">Automated Discovery of Operable Dynamics from Videos</span></h1>
+  <div class="meta">作者：Kuang Huang, Dong Heon Cho, Boyuan Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2410.11894">abs</a><a href="https://arxiv.org/pdf/2410.11894">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.5/10</span><p>与 SLAM/GNSS 主线弱相关；但与视频到状态、动力学建模和机器人控制表示学习有外围价值。</p><div class="tags"><span class="tag">视频动力学</span><span class="tag">状态表示学习</span><span class="tag">科学发现</span><span class="tag">可微动力系统</span><span class="tag">机器人控制</span><span class="tag">表征学习</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从视频中自动学习低维状态和动力学 vector field，短期可作为机器人视觉动力学表征学习参考。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该文尝试从视频中自动发现动力系统的低维、可操作表示，而不依赖预定义状态变量或领域方程。框架学习一组 compact state variables，使其保持动力学平滑性，同时学习 differentiable vector field。作者通过多种动力系统展示了稳定平衡点、自然频率、混沌和 limit cycle 行为的识别能力。对机器人而言，它不是定位/建图方法，但提供了从视觉观察中学习可操作状态空间和动力学模型的思路。</p><p class="lang lang-en lang-block" data-lang="en">Dynamical systems form the foundation of scientific discovery, traditionally modeled with predefined state variables such as the angle and angular velocity, and differential equations such as the equation of motion for a single pendulum. We introduce a framework that automatically discovers a low-dimensional and operable representation of system dynamics, including a set of compact state variables that preserve the smoothness of the system dynamics and a differentiable vector field, directly from video without requiring prior domain-specific knowledge. The prominence and effectiveness of the proposed approach are demonstrated through both quantitative and qualitative analyses of a range of dynamical systems, including the identification of stable equilibria, the prediction of natural frequencies, and the detection of chaotic and limit cycle behaviors. The results highlight the potential of our data-driven approach to advance automated scientific discovery.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：该文从视频中自动发现低维状态变量和可微 vector field，偏科学发现/动力学建模；对机器人而言，价值在于从视觉观察中学习可操作状态空间。</li>
+<li><strong>方法要点</strong>：不预设角度、角速度等状态变量，而是直接从视频学习保持动力学平滑性的 compact state variables 与 differentiable vector field。</li>
+<li><strong>结果信号</strong>：展示了稳定平衡、自然频率、混沌和 limit cycle 行为识别等分析能力。</li>
+<li><strong>跟踪建议</strong>：关注其对真实机器人视频、相机运动、遮挡与多物体接触的鲁棒性；短期更像 representation learning 参考，不是定位/建图方法。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2410.11894">abs</a> · <a href="https://arxiv.org/pdf/2410.11894">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

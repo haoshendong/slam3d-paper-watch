@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Structured SIR: Efficient and Expressive Importance-Weighted Inference for High-Dimensional Image Registration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 10 · eess.IV, cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Structured SIR：高维 3D 图像配准中的高效重要性加权推断</span><span class="lang lang-en lang-inline" data-lang="en">Structured SIR: Efficient and Expressive Importance-Weighted Inference for High-Dimensional Image Registration</span></h1>
+  <div class="meta">作者：Ivor J. A. Simpson, Neill D. F. Campbell</div>
+  <div class="links"><a href="https://arxiv.org/abs/2603.17415">abs</a><a href="https://arxiv.org/pdf/2603.17415">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>不是 SLAM 场景，应用在 MRI；但高维配准、多峰不确定性和结构化 covariance 对因子图/配准鲁棒性有方法参考价值。</p><div class="tags"><span class="tag">3D 配准</span><span class="tag">不确定性量化</span><span class="tag">重要性重采样</span><span class="tag">协方差建模</span><span class="tag">多峰后验</span><span class="tag">医学影像</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">医学 3D 配准论文，但其结构化多峰 posterior 与协方差参数化对 SLAM/点云配准因子的不确定性建模有借鉴意义。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该文面向 3D dense image registration 的不确定性建模。传统变分推断常因后验形式限制而过度自信，难以描述多解和多峰分布；更灵活的后验又受高维 covariance 矩阵复杂度限制。Structured SIR 用 Sampled Importance Resampling，并把高维 covariance 表示为 low-rank covariance 与稀疏空间结构 Cholesky precision factor 之和，从而在内存和计算可控的情况下捕获复杂空间相关。论文在脑 MRI 3D 配准中显示出更好校准的不确定性和高质量多峰 samples。</p><p class="lang lang-en lang-block" data-lang="en">Image registration is an ill-posed dense vision task, where multiple solutions achieve similar loss values, motivating probabilistic inference. Variational inference has previously been employed to capture these distributions, however restrictive assumptions about the posterior form can lead to poor characterisation, overconfidence and low-quality samples. More flexible posteriors are typically bottlenecked by the complexity of high-dimensional covariance matrices required for dense 3D image registration. In this work, we present a memory and computationally efficient inference method, Structured SIR, that enables expressive, multi-modal, characterisation of uncertainty with high quality samples. We propose the use of a Sampled Importance Resampling (SIR) algorithm with a novel memory-efficient high-dimensional covariance parameterisation as the sum of a low-rank covariance and a sparse, spatially structured Cholesky precision factor. This structure enables capturing complex spatial correlations while remaining computationally tractable. We evaluate the efficacy of this approach in 3D dense image registration of brain MRI data, which is a very high-dimensional problem. We demonstrate that our proposed method produces uncertainty estimates that are significantly better calibrated than those produced by variational methods, achieving equivalent or better accuracy. Crucially, we show that the model yields highly structured multi-modal posterior distributions, enable effective and efficient uncertainty quantification.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：应用场景是脑 MRI dense registration，不是 SLAM；但它围绕高维配准后验、多峰不确定性和结构化协方差，方法论上可为点云/体素配准的不确定性建模提供参考。</li>
+<li><strong>方法要点</strong>：用 Sampled Importance Resampling，并把高维 covariance 表示为 low-rank covariance 加稀疏空间结构 Cholesky precision factor，以降低内存和计算开销。</li>
+<li><strong>结果信号</strong>：作者称在 3D 脑 MRI 配准中比变分推断校准更好，且能产生结构化多峰 posterior samples。</li>
+<li><strong>跟踪建议</strong>：如果关注因子图/配准因子的协方差建模，可借鉴其结构化 posterior 表达；但需验证是否能迁移到 LiDAR/视觉几何噪声。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2603.17415">abs</a> · <a href="https://arxiv.org/pdf/2603.17415">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2603.17415/fig-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2603.17415/fig-001.webp" alt="Structured SIR: Efficient and Expressive Importance-Weighted Inference for High-Dimensional Image Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2603.17415/fig-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2603.17415/fig-002.webp" alt="Structured SIR: Efficient and Expressive Importance-Weighted Inference for High-Dimensional Image Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2603.17415/fig-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2603.17415/fig-003.webp" alt="Structured SIR: Efficient and Expressive Importance-Weighted Inference for High-Dimensional Image Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2603.17415/table-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2603.17415/table-001.webp" alt="Structured SIR: Efficient and Expressive Importance-Weighted Inference for High-Dimensional Image Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

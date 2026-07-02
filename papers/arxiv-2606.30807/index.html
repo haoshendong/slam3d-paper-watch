@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 8 · cs.RO, cs.CR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Derail：劫持生成式端到端驾驶规划器评分头的安全违规扰动</span><span class="lang lang-en lang-inline" data-lang="en">Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations</span></h1>
+  <div class="meta">作者：Halima Bouzidi, Mboutidem Ekemini Mkpong, Haoyu Liu, Mohammad Abdullah Al Faruque</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30807">abs</a><a href="https://arxiv.org/pdf/2606.30807">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>偏自动驾驶规划安全，不是定位建图；但对使用 BEV/生成式 planner 的机器人系统有重要安全提醒。</p><div class="tags"><span class="tag">自动驾驶</span><span class="tag">端到端规划</span><span class="tag">对抗攻击</span><span class="tag">BEV</span><span class="tag">安全验证</span><span class="tag">轨迹评分</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把端到端驾驶规划中的候选轨迹评分头定义为攻击面，说明小 margin 轨迹选择可能被定向扰动翻转。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">生成式端到端自动驾驶规划器常用一组固定候选轨迹，再由 learned scoring head 根据 BEV features 选择最高分轨迹。论文指出 scoring head 是感知到控制之间的关键单点屏障，且候选轨迹间 score margin 往往很小。Derail 构造 safety-violating adversarial perturbations，目标是把选择从安全候选翻转到不安全候选。作者在多类生成式 planner 上报告 39%–80% 的 score drop 和最高 50% 碰撞率，并优于通用 loss maximization 与 feature divergence attack。</p><p class="lang lang-en lang-block" data-lang="en">Generative models have recently seen rapid adoption in End-to-End (E2E) autonomous driving (AD), with diffusion-based denoising and vocabulary-based retrieval becoming the dominant trajectory-decoding paradigms. Despite their architectural diversity, current generative AD planners share a common inference pattern: a fixed set of candidate trajectories (anchors, vocabulary entries, or proposal queries) is scored by one or more learned heads conditioned on the Bird&#x27;s-Eye-View (BEV) features, and the highest-scored candidate is returned as the final trajectory. Under this design, the scoring head is the only barrier between perception and the motion command, and its decision margins between competing candidates are often small. We introduce \textsc{Derail}, an adversarial framework that exploits this scoring-head attack surface. Evaluated on various generative planners, \textsc{Derail} flips the trajectory selection from a safe to an unsafe candidate, with score drops of $39$--$80\%$ and collision rates of up to $50\%$, consistently outperforming generic loss-maximization and feature-divergence attacks. Our analysis suggests that safety-violating objectives govern attack effectiveness against generative AD planners, and that the scoring-head inference pattern itself is a recurring attack surface worth explicit defensive consideration.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：自动驾驶 E2E planner 常把固定候选轨迹交给 scoring head 排名；该文指出这一共同推理模式可能是安全薄弱点。</li>
+<li><strong>方法要点</strong>：Derail 对 BEV features 施加 safety-violating adversarial perturbations，目标不是泛化地最大化 loss，而是直接翻转 safe/unsafe trajectory selection。</li>
+<li><strong>结果信号</strong>：在多类生成式 planner 上造成 39%–80% score drop，碰撞率最高 50%，并优于通用 loss maximization / feature divergence attack。</li>
+<li><strong>跟踪建议</strong>：关注攻击是否依赖白盒访问、扰动可实现性、评分 margin 分布，以及是否能通过候选集约束、uncertainty-aware scoring 或安全 verifier 缓解。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30807">abs</a> · <a href="https://arxiv.org/pdf/2606.30807">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/fig-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/fig-001.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/fig-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/fig-002.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/fig-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/fig-003.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/fig-004.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/fig-004.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/table-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/table-001.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/table-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/table-002.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/table-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/table-003.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/table-004.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/table-004.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30807/table-005.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30807/table-005.webp" alt="Off the Rails: Hijacking the Scoring Head in Generative End-to-End Driving Planners with Safety-Violating Adversarial Perturbations" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

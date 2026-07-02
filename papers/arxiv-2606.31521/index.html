@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Distortion-Corrected Diffusion MRI Using Rotated-View EPI and Joint Field-Map/Image Estimation with Gaussian Primitives</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 9 · eess.IV, cs.CV, eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用 Gaussian primitives 联合估计场图和图像的旋转视角 EPI 扩散 MRI 畸变校正</span><span class="lang lang-en lang-inline" data-lang="en">Distortion-Corrected Diffusion MRI Using Rotated-View EPI and Joint Field-Map/Image Estimation with Gaussian Primitives</span></h1>
+  <div class="meta">作者：Wenqi Huang, Zhitao Li, Nan Wang, Yimeng Lin, Mengze Gao, Yurui Qian, Sevgi Gokce Kafali, Xiaozhi Cao, Kawin Setsompop, Daniel Rueckert, Congyu Liao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.31521">abs</a><a href="https://arxiv.org/pdf/2606.31521">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.3/10</span><p>与 SLAM/GNSS 直接相关性弱；保留价值在于 Gaussian primitives 的连续参数化和 physics-informed optimization 思路。</p><div class="tags"><span class="tag">Gaussian primitives</span><span class="tag">物理约束重建</span><span class="tag">连续场估计</span><span class="tag">畸变校正</span><span class="tag">MRI</span><span class="tag">反问题</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">虽然是医学成像工作，但展示了 Gaussian primitive + 物理 forward model 解决连续场反问题的路线。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该文针对 diffusion/fMRI EPI 因 B0 场不均匀产生的几何畸变，提出不先重建畸变图像，而是直接从 k-space 联合估计 distortion-free image 与 B0 field。图像和场图都表示为 Gaussian primitives 并嵌入 MRI physics forward model；rotated-view EPI 从多个相位编码方向分散畸变，给 B0 估计提供更强约束。实验显示在 in vivo brain diffusion EPI 中，与无畸变结构参考的脑边界一致性最好，高 b-value 和高加速下改进更明显。</p><p class="lang lang-en lang-block" data-lang="en">Echo Planar Imaging (EPI) is the standard acquisition technique for diffusion and functional neuroimaging, enabling rapid imaging but suffering from geometric distortions caused by B0 field inhomogeneities. Existing correction methods first reconstruct distorted images using parallel imaging, then estimate the B0 field and correct the distortion in the image domain. In this sequential process, reconstruction artifacts at high acceleration factors and low SNR at high diffusion b-values degrade B0 estimation and limit the overall correction quality. We propose a physics-informed framework that jointly estimates the B0 field and distortion-free image directly from k-space data, without depending on an intermediate parallel-imaging reconstruction for the correction. The image and the B0 field are each represented as a superposition of Gaussian primitives embedded within an MRI physics forward model. The explicit, continuous parameterization captures both smooth regions and tissue boundaries and supports rotated-view EPI acquisitions without interpolation. The diffusion-weighted image is modeled as real and non-negative, with the image phase absorbed into a per-shot phase factor. Rotated views distribute distortions across multiple phase-encoding orientations, improving point spread function isotropy and providing stronger constraints for B0 estimation. On in vivo brain diffusion EPI, the proposed method attains the closest brain-boundary agreement with a distortion-free structural reference, with the largest improvement over sequential methods at high b-value and high acceleration. Extensive visual comparisons further show improved detail fidelity and noise suppression.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：医学成像方向，和 SLAM/GNSS 主线距离较远；但它把图像和 B0 field 都表示为连续 Gaussian primitives，并嵌入物理 forward model，属于 Gaussian 表示参与反问题求解的一个信号。</li>
+<li><strong>方法要点</strong>：直接从 k-space 联合估计畸变-free image 与 B0 field；rotated-view EPI 提供多方向约束，Gaussian primitives 支持连续参数化和边界表达。</li>
+<li><strong>结果信号</strong>：在 in vivo brain diffusion EPI 上，脑边界与 distortion-free structural reference 的一致性最佳，高 b-value 和高加速下优势更明显。</li>
+<li><strong>跟踪建议</strong>：对机器人三维重建的直接价值有限；可关注其 Gaussian primitive + physics-informed optimization 是否能启发传感器物理约束下的连续场重建。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.31521">abs</a> · <a href="https://arxiv.org/pdf/2606.31521">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.31521/fig-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.31521/fig-001.webp" alt="Distortion-Corrected Diffusion MRI Using Rotated-View EPI and Joint Field-Map/Image Estimation with Gaussian Primitives" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.31521/fig-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.31521/fig-002.webp" alt="Distortion-Corrected Diffusion MRI Using Rotated-View EPI and Joint Field-Map/Image Estimation with Gaussian Primitives" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.31521/fig-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.31521/fig-003.webp" alt="Distortion-Corrected Diffusion MRI Using Rotated-View EPI and Joint Field-Map/Image Estimation with Gaussian Primitives" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.31521/fig-004.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.31521/fig-004.webp" alt="Distortion-Corrected Diffusion MRI Using Rotated-View EPI and Joint Field-Map/Image Estimation with Gaussian Primitives" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.31521/fig-005.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.31521/fig-005.webp" alt="Distortion-Corrected Diffusion MRI Using Rotated-View EPI and Joint Field-Map/Image Estimation with Gaussian Primitives" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.31521/table-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.31521/table-001.webp" alt="Distortion-Corrected Diffusion MRI Using Rotated-View EPI and Joint Field-Map/Image Estimation with Gaussian Primitives" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

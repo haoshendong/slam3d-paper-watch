@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 7 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向 4D 全景占用跟踪的流式 Gaussian 编码</span><span class="lang lang-en lang-inline" data-lang="en">Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking</span></h1>
+  <div class="meta">作者：Maximilian Luz, Thomas N\&quot;urnberg, Yakov Miron, Abhinav Valada</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30754">abs</a><a href="https://arxiv.org/pdf/2606.30754">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.1/10</span><p>与 4D occupancy、语义建图、动态场景理解和 Gaussian 表示强相关；可作为在线地图中间表示参考。</p><div class="tags"><span class="tag">4D occupancy</span><span class="tag">Panoptic tracking</span><span class="tag">Gaussian queries</span><span class="tag">时序一致性</span><span class="tag">自动驾驶感知</span><span class="tag">语义地图</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用可跨帧传播的 latent Gaussian queries 做动态占用地图底座，适合关注在线语义占用与时序一致性的 SLAM/感知系统。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Camera-based 4D panoptic occupancy tracking 需要在时间上同时保持几何、语义和实例 ID 一致性。现有 mask-based pipeline 通常每帧重算体素表示，静态元素和遮挡场景下的几何时序一致性不足。该文提出 streaming Gaussian encoder，用固定数量 latent Gaussian queries 维护持久体积场景表示；queries 经过 ego-motion compensation 跨帧传播，并按 confidence-guided budget 刷新。深度监督塑造 Gaussian opacity，使其作为 visibility proxy，confidence 能随时间累计场景支撑。论文在 Occ3D-extended nuScenes 和 Waymo 上刷新 camera-based 4D-POT SOTA，且计算开销很小。</p><p class="lang lang-en lang-block" data-lang="en">Camera-based 4D panoptic occupancy tracking (4D-POT) is a promising paradigm for holistic scene understanding from multi-view imagery, enabling joint reasoning about geometry, semantics, and object identities across time. Recent mask-based pipelines achieve strong performance by propagating instance queries across frames. However, their underlying volumetric representations are typically recomputed at each timestep, limiting geometric temporal consistency, particularly under occlusion and for static scene elements. To address this limitation, we propose a streaming Gaussian encoder that maintains a persistent volumetric scene representation for 4D-POT. Our method models the scene as a fixed-size set of latent Gaussian queries that are propagated via ego-motion compensation and refreshed under a confidence-guided budget constraint. Crucially, we shape Gaussian opacities through depth-based supervision to serve as proxy for visibility, enabling confidence to accumulate as a temporally aggregated measure of persistent scene support. Together with a warmup-based multi-frame training strategy, this yields representation-level temporal coherence beyond decoder-only tracking. Extensive experiments on Occ3D-extended nuScenes and Waymo establish a new state-of-the-art for camera-based 4D-POT, improving tracking consistency with negligible computational overhead while remaining fully compatible with existing mask-based pipelines. We provide code and models at https://sge.cs.uni-freiburg.de.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：把 persistent latent Gaussian queries 用于 4D panoptic occupancy tracking，比每帧重算体素表示更适合动态场景的时序一致性。</li>
+<li><strong>方法要点</strong>：固定数量 latent Gaussian queries 经 ego-motion compensation 跨帧传播，并按 confidence-guided budget 更新；用 depth supervision 让 opacity 近似 visibility，从而累计持久场景支撑。</li>
+<li><strong>结果信号</strong>：在 Occ3D-extended nuScenes 与 Waymo 上刷新 camera-based 4D-POT SOTA，并声称额外计算开销可忽略；代码/模型页面为 https://sge.cs.uni-freiburg.de。</li>
+<li><strong>跟踪建议</strong>：重点看 query budget、长期遮挡、动态实例 ID 保持，以及是否可作为在线语义占用地图的中间表示接入 SLAM。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30754">abs</a> · <a href="https://arxiv.org/pdf/2606.30754">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/fig-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/fig-001.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/fig-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/fig-002.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/fig-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/fig-003.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/fig-004.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/fig-004.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/fig-005.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/fig-005.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/table-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/table-001.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/table-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/table-002.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/table-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/table-003.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/table-004.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/table-004.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30754/table-005.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30754/table-005.webp" alt="Streaming Gaussian Encoding for 4D Panoptic Occupancy Tracking" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

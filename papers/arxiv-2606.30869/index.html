@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GRay: Ray Tracing 3D Gaussians Near the Speed of Splats</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 7 · cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GRay：接近 splat 速度的 3D Gaussian 光线追踪</span><span class="lang lang-en lang-inline" data-lang="en">GRay: Ray Tracing 3D Gaussians Near the Speed of Splats</span></h1>
+  <div class="meta">作者：Yohan Poirier-Ginter, Jean-Fran\c{c}ois Lalonde, George Drettakis</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30869">abs</a><a href="https://arxiv.org/pdf/2606.30869">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>直接相关于 3DGS 表示和渲染后端；对需要物理光线、反射或传感器模拟的三维地图有潜在价值。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">Ray tracing</span><span class="tag">渲染加速</span><span class="tag">Gaussian primitives</span><span class="tag">物理渲染</span><span class="tag">场景优化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为 3D Gaussian 场景提供更快 ray tracing 后端，可能支撑可编辑反射、传感器仿真和更物理一致的 3DGS 渲染。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 的 rasterization 渲染速度很快，但 ray tracing 更自然支持反射、visibility 和复杂光照；过去 3D Gaussian Ray Tracing 优化速度接近慢一个数量级。GRay 利用 ray tracing 只评估与光线相交的 Gaussians，在大量小 Gaussian 的密集场景中可能比 rasterization 更有扩展性。作者发现 dense initialization 会拖慢 rasterization，却能加速 ray tracing，并据此设计 GRay。论文报告相比 3DGRT 渲染近 4× 更快、优化近 10× 更快，速度接近 3DGS，但质量略低。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) is a popular representation for radiance field reconstruction, distinguished by the rendering speed of its rasterization-based renderer. While 3D Gaussians can also be ray traced, this approach has so far been slower, with 3D Gaussian Ray Tracing (3DGRT) taking nearly one order of magnitude longer to optimize. To address this, we present GRay, a fast ray tracer for 3D Gaussians designed to close this performance gap and match 3DGS&#x27;s speed. Our method leverages the algorithmic difference between both approaches: unlike rasterization, ray tracing evaluates only Gaussians that are actually intersected by a ray, leading to potentially logarithmic--rather than linear--scaling in the number of primitives. This property allows ray tracing to better exploit dense scenes composed of numerous tiny Gaussians, a configuration which has largely been overlooked. Notably, we show that dense initialization--which creates many small Gaussians--slows down rasterization, but instead speeds up ray tracing. Designed to leverage this effect, GRay renders nearly 4x faster and optimizes nearly 10x faster than 3DGRT while maintaining similar quality, and has competitive speed with 3DGS albeit at somewhat lower quality. Code is available at https://repo-sam.inria.fr/nerphys/gray.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：3DGS 默认 rasterization 很快，但 ray tracing 更自然支持反射、visibility 与复杂光照；GRay 试图把 3D Gaussian ray tracing 拉近 splatting 的速度。</li>
+<li><strong>方法要点</strong>：利用 ray tracing 只评估与光线相交的 Gaussians，理论上对大量小 Gaussian 的密集场景更接近 logarithmic scaling；dense initialization 对 ray tracing 反而可能加速。</li>
+<li><strong>结果信号</strong>：相对 3DGRT 渲染近 4× 更快、优化近 10× 更快；速度接近 3DGS，但质量略低。代码：https://repo-sam.inria.fr/nerphys/gray。</li>
+<li><strong>跟踪建议</strong>：关注其 acceleration structure、反向传播开销、与 dynamic Gaussian map 的兼容性，以及是否能支撑物理反射/传感器仿真。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30869">abs</a> · <a href="https://arxiv.org/pdf/2606.30869">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30869/fig-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30869/fig-001.webp" alt="GRay: Ray Tracing 3D Gaussians Near the Speed of Splats" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30869/fig-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30869/fig-002.webp" alt="GRay: Ray Tracing 3D Gaussians Near the Speed of Splats" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30869/fig-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30869/fig-003.webp" alt="GRay: Ray Tracing 3D Gaussians Near the Speed of Splats" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30869/fig-004.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30869/fig-004.webp" alt="GRay: Ray Tracing 3D Gaussians Near the Speed of Splats" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30869/table-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30869/table-001.webp" alt="GRay: Ray Tracing 3D Gaussians Near the Speed of Splats" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

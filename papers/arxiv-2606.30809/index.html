@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 17 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GaussLite：面向实时机器人建图的在线任务条件 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping</span></h1>
+  <div class="meta">作者：Annika Thomas, Mason Peterson, Jonathan P. How</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30809">abs</a><a href="https://arxiv.org/pdf/2606.30809">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 10/10</span><p>直接命中 3DGS、实时机器人建图、任务驱动地图压缩和多机器人地图融合，是今天与 SLAM/3DGS 主线最相关的论文。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">机器人建图</span><span class="tag">任务条件地图</span><span class="tag">开放词表感知</span><span class="tag">在线 SLAM</span><span class="tag">多机器人融合</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把自然语言任务转成 Gaussian 地图的区域优化预算，使 3DGS 在线机器人建图更关注任务相关物体/区域。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">现有 3D Gaussian Splatting 建图通常把表示容量均匀分配给整场景，但机器人下游任务往往只关注少量关键区域，导致机载算力浪费。GaussLite 根据自然语言任务说明动态分配 3DGS 表示密度：LLM 解析目标与锚点物体，开放词表检测和分割逐帧生成 relevance mask，再用相关性控制 Gaussian seeding density、gradient flow 与 scaling。论文在资源受限硬件上以 4 Hz 在线建图，在 Replica ROI PSNR 上平均提升 +2.72 dB，真实室内外演示提升 +2.23 dB；还展示了两个任务专用 agent 通过 active-optimization counts 实时融合地图，只需共享平均 7.08% 地图。</p><p class="lang lang-en lang-block" data-lang="en">Existing 3D Gaussian Splatting (3DGS) systems distribute representation capacity uniformly across a scene, ignoring the fact that many downstream robotic tasks engage only a fraction of the reconstructed geometry. This causes valuable onboard compute to be allocated towards optimizing irrelevant parts of the scene, either limiting online capacity or under-optimizing the most relevant parts of the scene. We introduce GaussLite, a task-driven 3DGS mapping system that conditions its representation density on a natural-language task specification. Given a posed RGB-D stream and a task such as &quot;prepare to pick up the object on the desk,&quot; GaussLite uses a one-shot LLM parser to extract target and anchor objects, which are grounded per-frame by an open-vocabulary detector and segmented to produce per-pixel relevance masks in real time. The mapper allocates seeding density, gradient flow and scaling by task relevance. At matched Gaussian budget and real-time mapping at 4 Hz on resource-constrained hardware, GaussLite outperforms baselines on ROI PSNR on the Replica Dataset by an average +2.72 dB and on a real-hardware demonstration in indoor and outdoor settings by +2.23 dB. We further show that two task-specialized agents&#x27; maps can be fused into a single shared map via per-voxel voting on active-optimization counts in real time, outperforming concatenation by +3.42 dB while only sharing an average 7.08% of the map.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：今天最贴近机器人建图主线。它不再把 Gaussian 容量均匀分配给整场景，而是根据自然语言任务把优化重点放在任务相关区域，适合资源受限机器人在线建图。</li>
+<li><strong>方法要点</strong>：LLM 一次性解析任务中的目标/锚点物体；开放词表检测与分割生成逐帧 relevance mask；建图时按相关性调节 Gaussian seeding density、gradient flow 与 scaling。</li>
+<li><strong>结果信号</strong>：在 Replica ROI PSNR 平均提升 +2.72 dB，真实硬件室内/室外演示提升 +2.23 dB；两个任务专用 agent 还能用 active-optimization counts 做实时地图融合，平均只共享 7.08% 地图。</li>
+<li><strong>跟踪建议</strong>：重点看 relevance mask 延迟、开放词表误检对建图的影响、4 Hz 实时条件下的 GPU/内存预算，以及任务专用地图融合是否能接入多机器人 SLAM 后端。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30809">abs</a> · <a href="https://arxiv.org/pdf/2606.30809">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/fig-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/fig-001.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/fig-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/fig-002.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/fig-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/fig-003.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/fig-004.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/fig-004.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/fig-005.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/fig-005.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/table-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/table-001.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/table-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/table-002.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/table-003.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/table-003.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30809/table-004.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30809/table-004.webp" alt="GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

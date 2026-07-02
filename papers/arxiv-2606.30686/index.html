@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Position: Vision-Language-Action Models Cannot Be Verified to Perform Physical Reasoning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 6 · cs.RO, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">位置论文：现有协议无法验证 VLA 模型真的具备物理推理能力</span><span class="lang lang-en lang-inline" data-lang="en">Position: Vision-Language-Action Models Cannot Be Verified to Perform Physical Reasoning</span></h1>
+  <div class="meta">作者：Taozhao Chen, Ian Manchester, Huaming Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.30686">abs</a><a href="https://arxiv.org/pdf/2606.30686">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.8/10</span><p>不是 SLAM/三维重建，也无新算法；但对使用 VLM/VLA 做导航、操作或规划的机器人评测有警示价值。</p><div class="tags"><span class="tag">VLA</span><span class="tag">机器人评测</span><span class="tag">物理推理</span><span class="tag">因果归因</span><span class="tag">语义泛化</span><span class="tag">具身智能</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">提醒 VLA 机器人评测不要把任务成功率直接等同于物理推理，建议用受控变量拆分语义与物理泛化。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该位置论文认为，机器人 VLA benchmark 中的 success rate 无法区分模型成功来自语义匹配、训练/测试分布重叠，还是来自真实物理泛化。作者把 VLA policy 分解为 semantic mapping 与 physical action decision，指出当前评估协议存在 identifiability gap；连续系统往往继承并强化之前对性能提升的叙事，而没有隔离 causal mechanism。论文建议用受控变化的评估设计，分别测量语义泛化和物理泛化，从而在不访问模型内部的情况下更可靠地归因性能。</p><p class="lang lang-en lang-block" data-lang="en">Vision-Language-Action (VLA) systems, built on pretrained vision-language models (VLMs), have shown rapidly improving performance on robot manipulation benchmarks. These gains are commonly interpreted as evidence that semantic representations learned from internet-scale data transfer to physical execution generalization. This position paper argues that the assumption underlying this interpretation -- that semantic generalization is sufficient to support physical action decisions -- has not been independently verified and cannot be tested under current evaluation protocols. We support this claim by decomposing VLA policies into semantic mapping and physical action decision, and showing that task success rate -- the dominant evaluation metric -- cannot distinguish between these two sources of capability. As a result, improvements in benchmark performance are consistent with multiple competing explanations, including semantic matching, distributional overlap, and genuine physical generalization. We further argue that this identifiability gap has been reinforced through narrative drift, whereby successive systems inherit and strengthen prior interpretations of performance gains without isolating the underlying causal mechanism. To address this limitation, we propose a research direction based on evaluation designs that introduce controlled variation to separately measure semantic and physical generalization. Such designs make it possible to causally attribute performance without requiring access to model internals, and to empirically assess the role of VLM backbones as semantic interfaces rather than implicit sources of physical competence. Our goal is not to refute the role of VLMs in robotics, but to clarify the conditions under which claims of physical generalization can be meaningfully evaluated.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：位置论文，不给新算法；但它提醒 VLA 机器人 benchmark 的 success rate 不能区分语义匹配、分布重叠和真实物理泛化。</li>
+<li><strong>方法要点</strong>：把 VLA policy 分解为 semantic mapping 与 physical action decision，指出当前评估指标存在 identifiability gap，并建议通过受控变量设计分别测量语义泛化和物理泛化。</li>
+<li><strong>结果信号</strong>：核心贡献是评估框架批判，而不是实验 SOTA；对机器人基础模型评测叙事有警示意义。</li>
+<li><strong>跟踪建议</strong>：如果用 VLM/VLA 做导航或操作决策，应在评估集里加入语义不变但物理关系变化、物理不变但语义变化的控制实验。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.30686">abs</a> · <a href="https://arxiv.org/pdf/2606.30686">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30686/fig-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30686/fig-001.webp" alt="Position: Vision-Language-Action Models Cannot Be Verified to Perform Physical Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30686/table-001.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30686/table-001.webp" alt="Position: Vision-Language-Action Models Cannot Be Verified to Perform Physical Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-02/arxiv-2606.30686/table-002.webp"><img src="../../assets/media/2026-07-02/arxiv-2606.30686/table-002.webp" alt="Position: Vision-Language-Action Models Cannot Be Verified to Perform Physical Reasoning" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

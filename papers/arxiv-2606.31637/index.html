@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Intrinsic decomposition and editing of 3D Gaussian splats</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-02/index.html">← 返回 2026-07-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-01 · score 8 · cs.GR, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">3D Gaussian splats 的本征分解与编辑</span><span class="lang lang-en lang-inline" data-lang="en">Intrinsic decomposition and editing of 3D Gaussian splats</span></h1>
+  <div class="meta">作者：Alexandre Lanvin, Jeffrey Hu, Simon Lucas, Adrien Bousseau, George Drettakis</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.31637">abs</a><a href="https://arxiv.org/pdf/2606.31637">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>高度相关于 3DGS 场景表示和可编辑三维重建；虽非 SLAM，但对 3DGS 地图后处理和仿真应用很有参考价值。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">本征分解</span><span class="tag">场景编辑</span><span class="tag">Albedo</span><span class="tag">Shading</span><span class="tag">可重渲染地图</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将 3DGS 从纯重渲染推进到 albedo/shading 分层和可控编辑，对语义地图、仿真资产和数据合成有价值。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文把 intrinsic decomposition 扩展到 Gaussian Splatting 表示，将图像颜色拆分为 diffuse albedo、shading 和可能的 view-dependent residuals。核心思路是用多组相互独立的 Gaussian primitives 分别表示不同 intrinsic layer，让每组 primitive 适配各自层的特征；再用数据驱动预测引导多视图照片优化，完成 albedo/shading 等层的分离。编辑时，用户可在单张图中修改平面表面 albedo，系统把该编辑捕获到 intrinsic radiance field 中，并在任意视角以较合理光照重渲染。</p><p class="lang lang-en lang-block" data-lang="en">Intrinsic decomposition which expresses image colors as the product of diffuse albedo and shading, possibly augmented with view-dependent residuals has a long history in image editing as it enables the modification of object colors and textures without altering lighting. We extend intrinsic decomposition to radiance fields represented with Gaussian splatting by proposing solutions to three key aspects of such decomposition. First, we describe how to model the intrinsic decomposition as independent sets of Gaussian primitives, which allows each set to adapt to the characteristics of the layer it represents. Second, we present an optimization procedure guided by data-driven predictions to disentangle multi-view photographs of a scene into the aforementioned intrinsic sets. Finally, we provide an editing workflow where users modify the texture of planar surfaces simply by modifying the albedo of that surface in one image. Capturing this edit within the intrinsic radiance field allows re-rendering of the edited scene with plausible lighting under arbitrary viewpoints.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：3DGS 地图若要用于数字孪生、仿真或机器人数据合成，不能只会重渲染，还要能分离 albedo/shading 并支持可控编辑。</li>
+<li><strong>方法要点</strong>：把 radiance field 的 intrinsic decomposition 建模为多组独立 Gaussian primitives；用数据驱动预测引导优化，把多视图照片分解为 albedo、shading 与 view-dependent residual 等层。</li>
+<li><strong>结果信号</strong>：支持用户在单张图中编辑平面表面纹理/颜色，并在任意视角下以较合理光照重渲染编辑场景。</li>
+<li><strong>跟踪建议</strong>：关注真实复杂材质、多光源和非平面表面的稳定性；如果做 3DGS map editing 或仿真域随机化，这类分层表示值得并入技术栈观察。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2606.31637">abs</a> · <a href="https://arxiv.org/pdf/2606.31637">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
