@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>TrajLoc: Trajectory-Attention Localization for Multi-Object Motion Control</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-03/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-03/index.html">← 返回 2026-07-03 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-02 · score 8 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">TrajLoc：用于多目标运动控制的轨迹注意力定位</span><span class="lang lang-en lang-inline" data-lang="en">TrajLoc: Trajectory-Attention Localization for Multi-Object Motion Control</span></h1>
+  <div class="meta">作者：Omer Sela, Inbar Huberman-Spiegelglas, Michael Rotman, Sagie Benaim, Avi Ben-Cohen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.00861">abs</a><a href="https://arxiv.org/pdf/2607.00861">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.4/10</span><p>不是实际机器人定位/建图算法，但对动态场景仿真、可控数据生成和 trajectory-conditioned video 有参考价值。</p><div class="tags"><span class="tag">视频生成</span><span class="tag">轨迹控制</span><span class="tag">Object token</span><span class="tag">Attention</span><span class="tag">动态场景仿真</span><span class="tag">中低相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在视频生成 attention 中直接施加 per-object Gaussian 位置约束，让多个对象更准确沿指定轨迹运动。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">TrajLoc 研究 image-to-video generation 中多对象轨迹控制问题。传统方法把多个目标轨迹混在共享 dense conditioning 中，在目标数量增加、路径交叉或遮挡时难以保持身份和轨迹对应。TrajLoc 在 attention 层内为每个 object token 施加严格空间约束：用以目标位置为中心的 Gaussian heatmap 替换该 token 的 cross-attention weights；同一 token 还携带轨迹、深度和首帧外观信息。作者在 6 个数据集和最多 20 个同时受控对象上验证，应用到 CogVideoX 5B 与 WaN 2.1 14B 后，平均 PSNR 提升 +4.3 dB，轨迹终点误差降低 51%。</p><p class="lang lang-en lang-block" data-lang="en">Controlling the motion of multiple objects in image-to-video (I2V) generation requires preserving object identities while enforcing adherence to distinct target trajectories. This becomes particularly challenging as the number of objects increases and their paths intersect or occlude one another. Existing approaches entangle multiple trajectories within a shared, dense conditioning signal, making object-level correspondence difficult to preserve in crowded scenes. We depart from this paradigm and enforce a strict, per object spatial constraint that isolates instances independently. Our method, TrajLoc, achieves this directly within the attention layers by substituting the cross-attention weights of each object token with a Gaussian heatmap centered on its target location at every frame. The same per object token interface carries trajectory and depth through a learned embedding and preserves identity by encoding first frame appearance in place of an object token. Evaluations across six datasets, featuring up to 20 simultaneously controlled objects and out of distribution real world scenes, demonstrate that our method consistently improves both visual fidelity and trajectory adherence. Applied to two architecturally distinct backbones (CogVideoX 5B and WaN 2.1 14B), our approach achieves average gains of +4.3 dB PSNR and a 51% reduction in trajectory end point error compared to the strongest baselines. Project page: https://sela-omer.github.io/traj-loc/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：主要是 image-to-video generation 控制论文，不是定位算法；但它把每个物体的轨迹、深度和外观 token 解耦，并在 attention 中显式强制空间位置，对多目标动态场景生成、仿真数据合成和轨迹可控视频有参考价值。</li>
+<li><strong>方法要点</strong>：用以目标位置为中心的 Gaussian heatmap 替换每个 object token 的 cross-attention weights；同一 per-object token 接收轨迹和深度 embedding，并用首帧外观保持身份。</li>
+<li><strong>结果信号</strong>：在最多 20 个受控对象、轨迹交叉和遮挡场景中，应用到 CogVideoX 5B 与 WaN 2.1 14B 后，平均 PSNR +4.3 dB、trajectory end-point error 降低 51%。项目页：https://sela-omer.github.io/traj-loc/</li>
+<li><strong>跟踪建议</strong>：若关注自动驾驶/机器人仿真数据生成，可看其 object-level trajectory conditioning 是否能生成更可控的动态障碍物视频；对实际 SLAM 后端价值有限。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.00861">abs</a> · <a href="https://arxiv.org/pdf/2607.00861">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00861/fig-001.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00861/fig-001.webp" alt="TrajLoc: Trajectory-Attention Localization for Multi-Object Motion Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00861/fig-002.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00861/fig-002.webp" alt="TrajLoc: Trajectory-Attention Localization for Multi-Object Motion Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00861/fig-003.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00861/fig-003.webp" alt="TrajLoc: Trajectory-Attention Localization for Multi-Object Motion Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00861/fig-004.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00861/fig-004.webp" alt="TrajLoc: Trajectory-Attention Localization for Multi-Object Motion Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00861/table-001.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00861/table-001.webp" alt="TrajLoc: Trajectory-Attention Localization for Multi-Object Motion Control" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00861/table-002.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00861/table-002.webp" alt="TrajLoc: Trajectory-Attention Localization for Multi-Object Motion Control" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

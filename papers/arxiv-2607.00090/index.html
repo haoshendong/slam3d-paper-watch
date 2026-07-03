@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Lost in the Tail: Addressing Geographic Imbalance in Urban Visual Place Recognition</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-03/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-03/index.html">← 返回 2026-07-03 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-02 · score 5 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Lost in the Tail：解决城市视觉地点识别中的地理长尾不均衡</span><span class="lang lang-en lang-inline" data-lang="en">Lost in the Tail: Addressing Geographic Imbalance in Urban Visual Place Recognition</span></h1>
+  <div class="meta">作者：Zhiyao Shu, Jiacheng Yang, Yang Lu, Waishan Qiu, Chuan Li, Da Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.00090">abs</a><a href="https://arxiv.org/pdf/2607.00090">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>直接相关于视觉地点识别、城市级重定位和闭环检索；适合关注大规模定位鲁棒性的人优先阅读。</p><div class="tags"><span class="tag">Visual Place Recognition</span><span class="tag">视觉重定位</span><span class="tag">地理长尾</span><span class="tag">城市定位</span><span class="tag">检索</span><span class="tag">数据偏置</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把城市 VPR 中的地理长尾偏置显式纳入训练和检索，可提升稀疏区域视觉重定位鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该文指出城市级 Visual Place Recognition 数据集中存在严重地理长尾：热门位置图像丰富，冷门区域样本稀少，导致模型系统性偏向高频地点。作者提出 Distribution-Aware Place Recognition（DAPR），作为 model-agnostic plug-in，在训练阶段重新平衡 head/tail class 的梯度贡献；在 classification-retrieval pipeline 中，还通过 multi-scale distance search 计算每类 distributional compactness，为检索阶段提供互补增益。论文在 SF-XL test set v1 上比原 classification-retrieval baseline 提升 18.3%，v2 提升 6.7%，并在 SF-XL、MSLS、Pitts30k 和多种 VPR 方法上获得一致改进。</p><p class="lang lang-en lang-block" data-lang="en">Urban-scale Visual Place Recognition (VPR) aims to identify the geographic location of a query image by matching it against a geo-tagged database. While recent methods achieve impressive performance, they overlook a serious long-tailed problem hidden in urban-scale datasets, which biases the model towards locations with abundant images and ignores less-visited areas, causing models to systematically favor frequently photographed locations while failing in sparsely covered areas. In this paper, we systematically characterize this imbalance challenge and propose Distribution-Aware Place Recognition (DAPR), a model-agnostic plug-in framework that rebalances gradient contributions across head and tail classes. Additionally, within classification-retrieval pipelines, DAPR applies a multi-scale distance search mechanism to compute per-class distributional compactness, providing complementary gains at the retrieval stage. On the large-scale SF-XL benchmark, our framework outperforms the previous classification-retrieval baseline by 18.3% on test set v1, and 6.7% on test set v2. As a plug-in module, it achieves consistent improvements across representative VPR methods on SF-XL, MSLS, and Pitts30k, demonstrating broad generalizability across different methods and benchmarks.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：直接命中视觉地点识别/重定位。城市级 VPR 数据常有热门地点过采样、冷门地点样本少的问题，这会让模型偏向高频地理位置，影响长尾区域定位鲁棒性。</li>
+<li><strong>方法要点</strong>：提出 Distribution-Aware Place Recognition（DAPR），作为 model-agnostic plug-in，在训练端重新平衡 head/tail class 的梯度贡献；在 classification-retrieval pipeline 中，用 multi-scale distance search 计算每类 distributional compactness，作为检索阶段补充。</li>
+<li><strong>结果信号</strong>：在 SF-XL test set v1 上较 classification-retrieval baseline 提升 18.3%，v2 提升 6.7%；在 SF-XL、MSLS、Pitts30k 上对多种 VPR 方法有一致增益。</li>
+<li><strong>跟踪建议</strong>：值得重点跟进实现和 loss/reweighting 细节；可用于城市峡谷/大规模视觉重定位数据集的采样偏置修正。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.00090">abs</a> · <a href="https://arxiv.org/pdf/2607.00090">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00090/fig-001.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00090/fig-001.webp" alt="Lost in the Tail: Addressing Geographic Imbalance in Urban Visual Place Recognition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00090/fig-002.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00090/fig-002.webp" alt="Lost in the Tail: Addressing Geographic Imbalance in Urban Visual Place Recognition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00090/fig-003.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00090/fig-003.webp" alt="Lost in the Tail: Addressing Geographic Imbalance in Urban Visual Place Recognition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

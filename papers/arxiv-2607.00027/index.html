@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Urban Deceleration Behavior Modes Under Scene Context: An Early-Kinematic Classifier from Argoverse 2 Multi-Agent Trajectories</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-03/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-03/index.html">← 返回 2026-07-03 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-02 · score 12 · cs.RO, cs.LG, cs.SY, eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Argoverse 2 多智能体轨迹中的城市减速行为模式与早期运动学分类器</span><span class="lang lang-en lang-inline" data-lang="en">Urban Deceleration Behavior Modes Under Scene Context: An Early-Kinematic Classifier from Argoverse 2 Multi-Agent Trajectories</span></h1>
+  <div class="meta">作者：Eni Solomon Laughter</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.00027">abs</a><a href="https://arxiv.org/pdf/2607.00027">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.4/10</span><p>与自动驾驶轨迹预测和动态场景理解相关，但不涉及 SLAM、GNSS 或三维重建；可作为动态对象行为先验的外围参考。</p><div class="tags"><span class="tag">自动驾驶</span><span class="tag">轨迹行为建模</span><span class="tag">Argoverse 2</span><span class="tag">运动学分类</span><span class="tag">动态对象先验</span><span class="tag">低相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 Argoverse 2 轨迹把城市车辆减速分成稳定运动学模式，并证明 1 秒早期窗口可较好预测模式。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该文从 Argoverse 2 Sensor 数据集的 234 段城市驾驶日志中抽取 1,219 个持续减速事件，并用 19 维运动学特征做 K-means 模式发现和 bootstrap 稳定性分析，再评估 11 类场景上下文变量对减速模式的影响。四类稳定模式分别是 anticipatory soft、reactive closing、brake-like jerk 和 outlier，bootstrap ARI=0.897。基于事件前 1.0 秒的 HistGradientBoosting 分类器达到 macro-F1=0.758，场景上下文相对纯运动学带来 +0.059 F1。论文对自动驾驶行为预测和动态对象先验有外围参考价值，但不是定位建图主线。</p><p class="lang lang-en lang-block" data-lang="en">Urban deceleration is one of the most empirically studied yet least taxonomically organized behaviors in car-following research. Recent perception-equipped autonomous-vehicle datasets enable trajectory-anchored mode discovery. We extract 1,219 sustained deceleration events from 234 urban driving logs of the Argoverse 2 Sensor dataset, encode each event in a 19-dimensional kinematic feature vector, discover behavioral modes via K-means clustering with bootstrap stability analysis, and quantify modulation by eleven scene-context variables. A HistGradientBoosting classifier predicts mode membership from the first 1.0 s of each event. Four stable modes emerge with a bootstrap Adjusted Rand Index of 0.897 across 50 resamples: anticipatory soft (62.8%), reactive closing (30.6%), brake-like jerk (4.8%), and an outlier category (1.8%). Only pair age shows a medium effect (epsilon^2 = 0.085); scene geometry and vulnerable-road-user proximity show negligible effects. The early-event classifier achieves macro-F1 = 0.758 at 1.0 s, with scene context contributing +0.059 F1 over kinematics alone. Modes are regime-invariant in medium-speed driving (ARI = 0.817) but regime-dependent at low speed (ARI = 0.166). A small set of stable kinematic modes structures urban deceleration; early-window jerk dominates predictive signal; and pair age is the primary contextual modulator.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：不是 SLAM/GNSS 主线，但使用 Argoverse 2 多智能体轨迹，对自动驾驶预测、行为建模和场景上下文分析有外围价值。</li>
+<li><strong>方法要点</strong>：从 234 段城市驾驶日志中抽取 1,219 个持续减速事件，用 19 维运动学特征做 K-means 模式发现，并评估 11 类场景上下文变量的调制作用；再用前 1.0 秒窗口的 HistGradientBoosting 做早期模式分类。</li>
+<li><strong>结果信号</strong>：得到 anticipatory soft、reactive closing、brake-like jerk 与 outlier 四类稳定模式，bootstrap ARI=0.897；1.0 秒早期分类 macro-F1=0.758，场景上下文带来 +0.059 F1。</li>
+<li><strong>跟踪建议</strong>：可作为自动驾驶/机器人轨迹行为 taxonomy 参考；对定位建图的直接价值较低，除非用于动态对象先验或交通行为预测模块。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.00027">abs</a> · <a href="https://arxiv.org/pdf/2607.00027">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2607.00027/fig-001.webp"><img src="../../assets/media/2026-07-03/arxiv-2607.00027/fig-001.webp" alt="Urban Deceleration Behavior Modes Under Scene Context: An Early-Kinematic Classifier from Argoverse 2 Multi-Agent Trajectories" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

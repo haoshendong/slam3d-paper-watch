@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Explainability in mulimodal deep transformation models for stroke outcome prediction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-03/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-03/index.html">← 返回 2026-07-03 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-02 · score 6 · eess.IV, cs.CV, cs.LG, stat.AP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用于 stroke outcome 预测的多模态 Deep Transformation Models 解释性</span><span class="lang lang-en lang-inline" data-lang="en">Explainability in mulimodal deep transformation models for stroke outcome prediction</span></h1>
+  <div class="meta">作者：Lisa Herzog, Jonas Br\&quot;andli, Maurice Schneeberger, Loran Avci, Nordin Dari, Martin H\&quot;ansel, Hakim Baazaoui, Pascal B\&quot;uhler, Susanne Wegener, Beate Sick</div>
+  <div class="links"><a href="https://arxiv.org/abs/2504.06299">abs</a><a href="https://arxiv.org/pdf/2504.06299">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 2.8/10</span><p>方向明显偏医学影像，和 SLAM/GNSS/三维重建主线不匹配；仅保留 3D CNN 解释性方法参考。</p><div class="tags"><span class="tag">医学影像</span><span class="tag">3D CNN</span><span class="tag">Grad-CAM</span><span class="tag">Occlusion</span><span class="tag">多模态预测</span><span class="tag">低相关</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">医学 3D CNN/xAI 论文；可作为多模态模型解释和 confounding 分析参考，但与定位建图无直接关系。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文把 diffusion-weighted imaging 与临床 tabular 数据结合到 multimodal Deep Transformation Models 中，并把 Grad-CAM 和 Occlusion 适配到依赖 3D CNN 的图像分支，以解释三个月后 functional independence 预测。407 名患者十折交叉验证中，模型 AUC 为 0.81 [0.75, 0.87]。解释图显示若不显式输入年龄，模型会在 frontal lobe 等与年龄相关区域形成显著响应；加入 age 作为 tabular predictor 后，这些区域消失，说明解释图有助于发现 confounding 和系统性错误。</p><p class="lang lang-en lang-block" data-lang="en">Multimodal prediction models based on imaging and clinical data are increasingly used for clinical decision support, yet their interpretability remains limited. We present multimodal Deep Transformation Models (DTMs) combining statistical approaches and neural networks to achieve strong predictive performance while preserving interpretability for tabular data. A key contribution of this work is the adaption of the xAI methods Grad-CAM and Occlusion to DTMs relying on 3D CNNs, enabling interpretation of the image branch through the generation of explanation maps. We developed DTMs to predict functional independence three months after stroke using diffusion-weighted imaging and clinical data from 407 patients. In a ten-fold cross-validation, the models achieved state-of-the-art predictive performance (AUC 0.81 [0.75, 0.87]) while maintaining interpretability for tabular features, with functional independence before stroke and stroke severity on admission emerging as the strongest predictors. Explanation maps from both xAI methods highlighted consistent regions, including frontal lobe areas which are known to be associated with age, a strong predictor of functional outcome. Notably, these regions disappeared once age was included as an explicit tabular predictor. Similarity analyses of explanation maps revealed distinct spatial patterns, providing meaningful insights into stroke pathophysiology, systematic error analysis and hypothesis generation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：医学影像预测论文，不是机器人或三维重建；只因包含 3D CNN、Grad-CAM/Occlusion 和多模态解释性，方法上与 3D 医学图像 xAI 相关。</li>
+<li><strong>方法要点</strong>：把临床 tabular 数据与 diffusion-weighted imaging 结合到 multimodal Deep Transformation Models；适配 Grad-CAM 和 Occlusion 到依赖 3D CNN 的 DTM 图像分支。</li>
+<li><strong>结果信号</strong>：407 名患者十折交叉验证 AUC 0.81 [0.75, 0.87]；解释图突出与年龄等 outcome predictor 相关的 frontal lobe 区域，加入 age tabular predictor 后这些区域变化。</li>
+<li><strong>跟踪建议</strong>：与 SLAM/GNSS 无直接关系，可跳过；若研究 3D CNN 解释图和 tabular/image confounding，可留作外围参考。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2504.06299">abs</a> · <a href="https://arxiv.org/pdf/2504.06299">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2504.06299/fig-001.webp"><img src="../../assets/media/2026-07-03/arxiv-2504.06299/fig-001.webp" alt="Explainability in mulimodal deep transformation models for stroke outcome prediction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2504.06299/fig-002.webp"><img src="../../assets/media/2026-07-03/arxiv-2504.06299/fig-002.webp" alt="Explainability in mulimodal deep transformation models for stroke outcome prediction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2504.06299/fig-003.webp"><img src="../../assets/media/2026-07-03/arxiv-2504.06299/fig-003.webp" alt="Explainability in mulimodal deep transformation models for stroke outcome prediction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2504.06299/fig-004.webp"><img src="../../assets/media/2026-07-03/arxiv-2504.06299/fig-004.webp" alt="Explainability in mulimodal deep transformation models for stroke outcome prediction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2504.06299/fig-005.webp"><img src="../../assets/media/2026-07-03/arxiv-2504.06299/fig-005.webp" alt="Explainability in mulimodal deep transformation models for stroke outcome prediction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2504.06299/table-001.webp"><img src="../../assets/media/2026-07-03/arxiv-2504.06299/table-001.webp" alt="Explainability in mulimodal deep transformation models for stroke outcome prediction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

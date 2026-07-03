@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MineRobot: An Actuator-Centered Kinematic Modeling and Solving Framework for Underground Mining Robots</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-03/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-03/index.html">← 返回 2026-07-03 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-02 · score 5 · cs.GR, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MineRobot：面向地下矿山机器人的执行器中心运动学建模与求解框架</span><span class="lang lang-en lang-inline" data-lang="en">MineRobot: An Actuator-Centered Kinematic Modeling and Solving Framework for Underground Mining Robots</span></h1>
+  <div class="meta">作者：Shengzhe Hou, Xinming Lu, Tianyu Zhang, Changqing Yan, Xingli Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2603.22055">abs</a><a href="https://arxiv.org/pdf/2603.22055">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.8/10</span><p>不是 SLAM，但与地下机器人数字孪生、仿真和规划相关；可为定位建图系统提供更可靠的机构/几何模型。</p><div class="tags"><span class="tag">矿山机器人</span><span class="tag">运动学建模</span><span class="tag">闭链机构</span><span class="tag">数字孪生</span><span class="tag">FK/IK</span><span class="tag">机器人仿真</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为地下矿山机器人闭链执行器机构提供可复用 FK/IK 和描述格式，服务规划、训练和数字孪生。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">MineRobot 面向地下矿山机器人中的线性执行器驱动闭链机构和四杆结构，提出执行器中心的建模与 FK/IK 求解框架。作者定义 Mining Robot Description Format（MRDF），用原生语义描述 actuator 和 loop closure；再把平面四杆子结构收缩为 generalized joints，并为每个 actuator 提取 Independent Topologically Equivalent Path（ITEP），分成四种 canonical types。FK 由 per-type solvers 顺序组合，IK 则建模为带界执行器长度优化，并用 Gauss-Seidel-style update 求解。实验在代表性地下矿山机器人上展示实时 FK 和测试范围内鲁棒 IK 收敛。</p><p class="lang lang-en lang-block" data-lang="en">Underground mining robots are increasingly modeled for planning, operator training, and digital-twin workflows, where reliable actuator-level kinematics is needed to reduce hazardous in situ trials. Unlike typical open-chain industrial manipulators, representative mining machines are often linear-actuator-driven closed-chain mechanisms with planar four-bar linkages, making reusable kinematic modeling and real-time FK/IK solving challenging. We present \textit{\hl{MineRobot}}, an actuator-centered framework for modeling and solving the kinematics of this representative mechanism class. MineRobot introduces the Mining Robot Description Format (MRDF), a domain-specific representation that parameterizes mining-robot kinematics with native semantics for actuators and loop closures. It then contracts planar four-bar substructures into generalized joints and extracts, for each actuator, an Independent Topologically Equivalent Path (ITEP) classified into four canonical types. Based on this decomposition, per-type solvers are composed into a sequential forward-kinematics (FK) pipeline, while inverse kinematics (IK) is formulated as a bound-constrained actuator-length optimization solved by a Gauss--Seidel-style update scheme. By converting coupled closed-chain kinematics into small topology-aware solves, MineRobot reduces robot-specific hand derivations and supports efficient repeated FK/IK computation without treating each query as a full coupled constraint-solving problem. Experiments on representative underground mining robots demonstrate real-time FK performance and robust IK convergence within the tested operating ranges, supporting the use of MineRobot as an actuator-centered kinematic layer for planning, training, and digital-twin workflows.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>为什么看</strong>：不是 SLAM，但与地下矿山机器人 digital twin、规划和操作员训练有关。地下矿山设备常是线性执行器驱动的闭链四杆机构，通用 FK/IK 建模困难。</li>
+<li><strong>方法要点</strong>：提出 Mining Robot Description Format（MRDF），用 actuator 和 loop closure 语义描述矿山机器人；把平面四杆结构收缩成 generalized joints，为每个 actuator 提取 Independent Topologically Equivalent Path（ITEP），分类成四种 canonical types；FK 顺序组合 per-type solvers，IK 则用 bound-constrained actuator-length optimization 和 Gauss-Seidel-style update。</li>
+<li><strong>结果信号</strong>：在代表性地下矿山机器人上展示实时 FK 性能和测试范围内的 IK 鲁棒收敛。</li>
+<li><strong>跟踪建议</strong>：如果做地下/矿山机器人数字孪生、仿真和规划，可关注 MRDF 与现有 URDF/SDF/ROS2 pipeline 的兼容性；与定位建图结合点在于可提供更可靠的几何/执行器模型。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2603.22055">abs</a> · <a href="https://arxiv.org/pdf/2603.22055">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2603.22055/fig-001.webp"><img src="../../assets/media/2026-07-03/arxiv-2603.22055/fig-001.webp" alt="MineRobot: An Actuator-Centered Kinematic Modeling and Solving Framework for Underground Mining Robots" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2603.22055/fig-002.webp"><img src="../../assets/media/2026-07-03/arxiv-2603.22055/fig-002.webp" alt="MineRobot: An Actuator-Centered Kinematic Modeling and Solving Framework for Underground Mining Robots" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2603.22055/fig-003.webp"><img src="../../assets/media/2026-07-03/arxiv-2603.22055/fig-003.webp" alt="MineRobot: An Actuator-Centered Kinematic Modeling and Solving Framework for Underground Mining Robots" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2603.22055/fig-004.webp"><img src="../../assets/media/2026-07-03/arxiv-2603.22055/fig-004.webp" alt="MineRobot: An Actuator-Centered Kinematic Modeling and Solving Framework for Underground Mining Robots" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-03/arxiv-2603.22055/fig-005.webp"><img src="../../assets/media/2026-07-03/arxiv-2603.22055/fig-005.webp" alt="MineRobot: An Actuator-Centered Kinematic Modeling and Solving Framework for Underground Mining Robots" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
