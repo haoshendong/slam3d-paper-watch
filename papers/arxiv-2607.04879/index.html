@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-08/index.html">← 返回 2026-07-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-06 · score 7 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">WinTA-GIL：间歇信号环境下 GNSS-IMU-LiDAR 航向细化的窗口化轨迹对齐</span><span class="lang lang-en lang-inline" data-lang="en">WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments</span></h1>
+  <div class="meta">作者：Kaixin Feng, Zhichao Wen, Zhaohong Liao, Xin Xia, You Li</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.04879">abs</a><a href="https://arxiv.org/pdf/2607.04879">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.9/10</span><p>直接覆盖 GNSS-IMU-LiDAR 融合定位、城市峡谷/信号中断和航向弱可观问题，是今天 GNSS 专项最重要论文。</p><div class="tags"><span class="tag">GNSS/INS/LiDAR</span><span class="tag">航向估计</span><span class="tag">LIO</span><span class="tag">轨迹对齐</span><span class="tag">城市峡谷</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 LIO 局部轨迹与 GNSS 观测反复窗口对齐，解决 GNSS 断续场景下航向漂移。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">WinTA-GIL 针对复杂环境中航向估计弱可观、GNSS 信号间歇可用和 IMU 漂移累积的问题，利用 LiDAR-Inertial Odometry 的局部高精度轨迹与过滤后的 GNSS 观测做时间窗口一致性优化。方法引入状态判别驱动的自适应重估机制，在需要时触发航向校正，以抑制长期导航中的航向漂移。</p><p class="lang lang-en lang-block" data-lang="en">Although multi-source fusion positioning systems have achieved significant progress, accurate and reliable heading estimation remains a critical challenge due to the lack of gravitational constraints and the inherent weak observability of heading in complex environments. Most existing methodologies are specifically tailored for the startup phase, relying on a singular initial alignment to establish the heading reference. Consequently, these approaches lack the adaptability required to refine heading estimates dynamically, which renders the system highly vulnerable to accumulated drift and observation noise during prolonged navigation or immediately following GNSS signal outages. To address these limitations, this paper proposes WinTA-GIL, a novel heading refinement framework that integrates information from Global Navigation Satellite System (GNSS), Inertial Measurement Unit (IMU), and Light Detection and Ranging (LiDAR) through a temporal window-based optimization strategy. Unlike conventional alignment methods restricted to the startup phase, WinTA-GIL leverages high-precision local trajectories from LiDAR-Inertial Odometry (LIO) to register against filtered GNSS observations. This approach transforms heading estimation into a repeatable, trajectory-based consistency optimization problem. In particular, an adaptive re-estimation mechanism based on state discrimination is incorporated to trigger heading corrections whenever necessary, thereby effectively suppressing the inertial drift accumulated during challenging conditions. Extensive experiments on both open-source and self-collected datasets demonstrate that WinTA-GIL significantly outperforms state-of-the-art approaches in both estimation accuracy and system robustness.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.04879 ｜ PDF：https://arxiv.org/pdf/2607.04879</li>
+<li>中文题名：<strong>WinTA-GIL：间歇信号环境下 GNSS-IMU-LiDAR 航向细化的窗口化轨迹对齐</strong></li>
+<li>关键信息：用 LiDAR-Inertial Odometry 的局部高精度轨迹与过滤后的 GNSS 观测做时间窗口对齐，把航向估计转化为可重复触发的轨迹一致性优化问题。</li>
+<li>为什么值得看：直接命中城市峡谷/遮挡环境中 GNSS 断续、IMU 航向弱可观、LIO 漂移累积的问题；比只在启动阶段做一次初始对准更适合长时间导航。</li>
+<li>需要核查：GNSS 观测过滤与异常值抑制策略、重估触发条件、航向校正对位置/速度状态的一致性影响，以及是否能扩展到因子图紧耦合框架。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/fig-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/fig-001.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/fig-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/fig-002.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/fig-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/fig-003.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/fig-004.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/fig-004.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/fig-005.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/fig-005.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/fig-006.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/fig-006.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/table-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/table-001.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/table-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/table-002.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04879/table-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/table-003.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

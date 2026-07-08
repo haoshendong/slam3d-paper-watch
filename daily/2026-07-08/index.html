@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
   <title>Daily Paper Reader 2026-07-08</title>
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-07-08/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -17,7 +17,7 @@
     <div class="meta">静态网页 · 2026-07-08</div>
     <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
     <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-07-08/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：10</span><span class="stat">推荐论文：9</span><span class="stat">新论文：10</span><span class="stat">仓库：40</span><span class="stat">新仓库：8</span></div>
 </section>
@@ -32,103 +32,103 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">从 10 篇候选中推荐前 9 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2607.03209/index.html"><img src="assets/media/2026-07-08/arxiv-2607.03209/fig-001.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.03209/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">基于 3D 基础模型初始化的快速高斯泼溅重建</span><span class="lang lang-en lang-inline" data-lang="en">Fast 3D Foundation Model Initialized Gaussian Splatting</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.03209/index.html"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/fig-001.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.03209/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">基于 3D 基础模型初始化的快速高斯泼溅重建</span><span class="lang lang-en lang-inline" data-lang="en">Fast 3D Foundation Model Initialized Gaussian Splatting</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-03 · score 18 · cs.CV, cs.GR, cs.RO</div>
   <div class="meta">作者：Anurag Dalal, Daniel Hagen, Kjell G. Robbersmyr, Kristian Muri Knausgård</div>
   <span class="score">评分 9.2/10</span>
   <div class="tags"><span class="tag">3DGS</span><span class="tag">三维重建</span><span class="tag">基础模型初始化</span><span class="tag">相机位姿优化</span><span class="tag">近实时建图</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用 3D foundation model 替代 COLMAP/SfM 初始化，把 3DGS 快速推向近实时可用重建。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文提出一种无需传统 SfM 的快速高质量 3D Gaussian Splatting 重建方法：利用 3D 基础模型提供相机位姿和点云初始化，再通过深度引导损失联合优化相机位姿与 Gaussian primitives，并加入 MLP 位姿细化以改善稀疏视图场景。实验显示该方法在 Mip-NeRF 360、Tanks and Temples 和 RobustNeRF 上达到有竞争力的重建质量，同时把每个场景训练时…</p><p class="lang lang-en lang-block" data-lang="en">This paper introduces a fast method for high-quality 3D Gaussian Splatting (3DGS) reconstruction without traditional Structure-from-Motion (SfM). The proposed approach leverages 3D Foundation Models (3DFMs) fo…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.03209">abs</a><a href="https://arxiv.org/pdf/2607.03209">PDF</a><a href="papers/arxiv-2607.03209/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.03209">abs</a><a href="https://arxiv.org/pdf/2607.03209">PDF</a><a href="../../papers/arxiv-2607.03209/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.05347/index.html"><img src="assets/media/2026-07-08/arxiv-2607.05347/fig-001.webp" alt="WildSplat: Feedforward Gaussian Splatting from Unposed In-the-Wild Images" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.05347/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WildSplat：从无位姿野外图像前馈生成高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">WildSplat: Feedforward Gaussian Splatting from Unposed In-the-Wild Images</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.05347/index.html"><img src="../../assets/media/2026-07-08/arxiv-2607.05347/fig-001.webp" alt="WildSplat: Feedforward Gaussian Splatting from Unposed In-the-Wild Images" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.05347/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WildSplat：从无位姿野外图像前馈生成高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">WildSplat: Feedforward Gaussian Splatting from Unposed In-the-Wild Images</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-07 · score 11 · cs.CV</div>
   <div class="meta">作者：Xiyu Zhang, Jingyu Zhuang, Hongjia Zhai, Zizheng Yan</div>
   <span class="score">评分 8.7/10</span>
   <div class="tags"><span class="tag">3DGS</span><span class="tag">无位姿输入</span><span class="tag">前馈重建</span><span class="tag">外观条件化</span><span class="tag">新视角合成</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>无位姿 sparse-view 3DGS 的前馈路线，重点在几何/外观解耦和光照变化鲁棒性。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">WildSplat 面向无位姿、光照不一致的野外图像，提出外观条件化的新视角合成 3DGS 框架。方法通过几何分支提取外观不变结构并联合预测相机位姿，通过外观分支注入目标外观线索，并用多参考联合训练缓解特征纠缠，在稀疏输入下实现单次前向的高质量 NVS 和外观编辑。</p><p class="lang lang-en lang-block" data-lang="en">While feedforward 3D reconstruction excels at efficient novel view synthesis, it typically falters when faced with scenes under varying illumination. To this end, we introduce WildSplat, the first feedforward…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.05347">abs</a><a href="https://arxiv.org/pdf/2607.05347">PDF</a><a href="papers/arxiv-2607.05347/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05347">abs</a><a href="https://arxiv.org/pdf/2607.05347">PDF</a><a href="../../papers/arxiv-2607.05347/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.04169/index.html"><img src="assets/media/2026-07-08/arxiv-2607.04169/fig-001.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.04169/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">神经 LiDAR 束调整</span><span class="lang lang-en lang-inline" data-lang="en">Neural LiDAR Bundle Adjustment</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.04169/index.html"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/fig-001.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.04169/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">神经 LiDAR 束调整</span><span class="lang lang-en lang-inline" data-lang="en">Neural LiDAR Bundle Adjustment</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-05 · score 10 · cs.RO</div>
   <div class="meta">作者：Chin Yung Anson Hon, Kaicheng Zhang, Sen Wang</div>
   <span class="score">评分 9/10</span>
   <div class="tags"><span class="tag">LiDAR SLAM</span><span class="tag">Bundle Adjustment</span><span class="tag">点云配准</span><span class="tag">LiDAR NeRF</span><span class="tag">神经地图</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把 LiDAR NeRF、点云配准和位姿 bundle adjustment 合到同一后端优化框架。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">该工作分析 LiDAR NeRF 与 RGB NeRF 的关键差异，指出体采样密度对 LiDAR NeRF 表现有重要影响，并据此提出 NeLD-BA：使用高效 LiDAR ray 体采样来联合优化 LiDAR 地图和传感器位姿。论文在 Newer College 与 FusionPortable 数据集上展示了多视点点云配准和 3D mapping 的强性能，并计划开源代码。</p><p class="lang lang-en lang-block" data-lang="en">Recent research has achieved remarkable novel view rendering and scene reconstruction results with Neural Radiance Field (NeRF), including extensions to the LiDAR modality. Few studies have, however, explored…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.04169">abs</a><a href="https://arxiv.org/pdf/2607.04169">PDF</a><a href="papers/arxiv-2607.04169/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.04169">abs</a><a href="https://arxiv.org/pdf/2607.04169">PDF</a><a href="../../papers/arxiv-2607.04169/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.05356/index.html"><img src="assets/media/2026-07-08/arxiv-2607.05356/fig-001.webp" alt="ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.05356/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ReCal3R：面向流式三维重建的可靠性校准学习率</span><span class="lang lang-en lang-inline" data-lang="en">ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.05356/index.html"><img src="../../assets/media/2026-07-08/arxiv-2607.05356/fig-001.webp" alt="ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.05356/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ReCal3R：面向流式三维重建的可靠性校准学习率</span><span class="lang lang-en lang-inline" data-lang="en">ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-07 · score 9 · cs.CV</div>
   <div class="meta">作者：Xinze Li, Yiyuan Wang, Pengxu Chen, Wentao Fan</div>
   <span class="score">评分 8.4/10</span>
   <div class="tags"><span class="tag">流式三维重建</span><span class="tag">在线建图</span><span class="tag">状态可靠性</span><span class="tag">ATE</span><span class="tag">CUT3R</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>根据场景状态可靠性动态调节更新步长，减少在线三维重建长期漂移和状态污染。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">ReCal3R 针对流式 3D reconstruction 中 recurrent scene state 反复更新导致历史可靠信息被噪声覆盖的问题，估计状态 token 的可靠性，并结合 token 对齐、状态重建残差和近期更新压力来校准 token-wise learning rate。作为 CUT3R 的免训练校正规则，它在长序列 pose、depth 和 reconstruction 指标上取得明显提升，…</p><p class="lang lang-en lang-block" data-lang="en">Streaming 3D reconstruction relies on a compact recurrent scene state to process long image streams in linear time and bounded memory. However, repeated updates can gradually corrupt this state, causing reliab…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.05356">abs</a><a href="https://arxiv.org/pdf/2607.05356">PDF</a><a href="papers/arxiv-2607.05356/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05356">abs</a><a href="https://arxiv.org/pdf/2607.05356">PDF</a><a href="../../papers/arxiv-2607.05356/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.05243/index.html"><img src="assets/media/2026-07-08/arxiv-2607.05243/fig-001.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.05243/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GUSH3R：把动态人和静态场景一次性表示为 Gaussians</span><span class="lang lang-en lang-inline" data-lang="en">GUSH3R: Everyone Everywhere All at Once as Gaussians</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.05243/index.html"><img src="../../assets/media/2026-07-08/arxiv-2607.05243/fig-001.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.05243/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GUSH3R：把动态人和静态场景一次性表示为 Gaussians</span><span class="lang lang-en lang-inline" data-lang="en">GUSH3R: Everyone Everywhere All at Once as Gaussians</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-06 · score 9 · cs.CV</div>
   <div class="meta">作者：Keito Abe, Kaede Shiohara, Takashi Otonari, Toshihiko Yamasaki</div>
   <span class="score">评分 8/10</span>
   <div class="tags"><span class="tag">动态场景重建</span><span class="tag">3DGS</span><span class="tag">单目视频</span><span class="tag">人体-场景</span><span class="tag">在线重建</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>单目视频中同时前馈重建动态人体和静态场景，是动态 3DGS 场景表示的重要线索。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">GUSH3R 从单目人-场景视频中以前馈方式在线重建动态人体和静态场景，把二者统一表示为几何一致且可新视角合成的 3DGS primitives。该方法旨在解决动态人体、相机运动和静态背景同时存在时的重建与渲染问题，并相比优化式方法显著提高推理效率。</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing dynamic human-scene environments from monocular videos is a challenging problem that requires jointly modeling scene geometry, camera motion, and non-rigid human dynamics while enabling photorea…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.05243">abs</a><a href="https://arxiv.org/pdf/2607.05243">PDF</a><a href="papers/arxiv-2607.05243/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05243">abs</a><a href="https://arxiv.org/pdf/2607.05243">PDF</a><a href="../../papers/arxiv-2607.05243/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.04879/index.html"><img src="assets/media/2026-07-08/arxiv-2607.04879/fig-001.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.04879/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WinTA-GIL：间歇信号环境下 GNSS-IMU-LiDAR 航向细化的窗口化轨迹对齐</span><span class="lang lang-en lang-inline" data-lang="en">WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.04879/index.html"><img src="../../assets/media/2026-07-08/arxiv-2607.04879/fig-001.webp" alt="WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.04879/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WinTA-GIL：间歇信号环境下 GNSS-IMU-LiDAR 航向细化的窗口化轨迹对齐</span><span class="lang lang-en lang-inline" data-lang="en">WinTA-GIL: Windowed Trajectory Alignment for GNSS-IMU-LiDAR Heading Refinement in Intermittent Signal Environments</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-06 · score 7 · cs.RO</div>
   <div class="meta">作者：Kaixin Feng, Zhichao Wen, Zhaohong Liao, Xin Xia</div>
   <span class="score">评分 8.9/10</span>
   <div class="tags"><span class="tag">GNSS/INS/LiDAR</span><span class="tag">航向估计</span><span class="tag">LIO</span><span class="tag">轨迹对齐</span><span class="tag">城市峡谷</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用 LIO 局部轨迹与 GNSS 观测反复窗口对齐，解决 GNSS 断续场景下航向漂移。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">WinTA-GIL 针对复杂环境中航向估计弱可观、GNSS 信号间歇可用和 IMU 漂移累积的问题，利用 LiDAR-Inertial Odometry 的局部高精度轨迹与过滤后的 GNSS 观测做时间窗口一致性优化。方法引入状态判别驱动的自适应重估机制，在需要时触发航向校正，以抑制长期导航中的航向漂移。</p><p class="lang lang-en lang-block" data-lang="en">Although multi-source fusion positioning systems have achieved significant progress, accurate and reliable heading estimation remains a critical challenge due to the lack of gravitational constraints and the i…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.04879">abs</a><a href="https://arxiv.org/pdf/2607.04879">PDF</a><a href="papers/arxiv-2607.04879/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.04879">abs</a><a href="https://arxiv.org/pdf/2607.04879">PDF</a><a href="../../papers/arxiv-2607.04879/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.05373/index.html"><img src="assets/media/2026-07-08/arxiv-2607.05373/fig-001.webp" alt="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.05373/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PixWorld：在像素空间统一三维场景生成与重建</span><span class="lang lang-en lang-inline" data-lang="en">PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.05373/index.html"><img src="../../assets/media/2026-07-08/arxiv-2607.05373/fig-001.webp" alt="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.05373/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PixWorld：在像素空间统一三维场景生成与重建</span><span class="lang lang-en lang-inline" data-lang="en">PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-07 · score 6 · cs.CV</div>
   <div class="meta">作者：Sensen Gao, Zhaoqing Wang, Qihang Cao, Dongdong Yu</div>
   <span class="score">评分 7.6/10</span>
   <div class="tags"><span class="tag">3D 生成</span><span class="tag">三维重建</span><span class="tag">像素空间扩散</span><span class="tag">几何感知损失</span><span class="tag">基础模型</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>直接在像素空间监督 3D 扩散，把重建和生成统一到一个几何感知模型中。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">PixWorld 把 3D reconstruction 和 3D generation 统一到像素空间扩散范式中，避免 latent-space 方法中由 VAE/RAE 编码引入的信息损失。它直接在渲染图像上定义扩散监督，并额外引入 3D foundation model 特征空间中的几何感知损失，以提供更结构化的 3D 监督。</p><p class="lang lang-en lang-block" data-lang="en">3D reconstruction and generation are commonly tackled by separate paradigms: pixel-based regression for reconstruction, and latent diffusion for generation. Recent works attempt to unify them in latent space,…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.05373">abs</a><a href="https://arxiv.org/pdf/2607.05373">PDF</a><a href="papers/arxiv-2607.05373/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05373">abs</a><a href="https://arxiv.org/pdf/2607.05373">PDF</a><a href="../../papers/arxiv-2607.05373/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2607.03855/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2607.03855/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PRISM3D：极端运动模糊下物理一致场景建模的概率细化与鲁棒初始化</span><span class="lang lang-en lang-inline" data-lang="en">PRISM3D: Probabilistic Refinement and Robust Initialization for Physically Consistent Scene Modeling under Extreme Motion Blur</span></a></h3>
+  <a class="thumb placeholder" href="../../papers/arxiv-2607.03855/index.html">论文预览</a>
+  <h3><a href="../../papers/arxiv-2607.03855/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PRISM3D：极端运动模糊下物理一致场景建模的概率细化与鲁棒初始化</span><span class="lang lang-en lang-inline" data-lang="en">PRISM3D: Probabilistic Refinement and Robust Initialization for Physically Consistent Scene Modeling under Extreme Motion Blur</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-04 · score 6 · cs.CV</div>
   <div class="meta">作者：Gopi Raju Matta, Reddypalli Trisha, Vemunuri Divya Madhuri, Kaushik Mitra</div>
   <span class="score">评分 8.1/10</span>
   <div class="tags"><span class="tag">运动模糊</span><span class="tag">SfM 初始化</span><span class="tag">3DGS</span><span class="tag">事件相机</span><span class="tag">概率细化</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用 dense tracking 初始化、概率 densification 和物理成像模型，让严重运动模糊下的 3DGS 重建可启动。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">PRISM3D 解决极端运动模糊图像中传统 SfM 失败导致 3D reconstruction 难以启动的问题。方法利用 VGGSfM 进行鲁棒初始化，通过 MCMC 概率几何 densification 稳定稀疏噪声几何，并用连续 Bézier trajectory 建模物理成像；扩展版本 PRISM3D-E 进一步结合事件流作为高时间分辨率结构先验。</p><p class="lang lang-en lang-block" data-lang="en">We address the inverse problem of blind 3D scene reconstruction from extremely motion-blurred images, a scenario where traditional Structure-from-Motion (SfM) pipelines fail. Existing approaches typically circ…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.03855">abs</a><a href="https://arxiv.org/pdf/2607.03855">PDF</a><a href="papers/arxiv-2607.03855/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.03855">abs</a><a href="https://arxiv.org/pdf/2607.03855">PDF</a><a href="../../papers/arxiv-2607.03855/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2607.05376/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2607.05376/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MV-Forcing：基于 4D 几何约束的长时多视角视频生成</span><span class="lang lang-en lang-inline" data-lang="en">MV-Forcing: Long Multi-View Video Generation via 4D-Grounded Spatio-Temporal Self-Forcing</span></a></h3>
+  <a class="thumb placeholder" href="../../papers/arxiv-2607.05376/index.html">论文预览</a>
+  <h3><a href="../../papers/arxiv-2607.05376/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MV-Forcing：基于 4D 几何约束的长时多视角视频生成</span><span class="lang lang-en lang-inline" data-lang="en">MV-Forcing: Long Multi-View Video Generation via 4D-Grounded Spatio-Temporal Self-Forcing</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-07 · score 5 · cs.CV, cs.GR</div>
   <div class="meta">作者：Gal Fiebelman, Hadar Averbuch-Elor, Sagie Benaim</div>
   <span class="score">评分 7.2/10</span>
   <div class="tags"><span class="tag">4D 场景</span><span class="tag">多视角视频</span><span class="tag">扩散模型</span><span class="tag">几何一致性</span><span class="tag">动态场景</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把 3D 重建作为多视角动态视频生成的几何桥，服务长时 4D 一致性。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">MV-Forcing 面向长时、多视角一致的动态场景视频生成，把时间自回归与视角自回归组合在单个 diffusion model 中，并利用自回归 3D reconstruction model 在连续视角之间构建 4D 几何桥接。训练中引入联合去噪和 spatio-temporal self-forcing，以减少训练-推理暴露偏差并支持任意长度与视角数量生成。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in video diffusion models have enabled either long single-view generation through temporal autoregression, or short multi-view synthesis through bidirectional attention. However, generating lon…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.05376">abs</a><a href="https://arxiv.org/pdf/2607.05376">PDF</a><a href="papers/arxiv-2607.05376/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05376">abs</a><a href="https://arxiv.org/pdf/2607.05376">PDF</a><a href="../../papers/arxiv-2607.05376/index.html">详情</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -300,6 +300,6 @@
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>

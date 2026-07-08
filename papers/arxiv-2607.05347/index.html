@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>WildSplat: Feedforward Gaussian Splatting from Unposed In-the-Wild Images</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-08/index.html">← 返回 2026-07-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-07 · score 11 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">WildSplat：从无位姿野外图像前馈生成高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">WildSplat: Feedforward Gaussian Splatting from Unposed In-the-Wild Images</span></h1>
+  <div class="meta">作者：Xiyu Zhang, Jingyu Zhuang, Hongjia Zhai, Zizheng Yan, Jinwei Chen, Guofeng Zhang, Qingnan Fan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05347">abs</a><a href="https://arxiv.org/pdf/2607.05347">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>对无位姿 3DGS、相机预测和野外光照变化很有价值；更偏 NVS，但可为移动机器人非受控采集的快速场景表示提供参考。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">无位姿输入</span><span class="tag">前馈重建</span><span class="tag">外观条件化</span><span class="tag">新视角合成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">无位姿 sparse-view 3DGS 的前馈路线，重点在几何/外观解耦和光照变化鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">WildSplat 面向无位姿、光照不一致的野外图像，提出外观条件化的新视角合成 3DGS 框架。方法通过几何分支提取外观不变结构并联合预测相机位姿，通过外观分支注入目标外观线索，并用多参考联合训练缓解特征纠缠，在稀疏输入下实现单次前向的高质量 NVS 和外观编辑。</p><p class="lang lang-en lang-block" data-lang="en">While feedforward 3D reconstruction excels at efficient novel view synthesis, it typically falters when faced with scenes under varying illumination. To this end, we introduce WildSplat, the first feedforward 3D Gaussian Splatting framework capable of appearance-conditioned novel-view synthesis for unposed in-the-wild images. To handle inconsistent photometric conditions, we propose a dual-branch architecture that explicitly decouples geometry from appearance. The geometry branch extracts an appearance-invariant 3D structure and jointly predicts camera poses. To govern the rendering appearance, the appearance branch injects target appearance cues into the content features via a globally pre-modulated cross-attention mechanism. To further prevent feature entanglement, we introduce a joint multi-reference training strategy that stabilizes the training process. Extensive experiments show that WildSplat surpasses existing optimization-based and feedforward methods, achieving state-of-the-art performance in in-the-wild novel view synthesis and appearance editing from sparse inputs in a single forward pass.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.05347 ｜ PDF：https://arxiv.org/pdf/2607.05347 ｜ 项目页：https://zju3dv.github.io/wildsplat/</li>
+<li>中文题名：<strong>WildSplat：从无位姿野外图像前馈生成高斯泼溅</strong></li>
+<li>关键信息：面向光照不一致、无位姿输入的 sparse-view NVS；双分支架构把 geometry 与 appearance 解耦，几何分支同时预测相机位姿，外观分支用目标外观 cue 控制渲染。</li>
+<li>为什么值得看：相比传统 optimization-based 3DGS，它强调单次前向、无位姿、外观可控，适合观察 3DGS 从离线重建向实时/交互式 sparse-view 场景表示迁移。</li>
+<li>需要核查：相机位姿预测精度、跨光照条件下几何是否稳定，以及是否能迁移到机器人移动采集的非中心化视角序列。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05347/fig-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05347/fig-001.webp" alt="WildSplat: Feedforward Gaussian Splatting from Unposed In-the-Wild Images" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05347/fig-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05347/fig-002.webp" alt="WildSplat: Feedforward Gaussian Splatting from Unposed In-the-Wild Images" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

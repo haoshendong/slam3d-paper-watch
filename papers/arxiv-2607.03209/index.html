@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Fast 3D Foundation Model Initialized Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-08/index.html">← 返回 2026-07-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-03 · score 18 · cs.CV, cs.GR, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于 3D 基础模型初始化的快速高斯泼溅重建</span><span class="lang lang-en lang-inline" data-lang="en">Fast 3D Foundation Model Initialized Gaussian Splatting</span></h1>
+  <div class="meta">作者：Anurag Dalal, Daniel Hagen, Kjell G. Robbersmyr, Kristian Muri Knausgård</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.03209">abs</a><a href="https://arxiv.org/pdf/2607.03209">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>直接命中快速 3DGS、位姿/点云初始化和机器人近实时重建；有明确指标和应用场景，但需要进一步验证 foundation model 依赖与粗位姿退化。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">三维重建</span><span class="tag">基础模型初始化</span><span class="tag">相机位姿优化</span><span class="tag">近实时建图</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 3D foundation model 替代 COLMAP/SfM 初始化，把 3DGS 快速推向近实时可用重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出一种无需传统 SfM 的快速高质量 3D Gaussian Splatting 重建方法：利用 3D 基础模型提供相机位姿和点云初始化，再通过深度引导损失联合优化相机位姿与 Gaussian primitives，并加入 MLP 位姿细化以改善稀疏视图场景。实验显示该方法在 Mip-NeRF 360、Tanks and Temples 和 RobustNeRF 上达到有竞争力的重建质量，同时把每个场景训练时间降到约 3 分钟。</p><p class="lang lang-en lang-block" data-lang="en">This paper introduces a fast method for high-quality 3D Gaussian Splatting (3DGS) reconstruction without traditional Structure-from-Motion (SfM). The proposed approach leverages 3D Foundation Models (3DFMs) for camera pose and point-cloud initialization, then jointly optimizes both camera poses and Gaussian primitives using a depth-guided loss function. This enables fast convergence even from rough initialization with as few as 50-60 input views. To further improve reconstruction quality in sparse-view scenarios, an MLP-based pose refinement module is introduced alongside depth-guided supervision from the foundation model. Extensive experiments on Mip-NeRF 360, Tanks and Temples, and RobustNeRF demonstrate that the proposed method achieves competitive reconstruction quality (23.61 dB PSNR, 0.19 LPIPS) while reducing training time to approximately three minutes per scene. The proposed method produces ready-to-use 3DGS models at a fraction of the time required by existing pipelines, making it suitable for near real-time applications in robotics, VR, and autonomous navigation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.03209 ｜ PDF：https://arxiv.org/pdf/2607.03209</li>
+<li>中文题名：<strong>基于 3D 基础模型初始化的快速高斯泼溅重建</strong></li>
+<li>关键信息：用 3D Foundation Model 替代传统 SfM 初始化，提供相机位姿与点云初值，再联合优化相机和 Gaussian primitives，并加入深度引导损失与 MLP 位姿细化。</li>
+<li>为什么值得看：目标是把可用 3DGS 模型训练到约 3 分钟/场景，并在 50–60 张输入视图下保持质量；对机器人、VR、自动导航里的快速建图/场景资产生成很直接。</li>
+<li>需要核查：foundation model 依赖、初始化误差范围、与 COLMAP 初始化 3DGS 的公平训练时间对比，以及粗位姿条件下是否会出现尺度/姿态退化。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/fig-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/fig-001.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/fig-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/fig-002.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/fig-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/fig-003.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/fig-004.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/fig-004.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/fig-005.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/fig-005.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/table-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/table-001.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/table-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/table-002.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/table-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/table-003.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/table-004.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/table-004.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.03209/table-005.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.03209/table-005.webp" alt="Fast 3D Foundation Model Initialized Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GUSH3R: Everyone Everywhere All at Once as Gaussians</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-08/index.html">← 返回 2026-07-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-06 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GUSH3R：把动态人和静态场景一次性表示为 Gaussians</span><span class="lang lang-en lang-inline" data-lang="en">GUSH3R: Everyone Everywhere All at Once as Gaussians</span></h1>
+  <div class="meta">作者：Keito Abe, Kaede Shiohara, Takashi Otonari, Toshihiko Yamasaki</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05243">abs</a><a href="https://arxiv.org/pdf/2607.05243">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>动态人-场景统一建模对 AR/机器人环境理解有意义；相对 GNSS/SLAM 后端较远，重点看长期一致性和遮挡鲁棒性。</p><div class="tags"><span class="tag">动态场景重建</span><span class="tag">3DGS</span><span class="tag">单目视频</span><span class="tag">人体-场景</span><span class="tag">在线重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">单目视频中同时前馈重建动态人体和静态场景，是动态 3DGS 场景表示的重要线索。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">GUSH3R 从单目人-场景视频中以前馈方式在线重建动态人体和静态场景，把二者统一表示为几何一致且可新视角合成的 3DGS primitives。该方法旨在解决动态人体、相机运动和静态背景同时存在时的重建与渲染问题，并相比优化式方法显著提高推理效率。</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing dynamic human-scene environments from monocular videos is a challenging problem that requires jointly modeling scene geometry, camera motion, and non-rigid human dynamics while enabling photorealistic rendering. Recent feed-forward methods can efficiently predict geometry, but they are often limited to non-photorealistic representations such as point clouds and meshes, or they fail to handle non-rigid objects, particularly dynamic humans. To fill this gap, we present GUSH3R (Gaussian-Unified Scene Human 3D Reconstruction), a feed-forward framework for online dynamic human-scene reconstruction. From a monocular human-scene video, our method reconstructs dynamic humans (everyone) and static scenes (everywhere) in a single forward pass (all at once) as 3D Gaussian Splatting (3DGS) primitives (as gaussians), which are geometrically consistent and capable of novel view synthesis. Experiments on monocular human-scene datasets demonstrate that our approach achieves competitive novel view synthesis quality while significantly improving inference efficiency compared to optimization-based methods.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.05243 ｜ PDF：https://arxiv.org/pdf/2607.05243 ｜ 项目页：https://abkeito.github.io/gush3r-page/</li>
+<li>中文题名：<strong>GUSH3R：把动态人和静态场景一次性表示为 Gaussians</strong></li>
+<li>关键信息：从单目人-场景视频中前馈重建动态人体和静态场景，统一输出几何一致、可新视角合成的 3DGS primitives。</li>
+<li>为什么值得看：动态人体与静态环境联合建模是移动机器人/AR 里真实场景重建的难点；该工作强调在线、单次前向和人-场景统一 Gaussian 表示。</li>
+<li>需要核查：非刚体人体与相机运动解耦方式、多人遮挡下的拓扑一致性、静态背景尺度漂移，以及是否支持长视频增量更新。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05243/fig-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05243/fig-001.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05243/fig-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05243/fig-002.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05243/fig-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05243/fig-003.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05243/fig-004.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05243/fig-004.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05243/table-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05243/table-001.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05243/table-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05243/table-002.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05243/table-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05243/table-003.webp" alt="GUSH3R: Everyone Everywhere All at Once as Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PRISM3D: Probabilistic Refinement and Robust Initialization for Physically Consistent Scene Modeling under Extreme Motion Blur</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-08/index.html">← 返回 2026-07-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-04 · score 6 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PRISM3D：极端运动模糊下物理一致场景建模的概率细化与鲁棒初始化</span><span class="lang lang-en lang-inline" data-lang="en">PRISM3D: Probabilistic Refinement and Robust Initialization for Physically Consistent Scene Modeling under Extreme Motion Blur</span></h1>
+  <div class="meta">作者：Gopi Raju Matta, Reddypalli Trisha, Vemunuri Divya Madhuri, Kaushik Mitra</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.03855">abs</a><a href="https://arxiv.org/pdf/2607.03855">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.1/10</span><p>对高速运动、模糊采集和事件相机辅助重建很有启发；需验证真实机器人视频中的鲁棒性与计算成本。</p><div class="tags"><span class="tag">运动模糊</span><span class="tag">SfM 初始化</span><span class="tag">3DGS</span><span class="tag">事件相机</span><span class="tag">概率细化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 dense tracking 初始化、概率 densification 和物理成像模型，让严重运动模糊下的 3DGS 重建可启动。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PRISM3D 解决极端运动模糊图像中传统 SfM 失败导致 3D reconstruction 难以启动的问题。方法利用 VGGSfM 进行鲁棒初始化，通过 MCMC 概率几何 densification 稳定稀疏噪声几何，并用连续 Bézier trajectory 建模物理成像；扩展版本 PRISM3D-E 进一步结合事件流作为高时间分辨率结构先验。</p><p class="lang lang-en lang-block" data-lang="en">We address the inverse problem of blind 3D scene reconstruction from extremely motion-blurred images, a scenario where traditional Structure-from-Motion (SfM) pipelines fail. Existing approaches typically circumvent this bottleneck by relying on impractical sharp-image supervision. In this work, we introduce PRISM3D, a unified framework enabling robust reconstruction directly from severely degraded inputs. To overcome the lack of a reliable starting point, we propose a Robust Initialization strategy utilizing deep dense tracking method (VGGSfM) to recover global topology where feature matching fails. To the best of our knowledge, we are the first to effectively leverage this paradigm to bootstrap 3D Gaussian Splatting from extreme motion blur. However, while robust, this initialization yields sparse and noisy geometry that causes deterministic optimization to diverge. To resolve this, we propose a coupled solution driven by probability and physics: we adopt a probabilistic formulation for geometric densification via Markov Chain Monte Carlo (MCMC) to robustly populate the sparse priors, while simultaneously modeling physical image formation via continuous Bezier Trajectories. Furthermore, while PRISM3D establishes a highly robust standalone pipeline, the availability of complementary event streams offers an opportunity to push the reconstruction fidelity further. To exploit this, we introduce PRISM3D-E, a multi-modal (RGB + Events) extension that seamlessly integrates high-temporal-resolution events as structural priors to maximize geometric recovery. Because existing datasets lack paired event streams under such severe degradation, we concurrently contribute the PRISM3D-E Benchmark to facilitate rigorous evaluation. Extensive experiments demonstrate that both our standalone RGB framework and its multi-modal extension establish new state-of-the-art performance.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.03855 ｜ PDF：https://arxiv.org/pdf/2607.03855</li>
+<li>中文题名：<strong>PRISM3D：极端运动模糊下物理一致场景建模的概率细化与鲁棒初始化</strong></li>
+<li>关键信息：针对极端运动模糊图像中传统 SfM 失效的问题，利用 VGGSfM 做鲁棒初始化，用 MCMC 概率几何 densification 和连续 Bézier trajectory 建模物理成像；另有 RGB+Events 扩展 PRISM3D-E。</li>
+<li>为什么值得看：对高速运动、低曝光、运动模糊采集下的 3DGS/重建很相关，也展示了 dense tracking foundation model 与物理成像模型结合的路线。</li>
+<li>需要核查：事件相机扩展的数据依赖、RGB-only 版本在真实机器人模糊视频上的鲁棒性，以及概率 densification 的运行开销。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-08/index.html">← 返回 2026-07-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-07 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ReCal3R：面向流式三维重建的可靠性校准学习率</span><span class="lang lang-en lang-inline" data-lang="en">ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction</span></h1>
+  <div class="meta">作者：Xinze Li, Yiyuan Wang, Pengxu Chen, Wentao Fan, Weifeng Su, Weisi Lin, Wentao Cheng</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05356">abs</a><a href="https://arxiv.org/pdf/2607.05356">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>对 streaming 3D reconstruction 和 SLAM-like 地图状态维护有启发；优点是 training-free 与低额外开销，局限是依赖 CUT3R 类 recurrent 表示。</p><div class="tags"><span class="tag">流式三维重建</span><span class="tag">在线建图</span><span class="tag">状态可靠性</span><span class="tag">ATE</span><span class="tag">CUT3R</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">根据场景状态可靠性动态调节更新步长，减少在线三维重建长期漂移和状态污染。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ReCal3R 针对流式 3D reconstruction 中 recurrent scene state 反复更新导致历史可靠信息被噪声覆盖的问题，估计状态 token 的可靠性，并结合 token 对齐、状态重建残差和近期更新压力来校准 token-wise learning rate。作为 CUT3R 的免训练校正规则，它在长序列 pose、depth 和 reconstruction 指标上取得明显提升，包括 3.7 倍 ATE 降低。</p><p class="lang lang-en lang-block" data-lang="en">Streaming 3D reconstruction relies on a compact recurrent scene state to process long image streams in linear time and bounded memory. However, repeated updates can gradually corrupt this state, causing reliable historical information to be overwritten by noisy or ambiguous observations. We introduce ReCal3R, a reliability-calibrated learning rate method for recurrent 3D reconstruction. Instead of directly applying a candidate learning rate, our method estimates state token reliability from the maintained scene state and uses it to calibrate a candidate learning rate derived from token alignment, state reconstruction residual, and recent update pressure. The resulting token-wise learning rate interpolates between a conservative base rate and the candidate rate, suppressing aggressive updates on unreliable tokens while preserving adaptation to informative frames. Applied to CUT3R as a training-free calibration rule, ReCal3R reaches strong performance on long sequences in pose, depth, and reconstruction quality, including a 3.7$\times$ reduction in ATE, with comparable runtime and memory. Code is available at: https://github.com/Powertony102/ReCal3R.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.05356 ｜ PDF：https://arxiv.org/pdf/2607.05356 ｜ 代码：https://github.com/Powertony102/ReCal3R</li>
+<li>中文题名：<strong>ReCal3R：面向流式三维重建的可靠性校准学习率</strong></li>
+<li>关键信息：针对 recurrent/streaming 3D reconstruction 中历史 scene state 被噪声观测覆盖的问题，估计 state token 可靠性，并据此校准 token-wise learning rate。</li>
+<li>为什么值得看：作为 CUT3R 的 training-free 校正规则，论文报告长序列 ATE 降低 3.7× 且运行/内存基本不变；对在线重建、长序列 SLAM-like 表示更新有启发。</li>
+<li>需要核查：可靠性估计是否依赖特定 backbone、在回环/大视角跳变/弱纹理段的状态恢复能力，以及是否能与视觉里程计或 3DGS mapping 状态融合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05356/fig-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05356/fig-001.webp" alt="ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05356/fig-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05356/fig-002.webp" alt="ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05356/table-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05356/table-001.webp" alt="ReCal3R: Reliability-Calibrated Learning Rates for Streaming 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Neural LiDAR Bundle Adjustment</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-08/index.html">← 返回 2026-07-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-05 · score 10 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">神经 LiDAR 束调整</span><span class="lang lang-en lang-inline" data-lang="en">Neural LiDAR Bundle Adjustment</span></h1>
+  <div class="meta">作者：Chin Yung Anson Hon, Kaicheng Zhang, Sen Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.04169">abs</a><a href="https://arxiv.org/pdf/2607.04169">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>高度相关于 LiDAR SLAM 后端、点云 registration 和神经隐式地图；理论与实证都有，但仍需验证运行效率和与经典 LIO/ICP 的工程可比性。</p><div class="tags"><span class="tag">LiDAR SLAM</span><span class="tag">Bundle Adjustment</span><span class="tag">点云配准</span><span class="tag">LiDAR NeRF</span><span class="tag">神经地图</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 LiDAR NeRF、点云配准和位姿 bundle adjustment 合到同一后端优化框架。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作分析 LiDAR NeRF 与 RGB NeRF 的关键差异，指出体采样密度对 LiDAR NeRF 表现有重要影响，并据此提出 NeLD-BA：使用高效 LiDAR ray 体采样来联合优化 LiDAR 地图和传感器位姿。论文在 Newer College 与 FusionPortable 数据集上展示了多视点点云配准和 3D mapping 的强性能，并计划开源代码。</p><p class="lang lang-en lang-block" data-lang="en">Recent research has achieved remarkable novel view rendering and scene reconstruction results with Neural Radiance Field (NeRF), including extensions to the LiDAR modality. Few studies have, however, explored the key design differences between RGB NeRFs and LiDAR NeRFs, particularly considering their underlying working principles. In this work, we provide both theoretical and empirical evidence suggesting that the density of volume sampling plays a significant role in LiDAR NeRF. Based on this finding, we propose a novel Neural LiDAR Bundle Adjustment (NeLD-BA) algorithm, which is tailored using efficient volume sampling of LiDAR rays for joint optimization of LiDAR map and poses. Extensive experiments are performed using the Newer College and FusionPortable datasets to demonstrate the proposed NeLD-BA&#x27;s state-of-the-art performance in multi-view point cloud registration and 3D mapping. We will open-source our code for the community.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.04169 ｜ PDF：https://arxiv.org/pdf/2607.04169</li>
+<li>中文题名：<strong>神经 LiDAR 束调整</strong></li>
+<li>关键信息：提出 NeLD-BA，用 LiDAR NeRF 的高效体采样联合优化 LiDAR 地图与位姿；论文声称在 Newer College 与 FusionPortable 上实现多视点点云配准和 3D mapping SOTA。</li>
+<li>为什么值得看：它把 bundle adjustment、点云配准和神经场 LiDAR 建图放到同一优化框架内，是 LiDAR SLAM/建图中“神经隐式地图 + 位姿联合优化”的直接信号。</li>
+<li>需要核查：采样密度理论假设、动态物体/稀疏扫描下鲁棒性、与 ICP/GICP/LIO 系统的运行时间和漂移对比，以及代码开源兑现情况。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/fig-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/fig-001.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/fig-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/fig-002.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/fig-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/fig-003.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/fig-004.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/fig-004.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/fig-005.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/fig-005.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/fig-006.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/fig-006.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/table-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/table-001.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/table-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/table-002.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/table-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/table-003.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.04169/table-004.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.04169/table-004.webp" alt="Neural LiDAR Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

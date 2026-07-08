@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-08/index.html">← 返回 2026-07-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-07 · score 6 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PixWorld：在像素空间统一三维场景生成与重建</span><span class="lang lang-en lang-inline" data-lang="en">PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space</span></h1>
+  <div class="meta">作者：Sensen Gao, Zhaoqing Wang, Qihang Cao, Dongdong Yu, Changhu Wang, Jia-Wang Bian</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.05373">abs</a><a href="https://arxiv.org/pdf/2607.05373">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.6/10</span><p>更偏 3D 生成和通用场景表示，和 SLAM/GNSS 间接相关；但几何感知损失与统一重建/生成框架值得跟踪。</p><div class="tags"><span class="tag">3D 生成</span><span class="tag">三维重建</span><span class="tag">像素空间扩散</span><span class="tag">几何感知损失</span><span class="tag">基础模型</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">直接在像素空间监督 3D 扩散，把重建和生成统一到一个几何感知模型中。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PixWorld 把 3D reconstruction 和 3D generation 统一到像素空间扩散范式中，避免 latent-space 方法中由 VAE/RAE 编码引入的信息损失。它直接在渲染图像上定义扩散监督，并额外引入 3D foundation model 特征空间中的几何感知损失，以提供更结构化的 3D 监督。</p><p class="lang lang-en lang-block" data-lang="en">3D reconstruction and generation are commonly tackled by separate paradigms: pixel-based regression for reconstruction, and latent diffusion for generation. Recent works attempt to unify them in latent space, but with notable drawbacks: the diffusion objective is defined on latent features rather than the underlying 3D representation, and both branches suffer from information loss introduced by latent encoding, while requiring a pretrained Variational Autoencoder (VAE) or Representation Autoencoder (RAE). In this paper, we reformulate these two tasks under a unified pixel-space diffusion paradigm and introduce PixWorld, a single model that jointly addresses 3D reconstruction and generation. By supervising diffusion directly on rendered images, PixWorld removes the above limitations and aligns optimization with 3D scene fidelity. Beyond photometric and perceptual supervision that operates at the 2D image level and lacks 3D geometric awareness, we further introduce a geometry perception loss that aligns rendered views with their ground truth in the geometry-aware feature space of a pretrained 3D foundation model, providing 3D structural supervision. PixWorld consistently outperforms prior latent-space generation methods and matches state-of-the-art reconstruction methods, demonstrating the superiority of a unified pixel-space approach.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.05373 ｜ PDF：https://arxiv.org/pdf/2607.05373 ｜ 项目页：https://sensengao.github.io/PixWorld/</li>
+<li>中文题名：<strong>PixWorld：在像素空间统一三维场景生成与重建</strong></li>
+<li>关键信息：不用 latent-space diffusion，而是在渲染图像像素空间直接监督扩散目标，并引入 3D foundation model 特征空间中的 geometry perception loss。</li>
+<li>为什么值得看：它把 3D reconstruction 与 3D generation 放到统一训练范式里，可能影响后续可控场景生成、仿真数据构建和重建先验设计。</li>
+<li>需要核查：像素空间扩散的计算成本、几何损失对真实几何一致性的贡献，以及在真实多视图采集与机器人场景中的泛化。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05373/fig-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05373/fig-001.webp" alt="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05373/fig-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05373/fig-002.webp" alt="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05373/table-001.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05373/table-001.webp" alt="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05373/table-002.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05373/table-002.webp" alt="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05373/table-003.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05373/table-003.webp" alt="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-08/arxiv-2607.05373/table-004.webp"><img src="../../assets/media/2026-07-08/arxiv-2607.05373/table-004.webp" alt="PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
