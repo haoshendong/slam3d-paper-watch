@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-10/index.html">← 返回 2026-07-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-08 · score 15 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PLED-VINS：面向动态环境的点线事件视觉惯性 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments</span></h1>
+  <div class="meta">作者：Seunghun Lee, Jihun Nam, Dong-Uk Seo, Hyun Myung</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.07374">abs</a><a href="https://arxiv.org/pdf/2607.07374">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.5/10</span><p>直接命中 event-based VINS、动态环境、点线特征和鲁棒 BA；适合 SLAM 前端可靠性建模跟踪。需关注真实动态数据规模、与现有事件 VIO 的公平对比和代码开放情况。</p><div class="tags"><span class="tag">事件相机</span><span class="tag">VINS</span><span class="tag">动态环境</span><span class="tag">点线特征</span><span class="tag">鲁棒 BA</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用时间统计和几何 BA 残差联合评估事件点线特征可靠性，提升动态环境下 VINS 稳定性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PLED-VINS 是一个单目事件相机视觉惯性 SLAM 框架，面向动态环境中移动物体和快速运动导致的状态估计退化。方法为点和线事件特征构建 entropy-recency score map 以刻画时间可靠性，同时通过统一的点线鲁棒 bundle adjustment 估计几何可靠性，再用自适应加权策略融合时间与几何可靠性，并对线特征加入运动条件可靠性建模，以降低不可靠观测对状态估计的影响。</p><p class="lang lang-en lang-block" data-lang="en">Dynamic environments remain a fundamental challenge for visual SLAM, where unreliable observations from moving objects and rapid motion degrade state estimation accuracy. Although event cameras preserve fine-grained spatio-temporal information, most existing event-based SLAM frameworks still assume static scenes and lack approaches to estimate the reliability of features. To this end, we propose PLED-VINS, a monocular event camera-based visual-inertial SLAM framework that enables robust state estimation in dynamic environments. We propose an entropy-recency score map to characterize the temporal reliability of both point and line features based on event temporal statistics. Concurrently, geometric reliability is estimated via a unified point-line robust bundle adjustment. Building upon these, we design an adaptive weighting strategy that fuses temporal and geometric reliability, including motion-conditioned reliability modeling for line features, to suppress unreliable observations. Experimental results demonstrate that PLED-VINS improves state estimation on the evaluated dynamic sequences with moving objects.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.07374 ｜ PDF：https://arxiv.org/pdf/2607.07374</li>
+<li>中文题名：<strong>PLED-VINS：面向动态环境的点线事件视觉惯性 SLAM</strong></li>
+<li>关键信息：IROS 2026 接收论文。使用单目事件相机与 IMU，在点和线特征上构建 entropy-recency score map 表征时间可靠性，并通过统一点线鲁棒 bundle adjustment 估计几何可靠性，再自适应融合两类可靠性以抑制动态物体观测。</li>
+<li>为什么值得看：事件相机 SLAM/VIO 在高速和高动态范围场景中有优势，但动态物体下的特征可靠性仍是短板；这篇把 point-line、时间统计和 BA 残差放到统一加权框架中。</li>
+<li>需要核查：事件点/线提取与 IMU 预积分细节、动态物体比例升高时的鲁棒核与权重退化、与 ESVIO/UltimateSLAM/Event-aided VINS 的真实数据对比，以及代码/数据是否开放。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07374/fig-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07374/fig-001.webp" alt="PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07374/fig-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07374/fig-002.webp" alt="PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07374/fig-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07374/fig-003.webp" alt="PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07374/fig-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07374/fig-004.webp" alt="PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07374/fig-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07374/fig-005.webp" alt="PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07374/fig-006.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07374/fig-006.webp" alt="PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07374/table-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07374/table-001.webp" alt="PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07374/table-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07374/table-002.webp" alt="PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

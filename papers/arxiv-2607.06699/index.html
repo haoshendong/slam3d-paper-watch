@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-10/index.html">← 返回 2026-07-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-08 · score 3 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RoboSnap：用于通用机器人学习与评测的一次性真实到仿真场景生成</span><span class="lang lang-en lang-inline" data-lang="en">RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation</span></h1>
+  <div class="meta">作者：Shujie Zhang, Jingkun Yi, Weipeng Zhong, Zirui Zhou, Yangkun Zhu, Hanqing Wang, Xudong Xu, Weinan Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.06699">abs</a><a href="https://arxiv.org/pdf/2607.06699">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>偏 real-to-sim 与机器人学习，和 SLAM/GNSS 间接相关；但展示 3DGS 重建结果转化为仿真基础设施的趋势，值得低优先级关注。</p><div class="tags"><span class="tag">real-to-sim</span><span class="tag">机器人学习</span><span class="tag">3DGS</span><span class="tag">仿真场景</span><span class="tag">DROID-Sim</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从单张真实图像生成可交互仿真场景，用 3DGS 保留背景视觉层以服务机器人学习。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">RoboSnap 是一个 real-to-sim 框架，目标是从单张 RGB 图像生成可交互仿真场景，用于通用机器人学习和可复现实验评测。方法采用分层设计：前景交互区域通过 collision-aware asset refinement 保证物理稳定，背景则用 3D Gaussian Splatting visual layer 保持新视角下的视觉真实感。作者还基于 DROID 构建了包含 564 个真实场景的 DROID-Sim 数据集，展示恢复场景可用于轨迹回放、合成数据生成和策略评估。</p><p class="lang lang-en lang-block" data-lang="en">Recovering real-world scenes as interactive simulation environments can enable generalizable robot learning and reproducible policy evaluation. However, constructing scenes that are both physically stable and visually faithful remains slow and expensive. In this work, we present RoboSnap, a real-to-sim framework that turns a single RGB image into a simulation-ready scene. The key idea is a layered design that separates the physics-critical interaction area from the surrounding visual context: collision-aware foreground assets are refined for stable robot interaction, while a 3D Gaussian splatting visual layer preserves faithful background appearance under novel views. Experiments on DROID scenes and real-robot tasks show that RoboSnap achieves reliable trajectory replay in the recovered scenes, supports task-specific synthetic data generation for policy training, and yields meaningful sim-real correlation for policy evaluation. To further support real-to-sim research, we introduce DROID-Sim, a real-to-sim companion dataset constructed from 564 real-world scenes in DROID. Extensive experiments suggest that the value of real-to-sim methods lies not only in high-fidelity visual reconstruction, but in turning real environments into reusable infrastructure for robot learning and evaluation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.06699 ｜ PDF：https://arxiv.org/pdf/2607.06699 ｜ 项目页：https://robosnap.github.io</li>
+<li>中文题名：<strong>RoboSnap：用于通用机器人学习与评测的一次性真实到仿真场景生成</strong></li>
+<li>关键信息：从单张 RGB 图像恢复可交互仿真场景；用 layered design 分离物理交互关键前景资产和 3DGS 背景视觉层，并构建 DROID-Sim 数据集（564 个 DROID 真实场景）。</li>
+<li>为什么值得看：更偏 real-to-sim/robot learning，但 3DGS 被作为背景视觉保真层，体现“重建结果转化为可复用仿真基础设施”的趋势；对机器人数据生成、策略评测和场景资产构建有间接价值。</li>
+<li>需要核查：单图尺度/碰撞几何恢复可信度、物理稳定性与视觉保真之间的取舍、DROID-Sim 数据许可，以及与多视图/视频重建输入的扩展方式。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/fig-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/fig-001.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/fig-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/fig-002.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/fig-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/fig-003.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/fig-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/fig-004.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/fig-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/fig-005.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/fig-006.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/fig-006.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/table-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/table-001.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/table-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/table-002.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/table-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/table-003.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/table-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/table-004.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06699/table-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06699/table-005.webp" alt="RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-10/index.html">← 返回 2026-07-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-08 · score 3 · cs.NI, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">车载传感器与 V2X 数据融合如何改善（或不能改善）网联自动驾驶协同感知</span><span class="lang lang-en lang-inline" data-lang="en">How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles</span></h1>
+  <div class="meta">作者：Amir Mohammadisarab, Miguel Sepulcre, Luca Lusvarghi, Javier Gozalvez</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.07114">abs</a><a href="https://arxiv.org/pdf/2607.07114">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.2/10</span><p>直接涉及 GNSS inaccuracies 和 V2X 感知融合误差传播，但不是定位/SLAM 后端论文；适合作为车路协同感知鲁棒融合线索低优先级跟踪。</p><div class="tags"><span class="tag">GNSS 误差</span><span class="tag">V2X</span><span class="tag">协同感知</span><span class="tag">自动驾驶</span><span class="tag">误差传播</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">评估 GNSS 误差和 V2X 丢包如何影响协同感知融合，并指出 ghost vehicle 风险。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文分析网联自动驾驶车辆中车载传感器与 V2X 数据融合对协同感知的影响，重点考察传感测量误差、V2X packet loss 和 GNSS inaccuracies 对融合质量的作用。结果显示协同感知可扩大感知范围并提升感知水平，但 V2X 数据中的误差也可能在融合过程中生成 ghost vehicles，因此需要专门机制避免 V2X 数据引入额外错误。</p><p class="lang lang-en lang-block" data-lang="en">Automated vehicles rely on onboard sensors to perceive their surroundings and navigate autonomously. However, sensor performance may degrade under adverse weather conditions or when line-of-sight is obstructed. Cooperative perception (or collective perception) is expected to mitigate these limitations by enabling Connected and Automated Vehicles (CAVs) to share sensor data and collaboratively enhance situational awareness. Several studies have analyzed the potential of cooperative perception, yet the fusion of V2X data with information from onboard sensors has received limited focus. V2X data may contain errors that affect the quality of the fused data, and hence the effectiveness of cooperative perception. This study analyzes the impact of sensing measurement errors, V2X packet losses, and GNSS inaccuracies on the effectiveness of cooperative perception. The results highlight the potential of cooperative perception to enhance perception levels and range compared to using onboard sensors alone. However, they also identify key challenges related to the generation of ghost vehicles during the fusion process, which must be addressed to prevent V2X data from introducing additional errors when fused with onboard sensor data.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.07114 ｜ PDF：https://arxiv.org/pdf/2607.07114</li>
+<li>中文题名：<strong>车载传感器与 V2X 数据融合如何改善（或不能改善）网联自动驾驶协同感知</strong></li>
+<li>关键信息：分析 CAV 协同感知中车载传感器与 V2X 数据融合效果，重点考察 sensing measurement errors、V2X packet losses 和 GNSS inaccuracies 对融合结果的影响，并指出 ghost vehicles 是关键风险。</li>
+<li>为什么值得看：这不是 SLAM 后端论文，但直接触及 GNSS 误差和通信丢包进入感知融合后的负面效应，对车路协同定位/感知系统的误差预算和鲁棒融合策略有参考价值。</li>
+<li>需要核查：传感器误差和 GNSS 不准的仿真模型、ghost vehicle 的生成机制、与 CP/collective perception 标准消息的对应关系，以及是否可迁移到因子图/多源跟踪融合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07114/fig-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07114/fig-001.webp" alt="How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07114/fig-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07114/fig-002.webp" alt="How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07114/fig-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07114/fig-003.webp" alt="How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07114/fig-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07114/fig-004.webp" alt="How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07114/fig-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07114/fig-005.webp" alt="How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07114/fig-006.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07114/fig-006.webp" alt="How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07114/table-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07114/table-001.webp" alt="How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07114/table-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07114/table-002.webp" alt="How the Fusion of Onboard Sensors and V2X Data can Improve (or not) the Cooperative Perception of Connected Automated Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

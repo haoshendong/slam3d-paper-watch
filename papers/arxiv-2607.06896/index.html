@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Dynamic Object Detection and Tracking in Construction: A Fisheye Camera and LiDAR Sensor Fusion Model</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-10/index.html">← 返回 2026-07-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-08 · score 5 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">建筑场景动态目标检测与跟踪：鱼眼相机和 LiDAR 传感器融合模型</span><span class="lang lang-en lang-inline" data-lang="en">Dynamic Object Detection and Tracking in Construction: A Fisheye Camera and LiDAR Sensor Fusion Model</span></h1>
+  <div class="meta">作者：Yilong Chen, Huili Huang, Yong K. Cho</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.06896">abs</a><a href="https://arxiv.org/pdf/2607.06896">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>偏工程短文，但与 LiDAR SLAM 前端动态点处理、传感器融合和移动机器人安全感知相关；算法新颖性有限，需看标定/同步和真实数据规模。</p><div class="tags"><span class="tag">LiDAR-camera 融合</span><span class="tag">动态目标跟踪</span><span class="tag">施工机器人</span><span class="tag">Kalman filter</span><span class="tag">语义辅助</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 LiDAR 运动检测和鱼眼图像语义检测互补，提高施工场景动态障碍物跟踪鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该论文面向施工现场中的机器人动态目标检测与跟踪，提出将 LiDAR 点云/占据栅格的运动检测与上视鱼眼相机的语义检测融合。系统先在配准点云中识别运动物体，再把三维坐标投影到二维圆柱全景图，与实时图像检测结果对齐，并作为 Kalman filter 的观测更新。方法强调简单、实时和对动态/静态状态切换的鲁棒性，适用于四足机器人施工场景部署。</p><p class="lang lang-en lang-block" data-lang="en">Robust dynamic object detection and tracking are essential for enabling robots to operate safely and effectively alongside humans in complex environments such as construction sites. While LiDAR-based SLAM and occupancy grid methods offer viable solutions for detecting and tracking motion, many state-of-the-art 3D vision approaches rely heavily on pre-trained neural networks and require additional post-processing to identify moving objects. Sensor fusion techniques, combining the precision of LiDAR with the semantic richness of RGB imagery, offer a promising alternative. In this work, we present a novel framework that enhances a quadruped robot equipped with a LiDAR sensor and an upward-facing fisheye camera for real-time dynamic object detection and tracking. After identifying moving objects within a registered point cloud, our method assigns semantic labels by projecting 3D coordinates onto a 2D cylindrical panorama, aligning with real-time image-based detections for observation update of the Kalman filter. The proposed system demonstrates high precision, simplicity, and robustness, particularly in handling objects transitioning between dynamic and static states, thus it is well-suited for deployment in real-world construction environments.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.06896 ｜ PDF：https://arxiv.org/pdf/2607.06896</li>
+<li>中文题名：<strong>建筑场景动态目标检测与跟踪：鱼眼相机和 LiDAR 传感器融合模型</strong></li>
+<li>关键信息：在四足机器人上融合 LiDAR 与上视鱼眼相机：先在配准点云/占据栅格中识别运动物体，再把 3D 坐标投影到圆柱全景图，与实时 2D 检测结果对齐并用于 Kalman filter 观测更新。</li>
+<li>为什么值得看：论文较短、偏工程，但贴近真实施工现场动态障碍物检测；对 LiDAR SLAM 前端动态点剔除、语义辅助 tracking 和移动机器人安全感知有直接线索。</li>
+<li>需要核查：动态/静态状态切换判据、LiDAR-camera 标定和时间同步误差、遮挡/多目标下的数据关联，以及是否依赖预训练检测器导致域外退化。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06896/fig-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06896/fig-001.webp" alt="Dynamic Object Detection and Tracking in Construction: A Fisheye Camera and LiDAR Sensor Fusion Model" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06896/fig-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06896/fig-002.webp" alt="Dynamic Object Detection and Tracking in Construction: A Fisheye Camera and LiDAR Sensor Fusion Model" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06896/fig-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06896/fig-003.webp" alt="Dynamic Object Detection and Tracking in Construction: A Fisheye Camera and LiDAR Sensor Fusion Model" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06896/fig-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06896/fig-004.webp" alt="Dynamic Object Detection and Tracking in Construction: A Fisheye Camera and LiDAR Sensor Fusion Model" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06896/fig-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06896/fig-005.webp" alt="Dynamic Object Detection and Tracking in Construction: A Fisheye Camera and LiDAR Sensor Fusion Model" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06896/fig-006.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06896/fig-006.webp" alt="Dynamic Object Detection and Tracking in Construction: A Fisheye Camera and LiDAR Sensor Fusion Model" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

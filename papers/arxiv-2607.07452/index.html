@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-10/index.html">← 返回 2026-07-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-08 · score 17 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GeoGS-SLAM：面向稠密单目 SLAM 的纯几何高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM</span></h1>
+  <div class="meta">作者：Lipu Zhou, Yaoyun Kang, Junxiang Pang, Shengkai Sun, Tingting Bao, Kehan Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.07452">abs</a><a href="https://arxiv.org/pdf/2607.07452">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.5/10</span><p>高度命中 3DGS-SLAM、稠密单目建图、回环地图更新和在线几何重建；创新点直接服务机器人导航/避障。需进一步核查单目尺度、深度监督来源和长期动态环境鲁棒性。</p><div class="tags"><span class="tag">3DGS-SLAM</span><span class="tag">稠密单目 SLAM</span><span class="tag">几何建图</span><span class="tag">回环更新</span><span class="tag">在线重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 3DGS-SLAM 的核心从外观渲染压缩到几何建图，并专门处理回环后的 Gaussian 地图一致性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出 Geometry-only Gaussian Splatting（GeoGS），将 3DGS 从同时建模外观与几何转向只保留空间几何参数，单个 primitive 参数量减少超过 80%。基于 GeoGS，作者构建了稠密单目 SLAM 系统，通过单视图/多视图几何与光度监督、局部平面驱动初始化来加速几何收敛，并在回环后对 Gaussian 地图做全局变换更新，以避免不同视角独立位姿修正造成的地图撕裂。实验表明该方法在在线建图效率和几何重建质量上优于现有方法。</p><p class="lang lang-en lang-block" data-lang="en">Dense visual SLAM is a fundamental problem in robotics. Recent advances in 3DGS have demonstrated its potential for dense SLAM. Existing 3DGS frameworks focus on both appearance and geometry modeling. However, scene geometry is typically more critical for SLAM than novel view synthesis because downstream robotic tasks, such as navigation and obstacle avoidance, rely primarily on accurate spatial geometry rather than photorealistic rendering. This observation raises a natural question: Is it feasible for 3DGS to perform 3D reconstruction without scene appearance modeling? Motivated by this, we propose Geometry-only Gaussian Splatting (GeoGS), which directly reconstructs scene geometry, and further present GeoGS-SLAM, a dense visual SLAM system built upon this representation. Specifically, GeoGS retains only spatial parameters to reduce the number of per-primitive parameters by over 80%. In contrast to existing 3DGS methods, GeoGS focuses solely on geometric reconstruction, which significantly reduces the number of Gaussian primitives, accelerates geometric convergence, and enhances robustness to illumination variations. In addition, we present an effective training framework that optimizes the Gaussian primitives via single-view and multi-view geometric and photometric supervision, and speeds up geometry convergence with a local-plane driven initialization that better aligns primitives with local structures. Furthermore, we introduce a map update strategy for loop closure that globally transforms the Gaussian map to align it with the corrected pose estimates, thereby preventing map tearing caused by inconsistent per-viewpoint pose corrections in existing methods. Extensive experiments on synthetic and real-world benchmarks demonstrate that our method outperforms SOTA methods in terms of online mapping efficiency and geometric reconstruction quality.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.07452 ｜ PDF：https://arxiv.org/pdf/2607.07452</li>
+<li>中文题名：<strong>GeoGS-SLAM：面向稠密单目 SLAM 的纯几何高斯泼溅</strong></li>
+<li>关键信息：提出 Geometry-only Gaussian Splatting（GeoGS），只保留空间几何参数，单个 primitive 参数量减少超过 80%；在此基础上构建 dense monocular SLAM，使用单视图/多视图几何与光度监督、局部平面初始化，并在回环后对 Gaussian 地图做全局变换更新以避免 map tearing。</li>
+<li>为什么值得看：这是今天最贴近 SLAM 建图后端的工作，明确强调机器人导航/避障更依赖几何而非 photorealistic rendering；对 3DGS-SLAM 的效率、几何收敛和光照鲁棒性都有直接参考价值。</li>
+<li>需要核查：单目尺度与深度监督来源、纯几何表示在弱纹理/动态物体下的稳定性、loop closure 全局地图变换是否保持局部一致性，以及与 RGB-D/visual-inertial 3DGS-SLAM 的公平速度对比。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07452/fig-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07452/fig-001.webp" alt="GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07452/fig-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07452/fig-002.webp" alt="GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07452/fig-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07452/fig-003.webp" alt="GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07452/fig-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07452/fig-004.webp" alt="GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07452/fig-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07452/fig-005.webp" alt="GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07452/fig-006.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07452/fig-006.webp" alt="GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

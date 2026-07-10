@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-10/index.html">← 返回 2026-07-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-08 · score 9 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向高保真三维重建的过驱动水下机器人扰动感知运动规划</span><span class="lang lang-en lang-inline" data-lang="en">Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction</span></h1>
+  <div class="meta">作者：Yuer Gao, Tongqing Xu, Qingyang Liu, Yi Cai</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.07139">abs</a><a href="https://arxiv.org/pdf/2607.07139">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.5/10</span><p>不是 SLAM 算法本身，但从 actuation-to-perception coupling 角度服务主动重建和水下机器人感知；实验指标清晰。需核查尾流模型泛化和与主动视角规划的结合。</p><div class="tags"><span class="tag">水下机器人</span><span class="tag">主动重建</span><span class="tag">运动规划</span><span class="tag">感知约束控制</span><span class="tag">三维重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把推进器扰动纳入运动规划目标，通过过驱动冗余提升水下三维重建质量。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作研究水下机器人推进器扰动如何影响视觉重建质量，并利用过驱动 ROV 的推力分配冗余来降低目标区域尾流和沉积物扰动。在八推进器平台上，作者建立基于 actuator-disk theory 的控制导向尾流 proxy，并在满足运动约束的同时搜索推力 null space。实验显示目标区域粒子速度降低 67%，三维重建 RMSE 从 4.3±1.8 mm 降到 1.9±0.4 mm，重建成功率达到 98.5%。</p><p class="lang lang-en lang-block" data-lang="en">Underwater robots often operate near delicate targets where high-power thrusters resuspend sediments and induce turbulence, degrading image quality at the sensor input. Conventional controllers optimize vehicle-centric objectives, such as tracking and stability, without accounting for the impact of actuation on sensing. We address this actuation-to-perception coupling by exploiting redundancy in over-actuated platforms. For an eight-thruster ROV, multiple thrust allocations can yield the same motion; we search this null space to minimize predicted disturbance in a task-relevant target region while enforcing motion constraints. Our method uses a control-oriented thruster-wake proxy derived from actuator-disk theory with directional attenuation and validated by PIV ($R^2 = 0.99$ near the wake axis; $R^2 &gt; 0.82$ in the primary wake region), together with a real-time redundancy-resolving allocator running at 10 Hz (45 ms/solve). Across 440 trials, the approach reduces target-region particle velocity by 67% ($p &lt; 0.001$), improves 3D reconstruction RMSE by 55% versus a disturbance-unaware baseline ($1.9 \pm 0.4$ mm vs. $4.3 \pm 1.8$ mm), and achieves a 98.5% reconstruction success rate. The framework supports autonomous scanning, which is quantitatively evaluated, and operator-assisted inspection, which is demonstrated in the supplementary materials.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.07139 ｜ PDF：https://arxiv.org/pdf/2607.07139</li>
+<li>中文题名：<strong>面向高保真三维重建的过驱动水下机器人扰动感知运动规划</strong></li>
+<li>关键信息：针对八推进器 ROV，利用过驱动平台的推力分配冗余，在保持运动约束的同时搜索 null space 以最小化目标区域的推进器尾流/沉积物扰动；论文报告目标区域粒子速度降低 67%、三维重建 RMSE 降低 55%、重建成功率 98.5%。</li>
+<li>为什么值得看：它不是传统 SLAM 算法，而是把 actuation-to-perception coupling 显式纳入规划/控制，用“为了重建质量而规划运动和推力”的思路解决水下感知退化。</li>
+<li>需要核查：尾流 proxy 与真实浑浊水体/海流的泛化、10 Hz allocator 在复杂轨迹中的稳定性、与主动视觉/next-best-view 重建规划的结合，以及是否能扩展到非过驱动平台。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/fig-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/fig-001.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/fig-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/fig-002.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/fig-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/fig-003.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/fig-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/fig-004.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/fig-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/fig-005.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/fig-006.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/fig-006.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/table-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/table-001.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/table-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/table-002.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.07139/table-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.07139/table-003.webp" alt="Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

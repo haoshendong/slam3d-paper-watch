@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-10/index.html">← 返回 2026-07-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-08 · score 16 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CILC：用于多智能体协同 SLAM 的密码安全跨智能体回环候选检测</span><span class="lang lang-en lang-inline" data-lang="en">CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM</span></h1>
+  <div class="meta">作者：Andrew Fishberg, Yixuan Jia, Jonathan P. How</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.06700">abs</a><a href="https://arxiv.org/pdf/2607.06700">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>协同 SLAM 安全与隐私是实际多机器人系统的重要但少被覆盖的问题；方法聚焦 ILC 候选检测，工程代价较可控。与定位精度本身间接相关，后续需看扩展规模和后端泄露风险。</p><div class="tags"><span class="tag">协同 SLAM</span><span class="tag">多机器人</span><span class="tag">回环检测</span><span class="tag">安全多方计算</span><span class="tag">隐私保护</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 SMPC 引入协同 SLAM 回环候选检测，在不公开全局描述子的情况下比较相似度。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">CILC 关注多智能体/协同 SLAM 中全局描述子广播带来的隐私泄露问题。作者展示被攻陷的群体成员可从诚实机器人公开广播的 global descriptors 中近似重建图像和轨迹，并提出使用安全多方计算（SMPC）只保护 inter-agent loop closure 候选检测中的描述子相似度比较。该设计不试图加密整个 CSLAM pipeline，而是保护最敏感且计算量较轻的环节，并在仿真和硬件实验中验证实时性与通信可行性。</p><p class="lang lang-en lang-block" data-lang="en">Multi-agent Simultaneous Localization and Mapping (SLAM) and collaborative SLAM (CSLAM) require robots to continuously exchange global descriptors (GDs) to detect inter-agent loop closures (ILCs). While encrypted radios protect this traffic from external eavesdroppers, they offer no protection against a compromised swarm member. We show this threat is concrete by demonstrating how a corrupted agent can reconstruct approximations of an honest agent&#x27;s imagery and trajectory from its public GD broadcasts. To address this, we propose CILC (Cryptographically-secure Inter-agent Loop Closure candidate detection), a first-of-its-kind system leveraging Secure Multi-Party Computation (SMPC) to detect ILC candidates without exchanging GDs in the clear. Rather than securing the entire CSLAM pipeline, we apply SMPC only to ILC candidate detection (i.e., GD similarity comparison), a privacy-sensitive yet computationally lightweight step, yielding an advantageous privacy-to-overhead trade-off. We validate in both simulation and hardware experiments that CILC remains real-time and communication-feasible across multimodal GDs (visual and LiDAR), while mitigating information leakage to a compromised swarm agent.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.06700 ｜ PDF：https://arxiv.org/pdf/2607.06700</li>
+<li>中文题名：<strong>CILC：用于多智能体协同 SLAM 的密码安全跨智能体回环候选检测</strong></li>
+<li>关键信息：指出协同 SLAM 中公开广播全局描述子会让被攻陷成员重建诚实机器人图像和轨迹近似；提出用 Secure Multi-Party Computation（SMPC）只保护 inter-agent loop closure 候选检测中的描述子相似度比较。</li>
+<li>为什么值得看：多机器人 SLAM 过去更多关注通信压缩、回环精度和分布式优化，该文把隐私泄露建模为具体攻击面，并给出仅保护轻量环节的 privacy-to-overhead 折中。</li>
+<li>需要核查：SMPC 延迟随机器人数量和描述子维度的增长、对 NetVLAD/Scan Context/学习式 LiDAR descriptor 的适配方式、候选召回率是否受加密比较精度影响，以及后续几何验证/位姿图优化是否仍泄露信息。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/fig-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/fig-001.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/fig-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/fig-002.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/fig-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/fig-003.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/fig-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/fig-004.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/fig-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/fig-005.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/fig-006.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/fig-006.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/table-001.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/table-001.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/table-002.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/table-002.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/table-003.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/table-003.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/table-004.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/table-004.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-10/arxiv-2607.06700/table-005.webp"><img src="../../assets/media/2026-07-10/arxiv-2607.06700/table-005.webp" alt="CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
