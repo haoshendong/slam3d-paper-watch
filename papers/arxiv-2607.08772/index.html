@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Wat3R: Underwater 3D Geometry Learning without Annotations</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-11/index.html">← 返回 2026-07-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-10 · score 3 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Wat3R：无需标注的水下三维几何学习</span><span class="lang lang-en lang-inline" data-lang="en">Wat3R: Underwater 3D Geometry Learning without Annotations</span></h1>
+  <div class="meta">作者：Jiangwei Ren, Xingyu Jiang, Zijie Song, Wei Xu, Hongkai Lin, Dingkang Liang, Xiang Bai</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.08772">abs</a><a href="https://arxiv.org/pdf/2607.08772">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.3/10</span><p>对水下 SLAM/重建的数据稀缺和视觉退化问题有参考价值，且开放代码/数据；更偏学习式深度/点云重建，需确认度量尺度、不确定性和与 VO/SLAM 后端的结合方式。</p><div class="tags"><span class="tag">水下重建</span><span class="tag">无标注学习</span><span class="tag">半监督</span><span class="tag">多视图深度</span><span class="tag">Water3D</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用无标注水下视频和跨视角一致性，把通用前馈三维重建模型适配到水下几何估计。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Wat3R 针对水下三维几何估计中光衰减、散射和缺少大规模高质量 3D 标注的问题，提出 cross-domain semi-supervised learning 框架，把空气中的 feed-forward 3D reconstruction 模型适配到水下场景。方法采用 teacher-student 架构，只利用大量未标注真实水下视频学习鲁棒几何表示，并设计 cross-view consistency loss，用其他视角的几何线索补偿当前视图因水体衰减和散射造成的信息退化。作者还构建 Water3D 数据集用于水下几何任务评测，并开放代码和数据。</p><p class="lang lang-en lang-block" data-lang="en">Estimating 3D geometry in underwater environments presents unique challenges due to light attenuation, scattering, and the absence of large-scale, high-quality 3D annotations. Pioneering methods rely on massive dense annotations that are impractical in underwater settings. In this paper, we propose Wat3R, a cross-domain semi-supervised learning framework designed to adapt feed-forward 3D reconstruction models from air to underwater scenes. Uniquely, our method eliminates the need for any annotated underwater data following a teacher-student architecture, that learns robust geometry representations merely on abundant unlabeled real underwater video footage. We also design a cross-view consistency loss that leverages geometric cues from other views to compensate for the information degradation in the current view caused by water attenuation and scattering. Furthermore, considering the lack of comprehensive evaluation benchmarks, we construct Water3D, a diverse dataset covering various water bodies and underwater scenarios, designed for geometric task evaluation. Experimental results demonstrate that Wat3R outperforms current state-of-the-art methods in underwater multi-view depth estimation and point cloud reconstruction. The dataset and code are available at https://github.com/LSXI7/Wat3R .</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.08772 ｜ PDF：https://arxiv.org/pdf/2607.08772 ｜ 代码/数据：https://github.com/LSXI7/Wat3R</li>
+<li>中文题名：<strong>Wat3R：无需标注的水下三维几何学习</strong></li>
+<li>关键信息：Wat3R 面向水下环境的光衰减、散射和缺少高质量 3D 标注问题，采用 cross-domain semi-supervised teacher-student 框架，将空气中 feed-forward 3D reconstruction 模型适配到水下场景。方法利用大量未标注真实水下视频，并设计 cross-view consistency loss，用其他视角几何线索补偿当前视图信息退化；同时构建 Water3D benchmark。</li>
+<li>为什么值得看：水下 SLAM/重建常受能见度、散射和纹理退化影响，标注数据尤其稀缺。Wat3R 提供了从通用重建模型到水下几何的无标注适配路线，并开放代码/数据，适合后续和水下 VO/SLAM、主动照明、声呐融合比较。</li>
+<li>需要核查：teacher pseudo-label 噪声是否放大；跨水体/浑浊度/光照条件泛化；Water3D 评价指标与真实尺度；是否能输出对 SLAM 后端有用的度量深度和不确定性。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08772/fig-001.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08772/fig-001.webp" alt="Wat3R: Underwater 3D Geometry Learning without Annotations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08772/fig-002.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08772/fig-002.webp" alt="Wat3R: Underwater 3D Geometry Learning without Annotations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08772/fig-003.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08772/fig-003.webp" alt="Wat3R: Underwater 3D Geometry Learning without Annotations" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>On the Design of Mixture-of-Experts for Dynamic Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-11/index.html">← 返回 2026-07-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-09 · score 11 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向动态 Gaussian Splatting 的混合专家设计研究</span><span class="lang lang-en lang-inline" data-lang="en">On the Design of Mixture-of-Experts for Dynamic Gaussian Splatting</span></h1>
+  <div class="meta">作者：In-Hwan Jin, Hyeongju Mun, Joonsoo Kim, Kugjin Yun, Kyeongbo Kong</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.08250">abs</a><a href="https://arxiv.org/pdf/2607.08250">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>高度命中动态 3DGS、非刚体重建和 motion-aware 表示设计；TPAMI 接收且有代码。对动态 3DGS-SLAM 有潜在价值，但仍需核查在线化、训练成本和与相机轨迹/回环耦合方式。</p><div class="tags"><span class="tag">动态 3DGS</span><span class="tag">Mixture-of-Experts</span><span class="tag">非刚体重建</span><span class="tag">形变建模</span><span class="tag">MoE-GS</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把动态 3DGS 的形变建模拆成多个专家，并系统比较联合优化与独立优化后路由两种集成方式。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文从 Mixture-of-Experts 视角研究动态 3D Gaussian 表示中的多形变建模问题。作者比较两种不同集成约束：MoDE 将多个 deformation experts 直接接入 deformable Gaussian Splatting pipeline，在共享 canonical Gaussian 表示上联合优化；MoE-GS 则先独立优化多个专家，再通过单独 routing stage 组合非 canonical Gaussian 表示。两种设计揭示了专家交互发生在训练过程中还是训练之后，会显著影响动态 Gaussian 表示的行为和适用场景。</p><p class="lang lang-en lang-block" data-lang="en">Dynamic scene reconstruction remains challenging due to the heterogeneous and spatially varying nature of real-world motion. Although recent 3D Gaussian Splatting methods have introduced diverse deformation formulations for dynamic novel view synthesis, each method typically relies on a single deformation model within its representation, which limits robustness across diverse dynamic scenarios. In this work, we study a fundamental problem-multi-deformation modeling for dynamic 3D Gaussian representations-under two distinct integration constraints that differ in when and how multiple deformation experts interact during training. From a Mixture-of-Experts (MoE) perspective, we view multi-deformation modeling as the problem of combining multiple specialized deformation models within a unified 3D representation. We first introduce Mixture of Deformation Experts (MoDE), which integrates multiple deformation experts directly into the deformable Gaussian Splatting pipeline through joint optimization. In MoDE, experts operate on a shared canonical Gaussian representation, enabling multi-deformation modeling without introducing additional training stages or modifying the original optimization schedule. In contrast, we further present Mixture of Experts for Dynamic Gaussian Splatting (MoE-GS) under a different integration constraint, where deformation experts are optimized independently and combined through a separate routing stage. As a result, expert interaction occurs over non-canonical Gaussian representations after individual optimization. Together, these two approaches provide alternative strategies for multi-deformation modeling, clarifying how integration constraints shape the design and behavior of deformation experts in dynamic 3D Gaussian representations. Our code is available at: https://github.com/cvsp-lab/MoE-GS-studio.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.08250 ｜ PDF：https://arxiv.org/pdf/2607.08250 ｜ 代码：https://github.com/cvsp-lab/MoE-GS-studio</li>
+<li>中文题名：<strong>面向动态 Gaussian Splatting 的混合专家设计研究</strong></li>
+<li>关键信息：论文从 Mixture-of-Experts 视角研究动态 3D Gaussian 表示中的多形变建模。MoDE 将多个 deformation experts 直接接入 deformable Gaussian Splatting pipeline，在共享 canonical Gaussian 表示上联合优化；MoE-GS 则先独立优化不同 expert，再通过单独 routing stage 组合非 canonical Gaussian 表示。</li>
+<li>为什么值得看：动态场景的形变模式空间差异大，单一 deformation model 往往难以覆盖真实运动。该文不只是提出一个模型，而是比较两种 expert interaction/integration constraint，对后续设计动态 3DGS-SLAM、非刚体重建和 motion-aware map representation 有参考价值。</li>
+<li>需要核查：MoDE 与 MoE-GS 在训练稳定性、内存/时间成本和跨场景泛化上的差异；routing 是否可在线化；动态 SLAM 场景中 canonical 表示如何与相机轨迹、回环和长期地图维护耦合。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

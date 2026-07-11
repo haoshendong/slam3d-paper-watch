@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-11/index.html">← 返回 2026-07-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-09 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">使用低成本 UAV 与 CraneCam 摄影测量重建落叶树三维结构以监测整冠新梢伸长</span><span class="lang lang-en lang-inline" data-lang="en">3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies</span></h1>
+  <div class="meta">作者：Stephan Nebiker, Micha Tschanz, Nando Amport, Frederik Baumgarten</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.07905">abs</a><a href="https://arxiv.org/pdf/2607.07905">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>偏应用但对低成本户外 photogrammetry、SfM/MVS 精度评估和点云骨架化有参考价值；与核心 SLAM/GNSS 算法距离较远。</p><div class="tags"><span class="tag">UAV 摄影测量</span><span class="tag">三维重建</span><span class="tag">点云精度</span><span class="tag">树冠监测</span><span class="tag">骨架化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用低成本 UAV/CraneCam 摄影测量实现毫米级树冠点云，为整树生长监测和骨架化提供数据基础。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文面向树木整冠 shoot elongation 监测，研究低成本 UAV photogrammetry 和多相机 CraneCam 在真实生长季中的三维重建能力。作者报告使用亚 250g consumer UAV 可在整树尺度达到约 5–6 mm 的 3D 点精度，重建完整性约 92%–98%，并提出 3D 打印 ground-truth branch 来评估细枝等细节结构的重建能力。工作还讨论了数据采集、点云精度/分辨率/完整性和整树骨架化的操作挑战。</p><p class="lang lang-en lang-block" data-lang="en">Tree growth determines how much CO2 is sequestered from the atmosphere and temporarily stored in woody biomass. At the same time tree growth is affected by increasing temperatures, more frequent drought periods, late frosts and other extreme events associated with climate change. While continuous measurements of radial (secondary) tree growth using dendrometers are well established, monitoring of shoot elongation (primary growth) has largely been neglected because suitable measurement techniques are lacking. As a result, the effects of climate change on primary tree growth remain insufficiently understood. This work aims at reconstructing native deciduous trees in 3D as a basis for measuring and monitoring shoot elongation over entire tree canopies. Here we explored the use of low-cost UAV photogrammetry and of a multi-camera CraneCam system under real-world conditions. Data were collected in two study areas over an entire growing season. We present sensor evaluations, photogrammetric data acquisition and processing strategies. A special focus is placed on the analysis of the resulting photogrammetric 3D point clouds in terms of accuracy, resolution and completeness. Results demonstrate 3D point accuracies of 5-6 mm for entire trees using consumer-grade UAVs weighing less than 250 g and a 3D reconstruction completeness between 92% and 98% depending on the UAV type. The paper introduces a novel 3Dprinted ground-truth branch to evaluate the capability to reconstructing fine-detail structures such as thin tree shoots. Finally, we discuss operational challenges and initial experiments towards a skeletonization of entire trees based on photogrammetric point clouds.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.07905 ｜ PDF：https://arxiv.org/pdf/2607.07905</li>
+<li>中文题名：<strong>使用低成本 UAV 与 CraneCam 摄影测量重建落叶树三维结构以监测整冠新梢伸长</strong></li>
+<li>关键信息：面向整棵树冠 shoot elongation 监测，比较低成本亚 250g consumer UAV 与多相机 CraneCam 在真实生长季的摄影测量采集和处理策略。结果报告整树 3D 点精度约 5–6 mm，UAV 3D reconstruction completeness 约 92%–98%，并提出 3D 打印 ground-truth branch 评估细枝重建能力。</li>
+<li>为什么值得看：应用偏生态/林业，但它提供了低成本 UAV photogrammetry 在细结构、整树冠尺度、季节重复采集下的精度与完整性评估，对户外 SfM/MVS、点云骨架化和农业/林业数字孪生有实用参考。</li>
+<li>需要核查：细枝 skeletonization 是否稳定；风、光照、叶片遮挡和重复纹理对 SfM/MVS 的影响；consumer UAV 的标定与地面控制策略；是否可迁移到机器人主动重建规划。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/fig-001.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/fig-001.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/fig-002.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/fig-002.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/fig-003.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/fig-003.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/fig-004.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/fig-004.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/fig-005.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/fig-005.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/fig-006.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/fig-006.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/table-001.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/table-001.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/table-002.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/table-002.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.07905/table-003.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.07905/table-003.webp" alt="3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-11/index.html">← 返回 2026-07-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-10 · score 8 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向全景户外重建的几何与梯度分区策略</span><span class="lang lang-en lang-inline" data-lang="en">Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction</span></h1>
+  <div class="meta">作者：Weijian Chen, Weibo Yao, Yuhang Zhang, Xiaolin Tang, Guo Wang, Weijun Zhang, Xitong Gao, Yihao Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.08769">abs</a><a href="https://arxiv.org/pdf/2607.08769">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>大规模户外 3DGS、全景采集和分块并行训练高度相关；公开模型、代码和 Pano360 数据集。需验证深度先验、分区边界一致性和与已有 city-scale 3DGS 方法的公平对比。</p><div class="tags"><span class="tag">全景重建</span><span class="tag">3DGS</span><span class="tag">大规模户外</span><span class="tag">分块训练</span><span class="tag">Pano360</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">针对全景图全局可见导致的 3DGS 分块退化，提出几何与梯度驱动的户外全景分区训练框架。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PanoLOG 研究如何把 3D Gaussian Splatting 扩展到大规模全景户外场景。全景 ERP 图像具有 360° 视场，能降低采集成本，但全局可见性会让依赖局部 camera frustum 的分区策略退化为全局训练。作者提出两阶段 coarse-to-fine 框架：global coarse stage 通过 sky-sphere modeling 和 panoramic monocular depth supervision 稳定几何；refinement stage 的 G²PS 使用 parallax-driven uncertainty 构建 adaptive bounding volumes，并通过 gradient-based importance scoring 分配相机，从而支持可扩展的 block-parallel training。</p><p class="lang lang-en lang-block" data-lang="en">Scaling 3D Gaussian Splatting (3DGS) to large outdoor scenes is costly in both data acquisition and computation. Adopting panoramic images with equirectangular projection (ERP) can reduce capture effort via their full $360^{\circ}$ field of view, yet the resulting omnipresent visibility invalidates existing partitioning strategies that rely on local camera frustums, causing block-wise optimization to degenerate into global training. Thus, we propose PanoLOG, a two-stage coarse-to-fine framework equipped with a Geometry and Gradient-based Partitioning Strategy tailored for large-scale panoramic 3DGS reconstruction. In the global coarse stage, PanoLOG leverages sky-sphere modeling and panoramic monocular depth supervision for reliable geometry, while in the refinement stage, G$^2$PS builds adaptive bounding volumes via parallax-driven uncertainty and assigns cameras via gradient-based importance scoring. Furthermore, we construct Pano360, the first benchmark on large-scale panoramic dataset for outdoor scene reconstruction. Extensive experiments demonstrate that G$^2$PS achieves state-of-the-art rendering quality while maintaining scalable, block-parallel training. Our models, training code, and dataset are publicly available.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.08769 ｜ PDF：https://arxiv.org/pdf/2607.08769 ｜ 项目页：https://insta360-research-team.github.io/GGPS-Website</li>
+<li>中文题名：<strong>面向全景户外重建的几何与梯度分区策略</strong></li>
+<li>关键信息：PanoLOG 针对 equirectangular panoramic images 的 360° 全局可见性问题，指出传统依赖局部 camera frustum 的分区策略会退化为全局训练。方法先在 global coarse stage 用 sky-sphere modeling 和 panoramic monocular depth supervision 稳定几何，再在 refinement stage 用 G²PS 基于 parallax-driven uncertainty 构建 adaptive bounding volumes，并用 gradient-based importance scoring 分配相机。</li>
+<li>为什么值得看：大规模户外 3DGS 的瓶颈之一是数据采集和分块训练。全景相机能降低采集成本，但会破坏现有分块假设；这篇正面处理 ERP 全局可见导致的 scalability 问题，并发布 Pano360 基准、训练代码和数据。</li>
+<li>需要核查：全景深度先验质量、天空建模对不同天气/夜间场景的鲁棒性、G²PS 与 Mega-NeRF/Block-NeRF/CityGaussian 类方法的公平对比，以及分区边界处的几何/外观一致性。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08769/fig-001.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08769/fig-001.webp" alt="Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08769/fig-002.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08769/fig-002.webp" alt="Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08769/fig-003.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08769/fig-003.webp" alt="Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08769/table-001.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08769/table-001.webp" alt="Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08769/table-002.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08769/table-002.webp" alt="Geometry and Gradient-based Partitioning for Panoramic Outdoor Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

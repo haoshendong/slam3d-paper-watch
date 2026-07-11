@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HoloTetSphere: Unified TetSphere Mesh Reconstruction for Physical Simulations</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-11/index.html">← 返回 2026-07-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-09 · score 8 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HoloTetSphere：面向物理仿真的统一 TetSphere 网格重建</span><span class="lang lang-en lang-inline" data-lang="en">HoloTetSphere: Unified TetSphere Mesh Reconstruction for Physical Simulations</span></h1>
+  <div class="meta">作者：YaQiao Dai, Renjiao Yi, Zhirui Gao, Wei Chen, Kai Xu, Chenyang Zhu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.08398">abs</a><a href="https://arxiv.org/pdf/2607.08398">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>对重建结果转仿真资产、可交互场景和机器人数字孪生有价值；ECCV 2026 接收。与在线 SLAM 距离较远，需重点核查复杂拓扑、薄结构和仿真稳定性。</p><div class="tags"><span class="tag">四面体网格</span><span class="tag">物理仿真</span><span class="tag">Gaussian Spheres</span><span class="tag">拓扑优化</span><span class="tag">仿真资产</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 Gaussian/TetSphere 表示直接优化成连通四面体网格，减少重建结果转物理仿真的后处理风险。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">HoloTetSphere 针对 physics-ready 3D reconstruction 的传统两阶段流程：先提取表面几何再四面体化，指出后处理四面体化易出错且难以生成拓扑一致网格。作者提出端到端拓扑与几何联合优化框架，将 Gaussian spheres 与 tetrahedral elements 绑定，通过 edge connections 估计连续 opacity field 以进行 differentiable element pruning，并联合 mesh smoothing energy 和 multi-view Gaussian rendering error 做交替几何优化。最终目标是得到统一、拓扑连贯、可用于下游物理仿真的四面体网格。</p><p class="lang lang-en lang-block" data-lang="en">Standard pipelines for physics-ready 3D reconstruction rely on a decoupled two-stage paradigm: extracting surface geometry followed by an error-prone tetrahedralization process. While recent Lagrangian methods like TetSphere Splatting attempt to bypass this by directly optimizing volumetric primitives, their homeomorphic constraints prevent topology-adaptive optimization. Consequently, they produce disjoint tetrahedra rather than a single connected mesh, rendering the structures unsuitable for further physical simulations. To address this, we propose a topology-adaptive framework for holistic tetrahedral mesh reconstruction through end-to-end topological and geometric optimization. First, by coupling Gaussian spheres to tetrahedral elements and leveraging edge connections, we estimate a continuous opacity field for differentiable element pruning. Next, jointly minimizing mesh smoothing energy and multi-view Gaussian rendering error drives alternating geometric refinement while preserving topological adaptivity. Consequently, our approach effectively constructs a unified and topologically coherent tetrahedral mesh. Extensive experiments demonstrate that our method outperforms state-of-the-art techniques by achieving superior geometric accuracy and producing coherent, single-connected tetrahedral meshes, thereby effectively bypassing the error-prone conventional tetrahedralization step for reconstructed surface meshes and streamlining downstream physical simulation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.08398 ｜ PDF：https://arxiv.org/pdf/2607.08398</li>
+<li>中文题名：<strong>HoloTetSphere：面向物理仿真的统一 TetSphere 网格重建</strong></li>
+<li>关键信息：针对 physics-ready 3D reconstruction 中“先提取表面、再四面体化”的两阶段流程易出错问题，提出端到端拓扑与几何联合优化。方法将 Gaussian spheres 与 tetrahedral elements 绑定，通过 edge connections 估计连续 opacity field 做 differentiable element pruning，并联合 mesh smoothing energy 与 multi-view Gaussian rendering error 进行交替几何优化。</li>
+<li>为什么值得看：许多 NeRF/3DGS/点云重建结果难以直接用于物理仿真；该文目标是生成 coherent、single-connected tetrahedral mesh，绕过后处理四面体化，对机器人操作、数字孪生、仿真资产和可交互场景重建有价值。</li>
+<li>需要核查：拓扑自适应是否会过度平滑细结构；复杂多连通/薄壳物体上的失败模式；与 TetSphere Splatting、TetWild 等管线的网格质量、仿真稳定性和运行成本对比。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

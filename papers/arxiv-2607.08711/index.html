@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>LTM: Large-scale Terrain Model for Wildfire-prone Landscapes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-11/index.html">← 返回 2026-07-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-10 · score 5 · cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">LTM：面向易发山火景观的大规模地形模型</span><span class="lang lang-en lang-inline" data-lang="en">LTM: Large-scale Terrain Model for Wildfire-prone Landscapes</span></h1>
+  <div class="meta">作者：Xiao Fu, Yue Hu, Meida Chen, Peter Anthony Beerel, Barath Raghavan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.08711">abs</a><a href="https://arxiv.org/pdf/2607.08711">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.5/10</span><p>对大范围地图更新、低纹理地形和 UAV/遥感重建有应用价值；与 GNSS/INS 航测位姿可形成结合点。算法依赖 posed images 和旧 DEM，一旦先验过时或位姿不准需验证鲁棒性。</p><div class="tags"><span class="tag">地形重建</span><span class="tag">DEM 先验</span><span class="tag">遥感</span><span class="tag">大范围地图</span><span class="tag">灾害响应</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用旧 DEM 作为几何先验，通过物理像素级对齐提升大范围山火地形图像重建效率和精度。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">LTM 面向 wildfire-prone 大范围区域的三维地形地图更新。传统 LiDAR 精度高但昂贵且更新慢，图像方法成本低但受稀疏纹理和有限重叠影响。作者提出利用旧 DEM 作为几何先验的 multi-modal reconstruction framework，通过 physics-based pixel-pixel alignment 在图像和 DEM 数据之间建立对应，减少昂贵特征匹配。给定 posed images 和 legacy DEMs，方法输出高保真 depth maps，并通过基于真实区域的大地形 simulator 做系统评估。</p><p class="lang lang-en lang-block" data-lang="en">Accurate 3D terrain maps are essential for emergency response when assessing wildfire hazards. However, wildfire-prone regions often span vast areas where conventional reconstruction methods underperform. Airborne LiDAR systems provide high-resolution terrain data, but they are expensive and infrequently updated. Image-based methods offer a lower-cost alternative, but struggle due to sparse visual features and limited image overlap. We propose a multi-modal reconstruction framework leveraging outdated Digital Elevation Models (DEMs) as geometric priors for image-based 3D reconstruction. Our key innovation is physics-based pixel-pixel alignment between images and DEM data, dramatically reducing computational complexity by eliminating expensive feature matching procedures. To validate our approach, we developed a large-terrain simulator based on a real wildfire-prone area, generating realistic images enabling a comprehensive evaluation. Given posed images and legacy DEMs, our method produces high-fidelity depth maps while maintaining real-time performance. We find significant improvements in reconstruction accuracy and computational efficiency over existing techniques, offering a scalable solution for wildfire response.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li>链接：https://arxiv.org/abs/2607.08711 ｜ PDF：https://arxiv.org/pdf/2607.08711</li>
+<li>中文题名：<strong>LTM：面向易发山火景观的大规模地形模型</strong></li>
+<li>关键信息：针对 wildfire-prone 大范围地区中 LiDAR 贵且更新慢、图像重建又受稀疏纹理和重叠不足限制的问题，提出利用过时 DEM 作为几何先验的 multi-modal reconstruction framework。核心是 physics-based pixel-pixel alignment between images and DEM data，以减少特征匹配开销；给定 posed images 和 legacy DEMs 输出高保真 depth maps，并构建基于真实区域的大地形 simulator 做评估。</li>
+<li>为什么值得看：该文偏遥感/应急地形重建，但“用旧 DEM 几何先验约束图像深度”的思路对大范围视觉重建、低纹理地形、无人机巡检和地图更新有参考价值。</li>
+<li>需要核查：posed images 的来源与位姿误差敏感性；旧 DEM 与真实地形变化不一致时的鲁棒性；simulator 与真实航拍/卫星图像域差；是否能与 SfM、MVS 或 GNSS/INS 航测位姿联合优化。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08711/fig-001.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08711/fig-001.webp" alt="LTM: Large-scale Terrain Model for Wildfire-prone Landscapes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08711/fig-002.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08711/fig-002.webp" alt="LTM: Large-scale Terrain Model for Wildfire-prone Landscapes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08711/fig-003.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08711/fig-003.webp" alt="LTM: Large-scale Terrain Model for Wildfire-prone Landscapes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08711/fig-004.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08711/fig-004.webp" alt="LTM: Large-scale Terrain Model for Wildfire-prone Landscapes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08711/fig-005.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08711/fig-005.webp" alt="LTM: Large-scale Terrain Model for Wildfire-prone Landscapes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08711/table-001.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08711/table-001.webp" alt="LTM: Large-scale Terrain Model for Wildfire-prone Landscapes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08711/table-002.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08711/table-002.webp" alt="LTM: Large-scale Terrain Model for Wildfire-prone Landscapes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-11/arxiv-2607.08711/table-003.webp"><img src="../../assets/media/2026-07-11/arxiv-2607.08711/table-003.webp" alt="LTM: Large-scale Terrain Model for Wildfire-prone Landscapes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
