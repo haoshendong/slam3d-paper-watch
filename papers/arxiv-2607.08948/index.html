@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-14/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-14/index.html">← 返回 2026-07-14 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-10 · score 11 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SplatCtrl：基于高斯场景表示与反应式机器人控制的感知—动作耦合</span><span class="lang lang-en lang-inline" data-lang="en">SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control</span></h1>
+  <div class="meta">作者：Siddarth Jain, Ho Jin Choi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.08948">abs</a><a href="https://arxiv.org/pdf/2607.08948">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.9/10</span><p>3DGS 地图不只用于渲染，而是直接形成可微碰撞距离并闭环控制，具备明确机器人价值；与相机定位/回环关联较弱，需关注地图更新延迟、安全证明边界和动态障碍实验强度。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">动态重建</span><span class="tag">反应式控制</span><span class="tag">控制屏障函数</span><span class="tag">机械臂避碰</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从动态 3DGS 地图导出连续可微距离度量，并通过控制屏障函数驱动机械臂实时避碰。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SplatCtrl 面向未知且持续变化环境中的机械臂避碰，把实时场景重建和反应式运动生成统一起来。系统基于 3DGS，引入 voxel filtering 与动态 Gaussian relocation，从 RGB-D 流高效重建并适应环境变化；同时从各向同性 Gaussians 推导连续 signed distance functions，得到稳定、可微的碰撞概率估计，并将其纳入 control barrier functions。仿真、真实机器人及人机共享工作空间实验验证了实时重建与平滑可靠控制的耦合效果。</p><p class="lang lang-en lang-block" data-lang="en">Robotic manipulators excel in structured environments but face substantial challenges in unstructured and dynamic settings. This paper presents SplatCtrl, a unified framework for real-time scene reconstruction and reactive robot motion generation to enable collision-free robotic arm control in previously unseen and continuously changing environments. Building on 3D Gaussian Splatting (3D-GS), we introduce a hybrid voxel-based filtering and dynamic Gaussian relocation strategy that supports efficient scene reconstruction from RGB-D streams while accommodating environmental changes. For safe and reactive control, we further propose a method for deriving continuous signed distance functions from isotropic Gaussians, providing stable and differentiable collision probability estimates that bridge classical distance fields with the modern implicit representation. These continuous distance metrics are incorporated into control barrier functions, resulting in a unified perception-action coupling framework that supports smooth and reliable real-time motion generation in response to scene changes. Experimental validation in simulation, on physical robot, and within shared human-robot workspace demonstrates the framework&#x27;s effectiveness, achieving integrated scene reconstruction and reactive control in uncertain, and dynamic environments.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Siddarth Jain, Ho Jin Choi</li>
+<li><strong>价值判断</strong>：从动态更新的各向同性 Gaussians 推导连续 SDF/碰撞概率，再纳入 control barrier functions，使 3DGS 地图直接服务机械臂安全控制，而不只用于可视化。</li>
+<li><strong>工程要点</strong>：voxel filtering 与 dynamic Gaussian relocation 支持 RGB-D 在线重建和环境变化；已有仿真、真实机器人与人机共享空间验证。</li>
+<li><strong>后续核查</strong>：地图更新和控制闭环频率、动态障碍的最坏时延、安全约束证明范围，以及与 TSDF/ESDF 基线的公平比较。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.08948">arXiv</a> · <a href="https://arxiv.org/pdf/2607.08948">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08948/fig-001.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08948/fig-001.webp" alt="SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08948/fig-002.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08948/fig-002.webp" alt="SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08948/fig-003.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08948/fig-003.webp" alt="SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08948/fig-004.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08948/fig-004.webp" alt="SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08948/fig-005.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08948/fig-005.webp" alt="SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08948/fig-006.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08948/fig-006.webp" alt="SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08948/table-001.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08948/table-001.webp" alt="SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08948/table-002.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08948/table-002.webp" alt="SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-14/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-14/index.html">← 返回 2026-07-14 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-10 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">StereoSplat+：扩散辅助渐进推理的前馈双目高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference</span></h1>
+  <div class="meta">作者：Zihua Liu, Masatoshi Okutomi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.08808">abs</a><a href="https://arxiv.org/pdf/2607.08808">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>面向机器人/AR 的因果双目重建限制，兼顾几何 cost volume 与生成先验；但扩散生成可能引入伪几何，且依赖输入位姿，距离完整 SLAM 尚有差距。</p><div class="tags"><span class="tag">双目重建</span><span class="tag">3DGS</span><span class="tag">前馈重建</span><span class="tag">扩散模型</span><span class="tag">KITTI-360</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从一个双目对开始，用“渲染—扩散修复—回馈”循环扩展观测覆盖，提升遮挡区几何和外推视角质量。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">StereoSplat+ 研究仅凭单次双目观测进行因果、render-ready 3DGS 重建。其基础模型 StereoSplat 可接收数量可变的带位姿双目对，通过 cost-volume 分支、triplane 3D volume 分支与连续位姿编码融合几何线索。单次双目推理时，系统先预测 3DGS，再渲染新双目视图，用一步 diffusion enhancer 修复后回馈模型，渐进更新 Gaussian 场景。KITTI-360 实验显示，该方法在遮挡区域和强视角外推下改善新视角渲染与几何精度，优于近期前馈 3DGS 基线。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in 3D Gaussian Splatting (3DGS) have enabled high-quality, render-ready scene representations for novel-view synthesis. However, most existing 3DGS pipelines rely on multi-view observations (or non-causal access to future frames) to achieve sufficient coverage, which is often unavailable in on-device robotics and AR settings where sensing is restricted to a single stereo rig. Recovering a high-quality 3DGS scene from one stereo observation, therefore, remains challenging due to occlusions, limited field of view, and missing geometry. We present StereoSplat+, a diffusion-enhanced feed-forward framework that enables causal reconstruction from a single stereo pair. Our method builds on two key components. First, we propose StereoSplat, an input-invariant feed-forward 3D Gaussian estimator that takes a variable number of posed stereo pairs as input and predicts high-quality 3D Gaussians. StereoSplat fuses complementary geometry cues via a cost-volume branch and a triplane-based 3D volume branch and leverages continuous pose encoding to generalize across view counts and camera configurations. Second, since multiple posed stereo pairs are typically unavailable at inference time, we introduce a diffusion-enhanced one-shot progressive inference scheme called StereoSplat+: starting from one stereo pair, we render novel stereo views from the predicted 3DGS, refine them with a one-step diffusion enhancer, and feed them back as additional inputs to update the 3DGS. Experiments on the KITTI-360 dataset show that StereoSplat+ improves novel-view rendering quality and geometry accuracy, especially in occluded regions and under strong view extrapolation, outperforming recent feed-forward 3DGS baselines.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Zihua Liu, Masatoshi Okutomi</li>
+<li><strong>价值判断</strong>：针对机器人和 AR 只能因果使用单个 stereo rig 的约束，从一个双目对起步，经“渲染新视图—一步扩散修复—回馈更新”渐进扩展 3DGS 覆盖。</li>
+<li><strong>技术组合</strong>：cost volume、triplane 3D volume、连续位姿编码和 progressive inference；KITTI-360 上尤其改善遮挡区域与强视角外推。</li>
+<li><strong>风险点</strong>：扩散修复可能产生看似合理但错误的几何；模型仍使用 posed stereo pairs，尚不是完整定位建图系统。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.08808">arXiv</a> · <a href="https://arxiv.org/pdf/2607.08808">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08808/fig-001.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08808/fig-001.webp" alt="StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08808/fig-002.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08808/fig-002.webp" alt="StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08808/fig-003.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08808/fig-003.webp" alt="StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08808/fig-004.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08808/fig-004.webp" alt="StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08808/fig-005.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08808/fig-005.webp" alt="StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08808/fig-006.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08808/fig-006.webp" alt="StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08808/table-001.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08808/table-001.webp" alt="StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.08808/table-002.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.08808/table-002.webp" alt="StereoSplat+: Feed-Forward Stereo Gaussian Splatting with Diffusion-Assisted Progressive Inference" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

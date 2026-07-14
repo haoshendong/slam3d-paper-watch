@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>AnythingReality: Robust Online Gaussian Splatting SLAM for Open-Vocabulary VR Scene Exploration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-14/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-14/index.html">← 返回 2026-07-14 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-10 · score 13 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">AnythingReality：面向开放词汇 VR 场景探索的鲁棒在线高斯泼溅 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">AnythingReality: Robust Online Gaussian Splatting SLAM for Open-Vocabulary VR Scene Exploration</span></h1>
+  <div class="meta">作者：Timofei Kozlov, Dmitrii Maliukov, Andrey Marchenko, Miguel Altamirano Cabrera, Dzmitry Tsetserukou</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.09260">abs</a><a href="https://arxiv.org/pdf/2607.09260">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.4/10</span><p>直接命中在线 3DGS-SLAM、真实 RGB-D、实时重建和语义地图交互，系统完整且给出画质与速度指标；但结果依赖自建数据，仍需核查轨迹精度、回环后地图一致性及动态场景鲁棒性。</p><div class="tags"><span class="tag">3DGS-SLAM</span><span class="tag">ORB-SLAM3</span><span class="tag">在线重建</span><span class="tag">开放词汇</span><span class="tag">VR</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 ORB-SLAM3、在线 3DGS、VR 浏览与开放词汇语义交互接成实时系统，重点解决真实噪声输入下的增量重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出一套集鲁棒在线 3D Gaussian Splatting、实时 VR 探索与语音驱动视觉语言模型交互于一体的架构。系统不依赖干净深度或外部位姿，而是将 ORB-SLAM3 位姿估计与面向真实噪声数据的在线 Gaussian 重建结合；VR 管线支持沉浸式浏览增量重建，语义模块可转写语音命令、生成场景描述并记录兴趣点。相较在线 Gaussian Splatting 基线，该方法在自建数据和 TUM-RGBD 上改善 PSNR、SSIM 与 LPIPS，并通过不同质量—速度配置保持相当或更高帧率；VLM 物体识别率达到 88%。</p><p class="lang lang-en lang-block" data-lang="en">We present a novel integrated architecture for robust online 3D Gaussian splatting, real-time VR exploration, and speech-driven Vision-Language-Model interaction. Unlike methods assuming clean depth or external poses, our system combines ORB-SLAM3-based pose estimation with online Gaussian reconstruction for noisy real-world data. A VR pipeline enables immersive exploration of incremental reconstructions; a semantic module transcribes voice commands, generates scene descriptions, and records points of interest. Against state-of-the-art online Gaussian splatting methods, we improve image quality on our dataset (+14.5% PSNR, +8.6% SSIM, -14.3% LPIPS) and TUM-RGBD (+11.7% PSNR, +7.8% SSIM, -21.6% LPIPS), with comparable or superior frame rates via quality-speed configurations. We achieve an 88% VLM object-recognition rate.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Timofei Kozlov, Dmitrii Maliukov, Andrey Marchenko, Miguel Altamirano Cabrera, Dzmitry Tsetserukou</li>
+<li><strong>价值判断</strong>：把 ORB-SLAM3 位姿、在线 Gaussian 重建、VR 浏览和 VLM 语义交互接成端到端实时系统；与只依赖干净深度或外部位姿的 3DGS 管线相比，更贴近真实机器人采集。</li>
+<li><strong>关键结果</strong>：在自建数据上报告 +14.5% PSNR、+8.6% SSIM、-14.3% LPIPS；TUM-RGBD 上为 +11.7%、+7.8%、-21.6%，VLM 物体识别率 88%。</li>
+<li><strong>后续核查</strong>：轨迹 ATE/RPE、回环后的 Gaussian 地图一致性、动态对象处理，以及与主流 3DGS-SLAM 在同等硬件上的吞吐对比。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.09260">arXiv</a> · <a href="https://arxiv.org/pdf/2607.09260">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.09260/fig-001.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.09260/fig-001.webp" alt="AnythingReality: Robust Online Gaussian Splatting SLAM for Open-Vocabulary VR Scene Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.09260/fig-002.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.09260/fig-002.webp" alt="AnythingReality: Robust Online Gaussian Splatting SLAM for Open-Vocabulary VR Scene Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.09260/fig-003.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.09260/fig-003.webp" alt="AnythingReality: Robust Online Gaussian Splatting SLAM for Open-Vocabulary VR Scene Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-14/arxiv-2607.09260/table-001.webp"><img src="../../assets/media/2026-07-14/arxiv-2607.09260/table-001.webp" alt="AnythingReality: Robust Online Gaussian Splatting SLAM for Open-Vocabulary VR Scene Exploration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
