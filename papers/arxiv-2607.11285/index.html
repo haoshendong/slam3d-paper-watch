@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-15/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-15/index.html">← 返回 2026-07-15 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-13 · score 15 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SalientGS：重要性引导 MCMC Gaussian 分配的一体化 SfM-to-3DGS</span><span class="lang lang-en lang-inline" data-lang="en">SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation</span></h1>
+  <div class="meta">作者：Tianyu Xiong, Rui Li, Suning Ge, Jiaqi Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11285">abs</a><a href="https://arxiv.org/pdf/2607.11285">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>同时命中 SfM、3DGS、位姿接口和容量优化，且提供代码；需要进一步确认位姿联合优化范围、几何指标和 15 分钟结果的规模与硬件。</p><div class="tags"><span class="tag">SfM</span><span class="tag">3DGS</span><span class="tag">MCMC</span><span class="tag">Gaussian 分配</span><span class="tag">端到端重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用多视图残差判断 Gaussian 的欠拟合与冗余，通过重要性采样动态分配容量，打通 SfM 到 3DGS。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SalientGS 面向无序图像重建中昂贵的 SfM 预处理与冻结位姿接口，提出统一的 SfM-to-3DGS 管线。其核心是重要性引导的 MCMC Gaussian 分配：将多视图残差聚合为每个 Gaussian 的欠拟合和冗余信号，构造平滑的重要性加权采样分布，使 Gaussian 的出生与重定位偏向欠拟合区域，并从拟合充分区域回收容量，而不改变底层 SGLD。论文报告 15 分钟端到端重建与先进感知质量，并公开代码、评测脚本及失败案例分析。</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing 3D scenes from unordered images remains bottlenecked by expensive Structure-from-Motion (SfM) preprocessing and frozen pose interfaces. We present SalientGS, a unified SfM-to-3D Gaussian Splatting (3DGS) pipeline. Its central contribution is importance-guided Markov Chain Monte Carlo (MCMC) Gaussian allocation, which aggregates multi-view residuals into per-Gaussian underfit and redundancy signals. These signals define a smooth importance-weighted sampling distribution that biases both birth and relocation toward underfit regions. This reallocates capacity from well-fit areas without altering the underlying stochastic gradient Langevin dynamics (SGLD). SalientGS achieves end-to-end reconstruction in 15 minutes with state-of-the-art perceptual quality. The supplementary material provides dedicated sections for Per-Scene Qualitative Comparisons and Per-Image Learned Perceptual Image Patch Similarity (LPIPS) Analysis, including failure cases. Code and evaluation scripts are available at https://github.com/Six-Bit-TX/SalientGS.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Tianyu Xiong, Rui Li, Suning Ge, Jiaqi Yang</li>
+<li><strong>价值判断</strong>：不再把 SfM 位姿视作冻结接口，而是构建统一重建管线；核心是把多视图残差聚合成每个 Gaussian 的欠拟合与冗余信号，用于出生和重定位采样。</li>
+<li><strong>关键结果</strong>：报告端到端 15 分钟重建和先进感知质量，并公开代码与评测脚本；补充材料包含逐场景、逐图像 LPIPS 与失败案例。</li>
+<li><strong>后续核查</strong>：所谓统一管线中位姿是否真正联合更新、15 分钟对应的数据规模/硬件、MCMC/SGLD 稳定性及几何精度。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.11285">arXiv</a> · <a href="https://github.com/Six-Bit-TX/SalientGS">代码</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/fig-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/fig-001.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/fig-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/fig-002.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/fig-003.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/fig-003.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/fig-004.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/fig-004.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/fig-005.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/fig-005.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/fig-006.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/fig-006.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/table-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/table-001.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/table-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/table-002.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/table-003.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/table-003.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/table-004.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/table-004.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11285/table-005.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/table-005.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

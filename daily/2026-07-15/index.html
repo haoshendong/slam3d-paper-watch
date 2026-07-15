@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
   <title>Daily Paper Reader 2026-07-15</title>
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-07-15/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -17,7 +17,7 @@
     <div class="meta">静态网页 · 2026-07-15</div>
     <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
     <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-07-15/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：8</span><span class="stat">推荐论文：8</span><span class="stat">新论文：8</span><span class="stat">仓库：37</span><span class="stat">新仓库：13</span></div>
 </section>
@@ -33,92 +33,92 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">今日推荐 8 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2607.11184/index.html"><img src="assets/media/2026-07-15/arxiv-2607.11184/fig-001.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.11184/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GeoGS-SLAM：利用几何先验的在线单目 Gaussian Splatting 重建</span><span class="lang lang-en lang-inline" data-lang="en">GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.11184/index.html"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/fig-001.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.11184/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GeoGS-SLAM：利用几何先验的在线单目 Gaussian Splatting 重建</span><span class="lang lang-en lang-inline" data-lang="en">GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-13 · score 18 · cs.RO</div>
   <div class="meta">作者：Ruilan Gao, Letian Jin, Yu Zhang</div>
   <span class="score">评分 9.6/10</span>
   <div class="tags"><span class="tag">单目 SLAM</span><span class="tag">3DGS</span><span class="tag">几何先验</span><span class="tag">回环检测</span><span class="tag">位姿图优化</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>以学习几何先验初始化未标定单目输入，再用光度—几何联合优化、回环和位姿图维护实时 3DGS 地图。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">GeoGS-SLAM 是一套将 3DGS 地图表示与学习式几何先验结合的在线单目稠密重建系统。面对未标定 RGB 输入，系统先通过前馈视觉几何模型预测相机和场景先验，再从 RGB 与几何先验直接采样 Gaussian primitive 扩展地图，并以 coarse-to-fine 策略联合优化相机位姿和场景地图，同时最小化光度与几何损失。为保证全局一致性，系统还加入在线回环检测和位姿图优化。作者称其在室内外 be…</p><p class="lang lang-en lang-block" data-lang="en">SLAM methods based on 3D Gaussian Splatting (3DGS) have demonstrated impressive tracking and mapping performance, but typically require additional geometric information from external depth sensors. Meanwhile,…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.11184">abs</a><a href="https://arxiv.org/pdf/2607.11184">PDF</a><a href="papers/arxiv-2607.11184/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11184">abs</a><a href="https://arxiv.org/pdf/2607.11184">PDF</a><a href="../../papers/arxiv-2607.11184/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.11285/index.html"><img src="assets/media/2026-07-15/arxiv-2607.11285/fig-001.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.11285/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SalientGS：重要性引导 MCMC Gaussian 分配的一体化 SfM-to-3DGS</span><span class="lang lang-en lang-inline" data-lang="en">SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.11285/index.html"><img src="../../assets/media/2026-07-15/arxiv-2607.11285/fig-001.webp" alt="SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.11285/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SalientGS：重要性引导 MCMC Gaussian 分配的一体化 SfM-to-3DGS</span><span class="lang lang-en lang-inline" data-lang="en">SalientGS: Unified SfM-to-3DGS with Importance-Guided MCMC Gaussian Allocation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-13 · score 15 · cs.CV</div>
   <div class="meta">作者：Tianyu Xiong, Rui Li, Suning Ge, Jiaqi Yang</div>
   <span class="score">评分 9.2/10</span>
   <div class="tags"><span class="tag">SfM</span><span class="tag">3DGS</span><span class="tag">MCMC</span><span class="tag">Gaussian 分配</span><span class="tag">端到端重建</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用多视图残差判断 Gaussian 的欠拟合与冗余，通过重要性采样动态分配容量，打通 SfM 到 3DGS。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">SalientGS 面向无序图像重建中昂贵的 SfM 预处理与冻结位姿接口，提出统一的 SfM-to-3DGS 管线。其核心是重要性引导的 MCMC Gaussian 分配：将多视图残差聚合为每个 Gaussian 的欠拟合和冗余信号，构造平滑的重要性加权采样分布，使 Gaussian 的出生与重定位偏向欠拟合区域，并从拟合充分区域回收容量，而不改变底层 SGLD。论文报告 15 分钟端到端重建与先进感知质量，并公…</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing 3D scenes from unordered images remains bottlenecked by expensive Structure-from-Motion (SfM) preprocessing and frozen pose interfaces. We present SalientGS, a unified SfM-to-3D Gaussian Splatti…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.11285">abs</a><a href="https://arxiv.org/pdf/2607.11285">PDF</a><a href="papers/arxiv-2607.11285/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11285">abs</a><a href="https://arxiv.org/pdf/2607.11285">PDF</a><a href="../../papers/arxiv-2607.11285/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.11686/index.html"><img src="assets/media/2026-07-15/arxiv-2607.11686/fig-001.webp" alt="Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.11686/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Self-Healing Visual Recovery：仅相机视觉里程计驱动的无人车自恢复</span><span class="lang lang-en lang-inline" data-lang="en">Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.11686/index.html"><img src="../../assets/media/2026-07-15/arxiv-2607.11686/fig-001.webp" alt="Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.11686/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Self-Healing Visual Recovery：仅相机视觉里程计驱动的无人车自恢复</span><span class="lang lang-en lang-inline" data-lang="en">Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-13 · score 12 · cs.RO, cs.LG, cs.SE</div>
   <div class="meta">作者：Jakob Solberg Berntzen, Safia Fatima, Leon Moonen</div>
   <span class="score">评分 8.2/10</span>
   <div class="tags"><span class="tag">视觉里程计</span><span class="tag">无人地面车</span><span class="tag">故障恢复</span><span class="tag">CPU-only</span><span class="tag">Webots</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把单目 VO 作为循线机器人故障后的回退面包屑，在 CPU-only 20 Hz 控制环中实现两阶段自恢复。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文为低成本循线无人地面车设计无需 LiDAR、GPS 或 GPU 的两阶段恢复机制。引导线丢失后，第一阶段让机器人原地旋转并逐步放宽颜色检查，通过多帧确认重新发现线路；若仍失败，第二阶段借助单目视觉里程计返回已保存的面包屑位置后重试。系统结合深度门控 HSV 循线、YOLOv8n 障碍检测和 VO 面包屑地图，在 CPU 上以 20 Hz 运行。119 个 Webots 故障注入 episode 中成功率为 86…</p><p class="lang lang-en lang-block" data-lang="en">Low-cost unmanned ground vehicles are often used in indoor places like warehouses, inspection corridors, and farm rows, where painted floor lines guide the robot. Line following is useful because it only needs…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.11686">abs</a><a href="https://arxiv.org/pdf/2607.11686">PDF</a><a href="papers/arxiv-2607.11686/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11686">abs</a><a href="https://arxiv.org/pdf/2607.11686">PDF</a><a href="../../papers/arxiv-2607.11686/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.11099/index.html"><img src="assets/media/2026-07-15/arxiv-2607.11099/fig-001.webp" alt="Desc++: Efficient Descriptor Enhancement for Data Association in Existing Visual SLAM Systems" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.11099/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Desc++：面向既有视觉 SLAM 的高效描述子增强</span><span class="lang lang-en lang-inline" data-lang="en">Desc++: Efficient Descriptor Enhancement for Data Association in Existing Visual SLAM Systems</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.11099/index.html"><img src="../../assets/media/2026-07-15/arxiv-2607.11099/fig-001.webp" alt="Desc++: Efficient Descriptor Enhancement for Data Association in Existing Visual SLAM Systems" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.11099/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Desc++：面向既有视觉 SLAM 的高效描述子增强</span><span class="lang lang-en lang-inline" data-lang="en">Desc++: Efficient Descriptor Enhancement for Data Association in Existing Visual SLAM Systems</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-13 · score 12 · cs.RO, cs.CV</div>
   <div class="meta">作者：Ting-Wei Ou, Huang-Ting Lin, Kuu-Young Young</div>
   <span class="score">评分 9/10</span>
   <div class="tags"><span class="tag">视觉 SLAM</span><span class="tag">数据关联</span><span class="tag">特征描述子</span><span class="tag">注意力</span><span class="tag">实时前端</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>不改变描述子维度和匹配 API，以全局注意力与几何序列建模低侵入增强成熟 V-SLAM 的数据关联。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Desc++ 是可嵌入现有视觉 SLAM 的轻量描述子增强模块。它联合编码描述子表示与关键点几何，并通过无序全局注意力和几何感知的线性时间序列建模聚合空间上下文。增强后的描述子保持原始维度和匹配接口，因此无需替换成熟系统的特征提取—匹配管线。作者在描述子匹配、对应关系分析和四套 V-SLAM 系统级 benchmark 上验证了匹配准确率、轨迹精度与稳定性提升，并报告较好的精度—效率平衡。</p><p class="lang lang-en lang-block" data-lang="en">Reliable visual data association is fundamental to visual SLAM (V-SLAM), as it directly determines the quality of the camera pose estimation and map consistency. However, the handcrafted descriptors used by mo…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.11099">abs</a><a href="https://arxiv.org/pdf/2607.11099">PDF</a><a href="papers/arxiv-2607.11099/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11099">abs</a><a href="https://arxiv.org/pdf/2607.11099">PDF</a><a href="../../papers/arxiv-2607.11099/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.10995/index.html"><img src="assets/media/2026-07-15/arxiv-2607.10995/fig-001.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.10995/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AsySplat：面向长序列场景建模的非对称 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.10995/index.html"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/fig-001.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.10995/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AsySplat：面向长序列场景建模的非对称 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-13 · score 9 · cs.CV</div>
   <div class="meta">作者：Yingji Zhong, Dave Zhenyu Chen, Fuzhao Ou, Youyu Chen</div>
   <span class="score">评分 8/10</span>
   <div class="tags"><span class="tag">3DGS</span><span class="tag">长序列</span><span class="tag">前馈重建</span><span class="tag">新视角合成</span><span class="tag">高效建模</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>以重几何粗 token、轻外观细 token 的非对称双分支减少长序列 3DGS 前馈重建冗余。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">AsySplat 针对可泛化 3DGS 长序列建模中的冗余计算，将几何和外观解耦为非对称分支。几何分支使用粗粒度 token 和大部分参数完成多视图重建，外观分支则以少量参数处理细粒度 token 捕获细节，两者通过双向连接相互引导。作者认为高质量新视角合成并不总需要同等精细的几何，因此按任务难度分配计算。在 32 视图、960P 输入上，模型声称达到优化式方法质量并获得近 800 倍加速，同时以更少参数超过既有可…</p><p class="lang lang-en lang-block" data-lang="en">Recent generalizable 3D Gaussian Splatting models have advanced long-sequence novel view synthesis (NVS), but at the cost of substantial redundant computation. We identify that the redundancy can be mitigated…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.10995">abs</a><a href="https://arxiv.org/pdf/2607.10995">PDF</a><a href="papers/arxiv-2607.10995/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.10995">abs</a><a href="https://arxiv.org/pdf/2607.10995">PDF</a><a href="../../papers/arxiv-2607.10995/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.11500/index.html"><img src="assets/media/2026-07-15/arxiv-2607.11500/fig-001.webp" alt="HyperGS: Fast and Generalizable Gaussian Video Representation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.11500/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HyperGS：快速且可泛化的 Gaussian 视频表示</span><span class="lang lang-en lang-inline" data-lang="en">HyperGS: Fast and Generalizable Gaussian Video Representation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.11500/index.html"><img src="../../assets/media/2026-07-15/arxiv-2607.11500/fig-001.webp" alt="HyperGS: Fast and Generalizable Gaussian Video Representation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.11500/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HyperGS：快速且可泛化的 Gaussian 视频表示</span><span class="lang lang-en lang-inline" data-lang="en">HyperGS: Fast and Generalizable Gaussian Video Representation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-13 · score 6 · cs.CV</div>
   <div class="meta">作者：Fatimah Zohra, Chen Zhao, Shuming Liu, Yahya Al Malallah</div>
   <span class="score">评分 7.1/10</span>
   <div class="tags"><span class="tag">Gaussian 视频</span><span class="tag">前馈表示</span><span class="tag">Transformer</span><span class="tag">视频编码</span><span class="tag">几何正则</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>一次前馈生成逐帧二维 Gaussian 视频表示，并用自适应秩正则抑制针状退化。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">HyperGS 用前馈、无逐视频优化的方法，从任意视频一次预测 Gaussian 表示。系统以因子化时空 Transformer 提取视频 token，再用可学习 query Transformer 为每帧生成 8 参数二维 Gaussian。针对跨视频训练时出现的针状退化，作者引入强度动态调整的 rank-based 几何正则。论文报告在匹配重建质量下将编解码速度提高 10^4 至 10^5 倍，并可零样本泛化至…</p><p class="lang lang-en lang-block" data-lang="en">Gaussian Splatting has emerged as an effective representation for video, but existing methods rely on per-video optimization. This leads to slow encoding and limits generalization across videos. To amortize th…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.11500">abs</a><a href="https://arxiv.org/pdf/2607.11500">PDF</a><a href="papers/arxiv-2607.11500/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11500">abs</a><a href="https://arxiv.org/pdf/2607.11500">PDF</a><a href="../../papers/arxiv-2607.11500/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2607.11673/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2607.11673/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ABot-3DWorld 0：可探索任意三维空间的通用世界模型</span><span class="lang lang-en lang-inline" data-lang="en">ABot-3DWorld 0: A Universal World Model to Explore Any 3D Space</span></a></h3>
+  <a class="thumb placeholder" href="../../papers/arxiv-2607.11673/index.html">论文预览</a>
+  <h3><a href="../../papers/arxiv-2607.11673/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ABot-3DWorld 0：可探索任意三维空间的通用世界模型</span><span class="lang lang-en lang-inline" data-lang="en">ABot-3DWorld 0: A Universal World Model to Explore Any 3D Space</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-13 · score 4 · cs.CV</div>
   <div class="meta">作者：Mingchao Sun, Luyang Tang, Yu Liu, Xu Yan</div>
   <span class="score">评分 6.8/10</span>
   <div class="tags"><span class="tag">世界模型</span><span class="tag">3DGS</span><span class="tag">全景重建</span><span class="tag">空间点云</span><span class="tag">多模态生成</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>以全景图和点云组成统一空间原语，经轨迹生成与全景视频重建输出可探索的 3DGS 世界。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">ABot-3DWorld 0 将文本、图像和视频转换为可探索的三维世界。核心 Spatial Generative Primitive 由高质量全景图与空间点云组成：多模态输入先提升为该原语，具有三维一致性的全景视频生成器沿规划轨迹进行探索，最后由全景视频重建引擎生成 3DGS 世界。富多视图或视频输入走强调几何恢复的路径，单图或文本输入则通过生成补全形成创意世界；系统还把生成世界锚定到地理兴趣点。</p><p class="lang lang-en lang-block" data-lang="en">We present ABot-3DWorld 0, a universal multimodal 3D world model that turns text, image, and video inputs into high-fidelity, explorable 3D worlds. At the heart of our framework is a unified Spatial Generative…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.11673">abs</a><a href="https://arxiv.org/pdf/2607.11673">PDF</a><a href="papers/arxiv-2607.11673/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11673">abs</a><a href="https://arxiv.org/pdf/2607.11673">PDF</a><a href="../../papers/arxiv-2607.11673/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb placeholder" href="papers/arxiv-2607.11118/index.html">论文预览</a>
-  <h3><a href="papers/arxiv-2607.11118/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GHOST：透明物体的几何引导不透明纹理幻化</span><span class="lang lang-en lang-inline" data-lang="en">GHOST: Geometry-Guided Hallucination of Opaque Surface Textures</span></a></h3>
+  <a class="thumb placeholder" href="../../papers/arxiv-2607.11118/index.html">论文预览</a>
+  <h3><a href="../../papers/arxiv-2607.11118/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GHOST：透明物体的几何引导不透明纹理幻化</span><span class="lang lang-en lang-inline" data-lang="en">GHOST: Geometry-Guided Hallucination of Opaque Surface Textures</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-13 · score 4 · cs.CV</div>
   <div class="meta">作者：Langxu Zhao, Zuan Gu, Tianhan Gao</div>
   <span class="score">评分 6.6/10</span>
   <div class="tags"><span class="tag">透明物体</span><span class="tag">三维重建</span><span class="tag">深度估计</span><span class="tag">表面法向</span><span class="tag">几何预处理</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>融合透明掩码、物理属性与法向先验，把玻璃等透明区域转成便于现有深度/重建模型处理的不透明纹理。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">GHOST 是面向透明物体深度估计与三维重建的几何引导预处理框架，无需重训下游模型。管线先由 TransDINO 和 TransDecomp 分离透明掩码与透明物理属性，再由 DAF-Net 恢复表面法向先验编码曲率，最后由 GeoSemTransNet 融合多模态线索，合成保留三维结构且纹理丰富的不透明 RGB 图像。作者称该方法通过恢复关键光度线索，提高了先进深度估计和重建模型处理透明物体时的准确率。</p><p class="lang lang-en lang-block" data-lang="en">Transparent objects pose a fundamental challenge for depth estimation and 3D reconstruction due to their violation of Lambertian assumptions, leading to severe geometry degradation in downstream tasks. To addr…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.11118">abs</a><a href="https://arxiv.org/pdf/2607.11118">PDF</a><a href="papers/arxiv-2607.11118/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11118">abs</a><a href="https://arxiv.org/pdf/2607.11118">PDF</a><a href="../../papers/arxiv-2607.11118/index.html">详情</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -278,6 +278,6 @@
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-15/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-15/index.html">← 返回 2026-07-15 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-13 · score 18 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GeoGS-SLAM：利用几何先验的在线单目 Gaussian Splatting 重建</span><span class="lang lang-en lang-inline" data-lang="en">GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors</span></h1>
+  <div class="meta">作者：Ruilan Gao, Letian Jin, Yu Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11184">abs</a><a href="https://arxiv.org/pdf/2607.11184">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.6/10</span><p>直接覆盖单目 3DGS-SLAM、联合跟踪建图、回环和全局优化，系统完整度最高；仍需核查实际帧率、ATE/RPE、内参处理和基础模型域外误差。</p><div class="tags"><span class="tag">单目 SLAM</span><span class="tag">3DGS</span><span class="tag">几何先验</span><span class="tag">回环检测</span><span class="tag">位姿图优化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以学习几何先验初始化未标定单目输入，再用光度—几何联合优化、回环和位姿图维护实时 3DGS 地图。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">GeoGS-SLAM 是一套将 3DGS 地图表示与学习式几何先验结合的在线单目稠密重建系统。面对未标定 RGB 输入，系统先通过前馈视觉几何模型预测相机和场景先验，再从 RGB 与几何先验直接采样 Gaussian primitive 扩展地图，并以 coarse-to-fine 策略联合优化相机位姿和场景地图，同时最小化光度与几何损失。为保证全局一致性，系统还加入在线回环检测和位姿图优化。作者称其在室内外 benchmark 上兼顾先进渲染质量、跟踪精度与在线实时性能。</p><p class="lang lang-en lang-block" data-lang="en">SLAM methods based on 3D Gaussian Splatting (3DGS) have demonstrated impressive tracking and mapping performance, but typically require additional geometric information from external depth sensors. Meanwhile, recent SLAM systems that leverage geometric priors from pre-trained feed-forward models enable real-time dense reconstruction, yet often discard original RGB information during optimization, thus degrading overall reconstruction quality. We present GeoGS-SLAM, an online monocular dense reconstruction system that combines the 3DGS-based map representation with learned geometric priors. Given uncalibrated RGB input, we first employ a feed-forward visual geometry model to predict camera and scene priors. The Gaussian scene map is then expanded by directly sampling Gaussian primitives from both RGB input and geometric priors. Camera poses and the scene map are jointly optimized through a coarse-to-fine strategy that minimizes both photometric and geometric losses. To ensure global consistency, we further incorporate online loop closure detection and pose graph optimization. Extensive experiments across indoor and outdoor benchmarks demonstrate that GeoGS-SLAM achieves superior rendering quality and tracking accuracy compared to state-of-the-art methods while maintaining online real-time performance. Project page: https://rlgao.github.io/geogs_slam.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Ruilan Gao, Letian Jin, Yu Zhang</li>
+<li><strong>价值判断</strong>：用前馈视觉几何模型从未标定 RGB 输入预测相机与场景先验，再联合优化相机位姿和 Gaussian 地图；同时包含在线回环检测与位姿图优化，系统闭环比单纯新视角渲染方法完整。</li>
+<li><strong>关键机制</strong>：从 RGB 与几何先验共同采样 Gaussian，以 coarse-to-fine 光度/几何损失优化；覆盖室内外 benchmark，并声称保持在线实时性能。</li>
+<li><strong>后续核查</strong>：具体帧率与硬件、相机内参在线处理方式、ATE/RPE、回环后的地图变形，以及对几何基础模型域外误差的敏感性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.11184">arXiv</a> · <a href="https://arxiv.org/pdf/2607.11184">PDF</a> · <a href="https://rlgao.github.io/geogs_slam">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11184/fig-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/fig-001.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11184/fig-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/fig-002.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11184/fig-003.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/fig-003.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11184/fig-004.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/fig-004.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11184/table-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/table-001.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11184/table-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/table-002.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11184/table-003.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/table-003.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11184/table-004.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11184/table-004.webp" alt="GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

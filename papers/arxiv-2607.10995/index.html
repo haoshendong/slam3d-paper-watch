@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-15/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-15/index.html">← 返回 2026-07-15 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-13 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">AsySplat：面向长序列场景建模的非对称 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling</span></h1>
+  <div class="meta">作者：Yingji Zhong, Dave Zhenyu Chen, Fuzhao Ou, Youyu Chen, Zhihao Li, Lanqing Hong, Dan Xu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.10995">abs</a><a href="https://arxiv.org/pdf/2607.10995">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>长序列、高分辨率与计算效率高度相关于可扩展重建；但贡献主要面向 NVS，尚未展示在线定位、回环或 SLAM 几何指标。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">长序列</span><span class="tag">前馈重建</span><span class="tag">新视角合成</span><span class="tag">高效建模</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以重几何粗 token、轻外观细 token 的非对称双分支减少长序列 3DGS 前馈重建冗余。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">AsySplat 针对可泛化 3DGS 长序列建模中的冗余计算，将几何和外观解耦为非对称分支。几何分支使用粗粒度 token 和大部分参数完成多视图重建，外观分支则以少量参数处理细粒度 token 捕获细节，两者通过双向连接相互引导。作者认为高质量新视角合成并不总需要同等精细的几何，因此按任务难度分配计算。在 32 视图、960P 输入上，模型声称达到优化式方法质量并获得近 800 倍加速，同时以更少参数超过既有可泛化模型。</p><p class="lang lang-en lang-block" data-lang="en">Recent generalizable 3D Gaussian Splatting models have advanced long-sequence novel view synthesis (NVS), but at the cost of substantial redundant computation. We identify that the redundancy can be mitigated based on two observations: (i) high-precision geometry is not strictly required for high-quality NVS; (ii) appearance learning is generally easier than geometry recovery. Motivated by these insights, we propose an asymmetric architecture that decouples geometry and appearance modeling. The geometry branch processes coarse-grained tokens with most of the parameters for multi-view reconstruction, while the appearance branch operates on fine-grained tokens to capture details using significantly fewer parameters. The two branches interact through bilateral connections, enabling mutual guidance for their respective tasks. This task-aware asymmetry reduces the computational redundancy and allocates the computation more judiciously, thereby increasing parameter efficiency and enabling smaller models to achieve strong performance. On 32-view 960P inputs, our model matches optimization-based methods while delivering nearly 800x speedup, and surpasses the zero-shot performance of state-of-the-art generalizable models with markedly fewer parameters and reduced training/inference overhead, achieving an overall efficiency improvement.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Yingji Zhong 等</li>
+<li><strong>价值判断</strong>：将几何与外观建模解耦：几何分支用粗粒度 token 和大部分参数，外观分支以较少参数处理细粒度 token，针对长序列前馈重建的冗余计算。</li>
+<li><strong>关键结果</strong>：在 32 视图、960P 输入上声称达到优化式方法质量并有近 800 倍加速；对快速大范围建图的启发大于直接 SLAM 可用性。</li>
+<li><strong>后续核查</strong>：几何误差而非仅 NVS 指标、位姿输入依赖、长序列长度、显存和跨场景泛化。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.10995">arXiv</a> · <a href="https://zhongyingji.github.io/asysplat/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/fig-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/fig-001.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/fig-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/fig-002.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/fig-003.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/fig-003.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/fig-004.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/fig-004.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/table-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/table-001.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/table-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/table-002.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/table-003.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/table-003.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/table-004.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/table-004.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.10995/table-005.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.10995/table-005.webp" alt="AsySplat: Efficient Asymmetric 3D Gaussian Splatting for Long-Sequence Scene Modeling" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

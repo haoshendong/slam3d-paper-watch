@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HyperGS: Fast and Generalizable Gaussian Video Representation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-15/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-15/index.html">← 返回 2026-07-15 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-13 · score 6 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HyperGS：快速且可泛化的 Gaussian 视频表示</span><span class="lang lang-en lang-inline" data-lang="en">HyperGS: Fast and Generalizable Gaussian Video Representation</span></h1>
+  <div class="meta">作者：Fatimah Zohra, Chen Zhao, Shuming Liu, Yahya Al Malallah, Bernard Ghanem</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11500">abs</a><a href="https://arxiv.org/pdf/2607.11500">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.1/10</span><p>前馈 Gaussian 与退化正则对实时显式表示有启发，但其对象是二维视频编码而非三维定位建图，领域相关性低于前五篇。</p><div class="tags"><span class="tag">Gaussian 视频</span><span class="tag">前馈表示</span><span class="tag">Transformer</span><span class="tag">视频编码</span><span class="tag">几何正则</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">一次前馈生成逐帧二维 Gaussian 视频表示，并用自适应秩正则抑制针状退化。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">HyperGS 用前馈、无逐视频优化的方法，从任意视频一次预测 Gaussian 表示。系统以因子化时空 Transformer 提取视频 token，再用可学习 query Transformer 为每帧生成 8 参数二维 Gaussian。针对跨视频训练时出现的针状退化，作者引入强度动态调整的 rank-based 几何正则。论文报告在匹配重建质量下将编解码速度提高 10^4 至 10^5 倍，并可零样本泛化至 720p；在 K400、SSv2 和 UCF101 上较先前视频编码器提高 2.9–3.1 dB PSNR。</p><p class="lang lang-en lang-block" data-lang="en">Gaussian Splatting has emerged as an effective representation for video, but existing methods rely on per-video optimization. This leads to slow encoding and limits generalization across videos. To amortize this optimization, we propose HyperGS, a feedforward, optimization-free approach that directly predicts Gaussian representations from any video in a single forward pass, speeding up encoding and decoding by orders of magnitude while generalizing to out-of-distribution videos at higher resolutions. In HyperGS, we design a factorized spatiotemporal Transformer to extract tokens from video, and a learnable query-based Transformer to obtain 8-parameter Gaussian representations for each video frame. We find that naively predicting Gaussians across diverse videos induces a needle-like degeneration that collapses training, and address this with a rank-based geometric regularizer whose strength adapts dynamically to stabilize optimization. HyperGS achieves encoding at $10^4$--$10^5\times$ the speed of per-video Gaussian optimization at matched reconstruction quality while generalizing zero-shot to $720p$ video, enabling higher-resolution rendering without re-encoding. HyperGS improves PSNR by +2.9--3.1 dB over the prior video encoders on K400, SSv2, and UCF101 at a smaller video representation size. By predicting explicit 2D Gaussians in a single forward pass, HyperGS combines the fast, flexible rendering of Gaussian Splatting with the speed and generalization of feedforward prediction, advancing Gaussians as a practical direction for fast and generalizable video representation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Fatimah Zohra, Chen Zhao, Shuming Liu, Yahya Al Malallah, Bernard Ghanem</li>
+<li><strong>价值判断</strong>：以一次前馈预测替代逐视频 Gaussian 优化，并用自适应 rank-based 几何正则抑制 needle-like 退化；主要是二维 Gaussian 视频编码，不是 SLAM，但对实时显式表示与稳定训练有参考价值。</li>
+<li><strong>关键结果</strong>：报告编码速度提升 10^4–10^5 倍，可零样本泛化到 720p；在 K400、SSv2、UCF101 上较既有视频编码器提升 2.9–3.1 dB PSNR。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.11500">arXiv</a> · <a href="https://arxiv.org/pdf/2607.11500">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11500/fig-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11500/fig-001.webp" alt="HyperGS: Fast and Generalizable Gaussian Video Representation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11500/fig-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11500/fig-002.webp" alt="HyperGS: Fast and Generalizable Gaussian Video Representation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11500/table-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11500/table-001.webp" alt="HyperGS: Fast and Generalizable Gaussian Video Representation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11500/table-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11500/table-002.webp" alt="HyperGS: Fast and Generalizable Gaussian Video Representation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

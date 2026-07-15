@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-15/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-15/index.html">← 返回 2026-07-15 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-13 · score 12 · cs.RO, cs.LG, cs.SE</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Self-Healing Visual Recovery：仅相机视觉里程计驱动的无人车自恢复</span><span class="lang lang-en lang-inline" data-lang="en">Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry</span></h1>
+  <div class="meta">作者：Jakob Solberg Berntzen, Safia Fatima, Leon Moonen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11686">abs</a><a href="https://arxiv.org/pdf/2607.11686">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>展示低成本 VO 的任务级容错用途和量化恢复结果；但仅有 Webots 仿真且不属于通用 SLAM，真实漂移和复杂环境鲁棒性待验证。</p><div class="tags"><span class="tag">视觉里程计</span><span class="tag">无人地面车</span><span class="tag">故障恢复</span><span class="tag">CPU-only</span><span class="tag">Webots</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把单目 VO 作为循线机器人故障后的回退面包屑，在 CPU-only 20 Hz 控制环中实现两阶段自恢复。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文为低成本循线无人地面车设计无需 LiDAR、GPS 或 GPU 的两阶段恢复机制。引导线丢失后，第一阶段让机器人原地旋转并逐步放宽颜色检查，通过多帧确认重新发现线路；若仍失败，第二阶段借助单目视觉里程计返回已保存的面包屑位置后重试。系统结合深度门控 HSV 循线、YOLOv8n 障碍检测和 VO 面包屑地图，在 CPU 上以 20 Hz 运行。119 个 Webots 故障注入 episode 中成功率为 86.6%，恢复时间中位数 3.26 秒。</p><p class="lang lang-en lang-block" data-lang="en">Low-cost unmanned ground vehicles are often used in indoor places like warehouses, inspection corridors, and farm rows, where painted floor lines guide the robot. Line following is useful because it only needs one camera and little computing power, but it can fail when the line is blocked or turns sharply and goes out of view. Sensor-rich platforms tolerate this through hardware redundancy (LiDAR, GPS, multiple cameras), but camera-only systems must recover at runtime with no additional infrastructure. This paper presents a lightweight, two-stage recovery approach that restores guideline tracking without LiDAR, GPS, or a GPU. When the line is lost, the robot first turns in place while slowly relaxing its color checks and waiting for confirmation across multiple frames (Stage 1). If the line is still not found, monocular visual odometry moves the robot back to saved breadcrumb positions before it tries again (Stage 2). The system uses a depth-gated HSV line tracker, a YOLOv8n obstacle detector, and a visual odometry breadcrumb mapper, and it runs at 20 Hz on CPU-only hardware. The controller embeds a complete MAPE-K loop within a single 50 ms control tick, with no external adaptation manager required. The approach is evaluated across 119 fault-injected episodes on three Webots simulation courses. The method was successful in 86.6% of cases, with a median recovery time of 3.26 seconds. These results demonstrate that reliable visual recovery is feasible on camera-only UGVs within practical cost and computational limits.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jakob Solberg Berntzen, Safia Fatima, Leon Moonen</li>
+<li><strong>价值判断</strong>：把单目 VO 用作低成本循线 UGV 的故障恢复“面包屑”，而非持续主定位；无 LiDAR、GPS 或 GPU，强调 CPU 端 20 Hz 控制闭环。</li>
+<li><strong>关键结果</strong>：119 个 Webots 故障注入 episode 中成功率 86.6%，恢复时间中位数 3.26 秒；两阶段策略先原地搜索，再沿 VO 保存位置回退。</li>
+<li><strong>风险点</strong>：仅仿真三条路线，VO 累计漂移、纹理退化、真实轮滑和动态障碍尚未充分覆盖；更像任务恢复控制而非通用 SLAM。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.11686">arXiv</a> · <a href="https://arxiv.org/pdf/2607.11686">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11686/fig-001.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11686/fig-001.webp" alt="Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11686/fig-002.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11686/fig-002.webp" alt="Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11686/fig-003.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11686/fig-003.webp" alt="Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-15/arxiv-2607.11686/fig-004.webp"><img src="../../assets/media/2026-07-15/arxiv-2607.11686/fig-004.webp" alt="Self-Healing Visual Recovery for Autonomous Ground Vehicles Using Camera-Only Visual Odometry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
