@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-16/index.html">← 返回 2026-07-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 6 · cs.RO, cs.AI, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">AgriNight：用于夜间视觉导航的无监督昼夜跨模态图像转换</span><span class="lang lang-en lang-inline" data-lang="en">Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation</span></h1>
+  <div class="meta">作者：Robel Mamo, Rajitha de Silva, Grzegorz Cielniak, Taeyeong Choi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.12065">abs</a><a href="https://arxiv.org/pdf/2607.12065">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.6/10</span><p>覆盖夜间视觉导航、跨模态鲁棒感知、公开数据和实机验证；但论文重点是语义分割，尚需确认定位/VO 在转换图像上的收益。</p><div class="tags"><span class="tag">夜间导航</span><span class="tag">近红外</span><span class="tag">跨模态转换</span><span class="tag">农业机器人</span><span class="tag">语义分割</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 CLIP 语义约束和 NIR 可见性掩码，把昼间标注迁移到夜间农业机器人视觉导航。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出无需像素级配对监督的昼间 RGB 到夜间近红外图像转换框架，使昼间语义标签可直接用于训练夜间农业导航感知模型。方法借助预训练 CLIP 保持转换前后的语义一致性，并用可见性掩码刻画 NIR 照明的有限有效距离。作者发布 AgriNight 数据集，包含 428 张昼间和 549 张夜间图像及像素级标注；下游语义分割优于图像转换基线，并完成实体机器人夜间实时自主导航实验。</p><p class="lang lang-en lang-block" data-lang="en">While visual navigation has been extensively studied in agricultural robotics, most existing systems assume daytime conditions. In fact, deploying autonomous robots at night offers significant advantages, including 24-hour crop and soil monitoring, fruit harvesting, and nocturnal pest detection. Modern vision-based systems, however, rely heavily on large-scale well-annotated image datasets, which remains challenging to obtain for nighttime operation scenarios. To address this, we propose an unsupervised image translation framework that converts daytime plant-row RGB images into near-infrared (NIR) nighttime counterparts without requiring pixel-to-pixel supervision. This enables the direct reuse of daytime semantic labels for training nighttime perception models. In particular, by incorporating a pre-trained Contrastive Language-Image Pre-training (CLIP) model, the proposed framework is designed to preserve semantic consistency during day-to-night translation. Additionally, a visibility mask is introduced to account for the limited effective range of NIR illumination in nighttime scenes. We conduct comparative evaluations with state-of-the-art image translation baselines and demonstrate higher image qualities, as supported by improved performance in downstream semantic segmentation for nighttime visual navigation. For evaluation, we utilize AgriNight--a novel dataset comprising 428 daytime and 549 nighttime images collected using night-vision-equipped mobile robots in agricultural fields and manually annotated with pixel-wise semantic labels--and introduce it as the first benchmark for nighttime agricultural visual navigation. We also perform real-time autonomous navigation experiments with a physical robot operating at night. The data and code are available at: https://github.com/mamorobel/AgriNight.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Robel Mamo, Rajitha de Silva, Grzegorz Cielniak, Taeyeong Choi</li>
+<li><strong>价值判断</strong>：直面夜间 NIR 导航标注不足问题，以无配对转换复用昼间语义标签，并且同时给出公开 benchmark 与实体机器人夜航验证。</li>
+<li><strong>技术要点</strong>：预训练 CLIP 约束语义一致性；visibility mask 表达 NIR 照明的有限有效距离。AgriNight 含 428 张昼间、549 张夜间像素级标注图像。</li>
+<li><strong>后续核查</strong>：当前收益主要由语义分割衡量；需验证转换是否保持关键点、线结构和时序光度一致性，能否真正改善 VO/SLAM。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.12065">arXiv</a> · <a href="https://github.com/mamorobel/AgriNight">代码/数据</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12065/fig-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12065/fig-001.webp" alt="Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12065/fig-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12065/fig-002.webp" alt="Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12065/fig-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12065/fig-003.webp" alt="Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12065/fig-004.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12065/fig-004.webp" alt="Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12065/table-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12065/table-001.webp" alt="Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12065/table-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12065/table-002.webp" alt="Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12065/table-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12065/table-003.webp" alt="Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12065/table-004.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12065/table-004.webp" alt="Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

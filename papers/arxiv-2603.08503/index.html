@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-16/index.html">← 返回 2026-07-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 17 · cs.CV, cs.GR, cs.RO, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Spherical-GOF：面向三维场景重建的几何感知全景 Gaussian Opacity Fields</span><span class="lang lang-en lang-inline" data-lang="en">Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction</span></h1>
+  <div class="meta">作者：Zhe Yang, Guoqiang Zhao, Sheng Wu, Kai Luo, Kailun Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2603.08503">abs</a><a href="https://arxiv.org/pdf/2603.08503">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.5/10</span><p>直接命中全景三维重建、3DGS 与机器人数据，且给出显著几何指标；需核查代码发布、运行速度、位姿来源及真实 OmniRob 的定量结果。</p><div class="tags"><span class="tag">全景重建</span><span class="tag">3DGS</span><span class="tag">Gaussian Opacity Fields</span><span class="tag">几何一致性</span><span class="tag">机器人数据集</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在球面射线空间直接采样 GOF，以球面包围剔除和畸变自适应滤波提升全景 3DGS 的几何一致性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Spherical-GOF 将 Gaussian Opacity Fields 扩展到全景相机，不再沿用为透视投影设计的栅格化，而是在单位球面的球面射线空间直接执行 GOF 采样。为提高效率与稳定性，方法推导保守球面包围规则以快速剔除射线—Gaussian 对，并设计随全景像素畸变变化而调整 Gaussian footprint 的球面滤波。OmniBlender 与 OmniPhotos 实验显示其光度质量具有竞争力，同时相对最强基线将深度重投影误差降低 57%、cycle inlier ratio 提高 21%。论文还发布面向 UAV 和四足机器人的真实全景数据集 OmniRob，并计划公开代码与数据。</p><p class="lang lang-en lang-block" data-lang="en">Omnidirectional images are increasingly used in robotics and vision due to their wide field of view. However, extending 3D Gaussian Splatting (3DGS) to panoramic camera models remains challenging, as existing formulations are designed for perspective projections and naive adaptations often introduce distortion and geometric inconsistencies. We present Spherical-GOF, an omnidirectional Gaussian rendering framework built upon Gaussian Opacity Fields (GOF). Unlike projection-based rasterization, Spherical-GOF performs GOF ray sampling directly on the unit sphere in spherical ray space, enabling consistent ray-Gaussian interactions for panoramic rendering. To make the spherical ray casting efficient and robust, we derive a conservative spherical bounding rule for fast ray-Gaussian culling and introduce a spherical filtering scheme that adapts Gaussian footprints to distortion-varying panoramic pixel sampling. Extensive experiments on standard panoramic benchmarks (OmniBlender and OmniPhotos) demonstrate competitive photometric quality and substantially improved geometric consistency. Compared with the strongest baseline, Spherical-GOF reduces depth reprojection error by 57% and improves cycle inlier ratio by 21%. Qualitative results show cleaner depth and more coherent normal maps, with strong robustness to global panorama rotations. We further validate generalization on OmniRob, a real-world robotic omnidirectional dataset introduced in this work, featuring UAV and quadruped platforms. The source code and the OmniRob dataset will be released at https://github.com/1170632760/Spherical-GOF.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Zhe Yang, Guoqiang Zhao, Sheng Wu, Kai Luo, Kailun Yang</li>
+<li><strong>价值判断</strong>：不是简单把透视 3DGS rasterizer 套到等距柱状图，而是在单位球面的射线空间直接执行 GOF 采样，针对全景畸变处理 ray–Gaussian interaction。</li>
+<li><strong>关键结果</strong>：相对最强基线将深度重投影误差降低 57%，cycle inlier ratio 提高 21%；同时引入真实机器人全景数据集 OmniRob，覆盖 UAV 与四足平台。</li>
+<li><strong>后续核查</strong>：代码和数据尚称“will be released”；需检查运行速度、相机位姿输入、真实数据定量几何精度及 panorama seam 附近稳定性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2603.08503">arXiv</a> · <a href="https://arxiv.org/pdf/2603.08503">PDF</a> · <a href="https://github.com/1170632760/Spherical-GOF">代码/数据</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/fig-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/fig-001.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/fig-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/fig-002.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/fig-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/fig-003.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/fig-004.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/fig-004.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/fig-005.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/fig-005.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/fig-006.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/fig-006.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/table-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/table-001.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/table-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/table-002.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/table-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/table-003.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2603.08503/table-004.webp"><img src="../../assets/media/2026-07-16/arxiv-2603.08503/table-004.webp" alt="Spherical-GOF: Geometry-Aware Panoramic Gaussian Opacity Fields for 3D Scene Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

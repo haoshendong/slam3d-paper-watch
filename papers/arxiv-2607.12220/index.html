@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Contract-Grounded Behavior Tree Synthesis via Coding Agents</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-16/index.html">← 返回 2026-07-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 6 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于执行契约与 Coding Agent 的机器人行为树合成</span><span class="lang lang-en lang-inline" data-lang="en">Contract-Grounded Behavior Tree Synthesis via Coding Agents</span></h1>
+  <div class="meta">作者：Jonathan Salfity, Robert Blake Anderson, Mitch Pryor</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.12220">abs</a><a href="https://arxiv.org/pdf/2607.12220">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.7/10</span><p>实机使用 Nav2，和自主导航任务编排、执行安全相关，但不是定位算法；值得关注契约是否能覆盖 SLAM 生命周期与恢复动作。</p><div class="tags"><span class="tag">行为树</span><span class="tag">Coding Agent</span><span class="tag">MCP</span><span class="tag">Nav2</span><span class="tag">运行时验证</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">先从机器人运行时读取技能与行为树结构契约，再由 coding agent 合成并经验证门检查后执行。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出 contract-grounded 行为树合成架构：coding agent 在生成行为树前，通过机器人侧 MCP server 查询可执行技能库、允许的行为树算子和可选组合模板；生成结果必须经过机器人运行时验证门才能执行。作者在 PyRoboSim 的 110 个模拟任务和 Husarion Panther 实机的 14 个 Nav2 任务上评估 Sonnet 4.6 与 Gemma4:31b，报告显式契约可获得近乎完美的行为树验证率，组合模板还能显著改善较小模型处理反应式控制流的成功率。</p><p class="lang lang-en lang-block" data-lang="en">Synthesizing deployable robot behavior trees (BTs) from natural language (NL) requires grounding to ensure every generated BT references only skills a robot can actually execute. Existing LLM-based BT synthesis approaches often place this grounding responsibility on the prompt author. This makes deployment brittle when the author does not know which skills the robot can execute, how those skills are parameterized, or how the robot runtime software constrains valid BT structure. This paper proposes a contract-grounded BT synthesis architecture in which a coding agent queries a robot-side Model Context Protocol (MCP) server to retrieve an explicit contract consisting of a skill library, permitted BT operators, and optional BT composition templates, before synthesizing a BT for validation and execution. In our framework, non-expert operators issue NL commands without knowledge of robot implementation details, while a robot runtime validation gate enforces correctness before execution. We evaluate two LLMs, a closed model (Sonnet 4.6) and a smaller open-source model (Gemma4:31b), across 110 simulated tasks in PyRoboSim and 14 tasks on a physical Husarion Panther robot. Results show that contract grounding enables near-perfect BT validation and high task success, that BT composition templates substantially recover success on reactive control-flow tasks for the smaller model, and that the architecture transfers to physical hardware running a Nav2 stack opaque to both operator and agent.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jonathan Salfity, Robert Blake Anderson, Mitch Pryor</li>
+<li><strong>价值判断</strong>：生成行为树前先从机器人侧 MCP server 读取技能、算子和组合模板契约，再经运行时验证门执行，降低 LLM 产生不可执行机器人动作的风险。</li>
+<li><strong>关键结果</strong>：覆盖 PyRoboSim 110 项任务与 Husarion Panther 实机 14 项 Nav2 任务；显式契约达到近乎完美的 BT validation，小模型可由组合模板恢复反应式任务成功率。</li>
+<li><strong>后续核查</strong>：契约更新、失败恢复与异步动作语义，以及是否能安全覆盖 SLAM 启停、重定位和地图切换。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.12220">arXiv</a> · <a href="https://arxiv.org/pdf/2607.12220">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12220/fig-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12220/fig-001.webp" alt="Contract-Grounded Behavior Tree Synthesis via Coding Agents" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12220/table-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12220/table-001.webp" alt="Contract-Grounded Behavior Tree Synthesis via Coding Agents" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12220/table-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12220/table-002.webp" alt="Contract-Grounded Behavior Tree Synthesis via Coding Agents" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12220/table-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12220/table-003.webp" alt="Contract-Grounded Behavior Tree Synthesis via Coding Agents" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12220/table-004.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12220/table-004.webp" alt="Contract-Grounded Behavior Tree Synthesis via Coding Agents" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12220/table-005.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12220/table-005.webp" alt="Contract-Grounded Behavior Tree Synthesis via Coding Agents" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12220/table-006.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12220/table-006.webp" alt="Contract-Grounded Behavior Tree Synthesis via Coding Agents" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

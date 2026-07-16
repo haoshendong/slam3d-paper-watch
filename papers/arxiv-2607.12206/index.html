@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>RegHead: Non-Humanoid Head Blendshapes via Feed-Forward Registration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-16/index.html">← 返回 2026-07-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 7 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RegHead：通过前馈配准构建非人形头部 Blendshape</span><span class="lang lang-en lang-inline" data-lang="en">RegHead: Non-Humanoid Head Blendshapes via Feed-Forward Registration</span></h1>
+  <div class="meta">作者：Jiahao Luo, Hao Zhang, Jianqi Chen, Yijie He, Jiaxu Zou, Michael Vasilkovsky, Sergei Korolev, Sergey Tulyakov, Chaoyang Wang, Peter Wonka, James Davis, Jian Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.12206">abs</a><a href="https://arxiv.org/pdf/2607.12206">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.5/10</span><p>提供网格对应与前馈非刚性配准思路，对三维资产处理有参考，但核心场景是角色动画而非测量级重建。</p><div class="tags"><span class="tag">网格配准</span><span class="tag">非刚性形变</span><span class="tag">Blendshape</span><span class="tag">前馈模型</span><span class="tag">三维动画</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以稠密随机锚点表示局部形变，用前馈网络把未配准表情网格快速转换为语义一致的 blendshape basis。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">RegHead 面向非人形角色头部，自动把无对应关系的表情网格转换为具有统一语义的 blendshape basis。方法先由少量艺术家绑定资产和微调图像编辑扩展共享表情词汇数据集，再用适合局部面部形变的稠密随机 anchor motion 表示，最后由前馈配准网络从中性形状预测 anchor deformation。实验称其相较优化式基线获得更高保真度并快多个数量级，还支持将人脸跟踪信号实时重定向到非人形角色。</p><p class="lang lang-en lang-block" data-lang="en">We present RegHead, a framework for constructing semantic blendshape sets for animatable non-humanoid head avatars. With a fixed expression vocabulary, semantic blendshapes provide a low-dimensional and interpretable animation interface and support cross-identity retargeting. Building such blendshape sets remains expensive because (i) expression-consistent supervision is scarce, (ii) generated 4D assets typically lack correspondence, and (iii) facial motion is highly localized. We propose (1) a large-scale dataset of non-humanoid identities paired with a shared expression vocabulary, obtained by expanding a small artist-rigged library via fine-tuned image editing; (2) a dense stochastic anchor motion representation tailored to localized facial deformations; and (3) a fast feed-forward registration model that converts unregistered expression meshes into a corresponded blendshape basis by predicting anchor-based deformations from the neutral shape. Experiments show that our approach produces higher-fidelity expression meshes than baselines, while running orders of magnitude faster than optimization. We further demonstrate real-time retargeting from human face tracking signals to non-humanoid characters, capturing both head pose and localized facial motions. Our project page is available at https://snap-research.github.io/RegHead/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jiahao Luo 等</li>
+<li><strong>价值判断</strong>：将未建立对应关系的表情网格快速映射到统一语义 blendshape basis，核心的稠密随机 anchor motion 对局部非刚性网格配准有方法参考。</li>
+<li><strong>关键结果</strong>：作者称较优化式配准快多个数量级并提高表情保真度，还支持实时跨身份重定向。</li>
+<li><strong>领域边界</strong>：应用是角色动画而非测量级三维重建；需检查拓扑假设、极端形态泛化和几何误差指标。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.12206">arXiv</a> · <a href="https://snap-research.github.io/RegHead/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12206/fig-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12206/fig-001.webp" alt="RegHead: Non-Humanoid Head Blendshapes via Feed-Forward Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12206/fig-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12206/fig-002.webp" alt="RegHead: Non-Humanoid Head Blendshapes via Feed-Forward Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12206/fig-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12206/fig-003.webp" alt="RegHead: Non-Humanoid Head Blendshapes via Feed-Forward Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SymbOmni: Evolving Agentic Omni Models via Symbolic Concept Learning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-16/index.html">← 返回 2026-07-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 4 · cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SymbOmni：通过符号概念学习持续演化的 Agentic Omni Model</span><span class="lang lang-en lang-inline" data-lang="en">SymbOmni: Evolving Agentic Omni Models via Symbolic Concept Learning</span></h1>
+  <div class="meta">作者：Jinxiu Liu, Jianru Li, Tanqing Kuang, Xuanming Liu, Kangfu Mei, Yandong Wen, Weiyang Liu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.12042">abs</a><a href="https://arxiv.org/pdf/2607.12042">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 4.2/10</span><p>主要面向生成式多模态 agent，与定位重建关联较弱；其可复用工作流记忆可能对自动化实验和重建管线编排有间接启发。</p><div class="tags"><span class="tag">Agentic AI</span><span class="tag">符号学习</span><span class="tag">持续学习</span><span class="tag">多模态生成</span><span class="tag">工作流记忆</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把视觉创作经验归纳成可复用符号工作流，再以语言反馈持续更新并组合解决新任务。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SymbOmni 试图解决多模态生成系统无法从经验持续积累可复用知识的 perpetual novice 问题。其 Symbolic Concept Box 将低层操作抽象成可组合的 Symbolic Workflow Instructions，并通过 induction-transduction 循环从经历归纳概念、再组合概念解决新任务。训练采用语言反馈驱动的 verbalized backpropagation，无需梯度微调。作者报告该系统在迭代视觉创作中提升图像质量和任务成功率、减少超过 40% token，并在在线持续学习 benchmark 上获得累积增益。</p><p class="lang lang-en lang-block" data-lang="en">Visual generation is increasingly ubiquitous in diverse domains, from text-to-image/video synthesis to multimodal interactive creation. Yet prevailing monolithic models remain fundamentally constrained by their inability to learn cumulatively and evolve autonomously, which is a limitation we term the &quot;perpetual novice&quot; problem. They lack mechanisms for structuring experience into reusable knowledge and therefore rely on brittle, &quot;from-scratch&quot; reasoning for each task, resulting in poor compositional generalization and inefficient knowledge retention. Motivated by these limitations, we propose SymbOmni, an agentic omni-model designed for cumulative evolution through Symbolic Concept Learning. At its core is the Symbolic Concept Box, an optimizable memory module that abstracts low-level operations into reusable Symbolic Workflow Instructions. SymbOmni operates through an induction-transduction cycle: experiences are abstracted into symbolic concepts (induction), which are then adaptively composed to solve novel tasks (transduction). The training is done by verbalized backpropagation with language-based feedback to enable continuous self-improvement without gradient-based model fine-tuning. Comprehensive experiments validate that (I) SymbOmni significantly outperforms existing agent-based systems for iterative creation and also surpasses closed-source models (e.g., Nano Banana, GPT-Image-1) in both image quality and task success rates; (II) SymbOmni effectively reduces token consumption by over 40% while maintaining competitive generation quality; and (III) SymbOmni enables effective continual learning by achieving cumulative gains across multiple online-learning benchmarks and setting a new state of the art.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jinxiu Liu 等</li>
+<li><strong>价值判断</strong>：把多模态视觉创作经验抽象成可复用 Symbolic Workflow Instructions，以 induction-transduction 循环和语言反馈持续更新，而非每次从零规划。</li>
+<li><strong>关键结果</strong>：论文报告 token 消耗降低超过 40%，并在迭代生成与在线学习 benchmark 上取得累积提升。</li>
+<li><strong>领域边界</strong>：与 SLAM/GNSS 算法关联较弱；可关注其是否能迁移到重建实验编排、错误恢复和参数经验复用。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.12042">arXiv</a> · <a href="https://arxiv.org/pdf/2607.12042">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12042/fig-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12042/fig-001.webp" alt="SymbOmni: Evolving Agentic Omni Models via Symbolic Concept Learning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12042/fig-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12042/fig-002.webp" alt="SymbOmni: Evolving Agentic Omni Models via Symbolic Concept Learning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12042/fig-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12042/fig-003.webp" alt="SymbOmni: Evolving Agentic Omni Models via Symbolic Concept Learning" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

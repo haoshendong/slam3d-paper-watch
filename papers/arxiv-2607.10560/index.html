@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PoseAlign: Sculpting Pose-Consistent Meshes via Text-Guided Deformation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-16/index.html">← 返回 2026-07-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 4 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PoseAlign：通过文本引导形变雕刻姿态一致的网格</span><span class="lang lang-en lang-inline" data-lang="en">PoseAlign: Sculpting Pose-Consistent Meshes via Text-Guided Deformation</span></h1>
+  <div class="meta">作者：Shijin Wang, Zichong Chen, Yang Zhou, Hui Huang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.10560">abs</a><a href="https://arxiv.org/pdf/2607.10560">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>属于三维网格编辑而非从观测重建，但可微网格表示和姿态约束损失对几何优化有参考价值；需警惕 SDS 生成细节的真实性。</p><div class="tags"><span class="tag">网格形变</span><span class="tag">文本引导</span><span class="tag">Laplacian</span><span class="tag">SDS</span><span class="tag">姿态保持</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 Laplacian 完成平滑全局形变，再用 attention-sharing 的 pose-aligned SDS 雕刻细节并保持原始姿态。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PoseAlign 将文本引导网格形变拆分为全局姿态缩放和局部细节雕刻两个阶段。第一阶段采用可微 Laplacian 网格表示，以更高效率获得平滑全局形变；第二阶段提出 pose-aligned SDS loss，通过 attention-sharing 调整 score distillation sampling，在增加文本指定细节的同时保持初始网格姿态。实验表明该方法在文本对齐、姿态保持和网格质量之间取得较好平衡，并提供项目代码。</p><p class="lang lang-en lang-block" data-lang="en">Mesh deformation, the process of altering the vertex positions of a 3D mesh while preserving its topological structure, is a cornerstone of computer graphics. Despite the recent emergence of numerous text-guided 3D mesh deformation methods, deforming an initial mesh into one that both adheres to text prompts and preserves its pose remains challenging. This paper proposes PoseAlign, which decomposes text-guided mesh deformation into two stages: global pose scaling and local detail sculpting. Specifically, in the first stage, we introduce the Laplacian as a differentiable mesh representation to enable more efficient yet smoother global deformation. Then, we propose a novel pose-aligned SDS loss by adapting score distillation sampling (SDS) with an attention-sharing mechanism, which sculptures fine-grained geometric details for the deformed mesh while preserving its original pose. PoseAlign significantly enhances the controllability of the overall deformation process, achieving a favorable balance between pose preservation and text alignment. Experiments demonstrate the competitive advantages of our method in text alignment and mesh quality. Code is available at: https://cousingrade6.github.io/PoseAlign</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Shijin Wang, Zichong Chen, Yang Zhou, Hui Huang</li>
+<li><strong>价值判断</strong>：先用可微 Laplacian 表示执行平滑全局形变，再以 attention-sharing 的 pose-aligned SDS 添加局部细节，在文本对齐与姿态保持之间做显式分解。</li>
+<li><strong>后续核查</strong>：重点区分几何约束产生的可测形变与 SDS 幻化细节，并检查自交、拓扑和多视图一致性。</li>
+<li><strong>领域边界</strong>：属于网格编辑而非观测驱动重建。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.10560">arXiv</a> · <a href="https://cousingrade6.github.io/PoseAlign">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.10560/fig-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.10560/fig-001.webp" alt="PoseAlign: Sculpting Pose-Consistent Meshes via Text-Guided Deformation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.10560/fig-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.10560/fig-002.webp" alt="PoseAlign: Sculpting Pose-Consistent Meshes via Text-Guided Deformation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.10560/fig-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.10560/fig-003.webp" alt="PoseAlign: Sculpting Pose-Consistent Meshes via Text-Guided Deformation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.10560/fig-004.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.10560/fig-004.webp" alt="PoseAlign: Sculpting Pose-Consistent Meshes via Text-Guided Deformation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.10560/fig-005.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.10560/fig-005.webp" alt="PoseAlign: Sculpting Pose-Consistent Meshes via Text-Guided Deformation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.10560/fig-006.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.10560/fig-006.webp" alt="PoseAlign: Sculpting Pose-Consistent Meshes via Text-Guided Deformation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

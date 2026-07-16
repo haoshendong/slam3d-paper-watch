@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-16/index.html">← 返回 2026-07-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 4 · cs.RO, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通过强化学习与机械设计先验实现鲁棒手内操作</span><span class="lang lang-en lang-inline" data-lang="en">Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design</span></h1>
+  <div class="meta">作者：Yifei Chen, Shihan Lu, Ed Colgate, Kevin Lynch</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.12105">abs</a><a href="https://arxiv.org/pdf/2607.12105">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.2/10</span><p>属于操作与机械设计而非空间定位，但将经典几何先验嵌入学习和硬件的思路具有一般机器人参考价值。</p><div class="tags"><span class="tag">手内操作</span><span class="tag">强化学习</span><span class="tag">物理先验</span><span class="tag">抓取稳定性</span><span class="tag">Sim-to-Real</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把全局抓取质量写入强化学习奖励，并以指尖曲率机械先验共同提高无外部感知手内滚动鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文为无外部感知的多指手内滚动引入两类互补物理先验：由经典抓取分析导出的全局抓取质量先验作为稠密奖励，鼓励接触点分布良好并提高最差情况 wrench resistance；基于指尖曲率的局部接触几何先验则通过机械形态引导任务方向滚动并减少离轴漂移。三种物体、四种手掌方向上的实验显示，两类先验可改善旋转效率、抓取稳定性、抗扰能力及 Sim-to-Real 迁移。</p><p class="lang lang-en lang-block" data-lang="en">In-hand manipulation without external sensing is challenging due to uncertainties from finger-object contacts and disturbances by gravity. While reinforcement learning has shown promise in learning complex finger gaiting, existing approaches do not prioritize maintaining well-conditioned grasps for sustained manipulation. We introduce two complementary physics priors for robust in-hand rolling: a global grasp-quality prior derived from classical grasp analysis and a local contact-geometry prior based on fingertip curvature. The grasp-quality prior is used as a dense reward-shaping term that encourages well-distributed contacts with improved worst-case wrench resistance. The contact-geometry prior is expressed in the fingertip geometry that mechanically shapes the contact interface toward task-aligned rolling while reducing off-axis drift. We evaluate the effect of these priors on learning in-hand rolling manipulation for a multifingered robotic hand manipulating three different objects at four palm orientations. Results show significant improvement in rotation efficiency, grasp stability, and disturbance rejection, suggesting that physics priors embedded in both learning and fingertip morphology improve task robustness and sim-to-real transfer. An overview video can be found at https://youtu.be/pdd1wHxQnJM?si=dM-U5kiiPTYsk3Pk.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Yifei Chen, Shihan Lu, Ed Colgate, Kevin Lynch</li>
+<li><strong>价值判断</strong>：把经典 grasp analysis 的全局 wrench resistance 写入稠密奖励，同时通过指尖曲率直接塑造接触几何，展示“学习先验 + 机械先验”的互补设计。</li>
+<li><strong>关键结果</strong>：三种物体、四种手掌方向上改善旋转效率、稳定性与抗扰能力，并强调 Sim-to-Real。</li>
+<li><strong>领域边界</strong>：属于操作而非空间定位；值得借鉴的是把物理可观性/条件数先验显式嵌入学习目标的思路。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.12105">arXiv</a> · <a href="https://arxiv.org/pdf/2607.12105">PDF</a> · <a href="https://youtu.be/pdd1wHxQnJM">视频</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12105/fig-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12105/fig-001.webp" alt="Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12105/fig-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12105/fig-002.webp" alt="Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12105/fig-003.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12105/fig-003.webp" alt="Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12105/fig-004.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12105/fig-004.webp" alt="Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12105/fig-005.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12105/fig-005.webp" alt="Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12105/table-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12105/table-001.webp" alt="Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.12105/table-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.12105/table-002.webp" alt="Robust In-Hand Manipulation via Priors in Reinforcement Learning and Mechanical Design" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Fuse-then-Detect for Passive UAV Localization Using Multi-UE 5G Uplink Signals</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-16/index.html">← 返回 2026-07-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 8 · eess.SP, cs.SY, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Fuse-then-Detect：利用多 UE 5G 上行信号的无源 UAV 定位</span><span class="lang lang-en lang-inline" data-lang="en">Fuse-then-Detect for Passive UAV Localization Using Multi-UE 5G Uplink Signals</span></h1>
+  <div class="meta">作者：Wenyu Huang, Nuria Gonz\&#x27;alez-Prelcic, Vishnu Ratnam, Murat Bayraktar, Charlie Jianzhong Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.11955">abs</a><a href="https://arxiv.org/pdf/2607.11955">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>与城市环境无线定位、多源融合及 NLOS/杂波鲁棒性高度相关，指标明确；但目标是 UAV 无源感知而非机载自定位，需检查检测率、虚警率和真实部署条件。</p><div class="tags"><span class="tag">5G 定位</span><span class="tag">无源感知</span><span class="tag">多站融合</span><span class="tag">UAV</span><span class="tag">城市杂波</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">先以 LOS 参考消除多 UE 上行 SRS 的同步残差，再在共享三维状态空间融合双基地回波定位 UAV。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出利用多个用户设备的 5G NR 上行 SRS 对低空 UAV 进行无源定位的框架。针对每个 UE 独立振荡器和定时环带来的残余时延、频率与幅度误差，方法复用 timing advance，并通过相邻时机的共轭乘积进行 LOS 参考同步；随后在共享三维状态空间中累积多 UE 证据，以双基地几何归一化对比度完成联合检测。在四个行人 UE、100 MHz FR1 波形和城市杂波场景中，系统实现亚纳秒同步及 4.84 米三维位置误差中位数。</p><p class="lang lang-en lang-block" data-lang="en">Low-altitude uncrewed aerial vehicles (UAVs) can pose growing risks to airspace safety, security, and privacy. Cellular infrastructure can passively sense them without dedicated radar hardware by exploiting integrated sensing and communication (ISAC) technology. Most prior work exploits monostatic sensing or bistatic/multistatic configurations based on downlink measurements. To the best of our knowledge, this paper presents the first uplink framework, where multiple user equipments (UEs) transmit sounding reference signal (SRS) pilots and the base station (BS) receives the UAV-scattered echoes. Sensing from uplink SRS, however, introduces new challenges. Each UE has its own oscillator and timing loop, so the channel estimate at the BS carries residual timing, frequency, and amplitude impairments that corrupt the UAV delay and Doppler. Moreover, the UAV echo is weaker than both the line-of-sight (LOS) path and urban clutter, so detection from a single UE transmission is not reliable. We address these challenges by designing a LOS-referenced synchronization scheme and a joint detector. The synchronization reuses the existing timing advance (TA) command and an adjacent-occasion conjugate product to remove the residuals without additional signaling. Then the detector searches a shared 3D state space and accumulates evidence across UEs. It leverages a normalized contrast that exploits the bistatic geometry. We evaluate the framework in a cluttered urban scene at frequency range 1 (FR1) with four pedestrian UEs and a 100 MHz 5G New Radio (NR) waveform. The proposed pipeline achieves sub-nanosecond synchronization and a 4.84 m median 3D position error.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Wenyu Huang, Nuria González-Prelcic, Vishnu Ratnam, Murat Bayraktar, Charlie Jianzhong Zhang</li>
+<li><strong>价值判断</strong>：把多 UE 上行 SRS 变成被动多基地定位信号，并显式处理各 UE 独立时钟造成的时延、频偏和幅度残差，和城市环境鲁棒无线定位高度相关。</li>
+<li><strong>技术要点</strong>：复用 timing advance，以相邻时机共轭乘积做 LOS 参考同步，再在共享三维状态空间累积多 UE 双基地证据。</li>
+<li><strong>关键结果</strong>：四个行人 UE、100 MHz FR1 城市杂波场景中实现亚纳秒同步和 4.84 m 三维位置误差中位数。</li>
+<li><strong>后续核查</strong>：真实还是高保真仿真、检测率/虚警率、UE 几何退化、NLOS LOS-reference 失效，以及与跟踪滤波结合后的连续轨迹性能。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.11955">arXiv</a> · <a href="https://arxiv.org/pdf/2607.11955">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.11955/fig-001.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.11955/fig-001.webp" alt="Fuse-then-Detect for Passive UAV Localization Using Multi-UE 5G Uplink Signals" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-16/arxiv-2607.11955/fig-002.webp"><img src="../../assets/media/2026-07-16/arxiv-2607.11955/fig-002.webp" alt="Fuse-then-Detect for Passive UAV Localization Using Multi-UE 5G Uplink Signals" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
