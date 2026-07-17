@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>DreamSat-Pose: Spacecraft Pose Estimation from Single-View 3D Reconstructions and Learned 2D-3D Feature Matching</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-17/index.html">← 返回 2026-07-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-15 · score 11 · cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">DreamSat-Pose：基于单视图三维重建与学习式 2D–3D 匹配的航天器位姿估计</span><span class="lang lang-en lang-inline" data-lang="en">DreamSat-Pose: Spacecraft Pose Estimation from Single-View 3D Reconstructions and Learned 2D-3D Feature Matching</span></h1>
+  <div class="meta">作者：Josiane Uwumukiza, Jocelyn Zhao, Giovanni Lavezzi, Giacomo Battaglia, Paolo Panicucci, Minduli C. Wijayatunga, Victor Rodriguez-Fernandez, Richard Linares</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.13449">abs</a><a href="https://arxiv.org/pdf/2607.13449">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>将单视图三维重建、跨模态特征匹配与 6-DoF 定位串联，适合无先验目标；但深度/距离误差、形状尺度可观性和单图重建失败传播需重点核查。</p><div class="tags"><span class="tag">6-DoF 位姿</span><span class="tag">单视图重建</span><span class="tag">2D–3D 匹配</span><span class="tag">PnP</span><span class="tag">航天器导航</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从单图重建未知航天器点云，以 DINOv3、图卷积和双流 Transformer 建立 2D–3D 对应后用 PnP 恢复位姿。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">面向未知航天器的自主交会，DreamSat-Pose 从单张图像同时建立目标形状并估计相对 6-DoF 位姿。系统先重建目标三维点云，再由冻结的 DINOv3 提取图像特征、可训练动态图卷积编码器提取几何特征；双流 Transformer 通过交替自注意力和交叉注意力细化描述子，输出软 2D–3D 对应，最后交由 PnP 求解位姿。SPE3R 数据集实验以 FoundationPose 为代表基线，论文报告对未见航天器具有较强泛化，并达到 0.157° 平均指向误差。</p><p class="lang lang-en lang-block" data-lang="en">6-DoF pose estimation is a critical task in autonomous rendezvous and proximity operations. In the case of an unknown target, this task becomes challenging as it shall be paired with the reconstruction of the target shape model. In this article, we propose a novel framework for single-shot shape and pose estimation of unknown spacecraft objects. Given a single image, we first reconstruct a 3D shape model of the target, then estimate the relative six-degrees-of-freedom pose by learning dense 2D-3D correspondences. The image features are extracted using a frozen DINOv3 vision transformer, while the geometric features are computed from the reconstructed point cloud using a trainable dynamic graph convolutional neural network encoder. A dual-stream transformer matcher refines descriptors through alternating self- and cross-attention, producing soft correspondences that are passed to a Perspective-$n$-Point solver for pose recovery. We evaluate the method on the SPE3R dataset and consider FoundationPose as a representative baseline for current state-of-the-art capabilities. Results show reliable pose estimates achieving 0.157 degrees mean pointing error using only a single image and reconstructed geometry, demonstrating strong generalization to unseen spacecraft.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Josiane Uwumukiza 等</li>
+<li><strong>价值判断</strong>：无需已知目标 CAD，从单图先恢复未知目标形状，再建立跨模态对应求 6-DoF 位姿，适合非合作目标交会的强先验缺失场景。</li>
+<li><strong>技术要点</strong>：冻结 DINOv3 图像特征、动态图卷积点云特征、双流 Transformer 交替自/交叉注意力，软对应输入 PnP。</li>
+<li><strong>关键结果</strong>：SPE3R 上以 FoundationPose 为代表基线，报告 0.157° 平均指向误差并泛化到未见航天器。</li>
+<li><strong>后续核查</strong>：平移和距离误差、尺度可观性、重建误差向 PnP 的传播，以及真实空间光照下的鲁棒性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.13449">arXiv</a> · <a href="https://arxiv.org/pdf/2607.13449">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-17/arxiv-2607.13449/fig-001.webp"><img src="../../assets/media/2026-07-17/arxiv-2607.13449/fig-001.webp" alt="DreamSat-Pose: Spacecraft Pose Estimation from Single-View 3D Reconstructions and Learned 2D-3D Feature Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-17/arxiv-2607.13449/fig-002.webp"><img src="../../assets/media/2026-07-17/arxiv-2607.13449/fig-002.webp" alt="DreamSat-Pose: Spacecraft Pose Estimation from Single-View 3D Reconstructions and Learned 2D-3D Feature Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-17/arxiv-2607.13449/fig-003.webp"><img src="../../assets/media/2026-07-17/arxiv-2607.13449/fig-003.webp" alt="DreamSat-Pose: Spacecraft Pose Estimation from Single-View 3D Reconstructions and Learned 2D-3D Feature Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

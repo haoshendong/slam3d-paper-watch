@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>AeroMap3D: Anchoring Monocular UAV 6-DoF Localization to Visual-Geometric-Semantic Map Priors</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-17/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-17/index.html">← 返回 2026-07-17 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-16 · score 7 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">AeroMap3D：以视觉—几何—语义地图先验锚定单目 UAV 六自由度定位</span><span class="lang lang-en lang-inline" data-lang="en">AeroMap3D: Anchoring Monocular UAV 6-DoF Localization to Visual-Geometric-Semantic Map Priors</span></h1>
+  <div class="meta">作者：Zhiyun Deng, Luis Sentis</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.14009">abs</a><a href="https://arxiv.org/pdf/2607.14009">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>高度契合 GNSS 拒止、跨视角地图定位与多源融合，覆盖 55 km 实验；需核查高度/姿态分项误差、地图年代差异、DEM 建筑缺失和实时算力。</p><div class="tags"><span class="tag">GNSS 拒止</span><span class="tag">UAV 定位</span><span class="tag">卫星地图</span><span class="tag">DEM</span><span class="tag">语义筛选</span><span class="tag">EKF</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">先校正 UAV—卫星图像的尺度和偏航，再结合 DEM、OSM 语义、PnP 与延迟状态 EKF 完成 GNSS 拒止连续定位。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">AeroMap3D 面向 GNSS 拒止环境，将机载单目图像锚定到卫星影像、DEM 和 OpenStreetMap 先验。轻量适配器先估计 UAV 图像与地图瓦片间的尺度比和偏航差，消除高度、视场角和航向引起的主要跨视角错位，再调用无需微调的预训练稠密匹配器。系统把二维对应提升到 DEM 地形，并用 OSM 语义剔除受未建模建筑高度和倾斜结构影响的匹配，随后通过 RANSAC-PnP 求位姿；延迟地图位姿再与相对运动先验通过 delayed-state EKF 融合。无需在 UAV-Terra3D 上重训或调参，系统在 Austin 八个站点的全部轨迹上保持 50 米内定位，并在 55 公里飞行中取得 5.88 米平均三维误差。</p><p class="lang lang-en lang-block" data-lang="en">We present AeroMap3D, a monocular 6-DoF UAV localization system that anchors onboard imagery to visual, geometric, and semantic map priors for GNSS-denied navigation. AeroMap3D addresses two fundamental challenges in map-referenced aerial localization: the cross-view discrepancy between UAV imagery and satellite maps, and the structural inconsistency between bare-earth digital elevation models (DEMs) and urban scenes. First, we introduce a lightweight adapter that enables a dense matcher pretrained on internet-scale generic data to perform reliable UAV-to-map registration without finetuning. By estimating the scale ratio and yaw offset between the UAV image and map tile, the adapter removes the dominant geometric misalignment induced by altitude, camera field of view, and heading before dense correspondence estimation. Second, AeroMap3D lifts 2D UAV-map correspondences onto DEM terrain while using OpenStreetMap annotations to reject semantically unreliable matches before RANSAC-PnP pose estimation, thereby reducing errors caused by unmodeled building heights and off-nadir structures. Delayed map-based pose measurements are further fused with relative-motion priors using a delayed-state EKF for continuous trajectory estimation. Without UAV-Terra3D retraining or tuning, AeroMap3D localizes all trajectories across eight Austin sites within 50 m and achieves 5.88 m mean 3D error over 55 km of flight.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Zhiyun Deng, Luis Sentis</li>
+<li><strong>价值判断</strong>：直接覆盖 GNSS 拒止 UAV 定位，把跨视角视觉匹配、DEM 几何、OSM 语义筛选和延迟状态融合连成完整系统。</li>
+<li><strong>技术要点</strong>：先估计 UAV 图像与地图瓦片的尺度比和偏航差，再执行预训练稠密匹配；将对应提升到 DEM，并剔除受建筑高度影响的语义不可靠点；RANSAC-PnP 位姿经 delayed-state EKF 与相对运动融合。</li>
+<li><strong>关键结果</strong>：无需在 UAV-Terra3D 上重训或调参，Austin 八个站点全部轨迹保持 50 m 内定位，55 km 飞行平均三维误差 5.88 m。</li>
+<li><strong>后续核查</strong>：实时频率、地图检索范围、姿态和高度分项误差、地图过时与 DEM 建筑缺失下的失效模式。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.14009">arXiv</a> · <a href="https://arxiv.org/pdf/2607.14009">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
