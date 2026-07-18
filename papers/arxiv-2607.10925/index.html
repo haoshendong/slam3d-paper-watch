@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-18/index.html">← 返回 2026-07-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-13 · score 29 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Mapping Pamir：水下沉船的多会话视觉—惯性 SLAM 与三维重建</span><span class="lang lang-en lang-inline" data-lang="en">Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck</span></h1>
+  <div class="meta">作者：Michalis Chatzispyrou, Luke Horgan, Hyunkil Hwang, Harish Sathishchandra, Chinmay Burgul, Monika Roznere, Alberto Quattrini Li, Philippos Mordohai</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.10925">abs</a><a href="https://arxiv.org/pdf/2607.10925">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.4/10</span><p>完整命中多会话 VI-SLAM、SfM 和真实水下三维重建，系统链路清晰且有 ICRA 实测；需核查无标定靶时的会话闭环、折射建模和定量几何精度。</p><div class="tags"><span class="tag">多会话 SLAM</span><span class="tag">视觉惯性</span><span class="tag">水下建图</span><span class="tag">COLMAP</span><span class="tag">稠密重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 SVIn2、潜水深度记录、COLMAP 和固定标定靶构建低成本水下多会话轨迹与稠密三维模型。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出使用低成本运动相机绘制水下环境的多会话建图框架，并以潜水电脑记录的水深增强视觉—惯性数据。系统先由开源 VI-SLAM 框架 SVIn2 为每次采集生成轨迹和稀疏重建，再将关键帧及估计相机位姿交给 COLMAP 做全局优化与稠密重建。若场景中存在固定标定靶，则据此估计不同采集会话之间的坐标变换，将各会话统一到同一坐标系。作者在巴巴多斯近海沉船上验证流程，分两次采集覆盖沉船外部与可进入的内部，第三次采集还使用了不同视场角的双相机。</p><p class="lang lang-en lang-block" data-lang="en">This paper presents a framework for multi-session mapping of underwater environments utilizing an affordable action camera. The Visual-Inertial data are augmented by water depth recordings from a dive computer. SVIn2, an open-source VI-SLAM framework, is utilized to generate a trajectory and a sparse reconstruction for each session. Utilizing the keyframes extracted from SVIn2 and the estimated camera poses, a Structure-from-Motion (SfM) framework, COLMAP, is employed for global optimization and to produce a dense reconstruction of the target environment. The presence of calibration targets at fixed locations, when available, is used to estimate the coordinate transformation between different data collection sessions, thus transforming the different sessions into the same coordinate frame. The proposed pipeline is employed for the mapping of a shipwreck off the coast of Barbados. For the first time, both the exterior and the accessible interior parts of the wreck were mapped in two sessions, while a third session employed two cameras with different fields of view.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Michalis Chatzispyrou 等</li>
+<li><strong>价值判断</strong>：把低成本 action camera、水深记录、SVIn2、COLMAP 和跨会话标定靶串成真实水下大场景流程，兼顾轨迹、稀疏图和稠密模型。</li>
+<li><strong>技术要点</strong>：SVIn2 为每次潜水生成 VI-SLAM 轨迹与关键帧；COLMAP 基于关键帧和初始位姿执行全局优化及稠密重建；固定标定靶用于估计不同采集会话间坐标变换。</li>
+<li><strong>后续核查</strong>：无标定靶时的跨会话回环、深度计约束如何进入估计、折射/浑浊影响，以及内外部模型的尺度与几何精度。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.10925">arXiv</a> · <a href="https://arxiv.org/pdf/2607.10925">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.10925/fig-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.10925/fig-001.webp" alt="Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.10925/fig-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.10925/fig-002.webp" alt="Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.10925/fig-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.10925/fig-003.webp" alt="Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.10925/fig-004.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.10925/fig-004.webp" alt="Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.10925/fig-005.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.10925/fig-005.webp" alt="Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.10925/fig-006.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.10925/fig-006.webp" alt="Mapping Pamir: Multi-Session Visual-Inertial SLAM and 3D Reconstruction of an Underwater Shipwreck" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

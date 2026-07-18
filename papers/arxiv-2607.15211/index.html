@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MAGiSt3R: Multi-Agent Feed-forward 3D Reconstruction from Monocular RGB Videos</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-18/index.html">← 返回 2026-07-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-17 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MAGiSt3R：单目 RGB 视频的多智能体前馈三维重建</span><span class="lang lang-en lang-inline" data-lang="en">MAGiSt3R: Multi-Agent Feed-forward 3D Reconstruction from Monocular RGB Videos</span></h1>
+  <div class="meta">作者：Ziren Gong, Xiaohan Li, Fabio Tosi, Ninghui Xu, Stefano Mattoccia, Jianfei Cai, Matteo Poggi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15211">abs</a><a href="https://arxiv.org/pdf/2607.15211">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>直接命中多智能体建图、相机跟踪、地图合并和位姿图优化，实时性较强；摘要未给出定量幅度与通信成本。</p><div class="tags"><span class="tag">多智能体</span><span class="tag">前馈重建</span><span class="tag">相机跟踪</span><span class="tag">位姿图</span><span class="tag">地图合并</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 3R 前馈局部点图、MAGMA 跨智能体地图合并和位姿图优化实现接近 10 FPS 的协作重建与跟踪。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">MAGiSt3R 是面向单目 RGB 视频的多智能体三维重建框架，可同时执行重建和相机跟踪，速度接近 10 FPS。系统以 3R 系列前馈模型处理视频并回归局部点图，再由 MAGMA 合并模型在单个智能体内部和多个智能体之间融合局部地图，得到全局点图。为缓解前馈流水线中的累计相机漂移，系统进一步执行位姿图优化。作者在合成和真实数据集上报告了优于先进方法的重建与相机跟踪精度。</p><p class="lang lang-en lang-block" data-lang="en">This paper presents MAGiSt3R, a multi-agent 3D reconstruction framework performing reconstruction and camera tracking for monocular RGB videos at almost 10 FPS. MAGiSt3R relies on a feed-forward model from the 3R family to process RGB videos and regress local point maps, and on a merging model, MAGMA, that combines local maps at both intra-agent and inter-agent levels to obtain the final global point map. Furthermore, MAGiSt3R performs pose graph optimization to mitigate cumulative camera drift occurring along the feed-forward pipeline. We evaluate MAGiSt3R on both synthetic and real-world datasets, demonstrating its superior reconstruction and camera tracking accuracy compared to state-of-the-art approaches.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Ziren Gong 等</li>
+<li><strong>价值判断</strong>：同时覆盖多智能体地图合并、相机跟踪和位姿图抑制累计漂移，接近 10 FPS，和协作 SLAM/快速地图初始化直接相关。</li>
+<li><strong>技术要点</strong>：3R 系列前馈模型回归局部点图；MAGMA 在智能体内部及智能体之间合并局部地图；最终位姿图优化修正前馈链路漂移。</li>
+<li><strong>后续核查</strong>：通信量、坐标规范化与尺度一致性、回环边生成方式、10 FPS 的硬件/分辨率，以及动态场景鲁棒性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15211">arXiv</a> · <a href="https://arxiv.org/pdf/2607.15211">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.15211/fig-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.15211/fig-001.webp" alt="MAGiSt3R: Multi-Agent Feed-forward 3D Reconstruction from Monocular RGB Videos" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.15211/fig-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.15211/fig-002.webp" alt="MAGiSt3R: Multi-Agent Feed-forward 3D Reconstruction from Monocular RGB Videos" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.15211/fig-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.15211/fig-003.webp" alt="MAGiSt3R: Multi-Agent Feed-forward 3D Reconstruction from Monocular RGB Videos" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

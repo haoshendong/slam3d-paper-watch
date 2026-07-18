@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-18/index.html">← 返回 2026-07-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-16 · score 11 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于 Rectified Flow LiDAR 补全的图像—点云注册</span><span class="lang lang-en lang-inline" data-lang="en">Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling</span></h1>
+  <div class="meta">作者：Reon Tabata, Kenji Koide, Shuji Oishi, Masashi Yokozuka, Taku Okawara, Aoki Takanose, Jun Miura</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.14639">abs</a><a href="https://arxiv.org/pdf/2607.14639">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>直接覆盖跨模态注册、传感器融合和弱监督适配，流程简单；当前角度与平移误差偏大，更适合作为初始化或重定位先验。</p><div class="tags"><span class="tag">图像点云注册</span><span class="tag">LiDAR 补全</span><span class="tag">Rectified Flow</span><span class="tag">PnP</span><span class="tag">传感器融合</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">先把稀疏 LiDAR 强度补全成稠密图，再复用图像匹配和 PnP-RANSAC 完成相机—LiDAR 六自由度注册。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文将 LiDAR 视作成像传感器：从单帧稀疏 LiDAR 扫描出发，利用条件 Rectified Flow 生成稠密 LiDAR 强度图，再与相机图像通过预训练特征匹配器建立对应，最后以 PnP-RANSAC 估计六自由度相对位姿。模型先通过自监督图像补全预训练，再用少量 LiDAR 数据微调；微调不需要图像—点云配对数据或真值传感器位姿，因此可适配不同 LiDAR 和相机配置。R3LIVE 实验取得 4.89° / 1.63 m 平均误差，单次注册约 0.68 秒。</p><p class="lang lang-en lang-block" data-lang="en">Image-to-Point Cloud Registration (I2P) is essential for integrating camera and LiDAR in perception and autonomous systems, yet the modality gap between images and point clouds makes it difficult to achieve both high accuracy and strong generalization. In this paper, we propose a simple yet effective I2P method that treats LiDAR as an imaging sensor: from a single sparse LiDAR scan, we generate a dense LiDAR intensity image using Conditional Rectified Flow, match it with a camera image using a pre-trained feature matcher, and estimate the 6-DoF relative pose via PnP-RANSAC. The proposed model is pre-trained through a self-supervised image completion task and fine-tuned on a small amount of LiDAR data (neither image-point cloud pairs nor ground-truth sensor poses are required), enabling it to scale to diverse LiDAR and camera configurations. Experiments on the R3LIVE dataset show that the proposed method achieves a mean error of 4.89° / 1.63 m, outperforming existing methods, while completing a single registration in approximately 0.68 s.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Reon Tabata, Kenji Koide 等</li>
+<li><strong>价值判断</strong>：将跨模态注册简化为“稀疏 LiDAR 强度图补全—预训练图像匹配—PnP-RANSAC”，且微调不需要成对图像点云或真值外参。</li>
+<li><strong>关键结果</strong>：R3LIVE 上平均误差 4.89° / 1.63 m，单次约 0.68 秒；虽优于对比方法，但距离高精度标定或紧耦合初始化仍有差距。</li>
+<li><strong>后续核查</strong>：不同 LiDAR 扫描模式与反射强度域偏移、动态目标、低纹理区域，以及将估计作为因子图先验后的收敛域。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.14639">arXiv</a> · <a href="https://arxiv.org/pdf/2607.14639">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/fig-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/fig-001.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/fig-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/fig-002.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/fig-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/fig-003.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/fig-004.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/fig-004.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/fig-005.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/fig-005.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/fig-006.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/fig-006.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/table-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/table-001.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/table-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/table-002.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/table-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/table-003.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14639/table-004.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14639/table-004.webp" alt="Image-to-Point Cloud Registration Made Easy with Rectified Flow-based LiDAR Upsampling" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

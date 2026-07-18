@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SeeSE3: Emergence of 3D Space in Vision Features</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-18/index.html">← 返回 2026-07-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-16 · score 8 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SeeSE3：视觉特征中三维空间结构的涌现</span><span class="lang lang-en lang-inline" data-lang="en">SeeSE3: Emergence of 3D Space in Vision Features</span></h1>
+  <div class="meta">作者：Caroline Chen, Sayna Ebrahimi, Fedor Kitashov, Ming-Hsuan Yang, Leonidas Guibas, Viorica Pătrăucean, Maks Ovsjanikov</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.14228">abs</a><a href="https://arxiv.org/pdf/2607.14228">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.3/10</span><p>直接触及视觉里程计、定位与 SE(3) 表示，研究视角新；latent-space navigation 的尺度、长序列漂移和实际精度仍需正文验证。</p><div class="tags"><span class="tag">视觉里程计</span><span class="tag">SE(3)</span><span class="tag">基础模型</span><span class="tag">潜在空间</span><span class="tag">视觉定位</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过邻域拓扑和 SE(3) 运动探针揭示基础视觉特征中的三维潜在子空间，并据此直接执行里程计与定位。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文研究视觉基础模型的表示是否反映三维欧氏空间的内在性质，而不只探测深度、法向等图像中心量。作者从拓扑与几何两方面评估视觉特征空间和 SE(3) 的关系：mutual-neighborhood 指标测量特征邻域与空间拓扑的对齐，Poincaré Adapter 则检验静态场景中相机运动几何能否从潜在位移线性读取。实验发现，自监督视觉模型即使没有直接三维监督或主动交互，也包含与三维欧氏空间强相关的潜在子空间；据此提出不显式重建三维结构、直接在潜在空间执行视觉里程计与定位的方法。</p><p class="lang lang-en lang-block" data-lang="en">In this paper, we ask whether vision foundation models construct representations that reflect the intrinsic properties of 3D Euclidean space. Unlike previous works that probe 3D awareness of vision features by regressing image-centric quantities such as depth or normals, we investigate the relation between the structure of the space of visual features and the group of Euclidean transformations $SE(3)$. We propose a set of probes to evaluate this relation from both topological and geometric perspectives: a mutual neighborhood metric that measures the alignment between feature neighborhoods and spatial topology, and a Poincaré Adapter to test the linear accessibility of the geometry of camera motion from latent displacements in static scenes. We show that self-supervised vision models, which, in principle, have not been trained with direct 3D supervision or active agency, possess latent subspaces that are remarkably strongly correlated with three-dimensional Euclidean space, when probed correctly. Building on this insight we propose a new class of &quot;Latent-Space Navigation&quot; techniques that perform visual odometry and localization purely in the latent space, bypassing the need for explicit 3D reconstruction.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Caroline Chen 等</li>
+<li><strong>价值判断</strong>：不再只回归深度或法向，而是直接检验视觉基础模型特征空间与 SE(3) 拓扑、几何的对应，并尝试纯 latent-space 里程计与定位。</li>
+<li><strong>技术要点</strong>：mutual-neighborhood 指标测量特征邻域和空间拓扑一致性；Poincaré Adapter 探测静态场景中相机运动几何能否从潜在位移线性读取。</li>
+<li><strong>后续核查</strong>：尺度可观性、长序列漂移、跨场景/光照泛化，与传统 VO 及显式几何前端在同一协议下的精度和效率。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.14228">arXiv</a> · <a href="https://arxiv.org/pdf/2607.14228">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14228/fig-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14228/fig-001.webp" alt="SeeSE3: Emergence of 3D Space in Vision Features" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14228/fig-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14228/fig-002.webp" alt="SeeSE3: Emergence of 3D Space in Vision Features" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14228/fig-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14228/fig-003.webp" alt="SeeSE3: Emergence of 3D Space in Vision Features" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14228/fig-004.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14228/fig-004.webp" alt="SeeSE3: Emergence of 3D Space in Vision Features" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14228/fig-005.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14228/fig-005.webp" alt="SeeSE3: Emergence of 3D Space in Vision Features" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14228/table-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14228/table-001.webp" alt="SeeSE3: Emergence of 3D Space in Vision Features" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14228/table-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14228/table-002.webp" alt="SeeSE3: Emergence of 3D Space in Vision Features" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-18/index.html">← 返回 2026-07-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-16 · score 12 · cs.CV, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向 GPU 的图形纹理编码压缩 3D Gaussian Splatting 数据</span><span class="lang lang-en lang-inline" data-lang="en">Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding</span></h1>
+  <div class="meta">作者：Amir Said, Randall Rauwendaal</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.14513">abs</a><a href="https://arxiv.org/pdf/2607.14513">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>对大规模 3DGS 地图的存储、随机访问和实时显示有直接工程价值；摘要缺少总压缩比与速度数值，在线增量更新能力待验证。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">模型压缩</span><span class="tag">GPU 解码</span><span class="tag">球谐系数</span><span class="tag">实时渲染</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过颜色局部分组、基元重排和 BC1/BC7 硬件纹理解码压缩球谐系数，同时保留随机访问与并行渲染。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 使用大量球谐系数描述视角相关颜色，带来较高内存占用。本文使用现代 GPU 原生支持、可硬件加速并行解码的纹理压缩格式压缩球谐颜色系数。方法根据颜色对 Gaussian 基元进行局部分组与重排，使 BC1、BC7 等格式比直接压缩二维纹理更有效；同时引入保留随机访问的码率控制策略，以支持大规模并行解码而不牺牲渲染性能。实验显示，GPU 解压可在视觉质量仅有轻微或不可察觉退化的情况下完成。</p><p class="lang lang-en lang-block" data-lang="en">Techniques for modeling 3D scenes from image collections, such as 3D Gaussian Splatting (3DGS), are capable of generating high-quality novel views by leveraging graphics primitives with view-dependent appearance. In 3DGS, spherical harmonic (SH) are employed to model view-dependent color, resulting in a large number of SH coefficients per primitive and large memory requirements. While compression approaches have been proposed to mitigate this problem, they do not exploit the capabilities of modern Graphics Processing Units (GPUs) for parallel decoding and rendering. In this paper, we propose a method for compressing SH color coefficients using texture compression schemes specifically designed for efficient parallel GPU decoding and supported by dedicated hardware acceleration. It is shown that those methods can compress color coefficients more effectively than 2D textures by exploiting the fact that primitives can be locally grouped and reordered according to color. Furthermore, we introduce a bit-rate control strategy that preserves random access, enabling large-scale parallelization without compromising rendering performance. Experimental results using BC1 and BC7 texture compression formats show that GPU-based decompression can be achieved with negligible or imperceptible degradation in the visual quality of rendered 3DGS scenes.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Amir Said, Randall Rauwendaal</li>
+<li><strong>价值判断</strong>：不是只追求离线码率，而是直接复用 GPU BC1/BC7 硬件解码，并保留随机访问，适合大规模 3DGS 地图实时渲染。</li>
+<li><strong>技术要点</strong>：按颜色对 Gaussian 局部分组和重排，将球谐颜色系数映射到纹理压缩格式，并以码率控制兼顾并行访问和质量。</li>
+<li><strong>后续核查</strong>：总模型压缩比、重排开销、跨平台格式支持、训练后压缩时间，以及对在线增量地图的适应性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.14513">arXiv</a> · <a href="https://arxiv.org/pdf/2607.14513">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14513/fig-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14513/fig-001.webp" alt="Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14513/fig-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14513/fig-002.webp" alt="Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14513/fig-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14513/fig-003.webp" alt="Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14513/fig-004.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14513/fig-004.webp" alt="Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14513/fig-005.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14513/fig-005.webp" alt="Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14513/fig-006.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14513/fig-006.webp" alt="Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14513/table-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14513/table-001.webp" alt="Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

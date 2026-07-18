@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-18/index.html">← 返回 2026-07-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-16 · score 9 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">G²SR：快速、低显存的几何 Gaussian 表面重建</span><span class="lang lang-en lang-inline" data-lang="en">G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction</span></h1>
+  <div class="meta">作者：Dasong Gao, Vivienne Sze, Sertac Karaman</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.14470">abs</a><a href="https://arxiv.org/pdf/2607.14470">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>几何机制清晰，速度、显存与跨数据集结果突出，适合移动机器人在线重建；需测试位姿噪声、遮挡及更多视图扩展。</p><div class="tags"><span class="tag">Gaussian 表面</span><span class="tag">多视几何</span><span class="tag">少视图重建</span><span class="tag">实时重建</span><span class="tag">低显存</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用轻量网络检测跟踪二维 splat，再由解析多视几何三角化出真实尺度三维 Gaussian，实现高速低显存重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">G²SR 利用少视图重建中一个良定核心：给定跨视图二维 splat 对应后，可用多视几何解析恢复三维 splat。系统使用轻量神经前端在图像平面检测并跟踪二维 Gaussian splat，再由解析后端把每个对应三角化为具有真实尺度的三维 splat。ScanNet、Replica 和 DTU 实验中，G²SR 的几何精度匹配或超过先进端到端方法；在 384×512 分辨率的 2–3 视图输入上达到每秒 69–89 次重建，仅占 203 MB GPU 显存，内存降低 5–107 倍。</p><p class="lang lang-en lang-block" data-lang="en">Few-view surface reconstruction recovers the visible surfaces of a scene from a few posed RGB images, providing the 3D models that robots need to explore and interact online. On mobile platforms, the reconstruction must be fast and geometrically accurate while keeping a small memory footprint to ensure safe and efficient operation. 3D Gaussian Splatting (3DGS) offers a high-fidelity scene representation, but building it from a few views is ill-posed, as many distinct surfaces reproduce the same images, making traditional photometric methods prone to &quot;floater&quot; artifacts. End-to-end methods resolve the ambiguity by regressing splats with large, usually Transformer-based, networks that require heavy compute and memory while generalizing poorly to new scenes. We propose G2SR, which exploits a well-posed core of the task: given cross-view 2D splat correspondences, 3D splats follow analytically from multi-view geometry. G2SR employs a lightweight neural frontend to detect and track 2D Gaussian splats on the image plane and an analytic backend to triangulate each into a metric-scale 3D splat. On ScanNet, Replica, and DTU, G2SR matches or exceeds the geometric accuracy of state-of-the-art end-to-end methods while running at 69-89 reconstructions per second within 203 MB of GPU memory (5-107x less) for 2- and 3-view inputs at 384 x 512 resolution, offering a practical path to online Gaussian-based surface reconstruction.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Dasong Gao, Vivienne Sze, Sertac Karaman</li>
+<li><strong>价值判断</strong>：把少视图 Gaussian 重建拆成轻量 2D splat 检测跟踪与解析三角化，降低大型 Transformer 的算力、内存和泛化负担。</li>
+<li><strong>关键结果</strong>：在 ScanNet、Replica、DTU 上匹配或超过先进端到端方法的几何精度；384×512、2–3 视图时达到 69–89 reconstructions/s，仅用 203 MB GPU 显存。</li>
+<li><strong>后续核查</strong>：相机位姿误差敏感性、遮挡/重复纹理下对应质量、更多视图扩展和在线机器人闭环表现。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.14470">arXiv</a> · <a href="https://arxiv.org/pdf/2607.14470">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14470/fig-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14470/fig-001.webp" alt="G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14470/fig-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14470/fig-002.webp" alt="G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14470/fig-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14470/fig-003.webp" alt="G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14470/table-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14470/table-001.webp" alt="G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14470/table-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14470/table-002.webp" alt="G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14470/table-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14470/table-003.webp" alt="G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>JADE-GS: Joint Alternating Deblurring Guided by Events in 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-18/index.html">← 返回 2026-07-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-16 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">JADE-GS：事件引导的联合交替去模糊 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">JADE-GS: Joint Alternating Deblurring Guided by Events in 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Haoyu Fu, Jiafeng Huang, Yuchen Wang, Shengjie Zhao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.14990">abs</a><a href="https://arxiv.org/pdf/2607.14990">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>事件相机、高速运动和 3DGS 双向优化对机器人重建有价值，资源需求友好；需确认位姿来源、标定敏感性和测量级几何收益。</p><div class="tags"><span class="tag">事件相机</span><span class="tag">3DGS</span><span class="tag">运动去模糊</span><span class="tag">多视一致性</span><span class="tag">实时渲染</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">融合事件物理与学习式去模糊先验，并以 3DGS 多视一致性反向约束二维恢复器，减少模糊和伪标签对几何的污染。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">高速运动造成的曝光模糊会破坏三维重建所需的帧内运动信息，而事件相机可以微秒级捕获该信号。JADE-GS 用像素自适应路由门融合两类互补先验：物理事件积分保持边缘但会累积漂移，学习式恢复能补纹理却可能扭曲边界。融合后的二维恢复器与 3DGS 学生模型形成双向循环，利用停止梯度的多视一致渲染和基于物理的再模糊约束反向正则恢复器。方法在合成与真实 benchmark 上取得领先感知质量，单张消费级 GPU 约一小时、低于 5 GB 完成训练并保持实时渲染。</p><p class="lang lang-en lang-block" data-lang="en">When a camera moves fast during exposure, blur destroys the intra-exposure motion a 3D model needs to recover the sharp scene, while event cameras capture exactly this signal at microsecond resolution. Turning them into reliable 3D supervision faces two obstacles. First, the two restoration priors fail in opposite ways: physics-based event-integration priors preserve edges but accumulate drift; learned networks recover texture but distort boundaries. Second, existing pipelines run in one direction only, so raw event noise or the biases of fixed 2D pseudo-labels pass uncorrected into the geometry. JADE-GS addresses both: a pixel-adaptive routing gate fuses the complementary priors, and the resulting 2D restorer is coupled to a 3D Gaussian Splatting student in a bidirectional loop, where detached, multi-view-consistent renders and a physics-based reblurring constraint regularize the restorer, turning a fixed preprocessor into a geometry-aware predictor. Across synthetic and real benchmarks, JADE-GS attains the best perceptual quality, leading LPIPS and CLIP-IQA on both benchmarks with competitive PSNR and SSIM, and trainsin about one hour under 5 GB on a single consumer GPU while preserving real-time rendering.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Haoyu Fu, Jiafeng Huang, Yuchen Wang, Shengjie Zhao</li>
+<li><strong>价值判断</strong>：将事件积分的边缘保持能力与学习式纹理恢复互补融合，并让 3D 多视一致性反向约束 2D 恢复器，避免固定伪标签误差直接污染几何。</li>
+<li><strong>关键结果</strong>：合成和真实 benchmark 上 LPIPS、CLIP-IQA 领先，PSNR/SSIM 有竞争力；单张消费级 GPU 约一小时、低于 5 GB 训练并保持实时渲染。</li>
+<li><strong>后续核查</strong>：位姿是否已知、事件—图像时空标定敏感性、快速运动下几何精度和真实噪声泛化。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.14990">arXiv</a> · <a href="https://arxiv.org/pdf/2607.14990">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14990/fig-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14990/fig-001.webp" alt="JADE-GS: Joint Alternating Deblurring Guided by Events in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14990/fig-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14990/fig-002.webp" alt="JADE-GS: Joint Alternating Deblurring Guided by Events in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14990/fig-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14990/fig-003.webp" alt="JADE-GS: Joint Alternating Deblurring Guided by Events in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14990/table-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14990/table-001.webp" alt="JADE-GS: Joint Alternating Deblurring Guided by Events in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14990/table-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14990/table-002.webp" alt="JADE-GS: Joint Alternating Deblurring Guided by Events in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

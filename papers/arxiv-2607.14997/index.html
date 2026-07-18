@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-18/index.html">← 返回 2026-07-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-16 · score 3 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">AeroAct：语言条件四旋翼的动作中心世界—动作模型</span><span class="lang lang-en lang-inline" data-lang="en">AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight</span></h1>
+  <div class="meta">作者：Xinhong Zhang, Qiyuan Zhu, Yubo Huang, Haolin Chen, Runqing Wang, Yuhao Mo, Zhongxin Chen, Yu Hu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.14997">abs</a><a href="https://arxiv.org/pdf/2607.14997">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.3/10</span><p>真实飞行和 3DGS 闭环仿真有旁侧参考价值，但核心是视觉语言动作策略，不提供新的 SLAM、GNSS 或里程计算法。</p><div class="tags"><span class="tag">四旋翼</span><span class="tag">世界模型</span><span class="tag">视觉语言动作</span><span class="tag">3DGS 仿真</span><span class="tag">闭环控制</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用未来视频监督训练语言条件飞行动作块，并借助 Isaac Lab、3DGS 和手持采集数据实现真实四旋翼闭环部署。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">AeroAct 面向语言条件四旋翼导航，将预训练视频扩散 Transformer 改造为动作中心的世界—动作模型。模型根据第一视角视觉历史、本体状态和语言预测局部轨迹动作块；训练时以未来第一视角帧提供动作后果的稠密监督，部署时直接解码动作而不生成视频。作者构建结合 Isaac Lab 与 3DGS 渲染器的数据管线，并设计低成本手持采集装置和自引导机制改善重叠动作块的时间一致性。闭环仿真与真实飞行显示，时间视觉上下文有助于目标跟踪和物体搜索。</p><p class="lang lang-en lang-block" data-lang="en">Language-conditioned quadrotor flight requires a policy to ground semantic goals, anticipate the visual consequences of ego-motion, and output control references that remain smooth and dynamically executable under rapidly changing first-person views. Existing aerial vision-language navigation and vision-language-action methods commonly use discrete actions, high-level waypoints, or instantaneous velocity commands, which provide limited supervision about how flight actions change future observations. We present AeroAct, an action-centered world-action model (WAM) for quadrotor navigation. To the best of our knowledge, AeroAct is the first WAM instantiated and demonstrated for real-world aerial flight. The model adapts a pretrained video diffusion Transformer to predict local trajectory-action chunks from egocentric visual history, proprioception, and language. Future first-person frames are used during training as dense consequence supervision, while deployment directly decodes actions without generating future video. To obtain aligned visual, state, language, and dynamically feasible action data, we build a DiffAero-based pipeline with complementary Isaac Lab and 3D Gaussian splatting renderers. We further introduce a low-cost handheld collection device that couples camera observations with motion estimates to recreate flight-like egocentric trajectories, and a self-guidance procedure that improves temporal consistency across overlapping trajectory chunks. Closed-loop simulation and real-world experiments show that temporal visual context improves target tracking and object-search performance, and that WAM-based policies can be executed on a physical quadrotor.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Xinhong Zhang 等</li>
+<li><strong>价值判断</strong>：核心是飞行策略而非 SLAM，但其真实四旋翼部署、手持运动采集以及 Isaac Lab/3DGS 双渲染数据管线，对定位建图系统的闭环评测有旁侧价值。</li>
+<li><strong>技术要点</strong>：视频扩散 Transformer 从视觉历史、本体状态和语言直接预测局部轨迹动作块；训练时用未来第一视角帧做结果监督，部署时不生成视频。</li>
+<li><strong>领域边界</strong>：不提供新的 GNSS、里程计或建图算法，建议只跟踪其 3DGS 仿真和真实飞行接口。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.14997">arXiv</a> · <a href="https://arxiv.org/pdf/2607.14997">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14997/fig-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14997/fig-001.webp" alt="AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14997/fig-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14997/fig-002.webp" alt="AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14997/fig-003.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14997/fig-003.webp" alt="AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14997/fig-004.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14997/fig-004.webp" alt="AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14997/fig-005.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14997/fig-005.webp" alt="AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14997/fig-006.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14997/fig-006.webp" alt="AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14997/table-001.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14997/table-001.webp" alt="AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-18/arxiv-2607.14997/table-002.webp"><img src="../../assets/media/2026-07-18/arxiv-2607.14997/table-002.webp" alt="AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
