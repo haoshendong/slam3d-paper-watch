@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-21/index.html">← 返回 2026-07-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-17 · score 12 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ImprovedVBGS：实时持续变分贝叶斯 Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting</span></h1>
+  <div class="meta">作者：Damani Mguni-Coker</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15542">abs</a><a href="https://arxiv.org/pdf/2607.15542">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.3/10</span><p>直接面向机器人在线持续重建，速度提升幅度突出且提供代码；技术报告仅 5 页，需核查真实序列、显存上界、长期地图稳定性和质量指标。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">持续重建</span><span class="tag">变分贝叶斯</span><span class="tag">实时建图</span><span class="tag">在线学习</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用局部截断推断和更高效的 Gaussian 重分配，把 VBGS 持续重建推进到约 20 FPS。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">VBGS 通过坐标上升变分推断实现无需回放缓冲区的持续重建，但逐帧遍历全部已观测点带来严重延迟。ImprovedVBGS 引入空间截断变分推断，并通过 forwarding、truncation 和避免无效动态重编译改进基元重分配。在 RTX 3070 Ti 和 NeRF Synthetic 数据集上，平均每帧延迟由约 84 秒降至 0.050 秒，达到 1680 倍加速，同时保持重建质量。</p><p class="lang lang-en lang-block" data-lang="en">On-the-fly reconstruction is a key requirement for many applications in robotics and autonomous navigation. Variational Bayes Gaussian Splatting (VBGS) enables continual learning without replay buffers using Coordinate Ascent Variational Inference (CAVI), but its per-frame iterations over all observed points make it too slow for real-time use with strict memory and latency requirements. We present ImprovedVBGS, an accelerated framework for on-the-fly continual reconstruction. This is achieved primarily through (i) spatially truncated variational inference, and (ii) improved reassignment that uses forwarding, truncation and eliminates wasteful dynamic recompilation. On the NeRF synthetic dataset, we reduce mean per-frame latency from ~84.0 s to ~0.050 s on an RTX 3070 Ti, a 1680x speed-up while maintaining reconstruction quality.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15542">arXiv 2607.15542</a> · <a href="https://github.com/damanimc/ImprovedVBGS">代码</a></li>
+<li><strong>核心贡献</strong>：通过空间截断变分推断和更高效的 Gaussian 重分配，把 VBGS 平均延迟由约 84.0 秒/帧降到 0.050 秒/帧，报告 1680 倍加速且保持重建质量。</li>
+<li><strong>为什么重要</strong>：直接针对机器人在线、持续、有限内存重建的主要瓶颈，约 20 FPS 的结果具有工程吸引力。</li>
+<li><strong>待核查</strong>：报告只有 5 页；需验证真实机器人序列、长期运行的基元数量/显存上界、动态场景与几何精度。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15542/fig-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15542/fig-001.webp" alt="ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15542/fig-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15542/fig-002.webp" alt="ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15542/fig-003.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15542/fig-003.webp" alt="ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15542/fig-004.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15542/fig-004.webp" alt="ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15542/fig-005.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15542/fig-005.webp" alt="ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15542/table-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15542/table-001.webp" alt="ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15542/table-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15542/table-002.webp" alt="ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15542/table-003.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15542/table-003.webp" alt="ImprovedVBGS: Real-time Continual Variational Bayes Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

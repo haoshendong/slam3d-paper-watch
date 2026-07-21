@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Toward Semantic Communication for Real-time Mobile 3D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-21/index.html">← 返回 2026-07-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-18 · score 11 · cs.CV, cs.MA, cs.MM</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向实时移动三维重建的语义通信</span><span class="lang lang-en lang-inline" data-lang="en">Toward Semantic Communication for Real-time Mobile 3D Reconstruction</span></h1>
+  <div class="meta">作者：Fangzhou Zhao, Yao Sun, Xuesong Liu, Runze Cheng, Shang Kai, Yi Sun</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.16128">abs</a><a href="https://arxiv.org/pdf/2607.16128">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.8/10</span><p>把无线链路不确定性一直传递到几何估计，直接涉及位姿初始化和 BA；目前摘要只报告仿真结论，缺少实机链路、延迟预算和定量数值。</p><div class="tags"><span class="tag">移动重建</span><span class="tag">语义通信</span><span class="tag">置信度</span><span class="tag">RANSAC</span><span class="tag">Bundle Adjustment</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">让通信端输出像素置信度，并把该可靠性显式注入 RANSAC 和 BA，增强弱链路下在线重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">移动平台把连续图像传到服务器进行在线位姿和场景估计时，通信失真会破坏多视一致性。本文设计语义收发器，同时输出重建图像与像素级置信图，并将置信度用于 RANSAC 位姿初始化和 bundle adjustment，以降低不可靠区域的影响。仿真结果表明，相比现有语义通信以及传统信源—信道分离编码，该框架在保持图像质量的同时改善了位姿精度和三维结构一致性。</p><p class="lang lang-en lang-block" data-lang="en">Real-time mobile 3D reconstruction is fundamental to many emerging applications such as autonomous navigation and digital twin construction, where a moving platform continuously captures an image stream and transmit to a computing server for scene understanding. Unlike offline reconstruction, camera poses and scene geometry are estimated on-the-fly during acquisition, making multi-view consistency a real-time requirement and rendering geometric estimation highly sensitive to communication-induced distortions. Semantic communication (SemCom) transmits compact semantic information, offering a promising way to preserve task-critical data over unreliable links. However, existing designs are optimized at the image or single-view level and without providing explicit reliability information for geometric estimation, limiting their applicability to real-time mobile 3D reconstruction. In this context, we propose a SemCom framework for real-time mobile 3D reconstruction. The framework includes a semantic transceiver that outputs a reconstructed image alongside a pixel-wise confidence map, quantifying the reliability of each region. We further introduce a confidence-guided geometric estimation method, incorporating confidence into RANSAC-based pose initialization and bundle adjustment to reduce the influence of unreliable regions and enhance robustness under noisy channels. Simulations show that, compared to existing SemCom and traditional seperate source and channel coding, our framework maintains high image quality while significantly improving pose estimation accuracy and 3D structural consistency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.16128">arXiv 2607.16128</a></li>
+<li><strong>核心贡献</strong>：语义收发器除重建图像外还输出像素置信图，并把置信度注入 RANSAC 位姿初始化和 BA，抑制通信失真区域。</li>
+<li><strong>为什么重要</strong>：把通信链路的不确定性显式传递到几何估计，而不是只优化单帧视觉质量。</li>
+<li><strong>待核查</strong>：目前只见仿真结论；需要真实无线链路、端到端延迟、带宽—位姿精度曲线和置信度校准实验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.16128/fig-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.16128/fig-001.webp" alt="Toward Semantic Communication for Real-time Mobile 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.16128/fig-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.16128/fig-002.webp" alt="Toward Semantic Communication for Real-time Mobile 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

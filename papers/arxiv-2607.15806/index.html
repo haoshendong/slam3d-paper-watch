@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HybridSim: A Physics-Learning Hybrid Digital Twin for mmWave Human Sensing</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-21/index.html">← 返回 2026-07-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-17 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HybridSim：面向毫米波人体感知的物理—学习混合数字孪生</span><span class="lang lang-en lang-inline" data-lang="en">HybridSim: A Physics-Learning Hybrid Digital Twin for mmWave Human Sensing</span></h1>
+  <div class="meta">作者：Weitao Xiong, Tianyu Liu, Peng Li, Kok Chung Chua, Toa Chean Khim, Pu Wang, Hongfei Xue</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15806">abs</a><a href="https://arxiv.org/pdf/2607.15806">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.2/10</span><p>对 3DGS 表示电磁多路径具有旁侧启发，也与雷达仿真相关；核心任务是固定场地人体感知，不是 SLAM、GNSS 或通用三维重建。</p><div class="tags"><span class="tag">毫米波雷达</span><span class="tag">数字孪生</span><span class="tag">3DGS</span><span class="tag">多路径</span><span class="tag">物理仿真</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用物理逆渲染建直接回波、用 3DGS 拟合场地多路径，低成本生成毫米波雷达数字孪生数据。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">HybridSim 在固定室内房间中，从动态人体网格合成毫米波雷达信号，并把传播拆为直接路径和间接路径。直接路径使用带微表面 BRDF 的逆渲染建模主要表面反射；间接路径则结合 3D Gaussian Splatting 与虚拟接收器几何，拟合场地特定的多路径干扰，以低于完整光线追踪的成本复现传播。实验显示其与物理参考的一致性更好，并能通过场地特定数据增强改善下游人体感知。</p><p class="lang lang-en lang-block" data-lang="en">High-fidelity simulation of mmWave radar signals for dynamic human motion is valuable for developing radar-based human sensing models; yet collecting accurately labeled measurements for a specific deployment site remains expensive. We present HybridSim, a physics-learning hybrid simulator that synthesizes mmWave radar signals from dynamic human meshes under a fixed indoor room configuration, explicitly decoupling propagation into two components. To parameterize the human subject, we use a tri-plane representation to extract human features and a Graph Convolutional Network to stabilize optimization and mitigate gradient instability. The direct signal path is modeled via an inverse-rendering formulation with a microfacet BRDF to capture primary surface reflections. In parallel, the indirect path is approximated by combining 3D Gaussian Splatting with a virtual-receiver geometry to fit and reproduce site-specific multipath interference patterns, achieving substantially lower computational cost than explicit full ray tracing. Experiments in a fixed-room setting show improved agreement with a physically based reference and consistent gains on downstream radar-based human sensing tasks when using HybridSim for site-specific data augmentation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15806">arXiv 2607.15806</a> · <a href="https://weitao-xiong.github.io/HybridSim/">项目页</a></li>
+<li><strong>核心贡献</strong>：直接路径采用微表面 BRDF 逆渲染，间接路径结合 3DGS 与虚拟接收器几何拟合固定房间的多路径干扰。</li>
+<li><strong>相关性判断</strong>：对用 3DGS 表示环境传播和毫米波多路径仿真有启发，但核心是人体感知数据合成，不是 SLAM/GNSS；因此列为低优先级旁侧工作。</li>
+<li><strong>待核查</strong>：跨房间迁移、实测雷达标定、动态遮挡，以及这种场表示能否服务雷达定位/建图。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15806/fig-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15806/fig-001.webp" alt="HybridSim: A Physics-Learning Hybrid Digital Twin for mmWave Human Sensing" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15806/fig-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15806/fig-002.webp" alt="HybridSim: A Physics-Learning Hybrid Digital Twin for mmWave Human Sensing" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15806/fig-003.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15806/fig-003.webp" alt="HybridSim: A Physics-Learning Hybrid Digital Twin for mmWave Human Sensing" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

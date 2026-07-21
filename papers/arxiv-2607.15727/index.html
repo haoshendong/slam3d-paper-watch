@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-21/index.html">← 返回 2026-07-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-17 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Event3R：通过时空特征聚合从事件相机实现异步到全局三维重建</span><span class="lang lang-en lang-inline" data-lang="en">Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation</span></h1>
+  <div class="meta">作者：Jian Huang, Haotian Shen, Xinhao Lou, Chengrui Dong, Wenpu Li, Peidong Liu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15727">abs</a><a href="https://arxiv.org/pdf/2607.15727">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.9/10</span><p>事件相机与全局点云重建对高速和高动态机器人场景价值较高，且已获 IROS 2026 接收；需核查相机位姿是否联合估计、尺度来源和真实数据定量精度。</p><div class="tags"><span class="tag">事件相机</span><span class="tag">前馈重建</span><span class="tag">点云</span><span class="tag">时空聚合</span><span class="tag">自监督学习</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">结合事件体素、时间注意力和自监督掩码建模，直接输出全局对齐的事件相机三维点云。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Event3R 是把异步事件流直接映射为全局一致三维点云的前馈框架。系统把事件组织为时空体素，以时间注意力聚合动态特征；通过 Masked Bin Modeling 自监督预训练减少对大规模标注的依赖，并在微调时加入对比对齐和一致性正则，以强化跨视图结构对应与时间一致性。合成和真实基准实验显示，其重建的鲁棒性、时间一致性和全局对齐优于已有事件方法。</p><p class="lang lang-en lang-block" data-lang="en">Robust 3D reconstruction is essential for robotics and embodied perception. Recent feed-forward approaches such as DUSt3R have demonstrated impressive progress in dense 3D reconstruction from RGB images, achieving global geometric consistency and strong generalization. However, extending such dense 3D reconstruction to event cameras remains challenging due to their asynchronous, sparse, and highly dynamic nature, as well as the lack of large-scale, well-labeled datasets. In this work, we introduce Event3R, a feed-forward framework that directly maps asynchronous event streams to globally consistent 3D point clouds. Event3R represents incoming events as spatial-temporal voxels, enabling time-aware feature integration through a temporal attention module that enhances the module&#x27;s temporal feature learning. To further strengthen temporal representation learning and reduce reliance on labeled data, we propose a Masked Bin Modeling (MBM) strategy for self-supervised pre-training, enabling robust temporal representation learning with minimal labeled data, and retain it as an auxiliary fine-tuning objective. In addition, contrastive alignment and consistency regularization losses are incorporated during fine-tuning to reinforce structural correspondence and temporal coherence across views. Extensive experiments on both synthetic and real-world benchmarks demonstrate that Event3R achieves robust, temporally consistent, and globally aligned 3D reconstructions, significantly outperforming existing event-based methods.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15727">arXiv 2607.15727</a></li>
+<li><strong>核心贡献</strong>：将事件组织为时空体素，通过时间注意力、Masked Bin Modeling 自监督预训练、对比对齐和一致性正则直接输出全局一致点云。</li>
+<li><strong>为什么重要</strong>：适合高速运动、HDR 与常规帧相机易模糊的机器人场景，并已获 IROS 2026 接收。</li>
+<li><strong>待核查</strong>：摘要未明确相机位姿是否联合预测、全局尺度如何确定，以及真实数据上的绝对几何精度。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15727/fig-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15727/fig-001.webp" alt="Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15727/fig-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15727/fig-002.webp" alt="Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15727/fig-003.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15727/fig-003.webp" alt="Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15727/fig-004.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15727/fig-004.webp" alt="Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15727/table-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15727/table-001.webp" alt="Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15727/table-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15727/table-002.webp" alt="Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15727/table-003.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15727/table-003.webp" alt="Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15727/table-004.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15727/table-004.webp" alt="Event3R: Asynchronous-to-Global 3D Reconstruction from Event Camera via Spatial-Temporal Feature Aggregation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

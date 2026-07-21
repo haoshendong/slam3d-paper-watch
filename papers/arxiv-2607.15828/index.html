@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-21/index.html">← 返回 2026-07-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-17 · score 6 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">超越前沿：场景异常引导的自主探索</span><span class="lang lang-en lang-inline" data-lang="en">Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration</span></h1>
+  <div class="meta">作者：Akash Kumbar, Abhinav Raundhal, Madhava Krishna</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15828">abs</a><a href="https://arxiv.org/pdf/2607.15828">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>把探索目标与最终地图质量直接耦合，适合主动 SLAM/重建；需核查结构先验的跨场景泛化、异常评分成本及定位误差影响。</p><div class="tags"><span class="tag">自主探索</span><span class="tag">主动建图</span><span class="tag">点云</span><span class="tag">下一最佳视点</span><span class="tag">场景先验</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以重建几何和室内结构先验之间的异常代替传统 frontier，主动选择能修补地图的观察位姿。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SCAGE 将未知环境探索重新表述为几何异常最小化，而非单纯追逐体素前沿。系统直接处理非结构化三维点云，利用对典型室内建筑结构的学习先验识别破碎墙面、局部桌面等与预期不一致的区域，并把这些异常作为下一视点选择信号，使机器人主动补全重建薄弱处。实验报告各场景约 90% 的体积覆盖率，并较先进基线获得更高的三维重建质量。</p><p class="lang lang-en lang-block" data-lang="en">Autonomous exploration of unknown 3D environments is traditionally driven by coverage-maximizing geometric heuristics. However, these methods typically determine exploration targets without considering the underlying structural context. This leads to inefficient trajectories often limiting the fidelity of the final 3D reconstruction. To bridge the gap between spatial coverage and reconstruction quality, we introduce a novel paradigm: reframing exploration as a geometric anomaly minimization problem. We present SCAGE: SCene Anomaly Guided Exploration, a novel autonomous exploration framework that operates directly on unstructured 3D point clouds. Instead of blindly chasing volumetric boundaries, we equip the robot with a foundational understanding of standard indoor architecture. As the robot navigates, it continuously evaluates its live 3D observations against these learned expectations. When the incoming geometry contradicts the learned priors of a typical indoor environment, such as a fragmented wall or a partial table, the system flags these regions as scene anomalies. These geometric inconsistencies act as a guiding signal, naturally drawing the robot to investigate and resolve these structural anomalies from optimal vantage points. By actively targeting poorly reconstructed regions rather than just empty space, our approach seamlessly couples spatial discovery with high-fidelity mapping. Extensive evaluations demonstrate that SCAGE achieves superior volumetric coverage (~90% in all scenes) and higher 3D reconstruction quality compared to state-of-the-art baselines.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15828">arXiv 2607.15828</a> · <a href="https://beyondfrontiers.github.io/">项目页</a></li>
+<li><strong>核心贡献</strong>：用室内结构先验发现破碎墙面、局部家具等重建异常，并据此选择视点，不再只追逐未知体素边界。</li>
+<li><strong>为什么重要</strong>：将主动探索与最终三维地图质量直接耦合，报告各场景约 90% 覆盖率及更好的重建质量。</li>
+<li><strong>待核查</strong>：重点看跨建筑泛化、定位漂移对异常判断的影响，以及与 information gain/NBV 方法的公平比较。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15828/fig-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15828/fig-001.webp" alt="Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15828/fig-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15828/fig-002.webp" alt="Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15828/fig-003.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15828/fig-003.webp" alt="Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15828/fig-004.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15828/fig-004.webp" alt="Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15828/fig-005.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15828/fig-005.webp" alt="Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15828/fig-006.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15828/fig-006.webp" alt="Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15828/table-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15828/table-001.webp" alt="Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15828/table-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15828/table-002.webp" alt="Beyond Frontiers: Scene-Anomaly Guided Autonomous Exploration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

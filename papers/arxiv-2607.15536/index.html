@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>E3DGS: Unified Geometric-Photometric Equivariance for 3D Gaussian Splatting via Color-as-Geometry Embedding</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-21/index.html">← 返回 2026-07-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-17 · score 15 · cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">E3DGS：通过颜色即几何嵌入统一 3D Gaussian Splatting 的几何—光度等变性</span><span class="lang lang-en lang-inline" data-lang="en">E3DGS: Unified Geometric-Photometric Equivariance for 3D Gaussian Splatting via Color-as-Geometry Embedding</span></h1>
+  <div class="meta">作者：Chankyo Kim, Maani Ghaffari</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15536">abs</a><a href="https://arxiv.org/pdf/2607.15536">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.1/10</span><p>从表示论上解决 3DGS 几何与光度属性旋转作用不统一的问题，对跨坐标系地图学习有基础价值；但主要验证集中于物体视觉和世界模型，尚非完整 SLAM 系统。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">SE(3) 等变</span><span class="tag">球谐函数</span><span class="tag">表示学习</span><span class="tag">世界模型</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把低阶球谐颜色精确映射为几何矩阵，与位置和协方差统一进行 SE(3) 等变处理。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 同时包含位置、协方差等显式几何属性，以及由球谐函数表示的视角相关光度属性，但旋转对这些属性的作用形式不同，阻碍了严格的 SE(3) 等变建模。本文证明，对不高于二阶的球谐系数，Wigner-D 作用可精确改写为 3×3 矩阵的共轭作用，从而把几何与颜色统一提升到 gl(3) 载体空间。基于这一“颜色即几何”表述，E3DGS 无需 Clebsch–Gordan 张量积即可处理 3D Gaussian，并在物体视觉和动作条件 Gaussian 世界模型中提高了相机坐标系变化下的鲁棒性与数据效率。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) captures scenes by coupling explicit geometry (position, covariance) with view-dependent photometry (Spherical Harmonics). However, building $\mathrm{SE}(3)$-equivariant architectures on these primitives presents a fundamental representation bottleneck. Color has been treated as a signal rather than a geometric entity, making it nontrivial to unify symmetry across geometry and appearance as the camera frame changes. While translations are handled by relative coordinates, rotations act heterogeneously across attributes: $μ\mapsto Rμ$, $Σ\mapsto RΣR^\top$, and $f_\ell\mapsto D^\ell(R)f_\ell$. This mismatch complicates strict equivariance, leading existing methods to either discard or flatten SH coefficients, thereby breaking symmetry. We propose a unified solution rooted in representation theory: for SH degrees $\ell\le2$, photometry is algebraically isomorphic to a rank-2 geometric tensor. We prove that the Wigner-$D$ action on these SH coefficients can be exactly reformulated as the conjugation action on $3\times3$ matrices. Leveraging this, we introduce the Unified Matrix Embedding, a lifting that maps all Gaussian attributes into a unified carrier space, $\mathfrak{gl}(3)$. Building on the &quot;Color-as-Geometry&quot; formulation, we present E3DGS, a rigid-body ($\mathrm{SE}(3)$) equivariant architecture that processes 3D Gaussians without Clebsch-Gordan tensor products. Evaluations on object vision and action-conditioned Gaussian world modeling demonstrate that our unified approach yields strong robustness under camera-frame changes and improved data efficiency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15536">arXiv 2607.15536</a></li>
+<li><strong>核心贡献</strong>：证明低阶球谐颜色可精确表示为秩二几何张量，并把位置、协方差与光度统一嵌入 <code>gl(3)</code>，无需 Clebsch–Gordan 张量积即可构建 SE(3) 等变 Gaussian 网络。</li>
+<li><strong>为什么重要</strong>：相机坐标系变化不应改变地图语义；严格等变表示可能提高跨视角泛化与数据效率。</li>
+<li><strong>待核查</strong>：当前是表示学习架构而非 SLAM 系统，需观察其对配准、地图融合和位姿估计的实际收益。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15536/fig-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15536/fig-001.webp" alt="E3DGS: Unified Geometric-Photometric Equivariance for 3D Gaussian Splatting via Color-as-Geometry Embedding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15536/fig-002.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15536/fig-002.webp" alt="E3DGS: Unified Geometric-Photometric Equivariance for 3D Gaussian Splatting via Color-as-Geometry Embedding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

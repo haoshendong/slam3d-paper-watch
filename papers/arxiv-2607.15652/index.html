@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CSS-BA: Gate-Guided Column Space Search for Bundle Adjustment</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-21/index.html">← 返回 2026-07-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-17 · score 8 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CSS-BA：门控引导列空间搜索的 Bundle Adjustment</span><span class="lang lang-en lang-inline" data-lang="en">CSS-BA: Gate-Guided Column Space Search for Bundle Adjustment</span></h1>
+  <div class="meta">作者：Ayano Kaneda, Takafumi Taketomi, Shugo Yamaguchi, Shigeo Morishima</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15652">abs</a><a href="https://arxiv.org/pdf/2607.15652">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>针对低视差和近旋转这一 SLAM/SfM 常见退化，属于可插拔求解器级改进，并获 ECCV 2026 接收；运行开销、门控失效模式和大规模稀疏性需正文确认。</p><div class="tags"><span class="tag">Bundle Adjustment</span><span class="tag">退化场景</span><span class="tag">Schur-LM</span><span class="tag">列空间搜索</span><span class="tag">相机标定</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">不删状态、不改 BA 目标，只把 Schur-LM 更新限制到门控选择的几何可靠低维子空间。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">低视差和近纯旋转条件下，经典基于 Schur 补的 Levenberg–Marquardt 容易病态，导致位姿与标定估计不可靠。Gate-Guided CSS-BA 保留原有 BA 目标与信赖域框架，但用几何感知门控把每次更新限制在信息更可靠的低维列空间。所有相机和点参数仍留在优化问题中，仅约束更新方向，因此可作为现有 BA 流水线的替换求解器。实验显示该方法在弱几何场景中优化更稳定、相对位姿更准确，同时保持重投影质量和有竞争力的标定表现。</p><p class="lang lang-en lang-block" data-lang="en">Bundle adjustment (BA) remains a critical refinement module for image-based 3D reconstruction and continues to improve geometric accuracy even in learning-based pipelines. However, in low-parallax and near-rotational regimes, classical Schur-based Levenberg--Marquardt (LM) often becomes ill-conditioned and yields unreliable pose and calibration estimates. We propose Gate-Guided CSS-BA, a solver-side modification of Schur-LM that preserves the classical BA objective and trust-region framework while constraining each update to a geometrically informed low-dimensional subspace. By integrating Column Space Search (CSS) with geometry-aware gating, the method stabilizes the Schur-LM update without altering the estimation problem. In contrast to keyframe or state-selection approaches, all camera and point parameters remain in the optimization problem; only the update direction is restricted. The method serves as a drop-in replacement for existing BA pipelines. Experiments on both generic and challenging weak-geometry scenarios show more stable optimization, improved relative pose accuracy, and competitive calibration behavior while maintaining reprojection quality.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15652">arXiv 2607.15652</a></li>
+<li><strong>核心贡献</strong>：保留经典 BA 目标、全部相机/点状态与 trust-region 框架，仅将每次 Schur-LM 更新限制到几何感知的低维列空间。</li>
+<li><strong>为什么重要</strong>：直指低视差和近纯旋转时 BA 病态这一常见 SLAM/SfM 退化，可作为求解器级 drop-in replacement。</li>
+<li><strong>待核查</strong>：需比较运行开销、规模扩展性、门控错误时的稳定性，以及与 damping、预条件和 null-space 方法的关系。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-21/arxiv-2607.15652/fig-001.webp"><img src="../../assets/media/2026-07-21/arxiv-2607.15652/fig-001.webp" alt="CSS-BA: Gate-Guided Column Space Search for Bundle Adjustment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
