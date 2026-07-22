@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-22/index.html">← 返回 2026-07-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 3 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GS-RealBlur：灵活的真实图像去模糊数据采集框架</span><span class="lang lang-en lang-inline" data-lang="en">GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring</span></h1>
+  <div class="meta">作者：Mingyang Chen, Zhilu Zhang, Honglei Xu, Renlong Wu, Xiaohe Wu, Wangmeng Zuo</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15401">abs</a><a href="https://arxiv.org/pdf/2607.15401">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>把三维重建和位姿优化用于解决真实配对数据采集，几何链条清晰且对模糊条件定位有反向意义；代码和数据尚仅承诺公开。</p><div class="tags"><span class="tag">三维重建</span><span class="tag">相机位姿</span><span class="tag">运动去模糊</span><span class="tag">数据采集</span><span class="tag">位姿优化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">先重建清晰场景，再按模糊帧位姿渲染清晰对应图，用三维几何替代刚性双相机配对采集。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">高质量大规模配对数据对学习式去模糊至关重要，但合成模糊缺乏真实感，真实采集又常依赖复杂相机系统。GS-RealBlur 使用手持相机拍摄模糊图像，并用云台密集采集同一场景的清晰图像；随后重建清晰图像的三维表示、标定每个模糊帧位姿，并从该位姿渲染清晰配对图。Blur-aware Pose Refinement 通过外观一致性和质心对齐进一步校正位姿。由此构建的数据集训练出的模型在多个真实去模糊 benchmark 上表现出更好泛化。</p><p class="lang lang-en lang-block" data-lang="en">High-quality, large-scale paired data is essential for training learning-based image deblurring models. However, synthetic blurry images generally lack realism, while real-world captured images require complex and inflexible camera systems. In this work, we propose GS-RealBlur, a data acquisition framework for real-world image deblurring, achieving both blur realism and acquisition flexibility. Specifically, we use a handheld camera to capture blurry images, and deploy a gimbal to densely capture sharp images of the same scene. We reconstruct the 3D representation of sharp images and calibrate the camera pose of each blurry frame within this 3D. The image rendered from this 3D according to the pose serves as the sharp counterpart. To better align the rendered image with the blurry image, we introduce a Blur-aware Pose Refinement (BPR) module that refines the pose using appearance consistency and centroid alignment constraints. Leveraging GS-RealBlur, we construct a high-quality and diverse dataset. Extensive experiments demonstrate that a deblurring model trained on our dataset achieves superior generalization performance across various real-world deblurring benchmarks, consistently outperforming models trained on existing synthetic and real-world datasets. The code and dataset will be made publicly available.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15401">arXiv 2607.15401</a></li>
+<li><strong>核心贡献</strong>：手持相机采模糊帧、云台密集采清晰帧，先重建场景并标定模糊帧位姿，再从三维表示渲染清晰配对图；Blur-aware Pose Refinement 通过外观一致性和质心约束改善对齐。</li>
+<li><strong>为什么重要</strong>：三维重建被用作真实数据采集基础设施，位姿精度直接决定配对监督质量；对运动模糊条件下的定位与重建也有反向启发。</li>
+<li><strong>待核查</strong>：采用的三维表示、动态物体与曝光差异、残余配准偏差，以及数据和代码实际公开时间。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/fig-001.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/fig-001.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/fig-002.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/fig-002.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/fig-003.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/fig-003.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/fig-004.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/fig-004.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/table-001.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/table-001.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/table-002.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/table-002.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/table-003.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/table-003.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/table-004.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/table-004.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/table-005.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/table-005.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.15401/table-006.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.15401/table-006.webp" alt="GS-RealBlur: A Flexible Data Acquisition Framework for Real-World Image Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

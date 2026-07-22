@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-22/index.html">← 返回 2026-07-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 6 · cs.CV, cs.AI, cs.CL, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CLARE：先澄清再执行的自演化三维工具编排智能体</span><span class="lang lang-en lang-inline" data-lang="en">Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration</span></h1>
+  <div class="meta">作者：Xiaoye Zhu, Weixin Li, Junan Huo, Bozhong Wang, Jia Zeng, Yi Yang, Cen Chen, Qi Liu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.16352">abs</a><a href="https://arxiv.org/pdf/2607.16352">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.6/10</span><p>对自动重建工具链的参数完整性和失败预防有直接价值，并提供代码与 benchmark；但核心偏智能体编排，绝对成功率和真实工程覆盖仍有限。</p><div class="tags"><span class="tag">三维工具</span><span class="tag">多视图重建</span><span class="tag">点云编辑</span><span class="tag">智能体</span><span class="tag">意图澄清</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在执行多视图重建和点云工具前主动澄清缺失约束，并通过模拟交互学习澄清策略。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">三维资产工具链要求精确参数，而用户指令常含歧义。CLARE 将三维任务流水线拆分为四个认知角色，在调用昂贵工具前主动发现并解决信息缺失；其范围覆盖 text-to-3D、单视图重建、多视图重建、点云编辑和后处理。系统通过模拟多轮交互与 Multi-turn Reward 自演化澄清策略，并构建含 620 个歧义、缺失和错误细节场景的 3D-Clarify benchmark。报告单步和多步任务成功率分别为 60.40% 和 43.34%，超过现有基线。</p><p class="lang lang-en lang-block" data-lang="en">A fundamental intent asymmetry plagues modern 3D asset creation: while state-of-the-art 3D toolchains demand precise, executable parameters, ordinary users typically provide vague, underspecified instructions. Current 3D agents treat this ambiguity as noise, defaulting to blind execution under a single-turn assumption. To address this limitation, we introduce CLARE, a clarification-aware and evolutionary 3D agent that treats intent asymmetry not as an execution error, but as an opportunity for strategic dialogue. By decoupling the generation pipeline into four specialized cognitive roles, CLARE intercepts and resolves underspecified instructions before invoking computationally expensive 3D tools to seamlessly execute tasks across five diverse domains: text-to-3D generation, single-view reconstruction, multi-view reconstruction, point cloud editing, and post-processing. Crucially, rather than relying on rigid manual rules, CLARE self-evolves its clarification policy via simulated multi-turn interactions. By optimizing a Multi-turn Reward, the agent internalizes the delicate balance between interaction efficiency and task completion. To rigorously test this, we construct 3D-Clarify, a comprehensive benchmark comprising 620 interaction scenarios with systematically injected ambiguity, missing information, and mistaken details. CLARE achieves state-of-the-art performance, with 60.40% and 43.34% success rates on single-step and multi-step tasks, respectively, more than doubling existing baselines. Both quantitative and qualitative results demonstrate that proactive clarification is the missing key to robust 3D execution. Code is available at https://github.com/xyzhu1225/CLARE.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.16352">arXiv 2607.16352</a> · <a href="https://github.com/xyzhu1225/CLARE">代码</a></li>
+<li><strong>核心贡献</strong>：在文本到三维、单/多视图重建、点云编辑与后处理前主动识别歧义，通过模拟多轮交互自演化澄清策略，并发布包含 620 个场景的 3D-Clarify benchmark。</li>
+<li><strong>为什么重要</strong>：对自动化 COLMAP/重建流水线而言，先补齐相机、尺度、输出格式和质量约束可减少昂贵的错误执行；报告单步/多步成功率分别为 60.40%/43.34%。</li>
+<li><strong>待核查</strong>：成功率仍有限；需审计工具调用可验证性、错误恢复、成本，以及 benchmark 是否覆盖真实标定与数据缺陷。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/fig-001.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/fig-001.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/fig-002.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/fig-002.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/fig-003.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/fig-003.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/fig-004.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/fig-004.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/fig-005.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/fig-005.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/fig-006.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/fig-006.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/table-001.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/table-001.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/table-002.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/table-002.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16352/table-003.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16352/table-003.webp" alt="Clarify Before Executing: A Self-Evolving Agent for Resolving Intent Asymmetry in 3D Tool Orchestration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

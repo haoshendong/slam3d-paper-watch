@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Points as Tori: Fast Pointwise Signed Distance for Point Clouds</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-22/index.html">← 返回 2026-07-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 4 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Points as Tori：点云快速逐点有符号距离</span><span class="lang lang-en lang-inline" data-lang="en">Points as Tori: Fast Pointwise Signed Distance for Point Clouds</span></h1>
+  <div class="meta">作者：Nicole Feng, Ioannis Gkioulekas, Keenan Crane</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.16946">abs</a><a href="https://arxiv.org/pdf/2607.16946">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>对点云配准、几何查询、碰撞和重建后处理均有基础价值，且适用于摄影测量与 3DGS 点云；法向噪声、稀疏 LiDAR 和尖锐结构上的稳定性待正文验证。</p><div class="tags"><span class="tag">点云</span><span class="tag">有符号距离场</span><span class="tag">表面重建</span><span class="tag">环面拟合</span><span class="tag">几何处理</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用局部环面闭式 SDF 表示带法向点云，在不做全局网格化的情况下实现快速距离查询与隐式表面操作。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出一种可在任意空间分辨率快速逐点计算点云有符号距离的方法。输入为带法向点云，输出为近似底层表面的解析参数化，同时提供重建与距离查询。核心做法是以具有闭式 signed distance function 的环面局部拟合点云，并由预训练网络前馈预测每点曲率和位移参数，无需昂贵全局优化或空间离散化，且易于并行。方法还从理论上统一 signed distance、winding number 与 Poisson surface reconstruction，并展示了点云 offset、形态学/布尔运算和 sphere tracing。</p><p class="lang lang-en lang-block" data-lang="en">We describe a method for computing signed distance to point clouds that allows fast pointwise evaluation at arbitrary spatial resolution. As input, our method takes a point cloud with normals; as output, it provides an analytical parameterization that allows queries of signed distance to the approximate underlying surface at arbitrary points - simultaneously providing reconstruction and distance. Our key idea is to reconstruct shapes by locally fitting point clouds with tori, which have closed-form signed distance functions. Tori are fitted in a feed-forward manner, using a pre-trained network to output per-point curvature and shift parameters. Importantly, our method does not require costly global optimization or spatial discretization, and is easily parallelizable. Underlying our method is a new theory that unifies signed distance with the classic reconstruction methods of winding numbers and Poisson surface reconstruction. We use our method to compute signed distance to point clouds arising from photogrammetry, meshes, 3D Gaussians, and neural implicits. Our method allows point clouds to be used directly in applications, without explicit surface reconstruction: as examples, we take offsets of point clouds, apply morphological and Boolean operations, and directly visualize offset surfaces using sphere tracing.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.16946">arXiv 2607.16946</a></li>
+<li><strong>核心贡献</strong>：对带法向点云局部拟合环面，利用环面的闭式 signed distance function，在无需全局优化或空间离散化的情况下查询近似表面的 SDF。</li>
+<li><strong>为什么重要</strong>：直接连接点云、表面重建与距离场，可服务配准、碰撞检测、offset/Boolean 操作和 sphere tracing；输入还覆盖摄影测量、3DGS 与 neural implicit 点云。</li>
+<li><strong>待核查</strong>：法向噪声、稀疏/非均匀采样、薄结构和尖锐边界上的符号稳定性，以及与 Poisson、winding number、神经 SDF 的精度—速度比较。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

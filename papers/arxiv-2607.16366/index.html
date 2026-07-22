@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-22/index.html">← 返回 2026-07-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 9 · cs.RO, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PRISM：面向非结构环境漫游车导航的多模态地形建图</span><span class="lang lang-en lang-inline" data-lang="en">PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments</span></h1>
+  <div class="meta">作者：Raul Castilla-Arquillo, Carlos Perez-del-Pulgar, Levin Gerdes, Alfonso Garcia-Cerezo, Miguel A. Olivares-Mendez</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.16366">abs</a><a href="https://arxiv.org/pdf/2607.16366">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.3/10</span><p>包含多模态标定、真实部署和导航接口，接近机器人闭环；摘要未说明地图时序融合、定位耦合、夜间性能和详细导航消融。</p><div class="tags"><span class="tag">地形建图</span><span class="tag">RGB-D-T</span><span class="tag">多模态融合</span><span class="tag">可通行性</span><span class="tag">漫游车</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">融合 RGB-D-T 感知和多模态 ViT，在嵌入式平台上生成供漫游车导航使用的地形可通行地图。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">非结构环境导航需要可靠识别陡坡、岩石等危险地形。PRISM 以定制传感器套件采集对齐的 RGB、depth 与 thermal 图像，并以新型多模态 vision transformer 网络 OmniUnet 进行语义地形分割。作者用新标注的 BASEPROD 和 LAENTIEC 数据集验证系统，并通过真实野外实验展示应用。系统部署在资源受限嵌入式计算机上，可高效生成可通行地图并直接支持漫游车 Guidance、Navigation and Control 子系统。</p><p class="lang lang-en lang-block" data-lang="en">Robotic navigation in unstructured environments requires robust situational awareness to safely traverse hazards such as steep slopes and rocky terrain. To address this challenge, perception systems increasingly rely on multimodal sensor fusion. Specifically, integrating thermal imagery with standard optical and depth sensors enhances terrain differentiation, directly improving the reliability of mapping algorithms. This paper presents PRISM, a multimodal perception system for terrain mapping in unstructured settings. PRISM leverages a custom sensor suite to capture aligned RGB, depth, and thermal (RGB-D-T) imagery. At its core is OmniUnet, a novel vision transformer-based network specifically designed for multimodal semantic terrain segmentation. We validated the proposed system using two newly annotated datasets (BASEPROD and LAENTIEC) and demonstrate its real-world applicability through physical field experiments. Deployed on a resource-constrained embedded computer, PRISM efficiently generates traversability maps that directly enable autonomous navigation via a rover&#x27;s Guidance, Navigation, and Control (GNC) subsystem.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.16366">arXiv 2607.16366</a></li>
+<li><strong>核心贡献</strong>：构建对齐 RGB、depth、thermal 的 RGB-D-T 传感系统，以 OmniUnet 多模态 ViT 做语义地形分割，并在资源受限嵌入式计算机上生成可通行地图供 GNC 使用。</li>
+<li><strong>为什么重要</strong>：强调真实野外、热视觉互补与嵌入式部署，比单纯离线分割更接近机器人感知—规划闭环。</li>
+<li><strong>待核查</strong>：地图坐标系与时序融合方式、深度/热成像外参稳定性、夜间和恶劣天气表现，以及导航消融实验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16366/fig-001.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16366/fig-001.webp" alt="PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16366/fig-002.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16366/fig-002.webp" alt="PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16366/fig-003.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16366/fig-003.webp" alt="PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16366/fig-004.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16366/fig-004.webp" alt="PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16366/fig-005.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16366/fig-005.webp" alt="PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16366/fig-006.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16366/fig-006.webp" alt="PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16366/table-001.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16366/table-001.webp" alt="PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.16366/table-002.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.16366/table-002.webp" alt="PRISM: Multimodal Terrain Mapping for Rover Navigation in Unstructured Environments" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

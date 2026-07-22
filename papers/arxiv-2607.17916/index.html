@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Packet-Loss Robust 3D Gaussian Compression via Atomic Packaging and GNN-based Error Concealment</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-22/index.html">← 返回 2026-07-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 11 · cs.GR, cs.CV, cs.MM</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通过原子化封装与 GNN 误差隐藏实现丢包鲁棒的 3D Gaussian 压缩</span><span class="lang lang-en lang-inline" data-lang="en">Packet-Loss Robust 3D Gaussian Compression via Atomic Packaging and GNN-based Error Concealment</span></h1>
+  <div class="meta">作者：Yuxuan Tao, Xuerui Ma, Hao Zhang, Chunhua Peng</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.17916">abs</a><a href="https://arxiv.org/pdf/2607.17916">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.1/10</span><p>直接解决 3DGS 网络传输的工程薄弱点，编码结构与解码补偿协同设计且给出 20% 丢包结果；仍需验证突发丢包、真实链路、时延和传统 FEC 基线。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">模型压缩</span><span class="tag">丢包鲁棒</span><span class="tag">误差隐藏</span><span class="tag">图神经网络</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将 anchor 属性原子化封装，再结合先验插值与轻量 GNN，降低 3DGS 流媒体在丢包下的渲染崩坏。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 及 HAC++ 等压缩方案可实现高保真实时神经渲染，但码流在网络丢包时十分脆弱。本文提出丢包鲁棒的 3DGS 传输与误差隐藏框架：编码端把每个 anchor 的全部属性联合封装，使属性损坏转化为干净的 anchor 缺失，并用分层随机分组把丢包分散到空间；解码端以 Context-Aware Residual Interpolation 建立基线，再用带 hash-grid 先验交叉注意力的轻量两层 GNN 恢复高频属性残差，并按属性置信度回退到插值。20% 随机丢包实验中，相对无损 HAC++ 参考的平均 PSNR 损失约为 3 dB。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) and recent compression schemes such as HAC++ enable high-fidelity real-time neural rendering, but their bitstreams are fragile under packet loss during network streaming. Existing compression methods often separate correlated anchor attributes into independent streams, so losing one packet can create attribute-inconsistent broken anchors and severe rendering artifacts. We propose a packet-loss robust 3DGS transmission and error concealment framework. On the encoder side, anchor-level atomic packaging jointly encapsulates all attributes of each anchor, converting corrupted-attribute failures into clean missing-anchor erasures. Stratified random grouping further disperses packet losses across the spatial domain to avoid large contiguous voids. On the decoder side, we formulate recovery as prior-aware attribute inpainting. A Context-Aware Residual Interpolation (CARI) branch uses hash-grid prior predictions and neighboring residuals to build a robust baseline, while a lightweight two-layer graph neural network with cross-attention over hash-grid priors refines high-frequency attribute residuals. Attribute-wise confidence control falls back to interpolation when learned predictions are unreliable. Experiments under 20 percent random packet loss on BungeeNeRF, Mip-NeRF 360, and Tanks and Temples show that the proposed method substantially improves over no-concealment transmission and limits average PSNR degradation to about 3 dB relative to the lossless HAC++ reference.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.17916">arXiv 2607.17916</a></li>
+<li><strong>核心贡献</strong>：把每个 anchor 的相关属性原子化封装，使损坏从“属性不一致”转化为干净的缺失 anchor；再用分层随机分组分散空间空洞，并以 CARI 插值、轻量 GNN 和 hash-grid 先验恢复属性。</li>
+<li><strong>为什么重要</strong>：将 3DGS 压缩从静态码率问题推进到不可靠网络传输；在 20% 随机丢包下，相对无损 HAC++ 参考的平均 PSNR 损失约控制在 3 dB。</li>
+<li><strong>待核查</strong>：真实突发丢包、端到端时延、FEC/重传基线、不同 MTU 与 anchor 排布，以及补偿网络的跨场景泛化。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.17916/fig-001.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.17916/fig-001.webp" alt="Packet-Loss Robust 3D Gaussian Compression via Atomic Packaging and GNN-based Error Concealment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.17916/fig-002.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.17916/fig-002.webp" alt="Packet-Loss Robust 3D Gaussian Compression via Atomic Packaging and GNN-based Error Concealment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-22/arxiv-2607.17916/table-001.webp"><img src="../../assets/media/2026-07-22/arxiv-2607.17916/table-001.webp" alt="Packet-Loss Robust 3D Gaussian Compression via Atomic Packaging and GNN-based Error Concealment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
