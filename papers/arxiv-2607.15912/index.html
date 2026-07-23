@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-23/index.html">← 返回 2026-07-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-17 · score 8 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HETA++：采用混合显式平移平均的全局 Structure-from-Motion</span><span class="lang lang-en lang-inline" data-lang="en">HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging</span></h1>
+  <div class="meta">作者：Peilin Tao, Hainan Cui, Mengqi Rong, Shuhan Shen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15912">abs</a><a href="https://arxiv.org/pdf/2607.15912">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.1/10</span><p>今日最直接的经典 SfM 后端工作，针对明确退化与 outlier 问题；代码、完整数值和大规模成本尚待确认。</p><div class="tags"><span class="tag">Structure-from-Motion</span><span class="tag">平移平均</span><span class="tag">Bundle Adjustment</span><span class="tag">特征轨迹</span><span class="tag">全局优化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">融合相对平移与特征轨迹，以分阶段角度优化和 BA 提升全局 SfM 平移平均的鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">HETA++ 联合 relative translations 与 feature tracks 进行全局 SfM 平移平均，以缓解共线相机运动退化和 track outlier。方法先利用全局旋转细化并剔除不一致相对平移，再用 convex distance objective 初始化相机位置和三维点，以 non-bilinear angle objective 细化。随后用空间均衡选择的 tracks 对旋转和位置进行有界角度细化与重投影 BA，最后使用全部可靠 tracks 完整 BA。实验称在顺序和无序真实数据上兼具准确性、鲁棒性与可扩展性。</p><p class="lang lang-en lang-block" data-lang="en">Global Structure-from-Motion (SfM) offers advantages over incremental methods in terms of efficiency and error distribution. However, the task of translation averaging remains challenging. Many existing methods rely solely on relative translations or feature tracks, which either degrade under collinear camera motion or are susceptible to outliers. In this paper, we propose a novel hybrid explicit translation averaging framework that incorporates both relative translations and feature tracks. Specifically, we first refine the relative translations using global camera rotations and remove globally inconsistent relative translations. Next, we employ convex distance-based objective functions to estimate the initial camera positions and 3D points, followed by refinement using a non-bilinear angle-based objective function. Furthermore, since camera rotations are fixed during translation averaging, inaccurate camera rotations can severely limit the accuracy of camera positions. To address this issue, we then robustly refine both camera rotations and camera positions with selected feature tracks through bounded angle-based refinement and subsequent reprojection-based bundle adjustment. In this step, feature tracks are selected to maintain a balanced spatial distribution and improve optimization efficiency. Finally, we perform a complete bundle adjustment using all reliable feature tracks to refine the camera parameters and 3D points. Extensive experiments on various sequential and unordered real-world datasets demonstrate the superior accuracy, robustness, and scalability of our approach, outperforming state-of-the-art methods in both accuracy and computational efficiency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Peilin Tao, Hainan Cui, Mengqi Rong, Shuhan Shen</li>
+<li><strong>价值判断</strong>：联合 relative translations 与 feature tracks，分别补偿共线相机运动退化和 track outlier 敏感性，是今日最直接的经典几何工作。</li>
+<li><strong>技术要点</strong>：先用全局旋转清洗相对平移，以 convex distance objective 初始化相机与点，再做 non-bilinear angle refinement；最后依次执行有界角度旋转/位置细化、选轨 BA 和完整 BA。</li>
+<li><strong>后续核查</strong>：各阶段消融、超大规模内存与时间、旋转平均误差传播，以及与 COLMAP/global SfM 基线在顺序和无序数据上的完整数值。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.15912">arXiv</a> · <a href="https://arxiv.org/pdf/2607.15912">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.15912/fig-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.15912/fig-001.webp" alt="HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.15912/fig-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.15912/fig-002.webp" alt="HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.15912/fig-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.15912/fig-003.webp" alt="HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

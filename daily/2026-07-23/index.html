@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
   <title>Daily Paper Reader 2026-07-23</title>
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-07-23/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -17,7 +17,7 @@
     <div class="meta">静态网页 · 2026-07-23</div>
     <h1>SLAM/GNSS/三维重建每日论文阅读</h1>
     <p class="muted">按评分、截图和中文摘要快速筛选当天候选；需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-07-23/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：11</span><span class="stat">推荐论文：10</span><span class="stat">新论文：11</span><span class="stat">仓库：40</span><span class="stat">新仓库：15</span></div>
 </section>
@@ -32,114 +32,114 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>重点论文</h2><p class="muted paper-note">从 11 篇候选中推荐前 10 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2607.16926/index.html"><img src="assets/media/2026-07-23/arxiv-2607.16926/fig-001.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.16926/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">极端运动模糊下的 Splat-based 三维场景重建</span><span class="lang lang-en lang-inline" data-lang="en">Splat-based 3D Scene Reconstruction with Extreme Motion-blur</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.16926/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/fig-001.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.16926/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">极端运动模糊下的 Splat-based 三维场景重建</span><span class="lang lang-en lang-inline" data-lang="en">Splat-based 3D Scene Reconstruction with Extreme Motion-blur</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-19 · score 15 · cs.CV</div>
   <div class="meta">作者：Hyeonjoong Jang, Dongyoung Choi, Donggun Kim, Woohyun Kang</div>
   <span class="score">评分 9.4/10</span>
   <div class="tags"><span class="tag">RGB-D</span><span class="tag">3DGS</span><span class="tag">运动去模糊</span><span class="tag">相机位姿</span><span class="tag">三维重建</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>在 3DGS 中联合优化 RGB-D 位姿、深度几何和曝光内运动，处理低照高速运动导致的 COLMAP/ICP 失效。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文面向低照度下长曝光造成的极端运动模糊，提出基于 RGB-D 输入的 Gaussian Splatting 三维重建方法。系统先通过 optical flow 与 ICP 对齐连续帧，再通过调整 Gaussian 位置优化深度对齐，从而联合细化相机位姿与三维几何；同时显式建模曝光期间的相机运动，将输入模糊图像与一系列清晰渲染帧比较以完成去模糊。作者在新建 RGB-D 极端运动模糊数据集上报告优于现有方法，并公开代…</p><p class="lang lang-en lang-block" data-lang="en">We propose a splat-based 3D scene reconstruction method from RGB-D input that effectively handles extreme motion blur, a frequent challenge in low-light environments. Under dim illumination, RGB frames often s…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.16926">abs</a><a href="https://arxiv.org/pdf/2607.16926">PDF</a><a href="papers/arxiv-2607.16926/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.16926">abs</a><a href="https://arxiv.org/pdf/2607.16926">PDF</a><a href="../../papers/arxiv-2607.16926/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.18067/index.html"><img src="assets/media/2026-07-23/arxiv-2607.18067/fig-001.webp" alt="QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.18067/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">QIRF：3D Gaussian 的量子启发式非正交函数空间压缩</span><span class="lang lang-en lang-inline" data-lang="en">QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.18067/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.18067/fig-001.webp" alt="QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.18067/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">QIRF：3D Gaussian 的量子启发式非正交函数空间压缩</span><span class="lang lang-en lang-inline" data-lang="en">QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-20 · score 11 · cs.CV</div>
   <div class="meta">作者：Shizeng Jiang, Hao Zhang, Xuerui Ma, Ying Hu</div>
   <span class="score">评分 8.9/10</span>
   <div class="tags"><span class="tag">3DGS</span><span class="tag">模型压缩</span><span class="tag">函数空间</span><span class="tag">Gaussian 剪枝</span><span class="tag">实时渲染</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>从重叠 Gaussian 的非正交函数空间冗余出发做子空间选择，实现约 3.54× 压缩和 34.3% 渲染加速。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">QIRF 将相邻 Gaussian primitives 视作局部非正交基，通过解析 Gaussian overlap matrix 与 radiance-response density matrix 描述函数冗余和渲染相关性，再以广义特征分解选择主导子空间的代表 Gaussian。RRDM response model 与细节保护机制用于保留高频结构。13 个场景上平均减少 71.7% Gaussian 数量和…</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) achieves high-quality real-time rendering by representing a scene with a large collection of anisotropic Gaussian primitives. However, complex scenes often require millions of Gaus…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.18067">abs</a><a href="https://arxiv.org/pdf/2607.18067">PDF</a><a href="papers/arxiv-2607.18067/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18067">abs</a><a href="https://arxiv.org/pdf/2607.18067">PDF</a><a href="../../papers/arxiv-2607.18067/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.18801/index.html"><img src="assets/media/2026-07-23/arxiv-2607.18801/fig-001.webp" alt="ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.18801/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ZeroSplat：3D Gaussian Splatting 中的广义指代表达分割</span><span class="lang lang-en lang-inline" data-lang="en">ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.18801/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.18801/fig-001.webp" alt="ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.18801/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ZeroSplat：3D Gaussian Splatting 中的广义指代表达分割</span><span class="lang lang-en lang-inline" data-lang="en">ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-21 · score 10 · cs.CV</div>
   <div class="meta">作者：Jiayu Ding, Meilu Song, Xiaoyi Zhang, Hongbo Jin</div>
   <span class="score">评分 8.4/10</span>
   <div class="tags"><span class="tag">3DGS</span><span class="tag">语言引导分割</span><span class="tag">多视图几何</span><span class="tag">开放词汇</span><span class="tag">零训练</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用多视图几何把 2D VLM 先验提升到 3D 点级，实现无需训练和特征存储的 0/1/N 目标语言分割。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文提出 Generalized Referring 3DGS Segmentation，使查询可对应 0、1 或 N 个目标，并建立 GR-LERF 与 GR-ScanNet benchmark。ZeroSplat 是无需训练、无需附加语义特征的框架，通过稳健多视图几何约束将 2D VLM 先验提升到三维点级，从而避免逐场景语义特征优化和额外存储。实验显示其在广义与单目标场景均优于现有方法并保持较高效率。</p><p class="lang lang-en lang-block" data-lang="en">Recent advancements in 3D Gaussian Splatting (3DGS) have enabled language-guided scene understanding. However, existing Referring 3D Gaussian Splatting (R3DGS) methods are fundamentally restricted to single-ta…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.18801">abs</a><a href="https://arxiv.org/pdf/2607.18801">PDF</a><a href="papers/arxiv-2607.18801/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18801">abs</a><a href="https://arxiv.org/pdf/2607.18801">PDF</a><a href="../../papers/arxiv-2607.18801/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.18630/index.html"><img src="assets/media/2026-07-23/arxiv-2607.18630/fig-001.webp" alt="Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.18630/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">先感知再生成：对象感知增强单视图三维重建</span><span class="lang lang-en lang-inline" data-lang="en">Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.18630/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.18630/fig-001.webp" alt="Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.18630/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">先感知再生成：对象感知增强单视图三维重建</span><span class="lang lang-en lang-inline" data-lang="en">Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-21 · score 9 · cs.CV</div>
   <div class="meta">作者：Y Huynh, Duc Thanh Nguyen, Mohamed Abdelrazek</div>
   <span class="score">评分 7.5/10</span>
   <div class="tags"><span class="tag">单视图重建</span><span class="tag">感知先验</span><span class="tag">三维生成</span><span class="tag">预训练模型</span><span class="tag">对象重建</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>将预训练感知模型的语义和几何信号作为通用条件，插入不同单视图三维重建管线。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">本文研究学习式对象感知如何增强单视图三维重建。方法从预训练感知模型提取语义与几何信号，用其驱动单张图像的对象重建；设计与具体生成模型无关，可作为 plug-and-play 模块接入不同重建方法。在 benchmark 上与两套先进单视图重建管线结合均取得一致且显著的提升。</p><p class="lang lang-en lang-block" data-lang="en">The relationship between object perception and reconstruction is well established in human vision, yet remains underexplored in computer vision. In this paper, we demonstrate that learnt object perception can…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.18630">abs</a><a href="https://arxiv.org/pdf/2607.18630">PDF</a><a href="papers/arxiv-2607.18630/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18630">abs</a><a href="https://arxiv.org/pdf/2607.18630">PDF</a><a href="../../papers/arxiv-2607.18630/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.17200/index.html"><img src="assets/media/2026-07-23/arxiv-2607.17200/fig-001.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.17200/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">图像—点云配准的跨坐标对应剪枝</span><span class="lang lang-en lang-inline" data-lang="en">Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.17200/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.17200/fig-001.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.17200/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">图像—点云配准的跨坐标对应剪枝</span><span class="lang lang-en lang-inline" data-lang="en">Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-19 · score 9 · cs.CV</div>
   <div class="meta">作者：Xin Liu, Rong Qin, Huipeng Lin, Leizhi Shu</div>
   <span class="score">评分 8.8/10</span>
   <div class="tags"><span class="tag">图像点云配准</span><span class="tag">对应剪枝</span><span class="tag">多模态匹配</span><span class="tag">点云密度</span><span class="tag">位姿估计</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>统一跨模态对应坐标并融合多密度点云匹配，缓解图像—点云配准中的密度权衡。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">针对图像—点云 detection-free 配准中点云过稀导致 inlier 不足、过密导致 outlier 比例升高的矛盾，本文提出 CCP。方法先把跨坐标粗对应投影至 2D 图像坐标实现空间统一，再由轻量剪枝网络结合坐标几何与模态特征预测 inlier confidence；Multi-Density Point Ensemble 则汇总并去重多种点云密度下的剪枝结果，以提高 inlier recall。多个…</p><p class="lang lang-en lang-block" data-lang="en">Recent detection-free approaches have shown significant efficacy in image-to-point cloud (I2P) registration by employing a coarse-to-fine matching pipeline. In the coarse stage, down-sampled image features and…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.17200">abs</a><a href="https://arxiv.org/pdf/2607.17200">PDF</a><a href="papers/arxiv-2607.17200/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.17200">abs</a><a href="https://arxiv.org/pdf/2607.17200">PDF</a><a href="../../papers/arxiv-2607.17200/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.18466/index.html"><img src="assets/media/2026-07-23/arxiv-2607.18466/fig-001.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.18466/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ECoNGS：用于体数据可视化的高效压缩神经 Gaussian Splats</span><span class="lang lang-en lang-inline" data-lang="en">ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.18466/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/fig-001.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.18466/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ECoNGS：用于体数据可视化的高效压缩神经 Gaussian Splats</span><span class="lang lang-en lang-inline" data-lang="en">ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-21 · score 8 · cs.CV, cs.GR</div>
   <div class="meta">作者：Kaiyuan Tang, Chaoli Wang</div>
   <span class="score">评分 7.3/10</span>
   <div class="tags"><span class="tag">Gaussian Splatting</span><span class="tag">体数据可视化</span><span class="tag">神经压缩</span><span class="tag">熵编码</span><span class="tag">参数共享</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>以 anchor、轻量预测网络和熵编码压缩科学体数据的 Gaussian 表示，并跨相似场景共享参数。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">ECoNGS 用轻量网络从显式 anchor 动态预测隐式、可编辑 Gaussian splats，结合隐式表示的紧凑性和显式 primitive 的高性能渲染。其联合学习策略对几何相似场景共享参数，并以 neural entropy model 压缩 anchor 属性。相对 iVR-GS，重建 PSNR 最多提高 2.2 dB，模型最多缩小 6.1 倍，训练最多加速 5.9 倍。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in differentiable Gaussian splatting have highlighted the potential of primitive-based approaches as alternative scene representations for interactive, high-quality, volume visualization (VolVi…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.18466">abs</a><a href="https://arxiv.org/pdf/2607.18466">PDF</a><a href="papers/arxiv-2607.18466/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18466">abs</a><a href="https://arxiv.org/pdf/2607.18466">PDF</a><a href="../../papers/arxiv-2607.18466/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.15912/index.html"><img src="assets/media/2026-07-23/arxiv-2607.15912/fig-001.webp" alt="HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.15912/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HETA++：采用混合显式平移平均的全局 Structure-from-Motion</span><span class="lang lang-en lang-inline" data-lang="en">HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.15912/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.15912/fig-001.webp" alt="HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.15912/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HETA++：采用混合显式平移平均的全局 Structure-from-Motion</span><span class="lang lang-en lang-inline" data-lang="en">HETA++: Global Structure-from-Motion with Hybrid Explicit Translation Averaging</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-17 · score 8 · cs.CV</div>
   <div class="meta">作者：Peilin Tao, Hainan Cui, Mengqi Rong, Shuhan Shen</div>
   <span class="score">评分 9.1/10</span>
   <div class="tags"><span class="tag">Structure-from-Motion</span><span class="tag">平移平均</span><span class="tag">Bundle Adjustment</span><span class="tag">特征轨迹</span><span class="tag">全局优化</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>融合相对平移与特征轨迹，以分阶段角度优化和 BA 提升全局 SfM 平移平均的鲁棒性。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">HETA++ 联合 relative translations 与 feature tracks 进行全局 SfM 平移平均，以缓解共线相机运动退化和 track outlier。方法先利用全局旋转细化并剔除不一致相对平移，再用 convex distance objective 初始化相机位置和三维点，以 non-bilinear angle objective 细化。随后用空间均衡选择的 tracks 对旋转和…</p><p class="lang lang-en lang-block" data-lang="en">Global Structure-from-Motion (SfM) offers advantages over incremental methods in terms of efficiency and error distribution. However, the task of translation averaging remains challenging. Many existing method…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.15912">abs</a><a href="https://arxiv.org/pdf/2607.15912">PDF</a><a href="papers/arxiv-2607.15912/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.15912">abs</a><a href="https://arxiv.org/pdf/2607.15912">PDF</a><a href="../../papers/arxiv-2607.15912/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.19100/index.html"><img src="assets/media/2026-07-23/arxiv-2607.19100/fig-001.webp" alt="FlexiAvatar: Unified 3D Gaussian Human Avatars Under Arbitrary Body Visibility" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.19100/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">FlexiAvatar：任意身体可见范围下的统一 3D Gaussian 人体 Avatar</span><span class="lang lang-en lang-inline" data-lang="en">FlexiAvatar: Unified 3D Gaussian Human Avatars Under Arbitrary Body Visibility</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.19100/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.19100/fig-001.webp" alt="FlexiAvatar: Unified 3D Gaussian Human Avatars Under Arbitrary Body Visibility" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.19100/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">FlexiAvatar：任意身体可见范围下的统一 3D Gaussian 人体 Avatar</span><span class="lang lang-en lang-inline" data-lang="en">FlexiAvatar: Unified 3D Gaussian Human Avatars Under Arbitrary Body Visibility</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-21 · score 7 · cs.CV</div>
   <div class="meta">作者：Yihalem Yimolal Tiruneh, Muhammad Salman Ali, Uyoung Jeong, Muneeb A. Khan</div>
   <span class="score">评分 7/10</span>
   <div class="tags"><span class="tag">人体重建</span><span class="tag">3DGS</span><span class="tag">SMPL-X</span><span class="tag">遮挡处理</span><span class="tag">单目视频</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>按可见身体区域选择性优化 3D Gaussian Avatar，并以扩散模型补全完全未观测区域。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">FlexiAvatar 从单目视频重建可动画 3D 人体，只优化真实可见身体区域，避免未观测肢体损害可见区域质量。方法结合遮挡鲁棒 SMPL-X tracking 与分部 residual refinement 捕获高频几何和外观，并用 diffusion 补全完全不可见区域。在多个全身、半身和头部数据集上，平均 PSNR 约提高 3%；局部可见情形下还减少需要优化和渲染的 Gaussian 数量。</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing animatable 3D human avatars from monocular video is a fundamental problem in computer vision with broad applications in AR/VR and digital content creation. Existing approaches typically couple p…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.19100">abs</a><a href="https://arxiv.org/pdf/2607.19100">PDF</a><a href="papers/arxiv-2607.19100/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.19100">abs</a><a href="https://arxiv.org/pdf/2607.19100">PDF</a><a href="../../papers/arxiv-2607.19100/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.19228/index.html"><img src="assets/media/2026-07-23/arxiv-2607.19228/fig-001.webp" alt="IGGT4D: Streaming 4D Instance-Grounded Geometry Transformer" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.19228/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">IGGT4D：流式实例落地的四维几何 Transformer</span><span class="lang lang-en lang-inline" data-lang="en">IGGT4D: Streaming 4D Instance-Grounded Geometry Transformer</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.19228/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.19228/fig-001.webp" alt="IGGT4D: Streaming 4D Instance-Grounded Geometry Transformer" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.19228/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">IGGT4D：流式实例落地的四维几何 Transformer</span><span class="lang lang-en lang-inline" data-lang="en">IGGT4D: Streaming 4D Instance-Grounded Geometry Transformer</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-22 · score 5 · cs.CV</div>
   <div class="meta">作者：Zhengyu Zou, Hao Li, Kuixuan Jiao, Liu Liu</div>
   <span class="score">评分 9/10</span>
   <div class="tags"><span class="tag">流式重建</span><span class="tag">4D 场景理解</span><span class="tag">位姿估计</span><span class="tag">实例跟踪</span><span class="tag">动态场景</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>在视频流中联合增量维护相机运动、场景几何与持久对象身份，面向动态长序列在线 4D 理解。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">IGGT4D 面向连续视频流的在线四维场景理解，顺序处理帧并通过 causal spatial-temporal modeling 复用历史上下文，增量更新相机运动、几何和对象身份的统一表示，从而支持动态长场景中的前馈重建与几何—实例一致性。作者还构建 InsScene4D-147K，提供真实/合成、静态/动态场景的 RGB、depth、pose 和时序一致 instance masks。实验覆盖三维重建、位姿估计…</p><p class="lang lang-en lang-block" data-lang="en">Real-world spatial intelligence requires agents to understand scenes from continuous video streams, where objects move, persist, disappear, and reappear over time. While recent spatial foundation models have e…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.19228">abs</a><a href="https://arxiv.org/pdf/2607.19228">PDF</a><a href="papers/arxiv-2607.19228/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.19228">abs</a><a href="https://arxiv.org/pdf/2607.19228">PDF</a><a href="../../papers/arxiv-2607.19228/index.html">详情</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2607.18539/index.html"><img src="assets/media/2026-07-23/arxiv-2607.18539/fig-001.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2607.18539/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AniGS：连接渲染与扩散先验的三维场景动画</span><span class="lang lang-en lang-inline" data-lang="en">AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2607.18539/index.html"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/fig-001.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2607.18539/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AniGS：连接渲染与扩散先验的三维场景动画</span><span class="lang lang-en lang-inline" data-lang="en">AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-07-21 · score 4 · cs.CV</div>
   <div class="meta">作者：Yen-Chi Cheng, Chen Gao, Chuhan Chen, Tuotuo Li</div>
   <span class="score">评分 6.8/10</span>
   <div class="tags"><span class="tag">3DGS</span><span class="tag">场景动画</span><span class="tag">视频扩散</span><span class="tag">形变场</span><span class="tag">新视角合成</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用时变形变场和视频扩散先验，为大型静态 3DGS 重建添加区域受控的环境微动。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">AniGS 为大型复杂 3DGS 重建添加植被等细微分布式动态，同时保持刚性结构不动。系统以 canonical 3DGS 表示场景，用 time-conditioned deformation field 建模运动，并借助预训练视频扩散模型，通过迭代 dataset-model update 与 render-and-refine 扩大视角覆盖；composed video-to-video refinement…</p><p class="lang lang-en lang-block" data-lang="en">Novel view rendering of large and complex reconstructed scenes is becoming increasingly photorealistic. However, most reconstructions remain static and lack the ambient motion that makes environments immersive…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2607.18539">abs</a><a href="https://arxiv.org/pdf/2607.18539">PDF</a><a href="papers/arxiv-2607.18539/index.html">详情</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18539">abs</a><a href="https://arxiv.org/pdf/2607.18539">PDF</a><a href="../../papers/arxiv-2607.18539/index.html">详情</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -311,6 +311,6 @@
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>

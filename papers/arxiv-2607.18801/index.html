@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-23/index.html">← 返回 2026-07-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ZeroSplat：3D Gaussian Splatting 中的广义指代表达分割</span><span class="lang lang-en lang-inline" data-lang="en">ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Jiayu Ding, Meilu Song, Xiaoyi Zhang, Hongbo Jin, Yichen Jin, Xiangtian Si</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18801">abs</a><a href="https://arxiv.org/pdf/2607.18801">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>对语义 3DGS 和开放指令场景有明确价值且提供新基准；依赖位姿与多视图覆盖，实际鲁棒性待验证。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">语言引导分割</span><span class="tag">多视图几何</span><span class="tag">开放词汇</span><span class="tag">零训练</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用多视图几何把 2D VLM 先验提升到 3D 点级，实现无需训练和特征存储的 0/1/N 目标语言分割。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出 Generalized Referring 3DGS Segmentation，使查询可对应 0、1 或 N 个目标，并建立 GR-LERF 与 GR-ScanNet benchmark。ZeroSplat 是无需训练、无需附加语义特征的框架，通过稳健多视图几何约束将 2D VLM 先验提升到三维点级，从而避免逐场景语义特征优化和额外存储。实验显示其在广义与单目标场景均优于现有方法并保持较高效率。</p><p class="lang lang-en lang-block" data-lang="en">Recent advancements in 3D Gaussian Splatting (3DGS) have enabled language-guided scene understanding. However, existing Referring 3D Gaussian Splatting (R3DGS) methods are fundamentally restricted to single-target queries. To reflect the ambiguity of real-world instructions, we introduce the Generalized Referring 3D Gaussian Splatting Segmentation (GR3DGS) task, which requires dynamically segmenting an arbitrary number of targets (0, 1, or $N$). To facilitate comprehensive evaluation of this new task, we construct two new benchmarks: GR-LERF and GR-ScanNet. Crucially, existing R3DGS paradigms exhibit fundamental technical bottlenecks that severely limit their performance on the GR3DGS task: they lack intrinsic 3D point-level understanding by operating merely on 2D rendered pixels, and they incur prohibitive computational overhead by requiring per-scene optimization to embed heavy semantic features. To dismantle these bottlenecks, we propose ZeroSplat, a novel training-free and zero-feature framework. ZeroSplat lifts 2D Vision-Language Model (VLM) priors into 3D space through robust multi-view geometric constraints. This strategy enables intrinsic point-level understanding without incurring any additional feature storage. Extensive experiments demonstrate that ZeroSplat significantly outperforms state-of-the-art methods across generalized and single-target scenarios while maintaining exceptional efficiency. Project Page: https://inkmind-ai.github.io/ZeroSplat</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jiayu Ding, Meilu Song, Xiaoyi Zhang, Hongbo Jin, Yichen Jin, Xiangtian Si</li>
+<li><strong>价值判断</strong>：把 0、1 或 N 个目标的歧义指令纳入统一任务，并用多视图几何约束把 2D VLM 先验提升到 3D point level，无需逐场景优化或额外语义特征存储。</li>
+<li><strong>资源</strong>：提出 GR-LERF 与 GR-ScanNet benchmark；论文已被 ECCV 2026 接收。</li>
+<li><strong>后续核查</strong>：对位姿误差、遮挡和视图覆盖的敏感性，以及训练自由方案在开放世界长尾指令上的失败模式。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.18801">arXiv</a> · <a href="https://inkmind-ai.github.io/ZeroSplat">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18801/fig-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18801/fig-001.webp" alt="ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18801/fig-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18801/fig-002.webp" alt="ZeroSplat: Generalized Referring Segmentation in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

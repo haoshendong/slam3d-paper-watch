@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-23/index.html">← 返回 2026-07-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-19 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">图像—点云配准的跨坐标对应剪枝</span><span class="lang lang-en lang-inline" data-lang="en">Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration</span></h1>
+  <div class="meta">作者：Xin Liu, Rong Qin, Huipeng Lin, Leizhi Shu, Jin Wu, Chi-Man Vong, Liang Lin, Jufeng Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.17200">abs</a><a href="https://arxiv.org/pdf/2607.17200">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.8/10</span><p>与跨模态定位和点云配准直接相关，至少 8.6% Recall 增益突出；需核查绝对精度、速度和密度泛化。</p><div class="tags"><span class="tag">图像点云配准</span><span class="tag">对应剪枝</span><span class="tag">多模态匹配</span><span class="tag">点云密度</span><span class="tag">位姿估计</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">统一跨模态对应坐标并融合多密度点云匹配，缓解图像—点云配准中的密度权衡。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">针对图像—点云 detection-free 配准中点云过稀导致 inlier 不足、过密导致 outlier 比例升高的矛盾，本文提出 CCP。方法先把跨坐标粗对应投影至 2D 图像坐标实现空间统一，再由轻量剪枝网络结合坐标几何与模态特征预测 inlier confidence；Multi-Density Point Ensemble 则汇总并去重多种点云密度下的剪枝结果，以提高 inlier recall。多个 benchmark 上 Registration Recall 至少超过现有 SOTA 8.6%。</p><p class="lang lang-en lang-block" data-lang="en">Recent detection-free approaches have shown significant efficacy in image-to-point cloud (I2P) registration by employing a coarse-to-fine matching pipeline. In the coarse stage, down-sampled image features and voxelized point cloud features are typically fused to establish initial coarse correspondences for subsequent refinement. However, existing methods largely overlook the critical role of point cloud density, which fundamentally dictates the quality of coarse correspondences and the final registration results. Specifically, excessively sparse point clouds lead to an insufficient number of inliers, while overly dense ones often introduce a high outlier ratio. Consequently, this creates an inherent density trade-off, thereby significantly limiting the registration accuracy of current approaches. For mitigating this trade-off, we propose a novel Cross-Coordinate Correspondences Pruning (CCP) strategy to acquire sufficient inliers while ensuring a low outlier ratio. To minimize interference from inter-modal coordinate discrepancies, we first project cross-coordinate coarse correspondences to the 2D image coordinate system for spatial unification. Subsequently, a lightweight pruning network is responsible for predicting the inlier confidences, which are used to filter coarse outliers, from coordinate geometric and modal feature dimensions. To maximize inlier recall, we further design a Multi-Density Point Ensemble (MDPE) strategy that consolidates and deduplicates pruned coarse correspondences across varying point cloud densities. Our method achieves a significant performance improvement, surpassing existing state-of-the-art methods by at least 8.6% in Registration Recall across various benchmarks.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Xin Liu, Rong Qin, Huipeng Lin, Leizhi Shu, Jin Wu, Chi-Man Vong, Liang Lin, Jufeng Yang</li>
+<li><strong>价值判断</strong>：正面处理点云过稀导致 inlier 不足、过密导致 outlier 比例过高的密度权衡。</li>
+<li><strong>技术要点</strong>：将跨模态粗对应投影到统一 2D 坐标，以轻量网络从坐标几何和模态特征预测 inlier confidence；再通过 Multi-Density Point Ensemble 合并去重不同密度的结果。</li>
+<li><strong>关键结果</strong>：在多个 benchmark 上 Registration Recall 至少领先现有 SOTA 8.6%。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.17200">arXiv</a> · <a href="https://arxiv.org/pdf/2607.17200">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.17200/fig-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.17200/fig-001.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.17200/fig-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.17200/fig-002.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.17200/fig-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.17200/fig-003.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.17200/fig-004.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.17200/fig-004.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.17200/table-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.17200/table-001.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.17200/table-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.17200/table-002.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.17200/table-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.17200/table-003.webp" alt="Cross-Coordinate Correspondence Pruning for Image-to-Point Cloud Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

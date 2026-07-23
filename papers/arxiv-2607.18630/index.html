@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-23/index.html">← 返回 2026-07-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">先感知再生成：对象感知增强单视图三维重建</span><span class="lang lang-en lang-inline" data-lang="en">Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction</span></h1>
+  <div class="meta">作者：Y Huynh, Duc Thanh Nguyen, Mohamed Abdelrazek</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18630">abs</a><a href="https://arxiv.org/pdf/2607.18630">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.5/10</span><p>通用插拔思路有用，但摘要缺少具体数值，且单视图生成与测量级场景重建仍有距离。</p><div class="tags"><span class="tag">单视图重建</span><span class="tag">感知先验</span><span class="tag">三维生成</span><span class="tag">预训练模型</span><span class="tag">对象重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将预训练感知模型的语义和几何信号作为通用条件，插入不同单视图三维重建管线。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文研究学习式对象感知如何增强单视图三维重建。方法从预训练感知模型提取语义与几何信号，用其驱动单张图像的对象重建；设计与具体生成模型无关，可作为 plug-and-play 模块接入不同重建方法。在 benchmark 上与两套先进单视图重建管线结合均取得一致且显著的提升。</p><p class="lang lang-en lang-block" data-lang="en">The relationship between object perception and reconstruction is well established in human vision, yet remains underexplored in computer vision. In this paper, we demonstrate that learnt object perception can significantly enhance 3D reconstruction. Focusing on the challenging task of single-view 3D object reconstruction, we propose a method that leverages perceptual signals extracted from pretrained perception models capturing semantic and geometric information to drive the reconstruction of an object from its single image. Our approach is model-agnostic and can be integrated into various reconstruction methods in a plug-and-play manner. Experiments with two state-of-the-art single-view 3D reconstruction pipelines in a benchmark dataset show consistent and substantial improvements achieved by our method, validating the effectiveness of incorporating perception into generation. We provide in-depth analysis of various aspects of our method and its application. Our project page is at https://ynhuhuynh.github.io/perception-3d/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Y Huynh, Duc Thanh Nguyen, Mohamed Abdelrazek</li>
+<li><strong>价值判断</strong>：把预训练感知模型的语义与几何信号作为可插拔条件注入单视图重建，强调“先感知再生成”，而非改造某个特定生成骨干。</li>
+<li><strong>关键结果</strong>：在 benchmark 上接入两套先进单视图重建管线均获得一致提升。</li>
+<li><strong>后续核查</strong>：具体增益指标、感知模型泄漏与类别偏置、遮挡面几何是否真实改善，而非只提升外观相似度。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.18630">arXiv</a> · <a href="https://ynhuhuynh.github.io/perception-3d/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18630/fig-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18630/fig-001.webp" alt="Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18630/fig-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18630/fig-002.webp" alt="Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18630/table-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18630/table-001.webp" alt="Seeing Before Generating: Object Perception Enhances Single-View 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

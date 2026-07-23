@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-23/index.html">← 返回 2026-07-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 8 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ECoNGS：用于体数据可视化的高效压缩神经 Gaussian Splats</span><span class="lang lang-en lang-inline" data-lang="en">ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization</span></h1>
+  <div class="meta">作者：Kaiyuan Tang, Chaoli Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18466">abs</a><a href="https://arxiv.org/pdf/2607.18466">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.3/10</span><p>压缩与训练效率结果强，但应用是体数据可视化而非相机观测驱动的 SLAM/场景重建。</p><div class="tags"><span class="tag">Gaussian Splatting</span><span class="tag">体数据可视化</span><span class="tag">神经压缩</span><span class="tag">熵编码</span><span class="tag">参数共享</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 anchor、轻量预测网络和熵编码压缩科学体数据的 Gaussian 表示，并跨相似场景共享参数。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ECoNGS 用轻量网络从显式 anchor 动态预测隐式、可编辑 Gaussian splats，结合隐式表示的紧凑性和显式 primitive 的高性能渲染。其联合学习策略对几何相似场景共享参数，并以 neural entropy model 压缩 anchor 属性。相对 iVR-GS，重建 PSNR 最多提高 2.2 dB，模型最多缩小 6.1 倍，训练最多加速 5.9 倍。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in differentiable Gaussian splatting have highlighted the potential of primitive-based approaches as alternative scene representations for interactive, high-quality, volume visualization (VolVis) of large datasets. However, the explicit nature of current primitive-based methods, combined with isolated optimization for each VolVis scene, results in redundant, non-compact representations. We present ECoNGS, an efficient compressive neural Gaussian splatting framework for VolVis scene representation. ECoNGS employs lightweight neural networks to dynamically predict implicit, editable Gaussian splats from explicit anchor points, effectively combining model compactness and parameter efficiency of implicit representations with high-performance rendering of explicit primitives. We explore a joint learning strategy that clusters geometrically similar scenes and shares parameters across them, significantly reducing overall training time and model size while maintaining reconstruction fidelity. To achieve a more compact scene representation, we further compress the explicit anchor attributes using a neural entropy model that estimates their probability distributions, enabling compact storage via entropy coding. We systematically investigate Gaussian initialization strategies and propose a simple yet effective scheme tailored for VolVis scenes, improving reconstruction accuracy and accelerating convergence. We evaluate ECoNGS qualitatively and quantitatively across various univariate and multivariate VolVis scenes, highlighting its superior performance over prior methods in training time, reconstruction quality, and model size. In particular, compared with the prior method iVR-GS, ECoNGS improves reconstruction quality by up to 2.2 dB in PSNR while reducing the model size by up to 6.1x and the training time by up to 5.9x. The code is available at https://github.com/TouKaienn/ECoNGS.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Kaiyuan Tang, Chaoli Wang</li>
+<li><strong>价值判断</strong>：以显式 anchor 加轻量网络动态预测可编辑 Gaussian，并跨几何相似场景共享参数，适合关注大规模显式表示的存储与训练成本。</li>
+<li><strong>关键结果</strong>：相对 iVR-GS，PSNR 最多提高 2.2 dB，模型最多缩小 6.1×，训练最多加速 5.9×；将发表于 IEEE VIS 2026/TVCG。</li>
+<li><strong>领域边界</strong>：面向 scientific volume visualization，不是相机观测驱动的 SLAM 场景重建。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.18466">arXiv</a> · <a href="https://github.com/TouKaienn/ECoNGS">代码</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/fig-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/fig-001.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/fig-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/fig-002.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/fig-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/fig-003.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/fig-004.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/fig-004.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/fig-005.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/fig-005.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/fig-006.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/fig-006.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/table-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/table-001.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/table-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/table-002.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/table-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/table-003.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18466/table-004.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18466/table-004.webp" alt="ECoNGS: Efficient Compressive Neural Gaussian Splats for Volume Visualization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

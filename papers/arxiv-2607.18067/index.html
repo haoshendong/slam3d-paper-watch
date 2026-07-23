@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-23/index.html">← 返回 2026-07-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-20 · score 11 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">QIRF：3D Gaussian 的量子启发式非正交函数空间压缩</span><span class="lang lang-en lang-inline" data-lang="en">QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Shizeng Jiang, Hao Zhang, Xuerui Ma, Ying Hu, Tao Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18067">abs</a><a href="https://arxiv.org/pdf/2607.18067">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.9/10</span><p>压缩切入点新且定量结果完整；广义特征分解开销、压缩元数据和更强码率基线仍待核查。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">模型压缩</span><span class="tag">函数空间</span><span class="tag">Gaussian 剪枝</span><span class="tag">实时渲染</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从重叠 Gaussian 的非正交函数空间冗余出发做子空间选择，实现约 3.54× 压缩和 34.3% 渲染加速。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">QIRF 将相邻 Gaussian primitives 视作局部非正交基，通过解析 Gaussian overlap matrix 与 radiance-response density matrix 描述函数冗余和渲染相关性，再以广义特征分解选择主导子空间的代表 Gaussian。RRDM response model 与细节保护机制用于保留高频结构。13 个场景上平均减少 71.7% Gaussian 数量和原始 PLY 存储，约 3.54 倍压缩，在质量接近 3DGS 时平均 PSNR 微增 0.10 dB，渲染速度提高 34.3%。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) achieves high-quality real-time rendering by representing a scene with a large collection of anisotropic Gaussian primitives. However, complex scenes often require millions of Gaussians, resulting in substantial storage and rendering costs. Existing compression methods mainly reduce redundancy through primitive-wise pruning, attribute quantization, clustering, or neural coding, while redundancy caused by strongly overlapping and non-orthogonal Gaussian basis functions remains largely unexplored. We present QIRF, a quantum-inspired non-orthogonal function-space compression method for 3D Gaussian Splatting. QIRF models neighboring Gaussian primitives as a local non-orthogonal basis and formulates primitive reduction as a subspace-aware selection problem. Specifically, an analytic Gaussian overlap matrix and a radiance-response density matrix are constructed to characterize functional redundancy and rendering relevance. Generalized eigendecomposition is then used to identify the dominant local subspace and select representative Gaussian primitives. An RRDM-based response model and detail-aware safeguarding further preserve visually important high-frequency structures under aggressive pruning. Experiments on 13 scenes from Mip-NeRF 360, Tanks and Temples, and Deep Blending show that QIRF reduces the Gaussian count and raw PLY storage by 71.7 percent on average, corresponding to approximately 3.54 times compression, while maintaining reconstruction quality comparable to 3DGS and achieving a marginal average PSNR improvement of 0.10 dB. QIRF also improves the average rendering speed over 3DGS by 34.3 percent. These results suggest that non-orthogonal function-space redundancy is an important yet underexplored source of representational redundancy in explicit Gaussian radiance fields.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Shizeng Jiang, Hao Zhang, Xuerui Ma, Ying Hu, Tao Zhang</li>
+<li><strong>价值判断</strong>：不只做 primitive pruning 或量化，而是显式刻画重叠 Gaussian 基函数的函数空间冗余。</li>
+<li><strong>关键结果</strong>：13 个场景平均减少 71.7% Gaussian 数量和原始 PLY 存储，约 3.54× 压缩；平均 PSNR 微增 0.10 dB，渲染速度提高 34.3%。</li>
+<li><strong>后续核查</strong>：广义特征分解的预处理开销、局部划分稳定性、压缩后训练/编辑能力，以及与当前强压缩基线的码率—质量比较。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.18067">arXiv</a> · <a href="https://arxiv.org/pdf/2607.18067">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18067/fig-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18067/fig-001.webp" alt="QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18067/fig-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18067/fig-002.webp" alt="QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18067/fig-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18067/fig-003.webp" alt="QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18067/table-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18067/table-001.webp" alt="QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18067/table-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18067/table-002.webp" alt="QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18067/table-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18067/table-003.webp" alt="QIRF Quantum-Inspired Non-Orthogonal Function-Space Compression for 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

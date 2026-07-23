@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-23/index.html">← 返回 2026-07-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-21 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">AniGS：连接渲染与扩散先验的三维场景动画</span><span class="lang lang-en lang-inline" data-lang="en">AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation</span></h1>
+  <div class="meta">作者：Yen-Chi Cheng, Chen Gao, Chuhan Chen, Tuotuo Li, Rajvi Shah, Ayush Saraf, Changil Kim, Liangyan Gui</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18539">abs</a><a href="https://arxiv.org/pdf/2607.18539">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>大型场景动态化有展示价值，但属于重建后动画，不提供动态 SLAM 的可测几何估计。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">场景动画</span><span class="tag">视频扩散</span><span class="tag">形变场</span><span class="tag">新视角合成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用时变形变场和视频扩散先验，为大型静态 3DGS 重建添加区域受控的环境微动。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">AniGS 为大型复杂 3DGS 重建添加植被等细微分布式动态，同时保持刚性结构不动。系统以 canonical 3DGS 表示场景，用 time-conditioned deformation field 建模运动，并借助预训练视频扩散模型，通过迭代 dataset-model update 与 render-and-refine 扩大视角覆盖；composed video-to-video refinement 将运动限制在目标区域。五个真实大型室外场景实验展示了自然环境动态和较高质量的新视角视频。</p><p class="lang lang-en lang-block" data-lang="en">Novel view rendering of large and complex reconstructed scenes is becoming increasingly photorealistic. However, most reconstructions remain static and lack the ambient motion that makes environments immersive. We present AniGS, a method for scene-level animation of 3D Gaussian Splatting (3DGS) reconstructions that adds subtle, distributed dynamics, e.g., vegetation motion, while preserving rigid structures. Unlike existing 3D animation techniques which are limited to object-centric subjects or small regions, AniGS is designed for large, cluttered, navigable scenes. AniGS represents the scene with a canonical 3DGS and models motion using a time-conditioned deformation field. To animate the entire scene, we leverage a pretrained video diffusion model and introduce an iterative dataset--model update strategy that progressively expands viewpoint coverage and repeatedly updates camera-fixed training videos using a render-and-refine scheme. To prevent artifacts from unintended motion in static areas, we further introduce a composed video-to-video refinement scheme that restricts motion to desired regions. Experiments on five real-world, large-scale outdoor scenes demonstrate that AniGS produces natural ambient dynamics and high-quality novel view videos, enabling more immersive viewing experiences of reconstructed environments.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Yen-Chi Cheng, Chen Gao, Chuhan Chen, Tuotuo Li, Rajvi Shah, Ayush Saraf, Changil Kim, Liangyan Gui</li>
+<li><strong>价值判断</strong>：从静态大型 3DGS 出发，用 time-conditioned deformation field 与视频扩散先验添加植被等分布式微动，同时约束刚性区域保持静止。</li>
+<li><strong>技术要点</strong>：通过 render-and-refine 迭代扩展视角覆盖，并用 composed video-to-video refinement 限制运动区域。</li>
+<li><strong>领域边界</strong>：属于重建后动画而非动态 SLAM；需核查几何一致性、跨视角时序稳定性和扩散先验引入的非真实运动。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.18539">arXiv</a> · <a href="https://yccyenchicheng.github.io/AniGS/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18539/fig-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/fig-001.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18539/fig-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/fig-002.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18539/fig-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/fig-003.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18539/table-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/table-001.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18539/table-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/table-002.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18539/table-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/table-003.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18539/table-004.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/table-004.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.18539/table-005.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.18539/table-005.webp" alt="AniGS: Bridging Rendering and Diffusion Prior for 3D Scene Animation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

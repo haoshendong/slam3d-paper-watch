@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Splat-based 3D Scene Reconstruction with Extreme Motion-blur</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-23/index.html">← 返回 2026-07-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-19 · score 15 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">极端运动模糊下的 Splat-based 三维场景重建</span><span class="lang lang-en lang-inline" data-lang="en">Splat-based 3D Scene Reconstruction with Extreme Motion-blur</span></h1>
+  <div class="meta">作者：Hyeonjoong Jang, Dongyoung Choi, Donggun Kim, Woohyun Kang, Min H. Kim</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.16926">abs</a><a href="https://arxiv.org/pdf/2607.16926">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.4/10</span><p>直接命中恶劣成像下的定位与重建，并有代码和数据；位姿 ATE、深度噪声敏感性及在线能力仍需正文验证。</p><div class="tags"><span class="tag">RGB-D</span><span class="tag">3DGS</span><span class="tag">运动去模糊</span><span class="tag">相机位姿</span><span class="tag">三维重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在 3DGS 中联合优化 RGB-D 位姿、深度几何和曝光内运动，处理低照高速运动导致的 COLMAP/ICP 失效。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文面向低照度下长曝光造成的极端运动模糊，提出基于 RGB-D 输入的 Gaussian Splatting 三维重建方法。系统先通过 optical flow 与 ICP 对齐连续帧，再通过调整 Gaussian 位置优化深度对齐，从而联合细化相机位姿与三维几何；同时显式建模曝光期间的相机运动，将输入模糊图像与一系列清晰渲染帧比较以完成去模糊。作者在新建 RGB-D 极端运动模糊数据集上报告优于现有方法，并公开代码与数据。</p><p class="lang lang-en lang-block" data-lang="en">We propose a splat-based 3D scene reconstruction method from RGB-D input that effectively handles extreme motion blur, a frequent challenge in low-light environments. Under dim illumination, RGB frames often suffer from severe motion blur due to extended exposure times, causing traditional camera pose estimation methods, such as COLMAP, to fail. This results in inaccurate camera pose and blurry color input, compromising the quality of 3D reconstructions. Although recent 3D reconstruction techniques like Neural Radiance Fields and Gaussian Splatting have demonstrated impressive results, they rely on accurate camera trajectory estimation, which becomes challenging under fast motion or poor lighting conditions. Furthermore, rapid camera movement and the limited field of view of depth sensors reduce point cloud overlap, limiting the effectiveness of pose estimation with the ICP algorithm. To address these issues, we introduce a method that combines camera pose estimation and image deblurring using a Gaussian Splatting framework, leveraging both 3D Gaussian splats and depth inputs for enhanced scene representation. Our method first aligns consecutive RGB-D frames through optical flow and ICP, then refines camera poses and 3D geometry by adjusting Gaussian positions for optimal depth alignment. To handle motion blur, we model camera movement during exposure and deblur images by comparing the input with a series of sharp, rendered frames. Experiments on a new RGB-D dataset with extreme motion blur show that our method outperforms existing approaches, enabling high-quality reconstructions even in challenging conditions. This approach has broad implications for 3D mapping applications in robotics, autonomous navigation, and augmented reality. Both code and dataset are publicly available on https://github.com/KAIST-VCLAB/gs-extreme-motion-blur.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Hyeonjoong Jang, Dongyoung Choi, Donggun Kim, Woohyun Kang, Min H. Kim</li>
+<li><strong>价值判断</strong>：把相机位姿估计、深度几何优化与曝光期间运动建模放入 Gaussian Splatting 框架，直接针对低照度快速运动导致 COLMAP 失败、RGB 模糊和 ICP 重叠不足的问题。</li>
+<li><strong>技术要点</strong>：先以 optical flow 与 ICP 对齐连续 RGB-D 帧，再调整 Gaussian 位置以优化深度对齐；通过曝光期间一系列清晰渲染帧反演相机运动并去模糊。</li>
+<li><strong>后续核查</strong>：新数据集规模、深度噪声敏感性、在线性、与 blur-aware NeRF/3DGS 及 RGB-D SLAM 的位姿 ATE 对比。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.16926">arXiv</a> · <a href="https://arxiv.org/pdf/2607.16926">PDF</a> · <a href="https://github.com/KAIST-VCLAB/gs-extreme-motion-blur">代码/数据</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/fig-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/fig-001.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/fig-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/fig-002.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/fig-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/fig-003.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/fig-004.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/fig-004.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/fig-005.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/fig-005.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/fig-006.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/fig-006.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/table-001.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/table-001.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/table-002.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/table-002.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-23/arxiv-2607.16926/table-003.webp"><img src="../../assets/media/2026-07-23/arxiv-2607.16926/table-003.webp" alt="Splat-based 3D Scene Reconstruction with Extreme Motion-blur" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
