@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-24/index.html">← 返回 2026-07-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 8 · cs.GR, cs.ET, cs.MM, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向三维全息显示的 Multiplane Image 快速波动光学渲染</span><span class="lang lang-en lang-inline" data-lang="en">Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays</span></h1>
+  <div class="meta">作者：Brian Chao, Dario Seyb, Nathan Matsuda, Oliver Cossairt, Yang Zhou, Douglas Lanman, Gordon Wetzstein, Grace Kuo, Changwon Jang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.19731">abs</a><a href="https://arxiv.org/pdf/2607.19731">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.2/10</span><p>对三维重建内容的显示链路有系统价值且速度结果突出，但贡献是渲染/显示，不是重建、定位或建图算法。</p><div class="tags"><span class="tag">Multiplane Image</span><span class="tag">全息显示</span><span class="tag">波动光学</span><span class="tag">神经渲染</span><span class="tag">三维内容</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 MPI 加速三维内容到全息图的波动光学渲染，报告相对 primitive-based CGH 最高 250,000× 加速。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文提出基于 multiplane images（MPI）的 wave-optics rendering pipeline，用于高效、高质量全息图合成，将三维重建和 novel view synthesis 内容转换为适配 3D holographic displays 的表示。摘要报告其 MPI-based CGH 相对先进 primitive-based CGH 最高加速 250,000 倍，同时保持相近图像质量；相对传统 layer-based CGH 则显著提高图像质量。方法在多种三维场景数据上通过仿真与实拍验证了 3D focal stack 和 4D light field reconstruction。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in neural rendering have unlocked unprecedented capabilities in 3D reconstruction and novel view synthesis, giving rise to applications such as virtual fly-throughs of a 3D scene reconstructed from a set of sparse, casually captured images. However, these renderings are viewed on a computer screen or conventional VR headsets as 2D images, greatly limiting the perceptual realism and immersiveness of such experiences. The rapid development in novel 3D scene representations calls for dedicated rendering algorithms that convert these readily-available 3D contents into formats that are compatible with emerging 3D display technologies, such as holographic displays. In this paper, we propose a wave-optics rendering pipeline that works with multiplane images (MPIs) for efficient and high-quality hologram synthesis. Our MPI-based computer-generated holography algorithm greatly outperforms state-of-the-art primitive-based CGH algorithms in terms of runtime, achieving speedups up to 250,000x while achieving comparable image quality, and significantly outperforms conventional layer-based CGH algorithms in terms of image quality. We validate our method extensively on a wide variety of 3D scene datasets both in simulation and through experimentally captured results, showing exceptional 3D focal stack and 4D light field reconstruction performance without sacrificing efficiency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Brian Chao 等</li>
+<li><strong>价值判断</strong>：关注重建后端内容如何转换为全息显示格式，适合作为 NeRF/3DGS/MPI 输出链路的系统线索；并非新的三维重建或位姿估计方法。</li>
+<li><strong>关键结果</strong>：MPI-based computer-generated holography 相对 primitive-based CGH 报告最高 250,000× 加速，同时保持相近图像质量；相对传统 layer-based CGH 则显著提升图像质量。</li>
+<li><strong>后续核查</strong>：极端加速比的硬件与分辨率口径、MPI 构建成本、遮挡边界伪影，以及对 3DGS/NeRF 内容的实际转换损失。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.19731">arXiv</a> · <a href="https://arxiv.org/pdf/2607.19731">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19731/fig-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19731/fig-001.webp" alt="Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19731/fig-002.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19731/fig-002.webp" alt="Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19731/fig-003.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19731/fig-003.webp" alt="Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19731/fig-004.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19731/fig-004.webp" alt="Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19731/fig-005.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19731/fig-005.webp" alt="Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19731/fig-006.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19731/fig-006.webp" alt="Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19731/table-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19731/table-001.webp" alt="Fast Wave-optics Rendering of Multiplane Images for 3D Holographic Displays" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

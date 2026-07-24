@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-24/index.html">← 返回 2026-07-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 4 · cs.RO, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ModPack：双臂移动操作的可扩展遥操作接口</span><span class="lang lang-en lang-inline" data-lang="en">ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation</span></h1>
+  <div class="meta">作者：Joshua Citron, Renee Zbizika, Zeyi Liu, Shuran Song</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.19479">abs</a><a href="https://arxiv.org/pdf/2607.19479">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.1/10</span><p>对主动感知和多传感器数据采集基础设施有参考价值，但不是自主定位方法，摘要也缺少标定、同步和位姿精度指标。</p><div class="tags"><span class="tag">遥操作</span><span class="tag">移动操作</span><span class="tag">主动感知</span><span class="tag">数据采集</span><span class="tag">开源硬件</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以自包含背包和插拔模块统一双臂移动操作遥控、主动感知及多平台数据采集。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ModPack 是一个模块化、可扩展的遥操作系统，通过自包含 wearable backpack 集成 onboard computation、power、communication 与 data storage。在共享接口之上，系统支持 joint-level teleoperation、haptic feedback、mobile manipulation 和 active perception 等 plug-and-play modules。作者在两种机器人平台和真实移动操作任务上验证其可复用性，并计划开源完整硬件设计与软件栈，用于数据采集和策略学习。</p><p class="lang lang-en lang-block" data-lang="en">Existing teleoperation systems are often tailored to specific robot hardware and task domains, limiting their scalability and adaptability. We present ModPack, a modular and extensible teleoperation system designed to support diverse robot embodiments and task requirements within a unified framework. At the core of ModPack is a self-contained wearable &quot;backpack&quot; that integrates onboard computation, power, communication, and data storage. Built on top of this shared interface, the system supports plug-and-play capability modules including joint-level teleoperation with haptic feedback, mobile manipulation, and active perception. Experiments across two distinct robot platforms and real-world mobile manipulation tasks demonstrate that ModPack provides a flexible and reusable framework for data collection and policy learning. To support future research, we open-source the complete hardware design and software stack. Project website: https://modpack-robotics.github.io/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Joshua Citron, Renee Zbizika, Zeyi Liu, Shuran Song</li>
+<li><strong>价值判断</strong>：统一 onboard compute、power、communication 和 storage，并以 plug-and-play 模块支持 mobile manipulation 与 active perception；可作为采集具身定位/操作数据的工程平台参考。</li>
+<li><strong>资源</strong>：在两种机器人平台与真实移动操作任务上验证，并承诺开源完整硬件设计和软件栈。</li>
+<li><strong>领域边界</strong>：摘要未给出 SLAM、标定、定位精度或时延的定量结果，核心贡献是 teleoperation infrastructure，不是自主定位算法。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.19479">arXiv</a> · <a href="https://modpack-robotics.github.io/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19479/fig-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19479/fig-001.webp" alt="ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19479/fig-002.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19479/fig-002.webp" alt="ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19479/fig-003.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19479/fig-003.webp" alt="ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19479/fig-004.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19479/fig-004.webp" alt="ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19479/fig-005.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19479/fig-005.webp" alt="ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19479/fig-006.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19479/fig-006.webp" alt="ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

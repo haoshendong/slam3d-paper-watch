@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-24/index.html">← 返回 2026-07-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 6 · cs.CV, cs.LG, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Recti-Q：面向边缘机器人的 OOD 鲁棒量化感知</span><span class="lang lang-en lang-inline" data-lang="en">Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics</span></h1>
+  <div class="meta">作者：Hamidreza Yaghoubi Araghi, Parastoo Pilevar, Ming C. Lin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.18540">abs</a><a href="https://arxiv.org/pdf/2607.18540">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.6/10</span><p>对边缘机器人视觉部署有现实意义，但证据来自分类 benchmark，尚未验证 VO/SLAM 的匹配、深度或位姿任务。</p><div class="tags"><span class="tag">边缘机器人</span><span class="tag">模型量化</span><span class="tag">OOD 鲁棒性</span><span class="tag">LoRA</span><span class="tag">视觉感知</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">冻结量化 backbone，仅训练轻量 LoRA head，修补 4-bit PTQ 在噪声、天气和新环境下的 OOD 鲁棒性缺口。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文指出 post-training quantization 虽常保持 clean in-distribution accuracy，却会在传感器噪声、恶劣天气和新环境等分布偏移下形成 Quantization-Induced Robustness Gap。Recti-Q 冻结量化视觉 backbone，仅用 source data 训练小型 classifier-head LoRA adapter，在 CNN 与 Transformer 上均可使用且无需 teacher。其参数开销低于 1%，最小约 6 KB，保留超过 99% 的 PTQ 内存节省，并支持低带宽 OTA 鲁棒性补丁；在 ImageNet-C 和 PACS 上可恢复显著部分鲁棒性。</p><p class="lang lang-en lang-block" data-lang="en">Robotic perception pipelines increasingly rely on large vision backbones deployed on SWaP-constrained edge platforms, making post-training quantization (PTQ) attractive for real-time inference. However, while PTQ often preserves clean in-distribution accuracy, we show that it can substantially degrade reliability under deployment-relevant distribution shifts (e.g., sensor noise, severe weather, and novel operating environments), creating a Quantization-Induced Robustness Gap. Across foundational vision benchmarks (ImageNet-C and PACS), 4-bit PTQ models exhibit pronounced robustness degradation despite negligible ID accuracy loss. To address this, we propose Recti-Q, a lightweight feature-space rectification framework that freezes the quantized backbone and trains a small classifier-head LoRA adapter using only source data. Recti-Q is architecture-agnostic across CNNs and Transformers, supports efficient teacher-free training, and recovers a significant portion of the lost robustness, in some cases matching or exceeding FP32 performance. At less than 1% parameter overhead (as small as 6 KB), Recti-Q preserves over 99% of PTQ memory savings, adds negligible compute, and enables low-bandwidth Over-The-Air (OTA) resilience patching for deployed robotic fleets operating in unpredictable physical environments.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Hamidreza Yaghoubi Araghi, Parastoo Pilevar, Ming C. Lin</li>
+<li><strong>价值判断</strong>：指出 4-bit PTQ 可能在 clean in-distribution accuracy 几乎不变时显著放大天气、传感器噪声和新环境下的可靠性缺口，对边缘部署的 SLAM 语义/视觉前端有间接价值。</li>
+<li><strong>技术要点</strong>：冻结量化 backbone，仅用 source data 训练 classifier-head LoRA adapter；参数开销低于 1%，最小约 6 KB，支持低带宽 OTA resilience patching。</li>
+<li><strong>领域边界</strong>：实验基于 ImageNet-C 与 PACS 分类 benchmark，尚未证明对 VO/SLAM feature、depth、pose 或 loop closure 有收益。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.18540">arXiv</a> · <a href="https://arxiv.org/pdf/2607.18540">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/fig-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/fig-001.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/fig-002.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/fig-002.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/fig-003.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/fig-003.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/table-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/table-001.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/table-002.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/table-002.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/table-003.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/table-003.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/table-004.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/table-004.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/table-005.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/table-005.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.18540/table-006.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.18540/table-006.webp" alt="Recti-Q: Feature-Space Rectification for Out-of-Distribution-Robust Quantized Perception in Edge Robotics" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

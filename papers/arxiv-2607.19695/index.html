@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-24/index.html">← 返回 2026-07-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 4 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">NavVerse：连续室内—室外具身导航基准</span><span class="lang lang-en lang-inline" data-lang="en">NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation</span></h1>
+  <div class="meta">作者：Junzhe Wu, Yue Hu, Zeyu Han, Po-Hsun Chang, Yinan Dong, Behrad Rabiei, Maani Ghaffari</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.19695">abs</a><a href="https://arxiv.org/pdf/2607.19695">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>对室内外连续定位导航和 benchmark 设计有价值，资源规模清晰；摘要未说明 SLAM 接口、定位误差或真实传感器验证。</p><div class="tags"><span class="tag">具身导航</span><span class="tag">室内外连续场景</span><span class="tag">导航基准</span><span class="tag">VLA</span><span class="tag">机器人仿真</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用连续 physics-enabled episodes 统一测试室内、出入口穿越和城市室外导航，暴露跨环境适应与执行失败。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">NavVerse 是面向室内到室外连续具身导航的 physics-enabled benchmark，包含 100 个室内场景、50 个城市室外场景、50 个室内—室外场景及 10,000 个 episodes，覆盖 Object Navigation、Vision-and-Language Navigation 与 Place Navigation。Agent 通过可执行机器人接口接受任务成功率、路径效率和安全性评估。对 RL、VLA 与模块化 baseline 的零样本实验显示，端到端 VLA 成功率最高，模块化方法安全性最好，但现有 agent 在跨环境导航上仍远未解决。</p><p class="lang lang-en lang-block" data-lang="en">Robots deployed in delivery, campus, and emergency-response settings often need to navigate from buildings to streets within a single continuous episode. Existing benchmarks usually evaluate indoor and outdoor navigation separately, and many abstract away robot execution, leaving exit finding, boundary traversal, adaptation, and kinodynamic failures underexplored. We introduce NavVerse, a physics-enabled benchmark for indoor-to-outdoor embodied navigation. NavVerse contains 100 indoor scenes, 50 urban outdoor scenes, and 50 indoor-to-outdoor scenes, and 10,000 episodes spanning Object Navigation, Vision-and-Language Navigation, and Place Navigation tasks, where agents search for semantic points of interest such as restaurants or banks. Agents are evaluated through executable robot interfaces using task-success, path-efficiency, and safety metrics. Zero-shot experiments with RL, VLA, and modular baselines show that current agents remain far from solving cross-context navigation: end-to-end VLAs obtain the highest zero-shot success, while the modular method provides the strongest safety profile. PlaceNav further reveals a clear drop from outdoor to indoor-to-outdoor scenes, indicating that adaptation remains major bottleneck.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Junzhe Wu, Yue Hu, Zeyu Han, Po-Hsun Chang, Yinan Dong, Behrad Rabiei, Maani Ghaffari</li>
+<li><strong>价值判断</strong>：把建筑内部、出入口穿越与城市室外放进同一连续 physics-enabled episode，能暴露地图边界、环境切换和 kinodynamic execution 被分离 benchmark 掩盖的问题。</li>
+<li><strong>资源与结果</strong>：包含 100 个室内、50 个室外、50 个室内—室外场景及 10,000 episodes，覆盖 ObjectNav、VLN 和 PlaceNav；零样本结果显示 VLA 成功率最高，modular baseline 安全性最好，但跨环境仍远未解决。</li>
+<li><strong>后续核查</strong>：传感器与定位接口是否允许内部建图、ground-truth pose 使用边界、跨场景 domain shift，以及能否接入经典 SLAM/Nav2 baseline。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.19695">arXiv</a> · <a href="https://arxiv.org/pdf/2607.19695">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19695/fig-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19695/fig-001.webp" alt="NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19695/fig-002.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19695/fig-002.webp" alt="NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19695/table-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19695/table-001.webp" alt="NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19695/table-002.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19695/table-002.webp" alt="NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19695/table-003.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19695/table-003.webp" alt="NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19695/table-004.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19695/table-004.webp" alt="NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19695/table-005.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19695/table-005.webp" alt="NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.19695/table-006.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.19695/table-006.webp" alt="NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

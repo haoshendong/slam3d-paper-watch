@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-24/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-24/index.html">← 返回 2026-07-24 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 10 · cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MR-Compare：3DGS、网格与真实环境的空间对齐比较框架</span><span class="lang lang-en lang-inline" data-lang="en">MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment</span></h1>
+  <div class="meta">作者：Changrui Zhu, Ernst Kruijff, Pengju Zhang, Simon Julier</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.20325">abs</a><a href="https://arxiv.org/pdf/2607.20325">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>直接命中 3DGS、mesh reconstruction 与 registration，且有真实系统和开源项目；场景规模较小，旋转误差和泛化仍需正文核查。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">网格重建</span><span class="tag">三维配准</span><span class="tag">混合现实</span><span class="tag">各向异性剪枝</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 3DGS/mesh 与真实环境做厘米级混合现实配准，并以 Gaussian anisotropy 零训练剪枝改善注册。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">MR-Compare 是一个混合现实框架，用 live video see-through 将 3D Gaussian Splatting 和 mesh reconstruction 与物理环境做空间对齐比较。系统运行于 PC-tethered Meta Quest 3，结合两阶段注册管线与 3D Slider。作者在两个静态室内房间中评估五种桌面和移动重建工作流，并开展 30 人探索性用户研究；所有工作流均达到厘米级平移误差，两种桌面 3DGS 整体表现最强，其中 3DGS-MCMC 注册误差最低。论文还提出利用 Gaussian anisotropy 的零训练过滤器，适度剪枝可提高注册稳健性并降低残差。</p><p class="lang lang-en lang-block" data-lang="en">We introduce MR-Compare, a mixed reality framework for spatially grounded visual comparison between 3D Gaussian splatting and mesh reconstructions with live video see-through (VST). Implemented on a PC-tethered Meta Quest~3, it combines a two-stage registration pipeline with a 3D Slider for cross-media comparison. We evaluated five representative desktop and mobile reconstruction workflows through a real-world benchmark with an exploratory user study ($n=30$) in two static indoor rooms. MR-Compare achieved centimetre-level translation error across all workflows. The two desktop 3DGS workflows showed the strongest overall pattern, with 3DGS-MCMC yielding the lowest registration error and strongest VST-referenced visual consistency. Room-session measures indicated high perceived usability and low workload. We further propose an anisotropy filter, a zero-shot module that leverages Gaussian anisotropies to improve 3DGS registration in MR-Compare. A controlled Replica threshold sweep shows that moderate pruning can improve robustness and reduce residual errors. These results establish system-level feasibility in the tested setting rather than task-level effectiveness or standalone deployment. The project is available at https://github.com/changruizhu96/MR-Compare.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Changrui Zhu, Ernst Kruijff, Pengju Zhang, Simon Julier</li>
+<li><strong>价值判断</strong>：今天唯一直接连接 3DGS、mesh reconstruction 与空间 registration 的新稿；用 live video see-through 为不同重建管线提供物理环境参照，而非只比较离线图像指标。</li>
+<li><strong>技术要点</strong>：Meta Quest 3 上实现两阶段注册和 3D Slider；另提出利用 Gaussian anisotropy 剪枝的零训练过滤器，提高 3DGS 注册稳健性。</li>
+<li><strong>关键结果</strong>：五种桌面/移动重建工作流均达到厘米级平移误差；两种桌面 3DGS 整体表现最好，其中 3DGS-MCMC 的注册误差最低。</li>
+<li><strong>后续核查</strong>：旋转误差、两房间之外的泛化、动态场景、初始化依赖，以及 anisotropy threshold 对几何细节和配准 basin 的影响。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.20325">arXiv</a> · <a href="https://arxiv.org/pdf/2607.20325">PDF</a> · <a href="https://github.com/changruizhu96/MR-Compare">代码</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/fig-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/fig-001.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/fig-002.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/fig-002.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/fig-003.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/fig-003.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/fig-004.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/fig-004.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/fig-005.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/fig-005.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/fig-006.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/fig-006.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/table-001.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/table-001.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/table-002.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/table-002.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-24/arxiv-2607.20325/table-003.webp"><img src="../../assets/media/2026-07-24/arxiv-2607.20325/table-003.webp" alt="MR-Compare: A Mixed-Reality Framework for Spatially Grounded Visual Comparison of 3D Gaussian Splatting and Mesh Reconstructions with the Physical Environment" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
