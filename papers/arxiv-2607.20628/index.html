@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>RealVDeblur: One-Step Diffusion for Generalizable Real-World Video Deblurring</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-25/index.html">← 返回 2026-07-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-24 · score 7 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RealVDeblur：面向真实视频与三维重建的一步扩散去模糊</span><span class="lang lang-en lang-inline" data-lang="en">RealVDeblur: One-Step Diffusion for Generalizable Real-World Video Deblurring</span></h1>
+  <div class="meta">作者：Renbiao Jin, Mingxin Yang, Yutian Chen, Junhao Zhuang, Xin Cai, Mulin Yu, Linning Xu, Wenxian Yu, Danping Zou, Shi Guo, Tianfan Xue</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.20628">abs</a><a href="https://arxiv.org/pdf/2607.20628">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.7/10</span><p>对真实视频三维重建前端有明确应用价值且兼顾长视频效率，但缺少位姿、重投影误差和几何精度的量化证据。</p><div class="tags"><span class="tag">视频去模糊</span><span class="tag">一步扩散</span><span class="tag">3DGS 合成</span><span class="tag">三维重建</span><span class="tag">运动模糊</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 3DGS/高帧率数据合成和一步视频扩散恢复严重运动模糊，并报告改善下游三维重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">RealVDeblur 面向复杂真实拍摄条件的视频去模糊。其物理驱动数据管线利用 scene-level 3DGS assets 和高帧率视频合成相机运动及物体运动模糊；恢复网络引入视频 diffusion prior，取消 VAE temporal compression 并采用逐帧编码，以适应逐帧变化的模糊。多步采样被蒸馏为一步生成器，training-free Temporal Window Mask 支持恒定内存的长视频推理。摘要报告其在未见真实视频上具有较强感知质量、语义保真和时间一致性，并能提高严重运动模糊条件下的下游三维重建鲁棒性。</p><p class="lang lang-en lang-block" data-lang="en">Real-world video deblurring remains challenging due to diverse motion patterns, complex degradations, and the scarcity of realistic training data, yet robust restoration is critical for downstream pipelines such as mobile imaging and 3D reconstruction. This work presents \textbf{RealVDeblur}, an efficient generative framework designed to improve in-the-wild robustness under diverse real capture conditions. First, a large-scale, physically grounded blur synthesis pipeline is constructed from scene-level 3D Gaussian Splatting (3DGS) assets and high-frame-rate videos, providing realistic training data covering both camera-induced and object-motion blur. Second, a video diffusion prior is leveraged for restoration; to better accommodate frame-dependent blur variations, temporal compression in the VAE is disabled and a frame-wise encoding scheme is adopted. For practical deployment on long videos, multi-step diffusion sampling is distilled into an efficient one-step generator, and a training-free Temporal Window Mask stabilizes inference beyond the training horizon with constant memory usage. Extensive experiments on diverse real-world benchmarks demonstrate strong perceptual quality, semantic fidelity, and temporal consistency on unseen videos, as well as improved robustness in downstream 3D reconstruction under severe motion blur. Project page: https://rbjin.github.io/RealVDeblur</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Renbiao Jin 等</li>
+<li><strong>价值判断</strong>：直接定位于严重运动模糊下的真实视频恢复，并报告改善下游三维重建鲁棒性，可作为 VO/SfM/3DGS 前处理线索。</li>
+<li><strong>技术要点</strong>：用 scene-level 3DGS assets 与高帧率视频合成相机及物体运动模糊；取消 VAE temporal compression、采用逐帧编码，把多步 diffusion 蒸馏成一步生成器，并用 training-free Temporal Window Mask 支持恒定内存长视频推理。</li>
+<li><strong>结果边界</strong>：摘要强调感知质量、语义保真和时间一致性，但未给出位姿或重建几何的数值收益；需要警惕生成式恢复改变特征对应和真实纹理。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.20628">arXiv</a> · <a href="https://arxiv.org/pdf/2607.20628">PDF</a> · <a href="https://rbjin.github.io/RealVDeblur">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.20628/fig-001.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.20628/fig-001.webp" alt="RealVDeblur: One-Step Diffusion for Generalizable Real-World Video Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.20628/fig-002.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.20628/fig-002.webp" alt="RealVDeblur: One-Step Diffusion for Generalizable Real-World Video Deblurring" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

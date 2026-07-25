@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-25/index.html">← 返回 2026-07-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-24 · score 10 · cs.CV, cs.RO, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HGeo-TopoMap：以分层几何先验增强道路拓扑建图</span><span class="lang lang-en lang-inline" data-lang="en">HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors</span></h1>
+  <div class="meta">作者：Siyu Li, Kunyu Peng, Di Wen, Beiping Hou, Zhiyong Li, Kailun Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.21281">abs</a><a href="https://arxiv.org/pdf/2607.21281">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.9/10</span><p>直接涉及 mapping、拓扑与几何一致性，但属于道路地图感知而非轨迹估计或度量 SLAM，摘要也未给出绝对指标。</p><div class="tags"><span class="tag">拓扑建图</span><span class="tag">自动驾驶</span><span class="tag">道路中心线</span><span class="tag">几何先验</span><span class="tag">OpenLane-V2</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">融合 IPM 道路先验、掩码注意力和中心线方向一致性，增强自动驾驶矢量化拓扑地图感知。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">HGeo-TopoMap 面向自动驾驶中的道路拓扑地图感知，利用显式 prior map 与隐式空间关系改进缺少清晰标线的中心线检测。Geometric adaptive learning module 对 inverse perspective mapping 得到的道路结构图离散编码语义与空间特征，并以 prior-mask attention 聚焦有效区域；geometric consistency learning module 则在 geometry-aware decoder 上利用中心线的几何属性和空间关系，对相同方向实例的特征施加一致性。方法在 OpenLane-V2 的 centerline、lane segment 与 robustness benchmark 上均超过基线，代码和权重计划公开。</p><p class="lang lang-en lang-block" data-lang="en">Topological maps are key outputs of autonomous driving perception systems, delivering essential road information for path planning. They identify instances such as centerlines and traffic signs, along with their connectivity relationships. Due to the lack of explicit markings for centerlines in real-world environments, the detection of centerline instances remains a significant challenge. To tackle this problem, we propose HGeo-TopoMap, which leverages an explicit prior map and implicit spatial relations to hierarchically boost topological mapping. First, a geometric adaptive learning module is designed for the road structure map obtained via inverse perspective mapping. This module discretely encodes semantic and spatial features from the map, followed by a prior-mask attention mechanism that selectively focuses on informative regions. Then, a geometric consistency learning module is devised, which leverages the geometric properties and spatial relationships of centerlines. Built on the geometry-aware decoder, it enforces spatial consistency by aligning features of centerline instances with identical geometric orientations. The proposed method is evaluated on the OpenLane-V2 dataset across the centerline, lane segment, and robustness benchmarks. Beyond substantial improvements in topological mapping accuracy, the proposed method offers the benefit of enhanced robustness, consistently outperforming baselines under both standard and challenging conditions. The source code and model weights will be made publicly available at https://github.com/lynn-yu/HGeo-TopoMap.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Siyu Li, Kunyu Peng, Di Wen, Beiping Hou, Zhiyong Li, Kailun Yang</li>
+<li><strong>价值判断</strong>：属于自动驾驶在线拓扑地图感知而非度量 SLAM，但其显式道路先验、中心线空间关系与几何一致性约束对 vectorized mapping 有直接参考价值。</li>
+<li><strong>技术要点</strong>：对 inverse perspective mapping 得到的 road structure map 做离散语义/空间编码和 prior-mask attention，再在 geometry-aware decoder 中对相同几何方向的中心线实例执行特征对齐。</li>
+<li><strong>结果与边界</strong>：在 OpenLane-V2 的 centerline、lane segment 和 robustness benchmark 上超过基线；摘要未给出绝对指标，且依赖 IPM 与道路场景先验。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.21281">arXiv</a> · <a href="https://arxiv.org/pdf/2607.21281">PDF</a> · <a href="https://github.com/lynn-yu/HGeo-TopoMap">代码预告</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/fig-001.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/fig-001.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/fig-002.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/fig-002.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/fig-003.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/fig-003.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/fig-004.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/fig-004.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/fig-005.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/fig-005.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/table-001.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/table-001.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/table-002.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/table-002.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/table-003.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/table-003.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/table-004.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/table-004.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/table-005.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/table-005.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2607.21281/table-006.webp"><img src="../../assets/media/2026-07-25/arxiv-2607.21281/table-006.webp" alt="HGeo-TopoMap: Boosting Topological Mapping with Hierarchical Geometric Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

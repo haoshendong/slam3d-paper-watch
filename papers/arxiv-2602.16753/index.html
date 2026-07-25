@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Structured Analytic Mappings for Point Set Registration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-25/index.html">← 返回 2026-07-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-24 · score 9 · eess.IV, cs.NA, math.NA, math.RA</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于结构化解析映射的点集配准</span><span class="lang lang-en lang-inline" data-lang="en">Structured Analytic Mappings for Point Set Registration</span></h1>
+  <div class="meta">作者：Wei Feng, Tengda Wei, Haiyong Zheng</div>
+  <div class="links"><a href="https://arxiv.org/abs/2602.16753">abs</a><a href="https://arxiv.org/pdf/2602.16753">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>直接命中点云/点集配准且有清晰解析结构和复杂度主张；优势范围限定于小幅平滑形变，鲁棒性与部分重叠能力待验证。</p><div class="tags"><span class="tag">点集配准</span><span class="tag">ICP</span><span class="tag">非刚性配准</span><span class="tag">Taylor 展开</span><span class="tag">拟牛顿优化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以截断 Taylor 基构造显式低复杂度形变空间，在 ICP 中统一刚性、仿射与非刚性点集配准。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文以向量值函数的多元 Taylor 展开构造非刚性点集配准模型。截断基项张成低复杂度、显式的结构化函数空间，并用 quasi-Newton 优化把 identity map 逐步提升为高阶解析映射；该形式在同一闭式框架中统一刚性、仿射和非线性形变，不依赖 kernel 或高维参数化。将其嵌入默认采用最近邻对应的标准 ICP loop 后得到 Analytic-ICP。摘要报告 quasi-linear 时间复杂度，并称其在 2D/3D 小幅平滑形变上比 CPD 和 TPS-RPM 更准确、收敛更快。</p><p class="lang lang-en lang-block" data-lang="en">We present an analytic approximation model for non-rigid point set registration, grounded in the multivariate Taylor expansion of vector-valued functions. By exploiting the algebraic structure of Taylor expansions, we construct a structured function space spanned by truncated basis terms, allowing smooth deformations to be represented with low complexity and explicit form. To estimate mappings within this space, we develop a quasi-Newton optimization algorithm that progressively lifts the identity map into higher-order analytic forms. This structured framework unifies rigid, affine, and nonlinear deformations under a single closed-form formulation, without relying on kernel functions or high-dimensional parameterizations. The proposed model is embedded into a standard ICP loop -- using (by default) nearest-neighbor correspondences -- resulting in Analytic-ICP, an efficient registration algorithm with quasi-linear time complexity. Experiments on 2D and 3D datasets demonstrate that Analytic-ICP achieves higher accuracy and faster convergence than classical methods such as CPD and TPS-RPM, particularly for small and smooth deformations.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Wei Feng, Tengda Wei, Haiyong Zheng</li>
+<li><strong>价值判断</strong>：直接命中 point cloud registration，在一个显式低复杂度函数空间中统一刚性、仿射和非线性形变，避免 kernel 与高维参数化。</li>
+<li><strong>技术要点</strong>：以向量值函数的多元 Taylor 展开构造截断基，使用 quasi-Newton 逐步把 identity map 提升到高阶解析形式，并嵌入默认最近邻对应的 ICP loop。</li>
+<li><strong>关键结果</strong>：摘要报告 quasi-linear 时间复杂度，并在 2D/3D 数据上对小幅、平滑形变比 CPD 和 TPS-RPM 更准确、收敛更快；大形变、离群点和部分重叠仍需正文验证。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2602.16753">arXiv</a> · <a href="https://arxiv.org/pdf/2602.16753">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2602.16753/fig-001.webp"><img src="../../assets/media/2026-07-25/arxiv-2602.16753/fig-001.webp" alt="Structured Analytic Mappings for Point Set Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-25/arxiv-2602.16753/fig-002.webp"><img src="../../assets/media/2026-07-25/arxiv-2602.16753/fig-002.webp" alt="Structured Analytic Mappings for Point Set Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

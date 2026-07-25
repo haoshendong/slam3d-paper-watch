@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>3D-GIMP: When 3D Gaussian Inpainting Meets PatchMatch</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-25/index.html">← 返回 2026-07-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-24 · score 10 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">3D-GIMP：融合 PatchMatch 的一致性三维高斯修补</span><span class="lang lang-en lang-inline" data-lang="en">3D-GIMP: When 3D Gaussian Inpainting Meets PatchMatch</span></h1>
+  <div class="meta">作者：Xuening Tian, Dieter Schmalstieg, Shohei Mori</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.20789">abs</a><a href="https://arxiv.org/pdf/2607.20789">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.1/10</span><p>直接命中 3DGS、多视图对应与几何一致编辑，技术路径清晰；摘要缺少量化幅度、代码链接和复杂遮挡下验证。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">三维修补</span><span class="tag">PatchMatch</span><span class="tag">多视图一致性</span><span class="tag">场景编辑</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用单参考视图生成式修补与 3D-aware PatchMatch 传播纹理，降低 3DGS 编辑中的多视图漂移。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D-GIMP 面向 3D Gaussian Splatting 中的高保真物体移除，解决逐视图 diffusion 计算昂贵、细节模糊以及 hallucination drift 导致多视图结构不一致的问题。方法仅在关键参考视图执行一次生成式 inpainting，把结果作为外观先验，再通过 3D-aware PatchMatch 和对应匹配将参考纹理传播到其他视图，从而避开逐帧随机生成。摘要报告其修补质量与多视图 diffusion 方法具有竞争力，同时在渲染速度和视图一致性上更优，并能在任意分辨率保持高频细节。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in 3D scene editing have leveraged iterative diffusion models to update input views. However, this process is computationally expensive and struggles to produce sharp details. Meanwhile, ``hallucination drift&#x27;&#x27; frequently introduces multi-view inconsistencies, leading to structural artifacts when rendering novel viewpoints. To address this problem, we present 3D-GIMP (3D Gaussian Inpainting Meets Patch Matching), a novel hybrid paradigm designed for high-fidelity object removal in 3D Gaussian Splatting. Instead of diffusing every view, 3D-GIMP performs a single generative inpainting on a key reference view, which serves as an appearance prior. We then introduce a 3D-aware PatchMatch algorithm to propagate these reference textures across all remaining views via correspondence matching, effectively bypassing the stochastic nature of frame-by-frame diffusion. By prioritizing reconstructive consistency over iterative generation, 3D-GIMP maintains high-frequency details across arbitrary resolutions while ensuring a mathematically consistent 3D reconstruction. Our experiments demonstrate that 3D-GIMP not only achieves competitive inpainting quality as previous methods using diffusion in multiple views, but also outperforms these methods in rendering speed and view consistency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Xuening Tian, Dieter Schmalstieg, Shohei Mori</li>
+<li><strong>价值判断</strong>：直接针对逐视图 diffusion 导致的多视图不一致和结构伪影，是 3DGS 编辑中很具体的几何一致性问题。</li>
+<li><strong>技术要点</strong>：只在关键参考视图执行一次生成式 inpainting，再用 3D-aware PatchMatch 通过对应匹配把纹理传播到其余视图，避免逐帧随机生成。</li>
+<li><strong>结果边界</strong>：摘要宣称在修补质量具有竞争力的同时改善渲染速度和视图一致性，但没有给出量化幅度；需核查遮挡区、参考视图选择和大视差下对应失败。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.20789">arXiv</a> · <a href="https://arxiv.org/pdf/2607.20789">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
