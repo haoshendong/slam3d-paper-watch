@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>WAT3R: Feedforward Underwater 3D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-26/index.html">← 返回 2026-07-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">WAT3R：前馈式水下三维重建</span><span class="lang lang-en lang-inline" data-lang="en">WAT3R: Feedforward Underwater 3D Reconstruction</span></h1>
+  <div class="meta">作者：Jiayi Xu, Jiahao Lu, Ziqiang Zheng, Yihao Tan, Yaolong Zhu, Yuan Liu, Sai-Kit Yeung</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.21023">abs</a><a href="https://arxiv.org/pdf/2607.21023">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.5/10</span><p>联合点图与相机位姿且针对复杂介质中的特征失真，和前馈三维重建高度相关；摘要缺少速度、尺度与姿态误差数字，也未说明极端浑浊泛化。</p><div class="tags"><span class="tag">水下三维重建</span><span class="tag">前馈重建</span><span class="tag">相机姿态</span><span class="tag">点图</span><span class="tag">退化适配</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以受多视图几何约束的退化适配，一次前向传播联合输出水下点图和相机姿态。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">WAT3R 针对水下光衰减和后向散射破坏图像质量与跨视图特征一致性的问题，提出从水下图像直接重建三维场景的 feed-forward framework。其核心是把 degradation adaptation 作为 geometry-constrained process，并加入轻量 neural adaptation module 来适配水下成像退化。在单次前向传播中，系统从水下视频直接输出 pixel-aligned 3D point maps 和 camera poses。FLSea、SQUID 与 USOD10K 上的实验覆盖多视图/单目深度估计和相机姿态估计，摘要称均优于先进方法。</p><p class="lang lang-en lang-block" data-lang="en">Reliable feedforward underwater 3D reconstruction remains challenging due to severe light attenuation and backscattering, which degrade visual quality and disrupt feature consistency across views, leading to inaccurate multi-view geometry. To address this issue, we propose WAT3R, a feed-forward framework for reconstructing 3D scenes directly from underwater images. By leveraging degradation adaptation as a geometry-constrained process, WAT3R integrates a lightweight neural adaptation module to flexibly account for these underwater imaging effects, thereby improving multi-view reconstruction quality. Implemented in a single forward pass, WAT3R directly and efficiently outputs pixel-aligned 3D point maps and camera poses from underwater videos, allowing a high-quality underwater 3D reconstruction. Experiments conducted on the FLSea, SQUID, and USOD10K datasets show that our method consistently outperforms state-of-the-art approaches on 3D reconstruction tasks, including multi-view/monocular depth estimation and camera pose estimation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jiayi Xu, Jiahao Lu, Ziqiang Zheng, Yihao Tan, Yaolong Zhu, Yuan Liu, Sai-Kit Yeung</li>
+<li><strong>价值判断</strong>：把水下衰减和后向散射显式视作受几何约束的域适配问题，目标是一次前向传播联合输出 pixel-aligned 3D point maps 与 camera poses。</li>
+<li><strong>技术要点</strong>：在 feed-forward reconstruction 框架中加入轻量 degradation adaptation module，使成像退化适配受多视图几何约束，而不是单独做图像增强。</li>
+<li><strong>结果边界</strong>：在 FLSea、SQUID 和 USOD10K 上，摘要称多视图/单目深度及相机姿态均优于先进方法，但未给出速度、绝对姿态误差或尺度指标；应验证浑浊度变化和退化模型失配。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.21023">arXiv</a> · <a href="https://arxiv.org/pdf/2607.21023">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

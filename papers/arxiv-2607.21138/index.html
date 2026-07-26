@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>DTIF: Robust Loop Closure Detection via Delaunay Triangle Topology in Complex Forests</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-26/index.html">← 返回 2026-07-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 8 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">DTIF：基于 Delaunay 三角拓扑的复杂森林鲁棒闭环检测</span><span class="lang lang-en lang-inline" data-lang="en">DTIF: Robust Loop Closure Detection via Delaunay Triangle Topology in Complex Forests</span></h1>
+  <div class="meta">作者：Xin Zhao, Jianping Li, Qin Zou, Fuxun Liang, Zhen Dong, Bisheng Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.21138">abs</a><a href="https://arxiv.org/pdf/2607.21138">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.8/10</span><p>直接涉及 GNSS-denied 闭环、点云子图配准和感知混淆，结构先验清晰；场景专用性强，摘要没有量化指标且依赖树干提取与重力对齐。</p><div class="tags"><span class="tag">闭环检测</span><span class="tag">点云配准</span><span class="tag">Delaunay 拓扑</span><span class="tag">森林建图</span><span class="tag">GNSS 拒止</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">利用树干 Delaunay 拓扑和可靠性加权的解耦位姿估计，在稀疏重复森林中完成闭环与全局配准。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">DTIF 面向 GNSS-denied 森林中多平台局部地图的 initialization-free loop closure detection 和 global registration。方法先把树干提取为稳定 landmarks，并以 Delaunay topology 形成紧凑场景表示；随后依据边长和半径统计筛选候选子图，通过 edge-radius consistency verification 及强弱顶点支持聚合构造加权顶点对应；最后在重力对齐条件下，把拓扑可靠性权重注入解耦式 robust pose estimator，分别估计 yaw、水平平移与高程平移。摘要称其在模拟和真实森林数据上兼顾准确性、低计算开销和边缘平台可部署性。</p><p class="lang lang-en lang-block" data-lang="en">Accurate forest inventory and large-scale mapping are essential for ecosystem monitoring and sustainable forest management. Multiple low-cost edge platforms enable efficient large-area data acquisition, but merging independently constructed local maps in GNSS-denied understory environments still requires initialization-free loop closure detection and global registration. This task is challenging because low-cost LiDAR point clouds are sparse and noisy, while repetitive trunk layouts and the lack of distinctive geometric landmarks lead to severe perceptual aliasing and false correspondences. To address these issues, we propose DTIF (Delaunay Triangulation in Forests), a lightweight trunk-topology-based framework for forest loop closure detection and global registration. Tree trunks are first extracted as stable landmarks and encoded using a Delaunay topology for compact scene representation. Candidate submaps are then screened using edge-length and radius statistics, followed by edge--radius consistency verification and strong/weak vertex support aggregation to construct weighted vertex correspondences. Finally, topology-derived reliability weights are incorporated into a decoupled robust pose estimator that separately estimates yaw, horizontal translation, and elevation translation under gravity alignment. Experiments on simulated and real-world forest datasets demonstrate that DTIF achieves accurate registration with low computational overhead, providing a favorable balance among robustness, efficiency, and deployability on resource-constrained edge platforms.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Xin Zhao, Jianping Li, Qin Zou, Fuxun Liang, Zhen Dong, Bisheng Yang</li>
+<li><strong>价值判断</strong>：直接命中 GNSS-denied 条件下的 initialization-free loop closure 与全局配准，且针对稀疏噪声 LiDAR、树干重复布局和 perceptual aliasing。</li>
+<li><strong>技术要点</strong>：提取稳定树干 landmark，以 Delaunay topology 紧凑编码；用边长和半径统计筛选候选子图，再通过 edge-radius consistency 及强/弱顶点支持构造加权对应；重力对齐后，利用 topology-derived reliability weights 分离估计 yaw、水平平移和高程平移。</li>
+<li><strong>结果边界</strong>：摘要称模拟和真实森林数据上兼顾准确性、鲁棒性与低计算开销，但没有量化结果。方法依赖可稳定提取的树干、重力对齐和森林结构先验，跨季节及高密重复林分尤其值得核查。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.21138">arXiv</a> · <a href="https://arxiv.org/pdf/2607.21138">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21138/fig-001.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21138/fig-001.webp" alt="DTIF: Robust Loop Closure Detection via Delaunay Triangle Topology in Complex Forests" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21138/fig-002.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21138/fig-002.webp" alt="DTIF: Robust Loop Closure Detection via Delaunay Triangle Topology in Complex Forests" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

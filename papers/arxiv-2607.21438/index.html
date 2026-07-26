@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>DAPM: UAV Monocular Depth Estimation from Any Height, Pitch, Roll and FOV</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-26/index.html">← 返回 2026-07-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">DAPM：适应任意高度、俯仰、横滚与视场角的 UAV 单目深度估计</span><span class="lang lang-en lang-inline" data-lang="en">DAPM: UAV Monocular Depth Estimation from Any Height, Pitch, Roll and FOV</span></h1>
+  <div class="meta">作者：Tong Ling, Wenhui Diao, Yingchao Feng, Hanbo Bi, Zhongyan Hou, Xian Sun</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.21438">abs</a><a href="https://arxiv.org/pdf/2607.21438">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.6/10</span><p>对 UAV 重建和导航前端有参考价值并公开代码/数据；本质是单目深度与姿态学习，地平面假设、绝对尺度和非平坦地形泛化需验证。</p><div class="tags"><span class="tag">UAV</span><span class="tag">单目深度</span><span class="tag">相机姿态</span><span class="tag">航拍重建</span><span class="tag">视角泛化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">利用地平面视角—距离关系和渐进深度量化，联合估计大范围 UAV 视角变化下的深度与姿态。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">DAPM 面向 UAV 高度、pitch、roll 和 FOV 连续变化时单目深度模型泛化不稳的问题，联合估计 camera pose 与 depth。作者以地平面为参照，推导 viewing angles 与 view distances 的几何对应；Ideal Ground Depth module 利用该关系提供稠密 camera-pose supervision 并增强深度特征，coarse-to-fine Progressive Quantization Bins module 则通过渐进监督和分层量化 bins 处理航拍场景的大范围深度分布。配套 UAPD 数据集覆盖连续姿态参数，摘要称方法在深度与相机姿态指标上达到先进水平。</p><p class="lang lang-en lang-block" data-lang="en">Monocular depth estimation is a fundamental prerequisite for 3D reconstruction and autonomous navigation in Unmanned Aerial Vehicles (UAVs). In practical deployments, UAVs operate under highly dynamic camera poses characterized by continuous variations in height, pitch, roll, and field of view (FOV). Existing monocular depth estimation methods frequently fail to generalize across such diverse perspectives and the expansive scale of depth distributions inherent in aerial scenes. To address these challenges, we establish a quantitative representation of UAV viewing angles through rigorous theoretical analysis, deriving the geometric correspondence between viewing angles and view distances using the ground plane as a reference for observation. Building upon this, we propose Depth Estimation for Any Perspectives Model (DAPM), representing the first monocular framework specifically designed for UAV aerial imagery to jointly estimate camera pose and depth under continuously varying viewpoints. Specifically, we introduce an Ideal Ground Depth (IGD) module that leverages the derived geometric relationships between UAV perspectives and view distances to implement dense camera-pose supervision and enhance depth features. And we further develop a coarse-to-fine Progressive Quantization Bins (PQB) module. By incorporating progressive supervision and hierarchical quantization bins, the PQB module enables robust estimation in complex UAV aerial imagery. To evaluate the proposed framework, we present the UAV Any Perspectives Depth (UAPD) dataset, featuring comprehensive and continuous distributions of pose parameters. Experimental results on UAPD demonstrate that DAPM achieves state-of-the-art performance across both depth and camera-pose estimation metrics. The source code and datasets are available at: https://github.com/ThisIsLT/DAPM.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Tong Ling, Wenhui Diao, Yingchao Feng, Hanbo Bi, Zhongyan Hou, Xian Sun</li>
+<li><strong>价值判断</strong>：面向 UAV 连续变化的高度、pitch、roll 和 FOV，联合估计 camera pose 与 depth，可为 aerial reconstruction 和 navigation 提供前端先验。</li>
+<li><strong>技术要点</strong>：以地平面推导 viewing angle 与 view distance 的几何关系；Ideal Ground Depth module 提供稠密相机姿态监督并增强深度特征；Progressive Quantization Bins 用渐进监督和分层 bins 处理大范围深度分布。</li>
+<li><strong>结果边界</strong>：新建 UAPD 数据集覆盖连续姿态参数，摘要称深度和姿态指标达到 SOTA；但地平面假设、绝对尺度来源、非平坦地形泛化和跨相机 FOV 校准需正文确认。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.21438">arXiv</a> · <a href="https://arxiv.org/pdf/2607.21438">PDF</a> · <a href="https://github.com/ThisIsLT/DAPM">代码与数据</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

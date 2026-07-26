@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-26/index.html">← 返回 2026-07-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GrainGS：用于高效动态新视角合成的梯度解耦高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis</span></h1>
+  <div class="meta">作者：Jiahao He, Yihua Shao, Zhengkai Zhao, Pan Gao, Fei Ma, Jingcai Guo, Hao Tang, Nicu Sebe</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.21448">abs</a><a href="https://arxiv.org/pdf/2607.21448">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>梯度解耦机制明确且给出质量、速度和存储数字；主要面向动态 NVS 而非在线 SLAM，真实场景的几何精度和训练成本待核查。</p><div class="tags"><span class="tag">动态 3DGS</span><span class="tag">梯度解耦</span><span class="tag">新视角合成</span><span class="tag">锚点表示</span><span class="tag">实时渲染</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以锚点层级和逐高斯形变结合，并用 stop-gradient 稳定 canonical geometry，获得紧凑高速动态 3DGS。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">GrainGS 将 hierarchical anchor scaffold 与 per-Gaussian deformation 结合，以平衡动态 3DGS 的局部运动表达、结构稳定性和紧凑性。static warm-up 先从所有时间戳观测建立 time-invariant canonical representation；联合训练时，stop-gradient 阻断经形变路径传回 canonical positions 的梯度，同时允许重建目标直接优化 canonical geometry。每个 Gaussian 独立预测位置、旋转与尺度的时序偏移，canonical-residual appearance decomposition 则表达逐帧光度变化。合成 benchmark 上平均 PSNR 为 36.98 dB，渲染速度 435.6 FPS，存储 4.67 MB。</p><p class="lang lang-en lang-block" data-lang="en">Dynamic scene reconstruction with 3D Gaussian Splatting requires a balance between fine-grained motion modeling, structural stability, and compact representation. Existing per-primitive methods provide flexible local deformation but often suffer from redundant primitive growth, while anchor-based methods improve spatial regularity at the cost of suppressing locally varying motion. To address these issues, we present GrainGS, a dynamic Gaussian framework that combines a hierarchical anchor scaffold with per-Gaussian deformation. A static warm-up stage first establishes a time-invariant canonical representation from observations across all timestamps. During joint training, a stop-gradient operation blocks the deformation-mediated gradient pathway to the canonical positions while preserving their direct refinement through the reconstruction objective. Each Gaussian then predicts independent temporal offsets for position, rotation, and scale, enabling detailed local motion within a structurally constrained scaffold. A canonical-residual appearance decomposition further models frame-dependent photometric changes without forcing them into geometric deformation. Experiments on synthetic monocular and real-world multiview benchmarks show that GrainGS achieves high reconstruction quality, real-time novel view synthesis, and compact storage. Under the synthetic benchmark setting, it reaches an average peak signal-to-noise ratio of 36.98 decibels, renders at 435.6 frames per second, and requires 4.67 megabytes of storage.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jiahao He, Yihua Shao, Zhengkai Zhao, Pan Gao, Fei Ma, Jingcai Guo, Hao Tang, Nicu Sebe</li>
+<li><strong>价值判断</strong>：在 anchor-based 结构稳定性和 per-Gaussian 局部运动自由度之间折中，并用 gradient decoupling 防止形变路径破坏 canonical geometry。</li>
+<li><strong>技术要点</strong>：static warm-up 建立跨时间 canonical representation；联合训练时以 stop-gradient 阻断 deformation-mediated gradient 到 canonical positions，同时保留重建损失的直接优化；各 Gaussian 独立预测位置、旋转和尺度时序偏移，并以 canonical-residual appearance decomposition 分离光度变化。</li>
+<li><strong>关键结果</strong>：合成 benchmark 平均 PSNR 36.98 dB、渲染 435.6 FPS、存储 4.67 MB。它属于离线动态场景重建/NVS，不是在线 SLAM，需核查训练时间与真实场景几何稳定性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.21448">arXiv</a> · <a href="https://arxiv.org/pdf/2607.21448">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21448/fig-001.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21448/fig-001.webp" alt="GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21448/fig-002.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21448/fig-002.webp" alt="GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21448/fig-003.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21448/fig-003.webp" alt="GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21448/fig-004.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21448/fig-004.webp" alt="GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21448/fig-005.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21448/fig-005.webp" alt="GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21448/fig-006.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21448/fig-006.webp" alt="GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21448/table-001.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21448/table-001.webp" alt="GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21448/table-002.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21448/table-002.webp" alt="GrainGS: Gradient-Decoupled Gaussian Splatting for Efficient Dynamic Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

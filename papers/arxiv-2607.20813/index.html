@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SubSplat: High-Resolution Pixel-aligned 3DGS via Sub-pixel Gaussian Reparameterization</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-26/index.html">← 返回 2026-07-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SubSplat：通过亚像素高斯重参数化实现高分辨率像素对齐 3DGS</span><span class="lang lang-en lang-inline" data-lang="en">SubSplat: High-Resolution Pixel-aligned 3DGS via Sub-pixel Gaussian Reparameterization</span></h1>
+  <div class="meta">作者：Jiun Lee, Jaekwang Kim, Sangmin Lee</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.20813">abs</a><a href="https://arxiv.org/pdf/2607.20813">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.9/10</span><p>问题定义清晰，对一般化 pixel-aligned 3DGS 有直接效率价值；摘要没有量化质量、显存和 primitive 数量，成本可能转移到渲染阶段。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">像素对齐</span><span class="tag">亚像素重参数化</span><span class="tag">高分辨率渲染</span><span class="tag">多视图聚合</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从低分辨率特征亚像素细分 Gaussians，并聚合多视图特征，缓解高分辨率 3DGS 的质量—计算矛盾。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SubSplat 针对 pixel-aligned Gaussian Splatting 中输入分辨率与网络计算量的矛盾：提高输入分辨率可改善细节，但网络成本呈二次增长；维持低分辨率则导致 Gaussian density 不足和伪影。方法提出 Sub-pixel Gaussian Reparameterizer，将 primary Gaussians 细分为更精细的 primitives，直接从低分辨率特征恢复结构密度，并通过多视图 feature aggregation 捕获高频细节。RealEstate10K 与 ACID 实验表明，该方法可在控制网络计算成本时提高高分辨率渲染保真度。</p><p class="lang lang-en lang-block" data-lang="en">Pixel-aligned Gaussian splatting enables efficient and generalizable novel-view synthesis. However, high-resolution rendering faces a critical trade-off where increasing input resolution improves detail at the expense of quadratically rising network computational cost. Conversely, maintaining low-resolution inputs stabilizes this cost but results in insufficient Gaussian density and artifacts. To address this, we propose SubSplat, which introduces Sub-pixel Gaussian Reparameterizer(SPGR) to subdivide primary Gaussians into fine-grained primitives, restoring structural density directly from low-resolution features. We further enhance the reparameterization quality through feature aggregation, which effectively captures high-frequency details across multiple views. Experiments on RealEstate10K and ACID demonstrate that SubSplat achieves high-fidelity rendering with superior efficiency. Our results validate that the proposed framework successfully resolves the trade-off between reparameterization fidelity and network computational cost inherent in pixel-aligned Gaussian Splatting.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jiun Lee, Jaekwang Kim, Sangmin Lee</li>
+<li><strong>价值判断</strong>：针对 pixel-aligned Gaussian Splatting 的高分辨率细节与二次增长网络成本矛盾，尝试从低分辨率特征恢复足够 Gaussian density。</li>
+<li><strong>技术要点</strong>：Sub-pixel Gaussian Reparameterizer 将 primary Gaussians 细分为更精细 primitives，并通过多视图 feature aggregation 补充高频细节，避免直接提高输入分辨率。</li>
+<li><strong>结果边界</strong>：RealEstate10K 与 ACID 上摘要称兼顾高保真和效率，但未提供具体质量、显存和吞吐数字；需比较 Gaussian 数量增长是否只是把成本转移到 rasterization。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.20813">arXiv</a> · <a href="https://arxiv.org/pdf/2607.20813">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.20813/fig-001.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.20813/fig-001.webp" alt="SubSplat: High-Resolution Pixel-aligned 3DGS via Sub-pixel Gaussian Reparameterization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.20813/fig-002.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.20813/fig-002.webp" alt="SubSplat: High-Resolution Pixel-aligned 3DGS via Sub-pixel Gaussian Reparameterization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

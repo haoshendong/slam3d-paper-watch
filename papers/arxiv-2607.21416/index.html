@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-26/index.html">← 返回 2026-07-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-23 · score 19 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GLAM-SLAM：通过流致密化与空间分解实现实时大规模高斯建图</span><span class="lang lang-en lang-inline" data-lang="en">GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition</span></h1>
+  <div class="meta">作者：Panagiotis Mermigkas, Argyris Manetas, Petros Maragos</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.21416">abs</a><a href="https://arxiv.org/pdf/2607.21416">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.5/10</span><p>直接命中实时大规模 Gaussian SLAM，针对长序列显存与稠密初始化给出完整设计，并公开代码；摘要仍缺少轨迹精度、显存增长和动态场景量化细节。</p><div class="tags"><span class="tag">3DGS SLAM</span><span class="tag">大规模建图</span><span class="tag">实时跟踪</span><span class="tag">流致密化</span><span class="tag">空间分解</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以特征 SLAM 前端、稀疏锚点网格、极线流致密化和空间分区实现长序列实时 3DGS SLAM。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">GLAM-SLAM 是面向大规模室外场景的实时、解耦式 Gaussian-splatting monocular SLAM。系统使用稳健的 feature-based SLAM frontend 进行轻量跟踪，建图侧采用结构化 sparse anchor grid，以便在长序列上控制表示规模并维持场景一致性。为满足 3DGS 的稠密初始化需求，方法基于 epipolar constraints 提出 geometry-based flow-densification anchoring；同时把建图视为 multi-scene problem，通过空间分区和带空间归纳偏置的 MLP 初始化生成局部 Gaussians。在 KITTI Odometry、Oxford RobotCar 和 Málaga 长序列上，摘要报告重建质量比次优方法提升 15%，并保持实时和长序列扩展能力。</p><p class="lang lang-en lang-block" data-lang="en">Existing Gaussian-splatting-based monocular Simultaneous Localization and Mapping (SLAM) systems are either tailored to short sequences, are not real-time, or suffer from prohibitive GPU memory requirements, limiting their applicability in realistic, long-horizon scenarios. To address this, we present GLAM-SLAM, a real-time, decoupled Gaussian-splatting SLAM system designed for large-scale outdoor scenes. We ensure lightweight tracking using a robust, feature-based SLAM frontend, while for mapping, we adopt a structured, sparse anchor grid representation that ensures scalable operation and maintains scene coherence across long-term sequences. To satisfy the dense initialization requirements of 3D Gaussian Splatting (3DGS), we introduce a geometry-based flow-densification anchoring strategy using epipolar constraints. Furthermore, by treating mapping as a multi-scene problem, we propose a scene-partitioning strategy that introduces a strong spatial inductive bias via MLP initializations to generate localized Gaussians. We evaluate our system on the challenging, long-sequence KITTI Odometry, Oxford RobotCar, and M&#x27;alaga datasets. Extensive ablations and comparisons demonstrate a 15% improvement in reconstruction quality over the second-best performer, while maintaining real-time performance and the ability to scale to longer sequences. Code is publicly available for the benefit of the community.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Panagiotis Mermigkas, Argyris Manetas, Petros Maragos</li>
+<li><strong>价值判断</strong>：今天最直接的 SLAM 新作，明确针对现有 Gaussian-splatting monocular SLAM 在长序列、实时性和 GPU 内存上的瓶颈。</li>
+<li><strong>技术要点</strong>：跟踪侧采用稳健的 feature-based SLAM frontend；建图侧使用结构化 sparse anchor grid，并以 epipolar constraints 驱动 flow-densification anchoring；再把大范围建图拆为 multi-scene problem，通过空间分区和局部 MLP 初始化生成 Gaussians。</li>
+<li><strong>关键结果与边界</strong>：在 KITTI Odometry、Oxford RobotCar 和 Málaga 长序列上，摘要报告重建质量比次优方法提升 15%，同时保持实时并可扩展到更长序列。需核查 tracking 指标、显存随路程增长曲线、分区边界一致性及动态物体处理。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.21416">arXiv</a> · <a href="https://arxiv.org/pdf/2607.21416">PDF</a> · <a href="https://glamslam.github.io/">项目页</a> · <a href="https://github.com/pmermigkas/GLAM-SLAM/">代码</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/fig-001.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/fig-001.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/fig-002.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/fig-002.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/fig-003.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/fig-003.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/fig-004.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/fig-004.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/fig-005.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/fig-005.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/fig-006.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/fig-006.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/table-001.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/table-001.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/table-002.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/table-002.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/table-003.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/table-003.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/table-004.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/table-004.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/table-005.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/table-005.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-26/arxiv-2607.21416/table-006.webp"><img src="../../assets/media/2026-07-26/arxiv-2607.21416/table-006.webp" alt="GLAM-SLAM: Real-time Gaussian Large-scale Mapping via Flow Densification and Spatial Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
