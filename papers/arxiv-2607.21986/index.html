@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-28/index.html">← 返回 2026-07-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-24 · score 19 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Mag4D-SLAM 数据集：重复遍历多模态四维地磁定位与建图数据集</span><span class="lang lang-en lang-inline" data-lang="en">Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping</span></h1>
+  <div class="meta">作者：Bibhutibhusan Nayak, Hyoseok Ju, Giseop Kim</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.21986">abs</a><a href="https://arxiv.org/pdf/2607.21986">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.4/10</span><p>直接命中 GNSS-denied、多模态 SLAM 和长期定位，数据规模与正反向/昼夜重复遍历设计很有价值；算法贡献有限，仍需核查磁标定、车辆磁干扰、真值精度和跨季节稳定性。</p><div class="tags"><span class="tag">地磁 SLAM</span><span class="tag">GNSS 拒止</span><span class="tag">多模态数据集</span><span class="tag">长期定位</span><span class="tag">地点识别</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 18 km 多模态重复遍历数据系统研究地磁航向、磁场闭环与跨时段定位，为 GNSS 拒止 SLAM 提供数据基础。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">地磁感知能够在无基础设施条件下提供绝对航向参考，并可在 GNSS 拒止或视觉退化时保持可用，但此前缺少支持系统研究的大规模室外机器人数据。Mag4D-SLAM 是首个大规模室外地磁 SLAM 数据集，包含 14 条、总计超过 18 km 的序列，同步采集 LiDAR、camera、IMU、tri-axis magnetometer 和 GNSS，并提供 SE(3) ground-truth poses。数据沿结构化校园路线采集，具有白天/夜间以及正向/反向配对的重复遍历设计。作者据此分析跨采集时段的磁场可重复性、无漂移全局航向估计，以及用于跨 session 地点识别的位置可辨识磁特征。该数据集面向 yaw drift 抑制、magnetic loop closure 和长期定位，并用于研究地磁如何补充视觉与 LiDAR，或在照明变化、结构重复及 GNSS-denied 长期运行中提供 fallback cue。</p><p class="lang lang-en lang-block" data-lang="en">Geomagnetic sensing offers an infrastructure-free, absolute orientation reference that is robust to GNSS denial and visual degradation, yet no large-scale outdoor robotics dataset supports its systematic study in SLAM. Existing magnetic datasets are confined to small-scale indoor environments and lack the synchronized multi-modal sensing, repeated-traversal structure, and high-precision 6-DoF ground truth required for geomagnetic SLAM research. We present Mag4D-SLAM, the first large-scale outdoor geomagnetic SLAM dataset. It comprises 14 sequences totaling over 18 km of synchronized LiDAR, camera, IMU, tri-axis magnetometer, and GNSS measurements with SE(3) ground-truth poses, collected along structured campus trajectories under paired day/night conditions in both forward and reverse directions. Through repeated-traversal experiments, we analyze three core properties: magnetic field repeatability across different recording sessions (daytime and nighttime), drift-free global heading estimation, and location-discriminative magnetic signatures for cross-session place recognition. Mag4D-SLAM is designed to support research on yaw drift mitigation, magnetic loop closure, and long-term localization and to open new research questions on how geomagnetic sensing can complement visual and LiDAR modalities or provide a fallback cue under illumination changes, structural repetition, and GNSS-denied long-term operation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Bibhutibhusan Nayak, Hyoseok Ju, Giseop Kim</li>
+<li><strong>价值判断</strong>：今天与长期自主定位最直接相关的新作。它补齐大规模室外 geomagnetic SLAM 数据缺口，重点不是再做一个常规传感器数据集，而是让地磁航向约束、磁场闭环和跨时段地点识别可以系统评测。</li>
+<li><strong>数据设计</strong>：14 条序列、总里程超过 18 km，同步 LiDAR、camera、IMU、tri-axis magnetometer 与 GNSS，并提供 SE(3) ground truth；轨迹含白天/夜间配对，以及正向/反向重复遍历。</li>
+<li><strong>关键问题与边界</strong>：论文分析跨 session 磁场可重复性、无漂移全局 heading 和位置可辨识 magnetic signatures。后续需核查磁传感器标定、车辆软硬铁干扰、地图跨季节/施工变化、ground-truth 精度，以及与强视觉/LiDAR baseline 融合后的实际增益。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.21986">arXiv</a> · <a href="https://arxiv.org/pdf/2607.21986">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/fig-001.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/fig-001.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/fig-002.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/fig-002.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/fig-003.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/fig-003.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/fig-004.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/fig-004.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/fig-005.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/fig-005.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/fig-006.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/fig-006.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/table-001.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/table-001.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/table-002.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/table-002.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/table-003.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/table-003.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/table-004.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/table-004.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.21986/table-005.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.21986/table-005.webp" alt="Mag4D-SLAM Dataset: A Repeated-Traversal Multi-Modal 4D Geomagnetic Dataset for Localization and Mapping" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

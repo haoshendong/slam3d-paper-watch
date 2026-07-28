@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-28/index.html">← 返回 2026-07-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-24 · score 11 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通过新视角合成在感知混淆与低纹理环境中实现稀疏视角视觉重定位</span><span class="lang lang-en lang-inline" data-lang="en">Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis</span></h1>
+  <div class="meta">作者：Maria Peribañez, Javier Civera, Rudolph Triebel, Riccardo Giubilato</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.22147">abs</a><a href="https://arxiv.org/pdf/2607.22147">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>直接解决困难环境中的全局重定位，并把多模态几何监督与 3DGS pose optimization 结合且公开代码；摘要未给量化结果，初始化范围、在线延迟和局部极值风险待正文验证。</p><div class="tags"><span class="tag">视觉重定位</span><span class="tag">3DGS</span><span class="tag">LiDAR 深度</span><span class="tag">多视图立体</span><span class="tag">低纹理环境</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 MVS 与 LiDAR 深度共同监督 3DGS 地图，再对地图直接优化单图 6-DoF 位姿，面向低纹理和稀疏弱重叠视角重定位。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">在类行星地形中，低纹理、感知混淆、强照明变化，以及前向 rover 运动和自由行驶方向造成的稀疏弱重叠视角，会使 image-to-image 和 image-to-map matching 明显退化。该方法不再依赖经典 correspondence pipeline，而是针对由 3D Gaussian Splatting 构建的 differentiable map 直接估计 camera pose。核心是 geometry-aware training：联合使用 photometric 与 geometric losses，其中几何监督由 MVS depth 和 LiDAR depth 共同提供。联合优化使 3DGS 更贴合真实场景几何，从而改善光度/几何一致性，并提高单图 6-DoF pose estimation 的鲁棒性与精度。类行星环境实测验证了其在困难条件下的重定位增益。</p><p class="lang lang-en lang-block" data-lang="en">Visual localization becomes extremely challenging in planetary-like terrains characterized by low texture, perceptual aliasing, harsh illumination, and sparse, weakly overlapping viewpoints induced by forward rover motion and unconstrained driving directions. Under these conditions, state-of-the-art image-to-image and image-to-map matching pipelines suffer significant performance degradation. In this work, we propose a visual relocalization method that departs from classical correspondence-based pipelines by directly estimating camera poses against a differentiable map representation built with 3D Gaussian Splatting (3DGS). Our key contribution is a geometry-aware training strategy that combines photometric and geometric losses, where the geometric supervision is provided for the first time by combining multi-view stereo (MVS) and LiDAR depths. We show that this joint optimization produces a 3DGS model that better fits the underlying scene geometry, leading to improved photometric and geometric consistency and more robust, accurate single-image 6-DoF pose estimation. Extensive experiments on data acquired in planetary-analog environments validate the effectiveness of our approach, showing substantial gains in relocalization accuracy under challenging conditions. Code is available at https://github.com/DLR-RM/multimodal-gsplat-relocalization.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Maria Peribañez, Javier Civera, Rudolph Triebel, Riccardo Giubilato</li>
+<li><strong>价值判断</strong>：针对低纹理、重复外观、强照明变化和弱重叠视角，绕开脆弱的 image-to-image/image-to-map correspondence，直接在可微 3DGS 地图上优化单图 6-DoF pose。</li>
+<li><strong>技术要点</strong>：以 photometric 与 geometric losses 联合训练 3DGS；几何监督首次组合 MVS depth 与 LiDAR depth，目标是让 Gaussian map 同时改善外观和底层几何一致性，再服务于直接相机位姿估计。</li>
+<li><strong>结果边界</strong>：摘要称类行星场景实验显著提高重定位精度，但未给出数字。应重点核查初始化捕获范围、每帧优化时延、错误局部极值、LiDAR/MVS 深度冲突处理，以及相对纯 LiDAR map、NeRF/3DGS relocalization 和 feature baseline 的公平比较。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.22147">arXiv</a> · <a href="https://arxiv.org/pdf/2607.22147">PDF</a> · <a href="https://github.com/DLR-RM/multimodal-gsplat-relocalization">代码</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.22147/fig-001.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.22147/fig-001.webp" alt="Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.22147/fig-002.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.22147/fig-002.webp" alt="Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.22147/fig-003.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.22147/fig-003.webp" alt="Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.22147/fig-004.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.22147/fig-004.webp" alt="Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.22147/fig-005.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.22147/fig-005.webp" alt="Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.22147/fig-006.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.22147/fig-006.webp" alt="Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.22147/table-001.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.22147/table-001.webp" alt="Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-28/arxiv-2607.22147/table-002.webp"><img src="../../assets/media/2026-07-28/arxiv-2607.22147/table-002.webp" alt="Visual Relocalization from Sparse Views in Aliased and Low-Texture Environments via Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
