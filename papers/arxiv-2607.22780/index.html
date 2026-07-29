@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Inter-Reflective Gaussian Splatting for Robust and Efficient Inverse Rendering</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-29/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-29/index.html">← 返回 2026-07-29 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-28 · score 11 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">IRGS++：面向稳健高效逆渲染的互反射 Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Inter-Reflective Gaussian Splatting for Robust and Efficient Inverse Rendering</span></h1>
+  <div class="meta">作者：Chun Gu, Xiaofei Wei, Zixuan Zeng, Yuxuan Yao, Li Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.22780">abs</a><a href="https://arxiv.org/pdf/2607.22780">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.9/10</span><p>推进 3DGS 的材质—光照解耦和跨光照复用，对高保真三维重建有价值；并非 SLAM 方法，secondary rays、mesh query 依赖和真实复杂光照下的歧义仍需验证。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">逆渲染</span><span class="tag">互反射</span><span class="tag">可微光线追踪</span><span class="tag">材质分解</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以可微二维 Gaussian ray tracing 补齐 visibility、indirect radiance 和 inter-reflection，使 3DGS 逆渲染更符合物理传输。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">忠实的 inverse rendering 需要 visibility 与 indirect radiance 来解释 secondary illumination 和 inter-reflection，但面向 rasterization 的 Gaussian 表示通常不支持所需的 secondary-ray queries。IRGS++ 在 surface-oriented Gaussian primitives 上使用 differentiable 2D Gaussian ray tracing，即时查询 visibility 和 indirect radiance，并在 transport-aware optimization 中计算互反射传输的完整 rendering equation。为覆盖高光、镜面和金属材质，框架加入 metallic-aware material modeling 与 robust reflective initialization；multiple importance sampling 和 denoising 用于稳定有限采样渲染，mesh-based secondary-attribute queries 则降低新光照 relighting 成本。摘要报告其在低光泽和高光泽 benchmark 上改善 decomposition 与 relighting quality，并获得良好的质量—速度权衡。</p><p class="lang lang-en lang-block" data-lang="en">Faithful inverse rendering requires visibility and indirect radiance to explain secondary illumination and inter-reflection, yet rasterization-oriented Gaussian representations do not naturally support the secondary-ray queries needed to recover them. We present IRGS++ (Inter-Reflective Gaussian Splatting), a unified robust and efficient Gaussian inverse rendering framework. During transport-aware optimization, IRGS++ employs differentiable 2D Gaussian ray tracing on surface-oriented Gaussian primitives to query visibility and indirect radiance on the fly and evaluate the full rendering equation for inter-reflective transport. This physical core makes Gaussian inverse rendering physically grounded beyond rasterized appearance modeling. To make this backbone useful beyond low-gloss dielectric scenes, the framework incorporates metallic-aware material modeling and robust reflective initialization for glossy, specular, and metallic materials. To make it practical, multiple importance sampling and denoising stabilize finite-sample rendering, while mesh-based secondary-attribute queries reduce the cost of relighting under novel illumination. Quantitative evaluations on low-gloss and glossy benchmarks show improved decomposition and relighting quality together with favorable quality--speed trade-offs under the reported configurations, while real-world studies illustrate plausible relighting under novel illumination.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Chun Gu, Xiaofei Wei, Zixuan Zeng, Yuxuan Yao, Li Zhang</li>
+<li><strong>价值判断</strong>：把 3DGS 从 rasterized appearance model 推向更物理一致的 inverse rendering，对需要照明解耦、材质恢复或跨光照地图复用的三维重建系统有价值。</li>
+<li><strong>技术要点</strong>：在 surface-oriented Gaussians 上使用 differentiable 2D Gaussian ray tracing，即时查询 visibility 与 indirect radiance，并计算包含 inter-reflective transport 的完整 rendering equation；加入 metallic-aware material、reflective initialization、multiple importance sampling 与 denoising。</li>
+<li><strong>结果与边界</strong>：摘要报告 low-gloss/glossy benchmarks 上 decomposition、relighting 和 quality-speed trade-off 改善。需核查几何初始化依赖、secondary-ray 成本、mesh-based attribute query 是否破坏纯 Gaussian pipeline，以及复杂真实光照下材质—照明歧义。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.22780">arXiv</a> · <a href="https://arxiv.org/pdf/2607.22780">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22780/fig-001.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22780/fig-001.webp" alt="Inter-Reflective Gaussian Splatting for Robust and Efficient Inverse Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22780/fig-002.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22780/fig-002.webp" alt="Inter-Reflective Gaussian Splatting for Robust and Efficient Inverse Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22780/fig-003.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22780/fig-003.webp" alt="Inter-Reflective Gaussian Splatting for Robust and Efficient Inverse Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

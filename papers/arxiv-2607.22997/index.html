@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-29/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-29/index.html">← 返回 2026-07-29 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-28 · score 10 · cs.RO, cs.AI, cs.GR, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向 VLA 操作的 Real2Sim2Real：AMD ROCm 流水线</span><span class="lang lang-en lang-inline" data-lang="en">Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline</span></h1>
+  <div class="meta">作者：Qing Yang, Xun Wang, Ziguan Wang, Zhenjiang Li, Hongqiang Wang, Dongdong Weng</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.22997">abs</a><a href="https://arxiv.org/pdf/2607.22997">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>3DGS reconstruction 到 physics simulation 的工程链路值得关注，并覆盖真实机器人部署；论文更偏 AMD 技术栈展示，算法贡献、物理资产转换细节和可复现性需谨慎核查。</p><div class="tags"><span class="tag">Real2Sim2Real</span><span class="tag">3DGS</span><span class="tag">VLA</span><span class="tag">ROCm</span><span class="tag">机器人操作</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 ROCm 串联 VLA 训练、3DGS+Genesis Real2Sim 数据生成和真实机器人部署，展示非 CUDA 锁定的 embodied pipeline。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文给出一套面向 embodied manipulation 的端到端 AMD-accelerated technology stack，以开放 ROCm software stack 统一 data-center training、Radeon PRO simulation/rendering GPU 和 Ryzen AI edge compute，目标是证明 VLA manipulation policy 的训练与部署并不要求 CUDA-locked ecosystem。四组演示包括：以 SmolVLA 训练并部署到 Franka 的 Sim-to-Real pipeline；语言驱动的三选一对象选择；将真实场景 3D Gaussian Splatting reconstruction 与 Genesis physics engine 结合的 Real2Sim synthetic-data generation；以及跨多种硬件的大规模四足和人形 locomotion reinforcement learning。摘要称所有流程均可在 RDNA4/RDNA3.5 硬件上的 ROCm + PyTorch 原生运行。</p><p class="lang lang-en lang-block" data-lang="en">Physical AI -- the integration of large vision-language-action (VLA) models with embodied agents that act in the real world -- has emerged as the next major frontier for AI, echoed by industry leaders such as Jensen Huang (``the next big thing is Physical AI, AI with a body,&#x27;&#x27; GTC Paris, June 2025) and Dr. Lisa Su (`we&#x27;re entering the world of Physical AI ... this is where AI enters the real world,&#x27; CES 2026). This paper presents an end-to-end, fully AMD-accelerated technology stack for embodied manipulation, spanning data-center training silicon, Radeon PRO simulation/rendering GPUs, and Ryzen AI edge compute, unified by the open ROCm software stack. We demonstrate that training and deploying VLA-based manipulation policies does not require a CUDA-locked ecosystem. Four progressive demonstrations are presented: (1) a Sim-to-Real manipulation pipeline trained with SmolVLA and deployed on a physical Franka arm; (2) a semantic, language-grounded object-selection task (`one-of-three&#x27;); (3) a Real2Sim synthetic-data generation pipeline that fuses 3D Gaussian Splatting (3DGS) reconstructions of real scenes with the Genesis physics engine; and (4) large-scale reinforcement learning for quadruped and humanoid locomotion benchmarked across multiple hardware platforms. All pipelines run natively on ROCm + PyTorch on RDNA4 (Radeon AI PRO R9700) and RDNA3.5 (Radeon PRO W7900) hardware and are reproducible on the free Radeon Cloud Platform.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Qing Yang, Xun Wang, Ziguan Wang, Zhenjiang Li, Hongqiang Wang, Dongdong Weng</li>
+<li><strong>价值判断</strong>：算法新颖性不是重点，工程信号在于用 ROCm 贯通训练、仿真和边缘部署，并把真实场景 3DGS reconstruction 接入 Genesis physics 生成 synthetic data。</li>
+<li><strong>技术要点</strong>：展示 SmolVLA 到 Franka real-robot deployment、language-grounded object selection、3DGS+Genesis Real2Sim synthetic-data generation，以及 quadruped/humanoid reinforcement learning；目标是验证非 CUDA 锁定的 embodied stack。</li>
+<li><strong>结果与边界</strong>：需区分可复现技术贡献与硬件展示，重点检查场景重建到 physics collider/material 的转换、simulator calibration、3DGS 外观与物理几何的一致性，以及跨 AMD GPU 的算子覆盖。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.22997">arXiv</a> · <a href="https://arxiv.org/pdf/2607.22997">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22997/fig-001.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22997/fig-001.webp" alt="Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22997/fig-002.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22997/fig-002.webp" alt="Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22997/fig-003.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22997/fig-003.webp" alt="Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22997/fig-004.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22997/fig-004.webp" alt="Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22997/fig-005.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22997/fig-005.webp" alt="Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22997/table-001.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22997/table-001.webp" alt="Real2Sim2Real for Vision-Language-Action Manipulation: An AMD ROCm-Based Pipeline" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

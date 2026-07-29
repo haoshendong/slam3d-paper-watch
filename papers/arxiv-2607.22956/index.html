@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>3D Gaussian Splatting for Scientific Particle Data Compression and Rendering</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-29/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-29/index.html">← 返回 2026-07-29 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-28 · score 10 · cs.GR, cs.DC</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">用于科学粒子数据压缩与渲染的 3D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">3D Gaussian Splatting for Scientific Particle Data Compression and Rendering</span></h1>
+  <div class="meta">作者：Bo Jiang, Youyuan Liu, Taolue Yang, Sheng Di, Sian Jin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.22956">abs</a><a href="https://arxiv.org/pdf/2607.22956">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.7/10</span><p>对大规模点/粒子表示、分块训练和 visualization-aware compression 有启发；任务不是 SLAM map，缺少在线更新、几何定位误差和传感器观测一致性验证。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">粒子数据</span><span class="tag">数据压缩</span><span class="tag">分块训练</span><span class="tag">实时渲染</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以分块 3DGS 和可视化参数适配网络压缩数亿级粒子数据，在 65× 压缩下兼顾渲染质量与交互速度。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">大规模粒子仿真会产生数亿粒子，使存储、传输和交互可视化承压；传统有损压缩器在 data space 中工作，无法保证 downstream visualization fidelity。ParticleGS 直接为 rendered image quality 学习 compact 3DGS representation，并组合 multi-stage/multi-orbit training、可在推理时适配用户指定可视化参数的轻量 VizMapper，以及 KD-tree spatial block training 与 global fine-tuning。在 2.81 亿粒子的 HACC cosmological simulation 上，8-block model 以 65× compression 达到 30.03 dB PSNR，在相近压缩率下比 SZ3 高 5–8 dB；摘要称其还可泛化到其他 HACC 区域和 FIRE-2 simulation，并在单 GPU 达到 662 FPS。</p><p class="lang lang-en lang-block" data-lang="en">Large-scale particle simulations produce hundreds of millions of particles, straining storage, transfer, and interactive visualization. Existing lossy compressors such as SZ3 operate in data space and provide no guarantees on downstream visualization fidelity. We propose ParticleGS, a visualization-aware framework based on 3D Gaussian Splatting (3DGS) that learns a compact representation directly optimized for rendered image quality, combining (1) a multi-stage, multi-orbit training pipeline, (2) VizMapper, a lightweight network that adapts a single trained model to user-specified visualization parameters at inference time, and (3) spatial block training with KD-tree decomposition and global fine-tuning. On a 281-million-particle HACC cosmological simulation, our 8-block model reaches 30.03 dB PSNR at 65x compression, outperforming SZ3 by 5-8 dB at comparable ratios, and generalizes without tuning to additional HACC regions and a dark-matter-only FIRE-2 simulation. It renders at 662 FPS on a single GPU, over 2,300x faster than ParaView on the full particle data.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Bo Jiang, Youyuan Liu, Taolue Yang, Sheng Di, Sian Jin</li>
+<li><strong>价值判断</strong>：虽非 SLAM 论文，但展示了 3DGS 对数亿级非传统点/粒子数据的 compact representation 与 interactive rendering 能力，可为大规模点云地图分块、LOD 和 visualization-aware compression 提供旁证。</li>
+<li><strong>技术要点</strong>：ParticleGS 采用 multi-stage/multi-orbit training、根据用户可视化参数自适应的 VizMapper，以及 KD-tree spatial blocks 加 global fine-tuning。</li>
+<li><strong>结果与边界</strong>：在 2.81 亿粒子 HACC 数据上摘要报告 65× compression、30.03 dB PSNR 和单 GPU 662 FPS；与 SLAM map 的观测更新、几何误差、语义属性及在线压缩仍有明显任务差异。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.22956">arXiv</a> · <a href="https://arxiv.org/pdf/2607.22956">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/fig-001.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/fig-001.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/fig-002.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/fig-002.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/fig-003.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/fig-003.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/fig-004.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/fig-004.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/fig-005.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/fig-005.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/fig-006.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/fig-006.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/table-001.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/table-001.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/table-002.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/table-002.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/table-003.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/table-003.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-29/arxiv-2607.22956/table-004.webp"><img src="../../assets/media/2026-07-29/arxiv-2607.22956/table-004.webp" alt="3D Gaussian Splatting for Scientific Particle Data Compression and Rendering" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

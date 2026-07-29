@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Meshless Domain Randomization via Explicit Parameter Perturbation of 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-29/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-29/index.html">← 返回 2026-07-29 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-28 · score 14 · cs.GR, cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通过显式扰动 3D Gaussian Splatting 参数实现无网格域随机化</span><span class="lang lang-en lang-inline" data-lang="en">Meshless Domain Randomization via Explicit Parameter Perturbation of 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Felipe Nunes Carbone de Carvalho, Joyce de Morais Souza, Alan de Aguiar, Charles Morphy D. Santos, Jo\~ao Paulo Gois</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.22890">abs</a><a href="https://arxiv.org/pdf/2607.22890">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>3DGS parameter-space randomization 思路清晰，可能降低复杂场景 Sim-to-Real 数据生成成本；摘要缺少下游任务量化结果，几何扰动范围与真实 domain gap 覆盖待核查。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">域随机化</span><span class="tag">Sim-to-Real</span><span class="tag">合成数据</span><span class="tag">球谐系数</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">直接扰动 3DGS 的 SH、纹理与合成背景，在无需纹理网格的条件下生成 Sim-to-Real 域随机化训练数据。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">传统 Domain Randomization pipeline 依赖 polygon mesh 驱动的经典图形渲染，而复杂有机主体的 textured mesh 提取和渲染较困难。本文提出在 3D Gaussian Splatting 参数空间中工作的 meshless DR framework，并用两个独立扰动流程生成随机化训练数据。Photometric DR 通过调制 spherical harmonics coefficients 改变 baked illumination 与 color balance；Procedural DR 以 3D spatial noise 替换原始纹理，从而突出主体几何形状。最后，系统通过 rasterization engine 将扰动后的 radiance fields 与随机变化背景合成。该参数操纵方法为复杂几何的稳健数据生成提供了无需 mesh 的替代路径。</p><p class="lang lang-en lang-block" data-lang="en">Domain Randomization (DR) is a standard technique for closing the Sim-to-Real gap, yet traditional DR pipelines rely on classical computer graphics rendering driven by polygon meshes. For complex organic subjects, such as insect specimens, extracting and rendering textured meshes is challenging. To address this issue, we propose a meshless DR framework that operates on the parameter space of 3D Gaussian Splatting (3DGS). Our method employs two independent perturbation pipelines to synthesize randomized training datasets. First, a Photometric DR pipeline alters the baked illumination and color balance by modulating the Spherical Harmonics (SH) coefficients. Second, a Procedural DR pipeline isolates the subject&#x27;s geometric shape by replacing its original textures with 3D spatial noise. Finally, these perturbed radiance fields are composited over stochastically varied backgrounds using a rasterization engine. Our parameter manipulation provides a meshless alternative for generating robust datasets for complex geometries.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Felipe Nunes Carbone de Carvalho, Joyce de Morais Souza, Alan de Aguiar, Charles Morphy D. Santos, João Paulo Gois</li>
+<li><strong>价值判断</strong>：不经过 fragile textured-mesh extraction，直接在 3DGS parameter space 中构造 domain-randomized training data，适合复杂几何的 Sim-to-Real perception pipeline。</li>
+<li><strong>技术要点</strong>：Photometric DR 调制 spherical harmonics coefficients 以改变 baked illumination 和 color balance；Procedural DR 用 3D spatial noise 替换原始纹理、保留主体几何，再与随机背景合成。</li>
+<li><strong>结果与边界</strong>：摘要没有给出下游任务提升数字。需要确认 Gaussian geometry perturbation 是否充分、随机化分布与真实 domain gap 的匹配程度，以及对 detection/pose estimation 等任务的跨域收益。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.22890">arXiv</a> · <a href="https://arxiv.org/pdf/2607.22890">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
