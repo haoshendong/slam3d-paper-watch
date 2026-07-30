@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>NSL-SLAM: High-Fidelity Neural Structured-Light Depth for Practical SLAM and Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-30/index.html">← 返回 2026-07-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-27 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">NSL-SLAM：面向实用 SLAM 与重建的高保真神经结构光深度</span><span class="lang lang-en lang-inline" data-lang="en">NSL-SLAM: High-Fidelity Neural Structured-Light Depth for Practical SLAM and Reconstruction</span></h1>
+  <div class="meta">作者：Jiaheng Li, Binsheng Zhang, Xinhai Chang, Wenzheng Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.24495">abs</a><a href="https://arxiv.org/pdf/2607.24495">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.5/10</span><p>今天最完整、最直接的 SLAM 系统贡献，传感器改进与 tracking/reconstruction 互相验证且有真实场景结果；户外、反光、远距失效和 loop closure 仍需核查。</p><div class="tags"><span class="tag">SLAM</span><span class="tag">结构光</span><span class="tag">神经深度</span><span class="tag">深度跟踪</span><span class="tag">三维重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以增强的神经结构光深度主导 tracking，只在退化时补充稀疏视觉与轻量 BA，实现 20.9 FPS 的稳健 SLAM。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">NSL-SLAM 面向 structured-light camera 构建 depth-centric SLAM。深度端在 neural structured-light stereo decoding 中加入强 monocular depth priors，在 Replica-SL 上相对 NSL 将 depth RMSE 降低 35%。系统将 dense、metric structured-light geometry 作为主要 tracking signal，仅在几何退化时加入 sparse visual correspondences，并用 lightweight bundle adjustment 控制长程漂移。合成 Replica-SL 的 shared-depth protocol 下，方法获得最佳 tracking accuracy，reconstruction F-score 比 SOTA baseline 高 1.6 点；真实 8 个困难场景中没有 catastrophic failure，trajectory deviation 比所选基线低 43.3%，并以 20.9 FPS 在线运行。</p><p class="lang lang-en lang-block" data-lang="en">Structured-light (SL) cameras power depth sensing in millions of devices, and recent neural SL decoding methods have substantially improved their depth quality. SLAM systems can benefit greatly from such strong depth sensing, where reliable geometry enables stable tracking and faithful reconstruction. In this work, we present NSL-SLAM, a practical SLAM system tailored for high-fidelity structured-light depth. We first strengthen SL depth sensing: inspired by the neural structured-light (NSL) method, we further incorporate strong monocular depth priors into the SL stereo decoding, reducing depth RMSE by 35% on Replica-SL compared to NSL. We then build a depth-centric SLAM pipeline with this stronger depth: because structured-light geometry is dense and metrically accurate, we keep it as the primary tracking signal, and add only sparse visual correspondences for geometrically degenerate cases and lightweight bundle adjustment for long-range drift. Our depth estimator and SLAM design reinforce each other: stronger depth makes a simple SLAM pipeline effective, and the depth-centric pipeline ensures this advantage transfers to downstream reconstruction. Experimentally, on the synthetic Replica-SL benchmark, NSL-SLAM achieves the best tracking accuracy and improves reconstruction F-score by 1.6 points over the SOTA baseline under a shared-depth protocol. On a real benchmark of 8 challenging scenes, it is the only method that avoids catastrophic failure on all sequences while achieving 43.3% lower trajectory deviation than selected baselines. The SLAM system runs online at 20.9 FPS, demonstrating that stronger structured-light depth and depth-centric system design together enable practical, robust SLAM.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jiaheng Li, Binsheng Zhang, Xinhai Chang, Wenzheng Chen</li>
+<li><strong>价值判断</strong>：今天最直接的完整 SLAM 系统。核心观点是 dense、metric structured-light geometry 足够强时，可以让深度承担主 tracking 信号，只在退化场景引入 sparse visual correspondences 和轻量 BA。</li>
+<li><strong>结果与边界</strong>：单目先验使 Replica-SL depth RMSE 相对 NSL 降低 35%；共享深度协议下 reconstruction F-score 比基线高 1.6 点；真实 8 场景 trajectory deviation 低 43.3%，在线 20.9 FPS。需核查真实 benchmark、传感器标定、强日光/反光/远距离失效与 loop closure 设计。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.24495">arXiv</a> · <a href="https://arxiv.org/pdf/2607.24495">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

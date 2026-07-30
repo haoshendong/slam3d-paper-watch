@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HOME: Robust Hough-space Matching Method for Structured and Textureless Videos</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-30/index.html">← 返回 2026-07-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-28 · score 8 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HOME：面向结构化与弱纹理视频的稳健 Hough 空间匹配</span><span class="lang lang-en lang-inline" data-lang="en">HOME: Robust Hough-space Matching Method for Structured and Textureless Videos</span></h1>
+  <div class="meta">作者：Masaki Satoh</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.25389">abs</a><a href="https://arxiv.org/pdf/2607.25389">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.5/10</span><p>直接针对 SLAM 前端的结构化/弱纹理退化，表示和匹配方式简洁；当前仅验证 homography，尚无 3D pose、VO 或完整 SLAM 结果。</p><div class="tags"><span class="tag">视觉前端</span><span class="tag">Hough 变换</span><span class="tag">线特征</span><span class="tag">弱纹理</span><span class="tag">单应估计</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将线结构变为 Hough 空间极值并做一维描述子匹配，为弱纹理实时视觉前端提供轻量、免训练方案。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">点特征前端在强线结构或弱纹理环境中容易失败，而传统 line extraction/description 对 edge robotics 过于昂贵。HOME 将图像变换到 Hough space，把全局线结构映射成稳定 local extrema 并作为 keypoints，从而把复杂 line matching 改写成高效的一维 point matching。其 1D radial descriptor 在无需显式 orientation estimation 时提供旋转和平移不变性。作为 proof of concept，论文目前聚焦 homography estimation；摘要称 HOME 在 point-based methods 失效的场景中保持稳健 registration，并显著快于现有 line-based methods。扩展到 full 3D pose estimation 仍属于未来工作。</p><p class="lang lang-en lang-block" data-lang="en">Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing line segments, conventional line extraction and description algorithms are computationally prohibitive for real-time edge robotics. To address this fundamental bottleneck, we propose HOME (Hough-space One-dimensional Matching of Extrema), an ultra-lightweight, training-free feature matching framework. HOME transforms images into Hough space, mapping global linear structures to stable local extrema, which serve as keypoints, thereby reformulating complex line matching into highly efficient one-dimensional point matching. The proposed 1D radial descriptor mathematically guarantees rotational and translational invariance without the overhead of explicit orientation estimation. As a proof of concept to validate the matching accuracy and efficiency of HOME, this paper focuses on homography estimation. Extensive evaluations demonstrate that HOME achieves robust registration in challenging scenarios where point-based methods fail, operating at a much faster speed than existing line-based methods. Extending this robust matching engine to full 3D pose estimation remains a highly promising future direction.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Masaki Satoh</li>
+<li><strong>价值判断</strong>：把全局线结构映射成 Hough-space extrema，再将 line matching 化为一维 point matching，目标是为 edge robotics 提供 training-free、超轻量前端。</li>
+<li><strong>结果与边界</strong>：当前 proof of concept 只验证 homography estimation；论文声称在点特征失败场景中更稳健且快于现有 line methods。尚未完成 3D pose、尺度估计、IMU 融合或全 SLAM 闭环，不能据此推断系统级定位收益。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.25389">arXiv</a> · <a href="https://arxiv.org/pdf/2607.25389">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25389/fig-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25389/fig-001.webp" alt="HOME: Robust Hough-space Matching Method for Structured and Textureless Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25389/fig-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25389/fig-002.webp" alt="HOME: Robust Hough-space Matching Method for Structured and Textureless Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25389/fig-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25389/fig-003.webp" alt="HOME: Robust Hough-space Matching Method for Structured and Textureless Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25389/fig-004.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25389/fig-004.webp" alt="HOME: Robust Hough-space Matching Method for Structured and Textureless Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25389/fig-005.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25389/fig-005.webp" alt="HOME: Robust Hough-space Matching Method for Structured and Textureless Videos" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25389/table-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25389/table-001.webp" alt="HOME: Robust Hough-space Matching Method for Structured and Textureless Videos" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25389/table-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25389/table-002.webp" alt="HOME: Robust Hough-space Matching Method for Structured and Textureless Videos" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25389/table-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25389/table-003.webp" alt="HOME: Robust Hough-space Matching Method for Structured and Textureless Videos" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

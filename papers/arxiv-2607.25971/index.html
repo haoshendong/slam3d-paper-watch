@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SplatStream: Fine Granular Scalable Gaussian Splatting for Adaptive 3D Scene Streaming</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-30/index.html">← 返回 2026-07-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-29 · score 11 · eess.IV, eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SplatStream：用于自适应三维场景流媒体的细粒度可伸缩 Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">SplatStream: Fine Granular Scalable Gaussian Splatting for Adaptive 3D Scene Streaming</span></h1>
+  <div class="meta">作者：Muhammad Talha, William Gordon, Sajid Umair, Anique Akhtar, Joel Jung</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.25971">abs</a><a href="https://arxiv.org/pdf/2607.25971">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>对大规模 3DGS 地图分层和边缘传输有工程启发；摘要缺少 bitrate、latency、quality 与 decoder cost 量化，也未覆盖在线地图更新。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">三维流媒体</span><span class="tag">可伸缩编码</span><span class="tag">MPEG-DASH</span><span class="tag">渐进传输</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过质量/分辨率分层、时空预测和重要性 packetization，把 dynamic 3DGS 接入 MPEG-DASH 式自适应渐进传输。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Dynamic 3DGS 的表示体积和帧间冗余给自适应传输带来压力。SplatStream 将 GS scene 分解为质量层与分辨率层，使用 inter-layer predictive coding 实现 scalability，并在时间维引入 B-frames 形成 temporal quality scalability。轻量 cross-layer transformer 同时承担跨层与时间预测；volume-opacity importance measure 用于细粒度 Gaussian packetization，使视觉重要 primitives 更早传输并渐进增强。最终 bitstream 被映射到 MPEG-DASH compatible sub-representation，以在带宽变化条件下支持细粒度、自适应、低延迟的动态 Gaussian 内容传送。</p><p class="lang lang-en lang-block" data-lang="en">Dynamic 3D Gaussian Splatting (GS) enables high quality real-time rendering for immersive media, but its large representation size and frame-wise redundancy create significant challenges for adaptive streaming. This paper presents SplatStream, a fine granular scalable Gaussian splatting framework for dynamic 3D scene delivery. The proposed method decompose the GS scenes into quality and resolution layers, and introduces inter-layer predictive coding to achieve scalability. For temporal direction, B-frames are introduced to have temporal quality scalability. A lightweight cross-layer transformer based predictor is utilized for both cross layer and temporal predictions. In addition, a volume-opacity based importance measure is used for fine-grained Gaussian packetization, allowing visually important primitives to be transmitted earlier for progressive refinement. Finally, the scalable GS bitstream is mapped to an MPEG-DASH compatible sub-representation structure, enabling fine granular adaptive, low-latency delivery of dynamic Gaussian splatting content under bandwidth-varying conditions.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Muhammad Talha, William Gordon, Sajid Umair, Anique Akhtar, Joel Jung</li>
+<li><strong>价值判断</strong>：把 dynamic GS 分成质量/分辨率层，用跨层和时间预测、B-frames 与重要性 packetization 支持 progressive delivery，可借鉴到大规模 3DGS 地图分层和边缘传输。</li>
+<li><strong>结果与边界</strong>：bitstream 映射到 MPEG-DASH sub-representation，但摘要没有给出 bitrate、latency、quality 或 decoder cost 数字；还需确认随机访问、丢包恢复和在线地图更新能力。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.25971">arXiv</a> · <a href="https://arxiv.org/pdf/2607.25971">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25971/fig-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25971/fig-001.webp" alt="SplatStream: Fine Granular Scalable Gaussian Splatting for Adaptive 3D Scene Streaming" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25971/fig-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25971/fig-002.webp" alt="SplatStream: Fine Granular Scalable Gaussian Splatting for Adaptive 3D Scene Streaming" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25971/fig-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25971/fig-003.webp" alt="SplatStream: Fine Granular Scalable Gaussian Splatting for Adaptive 3D Scene Streaming" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25971/table-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25971/table-001.webp" alt="SplatStream: Fine Granular Scalable Gaussian Splatting for Adaptive 3D Scene Streaming" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25971/table-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25971/table-002.webp" alt="SplatStream: Fine Granular Scalable Gaussian Splatting for Adaptive 3D Scene Streaming" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

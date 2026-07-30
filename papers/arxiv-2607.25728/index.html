@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-30/index.html">← 返回 2026-07-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-28 · score 7 · cs.RO, cs.AI, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于共享体素地图与多智能体 SAC 的室内无人机协同导航</span><span class="lang lang-en lang-inline" data-lang="en">Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller</span></h1>
+  <div class="meta">作者：Thomas Hickling, Dylan Wynne, Yu Su, Nabil Aouf</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.25728">abs</a><a href="https://arxiv.org/pdf/2607.25728">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>共享地图表示与多机无 GNSS 导航直接相关，兼有仿真对比和真实双机演示；定位来源、跨机标定、通信延迟及更多 agent 的扩展仍不清楚。</p><div class="tags"><span class="tag">多无人机</span><span class="tag">共享体素地图</span><span class="tag">LiDAR</span><span class="tag">无 GNSS 导航</span><span class="tag">多智能体强化学习</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">多机 LiDAR 在世界坐标系融合共享 voxel map，各机从自我对齐 BEV crop 分散控制，并在无 GNSS 室内完成双机实验。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该系统将多架无人机的 360° LiDAR observations 融合到共享 world-frame occupancy voxel map，再转换成紧凑 BEV representation，并向每个 agent 提供 ego-aligned local crop，形成 integrate-in-world、act-in-ego 的空间融合与 decentralized control。策略在 centralized-training/decentralized-execution 框架中组合 BEV map features、近场障碍观测、目标和 peer states。仿真 corridor navigation success rate 达 90.3%，优于 A*、artificial potential field 和先前 guidance method；随后用真实数据 offline imitation fine-tuning 缓解 sim-to-real mismatch，并在 GNSS-denied 室内环境展示双无人机稳定协同。</p><p class="lang lang-en lang-block" data-lang="en">This paper presents a cooperative indoor UAV guidance framework that combines a shared voxel-map world model with a multi-agent Soft Actor-Critic (MASAC) controller. Multiple drones fuse 360 LiDAR observations into a common world-frame occupancy map, which is converted into a compact bird&#x27;s-eye-view (BEV) representation and provided to each agent as an ego-aligned local crop. This integrate-in-world, act-in- ego design enables consistent multi-UAV spatial fusion whilst retaining decentralised continuous control. The policy combines BEV map features, near-field obstacle observations, and compact goal and peer-state information within a centralised-training, decentralised-execution framework. In simulation, the learned controller achieves a 90.3% success rate in corridor navigation, outperforming Astar planning, an artificial potential field controller, and a prior guidance method. To address residual sim-to-real mismatch, the simulation-trained policy is further adapted using offline imitation fine-tuning from real-world data. Real-world experiments in GNSS-denied indoor environments demonstrate stable two-UAV cooperative operation across increasingly chal- lenging obstacle layouts. The results show that shared voxel-map representations provide an effective and scalable spatial substrate for learned cooperative indoor UAV guidance.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Thomas Hickling, Dylan Wynne, Yu Su, Nabil Aouf</li>
+<li><strong>价值判断</strong>：采用“integrate in world, act in ego”，将多机 360° LiDAR 观测融合到共享 world-frame voxel map，再向每个 agent 提供 ego-aligned BEV crop。</li>
+<li><strong>结果与边界</strong>：仿真 corridor navigation success rate 为 90.3%，并以真实数据 offline imitation fine-tuning 缓解 sim-to-real gap；真实 GNSS-denied 环境仅展示双机，地图通信、时间同步、漂移累积和规模扩展仍需核查。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.25728">arXiv</a> · <a href="https://arxiv.org/pdf/2607.25728">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25728/fig-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25728/fig-001.webp" alt="Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25728/fig-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25728/fig-002.webp" alt="Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25728/fig-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25728/fig-003.webp" alt="Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25728/fig-004.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25728/fig-004.webp" alt="Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25728/fig-005.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25728/fig-005.webp" alt="Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25728/fig-006.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25728/fig-006.webp" alt="Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25728/table-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25728/table-001.webp" alt="Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

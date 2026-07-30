@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-30/index.html">← 返回 2026-07-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-28 · score 8 · cs.RO, cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HiFi-UMI：仅用高保真 UMI 数据学习可部署操作策略</span><span class="lang lang-en lang-inline" data-lang="en">HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone</span></h1>
+  <div class="meta">作者：Simple AI, :, Yuteng Wei, Jinming Ma, Jiawei Wang, Weitao Zhou, Yushen Zuo, Ke Rui</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.25895">abs</a><a href="https://arxiv.org/pdf/2607.25895">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>主任务是 manipulation policy，但其高精度 stereo-inertial SLAM 数据链和自动验证对定位数据生产有价值；3 mm 指标定义与全局漂移边界需核查。</p><div class="tags"><span class="tag">视觉惯性 SLAM</span><span class="tag">机器人示教</span><span class="tag">多相机同步</span><span class="tag">轨迹重建</span><span class="tag">数据集</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以离线 stereo-inertial SLAM、原生双手相对位姿和微秒同步生产 3 mm 局部精度、2,000 小时的机器人示教数据。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">HiFi-UMI 是便携式机器人示教数据生产系统，围绕 trajectory accuracy、双 gripper relative pose、同步与视场联合设计。系统采用 head-mounted offline stereo-inertial SLAM、直接测得而非重建的 relative pose、共享微秒级 GPIO trigger，以及每只手两台覆盖约 200° 的 wide-angle cameras，在无需外部 tracking infrastructure 时达到 3 mm workspace-local end-effector accuracy。仅使用 HiFi-UMI demonstrations post-training 的策略可直接部署到真实机器人，并在三种 backbone 上接近 in-domain teleoperation；开放的 HiFi-UMI-2K 包含 2,000 小时微秒同步、超宽视场示教数据，每条轨迹均通过 simulation replay 自动重建与验证。</p><p class="lang lang-en lang-block" data-lang="en">Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot &quot;anchor&quot; at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Yuteng Wei, Jinming Ma, Jiawei Wang, Weitao Zhou, Yushen Zuo, Ke Rui 等</li>
+<li><strong>价值判断</strong>：定位算法不是主贡献，但其 head-mounted offline stereo-inertial SLAM、原生双手相对位姿和微秒级同步组成了值得关注的数据生产链。</li>
+<li><strong>结果与边界</strong>：摘要称 workspace-local end-effector accuracy 达 3 mm，并开放 2,000 小时数据；仅用 HiFi-UMI post-training 的策略可直接部署。需核查 3 mm 的定义、全局漂移、自动 reconstruction validation 和快速运动/遮挡条件。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.25895">arXiv</a> · <a href="https://arxiv.org/pdf/2607.25895">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25895/fig-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25895/fig-001.webp" alt="HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25895/fig-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25895/fig-002.webp" alt="HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25895/fig-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25895/fig-003.webp" alt="HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

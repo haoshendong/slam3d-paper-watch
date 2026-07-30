@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-30/index.html">← 返回 2026-07-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-28 · score 14 · eess.SP, cs.AI, cs.CV, cs.IT</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CORF-GS：通过耦合光学—射频 Gaussian Splatting 实时重建无线辐射场</span><span class="lang lang-en lang-inline" data-lang="en">CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting</span></h1>
+  <div class="meta">作者：Jinya Zhang, Jiajia Guo, Chao-Kai Wen, Shi Jin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.25569">abs</a><a href="https://arxiv.org/pdf/2607.25569">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>跨模态共享几何和顺序更新对无线地图融合有启发，且给出明确加速结果；并非几何 SLAM，当前主要是仿真，真实 multipath 与时变环境泛化待验证。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">无线辐射场</span><span class="tag">光学-RF 融合</span><span class="tag">在线重建</span><span class="tag">跨模态地图</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以共享几何、模态专属外观和在线关键帧优化耦合视觉与 RF Gaussian 地图，仿真中将无线辐射场重建加速 6.4×。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">现有基于 3DGS 的无线辐射场重建通常依赖预采集观测和离线优化，难以及时提供信道知识。CORF-GS 顺序处理 optical/RF keyframes，以共享几何和模态专属外观构成统一 Gaussian representation。新关键帧到达时，系统先利用高分辨率光学图像提供结构先验，在表示不足区域执行 optical-guided Gaussian sampling；随后通过 coupled optical-RF optimization 联合优化 shared Gaussians，防止 RF 被动适配冻结的光学几何，并允许表示同时适应光学结构与 RF power distribution。仿真显示其 RF spectrum synthesis 达到 SOTA，并相对现有 WRF 方法将重建时间缩短 6.4×。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in 3D Gaussian Splatting (3DGS)-based wireless radiance field (WRF) reconstruction provide an efficient solution for wireless channel modeling. However, existing WRF reconstruction methods rely on pre-collected observations and offline optimization, and thus struggle to provide real-time channel knowledge. To bridge this gap, we propose CORF-GS, a real-time WRF reconstruction framework that processes sequential optical and radio frequency (RF) keyframes. Specifically, CORF-GS constructs a unified Gaussian representation for optical and RF with shared geometry and modality-specific appearance, allowing high-resolution optical images to provide structural priors for WRF reconstruction. When a new keyframe arrives, CORF-GS first employs optical-guided Gaussian sampling to densify the WRF in under-represented regions. Since light and radio waves may respond differently to the same object surfaces due to wavelength mismatch, relying solely on optical guidance may neglect RF-informative areas. Therefore, CORF-GS performs coupled optical-RF optimization to jointly refine the shared Gaussians. Compared with the existing two-stage training pipelines, this prevents WRF from passively adapting to a frozen optical geometry and encourages the shared Gaussians to adapt to both optical structures and RF power distributions. Simulations show that CORF-GS achieves state-of-the-art RF spectrum synthesis quality and reduces the reconstruction time by $6.4\times$ compared with existing WRF methods.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jinya Zhang, Jiajia Guo, Chao-Kai Wen, Shi Jin</li>
+<li><strong>价值判断</strong>：以 shared geometry、modality-specific appearance 统一 optical/RF Gaussians，并按 sequential keyframes 在线更新；对无线地图与视觉几何先验融合有启发。</li>
+<li><strong>结果与边界</strong>：optical-guided densification 后进行 coupled optical-RF optimization，避免 RF 被冻结光学几何被动约束；仿真报告 reconstruction time 降低 6.4×。当前不是几何 SLAM，且仅有 simulation 信号，需验证真实 RF multipath、遮挡与时变环境。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.25569">arXiv</a> · <a href="https://arxiv.org/pdf/2607.25569">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25569/fig-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25569/fig-001.webp" alt="CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25569/fig-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25569/fig-002.webp" alt="CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25569/fig-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25569/fig-003.webp" alt="CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25569/fig-004.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25569/fig-004.webp" alt="CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25569/table-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25569/table-001.webp" alt="CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25569/table-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25569/table-002.webp" alt="CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25569/table-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25569/table-003.webp" alt="CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.25569/table-004.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.25569/table-004.webp" alt="CORF-GS: Real-Time Wireless Radiance Field Reconstruction via Coupled Optical-RF Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

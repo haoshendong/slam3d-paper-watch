@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Accuracy potential of visual localization exploiting high-end street-level imagery</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-30/index.html">← 返回 2026-07-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-27 · score 11 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">利用高端街景影像的视觉定位精度潜力</span><span class="lang lang-en lang-inline" data-lang="en">Accuracy potential of visual localization exploiting high-end street-level imagery</span></h1>
+  <div class="meta">作者：Jonas Meyer, Stephan Nebiker, Pascal Theiler, Norbert Haala</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.24409">abs</a><a href="https://arxiv.org/pdf/2607.24409">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>数据集真值等级、空间规模和跨期设计都非常契合 GNSS/视觉定位；需关注误差尾部、reference density、先验依赖与不利天气/遮挡条件。</p><div class="tags"><span class="tag">视觉定位</span><span class="tag">街景影像</span><span class="tag">Structure-from-Motion</span><span class="tag">测量级定位</span><span class="tag">GNSS 补充</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以亚厘米真值和跨期 10 km 街景数据验证视觉定位的厘米级潜力，为 GNSS 补充定位提供测量级基准。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">本文系统研究 visual localization 在测量级需求下的精度潜力，并发布 FHNW Muttenz dataset：覆盖连续 10 km 街网、两次相隔约 1.5 年的 mobile mapping campaigns，包含高分辨率 reference imagery、四种 camera 的 query sequences 和亚厘米级 6-DoF ground truth。定位流程以精确地理配准街景图像为 scene representation，结合 prior-guided reference candidate selection、on-the-fly local SfM reconstruction 与 PnP pose estimation。实验得到 1–5 cm 的 median translation accuracy 和 0.05–0.1° rotation accuracy，理想条件下达到 1 cm 与 0.03°，显示视觉定位可以补充 survey-grade GNSS positioning。</p><p class="lang lang-en lang-block" data-lang="en">Accurate and reliable pose information with respect to a reference frame is increasingly demanded across applications such as autonomous navigation, surveying, robotics, and augmented and mixed reality. Visual localization can serve as a complementary positioning modality to GNSS, whose applicability and accuracy are often limited. Yet, the accuracy potential of visual localization has not been systematically investigated against survey-grade demands. This is mainly due to the lack of publicly available, large-scale outdoor datasets with ground-truth poses in the sub-centimeter range. In this work, we address both gaps. We introduce a scalable visual localization pipeline that employs precisely georeferenced, high-resolution street-level imagery directly as the scene representation. It combines prior-guided reference candidate selection with on-the-fly local Structure-from-Motion reconstruction and PnP-based pose estimation. We further present the FHNW Muttenz dataset, a real-world dataset covering a contiguous 10 km street network mapped in two mobile mapping campaigns approximately 1.5 years apart. It consists of high-resolution reference imagery and query sequences acquired by four different cameras across five representative scenes. All images are precisely co-registered, yielding 6-DoF ground-truth poses in the sub-centimeter range. Using this dataset, we evaluate the accuracy potential of visual localization. Our experiments demonstrate median pose accuracies in the range of 1-5 cm for translation and 0.05-0.1° for rotation, reaching as low as 1 cm and 0.03° under favorable conditions. These results show that visual localization can complement survey-grade GNSS positioning, paving the way for 3D geospatial data acquisition using consumer devices and fully automated georeferencing approaches. The dataset is publicly available at: https://fhnw-muttenz-vl-dataset.github.io/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jonas Meyer, Stephan Nebiker, Pascal Theiler, Norbert Haala</li>
+<li><strong>价值判断</strong>：以亚厘米 6-DoF ground truth 回答视觉定位能否接近 survey-grade demand，并发布覆盖 10 km 街网、跨约 1.5 年采集的 FHNW Muttenz dataset。</li>
+<li><strong>结果与边界</strong>：prior-guided reference selection、on-the-fly local SfM 与 PnP 获得 1–5 cm median translation 和 0.05–0.1° rotation，理想条件可到 1 cm/0.03°。后续应看跨季节、动态遮挡、参考图密度、GNSS prior 质量与 failure tail，而不只看 median。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.24409">arXiv</a> · <a href="https://arxiv.org/pdf/2607.24409">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.24409/fig-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.24409/fig-001.webp" alt="Accuracy potential of visual localization exploiting high-end street-level imagery" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.24409/fig-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.24409/fig-002.webp" alt="Accuracy potential of visual localization exploiting high-end street-level imagery" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.24409/fig-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.24409/fig-003.webp" alt="Accuracy potential of visual localization exploiting high-end street-level imagery" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.24409/table-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.24409/table-001.webp" alt="Accuracy potential of visual localization exploiting high-end street-level imagery" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.24409/table-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.24409/table-002.webp" alt="Accuracy potential of visual localization exploiting high-end street-level imagery" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.24409/table-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.24409/table-003.webp" alt="Accuracy potential of visual localization exploiting high-end street-level imagery" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

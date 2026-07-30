@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SHReg: Strictly Rotation-Equivariant Point Cloud Registration via Spherical Harmonics</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-30/index.html">← 返回 2026-07-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-25 · score 9 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SHReg：基于球谐函数的严格旋转等变点云配准</span><span class="lang lang-en lang-inline" data-lang="en">SHReg: Strictly Rotation-Equivariant Point Cloud Registration via Spherical Harmonics</span></h1>
+  <div class="meta">作者：Chongjian Wang, Junjie Gao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.23096">abs</a><a href="https://arxiv.org/pdf/2607.23096">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>直接命中点云配准的任意旋转鲁棒性，理论结构与 transformation hypothesis 设计清晰；数值等变误差、速度和真实 LiDAR 密度变化待论文实测确认。</p><div class="tags"><span class="tag">点云配准</span><span class="tag">SO(3) 等变</span><span class="tag">球谐函数</span><span class="tag">刚体变换</span><span class="tag">对应点匹配</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">联合学习严格 SO(3) 等变特征与旋转不变描述子，使对应点直接提出刚体变换并减少 RANSAC 采样。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SHReg 基于 SO(3) representation theory 构建严格 rotation-equivariant point cloud registration。方法用 SO(3) irreducible representations 表示局部几何特征，不依赖 local reference frames 或大量 rotation augmentation；球谐等变 backbone 联合学习用于 correspondence matching 的 rotation-invariant descriptors 和保留方向细节的 rotation-equivariant features。保留的等变结构使每个 correspondence 都能直接提出 rigid transformation，从而减少传统 RANSAC pipeline 的大规模 hypothesis sampling。摘要称其在 3DMatch、3DLoMatch 与 KITTI 上持续优于 SOTA，尤其能处理大幅旋转扰动。</p><p class="lang lang-en lang-block" data-lang="en">Point cloud registration critically depends on local features that are both distinctive and robust to arbitrary 3D rotations. Existing learning-based methods typically approximate rotation invariance via fragile local reference frames or extensive data augmentation, providing only empirical invariance and often degrading under unseen rotational transformations. In this paper, we propose SHReg, a strictly rotation-equivariant point cloud registration framework grounded in the representation theory of $SO(3)$. By representing local geometric features as irreducible representations of $SO(3)$, SHReg guarantees exact equivariance under arbitrary rotations without relying on local reference frames. Built upon a spherical-harmonics-based equivariant backbone, SHReg jointly learns rotation-invariant descriptors for robust correspondence matching and rotation-equivariant features that preserve fine-grained orientation information. The preserved equivariant structure enables each correspondence to directly hypothesize a rigid transformation, reducing reliance on large-scale hypothesis sampling in conventional RANSAC-based pipelines and leading to improved robustness under challenging rotational variations. Extensive experiments on 3DMatch, 3DLoMatch, and KITTI demonstrate that SHReg consistently outperforms state-of-the-art methods in registration accuracy, particularly under large rotational perturbations.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Chongjian Wang, Junjie Gao</li>
+<li><strong>价值判断</strong>：用 SO(3) irreducible representations 同时学习 invariant descriptors 与 equivariant orientation features，避免依赖脆弱 LRF 或仅靠 rotation augmentation 获得经验不变性。</li>
+<li><strong>结果与边界</strong>：每个 correspondence 可直接提出 rigid transform，减少传统 RANSAC 的大规模 hypothesis sampling；摘要称在 3DMatch、3DLoMatch、KITTI 尤其大旋转扰动下优于 SOTA。需检查 exact equivariance 的数值误差、吞吐、内存和真实 LiDAR 稀疏度变化。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.23096">arXiv</a> · <a href="https://arxiv.org/pdf/2607.23096">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.23096/fig-001.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.23096/fig-001.webp" alt="SHReg: Strictly Rotation-Equivariant Point Cloud Registration via Spherical Harmonics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.23096/fig-002.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.23096/fig-002.webp" alt="SHReg: Strictly Rotation-Equivariant Point Cloud Registration via Spherical Harmonics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-30/arxiv-2607.23096/fig-003.webp"><img src="../../assets/media/2026-07-30/arxiv-2607.23096/fig-003.webp" alt="SHReg: Strictly Rotation-Equivariant Point Cloud Registration via Spherical Harmonics" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
