@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Genie Sim PanoWorld: An Infinite Indoor 3D World Generation Pipeline via Panoramic Scene Modeling and Simulation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-31/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-31/index.html">← 返回 2026-07-31 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-29 · score 3 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Genie Sim PanoWorld：从单张全景生成可漫游室内 3D 世界</span><span class="lang lang-en lang-inline" data-lang="en">Genie Sim PanoWorld: An Infinite Indoor 3D World Generation Pipeline via Panoramic Scene Modeling and Simulation</span></h1>
+  <div class="meta">作者：Yongxin Su, Linjie Hou, Feng Wang, Jialin Tang, Zhijun Li, Qian Wang, Maoqing Yao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.26646">abs</a><a href="https://arxiv.org/pdf/2607.26646">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.9/10</span><p>生成与重建之间有明确轨迹接口，对 embodied simulation asset 有启发；不可见区域依赖生成，不能作为测量级几何，metric consistency 需验证。</p><div class="tags"><span class="tag">全景重建</span><span class="tag">3DGS</span><span class="tag">视频扩散</span><span class="tag">轨迹控制</span><span class="tag">具身仿真</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从单张全景按可控 SE(3) 轨迹生成视频，再前馈重建可实时漫游的 3D Gaussian 仿真场景。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Genie Sim PanoWorld 从单张 360° panorama 生成高保真、可自由导航的室内三维场景，无需逐场景优化或多视图采集。第一阶段把 NavMesh-planned SE(3) trajectory 通过 dense geometry-warped conditioning 注入 latent video diffusion model，并以 long-short mixed training 和 self-consistency objective 在四步 CFG-free denoising 中生成可控 panoramic video；第二阶段以前馈 panoramic reconstructor 将视频提升为可实时漫游、可用于 embodied AI 仿真的 3D Gaussian scene。摘要称两阶段均优于 geometry-conditioned baselines，并能 zero-shot 泛化。</p><p class="lang lang-en lang-block" data-lang="en">We address the problem of reconstructing a high-fidelity, freely navigable 3D scene from a single $360^\circ$ panorama, without per-scene optimization or multi-view capture. Existing methods either lack metric trajectory control, which hinders reliable downstream 3D reconstruction, or struggle with large disocclusions under long-range camera motion while requiring high-end multi-GPU servers.We present Genie Sim PanoWorld, a two-stage feed-forward pipeline that bridges generation and reconstruction via an explicit, trajectory-controllable panoramic video. A NavMesh-planned $\mathrm{SE}(3)$ roaming trajectory is injected into a latent video diffusion model through dense geometry-warped conditioning; long--short trajectory mixed training and a self-consistency objective based on shortcut models together yield high-fidelity video in four CFG-free denoising steps. A feed-forward panoramic reconstructor then lifts the generated video into a high-fidelity 3D Gaussian scene that supports real-time, free-viewpoint roaming and can be directly used as a simulation-ready asset for embodied AI applications. Experiments show that Genie Sim PanoWorld outperforms geometry-conditioned baselines in both panoramic video generation and downstream 3D reconstruction, while generalizing zero-shot to unseen indoor scenes.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Yongxin Su, Linjie Hou, Feng Wang, Jialin Tang, Zhijun Li, Qian Wang, Maoqing Yao</li>
+<li><strong>价值判断</strong>：由 NavMesh 规划 SE(3) roaming trajectory，先生成显式可控 panoramic video，再前馈提升为可实时漫游的 3D Gaussian scene，为 embodied AI simulation asset 提供单视图生产链。</li>
+<li><strong>结果与边界</strong>：摘要称视频生成和下游重建优于 geometry-conditioned baselines，并可 zero-shot 泛化；但单视图不可观区域本质上是生成内容，不应视作测量级 reconstruction。需检查 metric consistency、碰撞几何和长轨迹漂移。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.26646">arXiv</a> · <a href="https://arxiv.org/pdf/2607.26646">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26646/fig-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26646/fig-001.webp" alt="Genie Sim PanoWorld: An Infinite Indoor 3D World Generation Pipeline via Panoramic Scene Modeling and Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26646/fig-002.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26646/fig-002.webp" alt="Genie Sim PanoWorld: An Infinite Indoor 3D World Generation Pipeline via Panoramic Scene Modeling and Simulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26646/table-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26646/table-001.webp" alt="Genie Sim PanoWorld: An Infinite Indoor 3D World Generation Pipeline via Panoramic Scene Modeling and Simulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

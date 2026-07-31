@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-31/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-31/index.html">← 返回 2026-07-31 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-30 · score 14 · cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">VidMap：利用时间结构的视频 Structure-from-Motion</span><span class="lang lang-en lang-inline" data-lang="en">VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion</span></h1>
+  <div class="meta">作者：Zador Pataki, Paul-Edouard Sarlin, Marc Pollefeys</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.27194">abs</a><a href="https://arxiv.org/pdf/2607.27194">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.6/10</span><p>直接命中视频 SLAM/SfM、相机自标定、闭环和 metric reconstruction 主线，且有公开代码；需核查深度尺度偏差、动态场景和超长序列资源开销。</p><div class="tags"><span class="tag">视频 SfM</span><span class="tag">SLAM</span><span class="tag">相机自标定</span><span class="tag">回环检测</span><span class="tag">度量重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以时序约束、宽基线稠密匹配和 metric depth prior 连接 SLAM 与离线 SfM，重建任意长、未标定视频。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">为了从任意未约束视频恢复相机标定和 metric poses，VidMap 将 SLAM 的强时序约束与离线 SfM 的灵活初始化和全局优化结合。系统使用宽基线 dense image matching，将时间顺序作为可靠 loop closure 的一等信息，并用 metric monocular depth priors 增强全局优化。作者在包含极端运动和视觉对称的多类困难数据上评估，摘要称其比经典或学习式、已知或未知相机标定的 SOTA SLAM/SfM 更稳健准确，并公开代码。</p><p class="lang lang-en lang-block" data-lang="en">Accurately recovering the camera&#x27;s calibration and metric poses for any unconstrained video would unlock large-scale training data for navigation and scene understanding. The dominant approaches to this problem are severely limited: Simultaneous Localization and Mapping (SLAM) is sensitive to initialization and transient failures due to its causal, incremental nature; it is often over-optimized for real-time operation and generally requires known camera calibration; while Structure-from-Motion (SfM) typically forgoes any image ordering, enabling optimal initialization and global optimization, but lacks robustness to visual symmetries and extreme motions. To bridge this gap, we introduce a system that combines the strong sequential constraints of SLAM with the flexibility and global optimization of offline SfM, enabling the metric reconstruction of arbitrary, long, uncalibrated videos. This system leverages recent advances in wide-baseline dense image matching, treats temporal ordering as a first-class citizen for reliable loop closure, and augments global optimization with metric monocular depth priors. As a result, thorough evaluations on diverse, challenging datasets that exhibit extreme motion and visual symmetries reveal that our approach is significantly more robust and accurate than both state-of-the-art SLAM and SfM, classical or learned, with given or unknown camera calibration. The code is publicly available at https://github.com/cvg/vidmap.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Zador Pataki, Paul-Edouard Sarlin, Marc Pollefeys</li>
+<li><strong>价值判断</strong>：今日最贴近 SLAM/SfM 主线的系统。它保留离线 SfM 的灵活初始化与全局优化，同时把视频顺序用于可靠 loop closure，并借助 metric monocular depth prior 恢复未标定长视频的 metric poses。</li>
+<li><strong>结果与边界</strong>：摘要称在极端运动和视觉对称数据上，比经典或学习式 SLAM/SfM（已知或未知标定）更稳健准确，代码已公开。需细查深度先验的尺度偏差、rolling shutter、动态场景、超长序列资源消耗及失败率统计。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.27194">arXiv</a> · <a href="https://arxiv.org/pdf/2607.27194">PDF</a> · <a href="https://github.com/cvg/vidmap">代码</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27194/fig-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27194/fig-001.webp" alt="VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27194/fig-002.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27194/fig-002.webp" alt="VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27194/fig-003.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27194/fig-003.webp" alt="VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27194/fig-004.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27194/fig-004.webp" alt="VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27194/fig-005.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27194/fig-005.webp" alt="VidMap: Exploiting Temporal Structure for Video-Based Structure-from-Motion" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

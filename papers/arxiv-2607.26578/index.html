@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>3DGBGS: 3D Granular Ball Gaussian Splatting for Compact Novel View Synthesis</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-31/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-31/index.html">← 返回 2026-07-31 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-29 · score 11 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">3DGBGS：用于紧凑新视角合成的三维粒球 Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">3DGBGS: 3D Granular Ball Gaussian Splatting for Compact Novel View Synthesis</span></h1>
+  <div class="meta">作者：Meng Yang, Shuyin Xia, Dawei Dai, YiWang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.26578">abs</a><a href="https://arxiv.org/pdf/2607.26578">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.3/10</span><p>与 SfM point cloud 和紧凑 anchor representation 直接相关，量化结果清晰；最终 anchor 和存储降幅中等，训练开销及复杂区域细节需核查。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">SfM 点云</span><span class="tag">Anchor</span><span class="tag">模型压缩</span><span class="tag">新视角合成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用自适应粒球组织非均匀 SfM 点云，并以球心和半径初始化 anchor 及尺度先验，减少 3DGS 存储。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3DGBGS 针对 anchor-based 3DGS 以固定 voxelization 处理非均匀 sparse SfM point clouds 时的紧凑性与质量冲突，引入 adaptive granular ball organization。较大的 balls 表示平滑冗余区域，较小 balls 保留复杂几何和局部细节；Granular Ball Anchor Initialization 以球心初始化紧凑 anchors，Granular Ball Scale Prior 则以球半径提供 Gaussian generation 的局部尺度先验。四个 benchmark 上，初始和最终 anchors 分别平均减少 37.1% 与 10.0%，存储减少 9.8%，同时保持相当渲染质量。</p><p class="lang lang-en lang-block" data-lang="en">Three-dimensional Gaussian Splatting (3DGS) enables high-quality real-time novel-view synthesis through explicit Gaussian primitives and differentiable rasterization. 3DGS and Granular Ball Computing (GBC), proposed in 2019, share a natural compatibility in adaptive representation. The efficiency of 3DGS partly stems from a coarse-to-fine and on-demand refinement process that draws on the generation principle of GBC. This connection motivates us to further introduce adaptive granular ball organization into anchor-based 3DGS. Existing anchor-based methods typically construct anchors from sparse SfM point clouds through fixed voxelization, which cannot adequately adapt to spatially non-uniform point distributions and leads to a trade-off among anchor count, model compactness, and rendering quality. To address this issue, we propose 3DGBGS (3D Granular Ball Gaussian Splatting), a compact anchor-based framework for novel-view synthesis. 3DGBGS adaptively partitions SfM point clouds into 3D granular balls, using larger balls to compactly represent smooth and redundant regions and smaller balls to preserve complex geometry and local details. Based on this representation, Granular Ball Anchor Initialization (GBAI) uses granular ball centers to initialize compact anchor positions, while the Granular Ball Scale Prior (GBSP) exploits granular ball radii to provide local scale priors for Gaussian generation. Experiments on four benchmarks show that 3DGBGS reduces initial and final anchors by 37.1% and 10.0%, respectively, and model storage by 9.8% on average, while maintaining comparable rendering quality.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Meng Yang, Shuyin Xia, Dawei Dai, YiWang</li>
+<li><strong>价值判断</strong>：针对固定 voxelization 难以适应 SfM point cloud 非均匀密度的问题，以不同尺度 granular balls 初始化 anchors，并将球半径作为 Gaussian generation 的局部尺度先验。</li>
+<li><strong>结果与边界</strong>：四个 benchmark 上初始/final anchors 平均减少 37.1%/10.0%，存储下降 9.8%，渲染质量相当。收益属于中等幅度，需核查训练时间、密集复杂区域细节与跨场景参数稳定性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.26578">arXiv</a> · <a href="https://arxiv.org/pdf/2607.26578">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26578/fig-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26578/fig-001.webp" alt="3DGBGS: 3D Granular Ball Gaussian Splatting for Compact Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26578/fig-002.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26578/fig-002.webp" alt="3DGBGS: 3D Granular Ball Gaussian Splatting for Compact Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26578/table-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26578/table-001.webp" alt="3DGBGS: 3D Granular Ball Gaussian Splatting for Compact Novel View Synthesis" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

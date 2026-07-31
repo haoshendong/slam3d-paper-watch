@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-31/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-31/index.html">← 返回 2026-07-31 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-29 · score 12 · cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">AtlasLC：面向对象中心 3DGS 的快速 codec-ready 压缩</span><span class="lang lang-en lang-inline" data-lang="en">AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：ByungHyun Kim, Jinwoo Jeon, Woontack Woo</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.26525">abs</a><a href="https://arxiv.org/pdf/2607.26525">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.7/10</span><p>部署指标明确且不需源数据，对 XR/边缘 3DGS 资产实用；研究对象是语义集中的前景物体，不可直接外推到大规模在线地图。</p><div class="tags"><span class="tag">3DGS 压缩</span><span class="tag">对象资产</span><span class="tag">免训练</span><span class="tag">Atlas Packing</span><span class="tag">XR</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">无需原图或再训练，联合局部竞争裁剪和确定性 atlas packing，将对象 3DGS 资产准备最多加速 25×。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">AtlasLC 是 source-free、training-free 的对象中心 3DGS 压缩流水线，可直接处理已发布 Gaussian assets，不需原始图像、相机位姿或逐资产优化。方法组合 local-competition pruning 与 deterministic atlas packing，在保留对象前景支持的同时消除 mapping/remapping 瓶颈，并使用轻量单遍 sort-based conditional transport 作为共享坐标骨架。实验中 atlas preparation 最多加速 25×、端到端压缩最多 5×；相对同等紧凑的结构化基线，bits 减少约 6–8%，感知与几何质量相当。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) enables photorealistic novel-view synthesis with real-time rendering, but deploying compressed object-centric 3DGS in XR requires more than image-space rate-distortion. In practical XR asset pipelines, reusable objects are repeatedly packaged, transmitted, decoded, and instantiated, making asset-preparation cost, codec compatibility, decoding latency, and preservation of depth and silhouette cues first-class concerns. Existing 3DGS compression methods are largely developed for scene-scale captures and often rely on heavy layout generation or aggressive global pruning, assumptions that transfer poorly to semantically concentrated foreground objects. We present AtlasLC, a source-free, training-free compression pipeline for object-centric 3DGS that operates directly on released Gaussian assets, without original images, camera poses, or per-asset optimization. AtlasLC couples local-competition pruning with deterministic atlas packing to remove the mapping/remapping bottleneck while preserving object-wide foreground support; a lightweight single-pass sort-based conditional transport is used as a shared coordinate backbone for these stages. Across the evaluated assets, AtlasLC reduces atlas-preparation time by up to a factor of 25 and end-to-end compression time by up to a factor of 5, while offering a favorable deployment-aware balance of payload, decode latency, runtime FPS, and 3D geometry relative to the evaluated compressed baselines. Relative to similarly compact structured baselines, it uses about 6 to 8 percent fewer bits while maintaining comparable perceptual and geometric quality. These results show that object-centric 3DGS compression should be optimized for a deployment-aware operating point enabling scalable XR asset libraries.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：ByungHyun Kim, Jinwoo Jeon, Woontack Woo</li>
+<li><strong>价值判断</strong>：直接处理已发布 Gaussian asset，不需原图、相机位姿或逐资产优化；local-competition pruning 与 deterministic atlas packing 针对 XR 资产流水线中的准备、解码和实例化成本。</li>
+<li><strong>结果与边界</strong>：atlas preparation 最多加速 25×、端到端压缩最多 5×；相近紧凑基线下少用约 6–8% bits，同时维持相当感知和几何质量。适用对象资产而非大场景在线地图，需看复杂背景、细薄结构和 codec 实际兼容性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.26525">arXiv</a> · <a href="https://arxiv.org/pdf/2607.26525">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/fig-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/fig-001.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/fig-002.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/fig-002.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/fig-003.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/fig-003.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/fig-004.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/fig-004.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/fig-005.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/fig-005.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/table-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/table-001.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/table-002.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/table-002.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/table-003.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/table-003.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/table-004.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/table-004.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/table-005.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/table-005.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26525/table-006.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26525/table-006.webp" alt="AtlasLC: Fast Codec-Ready Compression of Object-Centric 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

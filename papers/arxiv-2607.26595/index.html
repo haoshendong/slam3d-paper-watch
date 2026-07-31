@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SpatialQ: Understanding 3D Gaussian Splatting Scene Quality via Visual-based MLLM</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-31/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-31/index.html">← 返回 2026-07-31 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-29 · score 11 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SpatialQ：用视觉多模态大模型理解 3DGS 场景质量</span><span class="lang lang-en lang-inline" data-lang="en">SpatialQ: Understanding 3D Gaussian Splatting Scene Quality via Visual-based MLLM</span></h1>
+  <div class="meta">作者：Jingxuan Su, Shenglin Wang, Tiesong Zhao, Ge Li, Wei Gao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.26595">abs</a><a href="https://arxiv.org/pdf/2607.26595">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>跨视图一致性和几何质量评价可服务 3DGS 地图验收；现有摘要缺少完整实验结果，标注协议、泛化与推理成本需要原文确认。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">质量评估</span><span class="tag">跨视图一致性</span><span class="tag">多模态大模型</span><span class="tag">空间结构</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">联合多视图图像、深度、点云渲染和相机参数，学习结构感知的 3DGS 场景质量表示与多模态推理。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SpatialQ 面向 3DGS 场景质量不仅取决于单视图感知质量，还取决于 spatial structure 与 cross-view consistency 的问题。框架在 VGGT-based encoder 上增加 quality head，对多视图 view-specific features 聚合，并联合 depth 与 point-cloud-related structural cues 学习 3D-aware quality representation。随后把原图、深度图、点云渲染与相机参数共同输入 Qwen-based MLLM，形成 grounded multimodal reasoning，目标是获得比传统 2D IQA 或通用 MLLM 更稳定的场景质量判断。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has emerged as an effective representation for novel view synthesis and 3D scene reconstruction, creating an increasing demand for reliable quality assessment. Unlike conventional image quality assessment (IQA), the quality of a 3DGS scene depends not only on the perceptual fidelity of rendered views, but also on scene-level factors such as spatial structure and cross-view consistency. Existing IQA methods are limited by their reliance on 2D perceptual cues, whereas general multimodal large language models (MLLMs) are not designed for stable quality regression and may produce unreliable judgments. To address these limitations, a multimodal quality assessment framework is developed for 3DGS scene understanding. First, a 3D-aware quality representation learning framework is introduced by augmenting a VGGT-based encoder with a dedicated quality head. Multi-view images are encoded into view-specific features and aggregated to capture cross-view consistency, while geometric cues are incorporated through joint modeling of depth and point-cloud-related structural information, enabling the learning of structure-aware quality representations beyond appearance-driven features. Second, a grounded multimodal reasoning mechanism is constructed by jointly feeding original images, depth maps, point cloud renderings, and camera parameters into a Qwen-based MLLM.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jingxuan Su, Shenglin Wang, Tiesong Zhao, Ge Li, Wei Gao</li>
+<li><strong>价值判断</strong>：不只评价单张渲染图，而是聚合多视图特征，并联合 depth、point-cloud rendering 与 camera parameters 建模空间结构和跨视图一致性，可用于 3DGS 地图质量门控。</li>
+<li><strong>结果与边界</strong>：框架以 VGGT-based encoder 学习 3D-aware quality representation，再由 Qwen-based MLLM 进行 grounded reasoning。注入的摘要未包含完整实验结果，需核查主观标注协议、跨数据集泛化、回归稳定性和推理成本。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.26595">arXiv</a> · <a href="https://arxiv.org/pdf/2607.26595">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

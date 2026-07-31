@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Controlled Experiments on Lane Changing by Transitional Autonomous Vehicle: Dataset and Behavioral Insights</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-31/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-31/index.html">← 返回 2026-07-31 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-30 · score 11 · cs.RO, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">过渡型自动驾驶车辆换道控制实验：数据集与行为洞察</span><span class="lang lang-en lang-inline" data-lang="en">Controlled Experiments on Lane Changing by Transitional Autonomous Vehicle: Dataset and Behavioral Insights</span></h1>
+  <div class="meta">作者：Abhinav Sharma, Md Abdullah Al Hasan, Danjue Chen, George F. List</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.27085">abs</a><a href="https://arxiv.org/pdf/2607.27085">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.2/10</span><p>RTK-GNSS/INS 轨迹数据对车辆行为和安全评测有参考价值，但论文不贡献 GNSS 解算、SLAM 或多传感器融合算法，仅属外围专项。</p><div class="tags"><span class="tag">RTK-GNSS/INS</span><span class="tag">自动驾驶</span><span class="tag">轨迹数据集</span><span class="tag">换道行为</span><span class="tag">安全评估</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 78 次公共道路试验和高分辨率 RTK-GNSS/INS 轨迹刻画自动换道间隙与风险演化。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作发布 NC-tALC 数据集并研究过渡型自动驾驶车辆的强制换道行为。研究在北卡罗来纳州公共道路上完成 78 次可控试验，四辆 instrumented vehicles 构造可重复交通条件；高分辨率 RTK-GNSS/INS trajectories 用于识别关键时刻、计算 lead/lag/lane-change gaps，并以时间间隔和速度 surrogate safety measures 分析交互。结果显示不同初始条件下，lead 和 lag gaps 在跨线附近趋于较窄范围；风险随动作推进上升、在实际进入车道附近达到峰值，并主要由目标车道前车主导。</p><p class="lang lang-en lang-block" data-lang="en">This paper presents the North Carolina Transitional Autonomous Vehicle Lane-Changing (NC-tALC) dataset and uses it to characterize mandatory lane-changing behavior of transitional automated vehicles (tAVs). It quantifies the evolution of lead--lag gaps throughout the lane-change process and examines how potential collision risk develops during the maneuver. A controlled field experiment comprising 78 mandatory lane-change trials was conducted on a public roadway in Apex, North Carolina. Four instrumented vehicles created repeatable traffic conditions while varying the lane changer&#x27;s initial position within the candidate target gap. High-resolution RTK-GNSS/INS trajectories were processed to identify key timestamps, calculate lead, lag, and lane-change gaps, and estimate interactions using time-gap- and speed-based surrogate safety measures. Despite substantial differences in initial conditions, lead and lag gaps consistently converged toward a relatively narrow range near lane crossing. Potential collision risk increased as the maneuver progressed, peaked near physical lane entry, and was dominated by interactions with the target-lane leader. Lane-change completion did not necessarily coincide with the disappearance of collision risk. This study provides one of the first controlled empirical characterizations of the complete mandatory lane-change process of tAVs using repeatable public-road experiments. The NC-tALC dataset supports analysis of behavioral and safety evolution throughout the maneuver rather than only at the gap-acceptance instant. The dataset and findings provide empirical benchmarks for evaluating automated lane-changing behavior, calibrating behavioral models, and validating simulation and safety assessment methods for mandatory lane-change scenarios.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Abhinav Sharma, Md Abdullah Al Hasan, Danjue Chen, George F. List</li>
+<li><strong>价值判断</strong>：算法贡献不在定位，但 78 次公共道路可重复试验提供高分辨率 RTK-GNSS/INS trajectories，可作为自动换道行为、安全指标和轨迹处理的数据参考。</li>
+<li><strong>结果与边界</strong>：lead/lag gaps 在跨线附近收敛，潜在碰撞风险在进入目标车道附近达峰值且主要来自前车。该工作不研究 GNSS 解算、SLAM 或 sensor fusion，因而只作专项外围数据项。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.27085">arXiv</a> · <a href="https://arxiv.org/pdf/2607.27085">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27085/fig-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27085/fig-001.webp" alt="Controlled Experiments on Lane Changing by Transitional Autonomous Vehicle: Dataset and Behavioral Insights" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27085/fig-002.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27085/fig-002.webp" alt="Controlled Experiments on Lane Changing by Transitional Autonomous Vehicle: Dataset and Behavioral Insights" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27085/fig-003.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27085/fig-003.webp" alt="Controlled Experiments on Lane Changing by Transitional Autonomous Vehicle: Dataset and Behavioral Insights" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27085/fig-004.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27085/fig-004.webp" alt="Controlled Experiments on Lane Changing by Transitional Autonomous Vehicle: Dataset and Behavioral Insights" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27085/table-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27085/table-001.webp" alt="Controlled Experiments on Lane Changing by Transitional Autonomous Vehicle: Dataset and Behavioral Insights" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

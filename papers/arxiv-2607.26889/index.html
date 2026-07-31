@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-31/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-31/index.html">← 返回 2026-07-31 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-29 · score 13 · cs.GR, cs.CV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">StructureGS：面向关节物体重建的结构感知 Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction</span></h1>
+  <div class="meta">作者：Gahye Lee, Gyoonseo Kim, Wonjong Jang, Jooeun Son, Seungyong Lee</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.26889">abs</a><a href="https://arxiv.org/pdf/2607.26889">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.9/10</span><p>结构约束直接处理动态/关节对象几何与运动纠缠，对可交互重建有价值；依赖 OBB guidance，其标注成本与误差敏感性待核查。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">关节物体</span><span class="tag">结构约束</span><span class="tag">部件分解</span><span class="tag">动态重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">借助部件 OBB 对空间连贯性和结构连接性施加显式损失，改善关节物体 3DGS 的分解边界与几何。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">StructureGS 针对关节物体重建中 geometry、appearance 与 motion 参数相互纠缠的问题，将部件 oriented bounding boxes 作为结构指导注入 3D Gaussian Splatting。其 structure-aware losses 强制两项属性：spatial coherence 约束每个部件的几何在指定区域内保持紧凑连贯，structural connectivity 则约束相邻部件形成物理合理的接触关系。摘要报告该方法获得 SOTA articulated object reconstruction，并生成边界清晰、几何质量更好的部件。</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing articulated objects with multiple movable parts is essential for understanding object structure and enabling physical interaction. However, this reconstruction task poses significant challenges due to the entanglement of geometry, appearance, and motion parameters during optimization. Existing methods rely primarily on photometric supervision, which commonly fails to disentangle these interdependent components, resulting in poor part decomposition with blurred boundaries and geometric artifacts. To address this limitation, we introduce StructureGS, a reconstruction framework for articulated objects that integrates structure-aware guidance into 3D Gaussian Splatting. Our approach leverages oriented bounding boxes of object parts to enforce two key structural properties: spatial coherence, which constrains each part&#x27;s geometry to remain compact and spatially coherent within its designated region, and structural connectivity, which enforces physically plausible contact relationships between adjacent parts. These properties are realized through structure-aware losses that inject explicit structural constraints into the optimization process. Extensive experiments demonstrate that our method achieves state-of-the-art performance in articulated object reconstruction, producing high-quality results with well-defined part geometries.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Gahye Lee, Gyoonseo Kim, Wonjong Jang, Jooeun Son, Seungyong Lee</li>
+<li><strong>价值判断</strong>：以 oriented bounding boxes 显式约束部件的 spatial coherence 和相邻部件 structural connectivity，缓解几何、外观、运动参数纠缠造成的边界模糊与几何伪影。</li>
+<li><strong>结果与边界</strong>：摘要报告 articulated object reconstruction 达到 SOTA 且部件几何更清晰。当前依赖部件 OBB guidance，需核查标注成本、错误框敏感性、未见关节状态泛化和运动学可用性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.26889">arXiv</a> · <a href="https://arxiv.org/pdf/2607.26889">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26889/fig-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26889/fig-001.webp" alt="StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26889/fig-002.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26889/fig-002.webp" alt="StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26889/fig-003.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26889/fig-003.webp" alt="StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26889/fig-004.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26889/fig-004.webp" alt="StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26889/fig-005.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26889/fig-005.webp" alt="StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.26889/table-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.26889/table-001.webp" alt="StructureGS: Structure-aware Gaussian Splatting for Articulated Object Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

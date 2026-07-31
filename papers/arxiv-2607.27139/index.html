@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SeasonStereo: Robust Dense Stereo Matching for Multi-Date Satellite Imagery via Generative AI</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-07-31/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-07-31/index.html">← 返回 2026-07-31 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-30 · score 3 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SeasonStereo：借助生成式 AI 的跨日期卫星影像稳健稠密立体匹配</span><span class="lang lang-en lang-inline" data-lang="en">SeasonStereo: Robust Dense Stereo Matching for Multi-Date Satellite Imagery via Generative AI</span></h1>
+  <div class="meta">作者：Álvaro Díaz-Laureano, Roger Marí, Elías Masquil, Pablo Arias, Gabriele Facciolo</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.27139">abs</a><a href="https://arxiv.org/pdf/2607.27139">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.5/10</span><p>跨时相鲁棒 stereo 对大范围摄影测量与三维重建有实际价值，监督成本低；卫星姿态误差、真实地表变化和跨区域泛化待核查。</p><div class="tags"><span class="tag">稠密立体匹配</span><span class="tag">卫星影像</span><span class="tag">跨季节</span><span class="tag">三维重建</span><span class="tag">生成式 AI</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以可控季节变化合成训练对和 foundation geometry priors，实现无需 LiDAR 标签的跨日期卫星稠密立体重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SeasonStereo 解决不同日期卫星图像因季节和光照变化导致的 dense stereo matching 困难。方法利用可控季节外观变化的 synthetic image pairs 训练 disparity estimation，并结合 foundation models 的 zero-shot geometric priors，避免依赖大规模对齐的真实跨日期影像和 LiDAR geometry labels。摘要称其精度匹配 SOTA LiDAR-supervised models，同时恢复更锐利的几何细节，为低监督的大范围异构卫星影像三维重建提供路径。</p><p class="lang lang-en lang-block" data-lang="en">Accurate 3D reconstruction from satellite imagery typically relies on near-simultaneous stereo pairs, limiting its applicability to diachronic settings where multi-date images exhibit varying seasonal and illumination conditions. Training dense stereo matching models robust to appearance changes is a long-standing challenge, as aligned multi-date imagery and ground-truth geometry are costly to obtain at scale. We propose SeasonStereo, a scalable framework that addresses disparity estimation from diachronic satellite images by training on synthetic image pairs with controlled seasonal appearance variation, while leveraging zero-shot geometric priors from foundation models. SeasonStereo matches the accuracy of state-of-the-art LiDAR-supervised models, while producing sharper geometric details without requiring aligned real multi-date training products or LiDAR-derived labels. As a result, SeasonStereo offers a practical path toward large-scale 3D reconstruction from heterogeneous satellite images with reduced supervision cost.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Álvaro Díaz-Laureano, Roger Marí, Elías Masquil, Pablo Arias, Gabriele Facciolo</li>
+<li><strong>价值判断</strong>：用可控季节变化的 synthetic pairs 训练 diachronic stereo，并借助 foundation model 的 zero-shot geometric priors，降低跨季节卫星三维重建对对齐真值和 LiDAR labels 的依赖。</li>
+<li><strong>结果与边界</strong>：摘要称精度匹配 SOTA LiDAR-supervised models，并恢复更锐利几何细节。需核查卫星 RPC/姿态误差处理、地表真实变化、阴影/云层和跨区域泛化。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.27139">arXiv</a> · <a href="https://arxiv.org/pdf/2607.27139">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27139/fig-001.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27139/fig-001.webp" alt="SeasonStereo: Robust Dense Stereo Matching for Multi-Date Satellite Imagery via Generative AI" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27139/fig-002.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27139/fig-002.webp" alt="SeasonStereo: Robust Dense Stereo Matching for Multi-Date Satellite Imagery via Generative AI" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27139/fig-003.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27139/fig-003.webp" alt="SeasonStereo: Robust Dense Stereo Matching for Multi-Date Satellite Imagery via Generative AI" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-07-31/arxiv-2607.27139/fig-004.webp"><img src="../../assets/media/2026-07-31/arxiv-2607.27139/fig-004.webp" alt="SeasonStereo: Robust Dense Stereo Matching for Multi-Date Satellite Imagery via Generative AI" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
