@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MeshFM: 2D Features Are All You Need for 3D Shape Understanding</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-01/index.html">← 返回 2026-08-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-31 · score 4 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MeshFM：仅用二维特征学习三维形状表征</span><span class="lang lang-en lang-inline" data-lang="en">MeshFM: 2D Features Are All You Need for 3D Shape Understanding</span></h1>
+  <div class="meta">作者：Jinfan Zhou, Richard Liu, Itai Lang, Rana Hanocka</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.27592">abs</a><a href="https://arxiv.org/pdf/2607.27592">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.3/10</span><p>稠密对应与鲁棒三维特征对配准和重建后处理有潜在价值，且不需三维标签；摘要未展示其在真实扫描噪声和跨域配准上的直接结果。</p><div class="tags"><span class="tag">三维基础特征</span><span class="tag">二维蒸馏</span><span class="tag">稠密对应</span><span class="tag">网格</span><span class="tag">三维理解</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从二维基础模型蒸馏三维 feature field，再以前馈网络直接预测，可零三维标注服务对应、分割和网格变形。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">MeshFM 将视觉 foundation models 的二维特征蒸馏到三维输入。第一阶段仅凭多视图二维特征监督优化三维 feature field，第二阶段训练 feedforward network 直接回归该特征场，从而在推理时无需逐对象优化或三维标注。所学特征可直接用于部件分割、稠密对应和 mesh deformation；作者称其性能可达到显式三维监督方法的水平，并对输入物体的极端旋转保持鲁棒。</p><p class="lang lang-en lang-block" data-lang="en">We present MeshFM, an efficient feedforward framework for extracting rich features from 3D inputs. Our method distills 2D features from visual foundation models into 3D. We train a feedforward network to directly predict 3D features without requiring optimization during inference. The approach utilizes a two-stage training strategy. First, we optimize a feature field in 3D using only 2D feature supervision. Second, we train a network to regress this feature field. The entire procedure requires no 3D annotation, instead relying on the powerful information in 2D foundation models. We demonstrate that our learned features can be immediately applied to downstream tasks, including part segmentation, dense correspondence, and mesh deformation. Extensive experiments show that MeshFM, trained solely with 2D supervision, performs on par with methods trained explicitly with 3D supervision, even without task-specific fine-tuning. Moreover, our model is trained to be robust to extreme rotations of the input objects. Project page: https://threedle.github.io/MeshFM/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Jinfan Zhou, Richard Liu, Itai Lang, Rana Hanocka</li>
+<li><strong>价值判断</strong>：先以二维 foundation features 监督三维 feature field，再训练 feedforward network 直接预测，可在没有三维标注和逐对象优化的条件下提供部件分割、dense correspondence 和 mesh deformation 特征。</li>
+<li><strong>结果与边界</strong>：摘要称仅二维监督即可达到显式三维监督方法水平，并对极端旋转鲁棒。对点云配准最有潜力的是 dense correspondence，但需验证真实扫描噪声、非重叠视野、跨类别与大场景表现。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.27592">arXiv</a> · <a href="https://arxiv.org/pdf/2607.27592">PDF</a> · <a href="https://threedle.github.io/MeshFM/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.27592/fig-001.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.27592/fig-001.webp" alt="MeshFM: 2D Features Are All You Need for 3D Shape Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.27592/fig-002.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.27592/fig-002.webp" alt="MeshFM: 2D Features Are All You Need for 3D Shape Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.27592/fig-003.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.27592/fig-003.webp" alt="MeshFM: 2D Features Are All You Need for 3D Shape Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.27592/fig-004.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.27592/fig-004.webp" alt="MeshFM: 2D Features Are All You Need for 3D Shape Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.27592/fig-005.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.27592/fig-005.webp" alt="MeshFM: 2D Features Are All You Need for 3D Shape Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.27592/fig-006.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.27592/fig-006.webp" alt="MeshFM: 2D Features Are All You Need for 3D Shape Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

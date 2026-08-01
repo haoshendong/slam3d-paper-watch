@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>V-RIS: Virtual-Aperture DoA Estimation with Sparse RIS</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-01/index.html">← 返回 2026-08-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-31 · score 3 · eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">V-RIS：稀疏可重构智能表面的虚拟孔径到达角估计</span><span class="lang lang-en lang-inline" data-lang="en">V-RIS: Virtual-Aperture DoA Estimation with Sparse RIS</span></h1>
+  <div class="meta">作者：Fenghao Zheng, Fuhai Wang, Zihan Jin, Gui Zhou, Robert Caiming Qiu, Zenan Ling</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.27716">abs</a><a href="https://arxiv.org/pdf/2607.27716">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.1/10</span><p>具备室外原型、稀疏孔径和 multipath 抑制，对无线定位感知有参考价值；工作聚焦远场 DoA，不是 GNSS 或机器人多传感器定位。</p><div class="tags"><span class="tag">DoA 估计</span><span class="tag">RIS</span><span class="tag">虚拟孔径</span><span class="tag">多路径抑制</span><span class="tag">无线定位</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以四角稀疏子阵列重建虚拟孔径场，并用偏差不变损失抑制硬件失真和多路径，实现低硬件成本二维 DoA。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">V-RIS 以四个角部子阵列和单天线接收机重建完整虚拟孔径表面场，再在该场上执行二维 DoA estimation，以降低大孔径 RIS 的硬件和控制成本。方法利用远场照射下离散表面场沿两个孔径轴满足有限阶空间递推的性质，同时约束 RIS-coded observations 的数据一致性和传播一致性，并采用 bias-invariant receiver-domain loss 抑制准静态硬件失真及配置不变的 multipath。室外原型仅使用 25% 可编程单元时，方位角与俯仰角误差均保持在真值 1° 内。</p><p class="lang lang-en lang-block" data-lang="en">Large-aperture reconfigurable intelligent surfaces (RISs) enable high-resolution 2D direction-of-arrival (DoA) estimation, but existing approaches still tie hardware cost and control overhead to aperture size. To decouple the effective sensing aperture from the number of physically deployed RIS elements, we present V-RIS, a framework for virtual-aperture surface-field reconstruction and DoA estimation. V-RIS uses only four corner subarrays and a single-antenna receiver to reconstruct the virtual-aperture surface field from receiver observations collected under multiple RIS phase configurations, and then performs DoA estimation on the reconstructed virtual-aperture surface field. Our key observation is that, under far-field illumination, the discretized RIS surface field satisfies finite-order spatial recurrences along both aperture axes. We enforce data-level consistency through the RIS-coded receiver observations and propagation consistency through the far-field spatial recurrence, while using a four-corner deployment geometry that retains both contiguous local elements and long aperture baselines. To improve robustness in practical receiver observations, we adopt a bias-invariant receiver-domain loss that suppresses quasi-static hardware distortions and configuration-invariant multipath contributions. Extensive simulations show that V-RIS approaches the DoA accuracy of a full-aperture benchmark while producing cleaner spectra than matrix-completion and least-squares baselines. An outdoor prototype further validates the design: with only 25\% programmable elements, V-RIS keeps both elevation and azimuth errors within $1^\circ$ of the ground truth.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Fenghao Zheng, Fuhai Wang, Zihan Jin, Gui Zhou, Robert Caiming Qiu, Zenan Ling</li>
+<li><strong>价值判断</strong>：仅保留四角子阵列和单天线接收机，利用远场空间递推重建完整 virtual-aperture surface field；bias-invariant loss 专门抑制硬件偏差和配置不变 multipath。</li>
+<li><strong>结果与边界</strong>：室外原型在仅 25% 可编程单元下，俯仰和方位误差均在真值 1° 内。需要核查近场、多源、动态遮挡及 RIS 标定误差；其定位对象是 DoA 而非 GNSS/机器人位姿。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.27716">arXiv</a> · <a href="https://arxiv.org/pdf/2607.27716">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

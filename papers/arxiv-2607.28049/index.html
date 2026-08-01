@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>TSOG: A Format For Temporally And Spatially Ordered Gaussians</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-01/index.html">← 返回 2026-08-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-31 · score 10 · eess.IV, cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">TSOG：时空有序高斯表示格式</span><span class="lang lang-en lang-inline" data-lang="en">TSOG: A Format For Temporally And Spatially Ordered Gaussians</span></h1>
+  <div class="meta">作者：Shady Gmira, Evangelos Alexiou, Emmanouil Potetsianakis, Emmanuel Thomas</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.28049">abs</a><a href="https://arxiv.org/pdf/2607.28049">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.1/10</span><p>直接关联动态 3DGS 地图的存储与传输，模型无关且压缩幅度显著；当前评价基线有限，需核查随机访问、解码成本及复杂运动下的时间一致性。</p><div class="tags"><span class="tag">4DGS</span><span class="tag">3DGS 压缩</span><span class="tag">动态场景</span><span class="tag">时空表示</span><span class="tag">场景传输</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以统一索引和时空参数化把动态 Gaussian 属性编码成图像数据，实现超过 90% 的 4DGS 文件压缩。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">TSOG 将 Spatially Ordered Gaussians（SOG）扩展到时间域，为 4D Gaussian Splatting 引入 timeline 属性，以及几何和外观属性的时间参数化。每个 Gaussian 被赋予唯一索引，属性值编码为与索引对齐的图像数据。该有损格式与具体 4DGS 模型解耦，同时兼容离散和连续动态表示。基于 PLY 序列与 FreeTimeGS 的实验显示，文件体积缩减超过 90%，PSNR 变化范围为 -0.42 至 +0.85 dB。</p><p class="lang lang-en lang-block" data-lang="en">We propose Temporally and Spatially Ordered Gaussians (TSOG), a format for efficient representation of 4D Gaussian Splatting (4DGS) content. TSOG extends the Spatially Ordered Gaussians (SOG) framework to the temporal domain by introducing a timeline attribute and temporal parameterization of geometry and appearance attributes. Similar to SOG, TSOG is a lossy format that assigns each Gaussian a unique index and encodes attribute values as index-aligned image data. TSOG is model-agnostic, extensible, and compatible with both discrete and continuous 4DGS representations. Evaluation using a PLYs sequence and FreeTimeGS as baselines, serving as simplistic and state-of-the-art 4DGS representations respectively, shows file size reductions exceeding 90%, with PSNR differences ranging between -0.42 and +0.85 dB. These results demonstrate substantial file size savings with minimal quality degradation, enabling efficient representation, storage, and delivery of dynamic scenes for next-generation 4D content.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Shady Gmira, Evangelos Alexiou, Emmanouil Potetsianakis, Emmanuel Thomas</li>
+<li><strong>价值判断</strong>：将 SOG 的唯一索引和 image-aligned attribute encoding 扩展到时间维，兼容离散与连续 4DGS；适合动态地图和数字孪生资产的存储、传输及模型间交换。</li>
+<li><strong>结果与边界</strong>：PLY 序列和 FreeTimeGS 基线上文件体积缩减超过 90%，PSNR 变化为 -0.42 至 +0.85 dB。需核查随机访问、解码吞吐、拓扑变化和复杂非刚体运动下的时间一致性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.28049">arXiv</a> · <a href="https://arxiv.org/pdf/2607.28049">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28049/fig-001.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28049/fig-001.webp" alt="TSOG: A Format For Temporally And Spatially Ordered Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28049/fig-002.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28049/fig-002.webp" alt="TSOG: A Format For Temporally And Spatially Ordered Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28049/fig-003.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28049/fig-003.webp" alt="TSOG: A Format For Temporally And Spatially Ordered Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28049/fig-004.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28049/fig-004.webp" alt="TSOG: A Format For Temporally And Spatially Ordered Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28049/table-001.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28049/table-001.webp" alt="TSOG: A Format For Temporally And Spatially Ordered Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28049/table-002.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28049/table-002.webp" alt="TSOG: A Format For Temporally And Spatially Ordered Gaussians" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-01/index.html">← 返回 2026-08-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-31 · score 9 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">S-Avatar：从单幅图像生成扩散引导的 Gaussian 头部虚拟人</span><span class="lang lang-en lang-inline" data-lang="en">S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image</span></h1>
+  <div class="meta">作者：Hail Song, Seokhwan Yang, Jiwon Yang, Woojin Cho, Woontack Woo</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.28164">abs</a><a href="https://arxiv.org/pdf/2607.28164">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>单图 3DGS 重建、参数模型对齐和实时变形链条完整且已给出项目页；应用集中于头部虚拟人，几何精度与通用场景外推能力有限。</p><div class="tags"><span class="tag">单图重建</span><span class="tag">3DGS</span><span class="tag">FLAME</span><span class="tag">虚拟人</span><span class="tag">实时渲染</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把单图扩散生成的 3DGS 与 FLAME 对齐并绑定，实现可实时变形、视角一致性更好的头部虚拟人。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">S-Avatar 从单张图像构建可实时驱动的 3D 头部虚拟人。流程先由 diffusion-based Gaussian generation module 合成高分辨率 3DGS，再通过优化参数和空间变换将 FLAME 参数化头模与 Gaussian 对齐，最后建立记录初始 splats 与 FLAME 空间关系的 binding template，使 3DGS 可随表情和姿态变化。作者称该方法在新视角和表情生成上优于现有方法，并改善未见视角下的一致性。</p><p class="lang lang-en lang-block" data-lang="en">We propose S-Avatar, a novel method for generating photorealistic 3D head avatars from a single image using a diffusion-guided 3D model generation module and strategies for animating 3D Gaussian Splatting (3DGS). While single-image head avatar reconstruction is crucial for lifelike Virtual Reality (VR) applications, existing approaches often struggle to preserve 3D consistency under unseen viewpoints. S-Avatar addresses this limitation through a three-stage pipeline. First, a high-resolution 3DGS is synthesized directly from a single image using a diffusion-based Gaussian splat generation module. Next, the parametric head model FLAME is aligned with the generated 3DGS by optimizing its parameters and spatial transformations. Finally, to adapt the 3DGS to FLAME variations, we construct a binding template that encodes the spatial relationship between the initial splats and FLAME. The dynamic 3D head avatar can then be rendered in real time by deforming the 3DGS with the binding template. By combining diffusion-guided canonical 3DGS generation with FLAME-based control, our method achieves efficient and accurate reconstruction with enhanced 3D consistency. Evaluations on public datasets demonstrate that S-Avatar outperforms state-of-the-art methods in novel-view and expression generation, achieving superior realism and consistency. Consequently, our approach represents a significant advance in accessible avatar creation, applicable to a wide range of VR/AR applications. The project page is available at https://github.com/hailsong/savatar.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Hail Song, Seokhwan Yang, Jiwon Yang, Woojin Cho, Woontack Woo</li>
+<li><strong>价值判断</strong>：串联单图 diffusion-guided 3DGS generation、FLAME 参数与空间对齐、Gaussian—FLAME binding template，实现可实时表情和姿态驱动的单图头部重建。</li>
+<li><strong>结果与边界</strong>：摘要称新视角和表情生成优于 SOTA，并提高未见视角一致性。应用高度限定于头部和 FLAME 先验，需区分视觉真实感与几何测量精度。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.28164">arXiv</a> · <a href="https://arxiv.org/pdf/2607.28164">PDF</a> · <a href="https://github.com/hailsong/savatar">代码</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28164/fig-001.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28164/fig-001.webp" alt="S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28164/fig-002.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28164/fig-002.webp" alt="S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28164/fig-003.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28164/fig-003.webp" alt="S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28164/fig-004.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28164/fig-004.webp" alt="S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28164/fig-005.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28164/fig-005.webp" alt="S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28164/fig-006.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28164/fig-006.webp" alt="S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28164/table-001.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28164/table-001.webp" alt="S-Avatar: Diffusion-Guided Gaussian Head Avatars from a Single Image" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

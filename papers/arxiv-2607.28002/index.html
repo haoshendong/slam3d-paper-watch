@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Multi-Agent Reinforcement Learning for Base Station Placement in TDOA-Based Localization</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-01/index.html">← 返回 2026-08-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-07-31 · score 9 · eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向 TDOA 定位的多智能体强化学习基站布设</span><span class="lang lang-en lang-inline" data-lang="en">Multi-Agent Reinforcement Learning for Base Station Placement in TDOA-Based Localization</span></h1>
+  <div class="meta">作者：Bastian Perner, Pratik Gajanan Raut, Maximilian L\&quot;ubke, Norman Franchi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2607.28002">abs</a><a href="https://arxiv.org/pdf/2607.28002">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.8/10</span><p>直接命中 NLOS/multipath 环境感知定位设计，并使用三维场景与 CIR；整体平均增益仅约 3%且分区不稳定，尚非 GNSS/SLAM 融合算法。</p><div class="tags"><span class="tag">TDOA 定位</span><span class="tag">NLOS</span><span class="tag">多路径</span><span class="tag">射线追踪</span><span class="tag">基站布设</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用三维场景 ray tracing 与多智能体 PPO 联合优化 TDOA 基站位置，把 NLOS 和多路径传播显式纳入布设。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作面向 5G/6G TDOA 定位中的基站布设，指出仅依赖 GDOP 的几何方法无法描述建筑引起的 NLOS 阴影、multipath 和 TOA bias。作者利用大学园区三维模型 ray tracing 生成 Channel Impulse Responses，并训练多个 PPO agents 协同放置基站，以定位精度和覆盖率构成共享奖励。五个园区分区的结果显示，平均 MAE 相对较强的 mean-optimized 几何基线下降约 3%，个别分区最多改善约 14%，但其他分区持平或略差。</p><p class="lang lang-en lang-block" data-lang="en">Accurate localization of devices is a key capability for emerging 5G and 6G networks and depends on effective base station (BS) placement. Conventional geometry-based approaches such as Geometric Dilution of Precision (GDOP) ignore realistic propagation effects such as Non-Line of Sight (NLOS) shadowing and multipath-induced Time of Arrival (TOA) bias caused by buildings. This paper proposes a ray-tracing-assisted Multi-Agent Reinforcement Learning (MARL) framework for environment-aware BS placement in Time Difference of Arrival (TDOA) localization systems. Proximal Policy Optimization (PPO) agents are trained on Channel Impulse Responses (CIRs) generated from a detailed 3D model of a university campus. Each agent cooperatively places one BS while optimizing a shared reward that combines localization accuracy and coverage. The approach is evaluated on five campus segments with varying propagation characteristics. Results show that the learned policy achieves localization accuracy comparable to conventional GDOP-based placement, lowering the average localization Mean Absolute Error (MAE) by about 3 % relative to the stronger (mean-optimized) geometric baseline. The behavior is segment-dependent, with a clear improvement on individual segments (up to about 14 %) and comparable or slightly higher error on the others. These findings indicate that incorporating site-specific propagation data into the placement process can match and selectively improve upon purely geometric strategies, motivating further work toward consistent gains.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>作者</strong>：Bastian Perner, Pratik Gajanan Raut, Maximilian Lübke, Norman Franchi</li>
+<li><strong>价值判断</strong>：以大学园区三维模型 ray tracing 生成 CIR，把建筑导致的 NLOS shadowing、multipath TOA bias 和覆盖率共同纳入 PPO 多智能体布站，突破纯 GDOP 只看几何的限制。</li>
+<li><strong>结果与边界</strong>：五个分区平均 MAE 相对较强几何基线下降约 3%，单个分区最多约 14%，但其余分区持平或略差，说明环境感知收益尚不稳定；工作也不是 GNSS/SLAM 融合算法。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2607.28002">arXiv</a> · <a href="https://arxiv.org/pdf/2607.28002">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28002/fig-001.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28002/fig-001.webp" alt="Multi-Agent Reinforcement Learning for Base Station Placement in TDOA-Based Localization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28002/fig-002.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28002/fig-002.webp" alt="Multi-Agent Reinforcement Learning for Base Station Placement in TDOA-Based Localization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28002/fig-003.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28002/fig-003.webp" alt="Multi-Agent Reinforcement Learning for Base Station Placement in TDOA-Based Localization" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28002/table-001.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28002/table-001.webp" alt="Multi-Agent Reinforcement Learning for Base Station Placement in TDOA-Based Localization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28002/table-002.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28002/table-002.webp" alt="Multi-Agent Reinforcement Learning for Base Station Placement in TDOA-Based Localization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-01/arxiv-2607.28002/table-003.webp"><img src="../../assets/media/2026-08-01/arxiv-2607.28002/table-003.webp" alt="Multi-Agent Reinforcement Learning for Base Station Placement in TDOA-Based Localization" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
