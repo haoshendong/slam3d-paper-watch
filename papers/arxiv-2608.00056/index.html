@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Domain-Generalized Adaptive Semantic Communication for Collaborative Perception</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-05/index.html">← 返回 2026-08-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-04 · score 6 · eess.SP, cs.LG, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向协同感知的域泛化自适应语义通信</span><span class="lang lang-en lang-inline" data-lang="en">Domain-Generalized Adaptive Semantic Communication for Collaborative Perception</span></h1>
+  <div class="meta">作者：Fan Gao, Youzheng Wang, Ning Ge</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.00056">abs</a><a href="https://arxiv.org/pdf/2608.00056">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.1/10</span><p>与多智能体协同感知及通信退化鲁棒性相关，可迁移到协同 SLAM，但论文评测核心不是位姿估计或地图一致性。</p><div class="tags"><span class="tag">V2X</span><span class="tag">协同感知</span><span class="tag">语义通信</span><span class="tag">域泛化</span><span class="tag">信道鲁棒性</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从通信可靠性和域偏移两侧联合保护 V2X 特征；虽不直接解决定位，但对多车协同建图/感知中的带宽受限特征共享有借鉴意义。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">提出 RSTA，用于同时存在观测域偏移和未见无线信道条件的 source-free V2X 协同感知。部署前通过跨域原型对齐与跨信道梯度一致性训练语义编码器，部署时仅更新轻量 decoder adapter，并以语义相关性和信道可靠性联合门控熵最小化。论文报告在未见 Rayleigh fading 下，跨天气和跨数据集任务相对部署前域泛化分别提升 7.2 和 5.5 AP@0.7，在线仅更新 0.21% 参数。</p><p class="lang lang-en lang-block" data-lang="en">We propose RSTA, a domain-generalized semantic communication framework enabling source-free V2X collaborative perception under both observation-domain shift and unseen wireless channel conditions. In V2X, received semantic tokens suffer coupled degradation from pre-transmission domain drift and in-transit channel corruption; existing methods address only one source, leaving adaptation misled by tokens that are simultaneously off-domain and physically degraded. RSTA trains a pre-deployment semantic encoder for transmission stability via cross-domain prototype alignment and cross-channel gradient consistency, and updates a lightweight in-deployment decoder adapter through reliability-gated entropy minimization that restricts gradients to tokens ranked high in both semantic relevance and channel fidelity. A theoretical task robustness decomposition links each loss term to a distinct degradation source, grounding each algorithmic component in a measurable error mode. Trained on AWGN and tested on unseen Rayleigh fading, RSTA achieves +7.2 AP@0.7 over pre-deployment domain generalization on cross-weather tasks and +5.5 on cross-dataset tasks across four V2X benchmarks, updating only 0.21\% of parameters in-deployment with zero inter-agent synchronization overhead.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Sensor Deployment Optimization for Passive TDOA Localization Under Unknown Drift Distribution</li>
+<li><strong>作者</strong>：Zhenxing Zhang, Tianxian Zhang, Zerui Zhang, Zicheng Wang, Xueting Li</li>
+<li><strong>推荐评分</strong>：8.2/10</li>
+<li><strong>核心方法</strong>：仅使用漂移误差的一二阶统计量构造广义 <code>GDOP_D</code>，分析传感器位置漂移对几何精度分布的重塑，并用 adaptive unidirectional PSO 求解区域最坏情形部署。</li>
+<li><strong>为何值得看</strong>：与 GNSS 站网、UWB/声学 TDOA 的鲁棒几何设计和误差传播直接相关；应进一步核查推导假设、漂移相关性和实测验证。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00056/fig-001.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00056/fig-001.webp" alt="Domain-Generalized Adaptive Semantic Communication for Collaborative Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00056/fig-002.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00056/fig-002.webp" alt="Domain-Generalized Adaptive Semantic Communication for Collaborative Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00056/fig-003.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00056/fig-003.webp" alt="Domain-Generalized Adaptive Semantic Communication for Collaborative Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00056/fig-004.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00056/fig-004.webp" alt="Domain-Generalized Adaptive Semantic Communication for Collaborative Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00056/fig-005.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00056/fig-005.webp" alt="Domain-Generalized Adaptive Semantic Communication for Collaborative Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00056/table-001.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00056/table-001.webp" alt="Domain-Generalized Adaptive Semantic Communication for Collaborative Perception" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00056/table-002.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00056/table-002.webp" alt="Domain-Generalized Adaptive Semantic Communication for Collaborative Perception" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00056/table-003.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00056/table-003.webp" alt="Domain-Generalized Adaptive Semantic Communication for Collaborative Perception" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

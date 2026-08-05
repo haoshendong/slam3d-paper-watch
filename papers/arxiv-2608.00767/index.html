@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-05/index.html">← 返回 2026-08-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-04 · score 4 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Hi-TOPS：用于三维部件分解的分层拓扑感知评分先验</span><span class="lang lang-en lang-inline" data-lang="en">Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition</span></h1>
+  <div class="meta">作者：Ruoyu Wu, Zhenhong Sun, Xiaoming Gong, Yuxin Xian, Zhi Wang, Yawen Chen, Huadong Mo, Daoyi Dong</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.00767">abs</a><a href="https://arxiv.org/pdf/2608.00767">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.7/10</span><p>属于三维几何与重建后处理，结构表达清晰；不涉及相机位姿、SfM/MVS 或在线 SLAM，因此相关度中等。</p><div class="tags"><span class="tag">三维部件分解</span><span class="tag">拓扑先验</span><span class="tag">TSDF</span><span class="tag">Superquadric</span><span class="tag">网格处理</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把中尺度拓扑线索、TSDF 与 superquadric 拟合结合，生成可编辑且边界对齐的三维部件；更偏形状处理，但可服务重建后结构化建模。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">面向三维形状的结构化部件分解，提出分层拓扑感知评分先验 Hi-TOPS，在多分辨率 Flow-Freeze 场中融合内在几何线索：Flow 区域支持基元覆盖扩张，Freeze 区域约束关节和细薄结构附近的生长。随后使用 TSDF 引导的体表 superquadric 拟合主体与残余表面结构，并完成 superquadric 到 mesh 的连通、边界对齐分配；方法不依赖语义监督或二维 foundation prior。</p><p class="lang lang-en lang-block" data-lang="en">Accurate 3D part decomposition requires separating shapes into structurally meaningful components with precise boundaries while preserving articulation seams and thin attachments. Existing approaches often suffer from a structural-scale mismatch: geometric evidence for separation is most reliable at the meso scale, yet many pipelines operate either too globally to respect joints or too locally to remain robust to noise. We propose Hi-TOPS, a Hierarchical Topology-aware Scoring Prior that aggregates complementary intrinsic cues into a multi-resolution Flow-Freeze field. Flow regions provide expandable support for primitive coverage, while Freeze regions restrict growth near articulations and thin structures. A TSDF-guided body-surface superquadric fitter then captures dominant cores and residual surface structures, followed by SQ-to-mesh assignment for connected, boundary-aligned parts. Across diverse benchmarks, Hi-TOPS delivers stable, editable decompositions without semantic supervision or 2D foundation priors.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Sensor Deployment Optimization for Passive TDOA Localization Under Unknown Drift Distribution</li>
+<li><strong>作者</strong>：Zhenxing Zhang, Tianxian Zhang, Zerui Zhang, Zicheng Wang, Xueting Li</li>
+<li><strong>推荐评分</strong>：8.2/10</li>
+<li><strong>核心方法</strong>：仅使用漂移误差的一二阶统计量构造广义 <code>GDOP_D</code>，分析传感器位置漂移对几何精度分布的重塑，并用 adaptive unidirectional PSO 求解区域最坏情形部署。</li>
+<li><strong>为何值得看</strong>：与 GNSS 站网、UWB/声学 TDOA 的鲁棒几何设计和误差传播直接相关；应进一步核查推导假设、漂移相关性和实测验证。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00767/fig-001.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00767/fig-001.webp" alt="Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00767/fig-002.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00767/fig-002.webp" alt="Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00767/fig-003.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00767/fig-003.webp" alt="Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00767/fig-004.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00767/fig-004.webp" alt="Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00767/table-001.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00767/table-001.webp" alt="Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00767/table-002.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00767/table-002.webp" alt="Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00767/table-003.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00767/table-003.webp" alt="Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00767/table-004.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00767/table-004.webp" alt="Hi-TOPS: Hierarchical Topology-aware Scoring Prior for 3D Part Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Localization in Spatiotemporal Fields via Environmental PDEs</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-05/index.html">← 返回 2026-08-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-04 · score 6 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">利用环境偏微分方程时空场进行定位</span><span class="lang lang-en lang-inline" data-lang="en">Localization in Spatiotemporal Fields via Environmental PDEs</span></h1>
+  <div class="meta">作者：Jose Fuentes, Abdullah Al Redwan Newaz, Ana Cavalcanti, Leonardo Bobadilla</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.00272">abs</a><a href="https://arxiv.org/pdf/2608.00272">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>定位主题直接，包含多模态观测、偏置估计、粒子滤波与实船验证；与另类地图表征和 GNSS-denied 导航密切相关。</p><div class="tags"><span class="tag">环境场定位</span><span class="tag">Rao–Blackwellized 粒子滤波</span><span class="tag">传感器偏置</span><span class="tag">水面机器人</span><span class="tag">GNSS 拒止</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">不用视觉、激光或 GNSS，而以可预测的环境场作为地图和定位指纹，并显式估计传感器偏置；适合关注水下/水面 GNSS 拒止定位的读者。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">提出以受 PDE 支配的时空环境场作为定位指纹，覆盖浅水方程与平流扩散方程。数值 PDE 求解器生成区域预测场，多种环境场通道作为多模态观测融合；Rao–Blackwellized 粒子滤波器对非线性位姿采样，同时在每个粒子内用 Kalman filter 解析跟踪线性传感器偏置。仿真及自主水面艇的盐度、温度和溶解氧实验证明，这些环境场可提供实用的空间可辨识性。</p><p class="lang lang-en lang-block" data-lang="en">This paper proposes a localization framework that uses spatiotemporal fields governed by partial differential equations (PDEs) as localization signatures. Two PDE classes are considered: the shallow water equations, which describe free-surface flows in coastal and riverine environments, and the advection-diffusion equation, which models the transport and mixing of scalar quantities such as temperature, salinity, and dissolved oxygen. A numerical PDE solver provides predicted fields over the domain, and multiple field channels are fused as multimodal measurements to improve localization accuracy. We formulate the problem within a Rao-Blackwellized particle filter (RBPF) that partitions the vehicle state into a nonlinear component sampled by particles and a linear sensor bias component tracked analytically via per-particle Kalman filters. This factorization reduces the required number of particles compared to a standard particle filter while accounting for realistic sensor drift. Simulation studies on both PDE scenarios show that the RBPF consistently outperforms a standard particle filter in terms of final position error and Root Mean Square Error (RMSE) across varying particle counts. Field experiments with an autonomous surface vehicle measuring salinity, temperature, and dissolved oxygen validate that PDE-governed environmental fields provide sufficient spatial variability for practical localization. Related experimental videos are available at https://localization-environmental-pdes.github.io/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Sensor Deployment Optimization for Passive TDOA Localization Under Unknown Drift Distribution</li>
+<li><strong>作者</strong>：Zhenxing Zhang, Tianxian Zhang, Zerui Zhang, Zicheng Wang, Xueting Li</li>
+<li><strong>推荐评分</strong>：8.2/10</li>
+<li><strong>核心方法</strong>：仅使用漂移误差的一二阶统计量构造广义 <code>GDOP_D</code>，分析传感器位置漂移对几何精度分布的重塑，并用 adaptive unidirectional PSO 求解区域最坏情形部署。</li>
+<li><strong>为何值得看</strong>：与 GNSS 站网、UWB/声学 TDOA 的鲁棒几何设计和误差传播直接相关；应进一步核查推导假设、漂移相关性和实测验证。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00272/fig-001.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00272/fig-001.webp" alt="Localization in Spatiotemporal Fields via Environmental PDEs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00272/fig-002.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00272/fig-002.webp" alt="Localization in Spatiotemporal Fields via Environmental PDEs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00272/fig-003.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00272/fig-003.webp" alt="Localization in Spatiotemporal Fields via Environmental PDEs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00272/fig-004.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00272/fig-004.webp" alt="Localization in Spatiotemporal Fields via Environmental PDEs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00272/fig-005.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00272/fig-005.webp" alt="Localization in Spatiotemporal Fields via Environmental PDEs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00272/fig-006.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00272/fig-006.webp" alt="Localization in Spatiotemporal Fields via Environmental PDEs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00272/table-001.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00272/table-001.webp" alt="Localization in Spatiotemporal Fields via Environmental PDEs" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

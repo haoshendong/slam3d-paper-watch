@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Belief-Space Perception Routing under Coupled Sensor Faults and Compute Contention</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-05/index.html">← 返回 2026-08-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-04 · score 6 · cs.RO, cs.CV, cs.SY, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">耦合传感器故障与算力竞争下的信念空间感知路由</span><span class="lang lang-en lang-inline" data-lang="en">Belief-Space Perception Routing under Coupled Sensor Faults and Compute Contention</span></h1>
+  <div class="meta">作者：Sparsh Roy, Vihan Aggarwal, Davin Yin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.00322">abs</a><a href="https://arxiv.org/pdf/2608.00322">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>关注恶劣天气、传感器故障与实时计算，但实验任务是目标检测路由；对 SLAM 的价值主要在系统调度方法。</p><div class="tags"><span class="tag">感知路由</span><span class="tag">传感器故障</span><span class="tag">实时系统</span><span class="tag">算力调度</span><span class="tag">恶劣天气</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以信念状态联合调度退化传感器和有限算力，并同时报告现实数据中的负结果；可作为 SLAM 前端动态降级与实时预算管理的机制参考。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">提出一个感知路由器，同时维护传感器故障状态和算力竞争状态的概率估计，并通过 noisy-OR 项建模耦合关系，在四种 YOLO11 分辨率/模型配置间选择以满足逐帧 deadline。在人为构造的共同压力条件下，耦合策略比独立建模策略降低 1.1–9.4 个百分点的 deadline miss rate，路由开销仅数十微秒。作者也诚实报告：真实 RADIATE 序列上的 24 项检验没有发现这种耦合自然存在。</p><p class="lang lang-en lang-block" data-lang="en">A robot that has to see and react on a fixed clock runs into two problems at once. Its cameras degrade in rain, mud, fog, and darkness. And the single onboard processor it runs on is shared with planning and control, so the compute left over for perception moves around from second to second. Most systems model the two separately. We present a perception router that tracks probabilistic estimates of sensor-fault state and compute- contention state, couples them with a noisy-OR term, and uses the coupled estimate to pick one of four detector configurations (YOLO11x/n at 1280 or 640 px) so that the frame finishes before its deadline. Where the two stressors co-occur, the coupled policy cuts the deadline-miss rate by 1.1 to 9.4 percentage points against a policy that treats them independently. The interval excludes zero in five of six conditions, the pooled effect over 10 sequences and 6 conditions has sign-test p = 0.001, and every uncoupled control and the fault-free trajectory sit at exactly 0.0 pp. Routing costs tens of microseconds per frame. We then asked whether the coupling the method exploits arises on its own. Across eight real RADIATE adverse-weather sequences and three workload proxies independent of the fault signal, after Benjamini-Hochberg correction and a replication run, none of 24 tests found it. We report that null and scope the routing result as a proof of mechanism. Whether such coupling occurs in the field is still open, and the released evaluation pipeline lets a deployment settle it on its own traces.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Sensor Deployment Optimization for Passive TDOA Localization Under Unknown Drift Distribution</li>
+<li><strong>作者</strong>：Zhenxing Zhang, Tianxian Zhang, Zerui Zhang, Zicheng Wang, Xueting Li</li>
+<li><strong>推荐评分</strong>：8.2/10</li>
+<li><strong>核心方法</strong>：仅使用漂移误差的一二阶统计量构造广义 <code>GDOP_D</code>，分析传感器位置漂移对几何精度分布的重塑，并用 adaptive unidirectional PSO 求解区域最坏情形部署。</li>
+<li><strong>为何值得看</strong>：与 GNSS 站网、UWB/声学 TDOA 的鲁棒几何设计和误差传播直接相关；应进一步核查推导假设、漂移相关性和实测验证。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00322/fig-001.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00322/fig-001.webp" alt="Belief-Space Perception Routing under Coupled Sensor Faults and Compute Contention" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00322/fig-002.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00322/fig-002.webp" alt="Belief-Space Perception Routing under Coupled Sensor Faults and Compute Contention" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00322/table-001.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00322/table-001.webp" alt="Belief-Space Perception Routing under Coupled Sensor Faults and Compute Contention" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-05/arxiv-2608.00322/table-002.webp"><img src="../../assets/media/2026-08-05/arxiv-2608.00322/table-002.webp" alt="Belief-Space Perception Routing under Coupled Sensor Faults and Compute Contention" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

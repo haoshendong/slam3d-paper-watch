@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Sensor Deployment Optimization for Passive TDOA Localization Under Unknown Drift Distribution</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-05/index.html">← 返回 2026-08-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-04 · score 7 · eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">未知漂移分布下的无源 TDOA 定位传感器部署优化</span><span class="lang lang-en lang-inline" data-lang="en">Sensor Deployment Optimization for Passive TDOA Localization Under Unknown Drift Distribution</span></h1>
+  <div class="meta">作者：Zhenxing Zhang, Tianxian Zhang, Zerui Zhang, Zicheng Wang, Xueting Li</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.00034">abs</a><a href="https://arxiv.org/pdf/2608.00034">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>直接研究定位几何、传感器位置不确定性和鲁棒部署；虽非 GNSS/SLAM 算法，但与站网设计和误差传播高度相关。</p><div class="tags"><span class="tag">TDOA 定位</span><span class="tag">传感器部署</span><span class="tag">鲁棒优化</span><span class="tag">GDOP</span><span class="tag">位置漂移</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把未知传感器漂移分布压缩为可估计的一二阶统计量，并据此优化 TDOA 基站布局；对 GNSS 站网、UWB/声学定位的鲁棒几何设计有方法参考价值。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">研究传感器位置受风等因素引起漂移、且只能估计漂移一二阶统计量时，如何离线部署传感器以保证整个目标区域内的无源 TDOA 定位精度。作者提出含漂移误差的广义几何精度衰减因子 GDOP_D，分析漂移对 GDOP 数值与空间分布的影响，并构造基于 GDOP_D 的 min-max 部署问题，使用自适应单向粒子群优化求解。仿真显示该方法可缓解传统 PSO 的早熟收敛与振荡。</p><p class="lang lang-en lang-block" data-lang="en">This paper investigates how to deploy sensors offline to provide robust passive TDOA localization accuracy across the entire region of interest (ROI) when their positions are subject to drift errors caused by factors such as wind. Since in practice only the 1st and 2nd order statistics of sensor drift errors can be estimated from historical sensor telemetry data or wind field statistics, by using them we first derive a generalized geometric dilution of precision under drift errors ($\mathrm{GDOP_{D}}$), which extends the traditional GDOP ($\mathrm{GDOP_{T}}$). Furthermore, we derive theoretical results related to $\mathrm{GDOP_{D}}$ and $\mathrm{GDOP_{T}}$, revealing that drift errors not only enlarge the value of GDOP but also reshape its distribution, thereby degrading localization performance. Then, we construct a $\operatorname{{GDOP}_{D}}$-based min-max deployment optimization problem. {Finally, we propose an adaptive unidirectional particle swarm optimizer (AUPSO) to solve this challenging problem. The proposed method alleviates the premature convergence and the oscillatory behavior of the traditional PSO. Extensive simulations demonstrate the effectiveness of the proposed method. This research provides a reliable offline sensor deployment planning framework for practical engineering scenarios, when the accurate drift error probability density function is not available.}</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Sensor Deployment Optimization for Passive TDOA Localization Under Unknown Drift Distribution</li>
+<li><strong>作者</strong>：Zhenxing Zhang, Tianxian Zhang, Zerui Zhang, Zicheng Wang, Xueting Li</li>
+<li><strong>推荐评分</strong>：8.2/10</li>
+<li><strong>核心方法</strong>：仅使用漂移误差的一二阶统计量构造广义 <code>GDOP_D</code>，分析传感器位置漂移对几何精度分布的重塑，并用 adaptive unidirectional PSO 求解区域最坏情形部署。</li>
+<li><strong>为何值得看</strong>：与 GNSS 站网、UWB/声学 TDOA 的鲁棒几何设计和误差传播直接相关；应进一步核查推导假设、漂移相关性和实测验证。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
