@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-06/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-06/index.html">← 返回 2026-08-06 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-05 · score 4 · cs.RO, cs.SY, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">绕凸障碍物的平滑最短时间轨迹双凸优化</span><span class="lang lang-en lang-inline" data-lang="en">Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles</span></h1>
+  <div class="meta">作者：Peter Werner, Tobia Marcucci, Daniela Rus</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.02834">abs</a><a href="https://arxiv.org/pdf/2608.02834">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.7/10</span><p>对无人机和机器人导航规划有实用价值，优化结构与收敛性值得关注；与 SLAM/GNSS 的联系主要在地图后端规划接口。</p><div class="tags"><span class="tag">轨迹优化</span><span class="tag">双凸优化</span><span class="tag">最短时间</span><span class="tag">避碰</span><span class="tag">无人机导航</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以分离平面和双凸交替优化统一最短时间、平滑性与避碰，并支持任意阶导数约束。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文通过变量替换联合凸化最短时间目标和任意阶导数约束，再以时变分离平面处理避碰，把问题化为双凸程序。求解器在最大间隔分离平面计算与轨迹优化之间交替，只为当前轨迹碰撞到的障碍物添加平面，使轨迹能够跨越障碍物并逃离部分局部极小值。方法从简单无碰撞折线初始化可保证收敛，并在无人机导航和双臂料箱卸载上获得与先进分解式规划器相当的计算时间。</p><p class="lang lang-en lang-block" data-lang="en">We present a biconvex approach for minimum-time motion planning around convex obstacles that is guaranteed to converge, is anytime, and supports derivative constraints to arbitrary order. We jointly convexify the minimum-time objective and all derivative constraints through a change of variables, and handle collision avoidance via time-varying separating planes, reducing the problem to a biconvex program. This program is solved by alternating between computing maximum-margin separating planes and optimizing the trajectory. By only adding planes for obstacles that the current iterate collides with, the trajectory can jump around obstacles and escape local minima. The method is guaranteed to converge starting from a simple collision-free polygonal curve. In our experiments on drone navigation and dual-arm bin unloading, we find that the proposed method reliably produces high-quality trajectories with computation times comparable to state-of-the-art decomposition-based motion planners, while handling a larger class of problems and being substantially more robust to bad initialization. Project page:https://wernerpe.github.io/bmtp-website/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：URHead: A Unified UV-Space Representation for Joint Mesh-3DGS Optimization in Head Avatars</li>
+<li><strong>作者</strong>：Seonghak Lee, Junhee Cho, Jisoo Park, Min-Gyu Park, Jongmin Lee, Ju Hong Yoon, Junseok Kwon</li>
+<li><strong>推荐评分</strong>：8.0/10</li>
+<li><strong>核心方法</strong>：让网格与 3D Gaussian Splatting 共享 UV 参数化，通过联合优化和自适应 Gaussian 采样，自动分配可控几何与照片级细节的表达职责。</li>
+<li><strong>为何值得看</strong>：直接回应 hybrid mesh–3DGS 中结构一致性与可控性难兼得的问题；重点核查 UV 拓扑限制、遮挡区域稳定性以及能否推广到通用动态对象。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02834/fig-001.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02834/fig-001.webp" alt="Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02834/fig-002.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02834/fig-002.webp" alt="Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02834/fig-003.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02834/fig-003.webp" alt="Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02834/fig-004.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02834/fig-004.webp" alt="Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02834/table-001.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02834/table-001.webp" alt="Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02834/table-002.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02834/table-002.webp" alt="Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

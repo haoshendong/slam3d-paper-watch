@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-06/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-06/index.html">← 返回 2026-08-06 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-05 · score 6 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">自由形态机器人自组装结构中的接触驱动定位</span><span class="lang lang-en lang-inline" data-lang="en">Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure</span></h1>
+  <div class="meta">作者：Mohammadali Rashidioun, Michael Sosa, Petras Swissler</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.02895">abs</a><a href="https://arxiv.org/pdf/2608.02895">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.6/10</span><p>定位主题直接，强调最小感知和局部通信；但目前证据以仿真为主，且接触图的歧义、尺度与三维姿态可观测性仍需核查。</p><div class="tags"><span class="tag">相对定位</span><span class="tag">模块化机器人</span><span class="tag">接触约束</span><span class="tag">群体机器人</span><span class="tag">自组装</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把极弱的二值接触关系转化为相对位姿约束，以虚拟力迭代恢复自组装群体的空间布局。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">面向模块化机器人自组装，论文仅利用机器人之间是否物理连接的二值接触信息进行相对定位，无需外部跟踪设施或高成本传感器。其虚拟力框架让位姿迭代地被已对接邻居吸引、被未连接机器人排斥。塔和悬臂结构的仿真表明，该方法能够在组装过程中恢复相对布局，并支持可扩展的自由形态自组装。</p><p class="lang lang-en lang-block" data-lang="en">Accurate localization remains a key challenge in swarm robotics, particularly for self-reconfigurable systems that must identify relative positions to form diverse structures. Most existing approaches rely on external tracking infrastructure or high-cost sensors, which limit scalability and deployment in unstructured environments. In this paper, we propose a novel contact-driven localization method for modular robots that leverages only local communication through binary contact information (whether two robots are physically connected or not). To exploit these contact cues, we introduce a virtual-force framework in which robots iteratively refine their poses attracting toward dock-connected neighbors and repelling from non-connected ones. The method requires no external infrastructure and relies only on minimal onboard sensing. Simulations show effective localization during the assembly of towers and cantilevers, enabling accurate, scalable, free-form self-assembly.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：URHead: A Unified UV-Space Representation for Joint Mesh-3DGS Optimization in Head Avatars</li>
+<li><strong>作者</strong>：Seonghak Lee, Junhee Cho, Jisoo Park, Min-Gyu Park, Jongmin Lee, Ju Hong Yoon, Junseok Kwon</li>
+<li><strong>推荐评分</strong>：8.0/10</li>
+<li><strong>核心方法</strong>：让网格与 3D Gaussian Splatting 共享 UV 参数化，通过联合优化和自适应 Gaussian 采样，自动分配可控几何与照片级细节的表达职责。</li>
+<li><strong>为何值得看</strong>：直接回应 hybrid mesh–3DGS 中结构一致性与可控性难兼得的问题；重点核查 UV 拓扑限制、遮挡区域稳定性以及能否推广到通用动态对象。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/fig-001.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/fig-001.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/fig-002.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/fig-002.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/fig-003.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/fig-003.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/fig-004.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/fig-004.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/fig-005.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/fig-005.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/fig-006.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/fig-006.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/table-001.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/table-001.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/table-002.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/table-002.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02895/table-003.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02895/table-003.webp" alt="Contact-Driven Localization in a Freeform Robotic Self-Assembled Structure" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

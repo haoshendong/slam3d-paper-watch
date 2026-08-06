@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-06/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-06/index.html">← 返回 2026-08-06 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-05 · score 5 · cs.RO, cs.SY, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">基于 Minkowski 运算的多面体安全导航控制障碍函数</span><span class="lang lang-en lang-inline" data-lang="en">Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes</span></h1>
+  <div class="meta">作者：Yi-Hsuan Chen, Shuo Liu, Wei Xiao, Calin Belta, Michael Otte</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.02886">abs</a><a href="https://arxiv.org/pdf/2608.02886">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.1/10</span><p>与机器人几何、安全导航和 SDF 计算密切相关，对地图碰撞层有参考价值；核心不是状态估计、SLAM 或重建。</p><div class="tags"><span class="tag">安全导航</span><span class="tag">控制障碍函数</span><span class="tag">Minkowski 运算</span><span class="tag">有符号距离场</span><span class="tag">多面体几何</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">避免用球或椭球保守近似多面体，直接把精确几何距离及旋转梯度用于安全控制。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文为多面体机器人与多面体障碍物构造精确有符号距离函数，并将其接入非光滑控制障碍函数。方法借助 Minkowski 运算，通过碰撞外和碰撞内两个配套凸程序计算带符号距离；在二维情形下，再由最优性条件和敏感性分析推导统一解析梯度，包括精确旋转梯度。实验覆盖纯平移、独轮车模型的不安全初始化恢复及单、多障碍规避。</p><p class="lang lang-en lang-block" data-lang="en">Safely navigating polytopic environments while respecting the dynamics, control, and exact geometry of the underlying system is a challenge in robotics. Control barrier functions (CBFs) synthesize safe control policies by rendering the safe set forward invariant, but many existing CBF-based methods approximate polytopes using conservative smooth shapes, such as spheres or ellipsoids, to obtain explicit differentiable distance functions. In this article, we propose an exact Signed Distance Function (SDF) formulation for a {\it polytopic} robot and {\it polytopic} obstacles and integrate it with nonsmooth CBFs. Leveraging Minkowski operations, the proposed method computes the exact SDF via companion convex programs in both the collision-free (positive-sign) and in-collision (negative-sign) cases. Furthermore, by exploiting the convenient geometric properties of 2D Minkowski operations and the optimality conditions of the two companion convex programs, we derive a unified analytical expression for the gradient of the exact SDF via sensitivity analysis. The exact rotational gradient further reveals a previously masked class of local minima induced by the coupling between geometry and nonholonomic kinematics. We demonstrate the effectiveness of the proposed framework through a pure-translation case and three scenarios with unicycle models involving recovery from an unsafe initialization and single- and multiple-obstacle avoidance. Comparisons with baseline methods highlight how the proposed framework enables non-conservative maneuvers and safety recovery.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：URHead: A Unified UV-Space Representation for Joint Mesh-3DGS Optimization in Head Avatars</li>
+<li><strong>作者</strong>：Seonghak Lee, Junhee Cho, Jisoo Park, Min-Gyu Park, Jongmin Lee, Ju Hong Yoon, Junseok Kwon</li>
+<li><strong>推荐评分</strong>：8.0/10</li>
+<li><strong>核心方法</strong>：让网格与 3D Gaussian Splatting 共享 UV 参数化，通过联合优化和自适应 Gaussian 采样，自动分配可控几何与照片级细节的表达职责。</li>
+<li><strong>为何值得看</strong>：直接回应 hybrid mesh–3DGS 中结构一致性与可控性难兼得的问题；重点核查 UV 拓扑限制、遮挡区域稳定性以及能否推广到通用动态对象。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02886/fig-001.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02886/fig-001.webp" alt="Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02886/fig-002.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02886/fig-002.webp" alt="Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02886/fig-003.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02886/fig-003.webp" alt="Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02886/fig-004.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02886/fig-004.webp" alt="Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02886/fig-005.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02886/fig-005.webp" alt="Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02886/table-001.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02886/table-001.webp" alt="Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

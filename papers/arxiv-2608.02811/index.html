@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-06/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-06/index.html">← 返回 2026-08-06 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-05 · score 4 · cs.RO, cs.SY, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">保持规范：不确定性下的实时监测及海事案例研究</span><span class="lang lang-en lang-inline" data-lang="en">Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study</span></h1>
+  <div class="meta">作者：Elizabeth Dietrich, Hanna Krasowski, Emir Cem Gezer, Roger Skjetne, Asgeir Johan S{\o}rensen, Murat Arcak</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.02811">abs</a><a href="https://arxiv.org/pdf/2608.02811">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>具有海事导航、实时性和硬件验证，对定位不确定性下的系统安全相关；并不提出新的定位或地图估计算法。</p><div class="tags"><span class="tag">海事导航</span><span class="tag">可达集</span><span class="tag">实时监测</span><span class="tag">不确定性</span><span class="tag">安全规范</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用数据驱动可达集在线判断导航行为是否仍满足复杂规范，为不确定定位与轨迹预测之上的风险监测增加一层保障。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出在不确定性下实时监测机器人任务与安全规范的框架，以数据驱动可达集减少对大规模数据或显式不确定性分布的依赖。作者将框架实例化到受交通规则约束的海事导航，给出数据高效的可达集构建流程和适合实时部署的监测形式。仿真与硬件实验显示，其风险检测优于现有指标。</p><p class="lang lang-en lang-block" data-lang="en">Robotic systems must operate under uncertainty while satisfying complex task and safety specifications. Monitoring such specifications under uncertainty remains challenging, as existing formulations typically require extensive data or explicit uncertainty distributions. In this paper, we propose a real-time monitoring framework that reduces data requirements by leveraging data-driven reachable sets for specification evaluation. We instantiate the framework for maritime navigation, where complex specifications arise from traffic rules. We develop a data-efficient pipeline for constructing reachable sets and derive a monitoring formulation suitable for real-time deployment. Simulation and hardware experiments demonstrate robust monitoring under realistic disturbances, achieving improved risk detection compared to state-of-the-art metrics.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：URHead: A Unified UV-Space Representation for Joint Mesh-3DGS Optimization in Head Avatars</li>
+<li><strong>作者</strong>：Seonghak Lee, Junhee Cho, Jisoo Park, Min-Gyu Park, Jongmin Lee, Ju Hong Yoon, Junseok Kwon</li>
+<li><strong>推荐评分</strong>：8.0/10</li>
+<li><strong>核心方法</strong>：让网格与 3D Gaussian Splatting 共享 UV 参数化，通过联合优化和自适应 Gaussian 采样，自动分配可控几何与照片级细节的表达职责。</li>
+<li><strong>为何值得看</strong>：直接回应 hybrid mesh–3DGS 中结构一致性与可控性难兼得的问题；重点核查 UV 拓扑限制、遮挡区域稳定性以及能否推广到通用动态对象。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02811/fig-001.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02811/fig-001.webp" alt="Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02811/fig-002.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02811/fig-002.webp" alt="Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02811/fig-003.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02811/fig-003.webp" alt="Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02811/fig-004.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02811/fig-004.webp" alt="Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02811/fig-005.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02811/fig-005.webp" alt="Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02811/fig-006.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02811/fig-006.webp" alt="Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02811/table-001.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02811/table-001.webp" alt="Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-06/arxiv-2608.02811/table-002.webp"><img src="../../assets/media/2026-08-06/arxiv-2608.02811/table-002.webp" alt="Staying on Spec: Real-Time Monitoring under Uncertainty with a Maritime Case Study" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
