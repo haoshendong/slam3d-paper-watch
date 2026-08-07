@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Objects as Audio-Visual Modal Sound Fields</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-07/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-07/index.html">← 返回 2026-08-07 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-06 · score 5 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">物体作为视听模态声场</span><span class="lang lang-en lang-inline" data-lang="en">Objects as Audio-Visual Modal Sound Fields</span></h1>
+  <div class="meta">作者：Zisen Shao, Zihao Wei, Derong Jin, Ruohan Gao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.05145">abs</a><a href="https://arxiv.org/pdf/2608.05145">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.1/10</span><p>三维重建与 3DGS 方法新颖，接触定位提供邻近机器人价值；核心任务是声学渲染而非 SLAM 或几何定位。</p><div class="tags"><span class="tag">视听三维表示</span><span class="tag">3D Gaussian Splatting</span><span class="tag">模态声场</span><span class="tag">接触定位</span><span class="tag">少样本重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 3DGS 几何先验和少量撞击录音重建物体声场，把三维表示扩展到接触定位与交互声学。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Audio-Visual Modal Sound Field 从多视图图像和少量撞击录音重建物体级声学表示。方法以结合稠密三维视觉特征的 3D Gaussian Splatting 提供几何先验，再用紧凑且具有物理意义的模态参数表示撞击声场，从而支持 few-shot reconstruction。两个真实数据集上的实验显示其撞击声渲染优于物理和数据驱动基线，并可用于接触定位和物体声音编辑。</p><p class="lang lang-en lang-block" data-lang="en">While modern 3D reconstruction excels at modeling object geometry and appearance, it largely ignores the rich acoustic cues revealed through physical interaction. Object impact sounds convey material, stiffness, and structural properties that complement vision, yet existing impact sound modeling approaches either rely on expensive physics-based simulation or require large datasets to generalize in a purely data-driven manner. We introduce Audio-Visual Modal Sound Field (AV-MSF), a novel object-level acoustic representation reconstructed from multi-view images and only a few impact sound recordings. AV-MSF builds on 3D Gaussian Splatting integrated with dense 3D visual feature to provide a strong geometry-aware prior, and represents the impact sound field using compact, physically meaningful modal parameters, enabling robust few-shot reconstruction. Experiments on two real-world datasets show that AV-MSF achieves state-of-the-art impact sound rendering, outperforming both physics-based and data-driven baselines. Furthermore, we demonstrate downstream applications enabled by our representation, including contact localization and object sound editing.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction</li>
+<li><strong>作者</strong>：Minseong Kweon, Junaed Sattar</li>
+<li><strong>推荐评分</strong>：9.2/10</li>
+<li><strong>核心方法</strong>：把空气中几何先验蒸馏到前馈骨干，并用物理 head 联合回归水下成像参数、相机位姿和恢复点云；随后用带 Beta primitives 与散射感知几何梯度的 Underwater Beta Splatting 表示场景。</li>
+<li><strong>为何值得看</strong>：它不是单纯先增强图像再做 SfM，而是把散射、衰减、位姿和几何放进统一框架。论文报告相对 WaterSplatting 平均 PSNR 提升 1.47 dB，RRA@15/RTA@15 分别提高 2.0/2.4 个百分点；需进一步检查 Barbados 数据集规模、跨水体泛化和绝对尺度。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.05145/fig-001.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.05145/fig-001.webp" alt="Objects as Audio-Visual Modal Sound Fields" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.05145/fig-002.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.05145/fig-002.webp" alt="Objects as Audio-Visual Modal Sound Fields" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

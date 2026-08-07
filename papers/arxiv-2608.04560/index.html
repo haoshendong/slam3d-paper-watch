@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-07/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-07/index.html">← 返回 2026-08-07 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-05 · score 13 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">OutLangSplat：面向无人机室外场景的三维语言 Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes</span></h1>
+  <div class="meta">作者：Xia Yan, He Wu, Yanghui Xu, Zizhao Wu, Jiazhou Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.04560">abs</a><a href="https://arxiv.org/pdf/2608.04560">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.3/10</span><p>与 UAV 大尺度三维语义地图和 3DGS 密切相关，并提供新 benchmark；代码尚未实际开放，且不直接解决相机定位。</p><div class="tags"><span class="tag">语言 3DGS</span><span class="tag">无人机</span><span class="tag">开放词汇</span><span class="tag">三维语义地图</span><span class="tag">室外场景</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 2D–3D 对齐和跨视角可靠性聚合，让语言 3DGS 适应长距离、强遮挡的 UAV 室外语义场景。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">OutLangSplat 将开放词汇语言 Gaussian 表示扩展到无人机室外场景，针对严重遮挡和远距离视角导致的语义误激活与目标漏检。其 2D–3D 双分支表示通过区域级对齐和融合提升空间一致性；无需训练的贡献度与一致性感知聚合则利用像素贡献可靠性和跨视图语义一致性抑制噪声视角。作者还为四个真实公共 UAV 场景数据集标注多类对象，并报告开放词汇分割和实例定位优于现有方法。</p><p class="lang lang-en lang-block" data-lang="en">3D Language Gaussian Splatting embeds open-vocabulary language features into 3D Gaussian Splatting, providing an efficient explicit representation for text-driven 3D scene understanding. However, existing methods are limited to indoor or small-scale scenes, and tend to fail in Unmanned Aerial Vehicle (UAV) outdoor scenes, where severe occlusions and long distance viewpoints often lead to incorrect semantic activations and missing target responses. In this paper, we present OutLangSplat which adapts language Gaussian representations to UAV outdoor scenes by improving feature representation and aggregation reliability. For the feature representation, a 2D-3D dual-branch representation with region-based alignment and fusion is designed to improve spatial consistency, reducing incomplete target responses and background misactivations. For the feature aggregation, we introduce a training-free contribution and consistency-aware Gaussian feature aggregation strategy that leverages pixel contribution reliability and cross-view semantic consistency to suppress unreliable responses from noisy viewpoints. A new dataset is provided by manually annotating various objects on four real-world public UAV outdoor scene datasets. To the best of our knowledge, it is the first accessible dataset of open-vocabulary 3D scene understanding for UAV outdoor scenes. Quantitative evaluations and ablation studies demonstrate that OutLangSplat outperforms SOTA methods on both open-vocabulary semantic segmentation and instance localization tasks. The datasets and codes will be open-sourced.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction</li>
+<li><strong>作者</strong>：Minseong Kweon, Junaed Sattar</li>
+<li><strong>推荐评分</strong>：9.2/10</li>
+<li><strong>核心方法</strong>：把空气中几何先验蒸馏到前馈骨干，并用物理 head 联合回归水下成像参数、相机位姿和恢复点云；随后用带 Beta primitives 与散射感知几何梯度的 Underwater Beta Splatting 表示场景。</li>
+<li><strong>为何值得看</strong>：它不是单纯先增强图像再做 SfM，而是把散射、衰减、位姿和几何放进统一框架。论文报告相对 WaterSplatting 平均 PSNR 提升 1.47 dB，RRA@15/RTA@15 分别提高 2.0/2.4 个百分点；需进一步检查 Barbados 数据集规模、跨水体泛化和绝对尺度。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/fig-001.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/fig-001.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/fig-002.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/fig-002.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/fig-003.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/fig-003.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/fig-004.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/fig-004.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/fig-005.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/fig-005.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/fig-006.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/fig-006.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/table-001.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/table-001.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/table-002.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/table-002.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/table-003.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/table-003.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/table-004.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/table-004.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/table-005.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/table-005.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04560/table-006.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04560/table-006.webp" alt="OutLangSplat: 3D Language Gaussian Splatting for UAV Outdoor Scenes" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

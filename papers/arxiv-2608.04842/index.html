@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>RORA: Realistic Object Reconstruction with Articulation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-07/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-07/index.html">← 返回 2026-08-07 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-05 · score 10 · cs.RO, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RORA：带关节结构的真实感物体重建</span><span class="lang lang-en lang-inline" data-lang="en">RORA: Realistic Object Reconstruction with Articulation</span></h1>
+  <div class="meta">作者：Hyesung Lee, Youngseon Lee, Kyutae Lee, Dongjun Lee, Yongseok Lee</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.04842">abs</a><a href="https://arxiv.org/pdf/2608.04842">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>覆盖三维重建、3DGS、物理网格和机器人仿真资产，端到端价值明确；依赖人工分组，关节成功率与物理参数完整性需核查。</p><div class="tags"><span class="tag">关节物体重建</span><span class="tag">3D Gaussian Splatting</span><span class="tag">网格</span><span class="tag">Real-to-Sim</span><span class="tag">机器人仿真</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从静态视频构建 mesh–3DGS 混合关节资产，以边界几何自动建议关节轴，服务 real-to-sim。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">RORA 从单段静态物体视频重建可用于仿真的带关节资产，输出结合照片级 3DGS 和物理交互网格的混合表示。流程先进行凸分解和用户分组以获得部件，再把 3D Gaussians 绑定到对应网格；自动关节建议算法根据局部边界几何计算候选关节轴，供用户选择。作者在 PartNet-Mobility 与真实物体上验证，并将资产部署到 Unreal Engine 和 NVIDIA Isaac Sim。</p><p class="lang lang-en lang-block" data-lang="en">Replicating real-world environments into simulation by realistic visual representation like NeRF and 3D Gaussian Splatting (3DGS) has emerged as an effective strategy to reduce the sim-to-real gap in robot learning. However, implementing object articulation during the real-to-sim process is still a challenging task. Existing motion tracking or learning based articulation methods shows low success rates on complex kinematic structures having multiple joints. Furthermore, those methods require scan of dynamic motion of objects, which makes reconstruction process much complicated. In this work, we propose the first end-to-end pipeline that reconstructs simulation-ready assets with accurate articulation from a single static object video input through suggestion based human-in-the-loop process. Our approach exports a hybrid representation combining 3DGS for photorealistic rendering and mesh-based geometry for physical interaction. In the reconstruction process, our pipeline performs convex decomposition followed by user grouping for intuitive part segmentation, subsequently binding 3D Gaussians to the corresponding mesh parts. An Automatic Joint Suggestion Algorithm then calculates candidate joint axes from local boundary geometries and presents them to users for efficient articulated asset reconstruction. We have shown that our method achieves precise articulation results on partnet-mobility-v0 dataset and real objects. Additionally we presented a potential usage of our framework on robot learning, deploying the reconstructed assets in Unreal Engine and NVIDIA Isaac Sim, demonstrating real-time dexterous hand manipulation tasks.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction</li>
+<li><strong>作者</strong>：Minseong Kweon, Junaed Sattar</li>
+<li><strong>推荐评分</strong>：9.2/10</li>
+<li><strong>核心方法</strong>：把空气中几何先验蒸馏到前馈骨干，并用物理 head 联合回归水下成像参数、相机位姿和恢复点云；随后用带 Beta primitives 与散射感知几何梯度的 Underwater Beta Splatting 表示场景。</li>
+<li><strong>为何值得看</strong>：它不是单纯先增强图像再做 SfM，而是把散射、衰减、位姿和几何放进统一框架。论文报告相对 WaterSplatting 平均 PSNR 提升 1.47 dB，RRA@15/RTA@15 分别提高 2.0/2.4 个百分点；需进一步检查 Barbados 数据集规模、跨水体泛化和绝对尺度。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/fig-001.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/fig-001.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/fig-002.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/fig-002.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/fig-003.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/fig-003.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/fig-004.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/fig-004.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/fig-005.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/fig-005.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/fig-006.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/fig-006.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/table-001.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/table-001.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/table-002.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/table-002.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/table-003.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/table-003.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.04842/table-004.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.04842/table-004.webp" alt="RORA: Realistic Object Reconstruction with Articulation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-07/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-07/index.html">← 返回 2026-08-07 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-02 · score 21 · cs.CV, cs.RO, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Swimm3R：结合介质感知 SfM 的水下三维重建 Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction</span></h1>
+  <div class="meta">作者：Minseong Kweon, Junaed Sattar</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.00950">abs</a><a href="https://arxiv.org/pdf/2608.00950">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>直接覆盖恶劣介质中的 SfM、位姿恢复、点云与 splatting，并报告重建和定位双重收益；跨水体泛化和变量可观测性仍需核查。</p><div class="tags"><span class="tag">水下三维重建</span><span class="tag">SfM</span><span class="tag">相机位姿</span><span class="tag">Beta Splatting</span><span class="tag">散射建模</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把水下成像物理、相机位姿、点云恢复与 Beta Splatting 联合建模，直接针对散射介质中的 SfM 失效。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Swimm3R 将介质感知 SfM 与 Underwater Beta Splatting 统一起来，处理水下散射和衰减导致的重建失效。方法把空气中几何先验蒸馏到前馈骨干，并以物理 head 回归水下成像参数、相机位姿和恢复点云；Beta primitives 与散射感知几何梯度用于稳定表达水下几何。在 Barbados 水下视频数据集上，相比 WaterSplatting，平均 PSNR 提升 1.47 dB，下游定位的 RRA@15 和 RTA@15 分别提高 2.0 与 2.4 个百分点。</p><p class="lang lang-en lang-block" data-lang="en">We propose Swimm3R, a unified framework that combines medium-aware structure-from-motion (SfM) with Underwater Beta Splatting to address scattering- and attenuation-induced failures in underwater 3D reconstruction. Swimm3R distills in-air geometric priors into a feed-forward backbone and uses a physics head to regress underwater image-formation parameters, camera poses, and restored point clouds. Additionally, we introduce Underwater Beta Splatting, which extends Gaussian splatting with Beta primitives and scattering-aware geometric gradients for stable underwater geometry representation. We further establish the Barbados underwater video dataset to demonstrate the effectiveness of our method in challenging underwater environments. On this dataset, Swimm3R robustly recovers underwater scene structure under challenging scattering conditions, yielding coherent seafloor geometry. Using these predicted point clouds, the proposed Underwater Beta Splatting improves average PSNR by $1.47$ dB over WaterSplatting while increasing downstream localization performance by $2.0$ and $2.4$ percentage points in RRA@15 and RTA@15, respectively.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction</li>
+<li><strong>作者</strong>：Minseong Kweon, Junaed Sattar</li>
+<li><strong>推荐评分</strong>：9.2/10</li>
+<li><strong>核心方法</strong>：把空气中几何先验蒸馏到前馈骨干，并用物理 head 联合回归水下成像参数、相机位姿和恢复点云；随后用带 Beta primitives 与散射感知几何梯度的 Underwater Beta Splatting 表示场景。</li>
+<li><strong>为何值得看</strong>：它不是单纯先增强图像再做 SfM，而是把散射、衰减、位姿和几何放进统一框架。论文报告相对 WaterSplatting 平均 PSNR 提升 1.47 dB，RRA@15/RTA@15 分别提高 2.0/2.4 个百分点；需进一步检查 Barbados 数据集规模、跨水体泛化和绝对尺度。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/fig-001.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/fig-001.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/fig-002.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/fig-002.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/fig-003.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/fig-003.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/fig-004.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/fig-004.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/fig-005.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/fig-005.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/table-001.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/table-001.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/table-002.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/table-002.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/table-003.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/table-003.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/table-004.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/table-004.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/table-005.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/table-005.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.00950/table-006.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.00950/table-006.webp" alt="Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

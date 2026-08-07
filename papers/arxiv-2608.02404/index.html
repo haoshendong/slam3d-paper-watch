@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Loggia dei Lanzi: AI Thermography Enhancement Comparisons through 3D Photogrammetry</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-07/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-07/index.html">← 返回 2026-08-07 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-03 · score 4 · cs.CV, cs.DL</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">佣兵凉廊：通过三维摄影测量比较 AI 热成像增强方法</span><span class="lang lang-en lang-inline" data-lang="en">Loggia dei Lanzi: AI Thermography Enhancement Comparisons through 3D Photogrammetry</span></h1>
+  <div class="meta">作者：Scott McAvoy, Jonathan Klingspon, George Bent, Dave Pfaff, Aviral Agarwal, Maurizio Seracini, Falko Kuester</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.02404">abs</a><a href="https://arxiv.org/pdf/2608.02404">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.6/10</span><p>提供了面向 SfM 几何结果的图像增强评测和公开数据；应用较专门，需警惕 AI 纹理造成的伪匹配并检查独立精度基准。</p><div class="tags"><span class="tag">摄影测量</span><span class="tag">Structure-from-Motion</span><span class="tag">热成像</span><span class="tag">超分辨率</span><span class="tag">文化遗产</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把硬件与 AI 热像超分放入同一 SfM 流程，用匹配点和三维模型质量检验增强是否带来真实几何收益。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文以佛罗伦萨 Loggia dei Lanzi 的热成像调查为案例，对三种分辨率层级进行摄影测量比较：原生分辨率、FLIR UltraMax 硬件 pixel-shift 超分和先进 AI 上采样。作者在 SfM 流程中量化不同输入对特征检测、tie-point 生成以及三维热模型密度和精度的影响，从而判断新增的二维细节是否真正改善三维重建。数据将公开并整合进交互式三维档案与城市级扩展现实应用。</p><p class="lang lang-en lang-block" data-lang="en">The Loggia dei Lanzi in the Piazza della Signoria is one of Florence&#x27;s most prominent structures visited by millions every year. Its construction history spans multiple centuries of modification. This paper presents the results of a thermal imaging campaign conducted in December 2025, using a FLIR T1020 HD camera, revealing hidden architectural features including walled-up openings and material transitions beneath the plaster surface. The favorable winter ambient conditions provided a feature-rich benchmark upon which to compare the results of enhancement algorithms and artificial intelligence models. We evaluate the application of AI-based image enhancement to thermal heritage documentation through a comparison of three tiers of image resolution in a photogrammetric Structure-from-Motion (SfM) pipeline: native resolution, FLIR&#x27;s hardware-based pixel-shifted super-resolution (UltraMax), and state of the art AI-upscaled imagery models. We quantify the effect of each resolution tier on feature detection and tie-point generation, assessing whether the additional detail produced by super-resolution, whether hardware or AI-derived, translates into meaningfully denser and more accurate 3D thermal models. Our results contribute to the emerging intersection of artificial intelligence and heritage thermography by providing a direct comparison of hardware microscanning and AI super-resolution within a thermal photogrammetric workflow for cultural heritage. All datasets are made publicly available and accessible within an interactive 3D archival framework, and integrated into a custom citywide extended reality overlay application.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>原题</strong>：Swimm3R: Splatting with Medium-aware SfM for Underwater 3D Reconstruction</li>
+<li><strong>作者</strong>：Minseong Kweon, Junaed Sattar</li>
+<li><strong>推荐评分</strong>：9.2/10</li>
+<li><strong>核心方法</strong>：把空气中几何先验蒸馏到前馈骨干，并用物理 head 联合回归水下成像参数、相机位姿和恢复点云；随后用带 Beta primitives 与散射感知几何梯度的 Underwater Beta Splatting 表示场景。</li>
+<li><strong>为何值得看</strong>：它不是单纯先增强图像再做 SfM，而是把散射、衰减、位姿和几何放进统一框架。论文报告相对 WaterSplatting 平均 PSNR 提升 1.47 dB，RRA@15/RTA@15 分别提高 2.0/2.4 个百分点；需进一步检查 Barbados 数据集规模、跨水体泛化和绝对尺度。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.02404/fig-001.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.02404/fig-001.webp" alt="Loggia dei Lanzi: AI Thermography Enhancement Comparisons through 3D Photogrammetry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.02404/fig-002.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.02404/fig-002.webp" alt="Loggia dei Lanzi: AI Thermography Enhancement Comparisons through 3D Photogrammetry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-07/arxiv-2608.02404/fig-003.webp"><img src="../../assets/media/2026-08-07/arxiv-2608.02404/fig-003.webp" alt="Loggia dei Lanzi: AI Thermography Enhancement Comparisons through 3D Photogrammetry" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
