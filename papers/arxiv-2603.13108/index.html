@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-11/index.html">← 返回 2026-08-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-10 · score 6 · cs.RO, cs.CV, eess.IV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PanoMMOcc：面向四足机器人的全景多模态语义占据预测</span><span class="lang lang-en lang-inline" data-lang="en">Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots</span></h1>
+  <div class="meta">作者：Guoqiang Zhao, Zhe Yang, Sheng Wu, Fei Teng, Mengfei Duan, Yuanfan Zheng, Kai Luo, Kailun Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2603.13108">abs</a><a href="https://arxiv.org/pdf/2603.13108">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>与具身三维感知和地图表示直接相关，并提供新数据集；尚未实际开放，且需验证同步、标定与跨平台泛化。</p><div class="tags"><span class="tag">语义占据</span><span class="tag">全景视觉</span><span class="tag">多模态融合</span><span class="tag">四足机器人</span><span class="tag">三维感知</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以垂直抖动补偿和多模态提示融合处理四足机器人行走中的 360° 视角扰动，构建语义 occupancy 地图。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PanoMMOcc 是面向四足机器人的真实世界全景多模态 occupancy 数据集，包含多样场景下的四种传感模态。配套 VoxelHound 框架针对球面成像和腿式运动设计：Vertical Jitter Compensation 缓解行走时 pitch/roll 引起的剧烈视角扰动，Multimodal Information Prompt Fusion 融合全景视觉与辅助模态，以改善体素语义占据预测。摘要报告 VoxelHound 在该基准上取得 +4.16 mIoU；代码和数据仍标注为将公开。</p><p class="lang lang-en lang-block" data-lang="en">Panoramic imagery provides holistic 360{\deg} visual coverage for environmental perception in quadruped robots. However, existing occupancy prediction methods are primarily designed for wheeled autonomous driving and rely heavily on RGB cues, which limits their robustness in complex, dynamically changing environments. To bridge this gap, we introduce PanoMMOcc, the first real-world panoramic multimodal occupancy dataset for quadruped robots, comprising four sensing modalities collected across diverse scenes. We further propose VoxelHound, a panoramic multimodal occupancy perception framework tailored to legged locomotion and spherical imaging. VoxelHound incorporates a Vertical Jitter Compensation (VJC) module to mitigate severe viewpoint perturbations caused by body pitch and roll during locomotion, enabling more consistent spatial reasoning, and a Multimodal Information Prompt Fusion (MIPF) module to effectively integrate panoramic visual cues with auxiliary modalities for enhanced volumetric occupancy prediction. We also establish a comprehensive benchmark on PanoMMOcc and provide detailed dataset analyses to enable systematic evaluation in challenging embodied perception scenarios. Extensive experiments demonstrate that VoxelHound achieves state-of-the-art performance on PanoMMOcc, with a +4.16 gain in mIoU. The dataset and code will be publicly released to facilitate future research on panoramic multimodal 3D perception for embodied robotic systems at https://github.com/SXDR/PanoMMOcc.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：PanoMMOcc 提供真实四足平台的 360° 全景、多模态 occupancy 数据；VoxelHound 以 Vertical Jitter Compensation 处理步行引起的 pitch/roll 扰动，再通过 prompt fusion 融合辅助模态。</li>
+<li><strong>结果</strong>：摘要报告相对基准取得 +4.16 mIoU；面向球面成像和腿式运动的视角扰动建模，对具身三维地图有直接意义。</li>
+<li><strong>关注点</strong>：目前为替换/跨类发布且代码与数据仍标注将公开；需等待资产实际开放，并检查四种模态定义、时间同步、标定误差、动态对象处理和跨机器人泛化。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2603.13108">arXiv</a> · <a href="https://arxiv.org/pdf/2603.13108">PDF</a> · <a href="https://github.com/SXDR/PanoMMOcc">代码/数据占位页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/fig-001.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/fig-001.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/fig-002.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/fig-002.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/fig-003.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/fig-003.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/fig-004.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/fig-004.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/fig-005.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/fig-005.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/fig-006.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/fig-006.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/table-001.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/table-001.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/table-002.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/table-002.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/table-003.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/table-003.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/table-004.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/table-004.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2603.13108/table-005.webp"><img src="../../assets/media/2026-08-11/arxiv-2603.13108/table-005.webp" alt="Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-11/index.html">← 返回 2026-08-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-10 · score 14 · cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">UAV3DCrop：重复多角度无人机作物航测三维重建基准</span><span class="lang lang-en lang-inline" data-lang="en">UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys</span></h1>
+  <div class="meta">作者：Junxiong Zhou, Xuechen Li, Chonghao Qiu, Lang Qiao, Xiaowei Jia, Qi Yang, Chishan Zhang, Leikun Yin, Nanshan You, Vipin Kumar, David Mulla, Ce Yang, Zhenong Jin, Licheng Liu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.06404">abs</a><a href="https://arxiv.org/pdf/2608.06404">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.4/10</span><p>直接覆盖 SfM/三维重建、3DGS、相机位姿与 metric scale，数据规模大且指标具有测量意义；摄影测量参考与跨期采集偏差仍需核查。</p><div class="tags"><span class="tag">无人机三维重建</span><span class="tag">3D Gaussian Splatting</span><span class="tag">NeRF</span><span class="tag">相机位姿</span><span class="tag">绝对尺度</span><span class="tag">摄影测量</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用重复 UAV 农田航测同时检验外观、深度、冠层高度、位姿和绝对尺度，揭示 3DGS/NeRF 的渲染优势并不等于测量几何可用。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">UAV3DCrop 是面向重复、多角度无人机作物航测的公开三维重建基准，包含 91 个玉米、大豆、小麦和燕麦场景的 88,830 张 5280×3956 RGB 图像，地面采样距离为 3.6–5.8 mm。Track A 比较 NeRF 与 3DGS 场景优化方法在新视图、摄影测量参考深度和冠层高度上的表现；Track B 测试四个预训练前馈模型的零样本相机位姿与几何估计。不同目标的最佳方法并不一致，且四个前馈模型中只有一个恢复了可用的绝对尺度，说明对齐会掩盖严重的 metric-scale 失效。</p><p class="lang lang-en lang-block" data-lang="en">Accurate 3D crop monitoring underpins data-driven precision agriculture by enabling field-scale analysis of plant structure, growth dynamics, and management response. Modern 3D reconstruction methods perform strongly on generic benchmarks, but rendered appearance may not translate into metrically and agronomically useful geometry in crop fields. We introduce UAV3DCrop, a public benchmark of repeated multi-angle unmanned aerial vehicle (UAV) crop surveys. It contains 88,830 RGB images at $5280 \times 3956$ pixels, with a ground sampling distance of 3.6-5.8 mm, from 91 scenes spanning corn, soybean, wheat, and oat. Track A evaluates seven scene-optimized methods -- Neural Radiance Field (NeRF) and 3D Gaussian Splatting (3DGS) variants -- on held-out views, photogrammetry-referenced depth, and canopy-height recovery. Track B tests four pretrained feed-forward models on zero-shot camera-pose and geometry estimation. The scene-optimized methods rank differently across the three targets: Splatfacto-big leads appearance, whereas Scaffold-GS leads depth and is statistically tied with Splatfacto for canopy height. Among feed-forward models, MapAnything leads on seven of the eight metrics, while the remaining models vary more across crops and fail severely on absolute scale in a way that alignment conceals. Repeated acquisitions reveal further sensitivities that differ by output type and by model, associated with position within the acquisition sequence and with tie-point multiplicity. Current 3D reconstruction methods are therefore not yet interchangeable for agronomic use: no single method wins on appearance, geometry, and canopy height at once, and only one of four feed-forward models recovers usable metric scale. The dataset is publicly available at https://link-dev.github.io/UAV3DCrop/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：91 个场景、88,830 张高分辨率 RGB 图像，跨玉米、大豆、小麦和燕麦，对 NeRF、3DGS 及前馈三维模型同时评估外观、参考深度、冠层高度、相机位姿与绝对尺度。</li>
+<li><strong>关键发现</strong>：Splatfacto-big 在外观上领先，Scaffold-GS 在深度上领先；没有方法同时赢得外观、几何和冠层高度。四个前馈模型中只有一个恢复了可用的 metric scale，说明对齐后的指标可能掩盖绝对尺度失效。</li>
+<li><strong>关注点</strong>：非常适合用于检查 3DGS/NeRF 是否具有测量学价值；后续应核查摄影测量参考精度、跨日期位姿一致性、tie-point multiplicity 与场景序列位置的因果关系。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.06404">arXiv</a> · <a href="https://arxiv.org/pdf/2608.06404">PDF</a> · <a href="https://link-dev.github.io/UAV3DCrop/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/fig-001.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/fig-001.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/fig-002.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/fig-002.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/fig-003.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/fig-003.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/table-001.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/table-001.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/table-002.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/table-002.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/table-003.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/table-003.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/table-004.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/table-004.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/table-005.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/table-005.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06404/table-006.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06404/table-006.webp" alt="UAV3DCrop: Benchmarking 3D Reconstruction in Repeated Multi-Angle UAV Crop Surveys" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-11/index.html">← 返回 2026-08-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-10 · score 5 · eess.IV, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">超越可见性：由稀疏 LiDAR 实时构建表面可达性场</span><span class="lang lang-en lang-inline" data-lang="en">Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR</span></h1>
+  <div class="meta">作者：Bradley Scott, Sam Schofield, Richard Green</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.06412">abs</a><a href="https://arxiv.org/pdf/2608.06412">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>直接连接稀疏 LiDAR 建图与机器人可操作性，并报告边缘部署和量化结果；位姿误差、动态场景及方向离散化敏感性尚需核查。</p><div class="tags"><span class="tag">稀疏 LiDAR</span><span class="tag">TSDF</span><span class="tag">可达性场</span><span class="tag">实时建图</span><span class="tag">Jetson Orin</span><span class="tag">机器人操作</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在稀疏 LiDAR 的在线 TSDF 上加入工具碰撞与接近走廊约束，把“看得见”提升为实时、逐点的“够得到”。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作提出 Accessibility Field，从流式稀疏 LiDAR 为给定工具实时标注每个表面点是否可达。GPU 方法用预计算 geometry kernels 表示工具在多个 approach orientations 下的形状，检查工具碰撞和接近走廊净空；scan-centric TSDF 仅更新每个回波附近体素，适配 Livox Mid-360 等非重复扫描传感器。系统无需先验场景模型或固定基座，可在工作站和 Jetson Orin 上运行；混合可达几何上 F1 达 90.8，而 Hidden Point Removal 基线为 69.8。</p><p class="lang lang-en lang-block" data-lang="en">Understanding which surfaces in a scene are physically accessible to a given tool is fundamental for robotic interaction, yet 3D perception systems typically stop at geometric reconstruction or visibility estimation. Existing geometric accessibility methods require complete, noise-free meshes and fixed kinematic bases, assumptions that fail for mobile platforms mapping incrementally from live data; visibility estimation cannot account for tool geometry or approach-corridor clearance. We propose the Accessibility Field: a per-point labelling of surface accessibility for a given tool, produced in real time from streaming sparse LiDAR and updated at sensor rate as the platform moves. Running entirely on GPU, our method evaluates each surface point against precomputed geometry kernels representing the tool at a set of rotated approach orientations, checking tool collisions and approach-corridor clearance. A scan-centric Truncated Signed Distance Field integration scheme underpins our system, updating only voxels near each observed return rather than projecting every frustum voxel each frame -- critical for nonrepetitive sensors like the Livox Mid-360, where some bins contain no returns. Our system is tool-agnostic, needs no prior scene model, and runs on workstation and Jetson Orin edge hardware. We evaluate quantitatively on synthetic objects and mature-scale Pinus radiata models, showing visibility alone is insufficient as an accessibility proxy: our method achieves F1=90.8 vs. 69.8 for a Hidden Point Removal baseline on mixed-accessibility geometry, and correctly identifies 56.8% of pine branch surfaces as inaccessible despite being visible from the sensor. To our knowledge, this is the first method to estimate per-point surface accessibility in real time from streaming sparse LiDAR without a prior scene model or fixed base frame -- a capability visibility estimation cannot provide.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：不止重建或估计可见性，而是针对给定工具对每个表面点检查工具碰撞和 approach-corridor clearance；采用 scan-centric TSDF，只更新观测回波附近体素，适配 Livox Mid-360 等非重复扫描 LiDAR。</li>
+<li><strong>结果</strong>：GPU 实现在工作站和 Jetson Orin 上运行；混合可达几何上 F1 为 90.8，对比 Hidden Point Removal 的 69.8，并识别出松树枝条中 56.8% 虽可见但不可达的表面。</li>
+<li><strong>关注点</strong>：这是“在线地图到可操作几何”的直接桥梁；后续应核查传感器位姿误差、TSDF 分辨率、工具 kernel 离散方向数与动态场景对实时性的影响。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.06412">arXiv</a> · <a href="https://arxiv.org/pdf/2608.06412">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/fig-001.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/fig-001.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/fig-002.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/fig-002.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/fig-003.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/fig-003.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/fig-004.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/fig-004.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/table-001.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/table-001.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/table-002.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/table-002.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/table-003.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/table-003.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/table-004.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/table-004.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/table-005.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/table-005.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06412/table-006.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06412/table-006.webp" alt="Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

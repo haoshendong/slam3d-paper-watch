@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-11/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-11/index.html">← 返回 2026-08-11 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-10 · score 7 · cs.RO, cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">R2S-EGO：稀疏采集 Real-to-Sim 的双代理精化</span><span class="lang lang-en lang-inline" data-lang="en">R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim</span></h1>
+  <div class="meta">作者：Shuai Fang, Xin Deng, Yuchen Kang, Zhenjiang Li, Jie Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.06827">abs</a><a href="https://arxiv.org/pdf/2608.06827">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.8/10</span><p>把稀疏三维场景表示直接连接到真实机器人策略迁移，效果提升明显；场景与行为规模较小，伪观测几何幻觉和闭环误差需要验证。</p><div class="tags"><span class="tag">Real-to-Sim</span><span class="tag">稀疏视图</span><span class="tag">3D Gaussian Splatting</span><span class="tag">机器人仿真</span><span class="tag">几何代理</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以机器人可执行域和真实采集几何为双重约束，用可控合成视图补足稀疏采集并联合更新视觉资产与碰撞面。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">R2S-EGO 面向机器人 ego trajectory 下的稀疏 real-to-sim 场景构建。方法以 simulator-derived robot proxy 表示行为可执行的查询域，以 capture-anchored geometry proxy 提供场景结构条件；在固定预算内选择支持不足但具有几何条件的视角，生成伪观测并迭代精化视觉资产，同时刷新碰撞表面而保持机器人动力学和控制栈不变。在 Replica 三场景的 48 个冻结 Unitree G1 视角上，六视图配置达到 19.062 dB PSNR；五组种子下真实机器人坐下成功率为 82.5% ± 6.8%。</p><p class="lang lang-en lang-block" data-lang="en">Real-to-sim (R2S) depends on scene representations that render observations along robot ego trajectories, yet dense multi-view capture limits per-environment real-image capture-count efficiency, and sparse human capture can leave behavior-scoped robot views under-supported. Camera-controlled synthesis can fill missing views, but its use in R2S requires behavior-admissible queries and capture-anchored structural conditioning. We present R2S-EGO, which couples a simulator-derived robot proxy that represents the behavior-scoped executable query domain with a capture-anchored geometry proxy that supplies scene-specific structural conditions. Within this domain, fixed- budget selection targets current support deficits for which geometry support is available. The generated observations are assimilated as pseudo-observations to refine the visual asset, while real captures remain anchors. The fused geometry proxy also supplies the scene collision surface, which is refreshed between rounds. Together, these updates refine the existing simulation scene while its robot dynamics and control stack stay fixed. Across 48 frozen Unitree G1 ego views in three Replica scenes, six-view R2S-EGO reaches 19.062 dB PSNR, compared with 14.226 dB for the strongest reported R2S baseline. Across five paired policy-training seeds, R2S-EGO achieves 82.5% +/- 6.8% real-G1 sitting success, compared with 10.0% +/- 10.5% for GaussGym.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：用 simulator-derived robot proxy 约束机器人可执行查询域，再以 capture-anchored geometry proxy 提供场景结构条件、碰撞表面和伪观测生成锚点。</li>
+<li><strong>结果</strong>：在 Replica 三场景的 48 个冻结 Unitree G1 ego views 上，六视图配置达到 19.062 dB PSNR，对比最强报告基线 14.226 dB；五组策略训练种子下，真实 G1 坐下成功率为 82.5% ± 6.8%。</li>
+<li><strong>关注点</strong>：少量真实采集与可控合成视图联合更新很有实用价值，但需检查 pseudo-observation 的几何幻觉、碰撞面误差累积，以及仅三场景和单一行为对泛化结论的限制。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.06827">arXiv</a> · <a href="https://arxiv.org/pdf/2608.06827">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06827/fig-001.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06827/fig-001.webp" alt="R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06827/fig-002.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06827/fig-002.webp" alt="R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06827/fig-003.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06827/fig-003.webp" alt="R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06827/fig-004.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06827/fig-004.webp" alt="R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06827/table-001.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06827/table-001.webp" alt="R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06827/table-002.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06827/table-002.webp" alt="R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-11/arxiv-2608.06827/table-003.webp"><img src="../../assets/media/2026-08-11/arxiv-2608.06827/table-003.webp" alt="R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
