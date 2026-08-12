@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Adaptive Volumetric Parameterization of Simply Connected 3-Manifolds with Applications</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-12/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-12/index.html">← 返回 2026-08-12 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-11 · score 3 · cs.GR, cs.CG, cs.NA, math.NA</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">自适应三维体参数化：兼顾形状与质量失真的 3-流形映射</span><span class="lang lang-en lang-inline" data-lang="en">Adaptive Volumetric Parameterization of Simply Connected 3-Manifolds with Applications</span></h1>
+  <div class="meta">作者：Zhiyuan Lyu, Gary P. T. Choi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.08672">abs</a><a href="https://arxiv.org/pdf/2608.08672">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.2/10</span><p>与三维重建后的体表示、网格处理和 volumetric registration 直接相邻；拓扑限制、规模效率及复杂扫描数据适用性需要核查。</p><div class="tags"><span class="tag">体参数化</span><span class="tag">三维流形</span><span class="tag">体配准</span><span class="tag">网格重采样</span><span class="tag">准共形映射</span><span class="tag">几何处理</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过自适应目标域、准共形更新和密度均衡降低三维体映射失真，并支撑体网格重采样、配准与形变。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作面向 simply connected 3-manifolds 的体参数化，解决统一映射到实心球导致显著几何失真的问题。框架联合控制局部形状与质量失真，并在优化中自适应调整目标域，支持指定实心椭球、体积归一化可变椭球和 sea-embedded free-boundary 三种设置。每种设置均组合三维准共形形状更新、扩散式密度均衡和消除单元翻折的几何校正，可进一步用于多分辨率或局部自适应体网格重采样、体配准和体形变。</p><p class="lang lang-en lang-block" data-lang="en">Volumetric parameterization, the process of mapping a 3-manifold onto a simplified volumetric domain, is important for many tasks in computer graphics and imaging science. However, most prior volumetric parameterization approaches have only utilized standardized domains such as a solid ball regardless of the overall shape of the given 3-manifolds, which introduces significant geometric distortion and affects the subsequent shape processing and analysis tasks. To overcome this issue, in this work we propose a novel volumetric parameterization framework for simply connected 3-manifolds. Specifically, the proposed framework jointly controls local shape and mass distortions, while adapting the target domain during the optimization process. It enables three progressively more flexible target-domain settings for the parameterization: a prescribed solid ellipsoid, a volume-normalized adaptive ellipsoid with variable radii, and a sea-embedded free-boundary domain. For each setting, the parameterization algorithm consists of a 3D quasi-conformality shape update, a diffusion-based density-equalizing update, and a geometric correction procedure for removing element foldings, thereby allowing for volumetric parameterizations with different desired effects. Experimental results are presented to demonstrate the effectiveness of our proposed framework. Moreover, our framework can be easily applied to multiresolution and localized adaptive volumetric remeshing, volumetric registration, and volumetric morphing. Altogether, our work provides a new way for the representation, processing, and analysis of 3-manifolds.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：针对统一映射到实心球造成的大几何失真，联合控制局部形状和质量失真，并在优化过程中自适应调整目标域。</li>
+<li><strong>方法与应用</strong>：支持指定实心椭球、体积归一化可变椭球和 sea-embedded free-boundary 三种目标域；交替执行三维准共形形状更新、扩散式密度均衡和翻折消除，可用于体网格重采样、体配准与形变。</li>
+<li><strong>关注点</strong>：与三维重建后的 volumetric registration/mesh processing 直接相邻；需核查拓扑仅限 simply connected 3-manifolds 的约束、翻折消除的收敛性，以及大规模扫描数据上的运行代价。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.08672">arXiv</a> · <a href="https://arxiv.org/pdf/2608.08672">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-12/arxiv-2608.08672/fig-001.webp"><img src="../../assets/media/2026-08-12/arxiv-2608.08672/fig-001.webp" alt="Adaptive Volumetric Parameterization of Simply Connected 3-Manifolds with Applications" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-12/arxiv-2608.08672/table-001.webp"><img src="../../assets/media/2026-08-12/arxiv-2608.08672/table-001.webp" alt="Adaptive Volumetric Parameterization of Simply Connected 3-Manifolds with Applications" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

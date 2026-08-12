@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SC$^{2}$-WM: A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigation in Continuous Environments</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-12/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-12/index.html">← 返回 2026-08-12 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-11 · score 4 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SC²-WM：连续环境视觉语言导航的闭环自纠正世界模型</span><span class="lang lang-en lang-inline" data-lang="en">SC$^{2}$-WM: A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigation in Continuous Environments</span></h1>
+  <div class="meta">作者：Xuan Yao, Yuze Zhu, Junyu Gao, Zongmeng Wang, Changsheng Xu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.07548">abs</a><a href="https://arxiv.org/pdf/2608.07548">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>闭环漂移检测和自纠正与具身导航、learned localization 相邻，且代码已公开；摘要缺少具体增益，测试时更新的延迟和稳定性待核查。</p><div class="tags"><span class="tag">视觉语言导航</span><span class="tag">世界模型</span><span class="tag">闭环反馈</span><span class="tag">测试时适配</span><span class="tag">具身导航</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以世界模型前瞻反馈先修正计划状态，必要时再选择性执行测试时模型适配，为连续导航建立两层闭环纠错。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SC²-WM 针对连续环境视觉语言导航在部分可观测条件下采用开环执行、推理时内部状态漂移无法纠正的问题，引入世界模型内部反馈。方法利用 world-model foresight 在动作执行前进行状态级计划精化；当反馈表明模型能力不足时，再通过 conditional world-aware adaptation 选择性更新世界模型，实现模型级 test-time correction。作者称该框架在标准 VLN-CE 基准上提高了导航鲁棒性和泛化能力，并已公开代码。</p><p class="lang lang-en lang-block" data-lang="en">Vision-and-Language Navigation in Continuous Environments (VLN-CE) requires agents to make fine-grained navigation decisions under partial observability. However, most existing methods rely on open-loop execution, lacking mechanisms to detect and correct internal state drift during inference. We propose SC$^{2}$-WM, a self-correcting world model framework that introduces internal feedback for closed-loop decision making in VLN-CE. Our method derives feedback from world-model foresight to perform state-level plan refinement before action execution. To handle challenging scenarios, we further introduce conditional world-aware adaptation, which enables model-level correction by selectively updating the world model at test time when feedback indicates model capacity insufficiency. Experiments on standard VLN-CE benchmarks demonstrate improved navigation robustness and generalization. Our code is available at https://github.com/sunrise-ikun/SC2_WM.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：针对 VLN-CE 在部分可观测条件下依赖 open-loop execution、内部状态漂移无法及时纠正的问题，引入执行前的状态级闭环反馈。</li>
+<li><strong>方法</strong>：先用 world-model foresight 评估计划并精化内部状态；当反馈表明模型能力不足时，再选择性进行 test-time world-aware adaptation，形成状态修正与模型修正两层机制。</li>
+<li><strong>关注点</strong>：闭环漂移检测思想可迁移到具身导航和 learned localization，但摘要没有给出具体增益；应重点核查 test-time update 的时延、灾难性遗忘、反馈可信度，以及真实机器人上的定位误差是否同步改善。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.07548">arXiv</a> · <a href="https://arxiv.org/pdf/2608.07548">PDF</a> · <a href="https://github.com/sunrise-ikun/SC2_WM">代码</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-12/arxiv-2608.07548/fig-001.webp"><img src="../../assets/media/2026-08-12/arxiv-2608.07548/fig-001.webp" alt="SC$^{2}$-WM: A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigation in Continuous Environments" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-12/arxiv-2608.07548/fig-002.webp"><img src="../../assets/media/2026-08-12/arxiv-2608.07548/fig-002.webp" alt="SC$^{2}$-WM: A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigation in Continuous Environments" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-12/arxiv-2608.07548/table-001.webp"><img src="../../assets/media/2026-08-12/arxiv-2608.07548/table-001.webp" alt="SC$^{2}$-WM: A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigation in Continuous Environments" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-12/arxiv-2608.07548/table-002.webp"><img src="../../assets/media/2026-08-12/arxiv-2608.07548/table-002.webp" alt="SC$^{2}$-WM: A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigation in Continuous Environments" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-12/arxiv-2608.07548/table-003.webp"><img src="../../assets/media/2026-08-12/arxiv-2608.07548/table-003.webp" alt="SC$^{2}$-WM: A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigation in Continuous Environments" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-12/arxiv-2608.07548/table-004.webp"><img src="../../assets/media/2026-08-12/arxiv-2608.07548/table-004.webp" alt="SC$^{2}$-WM: A Self-Correcting World Model with Closed-Loop Feedback for Vision-and-Language Navigation in Continuous Environments" loading="lazy"></a><figcaption class="meta">cached_table · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
