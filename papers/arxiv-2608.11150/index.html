@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-13/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-13/index.html">← 返回 2026-08-13 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-12 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CausalSplat：面向 3D Gaussian Splatting 的综合层次推理</span><span class="lang lang-en lang-inline" data-lang="en">CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Jiayu Ding, Meilu Song, Yun Chen, Wei Gao, Ge Li</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.11150">abs</a><a href="https://arxiv.org/pdf/2608.11150">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.9/10</span><p>对语义地图和具身空间推理有明显价值，并提供新 benchmark；与几何 SLAM 的关系间接，scene graph 成本与在线扩展能力待核查。</p><div class="tags"><span class="tag">语义3DGS</span><span class="tag">三维场景图</span><span class="tag">开放词汇</span><span class="tag">空间推理</span><span class="tag">因果推理</span><span class="tag">具身智能</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用 3D scene graph 承载显式空间结构、VLM 处理隐式逻辑，扩展 3DGS 语义地图的层次推理能力。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">CausalSplat 将开放词汇 3DGS 场景理解扩展到隐式意图、复杂空间约束与 commonsense reasoning。作者提出 reasoning 3D Gaussian segmentation 任务，并构建 Causal-LERF 与 Causal-ScanNet，覆盖常识、空间、affordance 和 counterfactual reasoning。框架使用 3D scene graph 与 vision-language model，将显式结构感知和隐式逻辑推断解耦；摘要称其在新 benchmark 上达到 state of the art，并能泛化到标准 referring 与开放词汇三维分割任务。</p><p class="lang lang-en lang-block" data-lang="en">While 3D Gaussian Splatting (3DGS) has advanced open vocabulary scene understanding, existing methods remain confined to explicit queries. They struggle to interpret implicit intents, complex spatial constraints, and commonsense reasoning required for practical embodied interactions. To address this gap, we introduce the task of reasoning 3D Gaussian segmentation and construct two benchmarks, Causal-LERF and Causal-ScanNet. These benchmarks systematically evaluate commonsense, spatial, affordance, and counterfactual reasoning. Evaluations reveal that current state of the art methods perform poorly on these reasoning challenges. Therefore, we propose CausalSplat, a framework that integrates vision-language models with 3D scene graphs to disentangle explicit structural perception from implicit logical inference. Extensive experiments demonstrate that CausalSplat achieves state of the art performance on our reasoning benchmarks while showing strong generalizability on standard referring and open vocabulary 3D segmentation tasks. Project Page: https://jiayuding031020.github.io/CausalSplat</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：把 3DGS 开放词汇理解从显式指代扩展到 commonsense、spatial、affordance 与 counterfactual reasoning，并发布 Causal-LERF、Causal-ScanNet 两个 benchmark。</li>
+<li><strong>方法</strong>：以 3D scene graph 显式承载结构感知，再由 vision-language model 处理隐式逻辑推断，分离 perception 与 reasoning。</li>
+<li><strong>关注点</strong>：与 SLAM 的直接关系较弱，但对语义地图和具身空间推理有价值；需检查 benchmark 的人工偏差、scene graph 构建成本，以及动态在线地图中的可扩展性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.11150">arXiv</a> · <a href="https://arxiv.org/pdf/2608.11150">PDF</a> · <a href="https://jiayuding031020.github.io/CausalSplat">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/fig-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/fig-001.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/fig-002.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/fig-002.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/fig-003.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/fig-003.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/fig-004.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/fig-004.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/fig-005.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/fig-005.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/fig-006.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/fig-006.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/table-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/table-001.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/table-002.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/table-002.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/table-003.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/table-003.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/table-004.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/table-004.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/table-005.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/table-005.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.11150/table-006.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.11150/table-006.webp" alt="CausalSplat: Towards Comprehensive Hierarchical Reasoning in 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

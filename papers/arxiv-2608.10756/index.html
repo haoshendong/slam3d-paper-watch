@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-13/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-13/index.html">← 返回 2026-08-13 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-11 · score 13 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">通过 Semantic-3DGS Grounding 实现开放词汇移动操作的具身多模态对齐</span><span class="lang lang-en lang-inline" data-lang="en">Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting</span></h1>
+  <div class="meta">作者：Huosen Ou, Dongni Song, Yuncong Wang, Tao Zhou, Yiding Ji</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.10756">abs</a><a href="https://arxiv.org/pdf/2608.10756">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.7/10</span><p>真实机器人结果和多视图可刷新语义地图具有应用价值；不是定位算法，且样本规模、地图时延及 baseline 公平性需进一步检查。</p><div class="tags"><span class="tag">Semantic-3DGS</span><span class="tag">移动操作</span><span class="tag">开放词汇</span><span class="tag">三维语义定位</span><span class="tag">视觉语言动作</span><span class="tag">真实机器人</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把可主动刷新 Semantic-3DGS 作为移动操作的共享三维语义接口，提高遮挡、杂乱与视角变化下的 grounding。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该框架将主动多视图 Semantic-3DGS、可达性感知底盘站位和 diffusion-based vision-language-action policy 结合起来。任务驱动的局部 Semantic-3DGS 在主动感知、语言条件三维定位、障碍推理、底盘准备和动作模型语义条件之间充当共享接口，并仅在后部 action-expert blocks 注入三维语义以保留预训练动作先验。摘要报告 50 次真实机器人实验中长程成功率为 60%，高于 PointVLA 的 40% 和 DexVLA 的 28%；重度杂乱场景成功率达到 74%。</p><p class="lang lang-en lang-block" data-lang="en">Embodied mobile manipulation requires language, visual observations, three-dimensional scene structure, and action feasibility to be aligned before execution. We study open-vocabulary target grounding with few-shot manipulation in local household workspaces and present an embodied multimodal grounding framework that integrates active multi-view Semantic 3D Gaussian Splatting (Semantic-3DGS), reachability-aware base positioning, and a diffusion-based vision-language-action policy. A task-driven local Semantic-3DGS serves as a shared interface across active sensing, language-conditioned 3D localization, obstacle-aware scene reasoning, base preparation, and semantic conditioning of the action model. To preserve pretrained action priors, the 3D semantic cues are injected only into the late action-expert blocks. In expanded 50-trial real-robot evaluations against representative vision-language-action (VLA) approaches, the full system achieves 60% long-horizon success compared with 40% for PointVLA and 28% for DexVLA, and reaches 74% success in heavily cluttered manipulation compared with 52% for the single-view variant and 46% for PointVLA. It also maintains 75% success under a 75 cm height shift and eliminates photo-induced false grasps. These results indicate that explicit, refreshable 3D semantic grounding can improve robustness under clutter, occlusion, viewpoint variation, and embodiment constraints.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：把主动多视图 Semantic-3DGS 作为语言定位、障碍推理、底盘站位和动作模型条件之间的共享三维接口，展示 refreshable semantic map 对遮挡和视角变化的帮助。</li>
+<li><strong>结果</strong>：摘要报告 50 次真实机器人评测中长程成功率 60%，高于 PointVLA 的 40% 与 DexVLA 的 28%；重度杂乱场景达到 74%。</li>
+<li><strong>关注点</strong>：不是定位算法；应核查 trial 数量的置信区间、地图刷新时延、基础位姿误差对 grounding 的敏感度，以及与更强 VLA baseline 的资源公平性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.10756">arXiv</a> · <a href="https://arxiv.org/pdf/2608.10756">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/fig-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/fig-001.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/fig-002.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/fig-002.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/fig-003.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/fig-003.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/fig-004.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/fig-004.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/fig-005.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/fig-005.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/fig-006.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/fig-006.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/table-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/table-001.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/table-002.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/table-002.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/table-003.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/table-003.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/table-004.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/table-004.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10756/table-005.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10756/table-005.webp" alt="Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Visual Geometry Foundation-Aware Gaussians for Single-Frame Surround-View Driving Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-13/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-13/index.html">← 返回 2026-08-13 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-11 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">VGGD：视觉几何基础模型感知的单帧环视驾驶重建</span><span class="lang lang-en lang-inline" data-lang="en">Visual Geometry Foundation-Aware Gaussians for Single-Frame Surround-View Driving Reconstruction</span></h1>
+  <div class="meta">作者：Junhong Lin, Jinlong Wang, Xianda Guo, Yanlun Peng, Wei Zheng, Guoqing Liu, Hanli Wang, Tiesong Zhao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.10682">abs</a><a href="https://arxiv.org/pdf/2608.10682">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>针对自动驾驶环视低重叠的关键几何难题，基础模型先验与尺度稳定机制值得关注；绝对尺度、动态场景和定位收益仍不明确。</p><div class="tags"><span class="tag">环视重建</span><span class="tag">自动驾驶</span><span class="tag">VGGT</span><span class="tag">3D Gaussian Splatting</span><span class="tag">稀疏视图</span><span class="tag">几何先验</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将 VGGT 几何先验前移到环视特征端，以双路径表示和尺度预热稳定稀疏单帧 3DGS 重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">VGGD 面向相机重叠极少的单帧 surround-view driving reconstruction，利用 VGGT 提供可迁移的多视图几何先验 token。Dual-Path Neck 将 geometry-consistent 与 appearance-aware 表示解耦，以改善弱观测区域的外观补全；Scale Warmup 稳定早期几何学习并抑制 ego-pose 变化下的尺度漂移；hybrid pixel-volume Gaussian decoder 最终输出可渲染 3D Gaussian 场景。作者称该方法在 nuScenes 单帧 benchmark 上取得最佳整体渲染质量并改善相对几何一致性。</p><p class="lang lang-en lang-block" data-lang="en">Single-frame surround-view reconstruction faces severe geometric instability and rendering artifacts due to minimal inter-camera overlap. While existing methods rely on complex decoders or auxiliary cues, they remain bottlenecked by the weak geometric capacity of upstream features. We argue that leveraging pretrained visual geometry priors strengthens upstream representations and alleviates the geometric ambiguity in sparse surround views. To this end, we propose VGGD, a visual geometry foundation-aware 3D Gaussian Splatting framework for feed-forward surround-view driving reconstruction, which shifts geometric modeling to the frontend and adapts foundation priors to the driving camera setting. First, VGGD leverages VGGT to provide transferable multi-view geometric prior tokens. Next, we introduce a Dual-Path Neck to decouple geometry-consistent and appearance-aware representations, improving appearance completion in weakly observed regions. We further apply Scale Warmup to stabilize early geometry learning and suppress scale drift under ego-pose changes. Finally, we use a hybrid pixel--volume Gaussian decoder to produce a renderable 3D Gaussian scene for novel-view synthesis. Experiments on the nuScenes single-frame benchmark show that VGGD achieves the best overall rendering quality among the compared methods and improves relative geometric consistency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：面向相机重叠极少的单帧 surround-view 场景，把 VGGT 多视图几何先验前移到特征端，以减轻 sparse-view geometry ambiguity。</li>
+<li><strong>方法</strong>：Dual-Path Neck 分离几何一致与外观感知特征，Scale Warmup 抑制 ego-pose 变化下的尺度漂移，hybrid pixel-volume decoder 输出可渲染 3D Gaussians。</li>
+<li><strong>关注点</strong>：摘要仅称 nuScenes 上整体渲染质量最佳并改善相对几何一致性；需核查绝对尺度、动态目标、跨车辆相机标定和对驾驶定位/占据预测的实际收益。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.10682">arXiv</a> · <a href="https://arxiv.org/pdf/2608.10682">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10682/fig-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10682/fig-001.webp" alt="Visual Geometry Foundation-Aware Gaussians for Single-Frame Surround-View Driving Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10682/fig-002.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10682/fig-002.webp" alt="Visual Geometry Foundation-Aware Gaussians for Single-Frame Surround-View Driving Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10682/fig-003.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10682/fig-003.webp" alt="Visual Geometry Foundation-Aware Gaussians for Single-Frame Surround-View Driving Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10682/fig-004.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10682/fig-004.webp" alt="Visual Geometry Foundation-Aware Gaussians for Single-Frame Surround-View Driving Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10682/table-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10682/table-001.webp" alt="Visual Geometry Foundation-Aware Gaussians for Single-Frame Surround-View Driving Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

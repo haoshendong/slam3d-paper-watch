@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Compact Feed-Forward 3D Gaussians via Saliency-Guided Primitive Merging</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-13/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-13/index.html">← 返回 2026-08-13 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-11 · score 8 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">紧凑前馈式 3D Gaussians：显著性引导的基元合并</span><span class="lang lang-en lang-inline" data-lang="en">Compact Feed-Forward 3D Gaussians via Saliency-Guided Primitive Merging</span></h1>
+  <div class="meta">作者：Tim-Felix Fassch, Jochen Kall, Cyrill Stachniss</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.10712">abs</a><a href="https://arxiv.org/pdf/2608.10712">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>对 3DGS 地图内存、带宽和渲染效率具有直接价值，且可作为 backbone-agnostic 模块；几何一致性与下游定位性能尚未由摘要证明。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">表示压缩</span><span class="tag">基元合并</span><span class="tag">显著性</span><span class="tag">前馈重建</span><span class="tag">层次细节</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用显著性自适应聚类和跨视图 latent 合并，将前馈式逐像素 3DGS 压缩到约 1/20 基元。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该工作针对 feed-forward 3DGS 常按像素生成 Gaussian、表示高度冗余的问题，提出结构感知的后处理合并流水线。方法先用显著图引导自适应 superpixel segmentation，把空间连贯且外观相似的 Gaussians 聚类；再通过 learned encoder 压缩每个 cluster，依据几何重叠和特征相似性跨视图匹配合并，最后由 level-of-detail decoder 以可控分辨率输出。摘要称仅使用逐像素方法约二十分之一的 Gaussians 仍基本保持视觉质量。</p><p class="lang lang-en lang-block" data-lang="en">3D scene reconstruction, modeling, and rendering are highly relevant for numerous tasks, and 3D Gaussian splatting has become a standard choice in this context. Its feed-forward variants provide fast reconstruction from sparse input views but often produce per-pixel primitives, leading to highly redundant and thus inefficient representations. We present a structure-aware merging pipeline that takes per-pixel primitives from any feed-forward method and consolidates them into a compact, content-adaptive Gaussian set while largely retaining visual quality at just $\frac{1}{20}^\text{th}$ of the Gaussians of a per-pixel method. We group spatially coherent Gaussians of similar appearance into variable-size clusters via adaptive superpixel segmentation guided by a saliency map, which allocates fine segments to textured regions and coarse segments to homogeneous areas. We compress each cluster into a compact latent representation through a learned encoder, then match and consolidate representations across views based on geometric overlap and feature similarity via a learned merger. A level-of-detail decoder then produces the final Gaussians at a controllable resolution, enabling a flexible quality-efficiency trade-off at inference. As a post-processing module, the pipeline is backbone-agnostic, leveraging the strengths of existing feed-forward methods. This leads to better and more robust quality than achieved by previous approaches that target a reduction in primitive count, while providing a highly compact representation, that can be rendered efficiently.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：针对 feed-forward 3DGS 的逐像素 Gaussian 冗余，提供 backbone-agnostic 后处理压缩模块；摘要称仅保留约 1/20 基元仍基本维持视觉质量。</li>
+<li><strong>方法</strong>：用显著图引导自适应 superpixel，把外观相似且空间连贯的 Gaussians 聚类；编码为紧凑 latent 后跨视图匹配合并，再由 level-of-detail decoder 按目标分辨率输出。</li>
+<li><strong>关注点</strong>：应核查 1/20 指标对应的画质损失、训练与后处理开销、跨 backbone 泛化，以及压缩后几何一致性和下游定位能力是否保持。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.10712">arXiv</a> · <a href="https://arxiv.org/pdf/2608.10712">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10712/fig-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10712/fig-001.webp" alt="Compact Feed-Forward 3D Gaussians via Saliency-Guided Primitive Merging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10712/fig-002.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10712/fig-002.webp" alt="Compact Feed-Forward 3D Gaussians via Saliency-Guided Primitive Merging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10712/fig-003.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10712/fig-003.webp" alt="Compact Feed-Forward 3D Gaussians via Saliency-Guided Primitive Merging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10712/fig-004.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10712/fig-004.webp" alt="Compact Feed-Forward 3D Gaussians via Saliency-Guided Primitive Merging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

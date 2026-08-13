@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Sensor-Informed Per-Point Covariance for Structured-Light 3D Imaging</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-13/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-13/index.html">← 返回 2026-08-13 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-11 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">结构光三维成像的传感器感知逐点协方差</span><span class="lang lang-en lang-inline" data-lang="en">Sensor-Informed Per-Point Covariance for Structured-Light 3D Imaging</span></h1>
+  <div class="meta">作者：Sehoon Tak, Jae-Sang Hyun</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.10888">abs</a><a href="https://arxiv.org/pdf/2608.10888">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.4/10</span><p>与概率点云配准、融合和质量评估直接相关，且实验显示优于常数协方差；跨材质、距离和实际复杂场景的稳健性待验证。</p><div class="tags"><span class="tag">点云协方差</span><span class="tag">结构光</span><span class="tag">不确定度传播</span><span class="tag">G-ICP</span><span class="tag">点云配准</span><span class="tag">三维成像</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从结构光相位噪声和标定映射推导各向异性逐点协方差，为 G-ICP 提供物理来源明确的不确定度。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文从 fringe projection profilometry 的实际测量过程出发，依据实验相位精度、相位到深度及相位到三维的标定映射，构造逐点 3×3 covariance field。方法将 phase noise 传播为 rank-1 covariance，并加入拟合的横向图像空间扰动尺度形成有效 full-rank completion。重复平面实验显示主协方差方向与 viewing ray 接近，主相位不确定度尺度也与标量深度不确定度一致；在 G-ICP registration 中明显优于常数各向同性模型。</p><p class="lang lang-en lang-block" data-lang="en">Per-point uncertainty models are important in structured-light 3D reconstruction for probabilistic registration, fusion, and quality assessment. In practice, however, point-cloud covariances are often modeled as isotropic constants or inferred from local surface geometry and therefore do not explicitly reflect the measurement process. This is a limitation in fringe projection profilometry (FPP), where phase noise propagates through calibrated reconstruction and produces strongly anisotropic 3D uncertainty. This paper presents a sensor-informed first-order method for constructing a per-point 3 x 3 covariance field from experimentally measured phase precision and calibrated phase-to-depth and phase-to-3D mappings. The formulation separates a rank-1 phase-induced covariance from an effective full-rank completion obtained by incorporating fitted lateral image-space perturbation scales. Repeated-plane experiments under fixed imaging conditions show close alignment of the dominant covariance direction with the viewing ray, and consistency between the dominant phase-induced uncertainty scale and scalar depth uncertainty. In G-ICP registration, the proposed covariance substantially improves over a constant isotropic model while providing a sensor-derived uncertainty representation complementary to conventional geometry-based covariances.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：从实际相位测量和标定映射推导逐点 3×3 协方差，而非使用各向同性常数或仅依赖局部表面几何，对概率点云配准与融合更具物理解释性。</li>
+<li><strong>方法与结果</strong>：将相位噪声传播为 rank-1 covariance，再加入拟合的横向图像扰动形成有效 full-rank 表示；重复平面实验显示主方向与 viewing ray 对齐，G-ICP 中明显优于常数各向同性模型。</li>
+<li><strong>关注点</strong>：重点看不同材质、距离、入射角与曝光变化下的标定稳定性，以及与 geometry-based covariance 联合使用时是否进一步改善 registration consistency。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.10888">arXiv</a> · <a href="https://arxiv.org/pdf/2608.10888">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10888/fig-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10888/fig-001.webp" alt="Sensor-Informed Per-Point Covariance for Structured-Light 3D Imaging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10888/fig-002.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10888/fig-002.webp" alt="Sensor-Informed Per-Point Covariance for Structured-Light 3D Imaging" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10888/table-001.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10888/table-001.webp" alt="Sensor-Informed Per-Point Covariance for Structured-Light 3D Imaging" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10888/table-002.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10888/table-002.webp" alt="Sensor-Informed Per-Point Covariance for Structured-Light 3D Imaging" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-13/arxiv-2608.10888/table-003.webp"><img src="../../assets/media/2026-08-13/arxiv-2608.10888/table-003.webp" alt="Sensor-Informed Per-Point Covariance for Structured-Light 3D Imaging" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
