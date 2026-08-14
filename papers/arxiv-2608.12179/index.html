@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Map-Det3D: Metric Feed-Forward 3D Reconstruction Prior for Multi-view 3D Object Detection from Streaming Inputs</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-14/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-14/index.html">← 返回 2026-08-14 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-12 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Map-Det3D：以度量前馈三维重建先验支持流式多视图 3D 目标检测</span><span class="lang lang-en lang-inline" data-lang="en">Map-Det3D: Metric Feed-Forward 3D Reconstruction Prior for Multi-view 3D Object Detection from Streaming Inputs</span></h1>
+  <div class="meta">作者：Yung-Hsu Yang, Luigi Piccinelli, Samuel Rota Bulò, Sunghwan Hong, Denis Rozumny, Johannes Schönberger, Zuria Bauer, Hermann Blum</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.12179">abs</a><a href="https://arxiv.org/pdf/2608.12179">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>度量重建先验与流式视觉输入对定位建图社区有较强交叉价值，且直接触及单目绝对尺度和域迁移；但核心任务是 3D 检测，尺度来源、动态退化与在线开销仍需全文验证。</p><div class="tags"><span class="tag">度量三维重建</span><span class="tag">多视图3D检测</span><span class="tag">流式视觉</span><span class="tag">前馈重建</span><span class="tag">绝对尺度</span><span class="tag">具身感知</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">先从短时 RGB 多视图构建度量三维表示，再直接预测 3D boxes，以重建先验替代脆弱的单帧 2D-to-3D lifting。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Map-Det3D 是一种在线多视图 3D 目标检测模型，旨在绕开单目图像中深度与绝对尺度欠约束、以及传统 2D-to-3D lifting 对尺度先验敏感的问题。方法把短时 RGB 视频窗口映射为多个视图，复用并调优前馈式度量三维重建模型作为 object-aware 几何 backbone，随后直接在重建出的度量三维空间预测 3D boxes。作者称该设计在多个 benchmark 上取得强在线性能，并能在不做适配的情况下稳健迁移到不同相机、运动和环境域。代码与模型已公开。</p><p class="lang lang-en lang-block" data-lang="en">Metric 3D object detection is a core capability for embodied agents, yet most reliable systems lean on depth sensors, trading away cost, power, and integration simplicity. This motivates monocular 3D detection, which avoids additional constraints, yet it faces a major obstacle: from a single image, depth, and especially absolute scale, are underconstrained. As a result, the prevailing pattern of detecting in 2D and then predicting 3D attributes is often brittle, since modest range errors can dominate 3D localization, and the learned scale prior can fail when cameras, motion, or environments undergo domain shifts. To address this, we propose Map-Det3D, an online multi-view 3D object detection model that brings detection directly into a 3D space reconstructed from RGB. We map a short temporal window into multiple views and repurpose a feed-forward metric 3D reconstruction model as our geometric backbone while tuning its object-aware capabilities. Building on this representation, Map-Det3D directly predicts boxes in metric 3D space, without the widely used 2D-to-3D lifting. Experiments across different benchmarks show that this design supports strong online performance and robust transfer without adaptation, suggesting that training reconstruction priors for detection is a practical route to stable metric 3D detection from monocular video. Code and models are available at https://royyang0714.github.io/Map-Det3D.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：不再从 2D 检测结果预测深度和三维属性，而是先把短时 RGB 视频窗口映射为度量三维表示，再直接在该空间预测 3D boxes；这条路线有望降低单目尺度先验在相机、运动和环境域变化下的脆弱性。</li>
+<li><strong>方法与结果</strong>：复用 feed-forward metric 3D reconstruction model 作为几何 backbone，并针对 object-aware 能力调优。摘要称其在多个 benchmark 上兼具在线性能和无需适配的跨域迁移能力，代码与模型已给出。</li>
+<li><strong>关注点</strong>：优先核查绝对尺度来源、短窗口运动/视差不足时的退化、动态物体对重建先验的影响、检测时延与显存，以及与显式 tracking 或 depth-assisted baseline 的公平比较。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.12179">arXiv</a> · <a href="https://arxiv.org/pdf/2608.12179">PDF</a> · <a href="https://royyang0714.github.io/Map-Det3D/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12179/fig-001.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12179/fig-001.webp" alt="Map-Det3D: Metric Feed-Forward 3D Reconstruction Prior for Multi-view 3D Object Detection from Streaming Inputs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12179/fig-002.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12179/fig-002.webp" alt="Map-Det3D: Metric Feed-Forward 3D Reconstruction Prior for Multi-view 3D Object Detection from Streaming Inputs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12179/fig-003.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12179/fig-003.webp" alt="Map-Det3D: Metric Feed-Forward 3D Reconstruction Prior for Multi-view 3D Object Detection from Streaming Inputs" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

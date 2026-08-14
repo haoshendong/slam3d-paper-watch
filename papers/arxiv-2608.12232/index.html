@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-14/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-14/index.html">← 返回 2026-08-14 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-13 · score 3 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ScaleVid：无需 mesh 推理的几何感知视频对象缩放</span><span class="lang lang-en lang-inline" data-lang="en">ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference</span></h1>
+  <div class="meta">作者：Youze Huang, Penghui Ruan, Bojia Zi, Xianbiao Qi, Shihao Zhao, Rong Xiao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.12232">abs</a><a href="https://arxiv.org/pdf/2608.12232">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.8/10</span><p>包含对象中心三维变形与几何一致性问题，但主要贡献属于视频编辑/生成，与 SLAM、GNSS 和度量重建的直接关联有限。</p><div class="tags"><span class="tag">几何感知视频编辑</span><span class="tag">对象缩放</span><span class="tag">三维变形</span><span class="tag">时序一致性</span><span class="tag">免Mesh推理</span><span class="tag">视频生成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以两阶段伪源重建训练学习对象中心三维变形，无需在推理时构建 mesh 或执行显式三维重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ScaleVid 研究沿 object-centric axes 对视频对象进行各向异性缩放，同时保持几何合理性、时间一致性和背景完整性。其渐进式两阶段训练先以平面变换学习稳健的前景—背景合成，再引入 object-centric 3D deformation guidance 学习几何感知缩放。两个阶段都从真实视频构造几何扰动 pseudo-sources，并保留原始完整视频作为 reconstruction targets，因此无需成对的真实缩放数据。推理阶段不依赖 mesh-pixel alignment 或显式三维重建。摘要称其在配对几何、真实背景及野外视频评测中优于现有方法，并比显式重建方法更快。</p><p class="lang lang-en lang-block" data-lang="en">Geometry-aware video object scaling aims to anisotropically resize the object along object-centric axes while preserving geometric plausibility, temporal coherence, and background consistency. Existing text-guided methods mainly operate in the 2D image plane, while depth-guided approaches provide coarse control and mesh-based methods require costly 3D reconstruction. We present a progressive two-stage training framework that decouples geometry-aware foreground transformation from background preservation and realistic video composition, without mesh-pixel alignment and explicit 3D reconstruction at inference. In both stages, geometrically perturbed pseudo-sources are constructed from real videos, while the original complete videos are retained as reconstruction targets. The first stage uses planar transformations to learn robust foreground-background composition, whereas the second introduces object-centric 3D deformation guidance for geometry-aware scaling. This pseudo-source reconstruction formulation enables real-video synthesis without paired real-world scaling targets. We construct complementary paired-geometry and real-background benchmarks and further evaluate on in-the-wild videos. Extensive experiments demonstrate superior geometric consistency, foreground fidelity, and background preservation, together with faster and more practical inference than methods requiring explicit 3D reconstruction.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：尝试沿 object-centric axes 对视频目标做各向异性缩放，同时保持几何合理性、时间一致性与背景完整性；推理阶段不要求显式三维重建或 mesh-pixel alignment。</li>
+<li><strong>方法</strong>：两阶段渐进训练先学习前景变换和背景合成，再加入 object-centric 3D deformation guidance；两阶段都从真实视频构造几何扰动 pseudo-sources，并以原视频作为 reconstruction targets。</li>
+<li><strong>关注点</strong>：与 SLAM/度量重建关系较弱，主要是视频生成方向。应检查所谓 3D guidance 是否维持真实多视图几何、快速推理的硬件与分辨率条件，以及对相机运动、遮挡和拓扑变化的鲁棒性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.12232">arXiv</a> · <a href="https://arxiv.org/pdf/2608.12232">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/fig-001.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/fig-001.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/fig-002.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/fig-002.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/fig-003.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/fig-003.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/fig-004.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/fig-004.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/fig-005.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/fig-005.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/table-001.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/table-001.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/table-002.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/table-002.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/table-003.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/table-003.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-14/arxiv-2608.12232/table-004.webp"><img src="../../assets/media/2026-08-14/arxiv-2608.12232/table-004.webp" alt="ScaleVid: Geometry-Aware Video Object Scaling with Mesh-Free Inference" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
