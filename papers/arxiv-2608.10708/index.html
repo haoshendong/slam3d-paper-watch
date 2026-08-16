@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-16/index.html">← 返回 2026-08-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-11 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Self-Geometry：以显式多视图约束做免真值、即插即用测试时适配</span><span class="lang lang-en lang-inline" data-lang="en">Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models</span></h1>
+  <div class="meta">作者：Seokhyun Youn, Dahyeon Kye, Sung-Ho Bae, Jihyong Oh</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.10708">abs</a><a href="https://arxiv.org/pdf/2608.10708">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.6/10</span><p>直接面向相机位姿和多视图几何一致性，覆盖 6 个模型与 4 个 benchmark，作为 learned geometry front-end 很有参考价值；但逐场景适配成本、错配鲁棒性和相对 BA 的优势需要全文验证。</p><div class="tags"><span class="tag">测试时适配</span><span class="tag">多视图几何</span><span class="tag">相机位姿</span><span class="tag">极线约束</span><span class="tag">LoRA</span><span class="tag">三维基础模型</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以像素对应构造伪真值，在测试时通过多视图与极线一致性损失和 LoRA 修正 foundation model 的位姿与几何预测。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Self-Geometry 是一种面向 3D vision foundation models 的 GT-free、plug-and-play test-time adaptation pipeline，使用 2D pixel correspondences 作为 pseudo ground-truth，直接施加显式多视图几何约束。Geometric Disentanglement Optimization 联合 Multi-View Consistency 与 Epipolar Consistency losses，并通过 Gradient Disentanglement 避免梯度冲突；Frame Angular-Neighbor 根据 SO(3) geodesic distances 选择视图；Lightweight TTA 则以 LoRA 适配模型。作者报告该方法在 VGGT、π³ 和四种规模的 DA3 共 6 个 VFM，以及 7Scenes、ETH3D、ScanNet++、HiRoom 四个 benchmark 上持续改善 pose 与 geometry estimation。</p><p class="lang lang-en lang-block" data-lang="en">Recent Vision Foundation Models (VFMs) predict depth, camera pose, and pointmap in a single forward pass without per-scene optimization, achieving strong generalization. However, enforcing explicit multi-view geometric consistency, e.g., through bundle adjustment, is computationally costly and is thus not imposed during VFM pretraining, so such inconsistency can arise. To address this, implicit self-consistency derived from model outputs (e.g., pointmaps, features), though enforced at test-time in prior work, delivers inherently limited performance gain, especially on scenes where the pretrained VFM is highly inaccurate. In contrast to this implicit signal, we propose Self-Geometry, a plug-and-play test-time adaptation pipeline that directly imposes explicit multi-view geometric constraints using 2D pixel correspondences as pseudo ground-truth. Our proposed Self-Geometry consists of Geometric Disentanglement Optimization, which combines Multi-View Consistency and Epipolar Consistency losses with Gradient Disentanglement to prevent gradient conflict; Frame Angular-Neighbor, a view sampler based on SO(3) geodesic distances for lightly imposing these constraints; and Lightweight TTA, which adapts VFMs via LoRA. Our method achieves consistent improvements in both pose and geometry estimation across six VFMs (VGGT, $π^3$, DA3-Giant/Large/Base/Small) and four benchmarks (7Scenes, ETH3D, ScanNet++, HiRoom).</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：针对前馈 3D vision foundation models 的 depth、camera pose 与 pointmap 跨视图不一致，在 test time 直接用 2D pixel correspondences 作为 pseudo ground-truth 注入显式多视图几何约束。</li>
+<li><strong>方法与结果</strong>：Geometric Disentanglement Optimization 联合 Multi-View Consistency 与 Epipolar Consistency，并以 Gradient Disentanglement 缓解梯度冲突；Frame Angular-Neighbor 按 SO(3) geodesic distance 采样视图，Lightweight TTA 通过 LoRA 适配。摘要报告在 6 个 VFM、7Scenes/ETH3D/ScanNet++/HiRoom 四组 benchmark 上均改善 pose 与 geometry estimation。</li>
+<li><strong>关注点</strong>：重点核查 correspondence 错配时的稳定性、逐场景 LoRA 时延和显存、相较 bundle adjustment 的质量—成本曲线，以及适配是否会破坏跨场景泛化。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.10708">arXiv</a> · <a href="https://arxiv.org/pdf/2608.10708">PDF</a> · <a href="https://cmlab-korea.github.io/Self-Geometry/">项目页</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.10708/fig-001.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.10708/fig-001.webp" alt="Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.10708/fig-002.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.10708/fig-002.webp" alt="Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.10708/fig-003.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.10708/fig-003.webp" alt="Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.10708/fig-004.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.10708/fig-004.webp" alt="Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.10708/fig-005.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.10708/fig-005.webp" alt="Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.10708/table-001.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.10708/table-001.webp" alt="Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.10708/table-002.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.10708/table-002.webp" alt="Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.10708/table-003.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.10708/table-003.webp" alt="Self-Geometry: GT-Free and Plug-and-Play Test-Time Adaptation for Geometrically Consistent 3D Vision Foundation Models" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

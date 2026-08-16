@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-16/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-16/index.html">← 返回 2026-08-16 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-14 · score 12 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GS²CI：借助大视觉模型先验的 snapshot compressive imaging 3DGS 重建</span><span class="lang lang-en lang-inline" data-lang="en">GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors</span></h1>
+  <div class="meta">作者：Yanming Yang, Chenxi Song, Ping Wang, Xin Yuan, Chi Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.13502">abs</a><a href="https://arxiv.org/pdf/2608.13502">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.2/10</span><p>单测量三维重建与 3DGS 稳定 densification 具有较强方法价值，且针对视角不足这一核心问题；但依赖特殊 SCI 成像和 VFM 伪视图，距常规 SLAM/在线重建仍有明显距离。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">压缩成像</span><span class="tag">三维重建</span><span class="tag">视觉基础模型</span><span class="tag">伪视图监督</span><span class="tag">密度化</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以 3D/2D 大视觉模型先验补偿单次 SCI 测量的信息缺失，并用 opacity-guided densification 稳定 3DGS 优化。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">GS²CI 从单个 snapshot compressive imaging（SCI）measurement 重建高质量三维场景。主流程将 measurement-derived 3D vision foundation model initialization 与 SCI-aware Gaussian optimization 结合；coarse stage 收敛后，再由辅助 2D VFM 在合成视角提供 pseudo-view supervision，细化局部外观。为缓解 SCI supervision 歧义导致的 3DGS 优化不稳定，方法提出 Opacity-Guided Splitting and Growth Regulation：利用局部 opacity 统计扩展 split candidates，以 mean-opacity regulation 抑制补偿性 opacity inflation，并用候选比例和 Gaussian 数量约束控制表示增长。摘要称其在多个 benchmark 上取得最强综合质量、视角变化鲁棒性和有竞争力的效率。</p><p class="lang lang-en lang-block" data-lang="en">Snapshot Compressive Imaging (SCI) offers an efficient solution for high-speed video acquisition and, under exposure-time camera--scene relative motion, multi-view scene capture by compressing temporal or spatial information into a single 2D measurement. While recent studies have explored SCI for 3D scene reconstruction, existing methods struggle with significant challenges due to information loss, limited viewpoint diversity, and the computational burden of jointly optimizing 3D representations and camera poses. In this work, we propose a novel framework that reconstructs high-quality 3D scenes from a single SCI measurement by leveraging 3D Gaussian Splatting (3DGS) and the powerful priors of large-scale vision foundation models (VFMs). Our primary reconstruction combines measurement-derived 3D VFM initialization with SCI-aware Gaussian optimization. After coarse-stage convergence, an auxiliary 2D VFM provides pseudo-view supervision at synthesized viewpoints for local appearance refinement. To further address the instability caused by ambiguous SCI supervision during 3DGS optimization, we introduce Opacity-Guided Splitting and Growth Regulation (OSGR), an SCI-specific densification strategy that augments split candidates using local opacity statistics, discourages loss-compensating opacity inflation through mean-opacity regulation, and bounds representation growth with explicit candidate-ratio and Gaussian-count constraints. Extensive experiments across multiple benchmarks demonstrate that our method achieves the strongest overall performance, combining leading reconstruction quality and robustness to viewpoint variation with competitive computational efficiency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>价值</strong>：从单个 SCI measurement 恢复三维场景，将 measurement-derived 3D VFM initialization、SCI-aware Gaussian optimization 与伪视图监督结合，针对信息损失和视角不足问题提供新的 3DGS 重建路线。</li>
+<li><strong>方法与结果</strong>：coarse stage 后由辅助 2D VFM 在合成视角产生 pseudo-view supervision；Opacity-Guided Splitting and Growth Regulation（OSGR）通过局部 opacity 统计补充 split candidates、抑制 opacity inflation，并显式限制 Gaussian 增长。摘要称在多个 benchmark 上获得最强综合质量与稳健性，同时维持有竞争力的效率。</li>
+<li><strong>关注点</strong>：应核查真实 SCI 成像模型与标定误差、camera–scene relative motion 假设、VFM pseudo views 引入 hallucination 的风险，以及与常规多视图采集在总曝光和计算预算下的公平性。</li>
+<li><strong>链接</strong>：<a href="https://arxiv.org/abs/2608.13502">arXiv</a> · <a href="https://arxiv.org/pdf/2608.13502">PDF</a></li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.13502/fig-001.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.13502/fig-001.webp" alt="GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.13502/fig-002.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.13502/fig-002.webp" alt="GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.13502/fig-003.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.13502/fig-003.webp" alt="GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.13502/fig-004.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.13502/fig-004.webp" alt="GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.13502/fig-005.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.13502/fig-005.webp" alt="GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.13502/table-001.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.13502/table-001.webp" alt="GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-16/arxiv-2608.13502/table-002.webp"><img src="../../assets/media/2026-08-16/arxiv-2608.13502/table-002.webp" alt="GS$^{2}$CI: Robust Gaussian Splatting For Snapshot Compressive Imaging via Large Vision Model Priors" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
