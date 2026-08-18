@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-18/index.html">← 返回 2026-08-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-14 · score 5 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SPARGen：以原生多模态生成统一空间感知与推理</span><span class="lang lang-en lang-inline" data-lang="en">SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation</span></h1>
+  <div class="meta">作者：Jinsheng Quan, Jianhua Li, Siyi Xie, Xuanke Shi, Kewang Deng, Zukai Chen, Feifei Shao, Lei Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.14138">abs</a><a href="https://arxiv.org/pdf/2608.14138">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.7/10</span><p>统一几何感知、对应和语言推理的设定具有前沿价值，可能成为通用三维前端；但摘要未给出具体 benchmark、数值、实时性及度量尺度说明，与可部署 SLAM/GNSS 融合仍有距离。</p><div class="tags"><span class="tag">多模态生成</span><span class="tag">三维重建</span><span class="tag">稠密对应</span><span class="tag">空间推理</span><span class="tag">几何场</span><span class="tag">视觉基础模型</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把三维重建、稠密对应和空间关系推理统一成指令驱动的多模态生成任务，以共享空间表征促进能力迁移。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SPARGen 将三维重建、稠密对应和空间推理统一表述为指令条件生成任务。框架把紧凑的结构化输出和语言输出序列化为 token，同时以图像对齐形式生成稠密几何场，使多种空间监督能够共同塑造同一个原生多模态生成模型中的共享表示。作者称该统一框架在三维重建、对应和空间推理等异构 benchmark 上均取得有竞争力的表现，避免为每项能力分别使用任务专用架构或外部几何模块。</p><p class="lang lang-en lang-block" data-lang="en">Spatial perception and reasoning from visual observations require recovering geometric structure, establishing correspondences, and understanding spatial relations. Existing approaches typically address these capabilities separately using task-specific architectures or external geometric modules, limiting knowledge transfer among complementary representations of the same physical scene. We introduce SPARGen, a unified multimodal framework that casts 3D reconstruction, dense correspondence, and spatial reasoning as instruction-conditioned generation tasks. SPARGen serializes compact structured and linguistic outputs as token sequences while generating dense geometric fields in image-aligned forms, enabling spatial supervision to jointly shape shared representations within a native multimodal generative model. Experiments across benchmarks for 3D reconstruction, correspondence, and spatial reasoning show that SPARGen achieves competitive performance across heterogeneous spatial tasks within a single native multimodal generative framework.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.14138">arXiv:2608.14138</a> · <a href="https://arxiv.org/pdf/2608.14138">PDF</a></li>
+<li><strong>作者</strong>：Jinsheng Quan, Jianhua Li, Siyi Xie, Xuanke Shi, Kewang Deng, Zukai Chen, Feifei Shao, Lei Yang</li>
+<li><strong>核心方法</strong>：将三维重建、稠密对应和空间推理都转换为指令条件生成；结构与语言输出序列化为 token，稠密几何场则保持图像对齐，使异构空间监督共享模型表征。</li>
+<li><strong>判断</strong>：统一范式值得关注，尤其是对应与重建互相迁移的潜力；但摘要缺少具体数据集、数字结果、实时性和尺度定义，离 SLAM 后端或 GNSS 融合部署尚远。</li>
+<li><strong>评分</strong>：7.7/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-18/arxiv-2608.14138/fig-001.webp"><img src="../../assets/media/2026-08-18/arxiv-2608.14138/fig-001.webp" alt="SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-18/arxiv-2608.14138/fig-002.webp"><img src="../../assets/media/2026-08-18/arxiv-2608.14138/fig-002.webp" alt="SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-18/arxiv-2608.14138/fig-003.webp"><img src="../../assets/media/2026-08-18/arxiv-2608.14138/fig-003.webp" alt="SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-18/arxiv-2608.14138/table-001.webp"><img src="../../assets/media/2026-08-18/arxiv-2608.14138/table-001.webp" alt="SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-18/arxiv-2608.14138/table-002.webp"><img src="../../assets/media/2026-08-18/arxiv-2608.14138/table-002.webp" alt="SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-18/arxiv-2608.14138/table-003.webp"><img src="../../assets/media/2026-08-18/arxiv-2608.14138/table-003.webp" alt="SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-18/arxiv-2608.14138/table-004.webp"><img src="../../assets/media/2026-08-18/arxiv-2608.14138/table-004.webp" alt="SPARGen: Unifying Spatial Perception and Reasoning through Native Multimodal Generation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

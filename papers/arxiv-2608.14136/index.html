@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>HiCo-GS: Hierarchical Context Aggregation and Geometric Consistency for Octree Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-18/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-18/index.html">← 返回 2026-08-18 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-14 · score 11 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HiCo-GS：面向八叉树 Gaussian Splatting 的分层上下文聚合与几何一致性</span><span class="lang lang-en lang-inline" data-lang="en">HiCo-GS: Hierarchical Context Aggregation and Geometric Consistency for Octree Gaussian Splatting</span></h1>
+  <div class="meta">作者：Wei Zhang, Shengkai Yu, Shiqiang Gong, Qi Zhang, Qiang Li, Qi Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.14136">abs</a><a href="https://arxiv.org/pdf/2608.14136">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>直接针对可扩展城市级 3DGS 的层间割裂和几何伪影，方法包含明确的层级融合与几何正则，并提供代码和新数据集；但核心证据仍以离线 NVS/重建为主，尚未覆盖在线 SLAM、位姿漂移或动态场景。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">城市级重建</span><span class="tag">八叉树</span><span class="tag">几何一致性</span><span class="tag">深度法线</span><span class="tag">新视图合成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">让八叉树 3DGS 的粗细层级双向交换结构与纹理信息，再以深度—法线一致性增强城市级重建几何。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">面向城市级新视图合成，八叉树锚点 Gaussian Splatting 可用多层锚点从建筑主体到细部自适应表达场景，但现有方法往往逐层独立优化锚点特征，缺乏层间通信，容易造成立面色彩漂移和纹理过度平滑。HiCo-GS 提出两个互补模块：Cross-Level Context Aggregation 利用八叉树空间包含关系构造父层—本层—子层上下文，通过轻量 MLP 与残差连接双向传播结构先验和细节统计；Depth-Normal Geometric Consistency 则以 alpha 加权损失约束渲染法线与深度导出法线一致，并配合渐进 warmup 的边缘感知平滑项抑制城市平面结构附近的浮游伪影。论文还发布 China-Pagoda 数据集，包含 8 座中国古塔、每座超过 1,200 张图像。作者称方法在 Mill19、UrbanScene3D、MatrixCity 和 China-Pagoda 上取得领先的渲染质量和更干净的几何，并已公开代码。</p><p class="lang lang-en lang-block" data-lang="en">Octree-based anchor Gaussian Splatting has emerged as a scalable representation for city-scale novel view synthesis, where multi-level anchors adaptively capture scene content from coarse building structures to fine architectural details. However, we identify a fundamental limitation in existing methods: cross-level feature isolation, where each level&#x27;s anchor features are optimized independently with no inter-level communication, causing color drift on building facades and over-smoothing in textured regions. We present HiCo-GS, a high-fidelity reconstruction framework with two complementary modules. Cross-Level Context Aggregation (CLCA) enables bidirectional hierarchical prior injection by leveraging the octree&#x27;s spatial containment structure to aggregate per-level context vectors into parent-self-child triplets, fused via a lightweight MLP with residual connection. Coarse-level structural priors flow down to inform fine-level anchors, while fine-level detail statistics feed back to prevent over-smoothing, at negligible computational overhead. Depth-Normal Geometric Consistency (DNGC) regularization enforces agreement between rendered normals and depth-derived normals through an alpha-weighted consistency loss, complemented by edge-aware smoothness losses with progressive warmup that exploit the strong planar priors ubiquitous in urban geometry to suppress floating artifacts. We further introduce the China-Pagoda dataset comprising 8 ancient Chinese pagodas with over 1,200 images each, featuring dense ornamental carvings, curved multi-layer eaves, and repetitive fine-grained textures. Extensive experiments on Mill19, UrbanScene3D, MatrixCity, and China-Pagoda demonstrate that HiCo-GS achieves state-of-the-art rendering quality and substantially cleaner geometry across real-world and synthetic urban benchmarks.Code: https://github.com/WZ-CS/HiCo-GS.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.14136">arXiv:2608.14136</a> · <a href="https://arxiv.org/pdf/2608.14136">PDF</a> · <a href="https://github.com/WZ-CS/HiCo-GS">代码</a></li>
+<li><strong>作者</strong>：Wei Zhang, Shengkai Yu, Shiqiang Gong, Qi Zhang, Qiang Li, Qi Wang</li>
+<li><strong>核心方法</strong>：利用八叉树父层—本层—子层关系做双向上下文聚合，让粗层结构先验和细层纹理统计相互补充；再以 alpha 加权的深度—法线一致性、边缘感知平滑和渐进 warmup 约束几何。</li>
+<li><strong>数据与结果</strong>：覆盖 Mill19、UrbanScene3D、MatrixCity，并新增 China-Pagoda 数据集（8 座古塔，每座超过 1,200 张图像）。摘要称渲染质量达到 SOTA 且几何更干净。</li>
+<li><strong>判断</strong>：当天最值得跟踪。它明确处理城市级分层 3DGS 的色漂、过平滑和浮游伪影，但仍属于离线 NVS/重建；对在线建图、位姿误差、内存增长和动态物体的适应性有待验证。</li>
+<li><strong>评分</strong>：9.2/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
