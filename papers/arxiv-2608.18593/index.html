@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ReX-Shot: Single-Image Rephotography via Geometry- and Camera-Grounded Generation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-21/index.html">← 返回 2026-08-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-19 · score 3 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ReX-Shot：基于几何与相机约束的单图像重摄影</span><span class="lang lang-en lang-inline" data-lang="en">ReX-Shot: Single-Image Rephotography via Geometry- and Camera-Grounded Generation</span></h1>
+  <div class="meta">作者：Ruiqi Zhang, Hao Zhu, Wenhao Zhang, Qi Zhang, Junqi Shi, Ming Lu, Xun Cao, Zhan Ma</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.18593">abs</a><a href="https://arxiv.org/pdf/2608.18593">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.5/10</span><p>涉及单图像 3D 重建、相机模型和跨视点一致性，对生成式三维重建有参考意义；但与在线定位、SLAM 和 metric geometry 的直接关系较弱。</p><div class="tags"><span class="tag">单图像重建</span><span class="tag">新视图合成</span><span class="tag">相机模型</span><span class="tag">生成式 3D</span><span class="tag">重摄影</span><span class="tag">几何约束</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从单张图像进行几何约束的视点、焦距和外观联合重摄影，关注单图 3D 重建误差下的生成式补偿。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ReX-Shot 从单张参考图像生成指定视点、焦距和摄影效果的新图像。框架利用经过隐式变换的基础模型特征降低几何误差带来的投影偏差，将焦距放大建模为几何引导的超分辨率，并在 3D 感知生成骨干上实现跨视点的外观编辑。作者称其统一控制视点、焦距和参数化摄影效果，并在三类控制任务上超过代表性基线。</p><p class="lang lang-en lang-block" data-lang="en">Single-image rephotography aims to synthesize new shots of a scene from a single reference image with specified viewpoints, focal lengths, and photographic effects, which are intrinsically coupled in imaging. Existing methods typically treat these factors separately and struggle under joint control: novel-view synthesis may introduce geometric distortions under focal-length changes, while super-resolution and instruction-guided editing remain confined to 2D and cannot reliably extend detail restoration or appearance control to novel viewpoints. We attribute these limitations to imperfect single-image 3D reconstruction and the sampling limit of continuous focal-length enlargement. To reduce projection bias from geometric errors, we use implicitly transformed foundation-model features for robust target-view guidance. We further formulate focal-length enlargement as a geometry-guided super-resolution problem and exploit generative detail priors to recover details lost during sparse 3D resampling. Built on this 3D-aware generative backbone, we lift photographic-effect control from 2D filtering to 3D-aware appearance editing, preserving content consistency across viewpoints and focal lengths. These components form ReX-Shot, a geometry- and camera-grounded generative framework for single-image rephotography. To our knowledge, ReX-Shot is the first unified framework to jointly control viewpoint, focal length, and parameterized photographic effects from a single image. Experiments show that ReX-Shot outperforms representative baselines across all three controls while enabling near-real-time interactive rephotography.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.18593">arXiv:2608.18593</a> · <a href="https://arxiv.org/pdf/2608.18593">PDF</a></li>
+<li><strong>作者</strong>：Ruiqi Zhang 等 · <a href="https://ruiqi-nju.github.io/ReX-Shot/">项目页</a></li>
+<li><strong>核心方法</strong>：从单图像重建出发，联合控制新视点、焦距和参数化摄影效果，以几何引导超分辨率和 3D 感知生成补偿稀疏重采样造成的细节损失。</li>
+<li><strong>判断</strong>：对单图像三维重建和生成式新视图有参考意义，但与在线定位、metric geometry 和 SLAM 的直接关联有限。</li>
+<li><strong>评分</strong>：6.5/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.18593/fig-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.18593/fig-001.webp" alt="ReX-Shot: Single-Image Rephotography via Geometry- and Camera-Grounded Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.18593/fig-002.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.18593/fig-002.webp" alt="ReX-Shot: Single-Image Rephotography via Geometry- and Camera-Grounded Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.18593/fig-003.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.18593/fig-003.webp" alt="ReX-Shot: Single-Image Rephotography via Geometry- and Camera-Grounded Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.18593/table-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.18593/table-001.webp" alt="ReX-Shot: Single-Image Rephotography via Geometry- and Camera-Grounded Generation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.18593/table-002.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.18593/table-002.webp" alt="ReX-Shot: Single-Image Rephotography via Geometry- and Camera-Grounded Generation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.18593/table-003.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.18593/table-003.webp" alt="ReX-Shot: Single-Image Rephotography via Geometry- and Camera-Grounded Generation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

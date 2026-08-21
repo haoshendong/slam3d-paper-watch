@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Coordination of Ground-to-Space Reference Networks for High-Precision GNSS</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-21/index.html">← 返回 2026-08-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-19 · score 6 · eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">高精度 GNSS 地面—空间参考网络协同</span><span class="lang lang-en lang-inline" data-lang="en">Coordination of Ground-to-Space Reference Networks for High-Precision GNSS</span></h1>
+  <div class="meta">作者：Xue Xian Zheng, Xing Liu, José A. López-Salcedo, Gonzalo Seco-Granados, Tareq Y. Al-Naffouri</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.18636">abs</a><a href="https://arxiv.org/pdf/2608.18636">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>覆盖高精度 GNSS、动态网络和去中心化估计，对未来广域 PPP/改正服务有潜在价值；但当前摘要未显示与机器人 GNSS/INS 紧耦合或整数模糊度固定的直接实验。</p><div class="tags"><span class="tag">高精度 GNSS</span><span class="tag">LEO</span><span class="tag">参考网络</span><span class="tag">去中心化估计</span><span class="tag">动态图</span><span class="tag">改正产品</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在地面站—LEO 动态网络中用去中心化估计生成 GNSS 高精度改正，面向通信受限的地面到空间协同。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文将地面站与搭载 GNSS 接收机及星间链路的低轨卫星建模为动态图上的交互子网络，提出适应间歇、非对称、容量受限和有损通信的去中心化处理架构。方法通过高频的层内通信与机会式跨层摘要交换，协调轨道、钟差、大气和硬件偏差等高精度 GNSS 改正产品的生成，以改善稀疏或地域集中的地面参考网络的可观测性。</p><p class="lang lang-en lang-block" data-lang="en">High-precision Global Navigation Satellite System (GNSS) services rely on accurate orbit, clock, atmospheric, and hardware-bias corrections generated from reference observations. These products are traditionally derived from terrestrial reference networks, whose performance strongly depends on the density and geographic distribution of ground stations. Consequently, sparse or regionally concentrated networks can suffer from tracking gaps and limited global observability, reducing their ability to support globally consistent high-precision products. Low Earth Orbit (LEO) constellations equipped with onboard GNSS receivers and inter-satellite links (ISLs) can serve as a network of spaceborne reference stations, offering a promising way to extend terrestrial reference networks into space, thereby improving observability for ground networks and enabling future direct correction broadcast. However, most existing network-based GNSS correction-generation workflows assume that observations can be centrally collected and processed. This assumption fails in practical ground--to--space architectures, where dynamic satellite geometry and system constraints render communication links intermittent, asymmetric, capacity-limited, and lossy. To address these limitations, this paper proposes a decentralized processing architecture that coordinates the ground-to-space GNSS reference network. By modeling ground stations and LEO satellites as interacting subnetworks over a dynamic graph, our approach allows frequent intra-tier communication while restricting cross-tier exchanges to compact estimation summaries transmitted opportunistically under probabilistic link availability....</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.18636">arXiv:2608.18636</a> · <a href="https://arxiv.org/pdf/2608.18636">PDF</a></li>
+<li><strong>作者</strong>：Xue Xian Zheng, Xing Liu, José A. López-Salcedo, Gonzalo Seco-Granados, Tareq Y. Al-Naffouri</li>
+<li><strong>核心方法</strong>：把地面站与搭载 GNSS/星间链路的 LEO 卫星建模为动态图上的交互子网络，在通信间歇、非对称、受限和有损条件下，以去中心化摘要交换生成高精度 GNSS 改正产品。</li>
+<li><strong>判断</strong>：对未来 PPP/广域改正服务和稀疏参考网有潜在价值，但当前仍未显示与机器人 GNSS/INS 紧耦合、整数模糊度固定或城市峡谷鲁棒定位的直接实验。</li>
+<li><strong>评分</strong>：7.8/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.18636/fig-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.18636/fig-001.webp" alt="Coordination of Ground-to-Space Reference Networks for High-Precision GNSS" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.18636/table-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.18636/table-001.webp" alt="Coordination of Ground-to-Space Reference Networks for High-Precision GNSS" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

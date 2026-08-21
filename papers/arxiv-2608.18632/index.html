@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Evaluation of Monocular SLAM Systems on High-Altitude Nadir UAV Footage</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-21/index.html">← 返回 2026-08-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-19 · score 11 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">高空俯视无人机视频上的单目 SLAM 系统评测</span><span class="lang lang-en lang-inline" data-lang="en">Evaluation of Monocular SLAM Systems on High-Altitude Nadir UAV Footage</span></h1>
+  <div class="meta">作者：Gašper Spagnolo, Matej Dobrevski, Danijel Skočaj</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.18632">abs</a><a href="https://arxiv.org/pdf/2608.18632">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9.2/10</span><p>直接针对高空 UAV 单目 SLAM 的困难工况，包含多数据源和定量误差，适合做算法选型基线；但属于短篇评测，数据规模、复现实验细节和失败运行覆盖范围需进一步检查。</p><div class="tags"><span class="tag">单目 SLAM</span><span class="tag">UAV</span><span class="tag">高空俯视</span><span class="tag">系统评测</span><span class="tag">回环闭合</span><span class="tag">尺度漂移</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">系统比较高空俯视 UAV 场景中的单目 SLAM，显示纯视觉方法在大范围和垂直尺度上仍不够可靠。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文在本地无人机飞行、合成城市级影像和长距离航迹上评测五种单目 SLAM 系统，并刻意不使用 IMU 或 GNSS 辅助以隔离视觉性能。结果显示不同环境和轨迹尺度下差异明显：MASt3R-SLAM 在五段 DJI 航迹上的平均水平位置误差最低，为参考航迹长度的 0.53%；在已完成运行的总体平均中，DROID-SLAM 达到 2.88%。但垂直位置仍较差，长距离航迹即便具备回环能力也会发生明显形变。</p><p class="lang lang-en lang-block" data-lang="en">Aerial nadir video combines weak geometric constraints with severe perceptual aliasing, making it a difficult regime for monocular SLAM. We benchmark five monocular SLAM systems on local UAV flights, synthetic city-scale imagery, and long-range aerial sequences. To isolate visual performance, we provide no inertial or GNSS aiding. Performance varies strongly with environment and trajectory scale: MASt3R-SLAM achieves the lowest mean horizontal MAE on the five DJI flights (0.53\% of reference path length), whereas no system consistently preserves global trajectory shape on the long GES and ALTO sequences. Overall, DROID-SLAM performs best, averaging 2.88\% of reference path length across completed runs. Vertical position remains poor, and large-area trajectories remain highly distorted despite loop-closure capability. Current monocular SLAM methods are by themselves therefore insufficient for reliable visual-only aerial navigation.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.18632">arXiv:2608.18632</a> · <a href="https://arxiv.org/pdf/2608.18632">PDF</a></li>
+<li><strong>作者</strong>：Gašper Spagnolo, Matej Dobrevski, Danijel Skočaj</li>
+<li><strong>核心结果</strong>：在本地 UAV、合成城市级影像和长距离航迹上比较五种单目 SLAM，刻意不使用 IMU/GNSS。MASt3R-SLAM 在五段 DJI 航迹上的平均水平 MAE 为参考航迹长度的 0.53%；完成运行的总体平均中 DROID-SLAM 为 2.88%。但垂直位置和长距离全局形状仍明显不可靠。</li>
+<li><strong>判断</strong>：这是今天最直接的 SLAM 系统选型信号，尤其适合高空俯视和 GNSS-denied UAV 场景。需要继续核查数据规模、失败运行处理、回环对长距离形变的实际改善，以及加入 IMU 后排名是否改变。</li>
+<li><strong>评分</strong>：9.2/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

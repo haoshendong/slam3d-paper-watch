@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-21/index.html">← 返回 2026-08-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-19 · score 5 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">LT-Mem：面向终身场景理解的波动性感知时空记忆</span><span class="lang lang-en lang-inline" data-lang="en">LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding</span></h1>
+  <div class="meta">作者：Yumin Lee, Hyoseok Ju, Giseop Kim</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.19059">abs</a><a href="https://arxiv.org/pdf/2608.19059">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.9/10</span><p>把多会话 SLAM、对象级 3D 感知和长期记忆结合，适合关注长期建图与场景理解；但摘要中的指标和基线细节有限，记忆效果对 SLAM 对齐误差的敏感性需要验证。</p><div class="tags"><span class="tag">多会话 SLAM</span><span class="tag">长期建图</span><span class="tag">对象级 3D 感知</span><span class="tag">时空记忆</span><span class="tag">场景理解</span><span class="tag">机器人</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">在多会话 SLAM 的空间对齐基础上维护对象历史，解决长期运行中的身份保持与状态演化记忆问题。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">LT-Mem 面向长期机器人运行中的多次重访和对象状态变化，使用多会话 SLAM 对齐各次观测，再通过证据评分保持跨会话对象身份，并依据对象波动性在覆盖、保持和多假设之间选择记忆更新动作。Tri-Memory 结构分别维护当前状态、变化信息和元历史；论文还提出包含多会话记录、持久身份标注和时序问答的 LT-VQA 数据集。</p><p class="lang lang-en lang-block" data-lang="en">Long-term robot operation in evolving environments requires object-level understanding that persists across repeated revisits. Existing systems either overwrite history to maintain an up-to-date map or store semantic snapshots without consistent cross-session object identity, resulting in temporal amnesia: the systematic loss of object history that prevents answering queries such as &quot;Where has the green chair been across all sessions?&quot; We propose LT-Mem, a volatility-aware memory evolution framework that unifies spatially aligned instance-level 3D perception with volatility-conditioned temporal reasoning. First, a multi-session SLAM backbone provides spatially aligned per-object observations across sessions. Second, a reasoning layer governs how object memory evolves: deterministic evidence scoring preserves cross-session identity, and a volatility-aware policy selects among overwrite, hold, and multi-hypothesis actions based on each object&#x27;s dynamics. Third, the resulting Tri-Memory structure (Live, Delta, Meta) preserves both current states and event histories, enabling longitudinal object-centric reasoning. We further introduce LT-VQA, a dataset and evaluation suite comprising multi-session recordings, persistent identity annotations, and temporal QA pairs. Experiments show that LT-Mem consistently outperforms baselines across all metrics while consuming an order of magnitude fewer tokens, and ablations confirm that gains are driven by the structured memory architecture rather than LLM capacity.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.19059">arXiv:2608.19059</a> · <a href="https://arxiv.org/pdf/2608.19059">PDF</a></li>
+<li><strong>作者</strong>：Yumin Lee, Hyoseok Ju, Giseop Kim</li>
+<li><strong>核心方法</strong>：以多会话 SLAM 做空间对齐，使用证据评分维持对象身份，并根据对象波动性选择覆盖、保持或多假设更新；Tri-Memory 结构分别保留当前状态、变化和元历史，并配套 LT-VQA 数据集。</li>
+<li><strong>判断</strong>：对长期建图和对象级场景理解有较强相关性。后续应重点验证记忆性能对回环/配准误差的敏感性、动态物体分布和多会话尺度一致性。</li>
+<li><strong>评分</strong>：7.9/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/fig-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/fig-001.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/fig-002.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/fig-002.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/fig-003.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/fig-003.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/fig-004.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/fig-004.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/fig-005.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/fig-005.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/fig-006.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/fig-006.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/table-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/table-001.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/table-002.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/table-002.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/table-003.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/table-003.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/table-004.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/table-004.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/table-005.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/table-005.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19059/table-006.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19059/table-006.webp" alt="LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

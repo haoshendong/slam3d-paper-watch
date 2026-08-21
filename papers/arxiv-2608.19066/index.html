@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>GS-VLA: Plug-and-Play Viewpoint Canonicalization for Frozen VLA Policies via Gaussian Splatting</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-21/index.html">← 返回 2026-08-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-20 · score 11 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GS-VLA：通过 Gaussian Splatting 为冻结 VLA 策略提供即插即用的视点规范化</span><span class="lang lang-en lang-inline" data-lang="en">GS-VLA: Plug-and-Play Viewpoint Canonicalization for Frozen VLA Policies via Gaussian Splatting</span></h1>
+  <div class="meta">作者：Yechan Park, HyunJin Kim</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.19066">abs</a><a href="https://arxiv.org/pdf/2608.19066">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8.5/10</span><p>方法轻量且明确利用 3DGS 解决观测域视点偏移，对机器人视觉部署有直接启发；但核心目标是 VLA 鲁棒性而非 SLAM/定位，局部性假设和实际时延仍需核验。</p><div class="tags"><span class="tag">3D Gaussian Splatting</span><span class="tag">视点规范化</span><span class="tag">VLA</span><span class="tag">新视图合成</span><span class="tag">机器人视觉</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用轻量 3DGS 观测模块校正相机视点变化，不改动冻结的 VLA 策略参数。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">GS-VLA 面向相机安装位置变化导致的 VLA 策略性能下降问题，在不重新训练策略的前提下，将视点扰动重写为局部新视图合成，并使用一个 400 万参数的 3D Gaussian canonicalizer 对观测进行规范化，再接入冻结的 VLA 策略。作者在 LIBERO 等实验中从策略架构、未见任务套件和扰动尺度三个维度报告了鲁棒性提升。该方法的关键假设是相机扰动相对于工作空间处于较小的局部范围，因而主要处理局部遮挡/显露问题。</p><p class="lang lang-en lang-block" data-lang="en">This paper proposes a lightweight, plug-and-play framework that improves robustness to viewpoint shifts in Vision-Language-Action (VLA) policies without policy retraining. To our knowledge, this is the first approach to directly leverage 3D Gaussian-based novel-view synthesis for observation-space adaptation in VLA policies. Current VLA performance relies on the implicit assumption that training and deployment camera configurations are identical. Our experiments show that even a small displacement of the camera mount can reduce the success rate on the LIBERO benchmark from about 90% to about 10% in the worst case. Prior approaches, such as large-scale fine-tuning or generative data augmentation, are computationally expensive and risk catastrophic forgetting. To address this, viewpoint shifts are reformulated as a localized novel-view synthesis problem. Under a Locality assumption, that camera perturbations remain within a small bounded region relative to the workspace, viewpoint normalization reduces to a scene- and policy-independent disocclusion task. Our work implements this idea with a 4M-parameter 3D-Gaussian canonicalizer prepended to a frozen VLA policy. Without modifying policy weights, GS-VLA improves performance across three orthogonal axes: (1) Policy architectures, (2) Unseen task suites, and (3) Perturbation scales. These results show that a lightweight visual module can recover a large fraction of the performance lost under viewpoint shift, without policy retraining.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.19066">arXiv:2608.19066</a> · <a href="https://arxiv.org/pdf/2608.19066">PDF</a></li>
+<li><strong>作者</strong>：Yechan Park, HyunJin Kim</li>
+<li><strong>核心方法</strong>：用 400 万参数的 3D Gaussian canonicalizer 将局部相机视点扰动转化为观测空间的新视图合成，再接入冻结的 VLA 策略，不修改策略权重。</li>
+<li><strong>判断</strong>：虽然主要不是 SLAM，但对机器人相机安装偏差和观测域适配具有启发。关键风险是局部性假设、遮挡显露区域的真实性、端到端延迟，以及是否会把几何重建误差传给策略。</li>
+<li><strong>评分</strong>：8.5/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19066/fig-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19066/fig-001.webp" alt="GS-VLA: Plug-and-Play Viewpoint Canonicalization for Frozen VLA Policies via Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19066/fig-002.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19066/fig-002.webp" alt="GS-VLA: Plug-and-Play Viewpoint Canonicalization for Frozen VLA Policies via Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19066/table-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19066/table-001.webp" alt="GS-VLA: Plug-and-Play Viewpoint Canonicalization for Frozen VLA Policies via Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19066/table-002.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19066/table-002.webp" alt="GS-VLA: Plug-and-Play Viewpoint Canonicalization for Frozen VLA Policies via Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19066/table-003.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19066/table-003.webp" alt="GS-VLA: Plug-and-Play Viewpoint Canonicalization for Frozen VLA Policies via Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19066/table-004.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19066/table-004.webp" alt="GS-VLA: Plug-and-Play Viewpoint Canonicalization for Frozen VLA Policies via Gaussian Splatting" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

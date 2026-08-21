@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-21/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-21/index.html">← 返回 2026-08-21 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-19 · score 5 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">自主农业拖拉机：面向精准水稻种植的杂草检测与 LiDAR 导航融合</span><span class="lang lang-en lang-inline" data-lang="en">Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming</span></h1>
+  <div class="meta">作者：Benjamin Merryman-Smith, Tony Nguyen, Bilal Dogutas, Krish Shah, Anthony Raphael, Sudip Dhakal</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.19004">abs</a><a href="https://arxiv.org/pdf/2608.19004">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.2/10</span><p>包含 GNSS/IMU/轮速计融合与 LiDAR—相机工程集成，场景具体；但主要证据来自仿真和检测置信度，缺少真实田间轨迹误差、定位退化对作业结果的量化。</p><div class="tags"><span class="tag">GNSS/IMU/轮速计融合</span><span class="tag">LiDAR—相机融合</span><span class="tag">EKF</span><span class="tag">农业机器人</span><span class="tag">GNSS 中断</span><span class="tag">ROS</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以零额外硬件成本把导航 LiDAR 融入农田视觉检测，并用 GNSS/IMU/轮速计 EKF 跨越短时 GNSS 中断。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">AgriNav 是一个面向稻田自主作业的 ROS 耦合系统，包含杂草检测、保护水稻类别的置信度门控、融合 GNSS/IMU/轮速计的六状态扩展卡尔曼滤波器，以及利用导航 LiDAR 约束感兴趣区域、投影到世界坐标、地面滤波和双向置信度融合的 LiDAR—相机桥接模块。仿真结果覆盖 20 秒 GNSS 中断期间的连续位置跟踪、作物行检测和多来源图像检测。</p><p class="lang lang-en lang-block" data-lang="en">Site-specific weed management in paddy farming offers substantial reductions in herbicide use over conventional broadcast spraying, but field deployment has been limited by three persistent challenges: robust crop-row navigation under canopy where GNSS degrades, real-time visual discrimination between rice and morphologically diverse weeds, and the asymmetric cost of misclassifying rice as weed, which is irreversible. This paper presents AgriNav, an integrated autonomous tractor system built around four ROS-coupled modules: a custom PyTorch reimplementation of WeedDet for rice detection, a parallel lightweight 1.68M-parameter CNN-FPN variant with asymmetric class weighting, an inverted-logic discrimination module that protects the rice class through a hardcoded confidence-gate veto, and a 6-state constant-velocity-turn-rate Extended Kalman Filter fusing GNSS, IMU, and wheel odometry with three-level outage bridging. Our primary system-level contribution is a four-mechanism LiDAR-camera fusion bridge that uses the navigation LiDAR for region-of-interest constraint, world-coordinate projection, ground-plane filtering, and bidirectional confidence fusion at zero additional hardware cost. Simulation experiments demonstrate continuous position tracking through a 20-second GNSS outage, crop row detection confidence above 0.9 throughout operation, and rice-detection confidences from 0.32 to 0.95 across paddy, aerial, and post-flood imagery. The LiDAR ROI constraint reduces detection inference region by an estimated 30 to 50 percent.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.19004">arXiv:2608.19004</a> · <a href="https://arxiv.org/pdf/2608.19004">PDF</a></li>
+<li><strong>作者</strong>：Benjamin Merryman-Smith 等</li>
+<li><strong>核心方法</strong>：用 LiDAR 做检测 ROI、世界坐标投影和地面滤波，并与相机置信度双向融合；导航侧使用 GNSS/IMU/轮速计 EKF，报告了 20 秒 GNSS 中断仿真。</li>
+<li><strong>判断</strong>：是今天最贴近工程融合的案例之一，但主要证据来自仿真和检测置信度，尚缺真实田间轨迹误差、失锁恢复和长期漂移指标。</li>
+<li><strong>评分</strong>：7.2/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19004/fig-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19004/fig-001.webp" alt="Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19004/fig-002.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19004/fig-002.webp" alt="Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19004/table-001.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19004/table-001.webp" alt="Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19004/table-002.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19004/table-002.webp" alt="Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19004/table-003.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19004/table-003.webp" alt="Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19004/table-004.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19004/table-004.webp" alt="Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19004/table-005.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19004/table-005.webp" alt="Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-21/arxiv-2608.19004/table-006.webp"><img src="../../assets/media/2026-08-21/arxiv-2608.19004/table-006.webp" alt="Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
