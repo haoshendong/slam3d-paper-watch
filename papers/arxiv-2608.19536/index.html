@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-22/index.html">← 返回 2026-08-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-20 · score 10 · cs.CV, cs.AI, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">CVSD-Reg：面向鲁棒 LiDAR 配准的跨模态视觉语义先验蒸馏</span><span class="lang lang-en lang-inline" data-lang="en">CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration</span></h1>
+  <div class="meta">作者：Eunsoo Im, Junghun Suh, Gyeonggwan Lee, Seunghwan Hong</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.19536">abs</a><a href="https://arxiv.org/pdf/2608.19536">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>与点云配准和 LiDAR SLAM 前端直接相关，且明确测试稀疏扫描和跨传感器泛化；需继续核实训练数据泄漏、运行时成本及在真实动态环境中的稳定性。</p><div class="tags"><span class="tag">LiDAR 配准</span><span class="tag">点云配准</span><span class="tag">视觉语义蒸馏</span><span class="tag">DINOv2</span><span class="tag">SE(3) 不变性</span><span class="tag">跨传感器</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 DINOv2 语义先验蒸馏到 LiDAR 描述子，提升跨密度、跨传感器全局点云配准鲁棒性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">CVSD-Reg 将视觉基础模型的语义先验蒸馏到 LiDAR 表示中。第一阶段使用冻结的 DINOv2 教师和 Point Transformer V3 学生，通过对比蒸馏、球面流形对齐、自监督 InfoNCE 一致性和软 SE(3) 不变性学习视角鲁棒描述子；第二阶段加入对应关系学习、密度感知点丢弃增强和端到端位姿优化。作者报告单一 checkpoint 可泛化到 KITTI、nuScenes 和 HeLiPR，并覆盖单传感器与零样本跨传感器场景，推理时无需相机或后处理 ICP。</p><p class="lang lang-en lang-block" data-lang="en">Learning-based global point cloud registration has achieved remarkable progress, yet its reliance on geometric representations makes existing methods sensitive to variations in point density, scan pattern, viewpoint, and sensor characteristics. We propose CVSD-Reg, a robust global LiDAR registration framework that distills visual semantic priors from a vision foundation model into LiDAR representations. In Stage 1, a Point Transformer V3 student learns from a frozen DINOv2 teacher through contrastive distillation and spherical-manifold alignment, which preserves the hyperspherical geometry of the teacher embedding space. Self-supervised InfoNCE consistency and soft $\mathrm{SE}(3)$ invariance further encourage viewpoint-robust descriptors. In Stage 2, the distilled representation is adapted to registration through correspondence learning, density-aware point-dropout augmentation, and end-to-end pose optimization. With a single checkpoint, CVSD-Reg generalizes to both single-sensor and zero-shot cross-sensor scenarios without sensor-specific adaptation and remains entirely camera-free at inference. On KITTI, nuScenes, and HeLiPR, CVSD-Reg achieves strict success rate (SR@0.5\,m/$1^\circ$) of 97.7$\%$, 99.0$\%$, and 99.3$\%$, respectively, including 97.3$\%$ on sparse 16-beam Velodyne scans. It outperforms state-of-the-art geometric registration methods by up to 44.0 percentage points without requiring camera inputs or post-hoc ICP refinement.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.19536">arXiv:2608.19536</a> · <a href="https://arxiv.org/pdf/2608.19536">PDF</a></li>
+<li><strong>作者</strong>：Eunsoo Im, Junghun Suh, Gyeonggwan Lee, Seunghwan Hong</li>
+<li><strong>核心方法</strong>：将冻结 DINOv2 的视觉语义蒸馏到 Point Transformer V3 LiDAR 表示，结合球面流形对齐、InfoNCE、一致性与软 SE(3) 不变性，再进行对应关系学习、点丢弃增强和端到端位姿优化。</li>
+<li><strong>判断</strong>：对 LiDAR SLAM 的全局重定位和跨传感器配准很有价值。摘要声称在 KITTI、nuScenes、HeLiPR 以及稀疏 16-beam 扫描上取得高成功率，但需要继续核验训练/测试隔离、动态场景表现、单次推理成本，以及是否真的无需 ICP 仍保持稳定。</li>
+<li><strong>评分</strong>：9.0/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/fig-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/fig-001.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/fig-002.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/fig-002.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/fig-003.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/fig-003.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/fig-004.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/fig-004.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/table-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/table-001.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/table-002.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/table-002.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/table-003.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/table-003.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/table-004.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/table-004.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/table-005.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/table-005.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19536/table-006.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19536/table-006.webp" alt="CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

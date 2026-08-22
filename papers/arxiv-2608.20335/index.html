@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>4DAnyone: Create Anyone in 4D from a Casual Monocular Video</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-22/index.html">← 返回 2026-08-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-21 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">4DAnyone：从随手拍单目视频创建任意人物的 4D 表示</span><span class="lang lang-en lang-inline" data-lang="en">4DAnyone: Create Anyone in 4D from a Casual Monocular Video</span></h1>
+  <div class="meta">作者：Yudong Jin, Tao Xie, Qihang Zhang, Zehong Shen, Zhen Xu, Yujun Shen, Hujun Bao, Xiaowei Zhou</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.20335">abs</a><a href="https://arxiv.org/pdf/2608.20335">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5.8/10</span><p>涉及单目到多视图、动态 4DGS 和跨视图一致性，对生成式三维重建有启发；但聚焦人物内容和生成质量，尚非通用 SLAM 或 metric 4D 建图方案。</p><div class="tags"><span class="tag">4D Gaussian Splatting</span><span class="tag">单目视频</span><span class="tag">动态人物</span><span class="tag">多视图一致性</span><span class="tag">扩散模型</span><span class="tag">新视图合成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">通过参考上下文压缩和目标视图路由，从未标定单目视频生成多视图一致视频并重建动态人物 4DGS。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">4DAnyone 从未标定单目视频出发，先生成适合重建的多视图一致视频，再将其提升为 4D Gaussian Splatting。方法针对目标视图数量超过单次 DiT 上下文容量时出现的跨视图一致性问题，提出固定长度的 Reference Context Packing 和在去噪阶段轮换目标分组的 Target Context Routing，并结合 MVGameHuman、light-stage 与真实视频数据训练。作者在 DNA-Rendering 和 DyMVHumans 上报告了新视图视频质量与下游 4DGS 重建改进。</p><p class="lang lang-en lang-block" data-lang="en">We present 4DAnyone, a framework for reconstructing 4D humans from an uncalibrated monocular video by generating reconstruction-grade multiview-consistent videos and lifting them into 4D Gaussian Splatting (4DGS). Existing camera-controlled video diffusion models synthesize plausible novel-view videos but fail to maintain consistency when scaled to the tens of target views required for 4DGS reconstruction. We identify this failure as a bounded-attention-context problem: when target views exceed the capacity of a single DiT forward pass, they must be split into groups, exposing two coupled bottlenecks. On the reference-context side, conditioning on all previously generated views grows as $O(N)$, weakening cross-view appearance guidance. On the target-context side, disjoint groups cannot directly exchange information, causing global structural drift. 4DAnyone addresses both bottlenecks with two complementary designs: Reference Context Packing (RCP) compresses growing reference views into a fixed-length mixed-resolution context with $O(1)$ reference-context complexity, while Target Context Routing (TCR) rotates target-view groupings during denoising to share context across groups at high-noise steps and stabilize details at low-noise steps. We further build the MVGameHuman dataset using our in-house game engine and combine it with light-stage and in-the-wild video datasets for training. Experiments on DNA-Rendering and DyMVHumans show that 4DAnyone outperforms prior methods in both novel-view video quality and downstream 4DGS reconstruction, with robust in-the-wild generalization. See our project page for video results and source code: https://4danyone.github.io.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.20335">arXiv:2608.20335</a> · <a href="https://arxiv.org/pdf/2608.20335">PDF</a> · <a href="https://4danyone.github.io">项目页</a></li>
+<li><strong>作者</strong>：Yudong Jin, Tao Xie, Qihang Zhang, Zehong Shen, Zhen Xu, Yujun Shen, Hujun Bao, Xiaowei Zhou</li>
+<li><strong>核心方法</strong>：先生成面向重建的多视图一致视频，再提升为 4DGS；Reference Context Packing 将不断增长的参考视图压缩到固定长度上下文，Target Context Routing 则在去噪阶段轮换目标视图分组以交换信息。</li>
+<li><strong>判断</strong>：对单目到多视图、动态 4DGS 和上下文受限的跨视图一致性有启发，但内容聚焦人物生成和视觉质量，不能直接等同于通用 metric 4D 建图或 SLAM。</li>
+<li><strong>评分</strong>：5.8/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.20335/fig-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.20335/fig-001.webp" alt="4DAnyone: Create Anyone in 4D from a Casual Monocular Video" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.20335/fig-002.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.20335/fig-002.webp" alt="4DAnyone: Create Anyone in 4D from a Casual Monocular Video" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.20335/fig-003.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.20335/fig-003.webp" alt="4DAnyone: Create Anyone in 4D from a Casual Monocular Video" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.20335/table-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.20335/table-001.webp" alt="4DAnyone: Create Anyone in 4D from a Casual Monocular Video" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.20335/table-002.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.20335/table-002.webp" alt="4DAnyone: Create Anyone in 4D from a Casual Monocular Video" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.20335/table-003.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.20335/table-003.webp" alt="4DAnyone: Create Anyone in 4D from a Casual Monocular Video" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

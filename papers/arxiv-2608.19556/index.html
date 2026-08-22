@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-22/index.html">← 返回 2026-08-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-20 · score 5 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Stream4D：流式自回归扩散视频模型的 4D 一致性</span><span class="lang lang-en lang-inline" data-lang="en">Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models</span></h1>
+  <div class="meta">作者：Yuanhao Ban, Jiaqi Feng, Hengguang Zhou, Xiaohuan Pei, Justin Cui, Cho-Jui Hsieh</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.19556">abs</a><a href="https://arxiv.org/pdf/2608.19556">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.2/10</span><p>对动态场景 4D 表示和 Gaussian/重建质量评价有边界参考价值；但主要贡献是视频生成训练奖励，不是 SLAM、定位或可度量重建系统。</p><div class="tags"><span class="tag">4D 重建</span><span class="tag">动态场景</span><span class="tag">视频生成</span><span class="tag">3D Gaussian Splatting</span><span class="tag">运动先验</span><span class="tag">场景一致性</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用动态 4D 重建奖励和运动先验评估视频生成，避免静态 3D critic 把真实运动误判为重建误差。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Stream4D 针对长时程流式自回归扩散视频中的几何漂移和运动冻结问题，使用前馈 4D 重建奖励替代会惩罚真实物体运动的静态 3D 重建 critic，并加入约束运动幅度、抑制抖动和非刚性伪影的运动先验。最终目标将 4D 重建一致性、运动先验和轻量感知锚点结合，以提升不同视频生成骨干和生成时长下的动态场景质量。</p><p class="lang lang-en lang-block" data-lang="en">Streaming autoregressive diffusion models enable real-time, long-horizon video generation, but their training objectives optimize local frame prediction rather than the geometry and dynamics of a coherent world: long rollouts accumulate geometric drift and degrade into static or unnatural motion. Recent bidirectional approaches address this problem using rewards signals built upon 3D Gaussian-Splatting reconstruction. However, a single rigid 3d reconstruction cannot model a dynamic scene, so this critic penalizes genuine object motion as reconstruction error and is maximized by freezing the video. This shortcut is especially detrimental in the AR setting, where each chunk can propagate an already-static configuration. In this work, we propose Stream4D, which replaces the static critic with a feed-forward 4D reconstruction reward that explicitly models scene dynamics, allowing coherent motion to receive high consistency rewards. To further guide motion magnitude and quality, we add a motion prior that rewards natural scene-flow magnitude while penalizing jitter and non-rigid artifacts. Our final recipe combines these two terms with a lightweight perceptual anchor. Across various autoregressive video backbones and various generation horizons, Stream4D improves 4D reconstruction quality, preserves motion more effectively, and achieves higher human-aligned preference. Project page: https://banyuanhao.github.io/Stream4D/</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.19556">arXiv:2608.19556</a> · <a href="https://arxiv.org/pdf/2608.19556">PDF</a></li>
+<li><strong>作者</strong>：Yuanhao Ban, Jiaqi Feng, Hengguang Zhou, Xiaohuan Pei, Justin Cui, Cho-Jui Hsieh</li>
+<li><strong>核心方法</strong>：用动态 4D 重建奖励替代静态 3DGS critic，避免真实物体运动被误判为重建误差；另加运动幅度、抖动和非刚性伪影先验，并与轻量感知锚点组合。</li>
+<li><strong>判断</strong>：对动态场景 4D 表示和重建质量评价有边界参考意义，尤其提醒静态重建指标在动态世界中的失真。但它主要服务视频生成训练，不是在线定位或可度量 SLAM 系统。</li>
+<li><strong>评分</strong>：6.2/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19556/fig-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19556/fig-001.webp" alt="Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19556/fig-002.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19556/fig-002.webp" alt="Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19556/table-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19556/table-001.webp" alt="Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19556/table-002.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19556/table-002.webp" alt="Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19556/table-003.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19556/table-003.webp" alt="Stream4D: 4D-Consistency for Streaming Autoregressive Diffusion Video Models" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

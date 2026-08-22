@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Some Practical Issues of the Tracking Process in GNSS Receivers</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-22/index.html">← 返回 2026-08-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-20 · score 7 · eess.SP</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GNSS 接收机跟踪过程中的若干实践问题</span><span class="lang lang-en lang-inline" data-lang="en">Some Practical Issues of the Tracking Process in GNSS Receivers</span></h1>
+  <div class="meta">作者：S. V. Shafran, I. A. Kudryavtsev, A. A. Kumarin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.19927">abs</a><a href="https://arxiv.org/pdf/2608.19927">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6.8/10</span><p>属于 GNSS 接收机底层跟踪实现的实用信号，对高动态或弱信号前端设计有参考；但与 GNSS/INS 紧耦合、RTK/PPP 和鲁棒定位算法的直接连接有限。</p><div class="tags"><span class="tag">GNSS</span><span class="tag">GPS L1</span><span class="tag">接收机跟踪</span><span class="tag">相关器</span><span class="tag">环路滤波器</span><span class="tag">抗噪性能</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从积分、相关器间隔和环路滤波器参数出发，分析 GPS L1 接收机跟踪性能与瞬态响应。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文分析 GNSS 接收机跟踪模块中的积分时长、早晚相关器通道间隔以及跟踪环路滤波器参数等关键设计问题，并讨论这些参数对瞬态过程和抗噪性能的影响。研究结合 GPS L1 信号的仿真、Vivado 环境、实验接收机以及外场实测信号记录，给出跟踪模块参数调整的实验结果。</p><p class="lang lang-en lang-block" data-lang="en">The accuracy and noise immunity of GNSS receivers are largely determined by the performance of their tracking modules. To optimize performance, designers should take into account several key issues: the choice of integration intervals, the time delay (spacing) between the early and late correlator channels, and the parameters of tracking loop filters. This article presents the results of an analysis of these important practical aspects. The obtained results display some ways of improv-ing the parameters of transient processes, which occur in tracking modules. The study was conducted on an experimental navigation receiver, processing GPS L1 signals. Experimental data were obtained using the simulation software package, developed by the authors, Xilinx environment Vivado, as well as the processing of recordings of real navigation signals obtained in full-scale tests.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.19927">arXiv:2608.19927</a> · <a href="https://arxiv.org/pdf/2608.19927">PDF</a></li>
+<li><strong>作者</strong>：S. V. Shafran, I. A. Kudryavtsev, A. A. Kumarin</li>
+<li><strong>核心问题</strong>：分析积分时长、早晚相关器通道间隔和跟踪环路滤波器参数对 GPS L1 跟踪模块瞬态过程、精度和抗噪性的影响，并结合仿真、Vivado、实验接收机和真实信号记录验证调整方向。</li>
+<li><strong>判断</strong>：这是接收机底层实现的实用型工作，适合关注高动态或弱信号 GNSS 前端的读者；与 RTK/PPP、整数模糊度和 GNSS/INS 紧耦合定位的直接关联较弱，暂列 GNSS 基础跟踪项。</li>
+<li><strong>评分</strong>：6.8/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19927/fig-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19927/fig-001.webp" alt="Some Practical Issues of the Tracking Process in GNSS Receivers" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19927/fig-002.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19927/fig-002.webp" alt="Some Practical Issues of the Tracking Process in GNSS Receivers" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19927/fig-003.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19927/fig-003.webp" alt="Some Practical Issues of the Tracking Process in GNSS Receivers" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19927/fig-004.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19927/fig-004.webp" alt="Some Practical Issues of the Tracking Process in GNSS Receivers" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19927/fig-005.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19927/fig-005.webp" alt="Some Practical Issues of the Tracking Process in GNSS Receivers" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19927/fig-006.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19927/fig-006.webp" alt="Some Practical Issues of the Tracking Process in GNSS Receivers" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.19927/table-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.19927/table-001.webp" alt="Some Practical Issues of the Tracking Process in GNSS Receivers" loading="lazy"></a><figcaption class="meta">papercropper_table · page 2</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

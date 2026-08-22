@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Point-Based 3D Reconstruction from Sparse Views under Known Illumination</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-22/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-22/index.html">← 返回 2026-08-22 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-20 · score 10 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">已知光照下稀疏视图的基于点的三维重建</span><span class="lang lang-en lang-inline" data-lang="en">Point-Based 3D Reconstruction from Sparse Views under Known Illumination</span></h1>
+  <div class="meta">作者：Magnus Kaufmann Gjerde, Joakim Bruslund Haurum, Jeppe Revall Frisvad, Markus Worchel, J. Andreas Bærentzen, Thomas B. Moeslund</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.20000">abs</a><a href="https://arxiv.org/pdf/2608.20000">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7.8/10</span><p>对稀疏视图点表示和表面重建有新意，且给出几何误差与表示规模结果；但实验依赖受控已知光照和合成物体，距离真实场景和未知光照仍有明显差距。</p><div class="tags"><span class="tag">稀疏视图重建</span><span class="tag">surfel</span><span class="tag">可微渲染</span><span class="tag">光传输</span><span class="tag">Chamfer 距离</span><span class="tag">表面几何</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">用可微光传输约束紧凑 beta surfel 表示，在极少视图下恢复表面几何。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出一种基于不透明度显式 beta surfel 的可微点渲染方法，在已知直接光照条件下利用物理光传输约束 surfel 的几何和外观参数。方法使用显式伴随光传输公式计算梯度，并在十个已知位姿视图上重建五个合成物体。作者报告其在评测方法中取得最低平均对称 Chamfer 距离，相比最强点表示基线降低 28.5%，同时平均只使用约 267 个 surfel。</p><p class="lang lang-en lang-block" data-lang="en">Sparse view 3D reconstruction is commonly addressed with neural implicit surfaces or dense point-based representations such as Gaussian splatting. Surface-aware splatting methods improve extracted geometry through oriented primitives and regularization, while RadiosityGS incorporates differentiable light transport through a radiosity inspired finite-element surfel formulation. We propose a differentiable point rendering method based on opacity-bearing beta surfels. An opacity explicit adjoint light transport formulation provides gradients for surfel geometry and appearance parameters, allowing physically based light transport to constrain reconstruction. Across five synthetic objects reconstructed from ten posed views, our method achieves the lowest mean symmetric Chamfer distance among the evaluated baselines and reduces mean Chamfer distance by 28.5% relative to the strongest point-based baseline while using only 267 surfels on average, approximately ~161 fewer primitives. Directional Chamfer results further show improved accuracy and competitive completion relative to related point-based methods. These results show that, in the controlled direct illumination setting, compact beta surfels combined with transport-based optimization can recover surfaces without relying on the tens to hundreds of thousands of primitives used by the evaluated baselines.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>论文</strong>：<a href="https://arxiv.org/abs/2608.20000">arXiv:2608.20000</a> · <a href="https://arxiv.org/pdf/2608.20000">PDF</a></li>
+<li><strong>作者</strong>：Magnus Kaufmann Gjerde, Joakim Bruslund Haurum, Jeppe Revall Frisvad, Markus Worchel, J. Andreas Bærentzen, Thomas B. Moeslund</li>
+<li><strong>核心结果</strong>：以不透明度显式 beta surfel 和可微光传输约束表面几何与外观。在十个已知位姿视图和五个合成物体上，作者报告平均对称 Chamfer 距离最低，并以约 267 个 surfel 达到比最强点表示基线低 28.5% 的平均 Chamfer。</li>
+<li><strong>判断</strong>：紧凑点表示和物理光照约束很有新意，但结论目前强依赖已知直接光照、已知相机和合成对象。后续应重点看未知光照、真实纹理、位姿误差和更复杂遮挡下是否仍能保持几何优势。</li>
+<li><strong>评分</strong>：7.8/10。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-22/arxiv-2608.20000/fig-001.webp"><img src="../../assets/media/2026-08-22/arxiv-2608.20000/fig-001.webp" alt="Point-Based 3D Reconstruction from Sparse Views under Known Illumination" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
