@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Grounded-Exo2Ego: Structured Semantic Grounding for Robust Exocentric-to-Egocentric Video Generation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-25/index.html">← 返回 2026-08-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 4 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Grounded-Exo2Ego：面向稳健外视角到第一视角视频生成的结构化语义对齐</span><span class="lang lang-en lang-inline" data-lang="en">Grounded-Exo2Ego: Structured Semantic Grounding for Robust Exocentric-to-Egocentric Video Generation</span></h1>
+  <div class="meta">作者：Shengze Wang, Michael Stengel, Tianye Li, Seonwook Park, Amrita Mazumdar, Koki Nagano, Alex Trevithick, Shalini De Mello</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.20534">abs</a><a href="https://arxiv.org/pdf/2608.20534">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>核心任务是视频生成，但明确使用 3D reconstruction 和 camera re-localization 处理极端视角变化，具有交叉参考价值。</p><div class="tags"><span class="tag">三维重建</span><span class="tag">相机重定位</span><span class="tag">新视角</span><span class="tag">视频生成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将三维重建渲染作为视频生成的几何条件，并强调相机重定位误差；对关注重建—生成耦合、相机标定和视角变换的研究有跟踪价值。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">针对单个外视角视频生成第一视角视频在大视角变化和不可观测区域下的困难，方法使用双分支视频扩散模型：几何锚定分支以三维重建渲染为条件，语义分支根据对象级上下文补足缺失区域；同时提出相机重定位算法处理相机与重建不对齐，并构建自动合成数据引擎。</p><p class="lang lang-en lang-block" data-lang="en">Generating egocentric video from a single exocentric video is an emerging and important topic for AR/VR and physical AI. Compared with conventional novel view synthesis, exo-to-ego generation is a significantly harder task because the standard geometric conditioning becomes highly unreliable under extreme view changes and large unobservable regions. We present Grounded-Exo2Ego, a principled framework that addresses these challenges at both the architectural and data levels. Architecturally, Grounded-Exo2Ego is a dual-branch video diffusion model that couples a geometric anchoring branch, which conditions the generation on the rendering of a 3D reconstruction, with a novel semantic grounding branch, which goes beyond the prevailing geometry-based approach and improves quality by synthesizing challenging regions based on object-level context. Additionally, we found that the overlooked issue of camera-reconstruction misalignment severely undermines exo-to-ego learning. We thus introduce a camera re-localization algorithm that resolves this issue and substantially improves quality across all metrics. We further develop a fully automated synthetic data engine that generates and renders rigged 3D characters in procedurally generated environments. Evaluation on the challenging EgoExo4D dataset shows that our method outperforms recent state-of-the-art approaches by large margins across all metrics. Detailed ablations validate improvements from each of our contributions at both the data and architectural level.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：TopoSurfel：连接高斯曲面元与网格的闭环表面重建</li>
+<li><strong>方向</strong>：3DGS、表面重建、网格、可微几何；代码链接见论文页。</li>
+<li><strong>要点</strong>：以不可训练的可微等值面提取构造连续代理网格，再用网格引导曲面元演化，结合法线对齐和几何感知密度控制抑制漂浮点、填补孔洞，并以空间感知混合重初始化增强大场景稳定性。</li>
+<li><strong>判断</strong>：今日与三维重建主线最直接相关，值得优先阅读其网格提取、优化稳定性和复杂场景实验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20534/fig-001.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20534/fig-001.webp" alt="Grounded-Exo2Ego: Structured Semantic Grounding for Robust Exocentric-to-Egocentric Video Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20534/fig-002.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20534/fig-002.webp" alt="Grounded-Exo2Ego: Structured Semantic Grounding for Robust Exocentric-to-Egocentric Video Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20534/fig-003.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20534/fig-003.webp" alt="Grounded-Exo2Ego: Structured Semantic Grounding for Robust Exocentric-to-Egocentric Video Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20534/fig-004.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20534/fig-004.webp" alt="Grounded-Exo2Ego: Structured Semantic Grounding for Robust Exocentric-to-Egocentric Video Generation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20534/table-001.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20534/table-001.webp" alt="Grounded-Exo2Ego: Structured Semantic Grounding for Robust Exocentric-to-Egocentric Video Generation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>MeshFlow: Mesh Generation with Equivariant Flow Matching</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-25/index.html">← 返回 2026-08-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 5 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MeshFlow：基于等变流匹配的网格生成</span><span class="lang lang-en lang-inline" data-lang="en">MeshFlow: Mesh Generation with Equivariant Flow Matching</span></h1>
+  <div class="meta">作者：Qi Sun, Kiyohiro Nakayama, Jing Nathan Yan, Qixing Huang, Alexander Rush, Leonidas Guibas, Gordon Wetzstein, Jing Liao, Guandao Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2606.23489">abs</a><a href="https://arxiv.org/pdf/2606.23489">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>直接处理三维网格表示和生成效率，方法中的置换等变性对三维几何建模有参考价值。</p><div class="tags"><span class="tag">网格生成</span><span class="tag">流匹配</span><span class="tag">等变性</span><span class="tag">3D生成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以显式对称性为核心的直接网格生成方法，适合跟踪三维表示生成、网格先验和高效推理方向，但它更偏生成而非传感器重建。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">MeshFlow 将三角网格作为三角形集合直接生成，避免把网格序列化为很长的自回归序列。模型采用满足面置换不变性和面内顶点置换不变性的等变最优传输流匹配，并改造 Diffusion Transformer 以建模速度场；最优传输训练目标用于消除破坏对称性的监督信号。论文报告推理速度约提升 18 倍。</p><p class="lang lang-en lang-block" data-lang="en">Meshes are among the most common 3D scene representations, but directly generating meshes is challenging because the representation contains important symmetries, including permutation invariance of faces and vertices. MeshFlow learns to generate triangle meshes directly as triangle soups, avoiding the need to serialize meshes into long autoregressive sequences. We adopt equivariant optimal-transport flow matching models that respect the key symmetries of triangle soups: arbitrary permutations of faces and permutations of the vertices within each face. Toward this goal, we propose a simple yet effective modification to the Diffusion Transformer architecture, resulting in a scalable network capable of modeling a velocity field while maintaining the desired equivariance. We further introduce an optimal-transport-based training objective that improves convergence by eliminating supervision signals that violate these symmetries. MeshFlow achieves mesh quality comparable to state-of-the-art autoregressive mesh generators while providing about an 18$\times$ speedup during inference. Project page is at https://qiisun.github.io/MeshFlow/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：TopoSurfel：连接高斯曲面元与网格的闭环表面重建</li>
+<li><strong>方向</strong>：3DGS、表面重建、网格、可微几何；代码链接见论文页。</li>
+<li><strong>要点</strong>：以不可训练的可微等值面提取构造连续代理网格，再用网格引导曲面元演化，结合法线对齐和几何感知密度控制抑制漂浮点、填补孔洞，并以空间感知混合重初始化增强大场景稳定性。</li>
+<li><strong>判断</strong>：今日与三维重建主线最直接相关，值得优先阅读其网格提取、优化稳定性和复杂场景实验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2606.23489/fig-001.webp"><img src="../../assets/media/2026-08-25/arxiv-2606.23489/fig-001.webp" alt="MeshFlow: Mesh Generation with Equivariant Flow Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2606.23489/fig-002.webp"><img src="../../assets/media/2026-08-25/arxiv-2606.23489/fig-002.webp" alt="MeshFlow: Mesh Generation with Equivariant Flow Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2606.23489/fig-003.webp"><img src="../../assets/media/2026-08-25/arxiv-2606.23489/fig-003.webp" alt="MeshFlow: Mesh Generation with Equivariant Flow Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2606.23489/fig-004.webp"><img src="../../assets/media/2026-08-25/arxiv-2606.23489/fig-004.webp" alt="MeshFlow: Mesh Generation with Equivariant Flow Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2606.23489/fig-005.webp"><img src="../../assets/media/2026-08-25/arxiv-2606.23489/fig-005.webp" alt="MeshFlow: Mesh Generation with Equivariant Flow Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2606.23489/fig-006.webp"><img src="../../assets/media/2026-08-25/arxiv-2606.23489/fig-006.webp" alt="MeshFlow: Mesh Generation with Equivariant Flow Matching" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2606.23489/table-001.webp"><img src="../../assets/media/2026-08-25/arxiv-2606.23489/table-001.webp" alt="MeshFlow: Mesh Generation with Equivariant Flow Matching" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2606.23489/table-002.webp"><img src="../../assets/media/2026-08-25/arxiv-2606.23489/table-002.webp" alt="MeshFlow: Mesh Generation with Equivariant Flow Matching" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

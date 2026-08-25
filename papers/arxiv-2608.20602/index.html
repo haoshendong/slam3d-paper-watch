@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-25/index.html">← 返回 2026-08-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 8 · eess.IV, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">稀疏光场采样提升随手式 3D/4D 重建</span><span class="lang lang-en lang-inline" data-lang="en">Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction</span></h1>
+  <div class="meta">作者：Shamus Li, Ruiming Cao, Laura Waller, Kristina Monakhova, Sara Fridovich-Keil</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.20602">abs</a><a href="https://arxiv.org/pdf/2608.20602">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>提供新数据集并系统分析稀疏多视点对 3D/4D 重建的影响，覆盖传感器设计与重建质量。</p><div class="tags"><span class="tag">多视点</span><span class="tag">光场</span><span class="tag">3DGS</span><span class="tag">4DGS</span><span class="tag">动态重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从采集端说明多视点角度覆盖对 3D/4DGS 重建的价值，尤其适合关注低成本多相机、动态场景和少曝光重建的读者。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文研究传感器受限的多视点采集：单个传感器在空间分辨率与角度分辨率之间权衡，或多个传感器同步观测同一曝光事件。作者构建包含三类消费级多视点相机的新数据集，并评估稀疏视图 3DGS/4DGS，结果显示即使基线较小，多相机角度采样也能显著改善单帧、少帧和动态场景重建。</p><p class="lang lang-en lang-block" data-lang="en">Many consumer smartphones, stereo cameras, and light field cameras record multiple synchronized viewpoints in a single exposure event. However, novel view synthesis pipelines commonly use only a monocular stream and rely on camera motion or learned priors to obtain angular coverage. In this paper, we ask: why do we use only one viewpoint? We analyze sensor-limited multi-view, where one sensor trades off spatial and angular resolution, and exposure-limited multi-view, where multiple sensors on one commodity device observe each event simultaneously. We introduce a new dataset incorporating three types of commodity multi-view cameras, and evaluate sparse-view 3DGS and 4DGS baselines measuring reconstruction quality as a function of number of exposures and angle between extreme views. Our results demonstrate that using multiple cameras, even with a low baseline, significantly improves reconstruction quality in single-shot, few-shot, and casual video settings. In addition, under a fixed sensor budget, angular sampling improves reconstruction when exposures are scarce despite lower spatial resolution. The gains are most pronounced for single-shot and dynamic scenes, where a stationary monocular camera lacks the angular diversity to recover scene geometry and motion.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：TopoSurfel：连接高斯曲面元与网格的闭环表面重建</li>
+<li><strong>方向</strong>：3DGS、表面重建、网格、可微几何；代码链接见论文页。</li>
+<li><strong>要点</strong>：以不可训练的可微等值面提取构造连续代理网格，再用网格引导曲面元演化，结合法线对齐和几何感知密度控制抑制漂浮点、填补孔洞，并以空间感知混合重初始化增强大场景稳定性。</li>
+<li><strong>判断</strong>：今日与三维重建主线最直接相关，值得优先阅读其网格提取、优化稳定性和复杂场景实验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20602/fig-001.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20602/fig-001.webp" alt="Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20602/fig-002.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20602/fig-002.webp" alt="Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20602/fig-003.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20602/fig-003.webp" alt="Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20602/fig-004.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20602/fig-004.webp" alt="Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

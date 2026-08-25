@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-25/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-25/index.html">← 返回 2026-08-25 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 9 · cs.CV, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">TopoSurfel：连接高斯曲面元与网格的闭环表面重建</span><span class="lang lang-en lang-inline" data-lang="en">TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction</span></h1>
+  <div class="meta">作者：Chuanjin Fan, Wenjie Chang, Bohao Liao, Yujia Chen, Wenfei Yang, Tianzhu Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.20687">abs</a><a href="https://arxiv.org/pdf/2608.20687">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>直接聚焦 3D Gaussian Splatting 到连续表面/网格的几何重建，并公开代码；与三维重建主线高度相关。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">表面重建</span><span class="tag">网格</span><span class="tag">可微几何</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">面向 3DGS 表面重建的网格—曲面元闭环优化，重点解决纹理缺失、遮挡区域的结构歧义和大场景初始化问题。对三维重建与可渲染网格输出最直接相关。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">3D Gaussian Splatting 虽擅长新视角合成，但因离散且无结构，直接提取高保真表面容易产生伪影和漂浮点。TopoSurfel 通过不可训练的可微等值面提取动态生成连续代理网格，并以网格引导曲面元演化，结合法线对齐、几何感知密度控制和空间感知混合重初始化来抑制漂浮点、填补孔洞，提升复杂大场景重建稳定性。</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting has achieved remarkable success in novel view synthesis. However, extracting high-fidelity surfaces directly from 3DGS remains challenging due to its discrete and unstructured nature. Existing 3DGS-based reconstruction methods typically rely on multi-view geometric consistency or local constraints. Without an explicit structured geometric prior during optimization, these methods often struggle to resolve structural ambiguities, leading to artifacts and floaters, particularly in textureless or occluded regions. To address this limitation, we propose TopoSurfel, a novel framework that closes the loop between Gaussian surfels and continuous meshes. Unlike recent methods that incorporate mesh extraction into the differentiable pipeline by introducing auxiliary neural networks or extra per-Gaussian parameters, we dynamically extract a continuous proxy mesh via a non-trainable differentiable iso-surfacing process. Leveraging this differentiable connection, we introduce a mesh-guided surfel evolution strategy, including normal alignment and geometry-aware density control, to effectively suppress floaters and fill surface holes. Furthermore, to address the initialization challenges in large-scale environments, we propose a spatially aware hybrid re-initialization strategy that ensures robust reconstruction across complex scenes. Extensive experiments demonstrate that TopoSurfel achieves competitive geometric reconstruction accuracy while maintaining high-quality mesh-based novel view synthesis. The code for our method is available at https://github.com/Fan-Treasure/TopoSurfel.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：TopoSurfel：连接高斯曲面元与网格的闭环表面重建</li>
+<li><strong>方向</strong>：3DGS、表面重建、网格、可微几何；代码链接见论文页。</li>
+<li><strong>要点</strong>：以不可训练的可微等值面提取构造连续代理网格，再用网格引导曲面元演化，结合法线对齐和几何感知密度控制抑制漂浮点、填补孔洞，并以空间感知混合重初始化增强大场景稳定性。</li>
+<li><strong>判断</strong>：今日与三维重建主线最直接相关，值得优先阅读其网格提取、优化稳定性和复杂场景实验。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/fig-001.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/fig-001.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/fig-002.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/fig-002.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/fig-003.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/fig-003.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/fig-004.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/fig-004.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/fig-005.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/fig-005.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/fig-006.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/fig-006.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/table-001.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/table-001.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/table-002.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/table-002.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/table-003.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/table-003.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/table-004.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/table-004.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/table-005.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/table-005.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-25/arxiv-2608.20687/table-006.webp"><img src="../../assets/media/2026-08-25/arxiv-2608.20687/table-006.webp" alt="TopoSurfel: Closing the Loop between Gaussian Surfels and Meshes for Surface Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
