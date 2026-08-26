@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>RoboShape: Information-Theoretic Point Cloud Representations for Privacy-Aware Robot Perception</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-26/index.html">← 返回 2026-08-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-25 · score 7 · cs.RO, cs.AI, cs.CV, cs.IT</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RoboShape：面向隐私保护机器人感知的信息论点云表示</span><span class="lang lang-en lang-inline" data-lang="en">RoboShape: Information-Theoretic Point Cloud Representations for Privacy-Aware Robot Perception</span></h1>
+  <div class="meta">作者：Oguzhan Baser, Mirac Sozen, Kaan Kale, Sandeep Chinchali, Sriram Vishwanath</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.21380">abs</a><a href="https://arxiv.org/pdf/2608.21380">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>直接处理机器人点云表示、压缩和部署隐私，兼顾表征效用与敏感空间信息泄露；但不是新的 SLAM 后端。</p><div class="tags"><span class="tag">点云表示</span><span class="tag">机器人感知</span><span class="tag">隐私保护</span><span class="tag">信息瓶颈</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将点云表示压缩与隐私属性抑制统一起来，适合关注协同建图、云端规划和机器人感知数据传输的读者。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">RoboShape 在冻结的 Sonata 编码器之后加入信息论压缩头，以 Donsker–Varadhan 互信息估计同时保留目标理解信息、压低敏感属性信息。论文报告嵌入体积缩小 87.5%，物体分类效用保留 98.7%，敏感属性预测在三个室内 LiDAR 数据集上下降 39.3%。</p><p class="lang lang-en lang-block" data-lang="en">With the increased adoption of robotic agents operating in human environments by scanning and sharing 3D representations (e.g., for fleet learning, cloud-based planning, or collaborative mapping), collected point clouds reveal not just the objects in a scene but also sensitive spatial context, such as room function or information that occupants never consented to disclose. Traditional point cloud encoders offer no principled control over this: either all is preserved, or none. Hence, we introduce RoboShape, an information theory guided compression head following the frozen {\tt Sonata} encoder. We project voxel-level embeddings using the Donsker-Varadhan formulation of mutual information (MI). Specifically, we maximize the MI between embeddings and object-level understanding while minimizing it for private attributes. RoboShape leads to 87.5\% smaller embeddings that retain 98.7\% of object classification utility while collapsing sensitive attribute predictions by 39.3\% across the three real-world indoor LiDAR datasets. Its privacy-preserving embeddings are cheaper to transmit over the network or to train a model for any downstream tasks. We release the RoboShape codebase to give the robotics community a practical, encoder-agnostic tool for building perception pipelines that are compact, privacy-aware, and deployment-ready.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：RoboShape：面向隐私保护机器人感知的信息论点云表示</li>
+<li><strong>方向</strong>：点云表示、机器人感知、信息瓶颈、协同建图。</li>
+<li><strong>要点</strong>：在冻结 Sonata 编码器后加入信息论压缩头，同时保留目标理解信息并抑制敏感属性信息；报告嵌入体积缩小 87.5%、物体分类效用保留 98.7%，敏感属性预测下降 39.3%。</li>
+<li><strong>判断</strong>：对云端规划、协同建图和机器人感知数据传输有直接价值，但不是新的 SLAM 后端。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21380/fig-001.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21380/fig-001.webp" alt="RoboShape: Information-Theoretic Point Cloud Representations for Privacy-Aware Robot Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21380/fig-002.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21380/fig-002.webp" alt="RoboShape: Information-Theoretic Point Cloud Representations for Privacy-Aware Robot Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21380/fig-003.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21380/fig-003.webp" alt="RoboShape: Information-Theoretic Point Cloud Representations for Privacy-Aware Robot Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21380/fig-004.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21380/fig-004.webp" alt="RoboShape: Information-Theoretic Point Cloud Representations for Privacy-Aware Robot Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21380/fig-005.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21380/fig-005.webp" alt="RoboShape: Information-Theoretic Point Cloud Representations for Privacy-Aware Robot Perception" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

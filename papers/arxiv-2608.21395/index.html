@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-26/index.html">← 返回 2026-08-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-25 · score 4 · cs.RO, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ODG-NoMaD：基于俯视相机方向引导的 NoMaD</span><span class="lang lang-en lang-inline" data-lang="en">ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD</span></h1>
+  <div class="meta">作者：Blossom Treesa Bastian, Keerthi S. Shetty, Manish Kolachalam, Rani Malhotra, Ashish Dutta</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.21395">abs</a><a href="https://arxiv.org/pdf/2608.21395">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>不是新的 SLAM 算法，但明确使用占据地图、全局路径和局部深度规划解决未知环境探索，和建图导航系统有较强工程交叉。</p><div class="tags"><span class="tag">占据栅格</span><span class="tag">探索导航</span><span class="tag">扩散策略</span><span class="tag">深度相机</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把一次性全局地图和局部深度可通行性约束注入扩散导航策略，对地图辅助探索、占据栅格和视觉导航耦合值得关注。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ODG-NoMaD 在部署时使用一次俯视深度相机构建占据栅格并规划全局路径，再从路径得到期望航向；机器人自身深度相机生成逐帧可通行性图进行避障细化。方向代价梯度被注入扩散策略最后几步，在保留探索多模态性的同时旋转采样轨迹。仿真中相对无引导探索显著降低到目标的剩余距离，并在测试中保持无碰撞。</p><p class="lang lang-en lang-block" data-lang="en">NoMaD [31] is a learned vision-navigation policy that unifies goal-conditioned navigation and exploration in a single goal-masked diffusion policy. In an unseen environment, however - where neither a goal image nor a topological map is available - it can only explore undirectedly, wandering without global awareness. We present ODG-NoMaD, which gives NoMaD&#x27;s exploration mode a global sense of where to proceed, without retraining the policy. An overhead depth camera is used once on deployment to build an occupancy map and plan a global path, which is segmented to yield a desired heading; a per-frame traversability map from the robot&#x27;s onboard depth then refines this into a collision-free direction. The gradient of a cosine direction cost is injected into the final denoising steps, rotating sampled trajectories toward this direction while preserving the multimodality of exploration. In simulated office environments with and without random obstacles, ODG-NoMaD reduces the residual distance to the target by up to an order of magnitude over unguided exploration, outperforms the point-goal cost guidance of NaviDiffusor [37], and is the only configuration that remains collision-free on every trial.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：RoboShape：面向隐私保护机器人感知的信息论点云表示</li>
+<li><strong>方向</strong>：点云表示、机器人感知、信息瓶颈、协同建图。</li>
+<li><strong>要点</strong>：在冻结 Sonata 编码器后加入信息论压缩头，同时保留目标理解信息并抑制敏感属性信息；报告嵌入体积缩小 87.5%、物体分类效用保留 98.7%，敏感属性预测下降 39.3%。</li>
+<li><strong>判断</strong>：对云端规划、协同建图和机器人感知数据传输有直接价值，但不是新的 SLAM 后端。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21395/fig-001.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21395/fig-001.webp" alt="ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21395/fig-002.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21395/fig-002.webp" alt="ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21395/fig-003.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21395/fig-003.webp" alt="ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21395/fig-004.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21395/fig-004.webp" alt="ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21395/fig-005.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21395/fig-005.webp" alt="ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21395/fig-006.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21395/fig-006.webp" alt="ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21395/table-001.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21395/table-001.webp" alt="ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21395/table-002.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21395/table-002.webp" alt="ODG-NoMaD: Overhead-Camera Direction-Guided NoMaD" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

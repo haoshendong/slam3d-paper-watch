@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-26/index.html">← 返回 2026-08-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-25 · score 5 · cs.RO, cs.SY, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">面向自主水面/水下航行器准静态 INS 对准的非正交约束优化</span><span class="lang lang-en lang-inline" data-lang="en">On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles</span></h1>
+  <div class="meta">作者：Carlos Renato C. Durao, Felipe O. Silva, Itzik Klein, Vin{\i}cius M. G. B. Cavalcanti, Adriano Frutuoso, Ettore A. de Barros, Jay A. Farrell</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.21390">abs</a><a href="https://arxiv.org/pdf/2608.21390">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>本日最直接的惯性导航与状态估计工作，涉及姿态初始化、偏置估计和 EKF 观测模型；与 GNSS/INS 融合链路高度相邻。</p><div class="tags"><span class="tag">INS 对准</span><span class="tag">偏置估计</span><span class="tag">EKF</span><span class="tag">水下导航</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">面向 INS 初始对准和偏置可观性的约束设计，对 GNSS/INS 或水下多传感器融合的初始化环节有直接参考价值。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文优化 TRIAD 粗对准与粗偏置估计，并在零速更新扩展卡尔曼滤波中引入由 TRIAD 推导的非正交误差约束，将姿态误差与惯性传感器偏置直接联系起来。蒙特卡洛仿真和两种等级 IMU 的实验证明，误差与偏置估计可由分钟级加速到秒级，同时保持与传统方法相近的精度。</p><p class="lang lang-en lang-block" data-lang="en">Inertial navigation systems are specialized navigation apparatuses that equip almost all autonomous underwater and surface vehicles. They require precise initial alignment, i.e., determination of their initial attitude, which is typically achieved: (a) in quasi-static conditions (whenever possible); and (b) in two stages: Coarse Alignment (CA), using methods like TRI-axis Attitude Determination (TRIAD), and Fine Alignment (FA), via Zero Velocity Update (ZVU)-based Extended Kalman Filtering (EKF). However, conventional methods suffer from slow convergence and limited bias estimability. In response, this paper introduces: (a) an optimized version of a recently proposed CA method, namely, TRIAD with Coarse Bias Estimation (TRIAD-CBE); and (b) a novel FA EKF observation model that incorporates Non-Orthonormality (NON) error constraints derived from TRIAD, directly linking these errors to the inertial sensor biases. As validated through extensive Monte Carlo (MC) simulations, as well as real-world experiments using two Inertial Measurement Units (IMUs) of different grades, our approaches substantially accelerate the convergence of misalignment and bias estimates (from minutes to seconds), while maintaining accuracy/precision comparable to traditional techniques.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：RoboShape：面向隐私保护机器人感知的信息论点云表示</li>
+<li><strong>方向</strong>：点云表示、机器人感知、信息瓶颈、协同建图。</li>
+<li><strong>要点</strong>：在冻结 Sonata 编码器后加入信息论压缩头，同时保留目标理解信息并抑制敏感属性信息；报告嵌入体积缩小 87.5%、物体分类效用保留 98.7%，敏感属性预测下降 39.3%。</li>
+<li><strong>判断</strong>：对云端规划、协同建图和机器人感知数据传输有直接价值，但不是新的 SLAM 后端。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/fig-001.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/fig-001.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/fig-002.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/fig-002.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/fig-003.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/fig-003.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/fig-004.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/fig-004.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/fig-005.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/fig-005.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/table-001.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/table-001.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/table-002.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/table-002.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/table-003.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/table-003.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/table-004.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/table-004.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/table-005.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/table-005.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21390/table-006.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21390/table-006.webp" alt="On the Optimized Use of Non-Orthonormality Constraints for the Quasi-Static INS Alignment of Autonomous Underwater and Surface Vehicles" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

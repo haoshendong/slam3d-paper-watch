@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Selective Cross-View Consistency for World Action Models: Held-Out Viewpoint Robustness Without Test-Time Camera Information</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-26/index.html">← 返回 2026-08-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-25 · score 5 · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">选择性跨视角一致性：无需测试时相机信息的留出视角鲁棒性</span><span class="lang lang-en lang-inline" data-lang="en">Selective Cross-View Consistency for World Action Models: Held-Out Viewpoint Robustness Without Test-Time Camera Information</span></h1>
+  <div class="meta">作者：Bingqi Huang, Bingchuan Wei, Yingkai Cai, Zhaokui Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.21402">abs</a><a href="https://arxiv.org/pdf/2608.21402">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>与 SLAM 不直接相同，但聚焦机器人视觉在留出相机视角下的泛化，并提供较严谨的控制组和置信区间。</p><div class="tags"><span class="tag">跨视角一致性</span><span class="tag">机器人视觉</span><span class="tag">相机鲁棒性</span><span class="tag">闭环控制</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">虽然核心是机器人世界动作模型，但其对视角协变/不变量的拆分对多相机、视角变化和视觉导航鲁棒性评测有启发。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Selective Cross-View Consistency 只对世界动作模型中视角不变的动作、未来本体感知和价值输出施加跨视角一致性，而不约束本应随视角变化的未来场景块。作者在 LIBERO-Plus 相机轨迹上采用留出视角评测，报告轨道外插闭环成功率提升 12.2 个百分点，同时插值和分布内能力基本不变。</p><p class="lang lang-en lang-block" data-lang="en">World action models (WAMs) jointly denoise future video frames and robot actions, and the video prior is expected to generalize their control. Camera viewpoint change remains one of their hardest perturbation axes. We study a question specific to this model class: when training with same-state cross-view image pairs, on which output coordinates should a consistency loss be imposed? The WAM denoising target mixes view-covariant coordinates, namely the predicted future scene, with view-invariant coordinates, namely the action chunk, future proprioception, and value. We show that consistency applied to the covariant block is provably harmful, shrinking legitimate view-specific content to a fraction $1/(1+4\lambda)$ of its true value, and we verify this shrinkage law in controlled experiments. Selective cross-view consistency (SCVC) therefore constrains only the invariant block, requires no camera labels, extrinsics, depth, or view synthesis at training or test time, and leaves the deployment interface unchanged. We introduce a carve-and-hold-out evaluation protocol on the LIBERO-Plus camera track that separates a distribution-matched ceiling from genuine interpolation and extrapolation to held-out viewpoints, with a matched pair-trained control isolating the effect of the consistency term from pair exposure. On held-out orbital viewpoints beyond the training envelope, SCVC improves closed-loop success over the matched control by 12.2 points (95% CI [7.4, 17.0]; +15.5, CI [11.7, 19.4], under an independent second seed) -- an effect two further camera axes replicate -- while interpolation within the envelope shows no gain in either seed (-1.2 and -4.3 points) and in-distribution competence is preserved (-0.6, -0.2). We also report a cross-backbone audit showing that published camera-robustness numbers are confounded by wrist-camera pose stability.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：RoboShape：面向隐私保护机器人感知的信息论点云表示</li>
+<li><strong>方向</strong>：点云表示、机器人感知、信息瓶颈、协同建图。</li>
+<li><strong>要点</strong>：在冻结 Sonata 编码器后加入信息论压缩头，同时保留目标理解信息并抑制敏感属性信息；报告嵌入体积缩小 87.5%、物体分类效用保留 98.7%，敏感属性预测下降 39.3%。</li>
+<li><strong>判断</strong>：对云端规划、协同建图和机器人感知数据传输有直接价值，但不是新的 SLAM 后端。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21402/fig-001.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21402/fig-001.webp" alt="Selective Cross-View Consistency for World Action Models: Held-Out Viewpoint Robustness Without Test-Time Camera Information" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21402/fig-002.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21402/fig-002.webp" alt="Selective Cross-View Consistency for World Action Models: Held-Out Viewpoint Robustness Without Test-Time Camera Information" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21402/fig-003.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21402/fig-003.webp" alt="Selective Cross-View Consistency for World Action Models: Held-Out Viewpoint Robustness Without Test-Time Camera Information" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21402/fig-004.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21402/fig-004.webp" alt="Selective Cross-View Consistency for World Action Models: Held-Out Viewpoint Robustness Without Test-Time Camera Information" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21402/table-001.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21402/table-001.webp" alt="Selective Cross-View Consistency for World Action Models: Held-Out Viewpoint Robustness Without Test-Time Camera Information" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-26/arxiv-2608.21402/table-002.webp"><img src="../../assets/media/2026-08-26/arxiv-2608.21402/table-002.webp" alt="Selective Cross-View Consistency for World Action Models: Held-Out Viewpoint Robustness Without Test-Time Camera Information" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

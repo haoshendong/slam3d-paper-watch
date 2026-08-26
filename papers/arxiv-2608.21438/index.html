@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>DesignAgent3D: Interactive 3D Scene Editing via Designer-like Multimodal Reasoning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-26/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-26/index.html">← 返回 2026-08-26 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-25 · score 5 · cs.CV, cs.MA</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">DesignAgent3D：通过设计师式多模态推理进行交互式三维场景编辑</span><span class="lang lang-en lang-inline" data-lang="en">DesignAgent3D: Interactive 3D Scene Editing via Designer-like Multimodal Reasoning</span></h1>
+  <div class="meta">作者：Xiujin Liu, Tianyu Yang, Yilun Zhao, Xiangliang Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.21438">abs</a><a href="https://arxiv.org/pdf/2608.21438">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>同时覆盖 NeRF/3DGS、三维空间 grounding 与持久化编辑，和三维重建表示层有交叉，但不提出定位或配准算法。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">NeRF</span><span class="tag">场景编辑</span><span class="tag">空间 grounding</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">关注重建场景上的语义定位、遮挡下跟踪和多视角一致编辑，可作为三维场景表示与交互式重建应用的旁支跟踪。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">DesignAgent3D 将文本引导的三维场景编辑改写为 Plan–Perceive–Act 交互流程：先澄清含糊意图，再把目标编辑定位到具体物体或区域，最后施加受控修改并保持场景一致性。编辑结果写回 NeRF 或 3D Gaussian Splatting 表示，以支持持久、多视角一致的新视角渲染。</p><p class="lang lang-en lang-block" data-lang="en">Text guided 3D scene editing provides an intuitive interface for modifying reconstructed environments, but remains difficult because natural language design requests are often semantically underspecified and must be grounded in cluttered 3D scenes. Existing methods typically formulate the task as one-shot conditional generation from a single prompt, failing to resolve ambiguous user intents or achieve precise spatial grounding. Consequently, they suffer from severe object localization drift, tracking failure under occlusions, and the notorious multi-view &quot;sticker effect.&quot; To overcome these limitations, we present DesignAgent3D, an interactive multimodal agentic framework that reformulates 3D scene editing as a designer-like Plan-Perceive-Act paradigm. The agent first plans by interacting with the user to clarify underspecified design goals, then perceives by grounding the intended edit to specific objects or regions in the 3D scene, and finally acts by applying controlled visual modifications while preserving scene consistency. The edits are further integrated into the underlying 3D representation, supporting persistent and multi-view consistent novel-view rendering. Extensive experiments across both NeRF and 3D Gaussian Splatting backbones demonstrate that DesignAgent3D significantly outperforms state-of-the-art baselines, delivering superior semantic intent alignment, impeccable spatial localization accuracy, and high-fidelity multi-view consistency.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：RoboShape：面向隐私保护机器人感知的信息论点云表示</li>
+<li><strong>方向</strong>：点云表示、机器人感知、信息瓶颈、协同建图。</li>
+<li><strong>要点</strong>：在冻结 Sonata 编码器后加入信息论压缩头，同时保留目标理解信息并抑制敏感属性信息；报告嵌入体积缩小 87.5%、物体分类效用保留 98.7%，敏感属性预测下降 39.3%。</li>
+<li><strong>判断</strong>：对云端规划、协同建图和机器人感知数据传输有直接价值，但不是新的 SLAM 后端。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
