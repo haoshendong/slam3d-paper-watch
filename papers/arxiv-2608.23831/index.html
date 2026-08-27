@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-27/index.html">← 返回 2026-08-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 4 · cs.RO, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">边等待边行动：考虑推理延迟的通用机器人策略强化学习微调</span><span class="lang lang-en lang-inline" data-lang="en">Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency</span></h1>
+  <div class="meta">作者：Brian Zhu (Siemens), Momen Khalil (Siemens), E Harrison (UC Berkeley), Emanuele Poggi (Siemens), Philipp Schmitt (Siemens), Bernd Kast (Siemens), Philine Meister (Siemens), Pranav Atreya (UC Berkeley), Qiyang Li (UC Berkeley), Finn Ferchau (Siemens), Cesar Colmenero (Siemens), Yash Shahapurkar (Siemens), Gokul Narayanan (Siemens), Melih Erdogan (Siemens), Kai Wurm (Siemens), Georg von Wichert (Siemens), Oier Mees (Microsoft, ETH Zurich, UC Berkeley), Eugen Solowjow (Siemens), Andrew Wagenmaker (UC Berkeley), Sergey Levine (UC Berkeley)</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.23831">abs</a><a href="https://arxiv.org/pdf/2608.23831">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>重点是策略学习而非 SLAM，但明确处理感知—推理—执行链路的时序错位，和实时机器人系统集成相关。</p><div class="tags"><span class="tag">机器人策略</span><span class="tag">强化学习</span><span class="tag">推理延迟</span><span class="tag">异步控制</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为视觉—语言—动作策略接入真实机器人系统提供延迟建模思路，对传感器、定位和控制链路的异步处理也有参考意义。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ARLI 框架针对大型通用机器人策略的推理延迟，将已提交动作和推理中间观测加入状态，以恢复近似 Markov 结构；同时在推理窗口中用低延迟策略维持反应性。仿真和真实操作实验显示，标准 RL 在延迟下失效时，该方法仍能有效微调，甚至接近或超过无延迟条件下的标准 RL。</p><p class="lang lang-en lang-block" data-lang="en">While reinforcement learning (RL) allows generalist robot policies to continually improve during deployment, the large model size of modern generalist policies, such as VLAs, poses a fundamental obstacle to effective RL improvement. In particular, their severe inference latency---which can lead to pauses or jerky movements---can alter the effective environment dynamics and, if not correctly accounted for, break the Markov assumption that RL relies on, causing standard RL algorithms to fail completely. In this work, we introduce a latency-aware framework, Asynchronous RL with Intermediate Information (ARLI), that enables RL-based improvement of generalist policies under inference delays. Our framework builds on asynchronous inference approaches, which interleave action generation with execution to hide latency, and addresses its incompatibility with RL by providing a low-latency RL policy design that maximizes reactivity within the inference window through two contributions: state augmentations that restore near-Markovian structure by incorporating committed actions and a mid-inference observation. We evaluate our approach across simulated and real-world manipulation tasks, and find that it enables effective finetuning under inference delays where standard RL fails entirely, even matching or exceeding the performance of standard RL in idealized no-latency settings.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：Luce：用于三维资产生成的可重光照高斯表示</li>
+<li><strong>方向</strong>：3DGS、三维资产生成、PBR、可重光照。</li>
+<li><strong>要点</strong>：把几何与 PBR 材质统一到体素化多模态 Gaussian cloud，用 VAE 和 rectified-flow transformer 从单图生成可重光照高斯，并可导出带法线图的纹理网格；在 Toys4K 上报告 FID 较强基线提升 28%。</li>
+<li><strong>判断</strong>：本轮三维重建候选中表示链路最完整，但不是 SLAM 算法。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23831/fig-001.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23831/fig-001.webp" alt="Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23831/fig-002.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23831/fig-002.webp" alt="Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23831/fig-003.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23831/fig-003.webp" alt="Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23831/fig-004.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23831/fig-004.webp" alt="Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23831/fig-005.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23831/fig-005.webp" alt="Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

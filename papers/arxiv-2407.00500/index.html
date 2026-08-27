@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Intrinsic PAPR: Tackling Misattribution in 3D Intrinsic Decomposition via Proximity Attention Point Rendering</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-27/index.html">← 返回 2026-08-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 9 · cs.CV, cs.AI, cs.GR, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Intrinsic PAPR：用邻近注意力点渲染解决三维内禀分解中的归因错误</span><span class="lang lang-en lang-inline" data-lang="en">Intrinsic PAPR: Tackling Misattribution in 3D Intrinsic Decomposition via Proximity Attention Point Rendering</span></h1>
+  <div class="meta">作者：Alireza Moazeni, Shichong Peng, Yanshu Zhang, Chirag Vashist, Ke Li</div>
+  <div class="links"><a href="https://arxiv.org/abs/2407.00500">abs</a><a href="https://arxiv.org/pdf/2407.00500">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>直面点渲染中的 primitive 级错误归因，和 3DGS/点云外观建模高度相关；同时涉及多视角一致性，但不是定位后端。</p><div class="tags"><span class="tag">点渲染</span><span class="tag">内禀分解</span><span class="tag">反照率</span><span class="tag">3DGS</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">对点基三维表示的颜色、反照率和材质分解提出更直接的监督方式，适合关注 3DGS 外观建模和可解释渲染的读者。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文指出基于体渲染的点表示内禀分解会把外观特征错误归因到单个半透明 primitive，因为监督只作用于射线最终颜色。Intrinsic PAPR 通过在射线—表面交点直接预测外观，提供逐点监督，并结合 cIMLE 二维反照率先验和空间雕刻损失处理单目歧义与多视角一致性。</p><p class="lang lang-en lang-block" data-lang="en">Recent point-based intrinsic decomposition and inverse rendering methods have advanced the modelling of the shading and albedo of 3D scenes. However, we identify a fundamental limitation: these methods suffer from a misattribution issue, where individual primitives learn incorrect appearance features despite producing correct aggregated renderings. We show that the root cause lies in volume rendering, which aggregates translucent primitives along each ray and only supervises the final colour, preventing direct supervision of individual primitive features. To address this, we propose Intrinsic PAPR, a robust intrinsic decomposition framework which leverages Proximity Attention Point Rendering (PAPR) to enable direct per-point supervision. Unlike volume rendering approaches, PAPR eliminates translucent primitives and directly predicts appearance at ray-surface intersections, enabling accurate supervision to the feature of each individual point. Our method incorporates a 2D albedo prior adapted with conditional Implicit Maximum Likelihood Estimation (cIMLE) to handle monocular ambiguities, and employs a space carving loss to ensure multi-view consistency. Extensive evaluations on synthetic and real-world datasets demonstrate that Intrinsic PAPR outperforms point-based inverse rendering, NeRF-based intrinsic decomposition, and diffusion-based PBR methods in novel view synthesis and albedo estimation while resolving the misattribution issue.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：Luce：用于三维资产生成的可重光照高斯表示</li>
+<li><strong>方向</strong>：3DGS、三维资产生成、PBR、可重光照。</li>
+<li><strong>要点</strong>：把几何与 PBR 材质统一到体素化多模态 Gaussian cloud，用 VAE 和 rectified-flow transformer 从单图生成可重光照高斯，并可导出带法线图的纹理网格；在 Toys4K 上报告 FID 较强基线提升 28%。</li>
+<li><strong>判断</strong>：本轮三维重建候选中表示链路最完整，但不是 SLAM 算法。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

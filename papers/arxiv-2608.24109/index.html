@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ExMesh++: From Multi-View Images to Relightable UV-PBR Mesh Assets via Topology-Adaptive Reconstruction and Decomposition</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-27/index.html">← 返回 2026-08-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 7 · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ExMesh++：通过拓扑自适应重建与分解从多视图图像生成可重光照 UV-PBR 网格</span><span class="lang lang-en lang-inline" data-lang="en">ExMesh++: From Multi-View Images to Relightable UV-PBR Mesh Assets via Topology-Adaptive Reconstruction and Decomposition</span></h1>
+  <div class="meta">作者：Chuanjin Fan, Lifan Wu, Wenjie Chang, Hanzhi Chang, Wenfei Yang, Tianzhu Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.24109">abs</a><a href="https://arxiv.org/pdf/2608.24109">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>明确连接多视图重建、显式网格拓扑和 PBR 资产导出，工程落地性强；与 SLAM 位姿估计本身不直接相关。</p><div class="tags"><span class="tag">多视图重建</span><span class="tag">网格拓扑</span><span class="tag">UV-PBR</span><span class="tag">逆渲染</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把多视图重建结果直接推进到拓扑、UV、材质和光照均可交付的资产，适合关注重建后处理与标准 DCC 工作流的读者。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ExMesh++ 分阶段从多视图图像重建可编辑的 UV-PBR 网格资产。第一阶段通过自适应顶点拆分与合并优化显式几何和拓扑，同时维护 UV 一致性；第二阶段固定网格—UV 载体，联合优化 UV 空间 PBR 材质图和环境光，并用次级射线建模一跳漫反射间接光。</p><p class="lang lang-en lang-block" data-lang="en">Multi-view reconstruction extends beyond surface recovery to editable and relightable mesh assets. Such assets require well-formed topology, valid UV parameterization, and explicit PBR material maps. Existing surface reconstruction approaches optimize implicit fields, Gaussian primitives, or other intermediate representations. Converting them into such assets often requires surface extraction and texture baking. Inverse-rendering methods estimate materials and illumination, yet these components often remain tied to neural fields or point-based primitives rather than the final mesh. Joint optimization of geometry, materials, and lighting may also allow these variables to compensate for one another, leading to ambiguous decomposition. To address these limitations, we present ExMesh++, a staged framework for reconstructing relightable UV-PBR mesh assets from multi-view images. The first stage refines explicit mesh geometry and topology through adaptive vertex splitting and merging, while maintaining UV consistency as the topology changes. The second stage fixes the resulting mesh-UV carrier and optimizes UV-space PBR maps together with environment lighting. Building on this stable carrier, ExMesh++ models one-bounce diffuse indirect illumination through secondary-ray tracing with shared UV-PBR materials. Experiments demonstrate competitive geometry accuracy, strong relighting performance, and direct usability of the exported assets in standard DCC workflows.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：Luce：用于三维资产生成的可重光照高斯表示</li>
+<li><strong>方向</strong>：3DGS、三维资产生成、PBR、可重光照。</li>
+<li><strong>要点</strong>：把几何与 PBR 材质统一到体素化多模态 Gaussian cloud，用 VAE 和 rectified-flow transformer 从单图生成可重光照高斯，并可导出带法线图的纹理网格；在 Toys4K 上报告 FID 较强基线提升 28%。</li>
+<li><strong>判断</strong>：本轮三维重建候选中表示链路最完整，但不是 SLAM 算法。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.24109/fig-001.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.24109/fig-001.webp" alt="ExMesh++: From Multi-View Images to Relightable UV-PBR Mesh Assets via Topology-Adaptive Reconstruction and Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.24109/fig-002.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.24109/fig-002.webp" alt="ExMesh++: From Multi-View Images to Relightable UV-PBR Mesh Assets via Topology-Adaptive Reconstruction and Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.24109/fig-003.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.24109/fig-003.webp" alt="ExMesh++: From Multi-View Images to Relightable UV-PBR Mesh Assets via Topology-Adaptive Reconstruction and Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.24109/fig-004.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.24109/fig-004.webp" alt="ExMesh++: From Multi-View Images to Relightable UV-PBR Mesh Assets via Topology-Adaptive Reconstruction and Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.24109/table-001.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.24109/table-001.webp" alt="ExMesh++: From Multi-View Images to Relightable UV-PBR Mesh Assets via Topology-Adaptive Reconstruction and Decomposition" loading="lazy"></a><figcaption class="meta">papercropper_table · page 8</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

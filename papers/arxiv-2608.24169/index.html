@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>ViSculpt: Visual-Centric Agentic Geometry Editing</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-27/index.html">← 返回 2026-08-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 4 · cs.CV, cs.GR, cs.HC</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ViSculpt：以视觉为中心的智能体三维几何编辑</span><span class="lang lang-en lang-inline" data-lang="en">ViSculpt: Visual-Centric Agentic Geometry Editing</span></h1>
+  <div class="meta">作者：Bo Pang, Jiaqi Pan, Xiaocheng Zhang, Jiacheng Xu, Guoping Wang, Peng-Shuai Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.24169">abs</a><a href="https://arxiv.org/pdf/2608.24169">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 5/10</span><p>与重建后的三维资产操作直接相关，但属于探索性编辑系统，尚非定位、配准或建图核心算法。</p><div class="tags"><span class="tag">三维编辑</span><span class="tag">多智能体</span><span class="tag">Blender</span><span class="tag">视觉闭环</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">展示了在已有三维重建资产上进行视觉闭环、局部编辑和身份保持的另一条路线，对三维场景交互应用有启发。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ViSculpt 是一个无需训练的多智能体系统，直接在 Blender GUI 中编辑已有网格。多模态模型观察视口、推理当前网格状态，并通过模拟用户交互执行局部修改，而不是重新生成几何或只生成脚本；初步基准显示其能遵循自然语言指令并保留未编辑区域和资产整体身份。</p><p class="lang lang-en lang-block" data-lang="en">3D geometry editing is a critical yet labor-intensive part of the graphics pipeline, requiring artists to translate creative intent into precise operations in complex professional software. Large language models (LLMs) have shown promise for script-based 3D creation, but script generation is less suited to perception-driven editing of arbitrary existing meshes, where execution must remain visually grounded and untouched regions should be preserved. We present a \emph{visual-centric}, training-free multi-agent system that edits existing 3D meshes directly in Blender by emulating the iterative workflow of human artists. Rather than generating scripts or regenerating geometry, our system operates through the Blender GUI: multimodal LLM agents observe the viewport, reason about the current mesh state, and execute localized edits through simulated user interactions. Experiments on a curated benchmark provide initial evidence that this agentic approach can follow natural language instructions, perform representative localized mesh edits, and preserve the overall identity of the input asset. Our results highlight a complementary regime for language-driven 3D editing: direct in-place modification of existing meshes within the native 3D editing workflow. We view this work as an exploratory step toward visual-centric agentic geometry editing in professional graphics software.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：Luce：用于三维资产生成的可重光照高斯表示</li>
+<li><strong>方向</strong>：3DGS、三维资产生成、PBR、可重光照。</li>
+<li><strong>要点</strong>：把几何与 PBR 材质统一到体素化多模态 Gaussian cloud，用 VAE 和 rectified-flow transformer 从单图生成可重光照高斯，并可导出带法线图的纹理网格；在 Toys4K 上报告 FID 较强基线提升 28%。</li>
+<li><strong>判断</strong>：本轮三维重建候选中表示链路最完整，但不是 SLAM 算法。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

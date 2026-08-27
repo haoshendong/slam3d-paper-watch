@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Luce: Relightable Gaussians for 3D Asset Generation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-27/index.html">← 返回 2026-08-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 9 · cs.CV, cs.AI, cs.GR</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Luce：用于三维资产生成的可重光照高斯表示</span><span class="lang lang-en lang-inline" data-lang="en">Luce: Relightable Gaussians for 3D Asset Generation</span></h1>
+  <div class="meta">作者：Mayank Singh, Michele Stoppa, Alvise Memo, Rui Yu, Harsha Kalli, Srimanth Gunturi, Muhammad Ahmed Riaz, Behrooz Shahsavari, Waleed Abdulla, David E. Jacobs</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.23943">abs</a><a href="https://arxiv.org/pdf/2608.23943">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>直接覆盖 3D Gaussian 表示、几何生成、材质分解和网格导出，是本轮三维重建候选中最完整的表示层工作；但不是 SLAM 算法。</p><div class="tags"><span class="tag">3DGS</span><span class="tag">三维资产生成</span><span class="tag">PBR</span><span class="tag">可重光照</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">重点不在定位，但展示了从单图到可编辑、可重光照 3DGS/网格资产的完整表示链路，对三维重建与资产化有参考价值。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Luce 提出一种把几何与 PBR 材质统一到体素化多模态 Gaussian cloud 中的三维表示，并用变分自编码器和 rectified-flow transformer 从单张图像生成。输出既可用于可重光照渲染，也可导出带切线空间法线图的纹理网格；在 Toys4K 上报告 FID 较强基线提升 28%，并改善 AI 生成图像的 CLIP 对齐分数。</p><p class="lang lang-en lang-block" data-lang="en">High-fidelity image-to-3D generation requires a 3D representation that captures both geometry and appearance. To support relighting and integration into standard rendering pipelines, the representation should include physically based rendering (PBR) modalities such as albedo, metallic-roughness, and surface normals. We propose Luce, a 3D representation that unifies geometry and PBR materials within a voxelized multimodal Gaussian cloud, using dedicated Gaussian primitives for each modality. A variational autoencoder compresses this representation into a unified material-aware latent space. A rectified-flow transformer generates this latent from a single image, conditioned on multi-layer features from a pretrained image encoder that preserve both semantic context and fine spatial detail. The latent then decodes into relightable PBR Gaussians and an optional textured mesh with a tangent-space normal map. On Toys4K, Luce achieves state-of-the-art single-image-to-3D generation, improving FID by 28% over the strongest baseline. We further introduce a benchmark of AI-generated images, on which Luce improves the CLIP image-alignment score over the best baseline (0.8519 vs. 0.8299). Luce generates relightable, geometrically accurate, and materially faithful assets that preserve fine details such as text, logos, and inscriptions.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：Luce：用于三维资产生成的可重光照高斯表示</li>
+<li><strong>方向</strong>：3DGS、三维资产生成、PBR、可重光照。</li>
+<li><strong>要点</strong>：把几何与 PBR 材质统一到体素化多模态 Gaussian cloud，用 VAE 和 rectified-flow transformer 从单图生成可重光照高斯，并可导出带法线图的纹理网格；在 Toys4K 上报告 FID 较强基线提升 28%。</li>
+<li><strong>判断</strong>：本轮三维重建候选中表示链路最完整，但不是 SLAM 算法。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

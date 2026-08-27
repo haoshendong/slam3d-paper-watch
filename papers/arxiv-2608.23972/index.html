@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Safety-aware Model Predictive Path Integral Control with Signal Temporal Logic</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-27/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-27/index.html">← 返回 2026-08-27 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 4 · cs.RO, cs.SY, eess.SY</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">结合信号时序逻辑的安全感知 MPPI 控制</span><span class="lang lang-en lang-inline" data-lang="en">Safety-aware Model Predictive Path Integral Control with Signal Temporal Logic</span></h1>
+  <div class="meta">作者：Yiqi Zhao, Taekyung Kim, Hideki Okamoto, Bardh Hoxha, Jyotirmoy V. Deshmukh, Lars Lindemann, Georgios Fainekos</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.23972">abs</a><a href="https://arxiv.org/pdf/2608.23972">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 6/10</span><p>不是定位或建图方法，但把时序逻辑安全约束接入 MPPI，具有自主导航系统层面的工程价值。</p><div class="tags"><span class="tag">MPPI</span><span class="tag">信号时序逻辑</span><span class="tag">控制屏障函数</span><span class="tag">安全导航</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为地图约束、任务时序和采样式控制提供统一接口，适合关注安全导航和规划—定位系统耦合的读者。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">方法将离散时间 Signal Temporal Logic 公式编码为候选时变控制屏障函数，并集成到可并行采样的 Model Predictive Path Integral 控制器中。在四个火星车规划案例和 NVIDIA Isaac Lab 四旋翼实验中，作者报告了较高的安全性与效率。</p><p class="lang lang-en lang-block" data-lang="en">Safety-aware motion planning remains a challenge in robotics, especially when missions are time-critical and are under complex specifications. In this paper, we propose safety-aware-stl-mppi, a computationally efficient sampling-based receding-horizon planning framework designed to promote satisfaction of constraints expressed in Signal Temporal Logic (STL). Our approach encodes discrete-time STL formulas into candidate time-varying control barrier functions (CBF), which are integrated into a model predictive path integral (MPPI) controller. Our method inherits the benefits of low computational cost from an efficiently parallelizable sampling based planner and utilizes CBF for constraints expressed in STL. We compare against several MPPI baselines using four artificial Mars Rover planning case studies with a diverse environment and cost setups, where we show our method consistently achieving high safety and efficiency. We show a quadcopter planning experiment with NVIDIA Isaac Lab.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：Luce：用于三维资产生成的可重光照高斯表示</li>
+<li><strong>方向</strong>：3DGS、三维资产生成、PBR、可重光照。</li>
+<li><strong>要点</strong>：把几何与 PBR 材质统一到体素化多模态 Gaussian cloud，用 VAE 和 rectified-flow transformer 从单图生成可重光照高斯，并可导出带法线图的纹理网格；在 Toys4K 上报告 FID 较强基线提升 28%。</li>
+<li><strong>判断</strong>：本轮三维重建候选中表示链路最完整，但不是 SLAM 算法。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23972/fig-001.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23972/fig-001.webp" alt="Safety-aware Model Predictive Path Integral Control with Signal Temporal Logic" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23972/fig-002.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23972/fig-002.webp" alt="Safety-aware Model Predictive Path Integral Control with Signal Temporal Logic" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23972/fig-003.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23972/fig-003.webp" alt="Safety-aware Model Predictive Path Integral Control with Signal Temporal Logic" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23972/table-001.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23972/table-001.webp" alt="Safety-aware Model Predictive Path Integral Control with Signal Temporal Logic" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-27/arxiv-2608.23972/table-002.webp"><img src="../../assets/media/2026-08-27/arxiv-2608.23972/table-002.webp" alt="Safety-aware Model Predictive Path Integral Control with Signal Temporal Logic" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
