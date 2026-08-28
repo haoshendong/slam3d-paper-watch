@@ -14,13 +14,17 @@
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-08-25 · score 9 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO, cs.CV</div>
+  <div class="meta">新论文 · 日期 2026-08-25 · score 9 · A层 · 半海报 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO, cs.CV</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">GaussVLA：面向视觉—语言—动作模型的几何感知空间推理</span><span class="lang lang-en lang-inline" data-lang="en">GaussVLA: Geometry-Aware Spatial Reasoning for Vision-Language-Action Model</span></h1>
   <div class="meta">作者：Md Selim Sarowar, Md Tanvir Islam, Sungho Kim, Sangtae Ahn</div>
   <div class="links"><a href="https://arxiv.org/abs/2608.24959">abs</a><a href="https://arxiv.org/pdf/2608.24959">PDF</a></div>
 </section>
 <section class="section score-panel"><span class="score">评分 8/10</span><p>直接命中 embodied spatial reasoning 与 VLA，并把 3D 几何 token 引入策略模型。</p><div class="tags"><span class="tag">VLA</span><span class="tag">空间推理</span><span class="tag">3D token</span><span class="tag">机器人操作</span></div></section>
 <section class="section"><h2>一句话工作总结</h2><p class="insight">清晰展示从几何表征到空间推理再到操作决策的桥接路径，需继续检验深度误差和 sim-to-real 鲁棒性。</p></section>
+<section class="section presentation"><h2>半海报</h2><p class="muted">当前为旧数据兼容显示；下一次任务会优先写入结构化海报字段。</p><div class="grid"><article class="score-panel"><h3>桥接价值</h3><p>清晰展示从几何表征到空间推理再到操作决策的桥接路径，需继续检验深度误差和 sim-to-real 鲁棒性。</p></article>
+<article class="score-panel"><h3>可迁移模块</h3><p>直接命中 embodied spatial reasoning 与 VLA，并把 3D 几何 token 引入策略模型。</p></article>
+<article class="score-panel"><h3>关键证据</h3><p>直接命中 embodied spatial reasoning 与 VLA，并把 3D 几何 token 引入策略模型。</p></article>
+<article class="score-panel"><h3>边界与风险</h3><p>当前记录未提供结构化边界与风险，需人工判断。</p></article></div></section>
 <section class="section">
   <h2>摘要</h2>
   <p class="lang lang-zh lang-block" data-lang="zh">GaussVLA 用 Gaussian Spatial Tokenizer 将语义和深度特征提升为紧凑 3D Gaussian tokens，并通过深度感知 Chain-of-Thought 进行结构化几何推理；在 LIBERO 上报告 200M 参数和 93.5% 平均成功率。</p><p class="lang lang-en lang-block" data-lang="en">Vision-Language-Action (VLA) models encode visual observations as flat 2D patch tokens that carry no intrinsic geometric structure, and augmenting them with dense monocular depth injects per-pixel scalar values that encode neither surface orientation nor geometric confidence. This leaves the policy with limited structured spatial reasoning for action prediction. We propose GaussVLA, a Mamba-based VLA that incorporates two custom modules: Gaussian Spatial Tokenizer (GST) to lift frozen semantic and depth features into compact 3D Gaussian tokens, pools geometrically salient regions with learned queries, and \emph{Depth-Aware Chain-of-Thought (DA-CoT)} that performs structured, non-autoregressive geometric reasoning under language and flow-time conditioning. Across both simulation and real-world evaluations, GaussVLA demonstrates strong spatial-manipulation performance while remaining parameter-efficient. On LIBERO, it achieves 93.5% average success and 100.0% success on the Spatial suite with only 200M parameters, improving over SpatialVLA by 19.7% relative average success while remaining significantly more parameter-efficient.</p>
@@ -28,8 +32,8 @@
 
 <section class="section">
   <h2>图表/页面预览</h2>
-  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.24959/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.24959/fig-001.webp" alt="GaussVLA: Geometry-Aware Spatial Reasoning for Vision-Language-Action Model" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.24959/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.24959/fig-002.webp" alt="GaussVLA: Geometry-Aware Spatial Reasoning for Vision-Language-Action Model" loading="lazy"></a><figcaption class="meta">image · page 5</figcaption></figure></div>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.24959/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.24959/fig-001.webp" alt="GaussVLA: Geometry-Aware Spatial Reasoning for Vision-Language-Action Model" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.24959/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.24959/fig-002.webp" alt="GaussVLA: Geometry-Aware Spatial Reasoning for Vision-Language-Action Model" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure></div>
 </section>
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>

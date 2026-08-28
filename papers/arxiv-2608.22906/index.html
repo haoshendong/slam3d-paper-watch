@@ -14,13 +14,18 @@
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-08-24 · score 26 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 26 · S层 · 完整单篇海报 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">AquaFlow：面向水下流式重建的单目 Gaussian Splatting SLAM</span><span class="lang lang-en lang-inline" data-lang="en">AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction</span></h1>
   <div class="meta">作者：Yingxiang Xu, Kerui Ren, Wenqi Guo, Changjian Jiang, Tao Lu, Linning Xu, Mulin Yu</div>
   <div class="links"><a href="https://arxiv.org/abs/2608.22906">abs</a><a href="https://arxiv.org/pdf/2608.22906">PDF</a></div>
 </section>
 <section class="section score-panel"><span class="score">评分 10/10</span><p>同时覆盖 Geometry Foundation Models、流式状态估计和水下退化重建，是本轮最贴近可靠几何主线的系统工作。</p><div class="tags"><span class="tag">几何 foundation model</span><span class="tag">水下重建</span><span class="tag">单目 SLAM</span><span class="tag">pointmap</span></div></section>
 <section class="section"><h2>一句话工作总结</h2><p class="insight">把 foundation model 几何先验、流式建图和水下成像补偿结合起来，直接处理恶劣介质中的可靠跟踪与重建。</p></section>
+<section class="section presentation"><h2>完整单篇海报</h2><p class="muted">当前为旧数据兼容显示；下一次任务会优先写入结构化海报字段。</p><div class="grid"><article class="score-panel"><h3>动机</h3><p>AquaFlow 在大规模水下数据上微调 3D vision foundation model，用于鲁棒位姿和 pointmap 估计；结合介质引导的增量 Gaussian 初始化，以及带物理光学补偿的混合场景表示，并在 62 条水下轨迹上进行评估。</p></article>
+<article class="score-panel"><h3>核心方法</h3><p>把 foundation model 几何先验、流式建图和水下成像补偿结合起来，直接处理恶劣介质中的可靠跟踪与重建。</p></article>
+<article class="score-panel"><h3>实验数字</h3><p>同时覆盖 Geometry Foundation Models、流式状态估计和水下退化重建，是本轮最贴近可靠几何主线的系统工作。</p></article>
+<article class="score-panel"><h3>局限</h3><p>当前记录未提供结构化局限，暂不替论文补写结论。</p></article>
+<article class="score-panel"><h3>与你研究路线的关系</h3><p>Geometry Foundation Models / 3D Foundation Models</p></article></div></section>
 <section class="section">
   <h2>摘要</h2>
   <p class="lang lang-zh lang-block" data-lang="zh">AquaFlow 在大规模水下数据上微调 3D vision foundation model，用于鲁棒位姿和 pointmap 估计；结合介质引导的增量 Gaussian 初始化，以及带物理光学补偿的混合场景表示，并在 62 条水下轨迹上进行评估。</p><p class="lang lang-en lang-block" data-lang="en">Recent monocular 3D Gaussian Splatting (3DGS) streaming reconstruction methods have achieved impressive performance by balancing reconstruction quality and efficiency. However, extending these frameworks to underwater scenes remains challenging due to severe visual degradation, such as light attenuation and scattering, which degrades camera pose tracking and distorts scene geometry. To address these challenges, we propose AquaFlow, a monocular Gaussian Splatting streaming reconstruction framework for efficient and high-fidelity underwater reconstruction. Specifically, AquaFlow fine-tunes a 3D vision foundation model on large-scale underwater data for robust pose and pointmap estimation, and introduces a medium-guided incremental Gaussian initialization strategy for streaming mapping. Furthermore, we develop a streaming-compatible hybrid scene representation that integrates structured, distance-conditioned neural Gaussians with a physics-inspired optical model to compensate for underwater image formation effects, enabling accurate scene reconstruction. We evaluate AquaFlow on a comprehensive dataset of 62 diverse underwater trajectories, collected from both public benchmarks and in-the-wild web videos across various scales. Extensive experiments demonstrate that AquaFlow achieves state-of-the-art tracking and rendering performance, reducing average localization error by 13.2% and improving PSNR by 4.74 dB compared to WaterSplat-SLAM.</p>
@@ -28,12 +33,8 @@
 
 <section class="section">
   <h2>图表/页面预览</h2>
-  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22906/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22906/fig-001.webp" alt="AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22906/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22906/fig-002.webp" alt="AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22906/fig-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22906/fig-003.webp" alt="AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22906/fig-004.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22906/fig-004.webp" alt="AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22906/fig-005.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22906/fig-005.webp" alt="AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
-<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22906/fig-006.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22906/fig-006.webp" alt="AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure></div>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22906/fig-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22906/fig-003.webp" alt="AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22906/fig-006.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22906/fig-006.webp" alt="AquaFlow: A Monocular Gaussian Splatting SLAM for Underwater Streaming Reconstruction" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure></div>
 </section>
 
 <footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>

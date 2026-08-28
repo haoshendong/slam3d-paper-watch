@@ -14,13 +14,18 @@
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-08-27 · score 18 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <div class="meta">新论文 · 日期 2026-08-27 · score 18 · S层 · 完整单篇海报 · 3D/4D Spatial Perception · cs.CV</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">4DGS-WAM：基于四维 Gaussian Splatting 的对象中心世界动作模型</span><span class="lang lang-en lang-inline" data-lang="en">4DGS-WAM: Bridging Past and Future with an Object-Centric World Action Model based on 4D Gaussian Splatting</span></h1>
   <div class="meta">作者：Yueen Ma, Zenglin Xu, Irwin King</div>
   <div class="links"><a href="https://arxiv.org/abs/2608.25956">abs</a><a href="https://arxiv.org/pdf/2608.25956">PDF</a></div>
 </section>
 <section class="section score-panel"><span class="score">评分 9/10</span><p>直接连接 4D spatial perception、object-centric mapping 和 robotic world model，方向价值高于当前实验成熟度。</p><div class="tags"><span class="tag">4DGS</span><span class="tag">动态场景</span><span class="tag">世界模型</span><span class="tag">对象中心</span></div></section>
 <section class="section"><h2>一句话工作总结</h2><p class="insight">将持久 4D 表示连接到动作预测，为动态建图、世界模型和预测式规划提供桥接思路，但仍需关注其 work-in-progress 状态。</p></section>
+<section class="section presentation"><h2>完整单篇海报</h2><p class="muted">当前为旧数据兼容显示；下一次任务会优先写入结构化海报字段。</p><div class="grid"><article class="score-panel"><h3>动机</h3><p>4DGS-WAM 分离动态对象与静态背景，用策略模型预测动作、世界模型预测对象 Gaussian 的变换；未来状态复用已经观测的静态内容，把预测集中在动态对象演化上。</p></article>
+<article class="score-panel"><h3>核心方法</h3><p>将持久 4D 表示连接到动作预测，为动态建图、世界模型和预测式规划提供桥接思路，但仍需关注其 work-in-progress 状态。</p></article>
+<article class="score-panel"><h3>实验数字</h3><p>直接连接 4D spatial perception、object-centric mapping 和 robotic world model，方向价值高于当前实验成熟度。</p></article>
+<article class="score-panel"><h3>局限</h3><p>当前记录未提供结构化局限，暂不替论文补写结论。</p></article>
+<article class="score-panel"><h3>与你研究路线的关系</h3><p>3D/4D Spatial Perception</p></article></div></section>
 <section class="section">
   <h2>摘要</h2>
   <p class="lang lang-zh lang-block" data-lang="zh">4DGS-WAM 分离动态对象与静态背景，用策略模型预测动作、世界模型预测对象 Gaussian 的变换；未来状态复用已经观测的静态内容，把预测集中在动态对象演化上。</p><p class="lang lang-en lang-block" data-lang="en">Current world action models (WAMs) typically operate on 2D visual data. These models can achieve exceptional visual quality, but they lack explicit spatial structure for individual objects and repeatedly process redundant background content. Although point clouds can represent the world in 3D space, they can be difficult to align and accumulate across viewpoints. In this paper, we leverage an explicit 4D Gaussian Splatting (4DGS) representation that separately models dynamic objects and the static background of a scene. For dynamic objects, we use a policy model to predict future actor actions and a world model to predict transformations of their observed Gaussian splats. The static background need not be regenerated for future states, as much of it has already been observed in past frames. This forms an object-centric world action model, which we name 4DGS-WAM. It lifts 2D observations into a persistent 4D representation so that previously observed static content can be reused during future prediction. Future-state extrapolation can then focus on modeling the evolution of dynamic objects. Experiments on KITTI-MOT evaluate short-horizon prediction and past reconstruction.</p>
