@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>M$^3$ISR: A Multi-Modal Multi-View Benchmark for 3D/4D Gaussian Splatting and Feedforward Compression</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-23 · score 18 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">M³ISR：面向 3D/4D Gaussian Splatting 与前馈压缩的多模态多视图基准</span><span class="lang lang-en lang-inline" data-lang="en">M$^3$ISR: A Multi-Modal Multi-View Benchmark for 3D/4D Gaussian Splatting and Feedforward Compression</span></h1>
+  <div class="meta">作者：Xinhui Liu, Lei Liu, Zhenghao Chen, Lebin Zhou, Wei Wang, Wei Jiang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.22465">abs</a><a href="https://arxiv.org/pdf/2608.22465">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>基准设计直接服务于 3D/4D 表征的系统比较，能拆分视角变化、时序冗余和部署成本。</p><div class="tags"><span class="tag">评测基准</span><span class="tag">3DGS</span><span class="tag">4DGS</span><span class="tag">模型压缩</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为动态 Gaussian 表征提供受控的几何、时序、存储和流式成本评测，不再只比较渲染质量。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">M³ISR 提供 25 个场景、两类相机/运动配置、6 个同步 1080p 视图以及 RGB、相机参数、深度、语义/实例分割和静态—动态掩码，覆盖 3DGS/4DGS 合成、流式重建和压缩五个 track。</p><p class="lang lang-en lang-block" data-lang="en">High-fidelity free-viewpoint video (FVV) and interactive rendering increasingly rely on explicit Gaussian representations, yet practical deployment remains constrained by representation size, dynamic updates, and computational cost. Existing multi-view video benchmarks provide valuable real-captured content, but they make it difficult to isolate the effects of controlled camera geometry, representation efficiency, and temporal redundancy. We introduce M$^3$ISR, a controlled synthetic benchmark for 3D and 4D Gaussian Splatting (3DGS/4DGS). The benchmark contains 25 scenes from five indoor and outdoor scene groups, two camera/motion configurations, six synchronized 1080p views, and dense ground-truth annotations including RGB, camera parameters, depth, semantic and instance segmentation, and static--dynamic masks. The shared-center camera design intentionally isolates angular view variation and enables controlled evaluation of novel-view synthesis and representation efficiency. We organize M$^3$ISR into five complementary tracks covering 3DGS synthesis, 4DGS synthesis, 4DGS streaming, 3DGS compression, and 4DGS compression. Representative baseline results show small differences in static reconstruction quality but substantial differences in representation storage, while the evaluated streaming methods exhibit substantially higher reported training or reconstruction cost than the corresponding offline dynamic reconstruction baselines. We further define feedforward compression tasks for 3DGS and 4DGS and provide reference rate--distortion formulations and preliminary baseline evaluations. The benchmark is intended as a controlled and complementary testbed for systematic study of Gaussian-based FVV reconstruction, compression, and streaming.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22465/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22465/fig-001.webp" alt="M$^3$ISR: A Multi-Modal Multi-View Benchmark for 3D/4D Gaussian Splatting and Feedforward Compression" loading="lazy"></a><figcaption class="meta">image · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22465/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22465/fig-002.webp" alt="M$^3$ISR: A Multi-Modal Multi-View Benchmark for 3D/4D Gaussian Splatting and Feedforward Compression" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22465/fig-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22465/fig-003.webp" alt="M$^3$ISR: A Multi-Modal Multi-View Benchmark for 3D/4D Gaussian Splatting and Feedforward Compression" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22465/fig-004.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22465/fig-004.webp" alt="M$^3$ISR: A Multi-Modal Multi-View Benchmark for 3D/4D Gaussian Splatting and Feedforward Compression" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22465/fig-005.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22465/fig-005.webp" alt="M$^3$ISR: A Multi-Modal Multi-View Benchmark for 3D/4D Gaussian Splatting and Feedforward Compression" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.22465/fig-006.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.22465/fig-006.webp" alt="M$^3$ISR: A Multi-Modal Multi-View Benchmark for 3D/4D Gaussian Splatting and Feedforward Compression" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-22 · score 10 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">StereoDiffuer：带显著性注意感知的扩散式渐进几何建模双目匹配</span><span class="lang lang-en lang-inline" data-lang="en">StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching</span></h1>
+  <div class="meta">作者：Bohan Li</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.21710">abs</a><a href="https://arxiv.org/pdf/2608.21710">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>直接作用于底层几何，但当前证据主要来自 Scene Flow 与 KITTI，系统级可靠性仍需进一步验证。</p><div class="tags"><span class="tag">双目匹配</span><span class="tag">视差估计</span><span class="tag">扩散模型</span><span class="tag">几何细节</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">改善底层双目几何质量，为稠密深度和后续 3D/4D 表征提供更细致的输入。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">StereoDiffuer 用显著性模块提取边界、细结构和锐利边缘，以初始视差和置信度特征条件化迭代去噪，修正代价体正则化和上采样造成的细节损失。</p><p class="lang lang-en lang-block" data-lang="en">With the advance of deep neural networks, the quality of disparity maps obtained through stereo matching has steadily improved. However, existing stereo matching methods still struggle to preserve fine-grained geometric details, resulting in blurred edges and over-smoothed predictions in challenging regions. To address these limitations, we propose StereoDiffuer, an iterative diffusion-based stereo matching framework that explicitly models geometric details and progressively refines disparity estimates. The framework incorporates a Saliency Attention Perception (SAP) module to extract salient geometric cues, including object boundaries, thin structures, and sharp edges. Confidence-guided SAP features are combined with the initial disparity estimate to condition an iterative denoising diffusion process, which corrects residual disparity errors and restores geometric details suppressed during cost-volume regularization and upsampling. Experimental results on the Scene Flow and KITTI benchmarks demonstrate the effectiveness of the proposed framework and its competitive performance relative to the compared stereo matching methods.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21710/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21710/fig-001.webp" alt="StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21710/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21710/fig-002.webp" alt="StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21710/fig-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21710/fig-003.webp" alt="StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21710/fig-004.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21710/fig-004.webp" alt="StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21710/fig-005.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21710/fig-005.webp" alt="StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching" loading="lazy"></a><figcaption class="meta">image · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21710/fig-006.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21710/fig-006.webp" alt="StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching" loading="lazy"></a><figcaption class="meta">image · page 5</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

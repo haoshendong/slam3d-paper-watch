@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Towards Alias-Free 4D Gaussian Representations with Motion-Aware Filtering</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-22 · score 16 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">迈向无混叠的 4D Gaussian 表示：运动感知滤波</span><span class="lang lang-en lang-inline" data-lang="en">Towards Alias-Free 4D Gaussian Representations with Motion-Aware Filtering</span></h1>
+  <div class="meta">作者：Ankit Dhiman, Kunal A Kathare, Pranav Vignesh, Lokesh R Boregowda, Venkatesh Babu Radhakrishnan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.21828">abs</a><a href="https://arxiv.org/pdf/2608.21828">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>属于 4D spatial perception 的基础表示问题，对动态地图和预测渲染具有潜在影响。</p><div class="tags"><span class="tag">4DGS</span><span class="tag">无混叠渲染</span><span class="tag">运动感知</span><span class="tag">新视角合成</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">从几何—采样角度改善 4D 表征的视点变化质量，后续需验证快速运动和在线计算开销。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文针对动态新视角合成中的混叠，提出结合局部运动信息的三维平滑滤波器，并根据时间与焦深比的联合密度自适应选择滤波强度。</p><p class="lang lang-en lang-block" data-lang="en">Novel-view synthesis of dynamic scenes, crucial for AR/VR applications, remains a challenging problem. Recent methods adapt representations like 3D Gaussian Splatting (3DGS) and Neural Radiance Fields (NeRF) for dynamic scenes by incorporating time as the fourth dimension (4D representations). These 4D representations still suffer from aliasing artifacts, especially when generating novel views from divergent viewpoints (zoom-in/zoom-out operations). While using 3D smoothing filters like those proposed in Mip-Splatting might seem like a possible solution, they fail to account for local motion and also exhibit aliasing. To address this, we propose a motion-aware 3D smoothing filter specifically designed for 4D representations. Our approach adapts the filter strength based on local motion information, effectively mitigating aliasing without compromising rendering quality. This is achieved by estimating the joint density function of time and focal-to-depth ratio using a non-parametric estimation method. During inference, we sample from this joint distribution to determine the appropriate smoothing filter. This flexible strategy can be integrated with various 4D representations. Our evaluations on standard datasets demonstrate superior performance compared to state-of-the-art methods.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21828/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21828/fig-001.webp" alt="Towards Alias-Free 4D Gaussian Representations with Motion-Aware Filtering" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21828/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21828/fig-002.webp" alt="Towards Alias-Free 4D Gaussian Representations with Motion-Aware Filtering" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21828/fig-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21828/fig-003.webp" alt="Towards Alias-Free 4D Gaussian Representations with Motion-Aware Filtering" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21828/fig-004.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21828/fig-004.webp" alt="Towards Alias-Free 4D Gaussian Representations with Motion-Aware Filtering" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21828/fig-005.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21828/fig-005.webp" alt="Towards Alias-Free 4D Gaussian Representations with Motion-Aware Filtering" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.21828/fig-006.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.21828/fig-006.webp" alt="Towards Alias-Free 4D Gaussian Representations with Motion-Aware Filtering" loading="lazy"></a><figcaption class="meta">image · page 2</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

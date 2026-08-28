@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-28 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">UrbanGround：从局部感知到真实尺度城市空间能动性</span><span class="lang lang-en lang-inline" data-lang="en">UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City</span></h1>
+  <div class="meta">作者：Tianjie Ju, Zheng Wu, Yueqing Sun, Yuhan Cui, Bobo Li, Shengqiong Wu, Pengzhou Cheng, Haodong Zhao</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.27456">abs</a><a href="https://arxiv.org/pdf/2608.27456">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>直接连接空间推理、具身导航和 3D 城市场景评测，对可靠长程决策具有较强诊断价值。</p><div class="tags"><span class="tag">具身导航</span><span class="tag">空间推理</span><span class="tag">城市环境</span><span class="tag">闭环评测</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把空间推理置于持续移动和真实尺度约束中，明确暴露局部能力难以组合成长期目标行为的问题。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">UrbanGround 在由全域 3D 地理数据构建的香港物理约束城市副本中，评估 MLLM agent 的局部感知、空间问答和闭环导航；结果显示长程探索中的方向、行人感知和误差修正仍不可靠。</p><p class="lang lang-en lang-block" data-lang="en">Multimodal large language models (MLLMs) can interpret a street view, but urban agency depends on whether such local evidence remains useful after the agent starts to move. In this paper, we investigate how far current MLLM agents can turn local urban perception into reliable action in a complicated real-scale city. We propose UrbanGround, the first sandbox to make this question testable in a physically constrained replica of Hong Kong built from territory-wide 3D geospatial data. UrbanGround supports closed-loop interaction from a first-person view and provides an interactive map for navigation. Agents can directly enter the 3D city and explore from a first-person view. Our analysis follows the growth of the spatial problem through three research questions. We first test whether an agent can ground a local scene well enough to answer spatial questions after active observation. Then we ask whether that grounding supports navigation as destinations become farther away and less explicit. Finally, we examine whether the resulting behavior survives changes in route availability and pedestrian motion. Contemporary MLLM agents usually show useful atomic abilities in visual recognition and short-range spatial reasoning, while orientation and pedestrian-aware movement remain unreliable. Their central failure emerges over extended exploration, where local abilities do not compose into sustained goal-directed behavior and errors accumulate without effective correction. We hope UrbanGround will support broader study of how far current MLLM agents can explore reliably in complex, open-ended urban environments.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.27456/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.27456/fig-001.webp" alt="UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.27456/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.27456/fig-002.webp" alt="UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.27456/fig-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.27456/fig-003.webp" alt="UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.27456/fig-004.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.27456/fig-004.webp" alt="UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.27456/fig-005.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.27456/fig-005.webp" alt="UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.27456/fig-006.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.27456/fig-006.webp" alt="UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City" loading="lazy"></a><figcaption class="meta">image · page 1</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
