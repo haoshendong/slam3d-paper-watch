@@ -14,17 +14,14 @@
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-08-28 · score 8 · A层 · 半海报 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <div class="meta">新论文 · 日期 2026-08-28 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">UrbanGround：从局部感知到真实尺度城市空间能动性</span><span class="lang lang-en lang-inline" data-lang="en">UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City</span></h1>
   <div class="meta">作者：Tianjie Ju, Zheng Wu, Yueqing Sun, Yuhan Cui, Bobo Li, Shengqiong Wu, Pengzhou Cheng, Haodong Zhao</div>
   <div class="links"><a href="https://arxiv.org/abs/2608.27456">abs</a><a href="https://arxiv.org/pdf/2608.27456">PDF</a></div>
 </section>
 <section class="section score-panel"><span class="score">评分 8/10</span><p>直接连接空间推理、具身导航和 3D 城市场景评测，对可靠长程决策具有较强诊断价值。</p><div class="tags"><span class="tag">具身导航</span><span class="tag">空间推理</span><span class="tag">城市环境</span><span class="tag">闭环评测</span></div></section>
 <section class="section"><h2>一句话工作总结</h2><p class="insight">把空间推理置于持续移动和真实尺度约束中，明确暴露局部能力难以组合成长期目标行为的问题。</p></section>
-<section class="section presentation"><h2>半海报</h2><p class="muted">当前为旧数据兼容显示；下一次任务会优先写入结构化海报字段。</p><div class="grid"><article class="score-panel"><h3>桥接价值</h3><p>把空间推理置于持续移动和真实尺度约束中，明确暴露局部能力难以组合成长期目标行为的问题。</p></article>
-<article class="score-panel"><h3>可迁移模块</h3><p>直接连接空间推理、具身导航和 3D 城市场景评测，对可靠长程决策具有较强诊断价值。</p></article>
-<article class="score-panel"><h3>关键证据</h3><p>直接连接空间推理、具身导航和 3D 城市场景评测，对可靠长程决策具有较强诊断价值。</p></article>
-<article class="score-panel"><h3>边界与风险</h3><p>当前记录未提供结构化边界与风险，需人工判断。</p></article></div></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：桥接价值、方法摘要、可迁移模块、关键证据与数字、边界与风险、下一步实验。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
 <section class="section">
   <h2>摘要</h2>
   <p class="lang lang-zh lang-block" data-lang="zh">UrbanGround 在由全域 3D 地理数据构建的香港物理约束城市副本中，评估 MLLM agent 的局部感知、空间问答和闭环导航；结果显示长程探索中的方向、行人感知和误差修正仍不可靠。</p><p class="lang lang-en lang-block" data-lang="en">Multimodal large language models (MLLMs) can interpret a street view, but urban agency depends on whether such local evidence remains useful after the agent starts to move. In this paper, we investigate how far current MLLM agents can turn local urban perception into reliable action in a complicated real-scale city. We propose UrbanGround, the first sandbox to make this question testable in a physically constrained replica of Hong Kong built from territory-wide 3D geospatial data. UrbanGround supports closed-loop interaction from a first-person view and provides an interactive map for navigation. Agents can directly enter the 3D city and explore from a first-person view. Our analysis follows the growth of the spatial problem through three research questions. We first test whether an agent can ground a local scene well enough to answer spatial questions after active observation. Then we ask whether that grounding supports navigation as destinations become farther away and less explicit. Finally, we examine whether the resulting behavior survives changes in route availability and pedestrian motion. Contemporary MLLM agents usually show useful atomic abilities in visual recognition and short-range spatial reasoning, while orientation and pedestrian-aware movement remain unreliable. Their central failure emerges over extended exploration, where local abilities do not compose into sustained goal-directed behavior and errors accumulate without effective correction. We hope UrbanGround will support broader study of how far current MLLM agents can explore reliably in complex, open-ended urban environments.</p>

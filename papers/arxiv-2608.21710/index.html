@@ -14,18 +14,14 @@
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-08-22 · score 10 · S层 · 完整单篇海报 · 3D/4D Spatial Perception · cs.CV</div>
+  <div class="meta">新论文 · 日期 2026-08-22 · score 10 · S层 · 3D/4D Spatial Perception · cs.CV</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">StereoDiffuer：带显著性注意感知的扩散式渐进几何建模双目匹配</span><span class="lang lang-en lang-inline" data-lang="en">StereoDiffuer: Diffusion-based Progressive Geometry Modeling with Saliency Attention Perception for Stereo Matching</span></h1>
   <div class="meta">作者：Bohan Li</div>
   <div class="links"><a href="https://arxiv.org/abs/2608.21710">abs</a><a href="https://arxiv.org/pdf/2608.21710">PDF</a></div>
 </section>
 <section class="section score-panel"><span class="score">评分 7/10</span><p>直接作用于底层几何，但当前证据主要来自 Scene Flow 与 KITTI，系统级可靠性仍需进一步验证。</p><div class="tags"><span class="tag">双目匹配</span><span class="tag">视差估计</span><span class="tag">扩散模型</span><span class="tag">几何细节</span></div></section>
 <section class="section"><h2>一句话工作总结</h2><p class="insight">改善底层双目几何质量，为稠密深度和后续 3D/4D 表征提供更细致的输入。</p></section>
-<section class="section presentation"><h2>完整单篇海报</h2><p class="muted">当前为旧数据兼容显示；下一次任务会优先写入结构化海报字段。</p><div class="grid"><article class="score-panel"><h3>动机</h3><p>StereoDiffuer 用显著性模块提取边界、细结构和锐利边缘，以初始视差和置信度特征条件化迭代去噪，修正代价体正则化和上采样造成的细节损失。</p></article>
-<article class="score-panel"><h3>核心方法</h3><p>改善底层双目几何质量，为稠密深度和后续 3D/4D 表征提供更细致的输入。</p></article>
-<article class="score-panel"><h3>实验数字</h3><p>直接作用于底层几何，但当前证据主要来自 Scene Flow 与 KITTI，系统级可靠性仍需进一步验证。</p></article>
-<article class="score-panel"><h3>局限</h3><p>当前记录未提供结构化局限，暂不替论文补写结论。</p></article>
-<article class="score-panel"><h3>与你研究路线的关系</h3><p>3D/4D Spatial Perception</p></article></div></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：核心结论、动机与问题、方法总览、关键技术细节、实验设置、实验数字与比较。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
 <section class="section">
   <h2>摘要</h2>
   <p class="lang lang-zh lang-block" data-lang="zh">StereoDiffuer 用显著性模块提取边界、细结构和锐利边缘，以初始视差和置信度特征条件化迭代去噪，修正代价体正则化和上采样造成的细节损失。</p><p class="lang lang-en lang-block" data-lang="en">With the advance of deep neural networks, the quality of disparity maps obtained through stereo matching has steadily improved. However, existing stereo matching methods still struggle to preserve fine-grained geometric details, resulting in blurred edges and over-smoothed predictions in challenging regions. To address these limitations, we propose StereoDiffuer, an iterative diffusion-based stereo matching framework that explicitly models geometric details and progressively refines disparity estimates. The framework incorporates a Saliency Attention Perception (SAP) module to extract salient geometric cues, including object boundaries, thin structures, and sharp edges. Confidence-guided SAP features are combined with the initial disparity estimate to condition an iterative denoising diffusion process, which corrects residual disparity errors and restores geometric details suppressed during cost-volume regularization and upsampling. Experimental results on the Scene Flow and KITTI benchmarks demonstrate the effectiveness of the proposed framework and its competitive performance relative to the compared stereo matching methods.</p>

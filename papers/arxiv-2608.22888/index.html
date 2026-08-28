@@ -14,18 +14,14 @@
 
 <section class="hero paper-head">
   <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
-  <div class="meta">新论文 · 日期 2026-08-24 · score 18 · S层 · 完整单篇海报 · 3D/4D Spatial Perception · cs.CV</div>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 18 · S层 · 3D/4D Spatial Perception · cs.CV</div>
   <h1><span class="lang lang-zh lang-inline" data-lang="zh">NemoSplat：面向介质感知水下重建的前馈式 4D Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">NemoSplat: Feed-Forward 4D Gaussian Splatting for Media-Aware Underwater Reconstruction</span></h1>
   <div class="meta">作者：Xiaopeng Guo, Wai Chung Tse, Yipeng Zhu, Hanwen Zhang, Huajian Huang, Sai-Kit Yeung</div>
   <div class="links"><a href="https://arxiv.org/abs/2608.22888">abs</a><a href="https://arxiv.org/pdf/2608.22888">PDF</a></div>
 </section>
 <section class="section score-panel"><span class="score">评分 9/10</span><p>同时命中 4D spatial perception、geometry foundation model 和恶劣环境重建，且包含数据集与完整系统设计。</p><div class="tags"><span class="tag">4DGS</span><span class="tag">水下重建</span><span class="tag">动态解耦</span><span class="tag">介质建模</span></div></section>
 <section class="section"><h2>一句话工作总结</h2><p class="insight">在单一前馈框架内联合处理水下几何、动态干扰和介质成像，适合与 AquaFlow 对照跟踪精度和部署代价。</p></section>
-<section class="section presentation"><h2>完整单篇海报</h2><p class="muted">当前为旧数据兼容显示；下一次任务会优先写入结构化海报字段。</p><div class="grid"><article class="score-panel"><h3>动机</h3><p>NemoSplat 从未标定海洋视频前馈估计相机位姿和稠密深度，使用置信度感知动态解耦器隔离瞬态实体，并联合预测 Gaussian 属性和物理介质参数，同时发布水下动态数据集。</p></article>
-<article class="score-panel"><h3>核心方法</h3><p>在单一前馈框架内联合处理水下几何、动态干扰和介质成像，适合与 AquaFlow 对照跟踪精度和部署代价。</p></article>
-<article class="score-panel"><h3>实验数字</h3><p>同时命中 4D spatial perception、geometry foundation model 和恶劣环境重建，且包含数据集与完整系统设计。</p></article>
-<article class="score-panel"><h3>局限</h3><p>当前记录未提供结构化局限，暂不替论文补写结论。</p></article>
-<article class="score-panel"><h3>与你研究路线的关系</h3><p>3D/4D Spatial Perception</p></article></div></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：核心结论、动机与问题、方法总览、关键技术细节、实验设置、实验数字与比较。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
 <section class="section">
   <h2>摘要</h2>
   <p class="lang lang-zh lang-block" data-lang="zh">NemoSplat 从未标定海洋视频前馈估计相机位姿和稠密深度，使用置信度感知动态解耦器隔离瞬态实体，并联合预测 Gaussian 属性和物理介质参数，同时发布水下动态数据集。</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing photorealistic scenes in unconstrained underwater environments remains challenging due to severe media-induced light scattering and unpredictable dynamic objects. Recent feed-forward visual foundation models have demonstrated remarkable capabilities in generalized novel view synthesis and tracking. However, when directly applied to aquatic videos, optical attenuation and motion interference fatally corrupt their feature aggregation, leading to severe tracking and reconstruction failures. To overcome these limitations, we present NemoSplat, the first feed-forward 4D Gaussian Splatting framework tailored for media-aware dynamic reconstruction directly from uncalibrated marine videos. Beyond providing robust estimations of camera poses and dense scene depth, we devise a Promptable Dynamic Disentangler that utilizes a confidence-aware fusion strategy of learned dynamic probabilities and optional semantic text priors, effectively isolating massive transient entities. Furthermore, to counteract visual degradation, a Media-Aware Gaussian Predictor is formulated to jointly estimate intrinsic 3D Gaussian attributes alongside physical media parameters, rendering pristine scene appearance in a single forward pass. Additionally, we introduce a large-scale underwater dataset with massive dynamic elements to facilitate training and evaluation. Extensive experiments on our dataset demonstrate that NemoSplat achieves state-of-the-art tracking accuracy and high-fidelity rendering. Homepage: https://nemosplat.hkustvgd.com</p>
