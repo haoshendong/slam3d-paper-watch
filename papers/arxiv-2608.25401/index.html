@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 16 · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">PIVOT：面向真实世界三维重建的多轨迹位姿、内参与新视点评测数据集和测试平台</span><span class="lang lang-en lang-inline" data-lang="en">PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction</span></h1>
+  <div class="meta">作者：Mary Raymond</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.25401">abs</a><a href="https://arxiv.org/pdf/2608.25401">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>直接覆盖真实世界三维重建评测、COLMAP 位姿和相机标定因素；对 SLAM/重建系统的部署评测有高参考价值，但不是 SLAM 算法。</p><div class="tags"><span class="tag">三维重建</span><span class="tag">3DGS</span><span class="tag">NeRF</span><span class="tag">位姿评测</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为 NeRF/3DGS 引入更接近真实部署的轨迹、位姿和内参评测，适合检查训练轨迹内插是否掩盖了新轨迹泛化问题。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">PIVOT 针对机器人和无人机环境中轨迹、位姿和内参不理想的问题，提供多轨迹采集数据、测量位姿与 COLMAP 优化位姿、标定与优化内参，并评估已见/未见轨迹、位姿来源和内参来源的敏感性。</p><p class="lang lang-en lang-block" data-lang="en">Neural radiance fields (NeRFs), 3D Gaussian Splatting (3DGS), and related novel-view synthesis methods are commonly evaluated under capture and reconstruction conditions cleaner than those encountered by robots, drones, and autonomous systems. Benchmarks often rely on reconstruction-friendly trajectories, optimized camera poses and intrinsics, and held-out views sampled from trajectories represented during training. These assumptions can obscure performance with measured poses, reusable camera calibration, and structurally different camera paths. We introduce PIVOT (Pose, Intrinsics and Viewpoint Oriented Testbed), a multi-trajectory dataset, processing pipeline, and evaluation framework for independently studying these factors. PIVOT captures each scene using diverse camera trajectories and retains, where available, both sensor-derived measured poses and COLMAP-optimized poses, together with calibrated and optimized camera intrinsics. It defines three benchmark families: (1) seen versus unseen trajectory novel-view generalization, (2) measured versus optimized pose sensitivity, and (3) calibrated versus optimized intrinsics sensitivity. We also introduce a directed pose-space Chamfer distance to quantify how well training poses cover an evaluation trajectory. PIVOT v1 contains five real-world scenes captured with a DJI Mini 4 Pro and provides an open processing and Nerfstudio-based evaluation toolchain. Benchmark results show a consistent quality gap between held-out views on represented trajectories and unseen trajectories, as well as substantial sensitivity to pose source and camera intrinsics.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：PIVOT：面向真实世界三维重建的多轨迹位姿、内参与新视点评测数据集和测试平台</li>
+<li><strong>方向</strong>：三维重建、NeRF、3DGS、位姿与相机内参评测。</li>
+<li><strong>要点</strong>：针对机器人和无人机环境中轨迹、位姿和内参不理想的问题，提供多轨迹采集数据、测量位姿与 COLMAP 优化位姿、标定与优化内参，并分别评估已见/未见轨迹、位姿来源和内参来源的敏感性。</li>
+<li><strong>判断</strong>：对真实部署下的重建评测很有价值，尤其适合检查“训练轨迹内插”是否掩盖了新轨迹泛化问题；不是 SLAM 算法本身。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25401/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25401/fig-001.webp" alt="PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 2</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25401/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25401/fig-002.webp" alt="PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25401/fig-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25401/fig-003.webp" alt="PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25401/fig-004.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25401/fig-004.webp" alt="PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25401/fig-005.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25401/fig-005.webp" alt="PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25401/table-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25401/table-001.webp" alt="PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25401/table-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25401/table-002.webp" alt="PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25401/table-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25401/table-003.webp" alt="PIVOT: A Multi-Trajectory Dataset and Testbed for Pose, Intrinsics, and Novel Viewpoint Evaluation in Real-World 3D Reconstruction" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

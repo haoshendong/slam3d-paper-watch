@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 7 · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GNSS 自监督学习的机会：深度学习增强 PVT 算法评估</span><span class="lang lang-en lang-inline" data-lang="en">Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm</span></h1>
+  <div class="meta">作者：Thomas Barbero, Bertrand Ekambi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.25674">abs</a><a href="https://arxiv.org/pdf/2608.25674">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>直接处理 GNSS PVT、多路径抑制和未见恶劣环境泛化，是本轮 GNSS 专项最相关论文。</p><div class="tags"><span class="tag">GNSS</span><span class="tag">PVT</span><span class="tag">多路径抑制</span><span class="tag">自监督学习</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">直接命中城市峡谷和多路径鲁棒定位主题，后续应核查区域隔离、误差分布及与 INS 或因子图融合的兼容性。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">方法用监督目标联合预测伪距修正和不确定性，并通过 JEPA 式自监督预训练提升表示质量；在多种驾驶场景中评估泛化，重点缓解密集城市区域的多路径干扰。</p><p class="lang lang-en lang-block" data-lang="en">This work proposes a Deep Learning Enhanced PVT algorithm to mitigate multipath interference in dense urban areas. A supervised objective jointly predicts range corrections and uncertainty, while a JEPA-based self-supervised pretraining stage improves representation quality. The algorithm is evaluated over diverse driving scenarios, substantially improving PVT accuracy, particularly for unseen harsh urban conditions. These results highlight the potential of unlabelled GNSS data to improve generalization performance.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：PIVOT：面向真实世界三维重建的多轨迹位姿、内参与新视点评测数据集和测试平台</li>
+<li><strong>方向</strong>：三维重建、NeRF、3DGS、位姿与相机内参评测。</li>
+<li><strong>要点</strong>：针对机器人和无人机环境中轨迹、位姿和内参不理想的问题，提供多轨迹采集数据、测量位姿与 COLMAP 优化位姿、标定与优化内参，并分别评估已见/未见轨迹、位姿来源和内参来源的敏感性。</li>
+<li><strong>判断</strong>：对真实部署下的重建评测很有价值，尤其适合检查“训练轨迹内插”是否掩盖了新轨迹泛化问题；不是 SLAM 算法本身。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25674/fig-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25674/fig-001.webp" alt="Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25674/fig-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25674/fig-002.webp" alt="Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25674/fig-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25674/fig-003.webp" alt="Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25674/fig-004.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25674/fig-004.webp" alt="Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25674/table-001.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25674/table-001.webp" alt="Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm" loading="lazy"></a><figcaption class="meta">papercropper_table · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25674/table-002.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25674/table-002.webp" alt="Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm" loading="lazy"></a><figcaption class="meta">papercropper_table · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-28/arxiv-2608.25674/table-003.webp"><img src="../../assets/media/2026-08-28/arxiv-2608.25674/table-003.webp" alt="Opportunities of Self Supervised Learning for GNSS: Evaluation of a Deep Learning-Enhanced PVT Algorithm" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

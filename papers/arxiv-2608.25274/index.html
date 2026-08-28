@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>OpenCVL: An Open, Diverse, and Large-Scale Dataset for Fine-Grained Cross-View Localization</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 7 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">OpenCVL：开放、多样且大规模的细粒度跨视角定位数据集</span><span class="lang lang-en lang-inline" data-lang="en">OpenCVL: An Open, Diverse, and Large-Scale Dataset for Fine-Grained Cross-View Localization</span></h1>
+  <div class="meta">作者：Zimin Xia, Mubariz Zaffar, Junsheng Fu, Alexandre Alahi, Julian F. P. Kooij</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.25274">abs</a><a href="https://arxiv.org/pdf/2608.25274">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>直接覆盖视觉定位、地理配准和 GNSS 替代场景，数据规模与跨区域测试对定位系统评估有价值。</p><div class="tags"><span class="tag">视觉定位</span><span class="tag">跨视角匹配</span><span class="tag">地理定位</span><span class="tag">GNSS 替代</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">为城市视觉定位和 GNSS 受限场景提供大规模、跨区域数据，重点价值在于多样性与泛化评测。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">OpenCVL 构建覆盖 4 个欧洲国家 41 座城市的 617,388 对地面—航空图像，并通过数据筛选和位姿校正获得可靠的野外图像评测集，另设跨区域和雪景测试集。</p><p class="lang lang-en lang-block" data-lang="en">Fine-grained Cross-View Localization (CVL) estimates the precise position and orientation of a ground-level image by aligning it with geo-referenced aerial imagery, offering a scalable alternative to Global Navigation Satellite Systems (GNSS) in challenging urban environments. Existing datasets rely on data collected with high-end sensor suites, which inherently limit image diversity and scalability. While in-the-wild images are abundant, their noisy geo-tags make them unsuitable for reliable evaluation. To bridge this gap, we introduce OpenCVL, a large-scale, diverse, and open dataset containing 617,388 ground-aerial image pairs spanning 41 cities across four European countries. All images are sourced from permissive platforms, ensuring long-term accessibility and supporting open and reproducible research. The training set combines images captured with high-end sensors with diverse in-the-wild imagery. We further develop a data curation framework that filters and corrects pose annotations to construct reliable in-the-wild evaluation data. In addition, OpenCVL includes dedicated cross-area and snowy test sets to assess generalization and robustness. Experiments with a state-of-the-art CVL model on OpenCVL show that incorporating noisy in-the-wild data consistently improves performance on clean test sets, suggesting a promising direction for scaling CVL with diverse real-world imagery.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：PIVOT：面向真实世界三维重建的多轨迹位姿、内参与新视点评测数据集和测试平台</li>
+<li><strong>方向</strong>：三维重建、NeRF、3DGS、位姿与相机内参评测。</li>
+<li><strong>要点</strong>：针对机器人和无人机环境中轨迹、位姿和内参不理想的问题，提供多轨迹采集数据、测量位姿与 COLMAP 优化位姿、标定与优化内参，并分别评估已见/未见轨迹、位姿来源和内参来源的敏感性。</li>
+<li><strong>判断</strong>：对真实部署下的重建评测很有价值，尤其适合检查“训练轨迹内插”是否掩盖了新轨迹泛化问题；不是 SLAM 算法本身。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

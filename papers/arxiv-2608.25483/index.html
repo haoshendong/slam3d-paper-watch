@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SLAM、GNSS 和三维重建方向的每日论文阅读器。">
+  <title>Gaussian Splatting Underwater: A Controlled Cross-Regime Study</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-28/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-28/index.html">← 返回 2026-08-28 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 12 · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">水下 Gaussian Splatting：跨环境条件的受控研究</span><span class="lang lang-en lang-inline" data-lang="en">Gaussian Splatting Underwater: A Controlled Cross-Regime Study</span></h1>
+  <div class="meta">作者：Olaya Álvarez-Tuñón, Stella Graßhof</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.25483">abs</a><a href="https://arxiv.org/pdf/2608.25483">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>直接涉及 SfM、3DGS 和恶劣环境三维重建，实验控制和失败模式对真实机器人感知有参考意义。</p><div class="tags"><span class="tag">水下重建</span><span class="tag">3DGS</span><span class="tag">SfM</span><span class="tag">介质建模</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">受控实验揭示水下重建中介质条件、SfM 注册和光度/几何指标之间的关系，并提供公开代码与评测流程。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文在不同浑浊度、照明和颜色衰减条件下统一比较五个公开 Gaussian Splatting 系统。清水中 SfM 可注册 99.5% 帧，而 12 NTU 条件下为 0.0%，显示上游几何注册可能先于渲染模型成为瓶颈。</p><p class="lang lang-en lang-block" data-lang="en">The underwater environment is challenging for 3D reconstruction, because particles suspended in the water scatter and diffuse light, turbidity varies, absorption depends on wavelength, and illumination is rarely uniform. Methods based on Gaussian splatting have generally been developed for conditions that allow good image quality, and have primarily been tested on relatively shallow water. This paper examines how well Gaussian splatting performs across publicly available underwater datasets representing different degrees of turbidity, loss of illumination, and colour attenuation, together with an industrial survey. Five systems with public code are run under one protocol, with shared poses, initialisation, budget, and evaluator, to establish their relative advantages, disadvantages, and limitations. What these methods can do turns out to depend more on the setup than on the architecture. Water clarity binds upstream of rendering, since structure-from-motion registers 99.5 \% of frames in clear water and 0.0 \% at 12 NTU. Illumination geometry decides whether a medium model helps at all: under an artificial light that moves with the camera, medium-blind splatting beats both medium-aware systems. On the survey the benchmark&#x27;s photometric leader comes last, beaten on geometry by a restoration pre-pass in front of vanilla 3DGS---and none of it is visible in the scores the field reports. Scene builds, per-run configurations, and evaluation code are released at https://github.com/olayasturias/uw3dgs</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>中文名</strong>：PIVOT：面向真实世界三维重建的多轨迹位姿、内参与新视点评测数据集和测试平台</li>
+<li><strong>方向</strong>：三维重建、NeRF、3DGS、位姿与相机内参评测。</li>
+<li><strong>要点</strong>：针对机器人和无人机环境中轨迹、位姿和内参不理想的问题，提供多轨迹采集数据、测量位姿与 COLMAP 优化位姿、标定与优化内参，并分别评估已见/未见轨迹、位姿来源和内参来源的敏感性。</li>
+<li><strong>判断</strong>：对真实部署下的重建评测很有价值，尤其适合检查“训练轨迹内插”是否掩盖了新轨迹泛化问题；不是 SLAM 算法本身。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
