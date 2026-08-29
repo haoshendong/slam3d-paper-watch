@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>WALL-SS: Scaling Long-horizon World Models via Next-Scale Autoregression</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-29/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-29/index.html">← 返回 2026-08-29 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-28 · score 8 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">WALL-SS：用下一尺度自回归扩展长时域世界模型</span><span class="lang lang-en lang-inline" data-lang="en">WALL-SS: Scaling Long-horizon World Models via Next-Scale Autoregression</span></h1>
+  <div class="meta">作者：Maeve Zhang, Rain Sun, Xiang Wang, Cyril Zhang, Shalfun Li, Meng Cao, Howard Lu, Ethan Chen, Harry Jhou, KZ Zheng, Lights Shi, Regis Cheng, Lorenzin, Robert Wang, Victor Yao, Gody Li, Elise Mon, Yohann Tang, Ryan Yu, PS Zhang, Vincent Chen, Hang Su, Roy Gan, Hao Wang, Qian Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.26239">abs</a><a href="https://arxiv.org/pdf/2608.26239">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>A 级 robotic world model，明确面向长时域 action-conditioned rollout。</p><div class="tags"><span class="tag">世界模型</span><span class="tag">长时域预测</span><span class="tag">动作条件</span><span class="tag">机器人规划</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把动作条件、长时记忆和视觉未来预测统一起来，为从空间表征到具身规划提供世界模型桥梁。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：桥接价值、方法摘要、可迁移模块、关键证据与数字、边界与风险、下一步实验。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">WALL-SS 将交错的观测—动作序列按尺度自回归生成，结合动作条件的下一尺度预测、尺度压缩长时记忆和 on-policy alignment，实现可变长度、流式扩展的视觉机器人世界模型。</p><p class="lang lang-en lang-block" data-lang="en">Generative world models provide robots with predictive models of how the world evolves under interaction, with growing potential for simulation, planning, policy evaluation, and robot learning. Beyond clip-level future prediction, a unified generative formulation should relate actions to consequences, support flexible horizons and continuous interaction, and enable reward-driven optimization. We introduce WALL-SS, a world model that generates visual futures through Scale-wise autoregressive Scaling, enabling action-controllable and long-horizon robotic simulation. WALL-SS represents embodied trajectories as causal sequences of temporally interleaved observations and actions, making action-dependent state transitions explicit while naturally supporting variable-length generation, streaming extension through reusable causal states, and direct optimization through sequence probabilities. To make this formulation effective over long horizons, we generate each future observation in a coarse-to-fine manner and develop three complementary components within the same hierarchy. Action-conditioned next-scale prediction injects scale-aligned action representations to improve action-future coupling and model both successful and failed behaviors. Scale-compressed long-horizon memory retains recent interactions at fine resolution while compressing distant observations and actions, with scale-wise dream forcing enhancing robustness to self-generated context. Finally, on-policy alignment optimizes autoregressive visual dynamics with action-following and long-term consistency rewards while preserving the pretrained visual distribution. Experiments show that WALL-SS improves action following and trajectory accuracy, supports coherent minute-long streaming rollout under bounded memory, and consistently benefits from on-policy alignment in reducing action drift and long-horizon inconsistency.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26239/fig-001.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26239/fig-001.webp" alt="WALL-SS: Scaling Long-horizon World Models via Next-Scale Autoregression" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26239/fig-002.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26239/fig-002.webp" alt="WALL-SS: Scaling Long-horizon World Models via Next-Scale Autoregression" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26239/fig-003.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26239/fig-003.webp" alt="WALL-SS: Scaling Long-horizon World Models via Next-Scale Autoregression" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26239/fig-004.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26239/fig-004.webp" alt="WALL-SS: Scaling Long-horizon World Models via Next-Scale Autoregression" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26239/fig-005.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26239/fig-005.webp" alt="WALL-SS: Scaling Long-horizon World Models via Next-Scale Autoregression" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26239/fig-006.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26239/fig-006.webp" alt="WALL-SS: Scaling Long-horizon World Models via Next-Scale Autoregression" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

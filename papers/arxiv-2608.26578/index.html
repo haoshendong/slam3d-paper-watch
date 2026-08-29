@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-29/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-29/index.html">← 返回 2026-08-29 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-28 · score 10 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">TrapVLA：将视觉—语言—动作模型诱导至可配置失败模式</span><span class="lang lang-en lang-inline" data-lang="en">TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes</span></h1>
+  <div class="meta">作者：Jun-Hui Liu, Kun-Yu Lin, Yi-Lin Wei, Xu-Han Chen, Yinghao Li, Zhuohao Li, Yuan-Ming Li, Qing Zhang, Xiaoyi Fan, Dongmei Jiang, Yan Li, Wei-Shi Zheng</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.26578">abs</a><a href="https://arxiv.org/pdf/2608.26578">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>A 级 VLA 安全工作，提供可配置失败基准、数据引擎和动作残差方法。</p><div class="tags"><span class="tag">VLA 安全</span><span class="tag">后门攻击</span><span class="tag">故障注入</span><span class="tag">具身决策</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 VLA 安全从二元任务失败推进到可控失败行为，对可靠具身决策和故障注入评测有直接价值。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：桥接价值、方法摘要、可迁移模块、关键证据与数字、边界与风险、下一步实验。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出 Configured Failure Trapping，通过隐蔽文本触发器让机器人按指定位置偏移或时序错误失败，而不是仅让任务失败。TrapEngine 生成目标轨迹，TrapEval 用 C-ASR 与 AVE 评估，TrapVLA 学习触发器引起的稀疏动作残差。</p><p class="lang lang-en lang-block" data-lang="en">This work introduces Configured Failure Trapping, a novel backdoor attack task against Vision-Language-Action (VLA) models, which aims to activate attacks through stealthy textual triggers and induce configured failure modes. Unlike prior backdoor attacks that treat any task failure as a successful attack, Configured Failure Trapping requires the attacker to control how the robot fails (e.g., causing the robot to grasp with a specified positional offset), making it substantially more challenging and hard to detect. To support the new task, we propose an effective data engine for synthesizing high-quality target trajectories and an automated suite for measuring configured-failure fidelity. Then, based on this foundation, we construct two new benchmarks, namely Trap-LIBERO and Trap-RoboTwin, that instantiate Configured Failure Trapping across four representative failure modes. To address this task, we identify sparse action deviation as a critical challenge and accordingly propose a novel method named TrapVLA, which explicitly learns trigger-induced action residuals to steer the policy toward the configured failure behavior. Extensive experiments across simulation benchmarks and real-world robotic settings show that TrapVLA effectively injects configured failure modes into VLA models while largely preserving performance on clean data. Project page: https://john-liua.github.io/TrapVLA/</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26578/fig-001.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26578/fig-001.webp" alt="TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26578/fig-002.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26578/fig-002.webp" alt="TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26578/fig-003.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26578/fig-003.webp" alt="TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26578/fig-004.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26578/fig-004.webp" alt="TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26578/fig-005.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26578/fig-005.webp" alt="TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26578/fig-006.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26578/fig-006.webp" alt="TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
