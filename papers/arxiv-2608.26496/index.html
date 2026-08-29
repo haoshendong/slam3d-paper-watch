@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>RTNav: Towards Real-Time Zero-Shot Object Navigation</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-29/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-29/index.html">← 返回 2026-08-29 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-28 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO, cs.AI, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">RTNav：迈向实时零样本目标导航</span><span class="lang lang-en lang-inline" data-lang="en">RTNav: Towards Real-Time Zero-Shot Object Navigation</span></h1>
+  <div class="meta">作者：Easop Lee, Lingyu Zhang, Boyuan Chen</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.26496">abs</a><a href="https://arxiv.org/pdf/2608.26496">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 8/10</span><p>A 级 embodied navigation，直接量化 foundation model 推理延迟对闭环空间决策的影响。</p><div class="tags"><span class="tag">实时导航</span><span class="tag">ObjectNav</span><span class="tag">异步执行</span><span class="tag">空间推理</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把空间推理从同步模拟器拉回墙钟时间，为可靠具身导航提供系统级基线。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：桥接价值、方法摘要、可迁移模块、关键证据与数字、边界与风险、下一步实验。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">RTNav 将推理延迟、异步环境推进和有限算力作为设计约束，使感知、建图、规划和导航模块独立运行。在 HM3D-v1、HM3D-v2 和 HM3D-OVON 的实时设置中最多提升 11% 成功率和 5.1 点 Success weighted by Completion Time。</p><p class="lang lang-en lang-block" data-lang="en">Navigation in unknown environments to find unforeseen objects has become increasingly feasible with capable vision and language foundation models. However, these models also introduce non-negligible inference latency, which becomes an important concern when agents must operate continuously in the real world. Most state-of-the-art methods are still developed in synchronous simulators, where the environment waits for the agent to act and inference time is effectively free. As a result, agents are often designed around the sequential execution of perception, reasoning, and action, with little regard for time constraints. Under real-time execution, where wall-clock time counts towards the task budget, the inefficiencies of these architectures become clear. We show that recent zero-shot object navigation methods suffer consistent performance degradation under such realistic timing conditions. Motivated by this observation, we propose RTNav, a simple but effective architecture that treats inference latency, asynchronous environment stepping, and bounded compute as explicit design considerations. Evaluated on real-time variants of HM3D-v1, HM3D-v2, and HM3D-OVON, RTNav improves the success rate by up to 11% and the Success weighted by Completion Time by up to 5.1 points over prior work.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/fig-001.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/fig-001.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 1</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/fig-002.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/fig-002.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 4</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/fig-003.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/fig-003.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/fig-004.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/fig-004.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/fig-005.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/fig-005.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/fig-006.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/fig-006.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 6</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/table-001.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/table-001.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/table-002.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/table-002.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-08-29/arxiv-2608.26496/table-003.webp"><img src="../../assets/media/2026-08-29/arxiv-2608.26496/table-003.webp" alt="RTNav: Towards Real-Time Zero-Shot Object Navigation" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
