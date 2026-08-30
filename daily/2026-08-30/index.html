@@ -32,57 +32,57 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 6 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb placeholder" href="https://arxiv.org/abs/2608.26868">论文预览</a>
-  <h3><a href="https://arxiv.org/abs/2608.26868"><span class="lang lang-zh lang-inline" data-lang="zh">CGS-SLAM：面向多智能体重建的协作式 Gaussian Splatting SLAM</span><span class="lang lang-en lang-inline" data-lang="en">CGS-SLAM: Collaborative Gaussian Splatting based SLAM for Multi-Agent Reconstruction</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-08-27 · score 22 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.RO</div>
-  <div class="meta">内容级别：简报式摘要</div>
+  <a class="thumb placeholder" href="../../papers/arxiv-2608.26868/index.html">论文预览</a>
+  <h3><a href="../../papers/arxiv-2608.26868/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CGS-SLAM：面向多智能体重建的协作式 Gaussian Splatting SLAM</span><span class="lang lang-en lang-inline" data-lang="en">CGS-SLAM: Collaborative Gaussian Splatting based SLAM for Multi-Agent Reconstruction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-08-27 · score 22 · S层 · Learning + Geometric Optimization SLAM/VIO · cs.CV, cs.RO</div>
+  <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Jean-Daniel de Ambrogi, Aladine Chetouani, Vincent Nguyen, Aurélien Chateigner</div>
   <span class="score">评分 11/10</span>
   <div class="tags"><span class="tag">协作 SLAM</span><span class="tag">度量深度</span><span class="tag">视觉惯性</span><span class="tag">3DGS</span><span class="tag">多智能体</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>它把度量单目深度、惯性先验、低带宽关键帧通信和跨智能体子地图对齐串成一个可部署的协作几何管线。最值得复用的是对近场深度失效、转弯退化和通信预算的显式评测。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">CGS-SLAM 是一个仅使用 RGB 与惯性数据的混合式去中心化/中心化多智能体 3DGS SLAM 系统。每个智能体用 IMU 作为运动先验，并用 Depth Pro 产生度量深度；服务器通过关键帧编码和 VGGT 对齐子地图。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in SLAM have leveraged 3DGS for photorealistic reconstruction and novel view synthesis. However, most methods rely on RGB-D input, which is unavailable on consumer-grade smartphones, and few in…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2608.26868">abs</a><a href="https://arxiv.org/pdf/2608.26868">PDF</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.26868">abs</a><a href="https://arxiv.org/pdf/2608.26868">PDF</a><a href="../../papers/arxiv-2608.26868/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2608.22896"><img src="../../assets/media/2026-08-30/arxiv-2608.22896/fig-001.webp" alt="SuperMap: A Spatio-Temporal SLAM System for Visual-Language Navigation" loading="lazy"></a>
-  <h3><a href="https://arxiv.org/abs/2608.22896"><span class="lang lang-zh lang-inline" data-lang="zh">SuperMap：面向视觉语言导航的时空 SLAM 系统</span><span class="lang lang-en lang-inline" data-lang="en">SuperMap: A Spatio-Temporal SLAM System for Visual-Language Navigation</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-08-24 · score 10 · cs.RO</div>
-  <div class="meta">内容级别：简报式摘要</div>
+  <a class="thumb" href="../../papers/arxiv-2608.22896/index.html"><img src="../../assets/media/2026-08-30/arxiv-2608.22896/fig-001.webp" alt="SuperMap: A Spatio-Temporal SLAM System for Visual-Language Navigation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2608.22896/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SuperMap：面向视觉语言导航的时空 SLAM 系统</span><span class="lang lang-en lang-inline" data-lang="en">SuperMap: A Spatio-Temporal SLAM System for Visual-Language Navigation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 10 · S层 · 3D/4D Spatial Perception · cs.RO</div>
+  <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Shibo Zhao, Guofei Chen, Honghao Zhu, Zhiheng Li</div>
   <span class="score">评分 10/10</span>
   <div class="tags"><span class="tag">4D 场景图</span><span class="tag">开放词汇</span><span class="tag">时空地图</span><span class="tag">VLN</span><span class="tag">实例跟踪</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这是一条从可靠位姿与稠密几何到对象级时空记忆、再到 VLM 导航的完整桥接链路。论文同时给出了在线频率、实例变化召回和模块消融，适合作为空间推理前的地图接口基线。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">SuperMap 将高频几何 SLAM 与异步开放词汇感知结合，维护可查询的实例级 4D 场景图。它通过 3D 感知的实例关联、几何一致性更新和 Bayesian 语义融合，处理遮挡、物体出现/消失以及长期语义变化。</p><p class="lang lang-en lang-block" data-lang="en">Robotic navigation in human environments requires a spatio-temporal semantic representation that can rec- oncile open-vocabulary perception with long-term environmental changes. While foundation models provide…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2608.22896">abs</a><a href="https://arxiv.org/pdf/2608.22896">PDF</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.22896">abs</a><a href="https://arxiv.org/pdf/2608.22896">PDF</a><a href="../../papers/arxiv-2608.22896/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb placeholder" href="https://arxiv.org/abs/2608.23055">论文预览</a>
-  <h3><a href="https://arxiv.org/abs/2608.23055"><span class="lang lang-zh lang-inline" data-lang="zh">噪声定位下的宏动作拓扑导航与强化学习</span><span class="lang lang-en lang-inline" data-lang="en">Macro-Action Topological Navigation under Noisy Localization using Reinforcement Learning</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-08-24 · score 9 · cs.LG, cs.RO</div>
-  <div class="meta">内容级别：简报式摘要</div>
+  <a class="thumb placeholder" href="../../papers/arxiv-2608.23055/index.html">论文预览</a>
+  <h3><a href="../../papers/arxiv-2608.23055/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">噪声定位下的宏动作拓扑导航与强化学习</span><span class="lang lang-en lang-inline" data-lang="en">Macro-Action Topological Navigation under Noisy Localization using Reinforcement Learning</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 9 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.LG, cs.RO</div>
+  <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Simon Hakenes, Tobias Glasmachers</div>
   <span class="score">评分 9/10</span>
   <div class="tags"><span class="tag">具身导航</span><span class="tag">局部定位</span><span class="tag">EKF</span><span class="tag">宏动作</span><span class="tag">强化学习</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>它把可靠状态估计问题拆成运动模型维持航向、视觉测量限制位置漂移两个可诊断模块。对具身导航而言，这是一个低成本、可注入执行噪声的局部定位基线。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文在逼真 Habitat 公寓中用 ORB 特征、Kabsch 配准和 EKF 建立局部一致但会漂移的自定位，并让 DQN 通过宏动作完成多目标导航。结果表明无需全局精确 SLAM，只要附近物体与机器人保持局部一致，导航仍可运行。</p><p class="lang lang-en lang-block" data-lang="en">Navigating large, photorealistic 3D apartments from raw pixels is widely considered infeasible for plain reinforcement learning. We build an agent that does it anyway, estimating its own pose from the camera a…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2608.23055">abs</a><a href="https://arxiv.org/pdf/2608.23055">PDF</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.23055">abs</a><a href="https://arxiv.org/pdf/2608.23055">PDF</a><a href="../../papers/arxiv-2608.23055/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2608.23012"><img src="../../assets/media/2026-08-30/arxiv-2608.23012/fig-001.webp" alt="Misanthrope: A Privacy-Preserving Keypoint Detector" loading="lazy"></a>
-  <h3><a href="https://arxiv.org/abs/2608.23012"><span class="lang lang-zh lang-inline" data-lang="zh">Misanthrope：隐私保护关键点检测器</span><span class="lang lang-en lang-inline" data-lang="en">Misanthrope: A Privacy-Preserving Keypoint Detector</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-08-24 · score 7 · cs.CV</div>
-  <div class="meta">内容级别：简报式摘要</div>
+  <a class="thumb" href="../../papers/arxiv-2608.23012/index.html"><img src="../../assets/media/2026-08-30/arxiv-2608.23012/fig-001.webp" alt="Misanthrope: A Privacy-Preserving Keypoint Detector" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2608.23012/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Misanthrope：隐私保护关键点检测器</span><span class="lang lang-en lang-inline" data-lang="en">Misanthrope: A Privacy-Preserving Keypoint Detector</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 7 · A层 · Robust State Estimation / Uncertainty · cs.CV</div>
+  <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Francesco Vultaggio, Predrag Djindjic, Markus Gerke, Sebastian Tschiatschek</div>
   <span class="score">评分 8/10</span>
   <div class="tags"><span class="tag">视觉定位</span><span class="tag">隐私保护</span><span class="tag">关键点检测</span><span class="tag">特征反演</span><span class="tag">自蒸馏</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这是可靠视觉定位的鲁棒性与隐私侧观察项：把风险抑制前移到特征产生阶段，而不是事后模糊化。其关键实验同时涉及匹配质量、特征反演和人物避让，适合扩展到共享地图的安全评测。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Misanthrope 通过自蒸馏训练关键点检测器，主动避开人物区域，以降低分布式视觉定位中局部特征反演和身份重识别风险。作者报告在保持匹配性能的同时，在含人物干扰的场景中改善了特征提取。</p><p class="lang lang-en lang-block" data-lang="en">Image matching is a core component of applications such as Simultaneous Localization and Mapping (SLAM), Visual Localization, and Structure from Motion (SfM). However, the local image features central to this…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2608.23012">abs</a><a href="https://arxiv.org/pdf/2608.23012">PDF</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.23012">abs</a><a href="https://arxiv.org/pdf/2608.23012">PDF</a><a href="../../papers/arxiv-2608.23012/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
   <a class="thumb" href="https://arxiv.org/abs/2608.25799"><img src="../../assets/media/2026-08-30/arxiv-2608.25799/fig-001.webp" alt="AGRO-Nav: Autonomous Graph-based Orchard Navigation" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2608.25799"><span class="lang lang-zh lang-inline" data-lang="zh">AGRO-Nav：自主图搜索果园导航</span><span class="lang lang-en lang-inline" data-lang="en">AGRO-Nav: Autonomous Graph-based Orchard Navigation</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-08-26 · score 3 · cs.RO</div>
+  <div class="meta">新论文 · 日期 2026-08-26 · score 3 · A-层 · Real-time / GPU Robotics Systems · cs.RO</div>
   <div class="meta">内容级别：简报式摘要</div>
   <div class="meta">作者：Ho Young Yun, Jaemin Yu, Duksu Kim</div>
   <span class="score">评分 5/10</span>
@@ -94,7 +94,7 @@
 <article class="card">
   <a class="thumb placeholder" href="https://arxiv.org/abs/2608.23040">论文预览</a>
   <h3><a href="https://arxiv.org/abs/2608.23040"><span class="lang lang-zh lang-inline" data-lang="zh">RoboRacer Arena：在 Isaac Sim 中扩展高保真自主赛车</span><span class="lang lang-en lang-inline" data-lang="en">RoboRacer Arena: Scaling High-Fidelity Autonomous Racing in Isaac Sim</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-08-24 · score 3 · cs.RO</div>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 3 · A-层 · Real-time / GPU Robotics Systems · cs.RO</div>
   <div class="meta">内容级别：简报式摘要</div>
   <div class="meta">作者：Mihaela-Larisa Clement, Agnes Poks, Ezio Bartocci</div>
   <span class="score">评分 4/10</span>

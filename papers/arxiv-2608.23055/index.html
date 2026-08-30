@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Macro-Action Topological Navigation under Noisy Localization using Reinforcement Learning</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-08-30/index.html">← 返回 2026-08-30 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-24 · score 9 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.LG, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">噪声定位下的宏动作拓扑导航与强化学习</span><span class="lang lang-en lang-inline" data-lang="en">Macro-Action Topological Navigation under Noisy Localization using Reinforcement Learning</span></h1>
+  <div class="meta">作者：Simon Hakenes, Tobias Glasmachers</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.23055">abs</a><a href="https://arxiv.org/pdf/2608.23055">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 9/10</span><p>A 级 embodied navigation 与 robust state estimation，直接检验局部一致位姿替代真值位姿后的导航退化。</p><div class="tags"><span class="tag">具身导航</span><span class="tag">局部定位</span><span class="tag">EKF</span><span class="tag">宏动作</span><span class="tag">强化学习</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">它把可靠状态估计问题拆成运动模型维持航向、视觉测量限制位置漂移两个可诊断模块。对具身导航而言，这是一个低成本、可注入执行噪声的局部定位基线。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：桥接价值、方法摘要、可迁移模块、关键证据与数字、边界与风险、下一步实验。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文在逼真 Habitat 公寓中用 ORB 特征、Kabsch 配准和 EKF 建立局部一致但会漂移的自定位，并让 DQN 通过宏动作完成多目标导航。结果表明无需全局精确 SLAM，只要附近物体与机器人保持局部一致，导航仍可运行。</p><p class="lang lang-en lang-block" data-lang="en">Navigating large, photorealistic 3D apartments from raw pixels is widely considered infeasible for plain reinforcement learning. We build an agent that does it anyway, estimating its own pose from the camera alone. The agent has to reach several target objects in sequence, and their positions change between episodes, so it must explore to find them. It builds on our earlier object-centric topological controller, which still read the agent&#x27;s true pose and its object detections from the simulator. Here we replace that true pose with an onboard, object-centric estimate. For each object we keep a bank of ORB features that, when the object is seen again, yield a rough pose measurement, which a minimal Extended Kalman Filter (EKF) fuses with a motion model. As on a real robot, the executed motions are noisy. The estimate drifts, but the agent and the nearby objects drift together, so a locally consistent pose is enough to follow each short edge and then home in visually on the target, which lets us replace full SLAM with a much smaller model, closer to how biological navigation appears to work. In the photorealistic Habitat simulator, the agent reaches its target objects from vision alone, with a pose that only needs to be locally consistent.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><p class="muted">暂无可用 PDF 图像；可直接打开 PDF 阅读。</p></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

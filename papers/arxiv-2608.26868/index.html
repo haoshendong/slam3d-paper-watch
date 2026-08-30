@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>CGS-SLAM: Collaborative Gaussian Splatting based SLAM for Multi-Agent Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-08-30/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<article class="poster-shell">
+  <header class="poster-cover">
+    <div class="poster-back"><a href="../../daily/2026-08-30/index.html">← 论文海报合集</a><span class="meta">完整单篇海报</span></div>
+    <div class="poster-kicker">Learning + Geometric Optimization SLAM/VIO · 2026-08-27 · S级阅读</div>
+    <h1>CGS-SLAM：面向多智能体重建的协作式 Gaussian Splatting SLAM</h1>
+    <p class="poster-title-en">CGS-SLAM: Collaborative Gaussian Splatting based SLAM for Multi-Agent Reconstruction</p>
+    <p class="poster-authors">Jean-Daniel de Ambrogi, Aladine Chetouani, Vincent Nguyen, Aurélien Chateigner</p>
+    <p class="poster-lead">它把度量单目深度、惯性先验、低带宽关键帧通信和跨智能体子地图对齐串成一个可部署的协作几何管线。最值得复用的是对近场深度失效、转弯退化和通信预算的显式评测。</p>
+    <div class="poster-meta"><span>2026-08-27</span><span>Learning + Geometric Optimization SLAM/VIO</span><span><a href="https://arxiv.org/abs/2608.26868">原文 / Paper</a></span></div>
+    <div class="tags"><span class="tag">协作 SLAM</span><span class="tag">度量深度</span><span class="tag">视觉惯性</span><span class="tag">3DGS</span><span class="tag">多智能体</span></div>
+  </header>
+  <nav class="poster-nav" aria-label="海报章节导航"><a href="#poster-01"><span class="nav-no">01</span>动机与问题</a><a href="#poster-02"><span class="nav-no">02</span>方法</a><a href="#poster-03"><span class="nav-no">03</span>实验</a><a href="#poster-04"><span class="nav-no">04</span>局限与迁移</a></nav>
+  
+  
+  <section class="poster-section" id="poster-01"><div class="poster-section-head"><span class="poster-section-no">01</span><h2 class="poster-section-title">动机与问题<span class="poster-section-en">Motivation</span></h2></div><div class="poster-section-body"><h3>动机与问题</h3><p>消费级手机通常没有 RGB-D 或 LiDAR，而协作机器人又需要在 GNSS-denied 环境中快速共享地图。问题是如何在有限传感器、低通信量和没有共享坐标系的条件下，同时获得在线度量几何、稳定跟踪与全局子地图一致性。</p></div></section><section class="poster-section" id="poster-02"><div class="poster-section-head"><span class="poster-section-no">02</span><h2 class="poster-section-title">方法<span class="poster-section-en">Method</span></h2></div><div class="poster-section-body"><h3>方法总览</h3><p>每个客户端用 IMU 预积分提供相机位姿先验，以 Depth Pro 生成度量深度并增量优化 3D Gaussian 地图。客户端只上传固定大小的关键帧编码，服务器通过跨客户端共视关键帧和 VGGT 估计相对变换，再把局部地图合并为全局表示。</p><h3>关键技术细节</h3><p>局部跟踪把光度损失与估计深度和渲染深度之间的 Pearson 相关损失结合，并通过多条件信息增益选择关键帧。全局对齐先用 NetVLAD 找候选共视帧，再用两阶段 Procrustes 对齐；关键帧编码为 65 KB，客户端上传速率约为每秒 1–2 帧。</p></div></section><section class="poster-section" id="poster-03"><div class="poster-section-head"><span class="poster-section-no">03</span><h2 class="poster-section-title">实验<span class="poster-section-en">Experiments</span></h2></div><div class="poster-section-body"><h3>实验设置</h3><p>实验使用 TUM RGB-D 和 UT-MM 两个带 IMU 的数据集，并将同一物理环境中的多次 UT-MM 采集作为合成多智能体评测。客户端硬件是 RTX 2080 Max-Q 与 i7-10750H，服务器使用 RTX 4090；指标包括 ATE-RMSE、PSNR、SSIM、LPIPS、跟踪帧率、显存/通信量，并与 Magic-SLAM、MAC-Ego3D 及 RGB-D 配置比较。</p><h3>实验数字与比较</h3><p>在 UT-MM 的单智能体表中，Ours 在 Ego-Centric-1 上 ATE 为 4.26 cm、PSNR 为 23.34 dB，而 Magic-SLAM RGB-D 为 4.78 cm、未报告 PSNR；在 Fast-Straight 上 Ours 为 6.07 cm 和 24.51 dB，Magic-SLAM 为 5.72 cm。客户端跟踪与建图达到 10 FPS、约 1 GB VRAM，地图大小为 25–75 MB；Depth Pro 在服务器上每个关键帧约 169 ms，编码带宽低于每智能体 130 KB/s。</p><h3>消融/失败边界</h3><p>在无 IMU 的 Replica Multiagent 条件下，用恒速模型替代惯性先验会导致 UT-MM 平均 ATE 7.05 cm；部分 Apt-1/Apt-2 轨迹的误差进一步超过 1 m，说明运动先验对故障恢复很关键。Depth Anything V3 替代 Depth Pro+VGGT 后，在 UT-MM 的 Square-1 上 ATE 从 42.33 cm 变为 61.42 cm，在 Fast-Straight 上从 6.07 cm 变为 12.63 cm；去掉 IMU 或把近场深度错误直接送入地图会出现不可恢复的错误尺度几何。</p></div></section><section class="poster-section" id="poster-04"><div class="poster-section-head"><span class="poster-section-no">04</span><h2 class="poster-section-title">局限与迁移<span class="poster-section-en">Limitations &amp; Transfer</span></h2></div><div class="poster-section-body"><h3>局限与待核验</h3><p>作者明确承认当前方案依赖两个较重的深度/位姿模型，Depth Pro 需要卸载到中心服务器，未来目标是单模型和完全手机端执行。待核验项包括更多真实多机器人数据、异步时钟与网络丢包、长时动态场景、能耗，以及把深度模型和通信延迟纳入端到端控制闭环后的任务成功率。</p><h3>与你研究路线的关系</h3><p>可迁移模块是 IMU 先验—度量深度—Gaussian 地图—关键帧编码—VGGT 子地图对齐这一条分层状态估计链路，以及按字节/帧率报告通信代价的实验协议。下一步可把 pose covariance、近场深度 OOD 检测和子地图对齐置信度加入后端，并在 TUM/UT-MM 上比较故障注入下的重定位率、地图一致性和控制成功率。</p></div></section>
+  
+  
+</article>
+<section class="poster-abstract">
+  <h2>原文摘要 · Abstract</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">CGS-SLAM 是一个仅使用 RGB 与惯性数据的混合式去中心化/中心化多智能体 3DGS SLAM 系统。每个智能体用 IMU 作为运动先验，并用 Depth Pro 产生度量深度；服务器通过关键帧编码和 VGGT 对齐子地图。</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in SLAM have leveraged 3DGS for photorealistic reconstruction and novel view synthesis. However, most methods rely on RGB-D input, which is unavailable on consumer-grade smartphones, and few integrate 3DGS within a collaborative framework. Therefore, we present CGS-SLAM, a hybrid decentralized/centralized system enabling multi-agent 3DGS SLAM using only RGB and inertial data. Each agent performs local tracking with inertial data as a motion prior and reconstructs a scaled map using a metric monocular depth estimator (Depth Pro). Keyframe encodings are shared among agents, enabling dynamic keyframing in regions of spatial overlaps with other agents, enhancing submap alignment. Afterwards, a central server aligns submaps using VGGT as a view alignment model. This bidirectional communication keeps communication cost low during mapping and global reconstruction in difficult GNSS-denied environments. Experiments on multiple datasets demonstrate competitive tracking performance, improved rendering quality over state-of-the-art methods, and accurate submap alignment.</p>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
