@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-01/index.html">← 返回 2026-09-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-27 · score 17 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">ABot-Recon：重新审视长时流式三维重建中的局部上下文</span><span class="lang lang-en lang-inline" data-lang="en">Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction</span></h1>
+  <div class="meta">作者：Jiarong Han, Jincheng Xiong, Yuzhou Liu, Linzhe Shi, Changjie Wu, Ning Guo, Mu Xu, Hang Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.27529">abs</a><a href="https://arxiv.org/pdf/2608.27529">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 17/10</span><p>直接连接 Geometry Foundation Models、在线几何估计和长时漂移控制；官方 HTML 给出了 Oxford Spires、KITTI、VBR、7Scenes 等多数据集实验及运行效率数字。</p><div class="tags"><span class="tag">流式重建</span><span class="tag">局部上下文</span><span class="tag">相对位姿</span><span class="tag">漂移控制</span><span class="tag">在线几何</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">以固定 12 帧局部上下文替代可增长的长程记忆，证明局部、等变的几何测量可以支撑超长流式重建。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：核心结论、动机与问题、方法总览、关键技术细节、实验设置、实验数字与比较。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">ABot-Recon 只缓存前 11 帧的 KV 特征，在当前相机坐标系预测 point map、confidence map 和相邻帧相对位姿，再通过顺序组合恢复全局轨迹与几何。轻量 motion-visual rotation refiner 和 composition-aware pose loss 用于降低长序列旋转误差累积。</p><p class="lang lang-en lang-block" data-lang="en">Streaming 3D reconstruction from extremely long videos requires estimating camera motion and scene geometry online under bounded memory and computation. Early streaming models achieve causal, bounded-cost inference using finite context buffers or compact recurrent states, yet their estimates often deteriorate as sequences grow. Recent methods improve long-horizon stability by coupling short-range context with persistent or multi-level long-range memory. We pursue a different route: we keep the learned temporal state strictly local and formulate predictions whose targets remain independent of sequence length. We present ABot-Recon, a simple streaming model that caches KV features from only the preceding 11 frames. It predicts a point map in the current camera coordinate system together with an adjacent-frame relative pose. These predictions remain equivariant under changes of reference frame, and global poses and geometry are recovered through sequential composition. To reduce accumulated drift, a lightweight temporal refiner improves relative rotations using recent visual and motion context, while a composition-aware pose loss supervises multi-step pose composition. Extensive evaluations on challenging long-sequence benchmarks demonstrate the superior long-horizon performance of our local-context approach. On Oxford Spires, ABot-Recon achieves an ATE of 4.35 m and an RPE-R of $0.12^\circ$, reducing both errors by approximately 40\% relative to the best prior results.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27529/fig-001.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27529/fig-001.webp" alt="Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27529/fig-002.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27529/fig-002.webp" alt="Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27529/fig-003.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27529/fig-003.webp" alt="Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27529/fig-004.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27529/fig-004.webp" alt="Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27529/fig-005.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27529/fig-005.webp" alt="Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

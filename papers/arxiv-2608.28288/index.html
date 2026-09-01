@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>GeoFF3D: Coordinate-Anchored Feed-Forward Reconstruction for Large-Scale UAV Mapping</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-01/index.html">← 返回 2026-09-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-28 · score 24 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">GeoFF3D：面向大规模无人机测绘的坐标锚定前馈重建</span><span class="lang lang-en lang-inline" data-lang="en">GeoFF3D: Coordinate-Anchored Feed-Forward Reconstruction for Large-Scale UAV Mapping</span></h1>
+  <div class="meta">作者：Xiang Yang, Yongli Wang, Yunsheng Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.28288">abs</a><a href="https://arxiv.org/pdf/2608.28288">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 24/10</span><p>直接命中 Geometry Foundation Models/3D Foundation Models，且把 metric frame、空间分块和层级聚合落到大规模 UAV 重建；论文报告了九个航测块、UAVScenes 和 2,000 图像规模的实证结果，并公开代码。</p><div class="tags"><span class="tag">3D foundation model</span><span class="tag">前馈重建</span><span class="tag">metric geometry</span><span class="tag">UAV测绘</span><span class="tag">空间分块</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把绝对坐标、重力方向和局部前馈几何预测组合成可扩展的 UAV 大场景重建流水线。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：核心结论、动机与问题、方法总览、关键技术细节、实验设置、实验数字与比较。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">GeoFF3D 将地理配准相机平移和可选几何先验注入前馈模型，在重力对齐的 Z-up 米制坐标系中直接预测相机位姿与稠密点图。配套的空间大规模重建框架 SLRF 按地面覆盖足迹切分有重叠块，传播共享视图先验，并以重力保持的层级方式聚合局部结果，从而避免近共线航迹上全 Sim(3) 对齐的不稳定。</p><p class="lang lang-en lang-block" data-lang="en">Existing feed-forward 3D reconstruction methods typically process a bounded number of images and recover cameras and geometry in local or internally normalized frames. Extending them to large-scale UAV mapping requires scalable multi-chunk processing and reliable aggregation, while full Sim(3) alignment can become unstable for near collinear trajectories. We present GeoFF3D, which combines a coordinate-anchored model with a spatial large-scale reconstruction framework (SLRF). The model uses georeferenced camera translations and optional geometric priors to predict camera poses and dense point maps directly in a gravity-aligned Z-up metric frame. SLRF partitions images into spatially overlapping chunks, propagates shared-view priors, and aggregates local reconstructions hierarchically, while remaining applicable to different bounded-view models. Across nine aerial mapping blocks, GeoFF3D achieves the best average reconstruction quality, improving F@5 from 0.829 for Pi3X + SLRF to 0.877. On long UAVScenes sequences, it reaches 0.848, compared with 0.687 for Pi3X + SLRF and 0.451 for the strongest evaluated SLAM/streaming baseline. GeoFF3D reconstructs 2,000 images in approximately five minutes, demonstrating scalable and robust large-scale UAV reconstruction.The code is available at https://github.com/yanxian-ll/GeoFF3D.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.28288/fig-001.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.28288/fig-001.webp" alt="GeoFF3D: Coordinate-Anchored Feed-Forward Reconstruction for Large-Scale UAV Mapping" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.28288/fig-002.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.28288/fig-002.webp" alt="GeoFF3D: Coordinate-Anchored Feed-Forward Reconstruction for Large-Scale UAV Mapping" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.28288/fig-003.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.28288/fig-003.webp" alt="GeoFF3D: Coordinate-Anchored Feed-Forward Reconstruction for Large-Scale UAV Mapping" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.28288/fig-004.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.28288/fig-004.webp" alt="GeoFF3D: Coordinate-Anchored Feed-Forward Reconstruction for Large-Scale UAV Mapping" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

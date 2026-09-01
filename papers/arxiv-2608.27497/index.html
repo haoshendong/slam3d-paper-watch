@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics</title>
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-01/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-01/index.html">← 返回 2026-09-01 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-27 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">MAGP：面向机器人的度量感知几何感知</span><span class="lang lang-en lang-inline" data-lang="en">Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics</span></h1>
+  <div class="meta">作者：Fengjun Zhong, Congjia Chen, Zhaoxu Liu, Jinyang Du, Yuchen Gong, Enqi Mao, Ruihao Gong, ShuJie Wang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.27497">abs</a><a href="https://arxiv.org/pdf/2608.27497">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 10/10</span><p>同时命中 Geometry Foundation Models 与 Embodied/robotic perception，并给出重建误差和策略成功率的全文证据。</p><div class="tags"><span class="tag">metric geometry</span><span class="tag">机器人操控</span><span class="tag">深度条件</span><span class="tag">尺度等变</span><span class="tag">空间感知</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把相对几何升级为可直接服务动作标定和操控的米制几何表示。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：核心结论、动机与问题、方法总览、关键技术细节、实验设置、实验数字与比较。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">MAGP 通过 Metric Scale Equivariant Augmentation 让重建结果响应相机平移和深度中的真实尺度，并以 Flexible Metric Conditioning 支持任意视图数量及相机/深度输入组合。它把 metric geometry tokens 接入机器人策略，在 ETH3D、MegaDepth、ScanNet++ 以及 LIBERO、RoboTwin、LIBERO-Plus 上验证几何到动作的桥接。</p><p class="lang lang-en lang-block" data-lang="en">Recent embodied models increasingly leverage geometric representations to improve spatial reasoning and robotic manipulation. However, existing reconstruction methods only reconstruct relative geometry with arbitrary scales, causing predicted object dimensions and spatial distances to vary across scenes, viewpoints, and input configurations. This inconsistency prevents geometric perception from being directly aligned with robotic actions defined on the real-world scale. To address this limitation, we propose Metric-Aware Geometry Perception (MAGP), an end-to-end, plug-and-play framework for metric geometry reconstruction that can be seamlessly integrated into robotic policies. At its core, Metric Scale Equivariant Augmentation encourages the model to reconstruct metric geometry from camera parameters and depth observations, ensuring that the reconstructed geometry follows the metric scale specified by observations. Flexible Metric Conditioning further enables MAGP to support arbitrary view counts and combinations of camera and depth inputs, improving robustness to heterogeneous robotic sensing configurations. Together, these designs produce geometrically consistent reconstructions with stable object dimensions and spatial distances across scenes and sensing conditions. Experiments on ETH3D, MegaDepth, and ScanNet++ demonstrate that MAGP maintains strong relative geometry accuracy while reducing the absolute error by over an order of magnitude, from 2.01m to 0.07m. When integrated into multiple robotic policies, MAGP consistently improves performance on LIBERO, RoboTwin, and zero-shot LIBERO-Plus, with gains of up to 6.26% on RoboTwin. These results demonstrate the effectiveness and generalizability of metric geometry for robotic manipulation.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27497/fig-001.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27497/fig-001.webp" alt="Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27497/fig-002.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27497/fig-002.webp" alt="Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27497/fig-003.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27497/fig-003.webp" alt="Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27497/fig-004.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27497/fig-004.webp" alt="Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27497/fig-005.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27497/fig-005.webp" alt="Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-01/arxiv-2608.27497/fig-006.webp"><img src="../../assets/media/2026-09-01/arxiv-2608.27497/fig-006.webp" alt="Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 不依赖 npm/React/CDN · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
