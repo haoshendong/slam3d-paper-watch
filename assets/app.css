@@ -7,8 +7,12 @@
 .poster-context-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
 .poster-context-card{min-width:0;padding:15px;background:var(--card)}
 .poster-context-card h3{margin:0 0 9px;font-size:16px;line-height:1.2;color:var(--accent-ink)}
-.poster-context-card ul{margin:0;padding-left:1.15em}.poster-context-card li{margin:0 0 8px}.poster-context-card li:last-child{margin-bottom:0}
-.poster-context-card strong{font-weight:650}.poster-context-card .context-meta{display:block;color:var(--muted);font-size:12px;line-height:1.45}
+.poster-context-card ul,.poster-context-card ol{margin:0;padding-left:1.15em}.poster-context-card li{margin:0 0 11px}.poster-context-card li:last-child{margin-bottom:0}
+.poster-context-card strong{display:block;font-weight:650}.poster-context-card .context-meta,.poster-context-card .context-affiliation,.poster-context-card .context-relation,.poster-context-card .context-edge{display:block;color:var(--muted);font-size:12px;line-height:1.45}
+.poster-context-card .context-affiliation{color:var(--fg);font-size:12.5px;margin-top:2px}.poster-context-card .context-relation{color:var(--accent-ink);margin-top:2px}.poster-context-card .context-edge{font-family:"JetBrains Mono",ui-monospace,monospace;color:var(--fg);font-size:11px;margin-top:3px;overflow-wrap:anywhere}
+.context-chip{display:inline-block;margin:4px 5px 0 0;padding:2px 6px;border:1px solid var(--line);border-radius:999px;color:var(--accent-ink);font-size:10px;line-height:1.3}
+.context-timeline{list-style:none;position:relative;padding-left:17px!important}.context-timeline::before{content:"";position:absolute;left:4px;top:4px;bottom:4px;width:1px;background:color-mix(in srgb,var(--accent) 50%,var(--line))}.context-timeline li{position:relative;padding-left:4px}.context-timeline li::before{content:"";position:absolute;left:-17px;top:8px;width:7px;height:7px;border:1px solid var(--accent);border-radius:50%;background:var(--card)}
+.context-network{list-style:none;padding-left:0!important}.context-network li{padding:9px 10px;border:1px solid var(--line);background:var(--panel)}
 .poster-context-card .context-source{display:inline-block;margin-left:4px;font-size:11px;color:var(--accent-ink)}
 .poster-context-note{margin:11px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
 @media(max-width:760px){.poster-context-grid{grid-template-columns:1fr}.poster-context-card{padding:13px}}
