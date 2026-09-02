@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Amortized Anchor Refinement for Deployable Continuous-Time 4D Gaussian Reconstruction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-02/index.html">← 返回 2026-09-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-31 · score 13 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Amortized Anchor Refinement：面向可部署连续时间 4D Gaussian 重建的摊销锚点细化</span><span class="lang lang-en lang-inline" data-lang="en">Amortized Anchor Refinement for Deployable Continuous-Time 4D Gaussian Reconstruction</span></h1>
+  <div class="meta">作者：Jingong Chen, Qingwen Zhang, Sanghyeon Jun, Chulwoo Pack, Kyle Gao, Kwanghee Won</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.30218">abs</a><a href="https://arxiv.org/pdf/2608.30218">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 13/10</span><p>直接命中 3D/4D Spatial Perception 和 Real-time/GPU Robotics Systems；官方 HTML 给出 Stage-Capture、预算消融、压缩拓扑和 Quest Pro 部署证据。</p><div class="tags"><span class="tag">连续时间4D</span><span class="tag">Gaussian Splatting</span><span class="tag">边缘部署</span><span class="tag">拓扑保持</span><span class="tag">scene flow</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把前馈几何发现与受预算约束的场景优化组合，解决连续时间动态重建在边缘设备上的显存、质量和流式传输矛盾。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：方法本质拆解.note、evidence_sources、研究上下文.authors、研究上下文.lineage、研究上下文.network。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">该方法用冻结前馈几何 backbone 生成 Gaussian 初始锚点，在固定算力下做短程场景细化，并以 capacity floor 避免表示塌缩。训练后通过 persistent homology pruning 保留拓扑结构，再直接传输 Gaussian 轨迹作为 scene flow，以适配消费级 GPU 和独立 XR 头显。</p><p class="lang lang-en lang-block" data-lang="en">Continuous-time 4D reconstruction remains impractical on standalone XR headsets. Per-scene optimization demands deployment-infeasible compute, and lower budgets cause collapse rather than degrade gradually. Feed-forward prediction is fast, but struggle to recover scene-specific detail. We present Amortized Anchor Refinement, which uses a frozen backbone to predict an initial Gaussian representation and a short optimization to specialize it under a fixed compute budget, with a capacity floor preserving representational density. A training-free stage then applies a persistent-homology constraint to prune unstable Gaussians while preserving topologically persistent structures, and streams the resulting trajectories directly as scene flow. On the Stage-Capture benchmark, Amortized Anchor Refinement achieves 24.31$\pm$2.22dB, while our deployment experiments demonstrate reconstruction within the target budget on a single consumer GPU and playback on a standalone XR headset.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>领域</strong>：Geometry Foundation Models / 3D Foundation Models；RPC 相机、绝对高程、gauge 与不确定性融合。</li>
+<li><strong>要点</strong>：沿原生 RPC 高度射线适配冻结 VGGT，把 ray-field observability、height–datum gauge 和多源 relief fusion 分开处理。26 个 US3D tiles 上 absolute MAE 为 2.99 m、coverage 为 91.9%、PAGc@2.5 m 为 72.6%，并支持 0/1/10 个控制高度。</li>
+<li><strong>判断</strong>：最贴近可靠状态估计底座的一篇：把传感器模型的不可观测低阶自由度显式化，再用控制和校准不确定性处理可辨识范围。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30218/fig-001.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30218/fig-001.webp" alt="Amortized Anchor Refinement for Deployable Continuous-Time 4D Gaussian Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30218/fig-002.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30218/fig-002.webp" alt="Amortized Anchor Refinement for Deployable Continuous-Time 4D Gaussian Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30218/fig-003.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30218/fig-003.webp" alt="Amortized Anchor Refinement for Deployable Continuous-Time 4D Gaussian Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30218/fig-004.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30218/fig-004.webp" alt="Amortized Anchor Refinement for Deployable Continuous-Time 4D Gaussian Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30218/fig-005.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30218/fig-005.webp" alt="Amortized Anchor Refinement for Deployable Continuous-Time 4D Gaussian Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30218/fig-006.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30218/fig-006.webp" alt="Amortized Anchor Refinement for Deployable Continuous-Time 4D Gaussian Reconstruction" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

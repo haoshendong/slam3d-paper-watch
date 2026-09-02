@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>SMG: Semantic Motion Graph for Monocular Dynamic Gaussian Splatting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-02/index.html">← 返回 2026-09-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-01 · score 17 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SMG：单目动态 Gaussian Splatting 的语义运动图</span><span class="lang lang-en lang-inline" data-lang="en">SMG: Semantic Motion Graph for Monocular Dynamic Gaussian Splatting</span></h1>
+  <div class="meta">作者：Haozheng Yu, Xinyu Yang, Rundong Luo, Jennifer J. Sun, Bharath Hariharan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.31023">abs</a><a href="https://arxiv.org/pdf/2608.31023">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 17/10</span><p>直接命中 3D/4D Spatial Perception 和 uncertainty-aware 动态重建；官方 HTML 提供 Dycheck、NVIDIA、SMG Dataset、3D tracking 及模块消融数字。</p><div class="tags"><span class="tag">动态 Gaussian</span><span class="tag">语义运动图</span><span class="tag">不确定性</span><span class="tag">3D tracking</span><span class="tag">4D reconstruction</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将语义邻域从辅助输出变成动态 Gaussian 运动传播和不确定性抑制的核心结构。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：方法本质拆解.note、evidence_sources、研究上下文.authors、研究上下文.lineage、研究上下文.network。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SMG 用语义运动图约束动态 Gaussian 的形变，并以 confidence-aware ARAP 与 local rigid motion 控制处理遮挡、噪声先验和弱约束区域。论文同时发布 ego-exo 多视角 SMG 数据集，用于评估复杂相机与物体运动下的动态重建。</p><p class="lang lang-en lang-block" data-lang="en">We study dynamic Gaussian Splatting from monocular videos. While recent advancements in dynamic Gaussian splatting offer a promising foundation for modeling dynamic scenes, they often overfit to the training views and fail under occlusion or complex scene motion due to the lack of reliable regularization signals in under-constrained regions. We propose Semantic Motion Graph (SMG), a novel approach models the Gaussian motion as the low-rank semantic motion. Our key insight is that the real-world scene motion is often structured by semantic coherence: regions that are spatially close and semantically related tend to exhibit consistent dynamics. To leverage this prior, we construct SMG to model structured motion of the scene. The Gaussian motion is driven by the motion of SMG nodes. We further observe that the uncertainty of Gaussian motion arises from both unreliable off-the-shelf priors and weakly constrained regions during optimization. SMG addresses this by using reliable graph nodes to guide the motion of nearby unreliable nodes. To evaluate dynamic Gaussian splatting under challenging real-world scenarios, we introduce a new multiview dataset collected under an ego-exo setup. Extensive experiments demonstrate that SMG achieves state-of-the-art performance on monocular dynamic Gaussian splatting across challenging real-world benchmarks. Project page: https://smg-gaussian.github.io/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>领域</strong>：Geometry Foundation Models / 3D Foundation Models；RPC 相机、绝对高程、gauge 与不确定性融合。</li>
+<li><strong>要点</strong>：沿原生 RPC 高度射线适配冻结 VGGT，把 ray-field observability、height–datum gauge 和多源 relief fusion 分开处理。26 个 US3D tiles 上 absolute MAE 为 2.99 m、coverage 为 91.9%、PAGc@2.5 m 为 72.6%，并支持 0/1/10 个控制高度。</li>
+<li><strong>判断</strong>：最贴近可靠状态估计底座的一篇：把传感器模型的不可观测低阶自由度显式化，再用控制和校准不确定性处理可辨识范围。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.31023/fig-001.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.31023/fig-001.webp" alt="SMG: Semantic Motion Graph for Monocular Dynamic Gaussian Splatting" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.31023/fig-002.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.31023/fig-002.webp" alt="SMG: Semantic Motion Graph for Monocular Dynamic Gaussian Splatting" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.31023/fig-003.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.31023/fig-003.webp" alt="SMG: Semantic Motion Graph for Monocular Dynamic Gaussian Splatting" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

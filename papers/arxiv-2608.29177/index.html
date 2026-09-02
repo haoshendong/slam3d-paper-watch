@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Dynamic-Robust Photometric-Semantic Reconstruction for Open-Vocabulary 3D Scene Understanding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-02/index.html">← 返回 2026-09-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-29 · score 18 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">SPAR：面向开放词汇三维场景理解的动态鲁棒光度—语义重建</span><span class="lang lang-en lang-inline" data-lang="en">Dynamic-Robust Photometric-Semantic Reconstruction for Open-Vocabulary 3D Scene Understanding</span></h1>
+  <div class="meta">作者：Boyu Cai, Li Yang, Yan Xu, Wei Liu, Nian Liu, Sikui Zhang, Yan Wang, Chunfeng Yuan</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.29177">abs</a><a href="https://arxiv.org/pdf/2608.29177">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 18/10</span><p>直接命中 Geometry Foundation Models，并同时覆盖动态场景、语义一致性和少视图前馈重建；官方 HTML 给出了 D-RE10K、ScanNet、消融和跨数据集证据。</p><div class="tags"><span class="tag">动态重建</span><span class="tag">开放词汇语义</span><span class="tag">运动掩码</span><span class="tag">少视图</span><span class="tag">3D foundation model</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把动态区域检测从外部预处理提升为重建系统内部的自监督几何—语义协同机制。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：方法本质拆解.constraints、方法本质拆解.note、evidence_sources、研究上下文.authors、研究上下文.lineage、研究上下文.network。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">SPAR 将跨视角动态区域预测、光度与语义 token 联合编码，用于从少量无位姿观测中恢复动态环境的静态一致三维表示。它在重建损失中抑制瞬态前景，并同时生成新视角 RGB、语义特征和运动掩码。</p><p class="lang lang-en lang-block" data-lang="en">The integration of novel view synthesis (NVS) and open-vocabulary segmentation (OVS) has recently yielded powerful feed-forward 3D foundation models. However, their inherent reliance on static-scene assumptions leads to severe misalignment of spatial features in unconstrained dynamic environments. To bridge this critical gap, we propose SPAR, a novel joint semantic-geometric encoding architecture that explicitly isolates transient dynamic noise prior to latent space aggregation. Furthermore, we introduce a dynamic-region-aware end-to-end training paradigm that structurally couples motion estimation with multi-view visual and semantic learning. This unified approach enables the network to inherently resolve motion conflicts and distill multi-view consistent, temporally stable scene representations from dynamic inputs. Extensive experiments on the challenging D-RE10K benchmark demonstrate that SPAR achieves state-of-the-art performance. Our end-to-end approach achieves exceptional novel view synthesis quality, yielding a PSNR of 22.15 dB and 23.33 dB given only 3 and 4 input views respectively. Despite being trained in a self-supervised manner, our model achieves an mIoU of 88.5% for motion mask prediction. Furthermore, our analysis reveals a strong inter-task synergy between photometric scene reconstruction and semantic understanding, where semantic synthesis learning consistently enhances photometric fidelity in novel view rendering. Code will be available at https://github.com/dmucby/SPAR.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>领域</strong>：Geometry Foundation Models / 3D Foundation Models；RPC 相机、绝对高程、gauge 与不确定性融合。</li>
+<li><strong>要点</strong>：沿原生 RPC 高度射线适配冻结 VGGT，把 ray-field observability、height–datum gauge 和多源 relief fusion 分开处理。26 个 US3D tiles 上 absolute MAE 为 2.99 m、coverage 为 91.9%、PAGc@2.5 m 为 72.6%，并支持 0/1/10 个控制高度。</li>
+<li><strong>判断</strong>：最贴近可靠状态估计底座的一篇：把传感器模型的不可观测低阶自由度显式化，再用控制和校准不确定性处理可辨识范围。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29177/fig-001.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29177/fig-001.webp" alt="Dynamic-Robust Photometric-Semantic Reconstruction for Open-Vocabulary 3D Scene Understanding" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29177/fig-002.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29177/fig-002.webp" alt="Dynamic-Robust Photometric-Semantic Reconstruction for Open-Vocabulary 3D Scene Understanding" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29177/fig-003.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29177/fig-003.webp" alt="Dynamic-Robust Photometric-Semantic Reconstruction for Open-Vocabulary 3D Scene Understanding" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29177/fig-004.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29177/fig-004.webp" alt="Dynamic-Robust Photometric-Semantic Reconstruction for Open-Vocabulary 3D Scene Understanding" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29177/fig-005.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29177/fig-005.webp" alt="Dynamic-Robust Photometric-Semantic Reconstruction for Open-Vocabulary 3D Scene Understanding" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

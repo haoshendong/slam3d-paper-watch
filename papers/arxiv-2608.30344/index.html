@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Proximity3D: Shape from Capacitive Proximity on Sensing Manifold</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-02/index.html">← 返回 2026-09-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-31 · score 15 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.CG, cs.GR, cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Proximity3D：基于传感流形电容邻近信号的形状重建</span><span class="lang lang-en lang-inline" data-lang="en">Proximity3D: Shape from Capacitive Proximity on Sensing Manifold</span></h1>
+  <div class="meta">作者：Hao Chen, Chenming Wu, Chun Ping Lam, Xiangjia Chen, Guoxin Fang, Charlie C. L. Wang, Yeung Yam, Juncong Lin</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.30344">abs</a><a href="https://arxiv.org/pdf/2608.30344">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 15/10</span><p>命中 Geometry Foundation Models 且具有明确 robotic near-field sensing 价值；官方 HTML 提供仿真、物理对象、MSA 消融、OOD 形状和抓取规划数字。</p><div class="tags"><span class="tag">近场感知</span><span class="tag">电容传感</span><span class="tag">非欧几何</span><span class="tag">形状重建</span><span class="tag">抓取规划</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把机器人本体的非接触近场电容感知转化为可用于形状恢复和抓取规划的几何观测。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：方法本质拆解.note、evidence_sources、研究上下文.authors、研究上下文.lineage、研究上下文.network。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Proximity3D 将弯曲电容纺织物视为非平面 sensing manifold，从多视角稀疏电容邻近场前馈恢复物体三维形状。Manifold Sensing Attention 注入局部切平面几何，预训练 TRELLIS-2 shape decoder 提供形状先验，并通过 surrogate forward model 扩大训练数据。</p><p class="lang lang-en lang-block" data-lang="en">Most shape reconstruction methods assume measurements defined over planar sensing domains, such as RGB images or depth maps. In this paper, we use a curved capacitive textile as a shape sensor, treating its surface as a non-planar sensing manifold. Each scan is represented as a capacitive proximity field on this manifold, induced by the interaction between the curved electrode layout and nearby object geometry. We introduce a multi-view feedforward reconstruction model that aggregates these fields across known sensor views and recovers the observed object shape. Simulated and physical experiments demonstrate robust reconstruction from capacitive proximity signals acquired on curved sensing surfaces, pointing toward a new route to robotic near-field geometric awareness via embodied sensing.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>领域</strong>：Geometry Foundation Models / 3D Foundation Models；RPC 相机、绝对高程、gauge 与不确定性融合。</li>
+<li><strong>要点</strong>：沿原生 RPC 高度射线适配冻结 VGGT，把 ray-field observability、height–datum gauge 和多源 relief fusion 分开处理。26 个 US3D tiles 上 absolute MAE 为 2.99 m、coverage 为 91.9%、PAGc@2.5 m 为 72.6%，并支持 0/1/10 个控制高度。</li>
+<li><strong>判断</strong>：最贴近可靠状态估计底座的一篇：把传感器模型的不可观测低阶自由度显式化，再用控制和校准不确定性处理可辨识范围。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30344/fig-001.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30344/fig-001.webp" alt="Proximity3D: Shape from Capacitive Proximity on Sensing Manifold" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30344/fig-002.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30344/fig-002.webp" alt="Proximity3D: Shape from Capacitive Proximity on Sensing Manifold" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30344/fig-003.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30344/fig-003.webp" alt="Proximity3D: Shape from Capacitive Proximity on Sensing Manifold" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30344/fig-004.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30344/fig-004.webp" alt="Proximity3D: Shape from Capacitive Proximity on Sensing Manifold" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30344/fig-005.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30344/fig-005.webp" alt="Proximity3D: Shape from Capacitive Proximity on Sensing Manifold" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.30344/fig-006.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.30344/fig-006.webp" alt="Proximity3D: Shape from Capacitive Proximity on Sensing Manifold" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

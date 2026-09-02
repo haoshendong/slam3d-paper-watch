@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>XDG: Accelerated Visual Disambiguation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-02/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-02/index.html">← 返回 2026-09-02 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-08-30 · score 13 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">XDG：加速视觉消歧</span><span class="lang lang-en lang-inline" data-lang="en">XDG: Accelerated Visual Disambiguation</span></h1>
+  <div class="meta">作者：Gonglin Chen, Ben Southall, Hanyuan Xiao, Wenbin Teng, Haolin Xiong, Tianwen Fu, Junyi Ouyang, Kshitij Singh Minhas</div>
+  <div class="links"><a href="https://arxiv.org/abs/2608.29733">abs</a><a href="https://arxiv.org/pdf/2608.29733">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 13/10</span><p>直接命中 Geometry Foundation Models，并落到 SfM 匹配图、几何误匹配和大规模效率；官方 HTML 提供 DG/VisymScenes、WRIVA、LaMAR、消融和每对图像时延。</p><div class="tags"><span class="tag">视觉消歧</span><span class="tag">SfM</span><span class="tag">LoRA</span><span class="tag">camera token</span><span class="tag">大规模重建</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把几何基础模型原生 camera token 变成可扩展的匹配图边筛选器，降低视觉相似但空间不同表面造成的重建污染。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：方法本质拆解.constraints、方法本质拆解.note、evidence_sources、研究上下文.authors、研究上下文.lineage、研究上下文.network。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">XDG 将 Depth Anything 3 的 camera tokens 直接用于 SfM 中的 doppelganger 二分类，并用 LoRA 适配基础模型、轻量 MLP 完成判别。它在保持与 DG++ 接近的消歧和重建质量的同时，将大规模图像对处理成本降低三倍以上。</p><p class="lang lang-en lang-block" data-lang="en">Visual aliasing, also known as the doppelganger problem, remains a key challenge for structure-from-motion (SfM): visually similar but physically distinct surfaces can produce incorrect image matches and degrade reconstruction quality. Previous work mitigates this issue with geometry-aware foundation-model features, but places a heavy transformer classifier on top of the backbone, making large-scale disambiguation expensive. We introduce XDG, an efficient visual disambiguation model designed for scalable SfM. Our key observation is that a 3D foundation model already performs the cross-view geometric reasoning necessary for visual disambiguation, so doppelganger classification should adapt the backbone representation directly rather than relearn pair reasoning in a separate heavy decoder. XDG fine-tunes Depth Anything 3 with lightweight LoRA adapters and repurposes its camera tokens as compact pair-level classification tokens. A compact MLP head predicts whether a candidate image pair observes the same 3D surface. Extensive experiments show that XDG provides a favorable accuracy-efficiency tradeoff: it remains competitive with the state-of-the-art disambiguation method across pairwise and reconstruction benchmarks and delivers more than a 3x inference speedup. On individual LaMAR scenes containing thousands of images, XDG saves more than 10 hours of visual disambiguation processing. Code is available at https://github.com/xtcpete/xdg.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><strong>领域</strong>：Geometry Foundation Models / 3D Foundation Models；RPC 相机、绝对高程、gauge 与不确定性融合。</li>
+<li><strong>要点</strong>：沿原生 RPC 高度射线适配冻结 VGGT，把 ray-field observability、height–datum gauge 和多源 relief fusion 分开处理。26 个 US3D tiles 上 absolute MAE 为 2.99 m、coverage 为 91.9%、PAGc@2.5 m 为 72.6%，并支持 0/1/10 个控制高度。</li>
+<li><strong>判断</strong>：最贴近可靠状态估计底座的一篇：把传感器模型的不可观测低阶自由度显式化，再用控制和校准不确定性处理可辨识范围。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29733/fig-001.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29733/fig-001.webp" alt="XDG: Accelerated Visual Disambiguation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29733/fig-002.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29733/fig-002.webp" alt="XDG: Accelerated Visual Disambiguation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29733/fig-003.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29733/fig-003.webp" alt="XDG: Accelerated Visual Disambiguation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29733/fig-004.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29733/fig-004.webp" alt="XDG: Accelerated Visual Disambiguation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29733/fig-005.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29733/fig-005.webp" alt="XDG: Accelerated Visual Disambiguation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-02/arxiv-2608.29733/fig-006.webp"><img src="../../assets/media/2026-09-02/arxiv-2608.29733/fig-006.webp" alt="XDG: Accelerated Visual Disambiguation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
