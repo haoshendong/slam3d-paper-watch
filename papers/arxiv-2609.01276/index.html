@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Seeing the World and the Self from Egocentric Video</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-03/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-03/index.html">← 返回 2026-09-03 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-01 · score 12 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">从第一视角视频同时看见世界与自我</span><span class="lang lang-en lang-inline" data-lang="en">Seeing the World and the Self from Egocentric Video</span></h1>
+  <div class="meta">作者：Kai Guan, Minchao Jiang, Ruichen WangLi, Wentao Zhu, Lei Zhang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.01276">abs</a><a href="https://arxiv.org/pdf/2609.01276">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 20/10</span><p>直接命中 Geometry Foundation Models，并把度量点图、相机状态和具身运动放入同一优化闭环；官方 HTML 给出了 EE4D-JSM、三阶段训练、相机/深度/人体数字和反馈消融。</p><div class="tags"><span class="tag">几何基础模型</span><span class="tag">第一视角</span><span class="tag">度量尺度</span><span class="tag">人体运动扩散</span><span class="tag">闭环反馈</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把第一视角的 metric geometry 与严重自遮挡下的身体生成统一起来，形成 world-to-self-to-world 的可微约束链。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：evidence_sources。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">RESELF 将场景几何、相机轨迹和佩戴者全身运动放进同一个度量坐标系。它适配 Pi3X 几何基础模型，以逐帧尺度和相对位姿一致性稳定相机，再用几何条件扩散模型生成身体运动，并以闭环运动学反馈反过来细化相机头。</p><p class="lang lang-en lang-block" data-lang="en">Complete 3D perception from egocentric video requires recovering the surrounding scene and the wearer&#x27;s full-body motion in a shared metric frame. Existing methods typically address scene reconstruction and motion estimation separately: scene reconstruction methods ignore the wearer, whereas motion estimation methods lack explicit scene geometry and often depend on external trajectories. Joint recovery is challenging because the two tasks exhibit asymmetric visibility and require different prediction paradigms. The largely visible scene supports deterministic geometric regression, whereas the severely occluded body requires generative motion inference. We therefore propose RESELF (REconstructing the Scene and the sELF), a unified framework that couples deterministic metric geometry reconstruction with geometry-conditioned motion generation. RESELF adapts a geometry foundation model pre-trained on large-scale exocentric data to egocentric video using frame-wise scale and relative-pose consistency objectives. The resulting camera trajectory and latent geometric features condition a diffusion model that recovers the wearer&#x27;s motion. A subsequent closed-loop kinematic feedback stage further refines the camera head while preserving the reconstructed scene geometry. To support training and evaluation, we curate EE4D-JSM from EgoExo4D by aligning egocentric video, sparse metric scene geometry, camera trajectories, and full-body motion annotations. Experiments show that RESELF outperforms state-of-the-art methods designed for the individual tasks across depth estimation, camera tracking, and full-body motion estimation. Code, models, and datasets will be available at https://ka1guan.github.io/RESELF/.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><p><a href="https://arxiv.org/abs/2609.01276">Seeing the World and the Self from Egocentric Video</a>（Kai Guan 等，2026-09-01）提出 RESELF：适配 Pi3X 得到度量点图和相机轨迹，用几何特征与头对齐轨迹条件化 diffusion motion head，最后以闭环运动学反馈只更新 camera head。官方 HTML 的 EE4D-JSM 包含 16,807 条训练、5,212 条测试序列，覆盖 18 类活动和 70 多个场景。</p>
+<p>关键证据：similarity alignment 下 ATE/RPE-t/RPE-r 为 0.012/0.009/0.341，绝对尺度下相对 Pi3X 将 ATE 从 0.026 降至 0.022；相对 UEM 的 MPJPE 从 116.1 mm 降至 109.8 mm、HTE 从 65.9 mm 降至 50.1 mm。可迁移点是把逐帧尺度、相对位姿和运动反馈拆成不同可靠性因子，而不是把人体生成视作独立后处理。</p></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01276/fig-001.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01276/fig-001.webp" alt="Seeing the World and the Self from Egocentric Video" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01276/fig-002.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01276/fig-002.webp" alt="Seeing the World and the Self from Egocentric Video" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01276/fig-003.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01276/fig-003.webp" alt="Seeing the World and the Self from Egocentric Video" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01276/fig-004.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01276/fig-004.webp" alt="Seeing the World and the Self from Egocentric Video" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01276/fig-005.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01276/fig-005.webp" alt="Seeing the World and the Self from Egocentric Video" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01276/fig-006.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01276/fig-006.webp" alt="Seeing the World and the Self from Egocentric Video" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

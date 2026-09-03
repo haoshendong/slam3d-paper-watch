@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Monocular Depth Estimation from a Single Image: Progress and Opportunities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-03/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-03/index.html">← 返回 2026-09-03 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-01 · score 12 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">单目深度估计：进展与机会</span><span class="lang lang-en lang-inline" data-lang="en">Monocular Depth Estimation from a Single Image: Progress and Opportunities</span></h1>
+  <div class="meta">作者：Muxin Liu, Xiaoyang Lyu, Yang-Tian Sun, Yi-Hua Huang, Ziyi Yang, Peng Dai, Xiaojuan Qi</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.01172">abs</a><a href="https://arxiv.org/pdf/2609.01172">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 16/10</span><p>S 级 Geometry Foundation Models 综述，直接覆盖 metric depth、相机模型、数据规模、FoundationGeo、DINOv3 及 SLAM/机器人落地；全文提供统一评测和跨方法数字。</p><div class="tags"><span class="tag">单目深度</span><span class="tag">度量几何</span><span class="tag">深度基础模型</span><span class="tag">相机内参</span><span class="tag">SLAM综述</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">将单目深度基础模型的规模化数据、几何归一化与下游 SLAM 需求放到同一条可评测路线中。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：evidence_sources、研究上下文.authors（至少 1 条实质条目）、研究上下文.network（至少 2 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">这篇综述从相对深度与度量深度的区分出发，系统梳理数据集、监督/自监督学习、Depth Foundation Models、视频扩展、任意相机和 SLAM/机器人应用。它还构建统一评测流程，强调混合数据、合成数据、相机内参和时序一致性对可靠几何的影响。</p><p class="lang lang-en lang-block" data-lang="en">Monocular depth estimation has long stood as a fundamental challenge in computer vision, enabling a wide range of applications including 3D reconstruction, robotics, autonomous driving, and augmented reality. This survey traces the field&#x27;s evolution from early learning-based methods to the emergence of transformative foundation models. We begin by framing the problem, distinguishing between relative and metric depth estimation, and highlighting the key challenges that have shaped a decade of research. We then present common problem formulations and introduce the most widely used datasets, covering indoor, outdoor, and synthetic data. Following this, we review major advances prior to the foundation model era, distilling core insights from influential methods that contributed to improvements in accuracy, efficiency, and robustness. The survey then turns to the recent surge of foundation-model-based approaches, categorizing them into discriminative and generative paradigms and emphasizing the critical roles of large-scale pretraining (e.g., DINOv3) and synthetic data. We compare representative models using both quantitative benchmarks and qualitative examples, and discuss natural extensions to video-based depth estimation. Further, to illustrate real-world impact, we highlight the integration of depth estimation into applications such as visual SLAM, content generation, and robot perception. Finally, we outline open challenges and promising research directions as the field advances further into the era of foundation models.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><p><a href="https://arxiv.org/abs/2609.01172">Monocular Depth Estimation from a Single Image: Progress and Opportunities</a>（Muxin Liu 等，2026-09-01，CVMJ 接收）系统梳理相对/度量深度、混合域数据、DINOv2/DINOv3、扩散模型、任意相机、视频一致性以及 SLAM/机器人应用。它提醒：同一模型在不同焦距、深度范围、尺度校准和数据集协议下可能有不同排序。</p>
+<p>正文证据包括 Depth Anything 使用 150 万张标注图像和 6,200 万张未标注图像，DPT 在多个 benchmark 上最多降低 28% relative error。对可靠状态估计的价值不是某个新网络，而是提供“数据域—相机模型—scale gauge—不确定性—下游 ATE/BA”分轴评测模板；统一 benchmark 的逐模型数字需继续核对表 2/图 7。</p></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01172/fig-001.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01172/fig-001.webp" alt="Monocular Depth Estimation from a Single Image: Progress and Opportunities" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01172/fig-002.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01172/fig-002.webp" alt="Monocular Depth Estimation from a Single Image: Progress and Opportunities" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01172/fig-003.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01172/fig-003.webp" alt="Monocular Depth Estimation from a Single Image: Progress and Opportunities" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01172/fig-004.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01172/fig-004.webp" alt="Monocular Depth Estimation from a Single Image: Progress and Opportunities" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01172/fig-005.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01172/fig-005.webp" alt="Monocular Depth Estimation from a Single Image: Progress and Opportunities" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-03/arxiv-2609.01172/fig-006.webp"><img src="../../assets/media/2026-09-03/arxiv-2609.01172/fig-006.webp" alt="Monocular Depth Estimation from a Single Image: Progress and Opportunities" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
