@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>A hybrid pipeline for dynamic ontology-based semantic mapping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-05/index.html">← 返回 2026-09-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-03 · score 17 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">动态本体语义映射混合管线</span><span class="lang lang-en lang-inline" data-lang="en">A hybrid pipeline for dynamic ontology-based semantic mapping</span></h1>
+  <div class="meta">作者：Konstantinos Dimitropoulos, Ioannis Hatzilygeroudis</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.03891">abs</a><a href="https://arxiv.org/pdf/2609.03891">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 17/10</span><p>A 级推荐；已查阅官方 arXiv HTML/PDF 与实验章节。</p><div class="tags"><span class="tag">语义地图</span><span class="tag">动态世界模型</span><span class="tag">对象跟踪</span><span class="tag">本体推理</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">这是从几何定位到空间推理的桥接候选，但当前证据来自 PDF 正文，缺少官方 HTML 和完整量化实验，因此详情页保持待核验。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：研究上下文.network（至少 2 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出外部标定相机、homography 几何定位、目标检测、持久跟踪和 ontology-driven semantic update 的混合系统。它持续更新对象实例、空间属性和语义关系，形成动态 semantic world model。</p><p class="lang lang-en lang-block" data-lang="en">Semantic mapping plays a crucial role in the ability of a robot to interact with objects, operate and navigate a complex environment. The most common pipeline for semantic mapping consists of geometric mapping and localization (SLAM), perception, semantic fusion and semantic representation. However, more recent works also integrate a form of prior knowledge in their application, most notably knowledge graphs or semantic scene graphs, to improve contextual understanding of the environment. In this paper, we present a hybrid pipeline for semantic mapping. Our system incorporates an external calibrated camera using homography projection for geometric mapping and localization, combined with object detection, persistent object tracking and ontology driven semantic updates to build a dynamic semantic world model. Linear regression models are also used for correction of the estimated values of real world coordinates. The system continuously updates object instances, spatial properties and semantic relations based on real time sensory data. Ontologies are selected as form of knowledge representation due to their hierarchical structure, semantic expressiveness and support for dynamic world modelling.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><a href="https://arxiv.org/pdf/2609.03891">论文原文 PDF</a>｜<a href="https://arxiv.org/html/2609.03891">详情页</a>｜score 17</li>
+<li>系统把外部 calibrated camera、homography 几何映射、目标检测、persistent tracking、linear regression 坐标修正和 ontology update 串成 dynamic semantic world model。</li>
+<li>当前官方 HTML 返回 404，详情页按 PDF 原文链路保留为“待补全”半海报；性能数字、数据集规模和消融结果待核验。研究价值在于把几何状态转成对象—属性—关系接口，但标定误差和检测漏检可能持续污染语义层。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-05/arxiv-2609.03891/fig-001.webp"><img src="../../assets/media/2026-09-05/arxiv-2609.03891/fig-001.webp" alt="A hybrid pipeline for dynamic ontology-based semantic mapping" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-05/arxiv-2609.03891/fig-002.webp"><img src="../../assets/media/2026-09-05/arxiv-2609.03891/fig-002.webp" alt="A hybrid pipeline for dynamic ontology-based semantic mapping" loading="lazy"></a><figcaption class="meta">cached_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

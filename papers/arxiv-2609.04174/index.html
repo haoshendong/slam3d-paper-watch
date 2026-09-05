@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-05/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-05/index.html">← 返回 2026-09-05 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-04 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">Z3D：利用 3D 基础模型表征进行零样本新视角深度合成</span><span class="lang lang-en lang-inline" data-lang="en">Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations</span></h1>
+  <div class="meta">作者：Denis M. Akola, David F. Fouhey</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04174">abs</a><a href="https://arxiv.org/pdf/2609.04174">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 11/10</span><p>S 级推荐；已查阅官方 arXiv HTML/PDF 与实验章节。</p><div class="tags"><span class="tag">3D 基础模型</span><span class="tag">latent diffusion</span><span class="tag">新视角深度</span><span class="tag">pointmap</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把 3DFM 的隐藏表征当作可解码的场景先验，用 latent diffusion 补全新视角深度，而不是只在可见视图做前馈重建。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：研究上下文.network（至少 2 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">Z3D 研究 3DFM 内部表征是否包含关于遮挡表面和场景结构的知识，并用 latent diffusion 在未观测视角预测 pointmaps。它在 DTU、7-Scenes 和 NRGBD 等数据上评估新视角深度及多视角几何。</p><p class="lang lang-en lang-block" data-lang="en">3D Foundation Models (3DFMs) such as VGGT have recently pushed the boundaries of 3D vision by predicting rich unified representations with feed-foward transformers. The scene representations learned by these models enable strong performance on multiple 3D vision tasks. In this paper, we investigate using their internal representations to infer 3D in the scene from new views. Our hypothesis is that in order to solve the task of 3D reconstruction, these models need to learn a representation that includes a large amount of general knowledge about 3D scenes. After showing that it is possible to decode hidden surfaces from internal 3DFM representations, we propose a method, Z3D, that estimates pointmaps in unseen views by doing latent diffusion on 3DFM representation. We show that Z3D can predict realistic depth maps for new views across multiple datasets.</p>
+</section>
+<section class="section brief"><h2>中文解读摘录</h2><ul>
+<li><a href="https://arxiv.org/abs/2609.04174">论文原文</a>｜<a href="https://arxiv.org/html/2609.04174v1">官方 HTML 精读</a>｜score 11</li>
+<li>Z3D 用 3DFM 内部表征条件化 latent diffusion，预测未观测视角 pointmap/depth，再回投到点云进行几何评测。</li>
+<li>官方表格中 out-of-domain depth 的 Z3D-VGGT 为 <strong>AbsRel 0.076、δ&lt;1.25 0.935</strong>，VGGT-DD 为 <strong>0.098/0.914</strong>；LDI 表中 VGGT-LDI 为 <strong>0.197/0.717</strong>，WM-LDI 为 <strong>0.167/0.789</strong>。主要风险是合理外观不等于真实几何，需把生成置信度接入后端。</li>
+</ul></section>
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-05/arxiv-2609.04174/fig-001.webp"><img src="../../assets/media/2026-09-05/arxiv-2609.04174/fig-001.webp" alt="Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-05/arxiv-2609.04174/fig-002.webp"><img src="../../assets/media/2026-09-05/arxiv-2609.04174/fig-002.webp" alt="Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-05/arxiv-2609.04174/fig-003.webp"><img src="../../assets/media/2026-09-05/arxiv-2609.04174/fig-003.webp" alt="Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-05/arxiv-2609.04174/fig-004.webp"><img src="../../assets/media/2026-09-05/arxiv-2609.04174/fig-004.webp" alt="Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-05/arxiv-2609.04174/fig-005.webp"><img src="../../assets/media/2026-09-05/arxiv-2609.04174/fig-005.webp" alt="Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-05/arxiv-2609.04174/fig-006.webp"><img src="../../assets/media/2026-09-05/arxiv-2609.04174/fig-006.webp" alt="Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

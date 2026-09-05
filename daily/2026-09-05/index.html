@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-09-05/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-09-05</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-09-05/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：8</span><span class="stat">推荐论文：5</span><span class="stat">新论文：8</span><span class="stat">仓库：18</span><span class="stat">新仓库：5</span></div>
 </section>
@@ -34,8 +34,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 8 篇候选中按 S/A 层级与评分推荐前 5 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.03824/index.html"><img src="assets/media/2026-09-05/arxiv-2609.03824/fig-001.webp" alt="VI3: Grounding Pretrained 3D Foundation Models with Inertial Cues" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.03824/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">VI3：用惯性线索锚定预训练 3D 几何基础模型</span><span class="lang lang-en lang-inline" data-lang="en">VI3: Grounding Pretrained 3D Foundation Models with Inertial Cues</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.03824/index.html"><img src="../../assets/media/2026-09-05/arxiv-2609.03824/fig-001.webp" alt="VI3: Grounding Pretrained 3D Foundation Models with Inertial Cues" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.03824/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">VI3：用惯性线索锚定预训练 3D 几何基础模型</span><span class="lang lang-en lang-inline" data-lang="en">VI3: Grounding Pretrained 3D Foundation Models with Inertial Cues</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-03 · score 15 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Ernesto Lozano, Alberto Jaenal, Javier Civera</div>
@@ -43,11 +43,11 @@
   <div class="tags"><span class="tag">3D 几何基础模型</span><span class="tag">视觉惯性融合</span><span class="tag">尺度锚定</span><span class="tag">稠密深度</span><span class="tag">可靠状态估计</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这是一条从几何基础模型到可靠状态估计的直接融合路径：保留 3DFM 的强相对几何先验，再用 IMU 补足单目不可观测的尺度。重点风险是运动激励、IMU 偏置和测试时优化的稳定性。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">VI3 将预训练 3D foundation model 的无尺度相机位姿与稠密深度，和 IMU 提供的有尺度运动参考结合，在不需要 ground-truth supervision 的情况下恢复 metric scale。它通过惯性初始化、尺度锚定以及可选的测试时 refinement 改善几何一致性。</p><p class="lang lang-en lang-block" data-lang="en">3D foundation models (3DFMs) excel at predicting camera poses and dense depth from multiple views of a scene, showcasing strong zero-shot generalization. However, as metric scale is not observable from monocul…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.03824">abs</a><a href="https://arxiv.org/pdf/2609.03824">PDF</a><a href="papers/arxiv-2609.03824/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.03824">abs</a><a href="https://arxiv.org/pdf/2609.03824">PDF</a><a href="../../papers/arxiv-2609.03824/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.01899/index.html"><img src="assets/media/2026-09-05/arxiv-2609.01899/fig-001.webp" alt="TAPVid-MV: A Benchmark for Tracking Any Point in 3D Across Multiple Views" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.01899/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">TAPVid-MV：跨多视角追踪 3D 任意点的基准</span><span class="lang lang-en lang-inline" data-lang="en">TAPVid-MV: A Benchmark for Tracking Any Point in 3D Across Multiple Views</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.01899/index.html"><img src="../../assets/media/2026-09-05/arxiv-2609.01899/fig-001.webp" alt="TAPVid-MV: A Benchmark for Tracking Any Point in 3D Across Multiple Views" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.01899/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">TAPVid-MV：跨多视角追踪 3D 任意点的基准</span><span class="lang lang-en lang-inline" data-lang="en">TAPVid-MV: A Benchmark for Tracking Any Point in 3D Across Multiple Views</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-02 · score 12 · S层 · 3D/4D Spatial Perception · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报（待补全）</div>
   <div class="meta">作者：Skanda Koppula, Frano Rajic, Abdullah Faiz Ur Rahman, Yi Yang</div>
@@ -55,11 +55,11 @@
   <div class="tags"><span class="tag">3D 点追踪</span><span class="tag">多视角</span><span class="tag">4D 重建</span><span class="tag">基准数据集</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把 3D 点追踪从单视频扩展到多相机、非刚体和长期轨迹，并指出几何恢复是主要瓶颈。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">TAPVid-MV 提供在相机运动和多视角同步条件下长期、像素级 3D point tracking 的基准。它同时测量重建与追踪，因而可以区分几何恢复错误和 correspondence 错误。</p><p class="lang lang-en lang-block" data-lang="en">Multi-camera systems are increasingly practical for robotics, AR/VR, and autonomous driving because complementary views reduce depth ambiguity and preserve visibility under occlusion. Existing point-tracking b…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.01899">abs</a><a href="https://arxiv.org/pdf/2609.01899">PDF</a><a href="papers/arxiv-2609.01899/index.html">完整单篇海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.01899">abs</a><a href="https://arxiv.org/pdf/2609.01899">PDF</a><a href="../../papers/arxiv-2609.01899/index.html">完整单篇海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.04174/index.html"><img src="assets/media/2026-09-05/arxiv-2609.04174/fig-001.webp" alt="Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.04174/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Z3D：利用 3D 基础模型表征进行零样本新视角深度合成</span><span class="lang lang-en lang-inline" data-lang="en">Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.04174/index.html"><img src="../../assets/media/2026-09-05/arxiv-2609.04174/fig-001.webp" alt="Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.04174/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Z3D：利用 3D 基础模型表征进行零样本新视角深度合成</span><span class="lang lang-en lang-inline" data-lang="en">Zero-Shot Novel Depth Synthesis Using 3D Foundation Models Scene Representations</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-04 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报（待补全）</div>
   <div class="meta">作者：Denis M. Akola, David F. Fouhey</div>
@@ -67,11 +67,11 @@
   <div class="tags"><span class="tag">3D 基础模型</span><span class="tag">latent diffusion</span><span class="tag">新视角深度</span><span class="tag">pointmap</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把 3DFM 的隐藏表征当作可解码的场景先验，用 latent diffusion 补全新视角深度，而不是只在可见视图做前馈重建。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Z3D 研究 3DFM 内部表征是否包含关于遮挡表面和场景结构的知识，并用 latent diffusion 在未观测视角预测 pointmaps。它在 DTU、7-Scenes 和 NRGBD 等数据上评估新视角深度及多视角几何。</p><p class="lang lang-en lang-block" data-lang="en">3D Foundation Models (3DFMs) such as VGGT have recently pushed the boundaries of 3D vision by predicting rich unified representations with feed-foward transformers. The scene representations learned by these m…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.04174">abs</a><a href="https://arxiv.org/pdf/2609.04174">PDF</a><a href="papers/arxiv-2609.04174/index.html">完整单篇海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04174">abs</a><a href="https://arxiv.org/pdf/2609.04174">PDF</a><a href="../../papers/arxiv-2609.04174/index.html">完整单篇海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.04202/index.html"><img src="assets/media/2026-09-05/arxiv-2609.04202/fig-001.webp" alt="TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.04202/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">TokenMatch：曲率引导 tokenisation 的 3D mesh correspondence transformer</span><span class="lang lang-en lang-inline" data-lang="en">TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.04202/index.html"><img src="../../assets/media/2026-09-05/arxiv-2609.04202/fig-001.webp" alt="TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.04202/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">TokenMatch：曲率引导 tokenisation 的 3D mesh correspondence transformer</span><span class="lang lang-en lang-inline" data-lang="en">TokenMatch: 3D Mesh Correspondence Transformer with Curvature-Guided Tokenisation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-04 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报（待补全）</div>
   <div class="meta">作者：Adeela Islam, Zorah Lähner, Vittorio Murino, Vladislav Golyanik</div>
@@ -79,11 +79,11 @@
   <div class="tags"><span class="tag">3D correspondence</span><span class="tag">mesh transformer</span><span class="tag">曲率 tokenisation</span><span class="tag">非等距形变</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把几何自适应 tokenisation、跨形状特征交互和 functional map 预测合并为 feed-forward correspondence 模型，重点解决部分观测和非等距形变。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">TokenMatch 用曲率与谱几何信号把 mesh 自适应划分为带重叠的 patch tokens，再用 self/cross attention 学习 dense correspondence。它只在 BeCoS partial-to-partial 上训练，却能迁移到 full-to-full 和 partial-to-full matching。</p><p class="lang lang-en lang-block" data-lang="en">While data-driven 3D shape correspondence estimation has recently seen substantial progress, robust matching under partial observations and strong non-isometric deformations remains challenging. Existing learn…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.04202">abs</a><a href="https://arxiv.org/pdf/2609.04202">PDF</a><a href="papers/arxiv-2609.04202/index.html">完整单篇海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04202">abs</a><a href="https://arxiv.org/pdf/2609.04202">PDF</a><a href="../../papers/arxiv-2609.04202/index.html">完整单篇海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.03891/index.html"><img src="assets/media/2026-09-05/arxiv-2609.03891/fig-001.webp" alt="A hybrid pipeline for dynamic ontology-based semantic mapping" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.03891/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">动态本体语义映射混合管线</span><span class="lang lang-en lang-inline" data-lang="en">A hybrid pipeline for dynamic ontology-based semantic mapping</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.03891/index.html"><img src="../../assets/media/2026-09-05/arxiv-2609.03891/fig-001.webp" alt="A hybrid pipeline for dynamic ontology-based semantic mapping" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.03891/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">动态本体语义映射混合管线</span><span class="lang lang-en lang-inline" data-lang="en">A hybrid pipeline for dynamic ontology-based semantic mapping</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-03 · score 17 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Konstantinos Dimitropoulos, Ioannis Hatzilygeroudis</div>
@@ -91,7 +91,7 @@
   <div class="tags"><span class="tag">语义地图</span><span class="tag">动态世界模型</span><span class="tag">对象跟踪</span><span class="tag">本体推理</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这是从几何定位到空间推理的桥接候选，但当前证据来自 PDF 正文，缺少官方 HTML 和完整量化实验，因此详情页保持待核验。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出外部标定相机、homography 几何定位、目标检测、持久跟踪和 ontology-driven semantic update 的混合系统。它持续更新对象实例、空间属性和语义关系，形成动态 semantic world model。</p><p class="lang lang-en lang-block" data-lang="en">Semantic mapping plays a crucial role in the ability of a robot to interact with objects, operate and navigate a complex environment. The most common pipeline for semantic mapping consists of geometric mapping…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.03891">abs</a><a href="https://arxiv.org/pdf/2609.03891">PDF</a><a href="papers/arxiv-2609.03891/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.03891">abs</a><a href="https://arxiv.org/pdf/2609.03891">PDF</a><a href="../../papers/arxiv-2609.03891/index.html">半海报（待补全）</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -175,6 +175,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
