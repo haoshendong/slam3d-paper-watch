@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-09-08/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-09-08</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-09-08/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：23</span><span class="stat">推荐论文：6</span><span class="stat">新论文：23</span><span class="stat">仓库：19</span><span class="stat">新仓库：5</span></div>
 </section>
@@ -32,8 +32,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 23 篇候选中按 S/A 层级与评分推荐前 6 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.04602/index.html"><img src="assets/media/2026-09-08/arxiv-2609.04602/fig-001.webp" alt="NavArena: Automated Construction of Goal-Oriented Navigation Benchmarks from 3D Gaussian Splatting Reconstructions" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.04602/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">NavArena：从 3D Gaussian Splatting 重建自动构建目标导向导航基准</span><span class="lang lang-en lang-inline" data-lang="en">NavArena: Automated Construction of Goal-Oriented Navigation Benchmarks from 3D Gaussian Splatting Reconstructions</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.04602/index.html"><img src="../../assets/media/2026-09-08/arxiv-2609.04602/fig-001.webp" alt="NavArena: Automated Construction of Goal-Oriented Navigation Benchmarks from 3D Gaussian Splatting Reconstructions" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.04602/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">NavArena：从 3D Gaussian Splatting 重建自动构建目标导向导航基准</span><span class="lang lang-en lang-inline" data-lang="en">NavArena: Automated Construction of Goal-Oriented Navigation Benchmarks from 3D Gaussian Splatting Reconstructions</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-07 · score 16 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Junhui Wang, Wei Yang, Xinyao Li, Ningjing Fan, Yuehao Yin, Xuecheng Chen, Chao Gao</div>
@@ -41,11 +41,11 @@
   <div class="tags"><span class="tag">具身导航</span><span class="tag">3DGS</span><span class="tag">occupancy</span><span class="tag">闭环评测</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这项工作把新视图渲染资产补成可执行、可评测的导航环境，连接了 3D/4D 表征与具身决策。最值得迁移的是从连续重建中自动推断碰撞/可达性约束，并将语义目标接入统一闭环协议。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">NavArena 将固定的 3DGS 重建转化为带可通行性、有效目标和闭环评测的目标导向视觉导航基准。系统结合第一视角 RGB-D 渲染、由 Gaussian 密度与高度统计推导的 occupancy costmap，以及多视图开放词汇语义目标，在超过 2,000 个场景上生成 2,220 万条专家轨迹。</p><p class="lang lang-en lang-block" data-lang="en">Fixed 3D Gaussian Splatting (3DGS) reconstructions provide realistic novel views but lack the traversability constraints, valid goals, and closed-loop protocols required for navigation evaluation. We introduce…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.04602">abs</a><a href="https://arxiv.org/pdf/2609.04602">PDF</a><a href="papers/arxiv-2609.04602/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04602">abs</a><a href="https://arxiv.org/pdf/2609.04602">PDF</a><a href="../../papers/arxiv-2609.04602/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.04355/index.html"><img src="assets/media/2026-09-08/arxiv-2609.04355/fig-001.webp" alt="VLA-Precision: Asymmetric Co-Bootstrapping for Efficient Real-World Online RL of Vision-Language-Action Models" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.04355/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">VLA-Precision：面向高效真实世界在线 RL 的非对称协同自举</span><span class="lang lang-en lang-inline" data-lang="en">VLA-Precision: Asymmetric Co-Bootstrapping for Efficient Real-World Online RL of Vision-Language-Action Models</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.04355/index.html"><img src="../../assets/media/2026-09-08/arxiv-2609.04355/fig-001.webp" alt="VLA-Precision: Asymmetric Co-Bootstrapping for Efficient Real-World Online RL of Vision-Language-Action Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.04355/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">VLA-Precision：面向高效真实世界在线 RL 的非对称协同自举</span><span class="lang lang-en lang-inline" data-lang="en">VLA-Precision: Asymmetric Co-Bootstrapping for Efficient Real-World Online RL of Vision-Language-Action Models</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-07 · score 12 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.AI, cs.HC, cs.LG</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Chenyu Su, Zhaolong Shen, Yuan Qian, Chen Qian, Rui Zhang, Feng Yan, Weixing Chen, Fei Zhang, Jiamin Wang, Shuang Cong, Weiwei Shang</div>
@@ -53,11 +53,11 @@
   <div class="tags"><span class="tag">VLA</span><span class="tag">在线强化学习</span><span class="tag">策略稳定性</span><span class="tag">流式系统</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>方法通过行为学习、全局回报传播和局部偏好排序的不同时间尺度协同校准价值估计，再用 invariant-state decoupling 与按需流式推理支撑闭环在线 RL。它对可靠性研究的启发是把策略漂移、价值不确定性和系统吞吐放在同一训练环中。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">VLA-Precision 用 ACoB 算法和 ACoB-Stream 架构缓解真实世界 VLA 在线强化学习中的价值信号不可靠与大模型吞吐开销问题。论文在 9 个高精度化学任务、4 类任务和 4 种机器人形态上报告 98.3% 平均成功率、45.8 分钟/任务，并称吞吐/计算效率最高提升 10.9 倍。</p><p class="lang lang-en lang-block" data-lang="en">Pretrained vision-language-action (VLA) models enable broad manipulation but remain unreliable in tasks demanding precision and repeatability. Applying real-world online reinforcement learning (RL) to VLA post…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.04355">abs</a><a href="https://arxiv.org/pdf/2609.04355">PDF</a><a href="papers/arxiv-2609.04355/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04355">abs</a><a href="https://arxiv.org/pdf/2609.04355">PDF</a><a href="../../papers/arxiv-2609.04355/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.04277/index.html"><img src="assets/media/2026-09-08/arxiv-2609.04277/fig-001.webp" alt="FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.04277/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">FailureSpot：面向 VLA 的低标注时间戳级失败检测</span><span class="lang lang-en lang-inline" data-lang="en">FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.04277/index.html"><img src="../../assets/media/2026-09-08/arxiv-2609.04277/fig-001.webp" alt="FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.04277/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">FailureSpot：面向 VLA 的低标注时间戳级失败检测</span><span class="lang lang-en lang-inline" data-lang="en">FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-07 · score 11 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Jie Ma, Zongxi Liu, Yi Zhu</div>
@@ -65,11 +65,11 @@
   <div class="tags"><span class="tag">VLA</span><span class="tag">失败检测</span><span class="tag">主动学习</span><span class="tag">时间戳</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>FailureSpot 将失败检测从事后视觉判断推进到动作执行过程中的时间戳定位。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">方法利用动作 chunk 的弱监督信号和主动学习，只为不确定轨迹补充时间戳标注。论文同时评估 trajectory-level 与 timestamp-level 检测。</p><p class="lang lang-en lang-block" data-lang="en">Vision-language-action (VLA) policies have shown strong potential for general-purpose robotic manipulation, but they can still fail unpredictably during long-horizon execution, making reliable failure detectio…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.04277">abs</a><a href="https://arxiv.org/pdf/2609.04277">PDF</a><a href="papers/arxiv-2609.04277/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04277">abs</a><a href="https://arxiv.org/pdf/2609.04277">PDF</a><a href="../../papers/arxiv-2609.04277/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.04707/index.html"><img src="assets/media/2026-09-08/arxiv-2609.04707/fig-001.webp" alt="Wireless Foundation Models: State-of-the-Art and Open Challenges" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.04707/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Wireless Foundation Models：现状与开放问题</span><span class="lang lang-en lang-inline" data-lang="en">Wireless Foundation Models: State-of-the-Art and Open Challenges</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.04707/index.html"><img src="../../assets/media/2026-09-08/arxiv-2609.04707/fig-001.webp" alt="Wireless Foundation Models: State-of-the-Art and Open Challenges" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.04707/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Wireless Foundation Models：现状与开放问题</span><span class="lang lang-en lang-inline" data-lang="en">Wireless Foundation Models: State-of-the-Art and Open Challenges</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-07 · score 10 · A层 · Robust State Estimation / Uncertainty · eess.SP, cs.AI</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Alonso M. Pacheco Huachaca, Juan J. Rodriguez Rodriguez, Ahmed Aboulfotouh, Nelson L. S. da Fonseca, Carlos A. Astudillo, Hatem Abou-Zeid</div>
@@ -77,11 +77,11 @@
   <div class="tags"><span class="tag">无线基础模型</span><span class="tag">OOD</span><span class="tag">RF sensing</span><span class="tag">survey</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>它为“基础模型能否迁移到分布变化下的感知与定位”提供了系统分类。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">这篇 survey 按信号识别与解调、信道表征、RF sensing/localization、beam management 和 spectrum sensing 五类 PHY 任务梳理 wireless foundation models。重点比较预训练、backbone、适配方式以及 ID、partial-shift 和 OOD 评估。</p><p class="lang lang-en lang-block" data-lang="en">Wireless foundation models (WFMs) have emerged as a promising approach for learning reusable representations from large-scale wireless data and adapting them to downstream tasks. However, the rapidly growing l…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.04707">abs</a><a href="https://arxiv.org/pdf/2609.04707">PDF</a><a href="papers/arxiv-2609.04707/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04707">abs</a><a href="https://arxiv.org/pdf/2609.04707">PDF</a><a href="../../papers/arxiv-2609.04707/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.04364/index.html"><img src="assets/media/2026-09-08/arxiv-2609.04364/fig-001.webp" alt="Scalable Edge-assisted Fusion and Path Prediction for Connected Autonomous Vehicles" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.04364/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Conductor：面向连接自动驾驶的可扩展边缘融合与路径预测</span><span class="lang lang-en lang-inline" data-lang="en">Scalable Edge-assisted Fusion and Path Prediction for Connected Autonomous Vehicles</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.04364/index.html"><img src="../../assets/media/2026-09-08/arxiv-2609.04364/fig-001.webp" alt="Scalable Edge-assisted Fusion and Path Prediction for Connected Autonomous Vehicles" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.04364/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Conductor：面向连接自动驾驶的可扩展边缘融合与路径预测</span><span class="lang lang-en lang-inline" data-lang="en">Scalable Edge-assisted Fusion and Path Prediction for Connected Autonomous Vehicles</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-07 · score 9 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.SY, eess.SY</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Tyler Landle, Jackson Isenberg, Abhijit Chatterjee, Alexandros Daglis, Umakishore Ramachandran</div>
@@ -89,11 +89,11 @@
   <div class="tags"><span class="tag">协同感知</span><span class="tag">边缘计算</span><span class="tag">AoI</span><span class="tag">轨迹预测</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>它把多传感器融合质量、预测计算量和信息时效性放进同一个风险预算控制问题。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Conductor 在 RSU 锚定视角下融合 CAV 信息并预测轨迹，用遮挡感知选择器和运行时控制器满足 Age of Information 约束。仿真覆盖最多 31 辆 CAV，并比较随机选择与 Oracle。</p><p class="lang lang-en lang-block" data-lang="en">The planning algorithms inside an Autonomous Vehicle (AV) rely on information from on-board sensors whose line of sight is limited by emerging traffic conditions and occlusions. Edge-assisted creation of a uni…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.04364">abs</a><a href="https://arxiv.org/pdf/2609.04364">PDF</a><a href="papers/arxiv-2609.04364/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04364">abs</a><a href="https://arxiv.org/pdf/2609.04364">PDF</a><a href="../../papers/arxiv-2609.04364/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.04500/index.html"><img src="assets/media/2026-09-08/arxiv-2609.04500/fig-001.webp" alt="STyMo: Fast and Controllable Few-Shot Motion Style Transfer" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.04500/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">STyMo：快速可控的 few-shot motion style transfer</span><span class="lang lang-en lang-inline" data-lang="en">STyMo: Fast and Controllable Few-Shot Motion Style Transfer</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.04500/index.html"><img src="../../assets/media/2026-09-08/arxiv-2609.04500/fig-001.webp" alt="STyMo: Fast and Controllable Few-Shot Motion Style Transfer" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.04500/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">STyMo：快速可控的 few-shot motion style transfer</span><span class="lang lang-en lang-inline" data-lang="en">STyMo: Fast and Controllable Few-Shot Motion Style Transfer</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-07 · score 9 · A层 · Robust State Estimation / Uncertainty · cs.GR, cs.CV</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Jose Luis Ponton, Alexander Winkler, Ladislav Kavan, Yuting Ye, Petr Kadlecek</div>
@@ -101,7 +101,7 @@
   <div class="tags"><span class="tag">运动生成</span><span class="tag">OOD gate</span><span class="tag">few-shot</span><span class="tag">可控性</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>其对空间智能的价值不在风格本身，而在于把可解释的时空因素分离并显式处理 OOD。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">STyMo 将运动风格分解为静态姿态与时间动态，并提供运行时强度和身体区域控制。它还用 stylizability gate 避免 OOD 动作产生伪影，训练只需几秒配对数据和约一至两分钟。</p><p class="lang lang-en lang-block" data-lang="en">Supporting a wide variety of motion styles is critical for creating diverse virtual characters, but current methods either require large stylized datasets or pre-trained models that cannot generalize beyond th…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.04500">abs</a><a href="https://arxiv.org/pdf/2609.04500">PDF</a><a href="papers/arxiv-2609.04500/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04500">abs</a><a href="https://arxiv.org/pdf/2609.04500">PDF</a><a href="../../papers/arxiv-2609.04500/index.html">半海报（待补全）</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -189,6 +189,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>

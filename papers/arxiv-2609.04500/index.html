@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>STyMo: Fast and Controllable Few-Shot Motion Style Transfer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-08/index.html">← 返回 2026-09-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-07 · score 9 · A层 · Robust State Estimation / Uncertainty · cs.GR, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">STyMo：快速可控的 few-shot motion style transfer</span><span class="lang lang-en lang-inline" data-lang="en">STyMo: Fast and Controllable Few-Shot Motion Style Transfer</span></h1>
+  <div class="meta">作者：Jose Luis Ponton, Alexander Winkler, Ladislav Kavan, Yuting Ye, Petr Kadlecek</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04500">abs</a><a href="https://arxiv.org/pdf/2609.04500">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 10/10</span><p>A 级鲁棒性观察项；可借鉴到动作先验、策略数据增强和异常动作拒绝。</p><div class="tags"><span class="tag">运动生成</span><span class="tag">OOD gate</span><span class="tag">few-shot</span><span class="tag">可控性</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">其对空间智能的价值不在风格本身，而在于把可解释的时空因素分离并显式处理 OOD。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：研究上下文.authors（至少 1 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">STyMo 将运动风格分解为静态姿态与时间动态，并提供运行时强度和身体区域控制。它还用 stylizability gate 避免 OOD 动作产生伪影，训练只需几秒配对数据和约一至两分钟。</p><p class="lang lang-en lang-block" data-lang="en">Supporting a wide variety of motion styles is critical for creating diverse virtual characters, but current methods either require large stylized datasets or pre-trained models that cannot generalize beyond their training distribution. We present STyMo, a few-shot approach that learns motion style from only seconds of paired data and trains in one to two minutes. Our key insight is to decompose style into two components: a static component capturing time-invariant posture, and a temporal component capturing frame-wise dynamics. This decomposition yields an interpretable system where posture intensity, temporal exaggeration, and per-body-region style can be adjusted at runtime. Furthermore, the reduction in required training data and computation time structurally permits an iterative authoring workflow. To ensure robustness on arbitrary inputs, we further introduce a stylizability gate that automatically prevents artifacts on out-of-distribution motions. We demonstrate results across diverse motion styles, from subtle emotional variations to exaggerated character archetypes, and release our processed paired dataset to facilitate future research.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04500/fig-001.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04500/fig-001.webp" alt="STyMo: Fast and Controllable Few-Shot Motion Style Transfer" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04500/fig-002.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04500/fig-002.webp" alt="STyMo: Fast and Controllable Few-Shot Motion Style Transfer" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04500/fig-003.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04500/fig-003.webp" alt="STyMo: Fast and Controllable Few-Shot Motion Style Transfer" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04500/fig-004.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04500/fig-004.webp" alt="STyMo: Fast and Controllable Few-Shot Motion Style Transfer" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04500/fig-005.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04500/fig-005.webp" alt="STyMo: Fast and Controllable Few-Shot Motion Style Transfer" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04500/fig-006.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04500/fig-006.webp" alt="STyMo: Fast and Controllable Few-Shot Motion Style Transfer" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-08/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-08/index.html">← 返回 2026-09-08 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-07 · score 11 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">FailureSpot：面向 VLA 的低标注时间戳级失败检测</span><span class="lang lang-en lang-inline" data-lang="en">FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models</span></h1>
+  <div class="meta">作者：Jie Ma, Zongxi Liu, Yi Zhu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04277">abs</a><a href="https://arxiv.org/pdf/2609.04277">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 10/10</span><p>A 级 VLA 可靠性方向，直接对应长时域策略的在线安全监控。</p><div class="tags"><span class="tag">VLA</span><span class="tag">失败检测</span><span class="tag">主动学习</span><span class="tag">时间戳</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">FailureSpot 将失败检测从事后视觉判断推进到动作执行过程中的时间戳定位。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：研究上下文.authors（至少 1 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">方法利用动作 chunk 的弱监督信号和主动学习，只为不确定轨迹补充时间戳标注。论文同时评估 trajectory-level 与 timestamp-level 检测。</p><p class="lang lang-en lang-block" data-lang="en">Vision-language-action (VLA) policies have shown strong potential for general-purpose robotic manipulation, but they can still fail unpredictably during long-horizon execution, making reliable failure detection essential for safe deployment. Existing methods either rely on visual models that typically detect failures only after erroneous actions have occurred, or use lightweight proactive detectors trained on VLA internal representations. However, these proactive methods are often supervised with trajectory-level labels, causing normal pre-failure behavior in unsuccessful trajectories to be incorrectly labeled as failure. This supervision mismatch introduces label noise and limits both trajectory-level detection accuracy and precise timestamp-level failure localization. In this work, we study fine-grained timestamp-level VLA failure detection while addressing the cost of dense annotation. We propose a data-efficient framework that first leverages unlabeled VLA action chunks to construct action-derived weak supervision signals, capturing abnormal patterns such as inconsistent consecutive chunks, frozen or idle actions, and aggressive random motions. We then use active learning to select only the most uncertain trajectories for timestamp-level annotation and fine-tune the detector with these informative labels. Experiments across multiple VLA policies show that our method improves both timestamp-level and trajectory-level failure detection performance.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04277/fig-001.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04277/fig-001.webp" alt="FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04277/fig-002.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04277/fig-002.webp" alt="FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04277/fig-003.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04277/fig-003.webp" alt="FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-08/arxiv-2609.04277/fig-004.webp"><img src="../../assets/media/2026-09-08/arxiv-2609.04277/fig-004.webp" alt="FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
