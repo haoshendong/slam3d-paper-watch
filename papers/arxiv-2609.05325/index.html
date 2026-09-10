@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-10/index.html">← 返回 2026-09-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-05 · score 17 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">FIRE-LIVWO：借助抗失效 mmWave 雷达增强的鲁棒激光—惯性—视觉—轮速里程计</span><span class="lang lang-en lang-inline" data-lang="en">FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement</span></h1>
+  <div class="meta">作者：Kun Hu, Menggang Li, Kaidi Wu, Zhiwen Jin, Yingjie Zhao, Chaoquan Tang, Eryi Hu, Gongbo Zhou</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.05325">abs</a><a href="https://arxiv.org/pdf/2609.05325">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 17/10</span><p>A 级：把退化检测、观测性分析和多模态自适应融合放入实际矿井里程计，直接对应故障边界与连续状态估计。</p><div class="tags"><span class="tag">可靠状态估计</span><span class="tag">4D 毫米波雷达</span><span class="tag">IESKF</span><span class="tag">退化检测</span><span class="tag">多模态融合</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">这是可靠状态估计方向的直接桥接：重点不只是增加传感器，而是用可观测性指标检测视觉/几何退化，再改变各模态在滤波更新中的权重和组合。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：研究上下文.network（至少 2 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">FIRE-LIVWO 在地下煤矿烟尘、长直走廊和几何退化环境中，将 4D mmWave radar、LiDAR、视觉、IMU 与轮速计紧耦合到 IESKF 和统一 VoxelMap 中，并根据视觉可观测性与几何可观测性在线切换融合模式。论文摘要报告平均定位误差 5.677 m，并开源代码。</p><p class="lang lang-en lang-block" data-lang="en">Achieving robust SLAM in large-scale underground coal mines with complex structures and severe degeneracies remains highly challenging. Dense smoke and dust cause substantial loss of visual information and degrade LiDAR point-cloud features, while long, self-similar corridors induce geometric degeneration, leading to pronounced odometry drift. To address these issues, we propose FIRE-LIVWO: Failure-Immune mmWave Radar-Enhanced LiDAR-Inertial-Visual-Wheel Odometry, a tightly coupled multi-modal odometry framework based on an iterated error-state Kalman filter (IESKF). The framework fuses 4D mmWave radar, LiDAR, and visual features within a unified VoxelMap and jointly constructs LiDAR-radar point-to-plane residuals and sparse visual photometric residuals. In smoke-filled environments, we exploit the strong penetration of 4D mmWave radar and introduce pointwise Doppler velocity constraints to preserve state observability. In geometrically degenerate corridors, we tightly couple wheel odometry using non-holonomic constraints (NHC) and online lever-arm compensation to reduce drift. Our central contribution is a degeneration detection and adaptive fusion model switching strategy grounded in geometric and visual observability analysis, which quantifies observability online and dynamically adjusts modality weights. Real-world experiments in underground coal mines demonstrate that FIRE-LIVWO accurately identifies failure boundaries, enabling reliable modality switching under extreme conditions. Compared with baselines, it achieves superior accuracy and robustness (average localization error of 5.677m). We open source our code on Github to benefit the robotics community.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-10/arxiv-2609.05325/fig-001.webp"><img src="../../assets/media/2026-09-10/arxiv-2609.05325/fig-001.webp" alt="FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-10/arxiv-2609.05325/fig-002.webp"><img src="../../assets/media/2026-09-10/arxiv-2609.05325/fig-002.webp" alt="FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-10/arxiv-2609.05325/fig-003.webp"><img src="../../assets/media/2026-09-10/arxiv-2609.05325/fig-003.webp" alt="FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-10/arxiv-2609.05325/fig-004.webp"><img src="../../assets/media/2026-09-10/arxiv-2609.05325/fig-004.webp" alt="FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-10/arxiv-2609.05325/fig-005.webp"><img src="../../assets/media/2026-09-10/arxiv-2609.05325/fig-005.webp" alt="FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

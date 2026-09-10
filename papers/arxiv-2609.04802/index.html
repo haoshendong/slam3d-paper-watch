@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Linguistic Trajectory Encoding for Efficient Long-Horizon Spatial Memory in Embodied Agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-10/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-10/index.html">← 返回 2026-09-10 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-04 · score 10 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV, cs.AI</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">语言轨迹编码：为具身智能体实现高效的长时空间记忆</span><span class="lang lang-en lang-inline" data-lang="en">Linguistic Trajectory Encoding for Efficient Long-Horizon Spatial Memory in Embodied Agents</span></h1>
+  <div class="meta">作者：Tianyidan Xie, Shenyi Wang, Qiang Tang, Mingjie Wang, Zhicheng Qiu, Xuanfu Li, Zhan Xu, Jian Yang</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.04802">abs</a><a href="https://arxiv.org/pdf/2609.04802">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 10/10</span><p>A 级：将空间锚点与动态对象语义结合到长时记忆，提供明确 benchmark、压缩比和检索延迟证据。</p><div class="tags"><span class="tag">空间记忆</span><span class="tag">具身智能</span><span class="tag">轨迹检索</span><span class="tag">空间锚点</span><span class="tag">多模态检索</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">它把几何轨迹、对象身份和语言状态转成可查询记忆，是从 3D 表征通向空间推理/具身决策的桥接工作。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：研究上下文.network（至少 2 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">LTE 用自然语言描述、稀疏空间锚点和视觉锚点混合压缩动态物体轨迹，并构建 Spatial Memory Benchmark 评估语义轨迹检索与长时物体检索。官方 HTML 报告 SMB 上 STR/LOR 为 45.3%/48.7%，并在 24 小时视频上实现 26.1× 压缩和 0.43 s/query。</p><p class="lang lang-en lang-block" data-lang="en">Embodied agents performing long-horizon tasks require a memory representation in which the state transitions of dynamic objects remain queryable in natural language across hours-to-days observation horizons. Existing systems either drop fine-grained motion (clip-level video-language embeddings), keep it only as raw coordinates (geometric SLAM), or organise it around immediate task context (agent working memories). None of them gives the agent a per-object timeline whose state transitions are themselves queryable in language. Our key contribution is \textbf{Linguistic Trajectory Encoding} (LTE), which compresses dynamic object motion histories via a hybrid representation combining natural language descriptions, sparse spatial anchors, and visual anchors. LTE adapts compression to motion complexity by anchoring periods without reliable observations to the last seen location, while representing motion with geometric waypoints and linguistic descriptions to preserve accuracy. To evaluate these capabilities across extended time horizons, we construct the \textbf{Spatial Memory Benchmark} (SMB) from EgoLife multi-day recordings, targeting capabilities absent in existing benchmarks: semantic trajectory retrieval and long-horizon object retrieval. On SMB, the LTE-based system achieves $45.3\%$ success in semantic trajectory retrieval and $48.7\%$ in long-horizon object retrieval, outperforming structured-memory and VLM baselines (best prior: $31.9\%$ and $34.4\%$). LTE achieves trajectory compression by factors of $8.7\times$ to $26.1\times$ with sub-second query latency on $24$\,h video. On Ego4D natural-language queries, the system reaches $28.75\%$ / $55.10\%$ R@1/R@5, $+15.80$ / $+31.30$ pts over EgoVLPv2.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-10/arxiv-2609.04802/fig-001.webp"><img src="../../assets/media/2026-09-10/arxiv-2609.04802/fig-001.webp" alt="Linguistic Trajectory Encoding for Efficient Long-Horizon Spatial Memory in Embodied Agents" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-10/arxiv-2609.04802/fig-002.webp"><img src="../../assets/media/2026-09-10/arxiv-2609.04802/fig-002.webp" alt="Linguistic Trajectory Encoding for Efficient Long-Horizon Spatial Memory in Embodied Agents" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-10/arxiv-2609.04802/fig-003.webp"><img src="../../assets/media/2026-09-10/arxiv-2609.04802/fig-003.webp" alt="Linguistic Trajectory Encoding for Efficient Long-Horizon Spatial Memory in Embodied Agents" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
