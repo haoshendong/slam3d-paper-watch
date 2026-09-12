@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>HuRo: Robotizing Human Videos for Scalable VLA Pretraining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-12/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-12/index.html">← 返回 2026-09-12 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-11 · score 11 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV, cs.LG</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">HuRo：将人类视频机器人化用于可扩展 VLA 预训练</span><span class="lang lang-en lang-inline" data-lang="en">HuRo: Robotizing Human Videos for Scalable VLA Pretraining</span></h1>
+  <div class="meta">作者：Jinho Jeong, Se June Joo, Jaehyun Kang, Dongyun Kim, Yena Kim, Hanjung Kim, Seon Joo Kim</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.10706">abs</a><a href="https://arxiv.org/pdf/2609.10706">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 11/10</span><p>A 级：直接连接 robotic foundation models/VLA 与 OOD 鲁棒性；官方 HTML 给出数据规模、四项真实任务、robotization ablation 和 completion 数字。</p><div class="tags"><span class="tag">VLA</span><span class="tag">机器人化视频</span><span class="tag">具身学习</span><span class="tag">OOD 鲁棒性</span><span class="tag">动作对齐</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">HuRo 把人类视频规模优势转化为 VLA 可用的机器人对齐监督，并用真实任务和 OOD 扰动验证规模效应。对空间智能路线而言，它提供了一个可拆分的‘视频表征—动作重定向—闭环策略’桥梁，但还需要显式接入状态不确定性与地图记忆。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：研究上下文.network（至少 2 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">HuRo 构建 robotization pipeline，将人类视频转换为机器人对齐的观测与动作轨迹，并从五个视频来源形成约 630K robotized episodes、142M processed frames。四项真实操作任务中，扩大机器人化预训练使 overall completion 从 51.5% 提升至 80.3%，空间和视觉分布外 completion 从 34.9% 提升至 72.2%。</p><p class="lang lang-en lang-block" data-lang="en">Human video datasets have emerged as a compelling alternative to expensive real-robot data, offering rich diversity at scale. To bridge the human-to-robot embodiment gap, existing approaches either robotize videos in task-matched settings or address observation and action alignment separately at scale. In this work, we systematically examine whether robotized human videos can provide effective and scalable supervision for pretraining vision-language-action (VLA) policies. To this end, we develop a robotization pipeline that converts heterogeneous human videos into robot-aligned observations and action trajectories while inferring missing intermediate signals across annotation levels. Using this pipeline, we construct the HuRo dataset, comprising about 630K robotized episodes and 142M processed frames from five human-video sources. Across four real-world manipulation tasks, increasing robotized pretraining scale improves overall completion from 51.5% to 80.3% and OOD completion under spatial and visual shifts from 34.9% to 72.2%. Ablations further show that visual robotization improves OOD robustness and that end-to-end pretraining with retargeted actions outperforms visual-only transfer. Code and data are released on our website: https://3587jjh.github.io/HuRo.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-12/arxiv-2609.10706/fig-001.webp"><img src="../../assets/media/2026-09-12/arxiv-2609.10706/fig-001.webp" alt="HuRo: Robotizing Human Videos for Scalable VLA Pretraining" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-12/arxiv-2609.10706/fig-002.webp"><img src="../../assets/media/2026-09-12/arxiv-2609.10706/fig-002.webp" alt="HuRo: Robotizing Human Videos for Scalable VLA Pretraining" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-12/arxiv-2609.10706/fig-003.webp"><img src="../../assets/media/2026-09-12/arxiv-2609.10706/fig-003.webp" alt="HuRo: Robotizing Human Videos for Scalable VLA Pretraining" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-12/arxiv-2609.10706/fig-004.webp"><img src="../../assets/media/2026-09-12/arxiv-2609.10706/fig-004.webp" alt="HuRo: Robotizing Human Videos for Scalable VLA Pretraining" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-12/arxiv-2609.10706/fig-005.webp"><img src="../../assets/media/2026-09-12/arxiv-2609.10706/fig-005.webp" alt="HuRo: Robotizing Human Videos for Scalable VLA Pretraining" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-12/arxiv-2609.10706/fig-006.webp"><img src="../../assets/media/2026-09-12/arxiv-2609.10706/fig-006.webp" alt="HuRo: Robotizing Human Videos for Scalable VLA Pretraining" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

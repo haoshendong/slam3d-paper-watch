@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-09-12/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-09-12</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-09-12/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：19</span><span class="stat">推荐论文：6</span><span class="stat">新论文：19</span><span class="stat">仓库：14</span><span class="stat">新仓库：3</span></div>
 </section>
@@ -28,8 +28,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 19 篇候选中按 S/A 层级与评分推荐前 6 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.10756/index.html"><img src="assets/media/2026-09-12/arxiv-2609.10756/fig-001.webp" alt="GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.10756/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GRADE：退化视觉下的单帧生成式雷达深度估计</span><span class="lang lang-en lang-inline" data-lang="en">GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.10756/index.html"><img src="../../assets/media/2026-09-12/arxiv-2609.10756/fig-001.webp" alt="GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.10756/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GRADE：退化视觉下的单帧生成式雷达深度估计</span><span class="lang lang-en lang-inline" data-lang="en">GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-11 · score 12 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.RO</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Bin Zhao, Patrick Chiou, Nakul Garg</div>
@@ -37,11 +37,11 @@
   <div class="tags"><span class="tag">几何基础模型</span><span class="tag">雷达深度</span><span class="tag">生成式先验</span><span class="tag">退化视觉</span><span class="tag">可靠感知</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这是一条从可穿透退化环境的雷达几何量测到高密度深度的可靠感知链路。对状态估计的直接启发是把生成式细节恢复限制在 metric radar depth 的条件下，并把视觉退化和深度置信度作为后端权重，而不是让生成模型无约束地决定尺度。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">GRADE 将单帧 4D mmWave 雷达谱映射为粗粒度 metric depth，再用 latent diffusion 在每一步去噪中恢复结构细节；可用时加入残差 RGB cues，并在能见度下降时趋向雷达条件路径。作者在约 95K 帧、12 座建筑的清晰、烟雾退化和遮挡数据上报告 clear MAE 0.303 m、smoke MAE 0.313 m。</p><p class="lang lang-en lang-block" data-lang="en">Dense 3D depth perception fails under smoke, fog, and darkness because optical sensors cannot penetrate airborne particulates. mmWave radar remains usable and measures range accurately under these conditions,…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.10756">abs</a><a href="https://arxiv.org/pdf/2609.10756">PDF</a><a href="papers/arxiv-2609.10756/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.10756">abs</a><a href="https://arxiv.org/pdf/2609.10756">PDF</a><a href="../../papers/arxiv-2609.10756/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.10706/index.html"><img src="assets/media/2026-09-12/arxiv-2609.10706/fig-001.webp" alt="HuRo: Robotizing Human Videos for Scalable VLA Pretraining" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.10706/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HuRo：将人类视频机器人化用于可扩展 VLA 预训练</span><span class="lang lang-en lang-inline" data-lang="en">HuRo: Robotizing Human Videos for Scalable VLA Pretraining</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.10706/index.html"><img src="../../assets/media/2026-09-12/arxiv-2609.10706/fig-001.webp" alt="HuRo: Robotizing Human Videos for Scalable VLA Pretraining" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.10706/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HuRo：将人类视频机器人化用于可扩展 VLA 预训练</span><span class="lang lang-en lang-inline" data-lang="en">HuRo: Robotizing Human Videos for Scalable VLA Pretraining</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-11 · score 11 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV, cs.LG</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Jinho Jeong, Se June Joo, Jaehyun Kang, Dongyun Kim, Yena Kim, Hanjung Kim, Seon Joo Kim</div>
@@ -49,11 +49,11 @@
   <div class="tags"><span class="tag">VLA</span><span class="tag">机器人化视频</span><span class="tag">具身学习</span><span class="tag">OOD 鲁棒性</span><span class="tag">动作对齐</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>HuRo 把人类视频规模优势转化为 VLA 可用的机器人对齐监督，并用真实任务和 OOD 扰动验证规模效应。对空间智能路线而言，它提供了一个可拆分的‘视频表征—动作重定向—闭环策略’桥梁，但还需要显式接入状态不确定性与地图记忆。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">HuRo 构建 robotization pipeline，将人类视频转换为机器人对齐的观测与动作轨迹，并从五个视频来源形成约 630K robotized episodes、142M processed frames。四项真实操作任务中，扩大机器人化预训练使 overall completion 从 51.5% 提升至 80.3%，空间和视觉分布外 completion 从 34.9% 提升至 72.2%。</p><p class="lang lang-en lang-block" data-lang="en">Human video datasets have emerged as a compelling alternative to expensive real-robot data, offering rich diversity at scale. To bridge the human-to-robot embodiment gap, existing approaches either robotize vi…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.10706">abs</a><a href="https://arxiv.org/pdf/2609.10706">PDF</a><a href="papers/arxiv-2609.10706/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.10706">abs</a><a href="https://arxiv.org/pdf/2609.10706">PDF</a><a href="../../papers/arxiv-2609.10706/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.10915/index.html"><img src="assets/media/2026-09-12/arxiv-2609.10915/fig-001.webp" alt="IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.10915/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">IMLE-VLA：面向视觉语言动作策略的单步动作生成</span><span class="lang lang-en lang-inline" data-lang="en">IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.10915/index.html"><img src="../../assets/media/2026-09-12/arxiv-2609.10915/fig-001.webp" alt="IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.10915/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">IMLE-VLA：面向视觉语言动作策略的单步动作生成</span><span class="lang lang-en lang-inline" data-lang="en">IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-11 · score 9 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Kian Hosseinkhani (Simon Fraser University), Qinhe Peng (University of Pennsylvania), George Shramko (Simon Fraser University), Mehran Aghabozorgi (Simon Fraser University), Jianing Qian (University of Pennsylvania), Tristan Engst (Simon Fraser University), Alireza Moazeni (Simon Fraser University), Dinesh Jayaraman (University of Pennsylvania), Ke Li (Simon Fraser University, Canada CIFAR AI Chair)</div>
@@ -61,10 +61,10 @@
   <div class="tags"><span class="tag">VLA</span><span class="tag">单步生成</span><span class="tag">cIMLE</span><span class="tag">实时控制</span><span class="tag">动作多模态</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>该工作把 VLA 的动作采样瓶颈压缩为单步、多模态条件生成，直接改善实时闭环执行。它对可靠空间智能的价值在于给状态估计和动作策略留下更高频的交互预算，但必须补测观测延迟、状态不确定性和安全约束下的行为。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">IMLE-VLA 用 conditional IMLE 单步生成器替代 diffusion/flow action head 的多步采样，以覆盖多模态动作并避免回归坍缩。接入 π0.5 后推理频率为 55 Hz 对 15 Hz，LIBERO 40-task 平均成功率 98.0%，真实 Franka 四项任务平均单回合推理时间降低 3.9×–6.6×。</p><p class="lang lang-en lang-block" data-lang="en">Vision-language-action (VLA) policies leverage pretrained vision-language backbones to achieve strong cross-task generalization. A leading design couples this backbone with a dedicated continuous action head t…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.10915">abs</a><a href="https://arxiv.org/pdf/2609.10915">PDF</a><a href="papers/arxiv-2609.10915/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.10915">abs</a><a href="https://arxiv.org/pdf/2609.10915">PDF</a><a href="../../papers/arxiv-2609.10915/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.11434"><img src="assets/media/2026-09-12/arxiv-2609.11434/fig-001.webp" alt="Hologram Representation via Quadratic Phase Gaussian Splatting" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.11434"><img src="../../assets/media/2026-09-12/arxiv-2609.11434/fig-001.webp" alt="Hologram Representation via Quadratic Phase Gaussian Splatting" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.11434"><span class="lang lang-zh lang-inline" data-lang="zh">Hologram Representation via Quadratic Phase Gaussian Splatting</span><span class="lang lang-en lang-inline" data-lang="en">Hologram Representation via Quadratic Phase Gaussian Splatting</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-11 · score 15 · B层 · Neural Rendering / 3DGS / NeRF · cs.GR, cs.CV, cs.LG</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -76,7 +76,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.11434">abs</a><a href="https://arxiv.org/pdf/2609.11434">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.11894"><img src="assets/media/2026-09-12/arxiv-2609.11894/fig-001.webp" alt="3D Point Splatting for mmWave Radar Novel View Synthesis" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.11894"><img src="../../assets/media/2026-09-12/arxiv-2609.11894/fig-001.webp" alt="3D Point Splatting for mmWave Radar Novel View Synthesis" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.11894"><span class="lang lang-zh lang-inline" data-lang="zh">3D Point Splatting：用于毫米波雷达新视角合成</span><span class="lang lang-en lang-inline" data-lang="en">3D Point Splatting for mmWave Radar Novel View Synthesis</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-11 · score 11 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR, cs.LG, eess.SP</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -88,7 +88,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.11894">abs</a><a href="https://arxiv.org/pdf/2609.11894">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.10918"><img src="assets/media/2026-09-12/arxiv-2609.10918/fig-001.webp" alt="ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.10918"><img src="../../assets/media/2026-09-12/arxiv-2609.10918/fig-001.webp" alt="ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.10918"><span class="lang lang-zh lang-inline" data-lang="zh">ObstaDiff：面向障碍物表示的可泛化扩散策略学习</span><span class="lang lang-en lang-inline" data-lang="en">ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-11 · score 4 · cs.RO, cs.LG</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -165,6 +165,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
