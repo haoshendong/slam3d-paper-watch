@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-09-15/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-09-15</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-09-15/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：20</span><span class="stat">推荐论文：5</span><span class="stat">新论文：20</span><span class="stat">仓库：16</span><span class="stat">新仓库：5</span></div>
 </section>
@@ -32,8 +32,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 20 篇候选中按 S/A 层级与评分推荐前 5 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.12036/index.html"><img src="assets/media/2026-09-15/arxiv-2609.12036/fig-001.webp" alt="Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.12036/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Pelican-Sim 1.0：面向具身智能的通用世界模型模拟器</span><span class="lang lang-en lang-inline" data-lang="en">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.12036/index.html"><img src="../../assets/media/2026-09-15/arxiv-2609.12036/fig-001.webp" alt="Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.12036/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Pelican-Sim 1.0：面向具身智能的通用世界模型模拟器</span><span class="lang lang-en lang-inline" data-lang="en">Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-14 · score 9 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.AI</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Shilong Zou, Shilin Zhang, Yingji Zhang, Yuhang Huang, Yi Zhang, Zeyuan Ding, Han Dong, Junwei Liao, Yong Dai, Jian Tang, Xiaozhu Ju</div>
@@ -41,11 +41,11 @@
   <div class="tags"><span class="tag">世界模型</span><span class="tag">具身智能</span><span class="tag">动作条件视频</span><span class="tag">稀疏 MoE</span><span class="tag">策略评估</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这是一项从 3D/动作表征走向具身决策的世界模型工作：关键不是只生成逼真视频，而是让动作条件能被策略训练和评估实际使用。最值得迁移的是 URDF/相机渲染的 action-visual injection、跨 embodiment 的统一动作空间和低步数 rollout；具体收益仍应在目标机器人上复现。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Pelican-Sim 1.0 从视觉上下文和机器人动作预测未来观测，统一数值动作与渲染动作视频，并用稀疏 MoE 和四步因果蒸馏提升跨 embodiment 的可控性与 rollout 效率。论文在约一百万条真实/仿真轨迹上训练，并报告了生成质量、数据增强、策略评估、动作选择和策略改进结果。</p><p class="lang lang-en lang-block" data-lang="en">In this technical report, we propose Pelican-Sim 1.0, a general world model simulator for embodied intelligence that predicts future observations from visual context and robot actions to support downstream lea…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.12036">abs</a><a href="https://arxiv.org/pdf/2609.12036">PDF</a><a href="papers/arxiv-2609.12036/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.12036">abs</a><a href="https://arxiv.org/pdf/2609.12036">PDF</a><a href="../../papers/arxiv-2609.12036/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.12081/index.html"><img src="assets/media/2026-09-15/arxiv-2609.12081/fig-001.webp" alt="MoPA: Coordinated Mobile Manipulation via Subsystem-Specific Perception Alignment" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.12081/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MoPA：通过子系统特定感知对齐实现协调移动操作</span><span class="lang lang-en lang-inline" data-lang="en">MoPA: Coordinated Mobile Manipulation via Subsystem-Specific Perception Alignment</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.12081/index.html"><img src="../../assets/media/2026-09-15/arxiv-2609.12081/fig-001.webp" alt="MoPA: Coordinated Mobile Manipulation via Subsystem-Specific Perception Alignment" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.12081/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MoPA：通过子系统特定感知对齐实现协调移动操作</span><span class="lang lang-en lang-inline" data-lang="en">MoPA: Coordinated Mobile Manipulation via Subsystem-Specific Perception Alignment</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-14 · score 9 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Guangyu Chen, Qiwei Liang, Shaolong Zhu, Tianxing Chen, Zikuan Xiao, Yifan Xie, Lingfeng Zhang, Ping Luo, Renjing Xu, Wenbo Ding</div>
@@ -53,11 +53,11 @@
   <div class="tags"><span class="tag">移动操作</span><span class="tag">感知-动作对齐</span><span class="tag">Flow Matching</span><span class="tag">VLA</span><span class="tag">底盘-机械臂协调</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>论文把移动导航所需的场景级几何与操作所需的局部几何分开建模，同时在动作层保持耦合。对空间智能路线的价值在于：不同控制子系统不应被迫共享同一感知摘要，子系统特定的不确定性和证据通道值得进入状态估计。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">MoPA 为移动底盘与机械臂分别建立感知 query bank，并在结构化 Mixture-of-Transformers 解码器中进行 Perception2Action 对齐，再用耦合条件 flow matching 联合生成两类动作 chunk。论文在 ManiSkill-HAB 三个任务套件和四个真实任务上验证了协调性。</p><p class="lang lang-en lang-block" data-lang="en">Mobile manipulation requires perceptual evidence at different spatial scales for base motion and arm control, while the two action modalities remain kinematically coupled. Existing policies often employ specia…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.12081">abs</a><a href="https://arxiv.org/pdf/2609.12081">PDF</a><a href="papers/arxiv-2609.12081/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.12081">abs</a><a href="https://arxiv.org/pdf/2609.12081">PDF</a><a href="../../papers/arxiv-2609.12081/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.12095/index.html"><img src="assets/media/2026-09-15/arxiv-2609.12095/fig-001.webp" alt="Uncertainty-Aware Conflict Detection Against Operator-Conditioned Weather Hazards" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.12095/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向操作者条件天气风险的置信度冲突检测</span><span class="lang lang-en lang-inline" data-lang="en">Uncertainty-Aware Conflict Detection Against Operator-Conditioned Weather Hazards</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.12095/index.html"><img src="../../assets/media/2026-09-15/arxiv-2609.12095/fig-001.webp" alt="Uncertainty-Aware Conflict Detection Against Operator-Conditioned Weather Hazards" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.12095/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向操作者条件天气风险的置信度冲突检测</span><span class="lang lang-en lang-inline" data-lang="en">Uncertainty-Aware Conflict Detection Against Operator-Conditioned Weather Hazards</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-14 · score 8 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Balram Kandoria, Seulki Kim, Aryaman Singh Samyal</div>
@@ -65,11 +65,11 @@
   <div class="tags"><span class="tag">不确定性传播</span><span class="tag">Kalman Filter</span><span class="tag">多面体风险</span><span class="tag">冲突检测</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这是可靠状态估计方向的 A 级桥接工作：把状态协方差转成可与 3D 风险体比较的几何对象。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文将 NURBS 轨迹、Kalman Filter 协方差传播和操作者条件天气多面体结合，用空间不确定性管与危险体网格相交进行冲突检测。</p><p class="lang lang-en lang-block" data-lang="en">Strategic flight plan validation in Advanced Air Mobility (AAM) environments requires robust methods for predicting aircraft state uncertainty and detecting potential conflicts with dynamic airspace hazards. T…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.12095">abs</a><a href="https://arxiv.org/pdf/2609.12095">PDF</a><a href="papers/arxiv-2609.12095/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.12095">abs</a><a href="https://arxiv.org/pdf/2609.12095">PDF</a><a href="../../papers/arxiv-2609.12095/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.12103/index.html"><img src="assets/media/2026-09-15/arxiv-2609.12103/fig-001.webp" alt="RodForesight: A World Model Enhanced Diffusion Policy for Slender and Material Agnostic Rod Insertion" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.12103/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RodForesight：世界模型增强的细长杆插入策略</span><span class="lang lang-en lang-inline" data-lang="en">RodForesight: A World Model Enhanced Diffusion Policy for Slender and Material Agnostic Rod Insertion</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.12103/index.html"><img src="../../assets/media/2026-09-15/arxiv-2609.12103/fig-001.webp" alt="RodForesight: A World Model Enhanced Diffusion Policy for Slender and Material Agnostic Rod Insertion" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.12103/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RodForesight：世界模型增强的细长杆插入策略</span><span class="lang lang-en lang-inline" data-lang="en">RodForesight: A World Model Enhanced Diffusion Policy for Slender and Material Agnostic Rod Insertion</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-14 · score 7 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Chuanbo Yu, Mingyu Yue, Yan Lyu, Chuhan Song, Peng Wang</div>
@@ -77,11 +77,11 @@
   <div class="tags"><span class="tag">可变形物体</span><span class="tag">Cosserat 杆</span><span class="tag">Diffusion Policy</span><span class="tag">世界模型</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>该工作把可变形物体的动力学预测接入动作选择，展示了世界模型如何在接触任务中减少执行前试错。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">RodForesight 将粗略接近与预测插入分为两阶段，用 Cosserat 杆模型和动作条件世界模型预测候选动作对杆孔对齐的影响，再由 diffusion policy 选择动作块。</p><p class="lang lang-en lang-block" data-lang="en">Slender rod insertion arises in precision manufacturing, where millimetre scale diameter and tight clearances demand accurate perception and control. Conventional peg-in-hole methods assume a rigid object whos…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.12103">abs</a><a href="https://arxiv.org/pdf/2609.12103">PDF</a><a href="papers/arxiv-2609.12103/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.12103">abs</a><a href="https://arxiv.org/pdf/2609.12103">PDF</a><a href="../../papers/arxiv-2609.12103/index.html">半海报（待补全）</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.12090/index.html"><img src="assets/media/2026-09-15/arxiv-2609.12090/fig-001.webp" alt="Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.12090/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">视频记忆是否使用了检索内容？记忆特异性的因果审计</span><span class="lang lang-en lang-inline" data-lang="en">Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.12090/index.html"><img src="../../assets/media/2026-09-15/arxiv-2609.12090/fig-001.webp" alt="Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.12090/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">视频记忆是否使用了检索内容？记忆特异性的因果审计</span><span class="lang lang-en lang-inline" data-lang="en">Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-14 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
   <div class="meta">内容级别：半海报（待补全）</div>
   <div class="meta">作者：Aditi Tiwari, Akshit Bhalla, Darshan Prasad, Heng Ji</div>
@@ -89,7 +89,7 @@
   <div class="tags"><span class="tag">视频记忆</span><span class="tag">因果审计</span><span class="tag">世界模型</span><span class="tag">空间记忆</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>这项工作为视频世界模型和空间记忆提供了直接的因果审计：记忆有用不代表检索内容被真正使用。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出 read-time memory substitution，在保持其余计算不变时替换被消费的 memory value，以区分通用表征收益和对正确历史内容的特异依赖。</p><p class="lang lang-en lang-block" data-lang="en">Video models increasingly use memory to preserve information over long sequences, with the assumption that gains come from retrieving and using the correct past content. Standard memory ablations test whether…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.12090">abs</a><a href="https://arxiv.org/pdf/2609.12090">PDF</a><a href="papers/arxiv-2609.12090/index.html">半海报（待补全）</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.12090">abs</a><a href="https://arxiv.org/pdf/2609.12090">PDF</a><a href="../../papers/arxiv-2609.12090/index.html">半海报（待补全）</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -165,6 +165,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>

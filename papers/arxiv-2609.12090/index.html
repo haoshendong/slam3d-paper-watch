@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-15/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-15/index.html">← 返回 2026-09-15 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-14 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">视频记忆是否使用了检索内容？记忆特异性的因果审计</span><span class="lang lang-en lang-inline" data-lang="en">Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity</span></h1>
+  <div class="meta">作者：Aditi Tiwari, Akshit Bhalla, Darshan Prasad, Heng Ji</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.12090">abs</a><a href="https://arxiv.org/pdf/2609.12090">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 7/10</span><p>A 级 spatial memory/world model 分析，直接涉及长时空表征的内容依赖与失效边界。</p><div class="tags"><span class="tag">视频记忆</span><span class="tag">因果审计</span><span class="tag">世界模型</span><span class="tag">空间记忆</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">这项工作为视频世界模型和空间记忆提供了直接的因果审计：记忆有用不代表检索内容被真正使用。</p></section>
+<section class="section presentation score-panel"><h2>半海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：研究上下文.lineage（至少 2 条实质条目）、研究上下文.network（至少 2 条实质条目）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出 read-time memory substitution，在保持其余计算不变时替换被消费的 memory value，以区分通用表征收益和对正确历史内容的特异依赖。</p><p class="lang lang-en lang-block" data-lang="en">Video models increasingly use memory to preserve information over long sequences, with the assumption that gains come from retrieving and using the correct past content. Standard memory ablations test whether memory helps, but not whether the retrieved content is responsible. We test this directly with read-time memory substitution, which replaces the consumed memory value while leaving the rest of the computation unchanged. This separates memory benefit from memory specificity, the extent to which the gain depends on retrieved content. Across frozen video world models, identity-free controls containing no evaluation-specific content recover essentially the full benefit on Ego-Exo4D and 7-Scenes and about 70% on TUM. In the Ego-Exo4D dose response, recovery falls from 102% to 1% as these values move away from observed training-memory representations, supporting representation repair as the best-supported explanation in this setting. WorldMem shows graded dependence. A wrong memory from the same trajectory recovers 94.1% of the PSNR benefit relative to zero content, while a donor from a disjoint trajectory and biome recovers 43.7%. SAM 2 shows strong content dependence. On DAVIS, replacing the correct spatial memory with a valid wrong memory reduces mean region and boundary score from 0.926 to 0.182. At MOSEv2 reappearance, it falls from 0.459 to 0.000. These results show that memory gains can depend on generic representation support, broader context, or exact episodic content. Read-time substitution provides a direct way to distinguish them.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-15/arxiv-2609.12090/fig-001.webp"><img src="../../assets/media/2026-09-15/arxiv-2609.12090/fig-001.webp" alt="Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 3</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-15/arxiv-2609.12090/fig-002.webp"><img src="../../assets/media/2026-09-15/arxiv-2609.12090/fig-002.webp" alt="Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 5</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-15/arxiv-2609.12090/fig-003.webp"><img src="../../assets/media/2026-09-15/arxiv-2609.12090/fig-003.webp" alt="Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-15/arxiv-2609.12090/fig-004.webp"><img src="../../assets/media/2026-09-15/arxiv-2609.12090/fig-004.webp" alt="Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity" loading="lazy"></a><figcaption class="meta">papercropper_figure · page 8</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-15/arxiv-2609.12090/table-001.webp"><img src="../../assets/media/2026-09-15/arxiv-2609.12090/table-001.webp" alt="Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-15/arxiv-2609.12090/table-002.webp"><img src="../../assets/media/2026-09-15/arxiv-2609.12090/table-002.webp" alt="Does Video Memory Use What It Retrieves? A Causal Audit of Memory Specificity" loading="lazy"></a><figcaption class="meta">papercropper_table · page 7</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
