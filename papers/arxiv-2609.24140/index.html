@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>BayesianGS-SLAM: Uncertainty-Aware Neural Rendering SLAM via Probabilistic Formulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="../../daily/2026-09-23/index.html">今日</a><a href="../../archive/index.html">归档</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero paper-head">
+  <div><a href="../../daily/2026-09-23/index.html">← 返回 2026-09-23 日报</a></div>
+  <div class="meta">新论文 · 日期 2026-09-21 · score 24 · S层 · Learning + Geometric Optimization SLAM/VIO · cs.RO</div>
+  <h1><span class="lang lang-zh lang-inline" data-lang="zh">BayesianGS-SLAM：基于概率建模的不确定性感知神经渲染 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">BayesianGS-SLAM: Uncertainty-Aware Neural Rendering SLAM via Probabilistic Formulation</span></h1>
+  <div class="meta">作者：Kyeongsu Kang, Seongbo Ha, Sibaek Lee, Hyeonwoo Yu</div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.24140">abs</a><a href="https://arxiv.org/pdf/2609.24140">PDF</a></div>
+</section>
+<section class="section score-panel"><span class="score">评分 24/10</span><p>S 级；直接把不确定性量化接入几何优化、鲁棒跟踪与关键帧决策。</p><div class="tags"><span class="tag">预测不确定性</span><span class="tag">RGB-D</span><span class="tag">鲁棒位姿优化</span><span class="tag">关键帧选择</span></div></section>
+<section class="section"><h2>一句话工作总结</h2><p class="insight">把传感器噪声与透明度诱导的地图表示不确定性传播到统一流水线；目标是在不牺牲跟踪与渲染的情况下减少不可靠残差和冗余建图调用。</p></section>
+<section class="section presentation score-panel"><h2>完整单篇海报（待补全）</h2><p>当前记录尚未达到完整海报质量门槛，暂不把摘要或评分理由冒充方法/实验结论。</p><p class="muted">待补字段：实验数字与比较（缺少可核验数字）。下一次任务需从论文全文或官方 HTML 提取证据后再发布。</p></section>
+<section class="section">
+  <h2>摘要</h2>
+  <p class="lang lang-zh lang-block" data-lang="zh">论文提出在 3D Gaussian Splatting SLAM 中联合估计 RGB 与深度预测不确定性，并把它用于建图、跟踪和关键帧选择。</p><p class="lang lang-en lang-block" data-lang="en">Neural-rendering-based SLAM relies on rendered RGB-D residuals for camera tracking and map optimization, but the reliability of these predictions can vary substantially because of sensor noise, limited observation coverage, and incomplete map representations. Without an explicit reliability estimate, unreliable residuals may adversely affect pose optimization, while frames already well explained by the current map may trigger redundant mapping updates. In this paper, we present BayesianGS-SLAM, an uncertainty-aware 3D Gaussian Splatting SLAM framework that estimates predictive color and depth uncertainty during mapping and consistently reuses it across the SLAM pipeline. Our tractable probabilistic formulation combines a sensor-noise uncertainty component with an opacity-induced map-representation component propagated through the rendering process. The resulting predictive uncertainty is used to augment mapping, normalize tracking residuals through a robust pose objective, and evaluate incoming frames using a predictive-surprise-based keyframe criterion. Unlike prior uncertainty-aware neural-rendering SLAM methods that primarily consider color uncertainty or use uncertainty only during mapping, our framework estimates predictive uncertainty for both color and depth and integrates it into mapping, tracking, and keyframe selection. Evaluations on real-world RGB-D datasets demonstrate substantially improved depth uncertainty-error ranking compared with existing uncertainty-aware SLAM methods. Moreover, the proposed keyframe-selection strategy reduces the number of selected keyframes and mapping calls while maintaining competitive tracking and rendering performance.</p>
+</section>
+
+<section class="section">
+  <h2>图表/页面预览</h2>
+  <div class="figures"><figure class="figure"><a href="../../assets/media/2026-09-23/arxiv-2609.24140/fig-001.webp"><img src="../../assets/media/2026-09-23/arxiv-2609.24140/fig-001.webp" alt="BayesianGS-SLAM: Uncertainty-Aware Neural Rendering SLAM via Probabilistic Formulation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-23/arxiv-2609.24140/fig-002.webp"><img src="../../assets/media/2026-09-23/arxiv-2609.24140/fig-002.webp" alt="BayesianGS-SLAM: Uncertainty-Aware Neural Rendering SLAM via Probabilistic Formulation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure>
+<figure class="figure"><a href="../../assets/media/2026-09-23/arxiv-2609.24140/fig-003.webp"><img src="../../assets/media/2026-09-23/arxiv-2609.24140/fig-003.webp" alt="BayesianGS-SLAM: Uncertainty-Aware Neural Rendering SLAM via Probabilistic Formulation" loading="lazy"></a><figcaption class="meta">arxiv_html_figure · page ?</figcaption></figure></div>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
