@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-09-24/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-09-24</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-09-24/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：21</span><span class="stat">推荐论文：7</span><span class="stat">新论文：21</span><span class="stat">仓库：11</span><span class="stat">新仓库：4</span></div>
 </section>
@@ -33,8 +33,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 21 篇候选中按 S/A 层级与评分推荐前 7 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.25338/index.html"><img src="assets/media/2026-09-24/arxiv-2609.25338/fig-001.webp" alt="GINIO: A Geometric SO(3)-Equivariant Interface for Neural Inertial Odometry" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.25338/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GINIO：面向神经惯性里程计的几何 SO(3) 等变接口</span><span class="lang lang-en lang-inline" data-lang="en">GINIO: A Geometric SO(3)-Equivariant Interface for Neural Inertial Odometry</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.25338/index.html"><img src="../../assets/media/2026-09-24/arxiv-2609.25338/fig-001.webp" alt="GINIO: A Geometric SO(3)-Equivariant Interface for Neural Inertial Odometry" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.25338/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GINIO：面向神经惯性里程计的几何 SO(3) 等变接口</span><span class="lang lang-en lang-inline" data-lang="en">GINIO: A Geometric SO(3)-Equivariant Interface for Neural Inertial Odometry</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 19 · S层 · Learning + Geometric Optimization SLAM/VIO · cs.RO, cs.LG</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Chankyo Kim, Minghan Zhu, Tzu-Yuan Lin, Avantika Rattan, Maani Ghaffari</div>
@@ -42,11 +42,11 @@
   <div class="tags"><span class="tag">SO(3) 等变</span><span class="tag">神经惯性里程计</span><span class="tag">协方差张量一致</span><span class="tag">末帧对齐 LFA</span><span class="tag">滤波器耦合融合</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把学习到的惯性测量当作要满足几何变换律的物理量：均值按向量、协方差按张量旋转，再配合末帧对齐与滤波器耦合，使同一运动在任意 IMU 安装坐标系下输出一致的速度与不确定性。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文把网络输出定义为滤波器消费的“学习型惯性测量”，要求其均值按向量变换、协方差按二阶张量合同变换，从而在任意 IMU 安装坐标系旋转下保持一致。作者提出 GINIO 接口，并引入 Last-Frame Alignment（末帧对齐，LFA）这一确定性预处理，证明在 SO(3) 等变预测器下它与世界系训练等价；同时用谱协方差头替代对角头，使不确定性随运动一起旋转。该接口可实例化在滤波器耦合 NIO、AirIO 式循…</p><p class="lang lang-en lang-block" data-lang="en">Neural inertial odometry increasingly uses networks as learned measurements inside filtering pipelines. Such measurements should transform consistently under arbitrary IMU mounting conventions: their mean must…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.25338">abs</a><a href="https://arxiv.org/pdf/2609.25338">PDF</a><a href="papers/arxiv-2609.25338/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.25338">abs</a><a href="https://arxiv.org/pdf/2609.25338">PDF</a><a href="../../papers/arxiv-2609.25338/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.25271/index.html"><img src="assets/media/2026-09-24/arxiv-2609.25271/page-001.webp" alt="Beyond the Flat Seafloor: A Closed-Form Two-View Constraint to Aid Sidescan Sonar Reconstruction" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.25271/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">超越平坦海底：辅助侧扫声呐重建的闭式两视图约束</span><span class="lang lang-en lang-inline" data-lang="en">Beyond the Flat Seafloor: A Closed-Form Two-View Constraint to Aid Sidescan Sonar Reconstruction</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.25271/index.html"><img src="../../assets/media/2026-09-24/arxiv-2609.25271/page-001.webp" alt="Beyond the Flat Seafloor: A Closed-Form Two-View Constraint to Aid Sidescan Sonar Reconstruction" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.25271/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">超越平坦海底：辅助侧扫声呐重建的闭式两视图约束</span><span class="lang lang-en lang-inline" data-lang="en">Beyond the Flat Seafloor: A Closed-Form Two-View Constraint to Aid Sidescan Sonar Reconstruction</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 16 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO, cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Kalin Norman, Joshua G. Mangelson</div>
@@ -54,11 +54,11 @@
   <div class="tags"><span class="tag">侧扫声呐</span><span class="tag">两视图几何</span><span class="tag">球面-平面交线</span><span class="tag">仰角错配</span><span class="tag">航迹规划</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把两次侧扫声呐测距写成“球面 ∩ 平面”的闭式约束，用真实孔径裁剪出可见弧长作为位置不确定性代理，并由此给出避免 10°–40° 斜交角的航迹规划规则。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文指出侧扫声呐很少被按其投影几何建模，常见做法是假设平坦海底把一维测距直接转成深度。作者改用多视图几何：形式化了两视图约束并证明同一特征被限制在一个球面与一个平面的交线（一段弧，locus）上，而不是像光学三角化那样收敛到点。随后用基于真实孔径与安装几何的蒙特卡洛仿真刻画模糊弧长度的决定因素，并把相对轨迹仿真翻译成survey 规划建议：弧长主要由仰角错配（elevation misalignment）驱动，在约…</p><p class="lang lang-en lang-block" data-lang="en">Sidescan sonar is a common sensor for both manned and autonomous marine exploration and mapping, yet very few methods build upon or exploit the geometric projection model of the sensor. As sidescan sonar is li…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.25271">abs</a><a href="https://arxiv.org/pdf/2609.25271">PDF</a><a href="papers/arxiv-2609.25271/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.25271">abs</a><a href="https://arxiv.org/pdf/2609.25271">PDF</a><a href="../../papers/arxiv-2609.25271/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.25322/index.html"><img src="assets/media/2026-09-24/arxiv-2609.25322/fig-001.webp" alt="JAMB: Joint Action-Motion Diffusion for Bimanual Manipulation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.25322/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">JAMB：面向双臂操作的联合动作-运动扩散</span><span class="lang lang-en lang-inline" data-lang="en">JAMB: Joint Action-Motion Diffusion for Bimanual Manipulation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.25322/index.html"><img src="../../assets/media/2026-09-24/arxiv-2609.25322/fig-001.webp" alt="JAMB: Joint Action-Motion Diffusion for Bimanual Manipulation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.25322/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">JAMB：面向双臂操作的联合动作-运动扩散</span><span class="lang lang-en lang-inline" data-lang="en">JAMB: Joint Action-Motion Diffusion for Bimanual Manipulation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 7 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Chuyang Xiao, Peilin Meng, David Held</div>
@@ -66,10 +66,10 @@
   <div class="tags"><span class="tag">双臂操作</span><span class="tag">扩散策略</span><span class="tag">3D 点轨迹</span><span class="tag">4D RoPE</span><span class="tag">动作-运动联合去噪</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把双臂动作与未来三维点轨迹放进同一个扩散过程联合去噪，用 4D RoPE 把两模态锚在共享时空坐标里互相修正，从而显式建模“动作会怎样改变场景”。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">双臂操作中任一臂的运动都会改变共享三维场景并影响另一臂，但多数扩散策略只生成动作、不显式建模这些未来几何后果，已有的预测式变体也通常只把未来状态当作辅助监督或固定条件。作者提出 JAMB：在同一扩散过程中联合去噪双臂动作与未来三维点轨迹，让动作假设与轨迹假设在共享 Transformer 中互相修正，并用 4D 旋转位置编码把所有 token 锚定在共享的时空坐标系（世界位置 + 轨迹时间）上。在 RoboTwin…</p><p class="lang lang-en lang-block" data-lang="en">Coordinated bimanual manipulation is challenging because the motion of either arm can alter the shared 3D scene and thereby affect the other arm. Yet most diffusion policies generate actions without explicitly…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.25322">abs</a><a href="https://arxiv.org/pdf/2609.25322">PDF</a><a href="papers/arxiv-2609.25322/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.25322">abs</a><a href="https://arxiv.org/pdf/2609.25322">PDF</a><a href="../../papers/arxiv-2609.25322/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.26795"><img src="assets/media/2026-09-24/arxiv-2609.26795/fig-001.webp" alt="\phi-RIE: From Photorealistic Reconstruction to Interactive Environments" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.26795"><img src="../../assets/media/2026-09-24/arxiv-2609.26795/fig-001.webp" alt="\phi-RIE: From Photorealistic Reconstruction to Interactive Environments" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.26795"><span class="lang lang-zh lang-inline" data-lang="zh">φ-RIE：从照片级重建到可交互环境</span><span class="lang lang-en lang-inline" data-lang="en">\phi-RIE: From Photorealistic Reconstruction to Interactive Environments</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 14 · B层 · Neural Rendering / 3DGS / NeRF · cs.RO, cs.CV, cs.GR</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -81,7 +81,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.26795">abs</a><a href="https://arxiv.org/pdf/2609.26795">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.25604"><img src="assets/media/2026-09-24/arxiv-2609.25604/fig-001.webp" alt="Ultra-fast Neural Inference for Stochastic Gaussian Splatting Denoising" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.25604"><img src="../../assets/media/2026-09-24/arxiv-2609.25604/fig-001.webp" alt="Ultra-fast Neural Inference for Stochastic Gaussian Splatting Denoising" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.25604"><span class="lang lang-zh lang-inline" data-lang="zh">面向随机 Gaussian Splatting 去噪的超快神经推理</span><span class="lang lang-en lang-inline" data-lang="en">Ultra-fast Neural Inference for Stochastic Gaussian Splatting Denoising</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 13 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -93,7 +93,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.25604">abs</a><a href="https://arxiv.org/pdf/2609.25604">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.25633"><img src="assets/media/2026-09-24/arxiv-2609.25633/page-001.webp" alt="Robust, Estimator-Agnostic Dynamic 3DGS Compression" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.25633"><img src="../../assets/media/2026-09-24/arxiv-2609.25633/page-001.webp" alt="Robust, Estimator-Agnostic Dynamic 3DGS Compression" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.25633"><span class="lang lang-zh lang-inline" data-lang="zh">与估计器无关的鲁棒动态 3DGS 压缩</span><span class="lang lang-en lang-inline" data-lang="en">Robust, Estimator-Agnostic Dynamic 3DGS Compression</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 10 · B层 · Neural Rendering / 3DGS / NeRF · eess.IV, cs.CV</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -105,7 +105,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.25633">abs</a><a href="https://arxiv.org/pdf/2609.25633">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.25361"><img src="assets/media/2026-09-24/arxiv-2609.25361/fig-001.webp" alt="Beyond Legacy L1 C/A: Characterizing Advanced Multi-Frequency Spoofing Against Multi-Frequency GPS Receivers for Autonomous Navigation" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.25361"><img src="../../assets/media/2026-09-24/arxiv-2609.25361/fig-001.webp" alt="Beyond Legacy L1 C/A: Characterizing Advanced Multi-Frequency Spoofing Against Multi-Frequency GPS Receivers for Autonomous Navigation" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.25361"><span class="lang lang-zh lang-inline" data-lang="zh">超越传统 L1 C/A：面向自主导航的先进多频 GPS 欺骗特征刻画</span><span class="lang lang-en lang-inline" data-lang="en">Beyond Legacy L1 C/A: Characterizing Advanced Multi-Frequency Spoofing Against Multi-Frequency GPS Receivers for Autonomous Navigation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 7 · C层 · 纯 GNSS/INS / PPP-AR · eess.SP, physics.space-ph, stat.AP</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -170,6 +170,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
