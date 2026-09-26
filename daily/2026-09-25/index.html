@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-09-25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-09-25</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：19</span><span class="stat">推荐论文：5</span><span class="stat">新论文：19</span><span class="stat">仓库：17</span><span class="stat">新仓库：3</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>采集链路异常</strong>：本轮 4 条 arXiv API 查询全部返回 <code>HTTP 406: Not Acceptable</code>，采集脚本按设计改用 RSS 分类列表兜底，共取回 22 条候选（<code>papers_fetched_total=22</code>），其中 3 条为历史重复被过滤，最终 <strong>19 篇新论文（<code>papers_new=19</code>）</strong>。因此今天的候选池偏向 RSS 的 announce 列表，覆盖度弱于常规的 API 关键词检索，可能漏掉关键词不显眼但与主轴强相关的论文。</li>
+<li><strong>层级分布</strong>：S 级 0 篇、A 级 3 篇、A- 级 2 篇、B/B-/C 级 0 篇（C 级需与几何、融合或可靠性直接相关，今日无此类纯 GNSS/INS 论文）。本简报推荐 5 篇，未展开靠后候选。</li>
+<li><strong>医疗/生物医学方向</strong>：今日候选中未出现医疗、生物医学或临床方向论文（自动关键词表 0 篇命中），无需过滤。</li>
+<li><strong>层级覆盖说明</strong>：collector 的关键词分级对本批 RSS 候选失效——3 篇候选 <code>priority_tier</code> 为空，另有 1 篇把卫星立体匹配误判为 C 级 gnss-ins-ppp（命中 “urban canyon” 关键词）。推荐环节按主轴人工复核并改写了这 5 篇的层级，改写内容记录在 <code>data/2026-09-25/candidates.json</code> 的 <code>tier_overrides</code> 字段中，可逐条核对（含改前值、改后值与理由）。</li>
+<li><strong>组织主轴</strong>：底层几何 → 3D/4D 表征 → 空间推理 → 具身决策。今日主线是“<strong>把几何从网络里搬出来</strong>”：一篇用引擎几何直接生成数学精确的视差与遮挡监督（底层几何）；一篇把 SE(3) 回归从网络输出空间移除、改由闭式 Procrustes 对齐恢复（几何表示 → 具身）；一篇把障碍几何写成可查询势场，直接进入策略输入与奖励（空间推理 → 具身）。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 19 篇候选中按 S/A 层级与评分推荐前 5 篇；靠后候选不在网页中展开。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2609.28131/index.html"><img src="../../assets/media/2026-09-25/arxiv-2609.28131/fig-001.webp" alt="DEAL-Grasp: Decoupled Alignment Representation for Geometry-Aware Dexterous Grasp Generation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.28131/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DEAL-Grasp：面向几何感知灵巧抓取生成的解耦对齐表示</span><span class="lang lang-en lang-inline" data-lang="en">DEAL-Grasp: Decoupled Alignment Representation for Geometry-Aware Dexterous Grasp Generation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-09-24 · score 16 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.GR</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Fuqiang Zhao, Qian Liu</div>
+  <span class="score">评分 16/10</span>
+  <div class="tags"><span class="tag">解耦对齐表示</span><span class="tag">Kabsch/Procrustes 闭式求解</span><span class="tag">异构状态流匹配</span><span class="tag">穿透惩罚 GWN</span><span class="tag">灵巧抓取</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把 SE(3) 从网络输出空间移出，改成“关节角 + 任务空间锚点”的欧氏生成，再由 Kabsch 闭式恢复根位姿，从而以更少测试时计算得到物理可行的灵巧抓取。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">灵巧抓取生成通常在关节空间里同时回归全局刚体运动与局部关节角，杠杆臂会放大远端链节的漂移，欧氏旋转参数化还带来拓扑困难，导致样本不稳定与物理上不可行的接触。论文提出 Decoupled Alignment（DEAL）表示：交互状态由任务空间几何锚点与关节角组成，刚体变换由闭式 Procrustes/Kabsch 对齐解析恢复，网络不再直接回归 SE(3)。生成用异构状态流匹配（分量各自的向量场），并用训练期的时间自…</p><p class="lang lang-en lang-block" data-lang="en">Synthesizing realistic articulated hand-object interactions is a fundamental problem in virtual reality, embodied intelligence, and digital human applications. Existing methods for dexterous grasp synthesis ty…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.28131">abs</a><a href="https://arxiv.org/pdf/2609.28131">PDF</a><a href="../../papers/arxiv-2609.28131/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2609.27442/index.html"><img src="../../assets/media/2026-09-25/arxiv-2609.27442/fig-001.webp" alt="SatUnreal: A High-Precision Synthetic Dataset for Satellite Stereo Matching via Unreal Engine" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.27442/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SatUnreal：面向卫星立体匹配的 Unreal Engine 高精度合成数据集</span><span class="lang lang-en lang-inline" data-lang="en">SatUnreal: A High-Precision Synthetic Dataset for Satellite Stereo Matching via Unreal Engine</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-09-24 · score 15 · A层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, eess.IV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Han-Gyeol Kim, JaeWan Park, Junmin Park, Darongsae Kwon</div>
+  <span class="score">评分 15/10</span>
+  <div class="tags"><span class="tag">卫星立体匹配</span><span class="tag">合成数据 sim-to-real</span><span class="tag">遮挡掩膜 linetrace</span><span class="tag">交会角与基线采样</span><span class="tag">零样本迁移</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把卫星轨道几何与遮挡标签做成物理可控的监督信号，证明“合成几何监督”可以零样本迁移到真实卫星立体匹配基准，并以 10,000 对规模与真实数据集对齐比较。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">卫星影像三维重建依赖高质量训练数据，但带精确遮挡标签的高保真数据缺失：US3D、WHU-Stereo 等多时相基准存在时空错配（阴影位移、地物变化），LiDAR 稀疏又让遮挡区真值含混。论文用 Unreal Engine 搭建 SatUnreal：10,000 对 0.3 m GSD、2048×2048 立体像对，按平地近似把轨道高度缩放为 1 km 以保持 B/H 比，基线 50–200 m 分 20 档、方位角…</p><p class="lang lang-en lang-block" data-lang="en">3D reconstruction from satellite imagery is essential for large-scale topographic analysis, yet the lack of high-fidelity training datasets with accurate occlusion labels remains a primary bottleneck. Existing…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.27442">abs</a><a href="https://arxiv.org/pdf/2609.27442">PDF</a><a href="../../papers/arxiv-2609.27442/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2609.25363/index.html"><img src="../../assets/media/2026-09-25/arxiv-2609.25363/fig-001.webp" alt="HOTICE: Whole-Body Humanoid Object Transportation in Cluttered Environments" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.25363/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HOTICE：杂乱环境中的全身人形机器人物体搬运</span><span class="lang lang-en lang-inline" data-lang="en">HOTICE: Whole-Body Humanoid Object Transportation in Cluttered Environments</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-09-24 · score 14 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Toan Nguyen, Weiduo Yuan, Siheng Zhao, Yue Wang, Daniel Seita</div>
+  <span class="score">评分 14/10</span>
+  <div class="tags"><span class="tag">全身 loco-manipulation</span><span class="tag">解耦势场 HOD-PF</span><span class="tag">双智能体 PPO</span><span class="tag">专家到通才蒸馏</span><span class="tag">sim2real 部署</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把障碍几何写成两组可查询势场并同时用作策略输入与奖励，再用双智能体拆分全身动作空间，使搬运中的避障引导与平衡控制不再在同一优势估计里竞争。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">人形机器人搬运物体时，杂乱环境会同时从地面、侧面和上方压缩可用空间，机器人和被搬物体都必须挤进剩余空隙。论文提出 HOTICE：① 人形-物体解耦势场（HOD-PF）把机器人自身与所搬物体的避障拆成两组引导场，物体一侧用膨胀后的障碍计算，以获得更提前的转向；② 双智能体强化学习把 20 维全身动作拆成上半身 8 维与下半身 12 维两个 actor-critic，通过共享状态与共享奖励项保持全身协调；③ 专家到通才…</p><p class="lang lang-en lang-block" data-lang="en">Object transportation is a fundamental capability for humanoid robots operating in real-world, human-centric environments, yet existing methods struggle when clutter constrains free space around both the robot…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.25363">abs</a><a href="https://arxiv.org/pdf/2609.25363">PDF</a><a href="../../papers/arxiv-2609.25363/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2609.27342"><img src="../../assets/media/2026-09-25/arxiv-2609.27342/fig-001.webp" alt="BladeMaster: Real-Time Robotic Cutting Simulation with Online-Generated Persistent Discontinuities" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2609.27342"><span class="lang lang-zh lang-inline" data-lang="zh">BladeMaster：在线生成持久切口的实时机器人切割仿真</span><span class="lang lang-en lang-inline" data-lang="en">BladeMaster: Real-Time Robotic Cutting Simulation with Online-Generated Persistent Discontinuities</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-09-24 · score 11 · A-层 · Real-time / GPU Robotics Systems · cs.RO, cs.GR</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Zhanyu Yang, Yunuo Chen, Yanjia Huang, Joseph Masterjohn, Yin Yang, Chenfanfu Jiang</div>
+  <span class="score">评分 11/10</span>
+  <div class="tags"><span class="tag">TLMPM</span><span class="tag">持久侧标签</span><span class="tag">在线切口生成</span><span class="tag">GPU 实时仿真</span><span class="tag">切削阻力</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把切口历史编码成物质点上的持久侧标签，用参考网格耦合一致性维持断口分离，从而在 GPU 上以快于实时的速度支持渐进与相交切割及后续操作。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">切割同时改变可形变物体的形状与拓扑，仿真器需要在线跟踪刀的运动、在刀具撤出后保持已有断口，并让新生表面继续与刀具和其他表面交互。论文提出基于全拉格朗日物质点法（TLMPM）的 GPU 切割框架：用随时间扫掠的刀体几何在线给物质点分配持久侧标签（每个切口一位三进制数，构成侧编码），由标签决定哪些物质点可以共享参考网格状态，从而在刀具撤出后仍保持机械分离，且支持渐进与相交切口而无需预定义切面或粒子复制。材料-材料接触允…</p><p class="lang lang-en lang-block" data-lang="en">Cutting changes both the shape and topology of deformable objects, making accurate simulation challenging for robotic manipulation. A simulator must track the cutting tool as a cut develops, preserve the resul…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.27342">abs</a><a href="https://arxiv.org/pdf/2609.27342">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2609.25351"><img src="../../assets/media/2026-09-25/arxiv-2609.25351/fig-001.webp" alt="Learning from Humans for Proactive Assistance in Human-Robot Collaborative Transport" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2609.25351"><span class="lang lang-zh lang-inline" data-lang="zh">PROACT：人机协同搬运中的预测式主动助力</span><span class="lang lang-en lang-inline" data-lang="en">Learning from Humans for Proactive Assistance in Human-Robot Collaborative Transport</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-09-24 · score 9 · A-层 · Real-time / GPU Robotics Systems · cs.RO, cs.HC, cs.LG</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Elvin Yang, Christoforos Mavrogiannis</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">人机协同搬运</span><span class="tag">物体运动预测</span><span class="tag">顺从式全身控制</span><span class="tag">移动机械臂</span><span class="tag">交互功</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用人类-人类协同搬运数据训练的物体运动预测器给顺从式全身控制器提供标称命令，使机器人在保持对使用者顺从的同时主动推进任务。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">人机协同搬运要求机器人既高效推进任务又对使用者的物理输入保持顺从，既有工作往往只做其中之一：要么高效但抗拒输入，要么顺从而依赖持续引导。论文提出 PROACT，用学习到的人类协作行为模型把对物体未来运动的预测接入顺从式全身控制。模型是基于 transformer 的物体 twist 预测器，训练数据取自 Freeman 等人的双人协同搬运数据集（31 组人类配对、含障碍与指令条件），以物体运动作为协作交互的紧凑表示…</p><p class="lang lang-en lang-block" data-lang="en">We focus on human-robot collaborative transport, a challenging task of broad relevance spanning logistics, manufacturing, and the home, in which a user and a robot work together to relocate a large or heavy ob…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.25351">abs</a><a href="https://arxiv.org/pdf/2609.25351">PDF</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/AliEmreSenel/4DGS">AliEmreSenel/4DGS</a></strong><div>Unified 4D Gaussian Splatting research for efficient dynamic scene reconstruction.</div></div>
+  <div><div class="meta">新项目 · Jupyter Notebook · ★ 2 · 更新 2026-09-24 · score 10 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ZJUCQR/DepthJev">ZJUCQR/DepthJev</a></strong><div>An embodied navigation agent that converts RGB observations into metric depth and text facts for Jev to choose actions in EmbodiedBench EB-Navigation.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-09-24 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/scpetersonGNSS/Caltrans-GNSS-Study">scpetersonGNSS/Caltrans-GNSS-Study</a></strong></div>
+  <div><div class="meta">新项目 · HTML · ★ 0 · 更新 2026-09-24 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/wenmenxixing/awm-3dfm">wenmenxixing/awm-3dfm</a></strong><div>Project page for Adaptive World Memory 3D Foundation Model for Scalable 3D Mapping, Localization, and Rendering.</div></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-09-24 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lorenzocl3940/gsd-2">lorenzocl3940/gsd-2</a></strong><div>Develop a coding agent that improves task automation by integrating directly with language models for efficient programming workflows.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-09-24 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：aml, amlx, db2, db2-warehouse, fgo</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/3D-Vision-World/All-3R-SLAM-in-this-Repo">3D-Vision-World/All-3R-SLAM-in-this-Repo</a></strong><div>This is a list of relevant papers for 3D Geometric Foundation Models and Applications.</div></div>
+  <div><div class="meta">★ 284 · 更新 2026-09-24 · score 10</div><div class="meta">Topics：3d-geometric-foundation-models, dust3r, mast3r, slam, vggt</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/weihan1/growflow">weihan1/growflow</a></strong><div>Official code release for the paper: Grow with the Flow: 4D Reconstruction of Growing Plants with Gaussian Flow Fields</div></div>
+  <div><div class="meta">Python · ★ 30 · 更新 2026-09-24 · score 9 · S层 · 3D/4D Spatial Perception</div><div class="meta">Topics：4d-reconstruction, neural-ode, neural-rendering</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sank6112/drone3d">sank6112/drone3d</a></strong><div>Drone-based 3D reconstruction research: online telemetry-supervised adaptation of streaming 3D foundation models</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-09-24 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 9 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/alejandro-soto-franco/governing-landscape">alejandro-soto-franco/governing-landscape</a></strong><div>Governing Generative Landscape Design: 4D Gaussian Splatting + Semantic Hypergraph Integration for Indigenous Heritage Reconstruction</div></div>
+  <div><div class="meta">TeX · ★ 0 · 更新 2026-09-23 · score 9 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lydiwine/MonST3r-Stereo">lydiwine/MonST3r-Stereo</a></strong><div>Stereo extension of the MonST3R model for 4D reconstruction of dynamic scenes. Geometry estimation from stereo image pairs.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-09-23 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yosh-shimizu/LineUQ">yosh-shimizu/LineUQ</a></strong><div>Measured line-segment localisation uncertainty, posterior ridge re-measurement, and uncertainty-aware VP/Manhattan estimation.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-09-21 · score 8 · A层 · Robust State Estimation / Uncertainty</div><div class="meta">Topics：computer-vision, cpp17, line-segment-detection, manhattan-world, slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 13 · 更新 2026-09-24 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/GehaoZhang6/Grounded-Action-Model">GehaoZhang6/Grounded-Action-Model</a></strong><div>Grounded Action Model: 3D Grounding as a Foundation for Robotics (code coming soon)</div></div>
+  <div><div class="meta">★ 24 · 更新 2026-09-22 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-grounding, foundation-models, manipulation, robot-learning, robotics</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-09-24 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ethansjpark/freq-nav-sim2real">ethansjpark/freq-nav-sim2real</a></strong><div>Frequency-Based Visual Invariance for Sim-to-Real Embodied Navigation</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-09-20 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/aineera/learning-slam-from-scratch">aineera/learning-slam-from-scratch</a></strong><div>Visual SLAM from Scratch → Deep Learning | Octave + PyTorch + RPi | Loop Closure with Neural Network</div></div>
+  <div><div class="meta">MATLAB · ★ 0 · 更新 2026-09-22 · score 9 · B-层 · Traditional LiDAR/Visual SLAM</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/makezur/agenticSTAR">makezur/agenticSTAR</a></strong><div>AgentSTAR: Agentic Shape Tracking and Reconstruction from Monocular Videos</div></div>
+  <div><div class="meta">Python · ★ 191 · 更新 2026-09-23 · score 3</div><div class="meta">Topics：3d, 4d, agentic-ai, harness</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

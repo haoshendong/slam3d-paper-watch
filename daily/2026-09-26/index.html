@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-09-26/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-09-26</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-09-26/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：14</span><span class="stat">推荐论文：7</span><span class="stat">新论文：14</span><span class="stat">仓库：19</span><span class="stat">新仓库：2</span></div>
 </section>
@@ -34,8 +34,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 14 篇候选中按 S/A 层级与评分推荐前 7 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.29529/index.html"><img src="assets/media/2026-09-26/arxiv-2609.29529/fig-001.webp" alt="ToCo-Mesh: Topology-Consistent Dynamic Mesh Reconstruction via Adaptive Tessellation and Surface-Aligned 2DGS" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.29529/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ToCo-Mesh：用自适应细分与面吸附 2DGS 重建拓扑一致的动态网格</span><span class="lang lang-en lang-inline" data-lang="en">ToCo-Mesh: Topology-Consistent Dynamic Mesh Reconstruction via Adaptive Tessellation and Surface-Aligned 2DGS</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.29529/index.html"><img src="../../assets/media/2026-09-26/arxiv-2609.29529/fig-001.webp" alt="ToCo-Mesh: Topology-Consistent Dynamic Mesh Reconstruction via Adaptive Tessellation and Surface-Aligned 2DGS" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.29529/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ToCo-Mesh：用自适应细分与面吸附 2DGS 重建拓扑一致的动态网格</span><span class="lang lang-en lang-inline" data-lang="en">ToCo-Mesh: Topology-Consistent Dynamic Mesh Reconstruction via Adaptive Tessellation and Surface-Aligned 2DGS</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 15 · S层 · 3D/4D Spatial Perception · cs.GR, cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Chuanjin Fan, Wenjie Chang, Aibing Li, Bingzhou Wang, Wenfei Yang, Tianzhu Zhang</div>
@@ -43,11 +43,11 @@
   <div class="tags"><span class="tag">动态网格重建</span><span class="tag">拓扑一致性</span><span class="tag">误差驱动自适应细分</span><span class="tag">面吸附 2DGS</span><span class="tag">模板-引导网格绑定</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把拓扑自由度收进规范空间的单一模板，让自适应细分不再破坏帧间顶点对应，再用面吸附 2DGS 的法向监督反向细化几何。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">从多视角时序图像重建拓扑一致的动态网格长期存在两难：逐帧提取方法（Marching Cubes / TSDF）细节好但破坏顶点对应、导致网格闪烁；模板变形方法（如 MaGS）拓扑稳定却把分辨率固定死，无法适应演化中的细节。论文提出 ToCo-Mesh：用双网格表示把规范空间的模板网格通过重心坐标 + 法向偏移紧绑到逐帧的粗引导网格上，在模板上做误差驱动的顶点分裂与合并并传播到所有时刻，从而在加密分辨率的同时严格保持…</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing dynamic meshes with consistent topology from multi-view temporal images remains a challenge. Existing approaches typically face a dilemma between fine-scale shape recovery and topological stabil…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.29529">abs</a><a href="https://arxiv.org/pdf/2609.29529">PDF</a><a href="papers/arxiv-2609.29529/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.29529">abs</a><a href="https://arxiv.org/pdf/2609.29529">PDF</a><a href="../../papers/arxiv-2609.29529/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.28767/index.html"><img src="assets/media/2026-09-26/arxiv-2609.28767/fig-001.webp" alt="Human-in-the-Loop Geospatial Annotation for Rapid Dataset Construction in Field-Deployed UAV Systems" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.28767/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">BirdsEye：面向野外无人机系统的现场地理标注与位姿不确定度预算</span><span class="lang lang-en lang-inline" data-lang="en">Human-in-the-Loop Geospatial Annotation for Rapid Dataset Construction in Field-Deployed UAV Systems</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.28767/index.html"><img src="../../assets/media/2026-09-26/arxiv-2609.28767/fig-001.webp" alt="Human-in-the-Loop Geospatial Annotation for Rapid Dataset Construction in Field-Deployed UAV Systems" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.28767/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">BirdsEye：面向野外无人机系统的现场地理标注与位姿不确定度预算</span><span class="lang lang-en lang-inline" data-lang="en">Human-in-the-Loop Geospatial Annotation for Rapid Dataset Construction in Field-Deployed UAV Systems</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 13 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Morgan Masters, Nikolaas Bender, T. Luca Altaffer, Colleen Josephson, Steve McGuire</div>
@@ -55,11 +55,11 @@
   <div class="tags"><span class="tag">现场地理标注</span><span class="tag">位姿-像素不确定度传播</span><span class="tag">传感器噪声预算</span><span class="tag">RTK 直接地理参考</span><span class="tag">预注册留出评测</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把标注的坐标系统反过来：人在地面记录世界坐标、投影几何负责把它映射回每一帧，并用同一条线性化关系的逆解回答“要多准的位姿才能满足标注容差”。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">真实世界的感知系统必须适应变化的环境，但人工图像标注无法随野外数据量扩展。论文提出 BirdsEye，把专家标注从图像搬到现场：操作员用 RTK 记录目标的世界坐标，标定的投影几何再把该观测传播到目标可见的所有帧。为量化物理标注与图像观测的对齐程度，作者推导了相机位姿不确定度到像素不确定度的一阶映射，并用 Monte Carlo 仿真验证。由于该映射对六个逐轴位姿方差是线性的，它可以反解成一个传感器设计工具：把标注…</p><p class="lang lang-en lang-block" data-lang="en">Real-world perception systems must adapt to changing environments, but manual image annotation cannot scale to field data volumes. We present BirdsEye, which shifts expert annotation from images to the field:…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.28767">abs</a><a href="https://arxiv.org/pdf/2609.28767">PDF</a><a href="papers/arxiv-2609.28767/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.28767">abs</a><a href="https://arxiv.org/pdf/2609.28767">PDF</a><a href="../../papers/arxiv-2609.28767/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.28716/index.html"><img src="assets/media/2026-09-26/arxiv-2609.28716/fig-001.webp" alt="Temporal Learning for End-Effector Position Estimation under Aerodynamic Disturbances in Aerial Continuum Manipulation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.28716/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">用连续时间网络估计气动扰动下的空中连续体机械臂末端位置</span><span class="lang lang-en lang-inline" data-lang="en">Temporal Learning for End-Effector Position Estimation under Aerodynamic Disturbances in Aerial Continuum Manipulation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.28716/index.html"><img src="../../assets/media/2026-09-26/arxiv-2609.28716/fig-001.webp" alt="Temporal Learning for End-Effector Position Estimation under Aerodynamic Disturbances in Aerial Continuum Manipulation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.28716/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">用连续时间网络估计气动扰动下的空中连续体机械臂末端位置</span><span class="lang lang-en lang-inline" data-lang="en">Temporal Learning for End-Effector Position Estimation under Aerodynamic Disturbances in Aerial Continuum Manipulation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 12 · A层 · Robust State Estimation / Uncertainty · cs.RO, cs.AI, cs.LG</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Niloufar Amiri, Houman Masnavi, Farrokh Janabi-Sharifi</div>
@@ -67,10 +67,10 @@
   <div class="tags"><span class="tag">空中连续体机械臂</span><span class="tag">气动残差估计</span><span class="tag">应变参数化运动学</span><span class="tag">闭式连续时间网络 CfC</span><span class="tag">输入消融与种子稳健性</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把末端位置拆成“低阶应变参数化模型给出的标称量”与“气动扰动引起的残差”，后者交给连续时间网络，三模型对照显示 CfC 在未见实验上把 3D RMSE 从 44.94 mm 降到 22.00 mm。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文研究无人机气动效应下空中连续体机械臂（ACM）的末端位置估计。作者采集了静止（旋翼关闭）与自由悬停两种条件下的实验数据集，覆盖不同连续体机器人构型与无人机高度，因而同时提供有/无气动残差的末端位置量测。为建立标称框架，论文比较了应变基阶数递增的应变参数化运动学模型，以在模型复杂度与预测精度之间取得平衡；选定的标称模型随后作为基线，用于用闭式连续时间（CfC）神经网络估计三维位置残差，并以多层感知机（MLP）与门…</p><p class="lang lang-en lang-block" data-lang="en">This paper investigates temporal neural networks for \mbox{end-effector} position \mbox{estimation} of an aerial continuum manipulator (ACM) operating under aerodynamic effects induced by the unmanned aerial v…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.28716">abs</a><a href="https://arxiv.org/pdf/2609.28716">PDF</a><a href="papers/arxiv-2609.28716/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.28716">abs</a><a href="https://arxiv.org/pdf/2609.28716">PDF</a><a href="../../papers/arxiv-2609.28716/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2605.13343"><img src="assets/media/2026-09-26/arxiv-2605.13343/page-001.webp" alt="A Neural Hierarchical-Matrix Preconditioner for Real-Time GPU Solves" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2605.13343"><img src="../../assets/media/2026-09-26/arxiv-2605.13343/page-001.webp" alt="A Neural Hierarchical-Matrix Preconditioner for Real-Time GPU Solves" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2605.13343"><span class="lang lang-zh lang-inline" data-lang="zh">用于实时 GPU 求解的神经层次矩阵预条件子</span><span class="lang lang-en lang-inline" data-lang="en">A Neural Hierarchical-Matrix Preconditioner for Real-Time GPU Solves</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 10 · A-层 · Real-time / GPU Robotics Systems · cs.GR, cs.DC, cs.LG, cs.NA</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -82,7 +82,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2605.13343">abs</a><a href="https://arxiv.org/pdf/2605.13343">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.28645"><img src="assets/media/2026-09-26/arxiv-2609.28645/fig-001.webp" alt="PePESeg3D: Perception Prior Enhances Multi-Scale Segmentation for 3D Gaussian Splatting" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.28645"><img src="../../assets/media/2026-09-26/arxiv-2609.28645/fig-001.webp" alt="PePESeg3D: Perception Prior Enhances Multi-Scale Segmentation for 3D Gaussian Splatting" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.28645"><span class="lang lang-zh lang-inline" data-lang="zh">PePESeg3D：用感知先验增强 3D 高斯泼溅的多尺度分割</span><span class="lang lang-en lang-inline" data-lang="en">PePESeg3D: Perception Prior Enhances Multi-Scale Segmentation for 3D Gaussian Splatting</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 11 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -94,7 +94,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.28645">abs</a><a href="https://arxiv.org/pdf/2609.28645">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.28684"><img src="assets/media/2026-09-26/arxiv-2609.28684/fig-001.webp" alt="M-plicits: Neural Implicit Surfaces via Nested Multiscale Residuals" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.28684"><img src="../../assets/media/2026-09-26/arxiv-2609.28684/fig-001.webp" alt="M-plicits: Neural Implicit Surfaces via Nested Multiscale Residuals" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.28684"><span class="lang lang-zh lang-inline" data-lang="zh">M-plicits：通过嵌套多尺度残差表示神经隐式曲面</span><span class="lang lang-en lang-inline" data-lang="en">M-plicits: Neural Implicit Surfaces via Nested Multiscale Residuals</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 9 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR, cs.LG</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -106,7 +106,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.28684">abs</a><a href="https://arxiv.org/pdf/2609.28684">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.29164"><img src="assets/media/2026-09-26/arxiv-2609.29164/fig-001.webp" alt="Enhancing 5G NTN VSAT RACH in GNSS-Denied environments" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.29164"><img src="../../assets/media/2026-09-26/arxiv-2609.29164/fig-001.webp" alt="Enhancing 5G NTN VSAT RACH in GNSS-Denied environments" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.29164"><span class="lang lang-zh lang-inline" data-lang="zh">GNSS 拒止环境下增强 5G NTN VSAT 的随机接入</span><span class="lang lang-en lang-inline" data-lang="en">Enhancing 5G NTN VSAT RACH in GNSS-Denied environments</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 7 · C层 · 纯 GNSS/INS / PPP-AR · eess.SP</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -203,6 +203,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
