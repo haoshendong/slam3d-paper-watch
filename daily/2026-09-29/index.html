@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-09-29/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-09-29</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-09-29/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：12</span><span class="stat">推荐论文：10</span><span class="stat">新论文：12</span><span class="stat">仓库：17</span><span class="stat">新仓库：4</span></div>
 </section>
@@ -36,8 +36,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 12 篇候选中按 S/A 层级与评分推荐前 10 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.27702/index.html"><img src="assets/media/2026-09-29/arxiv-2609.27702/fig-001.webp" alt="DAVIO: Dense Monocular-Inertial SLAM with Feed-Forward Initialization and Pose-Conditioned Mapping" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.27702/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DAVIO：用前馈初始化与位姿条件化建图的稠密单目—惯性 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">DAVIO: Dense Monocular-Inertial SLAM with Feed-Forward Initialization and Pose-Conditioned Mapping</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.27702/index.html"><img src="../../assets/media/2026-09-29/arxiv-2609.27702/fig-001.webp" alt="DAVIO: Dense Monocular-Inertial SLAM with Feed-Forward Initialization and Pose-Conditioned Mapping" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.27702/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DAVIO：用前馈初始化与位姿条件化建图的稠密单目—惯性 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">DAVIO: Dense Monocular-Inertial SLAM with Feed-Forward Initialization and Pose-Conditioned Mapping</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 32 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO, cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Jaafar Mahmoud, Arthur Movsesyan, Mikhail Iumanov, Sergey Kolyubin</div>
@@ -45,11 +45,11 @@
   <div class="tags"><span class="tag">单目—惯性 SLAM</span><span class="tag">前馈几何初始化</span><span class="tag">Depth Anything 3</span><span class="tag">位姿条件化稠密建图</span><span class="tag">重力保持子图图优化</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把前馈几何模型放在 VIO 滤波器的两侧——前面负责无特征点启动、后面接受滤波器米制位姿的条件化来产稠密地图，尺度只在视线方向修正而不动基线。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">相机加 IMU 是米制定位与稠密建图的最小传感器配置，但经典视觉—惯性滤波器必须等到视差足够才启动，且只保留稀疏路标；前馈几何模型能从少量图像预测稠密结构，却既不给米制尺度也不给重力方向。论文提出 DAVIO：用同一个多视图深度模型 Depth Anything 3 同时承担启动与建图。启动阶段用五帧图像窗口与预积分 IMU 构成无特征点线性系统，其经过条件数检验的稳健解通过缓冲回放自举出一个 VIO 滤波器；跟踪…</p><p class="lang lang-en lang-block" data-lang="en">A camera and an IMU are the minimal sensor setup for metric localization and dense mapping, yet classical visual--inertial filters must wait for parallax before they start and then retain only sparse landmarks…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.27702">abs</a><a href="https://arxiv.org/pdf/2609.27702">PDF</a><a href="papers/arxiv-2609.27702/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.27702">abs</a><a href="https://arxiv.org/pdf/2609.27702">PDF</a><a href="../../papers/arxiv-2609.27702/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.29106/index.html"><img src="assets/media/2026-09-29/arxiv-2609.29106/fig-001.webp" alt="WildHSR: Metric Feed-Forward 4D People-Scene Reconstruction from a 3D Foundation Model" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.29106/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WildHSR：从 3D 基础模型得到米制前馈式 4D 人—场景重建</span><span class="lang lang-en lang-inline" data-lang="en">WildHSR: Metric Feed-Forward 4D People-Scene Reconstruction from a 3D Foundation Model</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.29106/index.html"><img src="../../assets/media/2026-09-29/arxiv-2609.29106/fig-001.webp" alt="WildHSR: Metric Feed-Forward 4D People-Scene Reconstruction from a 3D Foundation Model" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.29106/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WildHSR：从 3D 基础模型得到米制前馈式 4D 人—场景重建</span><span class="lang lang-en lang-inline" data-lang="en">WildHSR: Metric Feed-Forward 4D People-Scene Reconstruction from a 3D Foundation Model</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-24 · score 19 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.AI, cs.CG</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Jerrin Bright, John Zelek</div>
@@ -57,11 +57,11 @@
   <div class="tags"><span class="tag">3D 基础模型米制化</span><span class="tag">人体标尺伪标签</span><span class="tag">中间层 query-key 探针</span><span class="tag">持久人物身份关联</span><span class="tag">Sim(3) 窗口组合</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把“人”当作离线标尺给上尺度 3D 基础模型的场景 token 学出米制换算，再从冻结 backbone 的中间层 query-key 特征里读出人物身份做关联，从而在无外部尺度网络、无独立跟踪器的情况下做前馈人—场景重建。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 基础模型能在一次前向里恢复视频相机与几何，但其中最强的若干模型只到尺度未知；人—场景联合重建因此还缺两个量：米制尺度与持久的人物身份。论文问：能否只用一份上尺度基础表示，通过轻量适配同时支持这两者。精确米制标签稀缺，但无标注野外视频充足，于是用精选网络视频中的人物来初始化解：一个已摆好姿态的米制人体加 2D 关键点，给出近似闭式的尺度伪标签；这些伪标签预训练一个 Scale Readout，再与轻量适配器一起…</p><p class="lang lang-en lang-block" data-lang="en">3D foundation models recover video cameras and geometry in one forward pass, but some of the strongest are up to scale. Joint people-scene reconstruction then requires two missing outputs: metric scale and per…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.29106">abs</a><a href="https://arxiv.org/pdf/2609.29106">PDF</a><a href="papers/arxiv-2609.29106/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.29106">abs</a><a href="https://arxiv.org/pdf/2609.29106">PDF</a><a href="../../papers/arxiv-2609.29106/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.30947/index.html"><img src="assets/media/2026-09-29/arxiv-2609.30947/fig-001.webp" alt="DAPEVO: Deep Adaptive Patch Frame-Event Visual Odometry" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.30947/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DAPEVO：深度自适应补丁式帧—事件视觉里程计</span><span class="lang lang-en lang-inline" data-lang="en">DAPEVO: Deep Adaptive Patch Frame-Event Visual Odometry</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.30947/index.html"><img src="../../assets/media/2026-09-29/arxiv-2609.30947/fig-001.webp" alt="DAPEVO: Deep Adaptive Patch Frame-Event Visual Odometry" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.30947/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DAPEVO：深度自适应补丁式帧—事件视觉里程计</span><span class="lang lang-en lang-inline" data-lang="en">DAPEVO: Deep Adaptive Patch Frame-Event Visual Odometry</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 18 · S层 · Learning + Geometric Optimization SLAM/VIO · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Luca Gandolfi, Simone Nascivera, Roberto Pellerito, Rong Zou</div>
@@ -69,11 +69,11 @@
   <div class="tags"><span class="tag">帧—事件融合视觉里程计</span><span class="tag">自适应相关门控</span><span class="tag">纯事件跟踪</span><span class="tag">模态感知关键帧剔除</span><span class="tag">可微 BA 补丁图</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把图像与事件的相关证据分开保留、用逐边学习门控在对应层融合，并把纯事件观测塞进同一张补丁优化图，从而在 RGB 稀疏或退化时显著延缓里程计退化。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">视觉里程计是 GPS 缺失环境下自主导航的关键，但基于 RGB 的方法仍易受运动模糊、光照挑战与丢帧影响；事件相机以高时间分辨率与高动态范围补充常规相机，其异步量测却让可靠对应估计更困难。论文提出 DAPEVO：在学习型视觉里程计里于共享补丁位置上分别估计图像与事件的对应，并在运动精化前融合两者的相关证据。每个被跟踪补丁维护图像与事件两套描述子，一个学习到的标量门控为每条补丁—帧边融合模态相关的相关嵌入，再送入共享…</p><p class="lang lang-en lang-block" data-lang="en">Visual odometry is essential for autonomous navigation in GPS-denied environments, yet RGB-based methods remain vulnerable to motion blur, challenging illumination, and dropped frames. Event cameras complement…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.30947">abs</a><a href="https://arxiv.org/pdf/2609.30947">PDF</a><a href="papers/arxiv-2609.30947/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.30947">abs</a><a href="https://arxiv.org/pdf/2609.30947">PDF</a><a href="../../papers/arxiv-2609.30947/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.25966/index.html"><img src="assets/media/2026-09-29/arxiv-2609.25966/fig-001.webp" alt="GRIP: Gaussian Rendering as a Cross-Modal Bridge for Image-to-Point Cloud Registration" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.25966/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GRIP：把高斯渲染当作跨模态桥的图像—点云配准</span><span class="lang lang-en lang-inline" data-lang="en">GRIP: Gaussian Rendering as a Cross-Modal Bridge for Image-to-Point Cloud Registration</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.25966/index.html"><img src="../../assets/media/2026-09-29/arxiv-2609.25966/fig-001.webp" alt="GRIP: Gaussian Rendering as a Cross-Modal Bridge for Image-to-Point Cloud Registration" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.25966/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GRIP：把高斯渲染当作跨模态桥的图像—点云配准</span><span class="lang lang-en lang-inline" data-lang="en">GRIP: Gaussian Rendering as a Cross-Modal Bridge for Image-to-Point Cloud Registration</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-22 · score 17 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Karim Slimani, Catherine Achard, Eric Marchand, Brahim Tamadazte</div>
@@ -81,11 +81,11 @@
   <div class="tags"><span class="tag">2D—3D 配准</span><span class="tag">高斯特征泼溅</span><span class="tag">像素对齐跨模态注意力</span><span class="tag">位姿条件化精化</span><span class="tag">置信度引导 RANSAC</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>先用初始位姿把无序点云描述子以高斯泼溅渲成图像对齐的特征图，让两种模态在同一像素网格上做双向注意力交互，再解码回点云节点做稠密匹配与位姿估计。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出 GRIP：一个位姿条件化的像素—点匹配与 2D—3D 配准精化框架。给定粗略初始位姿，GRIP 针对“网格化图像描述子”与“无序点云描述子”之间的结构性错配，用高斯特征泼溅把学习到的 3D 点特征软渲染到图像网格上；随后由像素对齐的 transformer 把渲染出的点派生特征图与图像特征融合，使视觉语义线索与几何线索在共享的 2D 表示中交互。被精化的特征再解码并传播到更细分辨率，用于稠密对应估计与最终…</p><p class="lang lang-en lang-block" data-lang="en">This paper introduces GRIP, a pose-conditioned refinement framework for pixel-to-point matching and 2D to 3D registration. Given an initial coarse pose estimate, GRIP addresses the structural mismatch between…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.25966">abs</a><a href="https://arxiv.org/pdf/2609.25966">PDF</a><a href="papers/arxiv-2609.25966/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.25966">abs</a><a href="https://arxiv.org/pdf/2609.25966">PDF</a><a href="../../papers/arxiv-2609.25966/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.26793/index.html"><img src="assets/media/2026-09-29/arxiv-2609.26793/fig-001.webp" alt="HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.26793/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HARMONY：面向单目图像到场景合成的层次化智能体推理</span><span class="lang lang-en lang-inline" data-lang="en">HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.26793/index.html"><img src="../../assets/media/2026-09-29/arxiv-2609.26793/fig-001.webp" alt="HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.26793/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">HARMONY：面向单目图像到场景合成的层次化智能体推理</span><span class="lang lang-en lang-inline" data-lang="en">HARMONY: Hierarchical Agentic Reasoning for MONocular Image-to-Scene Synthesis</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 13 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Shufan Sun, Chen Wang, Enxin Song, Jiatao Gu</div>
@@ -93,11 +93,11 @@
   <div class="tags"><span class="tag">单图 3D 场景合成</span><span class="tag">层次化思维链</span><span class="tag">VLM 空间关系推理</span><span class="tag">几何落地精化（轮廓+点云）</span><span class="tag">反思式反馈环</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>让 VLM 负责“谁靠着谁、谁在谁上面、谁朝向谁”的关系推理与分阶段摆放，让视觉几何基础模型（VGGT 点云 + 轮廓）负责把摆放细化到米制位置与尺度，每阶段渲染回看纠错，全程不训练任何模型。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">组合式 3D 场景重建近期沿两条路探索：能提供空间关系语义理解、但缺少与输入图像精确对齐的智能体推理，以及能从输入图像预测稠密点图、但重建质量受限的视觉几何基础模型。因此，从单张单目图像恢复兼具准确物体间关系与高保真重建质量的完整 3D 场景仍然困难。论文提出 HARMONY：一个同时利用智能体推理与视觉几何基础的层次化思维链框架。给定一幅室内场景图像，HARMONY 从空的 3D 平面图出发，先相对参考图像标定相…</p><p class="lang lang-en lang-block" data-lang="en">Compositional 3D scene reconstruction has recently been explored from two directions: agentic reasoning that provides semantic understanding of spatial relationships but lacks precise alignment with input imag…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.26793">abs</a><a href="https://arxiv.org/pdf/2609.26793">PDF</a><a href="papers/arxiv-2609.26793/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.26793">abs</a><a href="https://arxiv.org/pdf/2609.26793">PDF</a><a href="../../papers/arxiv-2609.26793/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.31418/index.html"><img src="assets/media/2026-09-29/arxiv-2609.31418/fig-001.webp" alt="CognitiveReality: Robot-Agnostic Semantic Gaussian Mapping with an LLM Agent for Immersive Collaborative VR Teleoperation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.31418/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CognitiveReality：面向沉浸式协同 VR 遥操作的机器人无关语义高斯建图与 LLM 智能体</span><span class="lang lang-en lang-inline" data-lang="en">CognitiveReality: Robot-Agnostic Semantic Gaussian Mapping with an LLM Agent for Immersive Collaborative VR Teleoperation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.31418/index.html"><img src="../../assets/media/2026-09-29/arxiv-2609.31418/fig-001.webp" alt="CognitiveReality: Robot-Agnostic Semantic Gaussian Mapping with an LLM Agent for Immersive Collaborative VR Teleoperation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.31418/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CognitiveReality：面向沉浸式协同 VR 遥操作的机器人无关语义高斯建图与 LLM 智能体</span><span class="lang lang-en lang-inline" data-lang="en">CognitiveReality: Robot-Agnostic Semantic Gaussian Mapping with an LLM Agent for Immersive Collaborative VR Teleoperation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 14 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Timofei Kozlov, Dmitrii Maliukov, Andrey Marchenko, Dmitrii Plotnikov</div>
@@ -105,10 +105,10 @@
   <div class="tags"><span class="tag">在线语义高斯—TSDF 建图</span><span class="tag">定位中断桥接（影子跟踪+PnP）</span><span class="tag">版本化场景模型与持久物体 ID</span><span class="tag">类型化工具与确认门</span><span class="tag">VR 遥操作闭环</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把机器人在线构建的高斯—TSDF 地图升级为一个带持久物体 ID 与重建质量的版本化「场景模型」，让语音与指向通过类型化工具落到同一份状态上，并用影子跟踪与关键帧锚定 PnP 在定位中断时保住地图坐标一致性。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">照片级 3D 视图能告诉遥操作者机器人在哪里，却不能说明场景里有什么、每个物体被观测得有多好，也无法把指向与语音变成机器人动作。CognitiveReality 把机器人的 RGB-D 流变成一张实时、语义索引的高斯—TSDF 地图，由 VR 中的操作员与一个会使用工具的語言智能体共享。单个 mapper 二进制通过配置即可服务任意平台：它接收来自机器人 SLAM、关节运动学、动捕或内置视觉跟踪器的位姿，用影子跟踪…</p><p class="lang lang-en lang-block" data-lang="en">A photorealistic 3D view tells a teleoperator where a robot is, but not what the scene contains, how well each object has been observed, or how to turn pointing and speech into robot action. CognitiveReality t…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.31418">abs</a><a href="https://arxiv.org/pdf/2609.31418">PDF</a><a href="papers/arxiv-2609.31418/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.31418">abs</a><a href="https://arxiv.org/pdf/2609.31418">PDF</a><a href="../../papers/arxiv-2609.31418/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.30459"><img src="assets/media/2026-09-29/arxiv-2609.30459/fig-001.webp" alt="VkVIO: Cross-platform GPU Acceleration for Visual-Inertial Odometry with Vulkan" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.30459"><img src="../../assets/media/2026-09-29/arxiv-2609.30459/fig-001.webp" alt="VkVIO: Cross-platform GPU Acceleration for Visual-Inertial Odometry with Vulkan" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.30459"><span class="lang lang-zh lang-inline" data-lang="zh">VkVIO：用 Vulkan 实现跨平台 GPU 加速的视觉—惯性里程计</span><span class="lang lang-en lang-inline" data-lang="en">VkVIO: Cross-platform GPU Acceleration for Visual-Inertial Odometry with Vulkan</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-25 · score 23 · A-层 · Real-time / GPU Robotics Systems · cs.RO, cs.CV</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -120,7 +120,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.30459">abs</a><a href="https://arxiv.org/pdf/2609.30459">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.26620"><img src="assets/media/2026-09-29/arxiv-2609.26620/fig-001.webp" alt="GeoComposer: Geometry-Grounded Photographic Composition Instruction" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.26620"><img src="../../assets/media/2026-09-29/arxiv-2609.26620/fig-001.webp" alt="GeoComposer: Geometry-Grounded Photographic Composition Instruction" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.26620"><span class="lang lang-zh lang-inline" data-lang="zh">GeoComposer：几何落地的摄影构图指令</span><span class="lang lang-en lang-inline" data-lang="en">GeoComposer: Geometry-Grounded Photographic Composition Instruction</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-22 · score 11 · B层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -132,7 +132,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.26620">abs</a><a href="https://arxiv.org/pdf/2609.26620">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.29374"><img src="assets/media/2026-09-29/arxiv-2609.29374/fig-001.webp" alt="FMCW-LIO: A Doppler LiDAR-Inertial Odometry" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.29374"><img src="../../assets/media/2026-09-29/arxiv-2609.29374/fig-001.webp" alt="FMCW-LIO: A Doppler LiDAR-Inertial Odometry" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.29374"><span class="lang lang-zh lang-inline" data-lang="zh">FMCW-LIO：一种多普勒激光雷达—惯性里程计</span><span class="lang lang-en lang-inline" data-lang="en">FMCW-LIO: A Doppler LiDAR-Inertial Odometry</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-24 · score 17 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO, cs.CV, eess.SY</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -144,7 +144,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.29374">abs</a><a href="https://arxiv.org/pdf/2609.29374">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.27509"><img src="assets/media/2026-09-29/arxiv-2609.27509/fig-001.webp" alt="Know-Your-Scene (KYS)-SLAM: Hierarchical Semantic-Motion Priors for Feature Matching in Stereo Visual SLAM" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.27509"><img src="../../assets/media/2026-09-29/arxiv-2609.27509/fig-001.webp" alt="Know-Your-Scene (KYS)-SLAM: Hierarchical Semantic-Motion Priors for Feature Matching in Stereo Visual SLAM" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.27509"><span class="lang lang-zh lang-inline" data-lang="zh">Know-Your-Scene（KYS）-SLAM：双目视觉 SLAM 中用于特征匹配的层次化语义—运动先验</span><span class="lang lang-en lang-inline" data-lang="en">Know-Your-Scene (KYS)-SLAM: Hierarchical Semantic-Motion Priors for Feature Matching in Stereo Visual SLAM</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-23 · score 13 · B-层 · Traditional LiDAR/Visual SLAM · cs.CV, cs.RO</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -233,6 +233,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
