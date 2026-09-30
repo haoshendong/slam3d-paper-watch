@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-09-30/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-09-30</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-09-30/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：8</span><span class="stat">推荐论文：8</span><span class="stat">新论文：8</span><span class="stat">仓库：14</span><span class="stat">新仓库：2</span></div>
 </section>
@@ -38,8 +38,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 8 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.32626/index.html"><img src="assets/media/2026-09-30/arxiv-2609.32626/fig-001.webp" alt="World SLAM Model: Joint World Modeling for SLAM and Navigation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.32626/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">World SLAM Model：把 SLAM 机制内嵌进导航世界模型的联合建模</span><span class="lang lang-en lang-inline" data-lang="en">World SLAM Model: Joint World Modeling for SLAM and Navigation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.32626/index.html"><img src="../../assets/media/2026-09-30/arxiv-2609.32626/fig-001.webp" alt="World SLAM Model: Joint World Modeling for SLAM and Navigation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.32626/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">World SLAM Model：把 SLAM 机制内嵌进导航世界模型的联合建模</span><span class="lang lang-en lang-inline" data-lang="en">World SLAM Model: Joint World Modeling for SLAM and Navigation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-26 · score 16 · S层 · Learning + Geometric Optimization SLAM/VIO · cs.RO, cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Minghui Qin, Yijun Yuan, Weicheng Zheng, Kenan Li</div>
@@ -47,11 +47,11 @@
   <div class="tags"><span class="tag">SLAM 机制内嵌</span><span class="tag">MoE/Mixture-of-Transformers</span><span class="tag">世界模型</span><span class="tag">逆动力学</span><span class="tag">局部后端重估</span><span class="tag">goat 级 start-goal 导航</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>只给 RGB 与首帧系目标位置，用三专家 MoT 把“梦未来—从梦里复原米制位姿与深度—观测回灌后端纠偏”串成闭环；InternVLA-N1 Home SR 70.3、Commercial 73.9（均优于带深度的 LoGoPlanner），5% 留出集 ATE RMSE 0.021 m。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出 World SLAM Model（WSM），把 SLAM 范式直接搬进下游导航：不再把 SLAM 当作只提供位姿、地图或 token 的上游模块，而是借用它的核心机制——带持久记忆的增量状态更新、以及对累积误差的后端纠偏——在交互过程中维持一致的世界状态。给定当前观测与导航目标，WSM 在同一个 Mixture-of-Transformers 里用生成专家想象未来视觉状态，再用 SLAM 专家作为逆动力学…</p><p class="lang lang-en lang-block" data-lang="en">We introduce World SLAM Model (WSM), a unified framework that brings the SLAM paradigm directly into downstream navigation. Rather than treating SLAM merely as an upstream module that provides poses, maps or t…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.32626">abs</a><a href="https://arxiv.org/pdf/2609.32626">PDF</a><a href="papers/arxiv-2609.32626/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.32626">abs</a><a href="https://arxiv.org/pdf/2609.32626">PDF</a><a href="../../papers/arxiv-2609.32626/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.35734/index.html"><img src="assets/media/2026-09-30/arxiv-2609.35734/fig-001.webp" alt="GeoVerse: World-Consistent Novel View Synthesis in Geometric Latent Space" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.35734/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GeoVerse：在 3D 基础模型的几何潜空间里做世界一致的新视角合成</span><span class="lang lang-en lang-inline" data-lang="en">GeoVerse: World-Consistent Novel View Synthesis in Geometric Latent Space</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.35734/index.html"><img src="../../assets/media/2026-09-30/arxiv-2609.35734/fig-001.webp" alt="GeoVerse: World-Consistent Novel View Synthesis in Geometric Latent Space" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.35734/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GeoVerse：在 3D 基础模型的几何潜空间里做世界一致的新视角合成</span><span class="lang lang-en lang-inline" data-lang="en">GeoVerse: World-Consistent Novel View Synthesis in Geometric Latent Space</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Kerui Ren, Tao Lu, Linning Xu, Changjian Jiang</div>
@@ -59,11 +59,11 @@
   <div class="tags"><span class="tag">几何潜空间扩散</span><span class="tag">3D 基础模型 DA3</span><span class="tag">Wan2.2 VACE 外观先验</span><span class="tag">持久空间记忆</span><span class="tag">reflow 少步蒸馏</span><span class="tag">世界一致性 NVS</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把扩散生成搬到冻结 DA3 的几何潜空间、再用冻结 Wan2.2 VACE 的多层特征做 ControlNet 式外观注入，并用彩色点云记忆锚住多轮一致性；DL3DV PSNR 19.61 dB（GLD 17.38），Mip-NeRF360 ATE 0.071（GLD 0.105），6 个目标视图约 9 s。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">从稀疏图像做新视角合成必须同时兼顾两件事：对已观测区域忠实重建、对未观测区域合理补全，并保持跨视角的世界一致性。基于几何的方法能保住观测到的结构，但补全未观测区域时常常无能为力；视频生成模型外观先验丰富，却在顺序生成时不断累积不一致。论文提出 GeoVerse：把生成过程放在预训练 3D 基础模型的几何潜空间里完成，同时注入视频生成模型的外观先验。具体做法是从 Wan2.2 VACE 抽取多层特征，经 Contro…</p><p class="lang lang-en lang-block" data-lang="en">Novel view synthesis from sparse images must reconcile faithful reconstruction of observed regions with plausible completion of unseen content, while maintaining world consistency across viewpoints. Existing g…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.35734">abs</a><a href="https://arxiv.org/pdf/2609.35734">PDF</a><a href="papers/arxiv-2609.35734/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.35734">abs</a><a href="https://arxiv.org/pdf/2609.35734">PDF</a><a href="../../papers/arxiv-2609.35734/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.34276/index.html"><img src="assets/media/2026-09-30/arxiv-2609.34276/fig-001.webp" alt="NavHarness: Towards Lifelong Embodied Navigation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.34276/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">NavHarness：把记忆处理做进导航循环的终身具身导航</span><span class="lang lang-en lang-inline" data-lang="en">NavHarness: Towards Lifelong Embodied Navigation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.34276/index.html"><img src="../../assets/media/2026-09-30/arxiv-2609.34276/fig-001.webp" alt="NavHarness: Towards Lifelong Embodied Navigation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.34276/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">NavHarness：把记忆处理做进导航循环的终身具身导航</span><span class="lang lang-en lang-inline" data-lang="en">NavHarness: Towards Lifelong Embodied Navigation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-28 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Xunyi Zhao, Jian Zhou, Sihao Lin, Gengze Zhou</div>
@@ -71,10 +71,10 @@
   <div class="tags"><span class="tag">终身导航</span><span class="tag">多轮 agentic 会话</span><span class="tag">结构化恢复交接</span><span class="tag">SLAM 位姿建图</span><span class="tag">完成校验</span><span class="tag">经验固化</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>免训练的具身导航 harness：每次尝试开新会话但继承外部记忆（SLAM 位姿建图 + 任务 journal + 房屋笔记），并做结构化恢复交接与两段式完成校验；GOAT-Bench 用 SLAM 估计位姿达到 83.7 s-SR / 36.9 e-SR，IR2R-CE 85.9 s-SR。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">前沿模型现在可以靠多轮多模态推理与简单工具完成单次具身导航任务；但在连续任务之间，智能体还必须依赖一张持续演化的地图与早先的搜索记录，而这些记录可能不完整，甚至与新观测冲突。论文提出 NavHarness：一个免训练的具身 harness，把记忆处理变成导航循环的一部分。导航过程中，多轮 agentic 会话同时使用地图、任务记录与房屋知识，把它们与观测对照、并记录更正以指导动作；NavHarness 把这些经验跨…</p><p class="lang lang-en lang-block" data-lang="en">Frontier models can now perform well on individual embodied navigation tasks through multi-round multimodal reasoning with simple tools. Across successive tasks, however, an agent must also rely on an evolving…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.34276">abs</a><a href="https://arxiv.org/pdf/2609.34276">PDF</a><a href="papers/arxiv-2609.34276/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.34276">abs</a><a href="https://arxiv.org/pdf/2609.34276">PDF</a><a href="../../papers/arxiv-2609.34276/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.34527"><img src="assets/media/2026-09-30/arxiv-2609.34527/fig-001.webp" alt="RRG-SLAM: Real-time Reflection-aware Gaussian SLAM for Indoor Scenes" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.34527"><img src="../../assets/media/2026-09-30/arxiv-2609.34527/fig-001.webp" alt="RRG-SLAM: Real-time Reflection-aware Gaussian SLAM for Indoor Scenes" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.34527"><span class="lang lang-zh lang-inline" data-lang="zh">RRG-SLAM：面向室内场景的实时反射感知高斯 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">RRG-SLAM: Real-time Reflection-aware Gaussian SLAM for Indoor Scenes</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-28 · score 12 · A-层 · Real-time / GPU Robotics Systems · cs.CV, cs.GR</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -86,7 +86,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.34527">abs</a><a href="https://arxiv.org/pdf/2609.34527">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.34702"><img src="assets/media/2026-09-30/arxiv-2609.34702/fig-001.webp" alt="MarsLab: A Martian Rover Simulator for Planetary Rover Autonomous Navigation" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.34702"><img src="../../assets/media/2026-09-30/arxiv-2609.34702/fig-001.webp" alt="MarsLab: A Martian Rover Simulator for Planetary Rover Autonomous Navigation" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.34702"><span class="lang lang-zh lang-inline" data-lang="zh">MarsLab：面向行星巡视器自主导航的火星车仿真平台</span><span class="lang lang-en lang-inline" data-lang="en">MarsLab: A Martian Rover Simulator for Planetary Rover Autonomous Navigation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-28 · score 7 · A-层 · Real-time / GPU Robotics Systems · cs.RO</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -98,7 +98,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.34702">abs</a><a href="https://arxiv.org/pdf/2609.34702">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.35482"><img src="assets/media/2026-09-30/arxiv-2609.35482/fig-001.webp" alt="ForVis: An In-Field Dataset and Benchmark for VIO Using Under-Canopy UAV Flights in Forests" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.35482"><img src="../../assets/media/2026-09-30/arxiv-2609.35482/fig-001.webp" alt="ForVis: An In-Field Dataset and Benchmark for VIO Using Under-Canopy UAV Flights in Forests" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.35482"><span class="lang lang-zh lang-inline" data-lang="zh">ForVis：林下无人机飞行的视觉惯性里程计实飞数据集与基准</span><span class="lang lang-en lang-inline" data-lang="en">ForVis: An In-Field Dataset and Benchmark for VIO Using Under-Canopy UAV Flights in Forests</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-28 · score 12 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -110,7 +110,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.35482">abs</a><a href="https://arxiv.org/pdf/2609.35482">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.34512"><img src="assets/media/2026-09-30/arxiv-2609.34512/fig-001.webp" alt="MonoEgo: Monocular Metric Egocentric Demonstration Capture with Passive Wrist Constellations and Sparse Workstation Anchors" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.34512"><img src="../../assets/media/2026-09-30/arxiv-2609.34512/fig-001.webp" alt="MonoEgo: Monocular Metric Egocentric Demonstration Capture with Passive Wrist Constellations and Sparse Workstation Anchors" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.34512"><span class="lang lang-zh lang-inline" data-lang="zh">MonoEgo：用被动腕部星座与稀疏工位锚点的单目米制第一视角示教采集</span><span class="lang lang-en lang-inline" data-lang="en">MonoEgo: Monocular Metric Egocentric Demonstration Capture with Passive Wrist Constellations and Sparse Workstation Anchors</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-28 · score 5 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -122,7 +122,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.34512">abs</a><a href="https://arxiv.org/pdf/2609.34512">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.35743"><img src="assets/media/2026-09-30/arxiv-2609.35743/fig-001.webp" alt="InfiniHand: Streaming World-Space Hand Motion Estimation from Egocentric Video" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.35743"><img src="../../assets/media/2026-09-30/arxiv-2609.35743/fig-001.webp" alt="InfiniHand: Streaming World-Space Hand Motion Estimation from Egocentric Video" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.35743"><span class="lang lang-zh lang-inline" data-lang="zh">InfiniHand：从第一视角视频流式估计世界坐标系手部运动</span><span class="lang lang-en lang-inline" data-lang="en">InfiniHand: Streaming World-Space Hand Motion Estimation from Egocentric Video</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 3 · B-层 · Traditional LiDAR/Visual SLAM · cs.CV</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -199,6 +199,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
