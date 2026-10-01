@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-01/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-10-01</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-10-01/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：23</span><span class="stat">推荐论文：8</span><span class="stat">新论文：23</span><span class="stat">仓库：19</span><span class="stat">新仓库：3</span></div>
 </section>
@@ -38,8 +38,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 23 篇候选中按 S/A 层级与评分推荐前 8 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.35965/index.html"><img src="assets/media/2026-10-01/arxiv-2609.35965/fig-001.webp" alt="Systematic Multi-Agent Vision-and-Language Navigation: Formulation, Benchmark, and Method" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.35965/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MAVLN 与 TRISS：把多智能体 VLN 形式化为依赖/资源约束下的协调问题</span><span class="lang lang-en lang-inline" data-lang="en">Systematic Multi-Agent Vision-and-Language Navigation: Formulation, Benchmark, and Method</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.35965/index.html"><img src="../../assets/media/2026-10-01/arxiv-2609.35965/fig-001.webp" alt="Systematic Multi-Agent Vision-and-Language Navigation: Formulation, Benchmark, and Method" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.35965/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MAVLN 与 TRISS：把多智能体 VLN 形式化为依赖/资源约束下的协调问题</span><span class="lang lang-en lang-inline" data-lang="en">Systematic Multi-Agent Vision-and-Language Navigation: Formulation, Benchmark, and Method</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 11 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV, cs.AI, cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Yunzhe Xu, Zhe Liu</div>
@@ -47,11 +47,11 @@
   <div class="tags"><span class="tag">多智能体 VLN</span><span class="tag">约束感知基准</span><span class="tag">共享拓扑记忆</span><span class="tag">LLM 子任务调度</span><span class="tag">冲突消解（CBS）</span><span class="tag">失败验证排除</span><span class="tag">Space 级指标设计</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>MAVLN 给出 11,724 条约束标注多智能体导航 episode；TRISS 用“LLM 调度 + 共享拓扑记忆 + Hungarian/CBS 冲突消解”做基线，在 oracle 调度下 Val-Unseen SR 9.1 / SPL 4.0，而 oracle 规划器可达 89.1 SR，说明瓶颈在视点提议而非调度。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">视觉语言导航（VLN）长期面向“单智能体执行单条指令”，但真实应用需要机器人团队完成单个智能体无法胜任的任务。本文给出多智能体 VLN 的首个系统形式化：把任务建模为带依赖约束与资源约束（presence lock 站位锁、holding chain 携带链）的受限协调问题。作者用一套四阶段、带校验的构造流水线实例化出 MAVLN 基准，包含 145 个场景、11,724 条 episode、最多 4 个智能体与三…</p><p class="lang lang-en lang-block" data-lang="en">Vision-and-Language Navigation (VLN) has largely focused on a single agent following a single instruction, yet many real-world applications require teams of robots to tackle tasks beyond the capabilities of an…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.35965">abs</a><a href="https://arxiv.org/pdf/2609.35965">PDF</a><a href="papers/arxiv-2609.35965/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.35965">abs</a><a href="https://arxiv.org/pdf/2609.35965">PDF</a><a href="../../papers/arxiv-2609.35965/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.36066/index.html"><img src="assets/media/2026-10-01/arxiv-2609.36066/fig-001.webp" alt="AerialDojo-200K: A Large-Scale Benchmark Suite for Open-World Aerial Object-Goal Search" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.36066/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AerialDojo-200K：开放世界空中目标搜索的大规模基准套件</span><span class="lang lang-en lang-inline" data-lang="en">AerialDojo-200K: A Large-Scale Benchmark Suite for Open-World Aerial Object-Goal Search</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.36066/index.html"><img src="../../assets/media/2026-10-01/arxiv-2609.36066/fig-001.webp" alt="AerialDojo-200K: A Large-Scale Benchmark Suite for Open-World Aerial Object-Goal Search" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.36066/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AerialDojo-200K：开放世界空中目标搜索的大规模基准套件</span><span class="lang lang-en lang-inline" data-lang="en">AerialDojo-200K: A Large-Scale Benchmark Suite for Open-World Aerial Object-Goal Search</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 11 · A层 · Robust State Estimation / Uncertainty · cs.CV, cs.AI, cs.ET, cs.MM</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Tongtong Feng, Xin Wang, Haoran Hou, Ren Wang, Weiran Wang, Shaokai Zhu, Ziqi Jia, Hao Wang, Yu-Wei Zhan, Zongyuan Wu, Jinghao Cui, Wenwu Zhu</div>
@@ -59,11 +59,11 @@
   <div class="tags"><span class="tag">空中目标搜索基准</span><span class="tag">开放世界 OOD 协议</span><span class="tag">无 GPS 观测接口</span><span class="tag">成功半径敏感性</span><span class="tag">统一动作/观测接口</span><span class="tag">多模态大模型评测</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>42 场景 / 205,732 任务实例 / 参考轨迹总长 4,115.313 km 的空中目标搜索基准；最好模型在 3 m 阈值下 Base SR 仅 3.20%（Claude Opus 5），Standard 0.49%，把阈值放宽到 5 m 时 Gemini 3.8 Flash 从 2.40% 跳到 11.16% 并反超，说明排名对成功半径极敏感。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">开放世界空中目标搜索要求无人机类智能体自主探索大规模非结构化三维环境，并按语义描述或参考图像找到目标物体，而不是沿给定路线行走。现有研究仍处于早期，依赖小规模、环境特定的基准，且动作空间与数据格式各异，阻碍了大规模训练与跨基准评测。本文提出 AerialDojo-200K：场景数是当前最大同类基准的 3 倍、任务实例数是其 18.7 倍。它包含 42 个仿真场景（4 大场景族、21 种场景类型，含 18 个城市、1…</p><p class="lang lang-en lang-block" data-lang="en">Open-world aerial object-goal search is a foundational yet challenging task, requiring aerial agents to autonomously explore large-scale, unstructured three-dimensional environments and reach target objects sp…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.36066">abs</a><a href="https://arxiv.org/pdf/2609.36066">PDF</a><a href="papers/arxiv-2609.36066/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.36066">abs</a><a href="https://arxiv.org/pdf/2609.36066">PDF</a><a href="../../papers/arxiv-2609.36066/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.36779/index.html"><img src="assets/media/2026-10-01/arxiv-2609.36779/fig-001.webp" alt="DRHeC: Differentiable Rendering for Hand-Eye Calibration with RGB-Based Gradients" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.36779/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DRHeC：用 RGB 梯度做可微渲染手眼标定</span><span class="lang lang-en lang-inline" data-lang="en">DRHeC: Differentiable Rendering for Hand-Eye Calibration with RGB-Based Gradients</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.36779/index.html"><img src="../../assets/media/2026-10-01/arxiv-2609.36779/fig-001.webp" alt="DRHeC: Differentiable Rendering for Hand-Eye Calibration with RGB-Based Gradients" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.36779/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DRHeC：用 RGB 梯度做可微渲染手眼标定</span><span class="lang lang-en lang-inline" data-lang="en">DRHeC: Differentiable Rendering for Hand-Eye Calibration with RGB-Based Gradients</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 11 · A层 · Robust State Estimation / Uncertainty · cs.RO, cs.CV, cs.GR</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Xiaotian Zhang, Yusheng Wang, Naoya Kagawa, Noritaka Takamura, Keiji Okuhara, Hiroyasu Baba, Jun Ota</div>
@@ -71,11 +71,11 @@
   <div class="tags"><span class="tag">手眼标定</span><span class="tag">可微渲染</span><span class="tag">RGB 梯度</span><span class="tag">掩码质心/面积损失</span><span class="tag">两段式优化</span><span class="tag">观测可辨识性</span><span class="tag">SIM 风格图像翻译</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把可微渲染标定的监督从“二值掩码”换成“RGB 梯度 + 软质心 + 软面积”，并用 θ=0.25 的两段式策略（先冻旋转只调平移、后放开精修）；UR5e 抓取 88.9%（EasyHeC 42.6%）、插入 57.4%（EasyHeC 9.3%），DENSO VS060 上 77.8%/77.8%，且 1% 几何失配就让平均平移误差从 7.41 mm 涨到 21.92 mm。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">手眼标定对精密操作至关重要。传统方法依赖标记，其精度受标记精度与可观测性影响；无标记方法（如基于学习的方案）用深度网络直接从图像提取关键点或特征，单张图即可求手眼变换。近期基于可微渲染的方法通过渲染二值掩码并与观测比较来实现无基准标记的标定，可解释性强，但二值掩码会丢失物体内部轮廓细节、降低精度，并存在优化不稳定与局部极小的问题。本文提出基于 RGB 的可微渲染框架，通过引入颜色与掩码几何特征提供更丰富的几何与外观…</p><p class="lang lang-en lang-block" data-lang="en">Accurate hand-eye calibration is crucial for precision manipulation. Traditional methods rely on markers, with their precision dependent on marker accuracy and observability. In contrast, markerless methods, s…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.36779">abs</a><a href="https://arxiv.org/pdf/2609.36779">PDF</a><a href="papers/arxiv-2609.36779/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.36779">abs</a><a href="https://arxiv.org/pdf/2609.36779">PDF</a><a href="../../papers/arxiv-2609.36779/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.36182/index.html"><img src="assets/media/2026-10-01/arxiv-2609.36182/fig-001.webp" alt="Test-Time Adaptation of Manipulation Policies Under Actuator Degradation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.36182/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">TeAR：执行器退化下的操作策略测试时自适应</span><span class="lang lang-en lang-inline" data-lang="en">Test-Time Adaptation of Manipulation Policies Under Actuator Degradation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.36182/index.html"><img src="../../assets/media/2026-10-01/arxiv-2609.36182/fig-001.webp" alt="Test-Time Adaptation of Manipulation Policies Under Actuator Degradation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.36182/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">TeAR：执行器退化下的操作策略测试时自适应</span><span class="lang lang-en lang-inline" data-lang="en">Test-Time Adaptation of Manipulation Policies Under Actuator Degradation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 8 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Som Sagar, Ransalu Senanayake</div>
@@ -83,10 +83,10 @@
   <div class="tags"><span class="tag">执行器退化</span><span class="tag">测试时自适应</span><span class="tag">遥测条件策略</span><span class="tag">有界动作校正</span><span class="tag">严重度课程</span><span class="tag">退化模型不匹配</span><span class="tag">sim-to-real 热应力</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把温度/电流/电压遥测变成动作校正的条件输入：轻量 Transformer 输出有界增益与残差，标称区间内由结构保证精确恒等；7 个受压条件平均增益 +18.3±2.9 pt（MRAC/L1 +15.5），真机 SO-101 加热条件下成功率 75%→85%、70%→85%。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">机器人操作策略通常在“指令动作与训练时产生同样运动”的假设下训练，但真实硬件会违反这一假设：电机逐渐升温、接触时电流饱和、负载下电压跌落，使同一个策略动作产生更弱、更迟或更噪的运动。这些条件其实已被机载遥测（关节温度、电机电流、供电电压）测量，但通常只用于日志或安全检查，而非策略自适应。本文提出 TeAR（Telemetry-Aware Action Rectification）：一种与策略无关的方法，把冻结的操作…</p><p class="lang lang-en lang-block" data-lang="en">Robot manipulation policies are usually trained under the assumption that a commanded action produces the same motion as it did during training even after hours of operation. Real hardware violates this assump…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.36182">abs</a><a href="https://arxiv.org/pdf/2609.36182">PDF</a><a href="papers/arxiv-2609.36182/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.36182">abs</a><a href="https://arxiv.org/pdf/2609.36182">PDF</a><a href="../../papers/arxiv-2609.36182/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.36024"><img src="assets/media/2026-10-01/arxiv-2609.36024/fig-001.webp" alt="CoDimRecon: Agentic Reconstruction of Sim-Ready 3D Scenes with Deformable Curves, Surfaces, and Volumes" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.36024"><img src="../../assets/media/2026-10-01/arxiv-2609.36024/fig-001.webp" alt="CoDimRecon: Agentic Reconstruction of Sim-Ready 3D Scenes with Deformable Curves, Surfaces, and Volumes" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.36024"><span class="lang lang-zh lang-inline" data-lang="zh">CoDimRecon：可仿真可形变 3D 场景的智能体重建</span><span class="lang lang-en lang-inline" data-lang="en">CoDimRecon: Agentic Reconstruction of Sim-Ready 3D Scenes with Deformable Curves, Surfaces, and Volumes</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 10 · A-层 · 3D/4D Spatial Perception · cs.CV, cs.GR, cs.RO</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -98,7 +98,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.36024">abs</a><a href="https://arxiv.org/pdf/2609.36024">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.36012"><img src="assets/media/2026-10-01/arxiv-2609.36012/fig-001.webp" alt="In-Context Learning for Robots: Methods and Applications" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.36012"><img src="../../assets/media/2026-10-01/arxiv-2609.36012/fig-001.webp" alt="In-Context Learning for Robots: Methods and Applications" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.36012"><span class="lang lang-zh lang-inline" data-lang="zh">机器人上下文学习：方法与应用的系统综述</span><span class="lang lang-en lang-inline" data-lang="en">In-Context Learning for Robots: Methods and Applications</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 4 · A-层 · Robotic Foundation Models / VLA · cs.RO, cs.LG</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -110,7 +110,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.36012">abs</a><a href="https://arxiv.org/pdf/2609.36012">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.37115"><img src="assets/media/2026-10-01/arxiv-2609.37115/fig-001.webp" alt="NRF-GS: Neural Residual Fields for Expressive and Compact Gaussian Splatting" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.37115"><img src="../../assets/media/2026-10-01/arxiv-2609.37115/fig-001.webp" alt="NRF-GS: Neural Residual Fields for Expressive and Compact Gaussian Splatting" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.37115"><span class="lang lang-zh lang-inline" data-lang="zh">NRF-GS：用神经残差场做更紧凑的高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">NRF-GS: Neural Residual Fields for Expressive and Compact Gaussian Splatting</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 14 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -122,7 +122,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.37115">abs</a><a href="https://arxiv.org/pdf/2609.37115">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.36267"><img src="assets/media/2026-10-01/arxiv-2609.36267/fig-001.webp" alt="A Probabilistic-Cost Algorithm for Large-Scale 2D Phase Unwrapping" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.36267"><img src="../../assets/media/2026-10-01/arxiv-2609.36267/fig-001.webp" alt="A Probabilistic-Cost Algorithm for Large-Scale 2D Phase Unwrapping" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.36267"><span class="lang lang-zh lang-inline" data-lang="zh">Whirlwind：大规模二维相位解缠的概率代价最小费用流算法</span><span class="lang lang-en lang-inline" data-lang="en">A Probabilistic-Cost Algorithm for Large-Scale 2D Phase Unwrapping</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 3 · C层 · 纯 GNSS/INS / PPP-AR · eess.SP</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -219,6 +219,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
