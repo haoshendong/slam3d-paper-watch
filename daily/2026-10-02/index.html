@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-02/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-10-02</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-10-02/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：11</span><span class="stat">推荐论文：10</span><span class="stat">新论文：11</span><span class="stat">仓库：21</span><span class="stat">新仓库：2</span></div>
 </section>
@@ -36,8 +36,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 11 篇候选中按 S/A 层级与评分推荐前 10 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.38054/index.html"><img src="assets/media/2026-10-02/arxiv-2609.38054/fig-001.webp" alt="Pow3R-SLAM: Real-Time RGB-D SLAM with 3D Reconstruction Priors" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.38054/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Pow3R-SLAM：把传感器深度当作两视图点图网络先验的实时 RGB-D SLAM</span><span class="lang lang-en lang-inline" data-lang="en">Pow3R-SLAM: Real-Time RGB-D SLAM with 3D Reconstruction Priors</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.38054/index.html"><img src="../../assets/media/2026-10-02/arxiv-2609.38054/fig-001.webp" alt="Pow3R-SLAM: Real-Time RGB-D SLAM with 3D Reconstruction Priors" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.38054/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Pow3R-SLAM：把传感器深度当作两视图点图网络先验的实时 RGB-D SLAM</span><span class="lang lang-en lang-inline" data-lang="en">Pow3R-SLAM: Real-Time RGB-D SLAM with 3D Reconstruction Priors</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 30 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO, cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Christopher Kolios, Ishaan Mehta, Sasa Janjic, Yeganeh Bahoo</div>
@@ -45,11 +45,11 @@
   <div class="tags"><span class="tag">RGB-D SLAM</span><span class="tag">两视图重建先验</span><span class="tag">深度条件化</span><span class="tag">度量尺度恢复</span><span class="tag">后端锚定</span><span class="tag">MASt3R-SLAM 扩展</span><span class="tag">混合 ICP</span><span class="tag">深度敏感性分析</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>首个把传感器深度作为两视图点图网络先验的 RGB-D SLAM：深度在条件化、度量尺度、后端锚定三处可分离进入；24 序列上比 MASt3R-SLAM 快 1.6×、关键帧 ATE 低 15%、无尺度逐帧误差低 3.1×、Chamfer 低 30%，混合 ICP 变体 25.3 FPS。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Pow3R-SLAM 是一个实时 RGB-D SLAM 系统，用 Pow3R 做跟踪与建图。受 MASt3R-SLAM（用两视图 3D 重建先验的单目 SLAM）启发，作者把深度从“被融合的几何”改为“网络预测的先验”。传统 RGB-D SLAM 在深度图稀疏时吃力，而 Pow3R 用已有深度得到条件更好的点图，并从两视图的光度、深度与内参推断空洞处深度。按 MASt3R-SLAM 协议在 TUM、7-Scenes…</p><p class="lang lang-en lang-block" data-lang="en">We present Pow3R-SLAM, a real-time RGB-D simultaneous localization and mapping (SLAM) system that uses Pow3R for tracking and mapping. Inspired by MASt3R-SLAM, a recent work on monocular SLAM using two-view 3D…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.38054">abs</a><a href="https://arxiv.org/pdf/2609.38054">PDF</a><a href="papers/arxiv-2609.38054/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.38054">abs</a><a href="https://arxiv.org/pdf/2609.38054">PDF</a><a href="../../papers/arxiv-2609.38054/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.36374/index.html"><img src="assets/media/2026-10-02/arxiv-2609.36374/fig-001.webp" alt="OTT3R: Multi-View 3D Reconstruction and Fast Dataset Generation at 1% Compute" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.36374/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">OTT3R：用 1% 算力做多视图 3D 重建与快速数据集生成</span><span class="lang lang-en lang-inline" data-lang="en">OTT3R: Multi-View 3D Reconstruction and Fast Dataset Generation at 1% Compute</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.36374/index.html"><img src="../../assets/media/2026-10-02/arxiv-2609.36374/fig-001.webp" alt="OTT3R: Multi-View 3D Reconstruction and Fast Dataset Generation at 1% Compute" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.36374/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">OTT3R：用 1% 算力做多视图 3D 重建与快速数据集生成</span><span class="lang lang-en lang-inline" data-lang="en">OTT3R: Multi-View 3D Reconstruction and Fast Dataset Generation at 1% Compute</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 20 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Brandon Leblanc, Charalambos Poullis</div>
@@ -57,11 +57,11 @@
   <div class="tags"><span class="tag">知识蒸馏</span><span class="tag">前馈 3D 重建</span><span class="tag">SE(3) 位姿监督</span><span class="tag">伪标签流水线</span><span class="tag">COLMAP 替代</span><span class="tag">域特化</span><span class="tag">边缘部署</span><span class="tag">大基线采样</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把 π³（959M）蒸馏成 102M 学生（9.4× 压缩）并配套神经版 COLMAP：1.6% 算力单机可训；域特化学生在 7-Scenes 上比 COLMAP 准 4×、吞吐 980×，通用零样本在 7-Scenes/DTU completion 上超 COLMAP，但分布外多视图几何不敌教师。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">前馈 3D 重建模型靠模型与数据规模取胜，成本把多数研究组和边缘部署排除在外；无传感器生成 3D 监督又依赖慢而不可靠的 SfM。OTT3R 是一个知识蒸馏框架，在单台 2 GPU 工作站上同时缓解这两个问题：把 959M 的 π³ 蒸馏成 102M 学生，压缩 9.4×、推理最多快 7×、训练算力约 VGGT 的 1.6%。配套伪标签流水线可在两台消费级 GPU 上 3.5 小时为 667K 图像语料生成稠密点图…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 3D reconstruction models have achieved impressive performance by scaling model and dataset size, but their cost excludes most research groups and precludes edge deployment. Additionally, generatin…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.36374">abs</a><a href="https://arxiv.org/pdf/2609.36374">PDF</a><a href="papers/arxiv-2609.36374/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.36374">abs</a><a href="https://arxiv.org/pdf/2609.36374">PDF</a><a href="../../papers/arxiv-2609.36374/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.40244/index.html"><img src="assets/media/2026-10-02/arxiv-2609.40244/fig-001.webp" alt="StreamRig: Exploiting Intra-Rig Geometry for Streaming Multi-Camera Odometry" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.40244/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">StreamRig：利用 rig 内几何做流式多相机里程计</span><span class="lang lang-en lang-inline" data-lang="en">StreamRig: Exploiting Intra-Rig Geometry for Streaming Multi-Camera Odometry</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.40244/index.html"><img src="../../assets/media/2026-10-02/arxiv-2609.40244/fig-001.webp" alt="StreamRig: Exploiting Intra-Rig Geometry for Streaming Multi-Camera Odometry" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.40244/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">StreamRig：利用 rig 内几何做流式多相机里程计</span><span class="lang lang-en lang-inline" data-lang="en">StreamRig: Exploiting Intra-Rig Geometry for Streaming Multi-Camera Odometry</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-01 · score 16 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.RO</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Yufei Wei, Shuhao Ye, Qi Wang, Xin Zheng</div>
@@ -69,11 +69,11 @@
   <div class="tags"><span class="tag">多相机里程计</span><span class="tag">因果流式推理</span><span class="tag">冻结 3D 基础模型</span><span class="tag">Rig-Resampler</span><span class="tag">锚点快照</span><span class="tag">re-anchoring</span><span class="tag">组重定位预训练</span><span class="tag">仿真到真机零样本</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>首个把冻结多视图 3D 基础模型接到因果流式多相机里程计的框架：74.6M 可训参数、相对位姿唯一监督；四套 rig 上漂移最低，五相机推理 26.2 ms/2.6 GiB 优于单目 CUT3R 的 31.3 ms/3.9 GiB。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">移动机器人与车辆普遍带同步多相机 rig，但许多流式 3D 基础模型按单目输入设计，浪费了 rig 内已知几何。StreamRig 是一个 freeze-and-stream 框架：在一个冻结的多视图 3D 基础模型之上构建已标定 rig 的因果流式里程计。冻结前端用 rig 标定联合感知同步视图，Rig-Resampler 压缩特征，CausalBridge 用带 KV 缓存的因果注意力，轻量位姿头回归 rig…</p><p class="lang lang-en lang-block" data-lang="en">Mobile robots and vehicles carry synchronized multi-camera rigs, yet many streaming 3D foundation models are designed for monocular input, leaving efficient use of rig geometry a challenge. We present StreamRi…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.40244">abs</a><a href="https://arxiv.org/pdf/2609.40244">PDF</a><a href="papers/arxiv-2609.40244/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.40244">abs</a><a href="https://arxiv.org/pdf/2609.40244">PDF</a><a href="../../papers/arxiv-2609.40244/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.37048/index.html"><img src="assets/media/2026-10-02/arxiv-2609.37048/fig-001.webp" alt="NHO: A Neural Hamiltonian Operator for Anchor-based Region Localization and Dense Correspondence" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.37048/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">NHO：用于锚点区域定位与稠密对应的神经哈密顿算子</span><span class="lang lang-en lang-inline" data-lang="en">NHO: A Neural Hamiltonian Operator for Anchor-based Region Localization and Dense Correspondence</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.37048/index.html"><img src="../../assets/media/2026-10-02/arxiv-2609.37048/fig-001.webp" alt="NHO: A Neural Hamiltonian Operator for Anchor-based Region Localization and Dense Correspondence" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.37048/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">NHO：用于锚点区域定位与稠密对应的神经哈密顿算子</span><span class="lang lang-en lang-inline" data-lang="en">NHO: A Neural Hamiltonian Operator for Anchor-based Region Localization and Dense Correspondence</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 14 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Jing Li, Yawei Luo, Xiangze Meng, Ying Li</div>
@@ -81,11 +81,11 @@
   <div class="tags"><span class="tag">非刚性形状对应</span><span class="tag">partial-to-full 匹配</span><span class="tag">神经哈密顿算子</span><span class="tag">内蕴神经场</span><span class="tag">谱定位</span><span class="tag">互惠精化</span><span class="tag">稀疏锚点</span><span class="tag">尺度/旋转鲁棒性</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用稀疏锚点 + 部分形状内蕴几何学一个局部化哈密顿算子，配合算子-对应互惠精化；CUTS&#x27;24 定位 IoU 75.15、F1 85.13，跨尺度/旋转波动仅 0.18/0.35 个百分点，稠密对应误差 6.53（×100）。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">从稀疏锚点做非刚性 partial-to-full 形状对应，需要先在全表面上定位对应区域，再恢复部分形状与该区域之间的稠密对应。NHO 把稀疏锚点与部分形状的内蕴几何结合，学一个神经哈密顿算子，其局部化特征空间同时编码区域支撑与用于稠密对应的内蕴坐标。它把哈密顿势参数化为内蕴神经场，用锚点证据与谱/几何约束优化；为解决稀疏锚点留下的空间歧义，引入算子估计与对应恢复之间的互惠精化：特征空间给出谱坐标并把匹配限制在其…</p><p class="lang lang-en lang-block" data-lang="en">Non-rigid partial-to-full shape correspondence from sparse anchors requires identifying the corresponding region on the full surface and recovering dense correspondences between the partial shape and that regi…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.37048">abs</a><a href="https://arxiv.org/pdf/2609.37048">PDF</a><a href="papers/arxiv-2609.37048/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.37048">abs</a><a href="https://arxiv.org/pdf/2609.37048">PDF</a><a href="../../papers/arxiv-2609.37048/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.38177/index.html"><img src="assets/media/2026-10-02/arxiv-2609.38177/fig-001.webp" alt="Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.38177/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Imagine3D-LLM：让多模态大模型先想象 3D 场景再回答</span><span class="lang lang-en lang-inline" data-lang="en">Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.38177/index.html"><img src="../../assets/media/2026-10-02/arxiv-2609.38177/fig-001.webp" alt="Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.38177/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Imagine3D-LLM：让多模态大模型先想象 3D 场景再回答</span><span class="lang lang-en lang-inline" data-lang="en">Imagine3D-LLM: Teaching MLLMs to Imagine 3D Scenes Before Answering</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 12 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.CL</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Jaewoo Jung, Hyeonseo Yu, Honggyu An, Jisang Han</div>
@@ -93,11 +93,11 @@
   <div class="tags"><span class="tag">多视图 MLLM</span><span class="tag">高斯摘要 token</span><span class="tag">心理重建</span><span class="tag">紧凑 3DGS</span><span class="tag">蒸馏加速</span><span class="tag">物体级分组</span><span class="tag">SPAR-Bench</span><span class="tag">跨视图对应</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>在 MLLM 中插入少量可学高斯拉丁 token 并在中间层解码成紧凑 3DGS，与语言建模联合训练（外加紧凑高斯教师蒸馏加速）；SPAR-Bench 平均 68.5（超 7B 最强基线 5.2 分），SQA3D EM 63.8、Real-3DQA EM 39.2 均刷新。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">从多视图图像推理 3D 世界对多模态大模型（MLLM）仍是根本挑战：它们处理单图有效，却难以把跨视图证据整合成一致的 3D 理解。已有工作靠注入 3D 感知缩小差距，但与人仍有明显距离。本文回到人类空间推理：人类大致识别跨视图共同物体、推断视点间相对几何、再拼出粗略 3D 布局。受此启发，Imagine3D-LLM 让模型学会拼装类似的紧凑 3D 表示并据此作答：在图像 token 后追加少量可学的摘要 token…</p><p class="lang lang-en lang-block" data-lang="en">Reasoning about the 3D world from multi-view images remains a fundamental challenge for Multimodal Large Language Models (MLLMs). While modern MLLMs handle single-image inputs effectively, they struggle to int…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.38177">abs</a><a href="https://arxiv.org/pdf/2609.38177">PDF</a><a href="papers/arxiv-2609.38177/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.38177">abs</a><a href="https://arxiv.org/pdf/2609.38177">PDF</a><a href="../../papers/arxiv-2609.38177/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.37071/index.html"><img src="assets/media/2026-10-02/arxiv-2609.37071/fig-001.webp" alt="Context without Commitment: Robust Dense Correspondence under Non-Rigid Deformation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.37071/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CoCo-Reg：非刚性形变下不设硬承诺的稳健稠密对应</span><span class="lang lang-en lang-inline" data-lang="en">Context without Commitment: Robust Dense Correspondence under Non-Rigid Deformation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.37071/index.html"><img src="../../assets/media/2026-10-02/arxiv-2609.37071/fig-001.webp" alt="Context without Commitment: Robust Dense Correspondence under Non-Rigid Deformation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.37071/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CoCo-Reg：非刚性形变下不设硬承诺的稳健稠密对应</span><span class="lang lang-en lang-inline" data-lang="en">Context without Commitment: Robust Dense Correspondence under Non-Rigid Deformation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Yuzhen He, Sara Homscheid</div>
@@ -105,11 +105,11 @@
   <div class="tags"><span class="tag">非刚性点云配准</span><span class="tag">稠密对应</span><span class="tag">区域上下文</span><span class="tag">多正样本监督</span><span class="tag">sLBP 全局搜索</span><span class="tag">配对统计分析</span><span class="tag">失败率分析</span><span class="tag">ModelNet10</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用区域 patch 信息丰富稠密特征、但不在最终搜索前做硬 patch 剪枝；726 个 ModelNet10 物体上 MCE 0.0547 对 DefTransNet 0.1993（低 72.6%），在 670/726 配对物体上更好，物体级失败率 12.4% 对 53.6%。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">非刚性点云配准要为形变源面上的每个点找到目标点。点级匹配保留完整目标云，但当不同区域局部几何相似时对应会有歧义；区域或粗到细方法提供更大空间上下文，可一次错误的区域匹配会在稠密匹配前排除正确对应。本文提出 CoCo-Reg：用区域 patch 丰富稠密点特征，但不让 patch 预测限制最终的点级搜索。方法构造最远点采样 patch、在源/目标内与之间交换几何信息、用恒等校正的点重叠监督 patch 相似度，再把区…</p><p class="lang lang-en lang-block" data-lang="en">Non-rigid point-cloud registration aims to find the corresponding target point for each point on a deforming source surface. Point-level matching keeps the full target cloud available, but correspondence becom…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.37071">abs</a><a href="https://arxiv.org/pdf/2609.37071">PDF</a><a href="papers/arxiv-2609.37071/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.37071">abs</a><a href="https://arxiv.org/pdf/2609.37071">PDF</a><a href="../../papers/arxiv-2609.37071/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.36753/index.html"><img src="assets/media/2026-10-02/arxiv-2609.36753/fig-001.webp" alt="Degeneracy-Orthogonal Geometric Constraints for LiDAR SLAM" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.36753/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DeCOD：退化走廊里与退化方向正交的 LiDAR SLAM 几何约束</span><span class="lang lang-en lang-inline" data-lang="en">Degeneracy-Orthogonal Geometric Constraints for LiDAR SLAM</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.36753/index.html"><img src="../../assets/media/2026-10-02/arxiv-2609.36753/fig-001.webp" alt="Degeneracy-Orthogonal Geometric Constraints for LiDAR SLAM" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.36753/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DeCOD：退化走廊里与退化方向正交的 LiDAR SLAM 几何约束</span><span class="lang lang-en lang-inline" data-lang="en">Degeneracy-Orthogonal Geometric Constraints for LiDAR SLAM</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 22 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Minseo Kim, Yina Kim, Jinhwa Hwang, Alex Junho Lee</div>
@@ -117,10 +117,10 @@
   <div class="tags"><span class="tag">几何退化</span><span class="tag">纵向漂移</span><span class="tag">横截面地标</span><span class="tag">退化正交描述子</span><span class="tag">几何验证</span><span class="tag">5-DoF 因子</span><span class="tag">管隧巡检</span><span class="tag">回程重访</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>在轴向退化走廊里用与退化方向正交的横截面地标描述子 + 验证式写回约束纵向漂移；GEODE Shield 上 2.4 m 容差精度从 11.7% 提到 95.6%，Shield S10-Beta 位置 RMSE 132.817→4.206 m，自采管道端点误差最高降 99.9%。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">自主机器人导航依赖 SLAM 估计运动并维持准确位姿，但在轴向均匀的走廊（长隧道、管道）中，LiDAR 里程计受限于沿特征贫弱行进方向上不受约束的漂移，这种结构性退化无法只靠局部扫描配准解决。本文提出 Degeneracy-orthogonal Contour Offset Descriptor（DeCOD）：面向横截面地标的结构正交几何描述子。横截面边界（管接头、结构环）能沿退化轴提供度量约束，但区分各个地标需要…</p><p class="lang lang-en lang-block" data-lang="en">Autonomous robot navigation relies on simultaneous localization and mapping (SLAM) to estimate motion and maintain an accurate pose within an environment. However, in axially uniform corridors such as long tun…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.36753">abs</a><a href="https://arxiv.org/pdf/2609.36753">PDF</a><a href="papers/arxiv-2609.36753/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.36753">abs</a><a href="https://arxiv.org/pdf/2609.36753">PDF</a><a href="../../papers/arxiv-2609.36753/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.40085"><img src="assets/media/2026-10-02/arxiv-2609.40085/fig-001.webp" alt="BatSLAM 2.0: Sequence-Verified Sonar Place Recognition in a Robust Pose Graph" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.40085"><img src="../../assets/media/2026-10-02/arxiv-2609.40085/fig-001.webp" alt="BatSLAM 2.0: Sequence-Verified Sonar Place Recognition in a Robust Pose Graph" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.40085"><span class="lang lang-zh lang-inline" data-lang="zh">BatSLAM 2.0：把序列验证的声呐地点识别放进稳健位姿图</span><span class="lang lang-en lang-inline" data-lang="en">BatSLAM 2.0: Sequence-Verified Sonar Place Recognition in a Robust Pose Graph</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-01 · score 22 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO, cs.AI, cs.LG, eess.SY</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -132,7 +132,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.40085">abs</a><a href="https://arxiv.org/pdf/2609.40085">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.39596"><img src="assets/media/2026-10-02/arxiv-2609.39596/fig-001.webp" alt="MVP-SLAM: Multi-Camera Visual-Inertial Floorplan-Prior SLAM" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.39596"><img src="../../assets/media/2026-10-02/arxiv-2609.39596/fig-001.webp" alt="MVP-SLAM: Multi-Camera Visual-Inertial Floorplan-Prior SLAM" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.39596"><span class="lang lang-zh lang-inline" data-lang="zh">MVP-SLAM：多相机视觉惯性 + 楼层平面先验 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">MVP-SLAM: Multi-Camera Visual-Inertial Floorplan-Prior SLAM</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-30 · score 19 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -144,7 +144,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2609.39596">abs</a><a href="https://arxiv.org/pdf/2609.39596">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2609.36545"><img src="assets/media/2026-10-02/arxiv-2609.36545/page-001.webp" alt="SCCM: Spherically Consistent Coarse Matching for ERP Dense Feature Correspondence" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2609.36545"><img src="../../assets/media/2026-10-02/arxiv-2609.36545/page-001.webp" alt="SCCM: Spherically Consistent Coarse Matching for ERP Dense Feature Correspondence" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2609.36545"><span class="lang lang-zh lang-inline" data-lang="zh">SCCM：ERP 全景图的球面一致粗匹配</span><span class="lang lang-en lang-inline" data-lang="en">SCCM: Spherically Consistent Coarse Matching for ERP Dense Feature Correspondence</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 4 · B-层 · Traditional LiDAR/Visual SLAM · cs.CV</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -249,6 +249,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
