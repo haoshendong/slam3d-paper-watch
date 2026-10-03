@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-03/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-10-03</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-10-03/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：19</span><span class="stat">推荐论文：9</span><span class="stat">新论文：19</span><span class="stat">仓库：21</span><span class="stat">新仓库：4</span></div>
 </section>
@@ -36,8 +36,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 19 篇候选中按 S/A 层级与评分推荐前 9 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2609.36940/index.html"><img src="assets/media/2026-10-03/arxiv-2609.36940/fig-001.webp" alt="DispFlow-GS: Displacement Flow Supervision with Motion Disentangling for Monocular Deformable 3D Gaussian Splatting" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.36940/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DispFlow-GS：用位移流监督与运动解耦的单目可形变 3D 高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">DispFlow-GS: Displacement Flow Supervision with Motion Disentangling for Monocular Deformable 3D Gaussian Splatting</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.36940/index.html"><img src="../../assets/media/2026-10-03/arxiv-2609.36940/fig-001.webp" alt="DispFlow-GS: Displacement Flow Supervision with Motion Disentangling for Monocular Deformable 3D Gaussian Splatting" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.36940/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DispFlow-GS：用位移流监督与运动解耦的单目可形变 3D 高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">DispFlow-GS: Displacement Flow Supervision with Motion Disentangling for Monocular Deformable 3D Gaussian Splatting</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 20 · S层 · 3D/4D Spatial Perception · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Thai Duy Nguyen, Haitian Zhang, Addison Lin Wang</div>
@@ -45,11 +45,11 @@
   <div class="tags"><span class="tag">可形变 3DGS</span><span class="tag">位移流监督</span><span class="tag">运动-相机解耦</span><span class="tag">中间视图渲染</span><span class="tag">DRC 指标</span><span class="tag">MMAP</span><span class="tag">NeRF-DS</span><span class="tag">HyperNeRF</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用「位移流」替代「高斯流」做可形变 3DGS 的运动监督，并用中间视图渲染解耦场景/相机运动；NeRF-DS 上 MMAP 提升约 39%、DRC 提升约 6%，而 PSNR 仅变约 0.1%，说明图像指标掩盖了运动建模的差异。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">可形变 3D 高斯泼溅（3DGS）用形变场建模动态场景，近期方法把渲染的高斯流与光流对齐来做运动监督。作者发现这类基于高斯流的监督对运动建模提升有限，根因是渲染高斯流与光流之间存在域差：高斯流只表达 t1 时刻高斯形变累积出的位移，并不建立 t1 到 t2 的像素对应。为此提出位移流（Displacement Flow）：把每个高斯的 3D 位移泼溅到图像平面，给出直接且稳定的优化信号；并用中间视图渲染把场景运动与…</p><p class="lang lang-en lang-block" data-lang="en">Accurate dynamic scene reconstruction is important for robotic perception, where temporally consistent representations of dynamic environments are essential. Deformable 3D Gaussian Splatting (3DGS) models dyna…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.36940">abs</a><a href="https://arxiv.org/pdf/2609.36940">PDF</a><a href="papers/arxiv-2609.36940/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.36940">abs</a><a href="https://arxiv.org/pdf/2609.36940">PDF</a><a href="../../papers/arxiv-2609.36940/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.36520/index.html"><img src="assets/media/2026-10-03/arxiv-2609.36520/fig-001.webp" alt="Distilling Privileged Control Barrier Functions into RGB-Only Safety Filters for Dynamic Visual Navigation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.36520/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">把特权控制屏障函数蒸馏成 RGB-only 安全滤波器用于动态视觉导航</span><span class="lang lang-en lang-inline" data-lang="en">Distilling Privileged Control Barrier Functions into RGB-Only Safety Filters for Dynamic Visual Navigation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.36520/index.html"><img src="../../assets/media/2026-10-03/arxiv-2609.36520/fig-001.webp" alt="Distilling Privileged Control Barrier Functions into RGB-Only Safety Filters for Dynamic Visual Navigation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.36520/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">把特权控制屏障函数蒸馏成 RGB-only 安全滤波器用于动态视觉导航</span><span class="lang lang-en lang-inline" data-lang="en">Distilling Privileged Control Barrier Functions into RGB-Only Safety Filters for Dynamic Visual Navigation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-29 · score 18 · S层 · 3D/4D Spatial Perception · cs.RO, cs.CV, eess.SY</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Seungyeon Yoo, Gawon Lee, Seungwoo Jung, Inkyu Jang</div>
@@ -57,11 +57,11 @@
   <div class="tags"><span class="tag">控制屏障函数</span><span class="tag">RGB-only 安全滤波</span><span class="tag">师生蒸馏</span><span class="tag">特权状态</span><span class="tag">动态高斯泼溅</span><span class="tag">速度不确定性</span><span class="tag">Jetson 部署</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把在动态高斯泼溅仿真里用真值状态的特权 CBF 教师，蒸馏成只用 RGB 历史+速度+名义动作的学生安全滤波器；仿真成功率 74.0%/无碰撞率 86.1%（教师 76.8%/91.5%，未加滤波 48.9%/53.0%），真机 180 回合验证，机载 9.2 ms/次。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">RGB-only 端到端视觉导航策略在真实动态环境里仍易碰撞，需要专门的安全层。已有视觉控制屏障函数（CBF）方法试图从 RGB 观测提供安全，但常依赖实时渲染或显式场景重建，且主要面向静态场景，难以机载部署。论文提出师生式视觉蒸馏：把特权 CBF 教师的安全行为迁移到 RGB-only 学生滤波器。学生把短 RGB 历史、机器人速度与名义控制直接映射为安全动作，教师则在真实的动态高斯泼溅仿真里使用机器人/障碍物真…</p><p class="lang lang-en lang-block" data-lang="en">RGB-only end-to-end visual navigation policies remain vulnerable to collisions in real-world dynamic environments, motivating a dedicated safety layer. Existing visual Control Barrier Function (CBF) approaches…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.36520">abs</a><a href="https://arxiv.org/pdf/2609.36520">PDF</a><a href="papers/arxiv-2609.36520/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.36520">abs</a><a href="https://arxiv.org/pdf/2609.36520">PDF</a><a href="../../papers/arxiv-2609.36520/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.00970/index.html"><img src="assets/media/2026-10-03/arxiv-2610.00970/fig-001.webp" alt="RelationVGGT: Visual Geometry Transformers for 3D Spatial Relation Segmentation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.00970/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RelationVGGT：用视觉几何 Transformer 做 3D 空间关系分割</span><span class="lang lang-en lang-inline" data-lang="en">RelationVGGT: Visual Geometry Transformers for 3D Spatial Relation Segmentation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.00970/index.html"><img src="../../assets/media/2026-10-03/arxiv-2610.00970/fig-001.webp" alt="RelationVGGT: Visual Geometry Transformers for 3D Spatial Relation Segmentation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.00970/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RelationVGGT：用视觉几何 Transformer 做 3D 空间关系分割</span><span class="lang lang-en lang-inline" data-lang="en">RelationVGGT: Visual Geometry Transformers for 3D Spatial Relation Segmentation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-01 · score 15 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.AI</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Minsu Kim, Jaesung Choe, Jiwoo Lee, Yu-Chiang Frank Wang</div>
@@ -69,11 +69,11 @@
   <div class="tags"><span class="tag">3D 基础模型</span><span class="tag">VGGT</span><span class="tag">空间关系分割</span><span class="tag">无位姿多视图</span><span class="tag">关系 Transformer</span><span class="tag">自动化标注</span><span class="tag">DINOv2</span><span class="tag">Pi3</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>前馈、无位姿的多视图 3D 关系分割：融合 DINOv2 语义与 Pi3 几何特征、用关系 Transformer 做主体条件化跨视图预测；三个基准平均 mIoU 0.382、mAcc 0.549（RelationField 0.303/0.480），推理 26 ms 对逐场景优化方法 288 s/查询。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 重建已从逐场景优化走向前馈推理，语义理解也随之跟进，但现有方法局限于物体级感知、忽略物体间空间关系。论文在「前馈、无位姿、多视图」设定下定义 3D 空间关系分割：给定视觉指定的主体与一段关系文本查询，模型跨视图分割出目标，且不给目标类别名。为此提出 RelationVGGT，把视觉基础模型的语义特征与 3D 几何基础模型的几何感知表示融合，并用关系 Transformer 做主体条件化的跨视图关系预测，既不需…</p><p class="lang lang-en lang-block" data-lang="en">Recent advances in 3D reconstruction have progressed from per-scene optimization to feed-forward inference, and semantic scene understanding has followed suit -- yet existing methods remain confined to object-…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.00970">abs</a><a href="https://arxiv.org/pdf/2610.00970">PDF</a><a href="papers/arxiv-2610.00970/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.00970">abs</a><a href="https://arxiv.org/pdf/2610.00970">PDF</a><a href="../../papers/arxiv-2610.00970/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.35311/index.html"><img src="assets/media/2026-10-03/arxiv-2609.35311/fig-001.webp" alt="RoGSW4RLD: Feed-Forward 4D Gaussian Lifting for Robot World Model Rollouts" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.35311/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RoGSW4RLD：把机器人世界模型 rollout 前馈提升为度量 4D 高斯场</span><span class="lang lang-en lang-inline" data-lang="en">RoGSW4RLD: Feed-Forward 4D Gaussian Lifting for Robot World Model Rollouts</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.35311/index.html"><img src="../../assets/media/2026-10-03/arxiv-2609.35311/fig-001.webp" alt="RoGSW4RLD: Feed-Forward 4D Gaussian Lifting for Robot World Model Rollouts" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.35311/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RoGSW4RLD：把机器人世界模型 rollout 前馈提升为度量 4D 高斯场</span><span class="lang lang-en lang-inline" data-lang="en">RoGSW4RLD: Feed-Forward 4D Gaussian Lifting for Robot World Model Rollouts</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-28 · score 15 · S层 · 3D/4D Spatial Perception · cs.CV, cs.RO</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Jin Hyun Kim, Min Young Kim, Soohwan Song, Daekyum Kim</div>
@@ -81,11 +81,11 @@
   <div class="tags"><span class="tag">4D 高斯</span><span class="tag">前馈重建</span><span class="tag">机器人世界模型</span><span class="tag">多相机融合</span><span class="tag">关节几何/FK</span><span class="tag">度量 4D</span><span class="tag">DROID</span><span class="tag">Cosmos 3</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>两阶段前馈把多相机（含机器人腕部相机）rollout 提升为统一度量 4D 高斯场：Stage 1 用关节网格锚定 + FK 条件化形变做联合提升，Stage 2 做保持位移的渲染反馈细化；256 留出 DROID 情节上新视角 PSNR +2.15 dB、AbsRel 0.373→0.197、机器人 EPE 22.2→8.6 mm。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">动作条件视频世界模型能从多相机预测未来机器人交互，但输出仍是互不相干的视频集合，而非跨视角、跨时刻可查询的共享度量场景。已有 4D 重建可把这些预测空间化，但独立重建每条相机流再合并无法保证跨视角一致，尤其在「机器人自带运动相机 + 固定外部相机」时更糟。论文提出 RoGSW4RLD：一个前馈框架，把同步多相机 rollout 提升为统一、可按时查询的度量 4D 高斯场。它不另学几何转换模型，而是直接重建既有世界模…</p><p class="lang lang-en lang-block" data-lang="en">Action-conditioned video world models predict future robot interactions from multiple cameras, yet their outputs remain disparate video collections rather than a shared metric scene queryable across viewpoints…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.35311">abs</a><a href="https://arxiv.org/pdf/2609.35311">PDF</a><a href="papers/arxiv-2609.35311/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.35311">abs</a><a href="https://arxiv.org/pdf/2609.35311">PDF</a><a href="../../papers/arxiv-2609.35311/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.01098/index.html"><img src="assets/media/2026-10-03/arxiv-2610.01098/fig-001.webp" alt="MVDG: Efficient Multi-view 3D Disambiguation on Unconstrained Real-World Images" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.01098/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MVDG：在无约束真实图像上的高效多视图 3D 消歧</span><span class="lang lang-en lang-inline" data-lang="en">MVDG: Efficient Multi-view 3D Disambiguation on Unconstrained Real-World Images</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.01098/index.html"><img src="../../assets/media/2026-10-03/arxiv-2610.01098/fig-001.webp" alt="MVDG: Efficient Multi-view 3D Disambiguation on Unconstrained Real-World Images" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.01098/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MVDG：在无约束真实图像上的高效多视图 3D 消歧</span><span class="lang lang-en lang-inline" data-lang="en">MVDG: Efficient Multi-view 3D Disambiguation on Unconstrained Real-World Images</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-01 · score 14 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Hanyuan Xiao, Gonglin Chen, Haolin Xiong, Wenbin Teng</div>
@@ -93,11 +93,11 @@
   <div class="tags"><span class="tag">3D 基础模型</span><span class="tag">VGGT</span><span class="tag">多视图消歧</span><span class="tag">Doppelgangers</span><span class="tag">SfM 视图图剪枝</span><span class="tag">置信度早退</span><span class="tag">AerialMegaDepth</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>在冻结 VGGT 上做置信度驱动的早退多视图消歧：单次编解码替代 O(n²) 成对比较，VisymScenes Acc 0.9441/F1 0.9457，推理 103.9 ms（Doppelgangers++ 165 ms），早退阈值 0.8 时 0.9503；SfM 大幅提升（Big Ben AUC@10 0.511→0.747）。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">不同但外观相似的 3D 表面之间的「幻影匹配」（doppelgangers）是大规模在野 3D 重建与视觉定位的根本障碍。已有工作用成对分类器缓解，但这限制了多视图上下文推理，并给下游 SfM 带来 O(n²) 推理复杂度。论文提出 MVDG：一个建立在 3D 基础模型 VGGT 上的可扩展多视图消歧框架，可对任意数量的多视图图像联合推理。通过引入 3D 感知的多视图特征，它用单次编解码减少对成对比较的依赖。论文还…</p><p class="lang lang-en lang-block" data-lang="en">Illusory matches between distinct yet visually similar 3D surfaces--doppelgangers--remain a fundamental obstacle for large-scale, in-the-wild 3D reconstruction and visual localization. Prior work mitigates thi…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.01098">abs</a><a href="https://arxiv.org/pdf/2610.01098">PDF</a><a href="papers/arxiv-2610.01098/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.01098">abs</a><a href="https://arxiv.org/pdf/2610.01098">PDF</a><a href="../../papers/arxiv-2610.01098/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.01286/index.html"><img src="assets/media/2026-10-03/arxiv-2610.01286/fig-001.webp" alt="Dyna3: VLM-Guided Training-Free 4D Reconstruction via Depth Foundation Models" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.01286/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Dyna3：用深度基础模型做 VLM 引导的免训练 4D 重建</span><span class="lang lang-en lang-inline" data-lang="en">Dyna3: VLM-Guided Training-Free 4D Reconstruction via Depth Foundation Models</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.01286/index.html"><img src="../../assets/media/2026-10-03/arxiv-2610.01286/fig-001.webp" alt="Dyna3: VLM-Guided Training-Free 4D Reconstruction via Depth Foundation Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.01286/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Dyna3：用深度基础模型做 VLM 引导的免训练 4D 重建</span><span class="lang lang-en lang-inline" data-lang="en">Dyna3: VLM-Guided Training-Free 4D Reconstruction via Depth Foundation Models</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-01 · score 14 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Xinhao Xiang, Weiyang Li, Zhijie Zheng, Abhijeet Rastogi</div>
@@ -105,11 +105,11 @@
   <div class="tags"><span class="tag">深度基础模型</span><span class="tag">Depth Anything 3</span><span class="tag">免训练 4D</span><span class="tag">VLM 引导</span><span class="tag">SAM 3</span><span class="tag">动态物体分割</span><span class="tag">相机位姿</span><span class="tag">内存效率</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>免训练地把深度基础模型 DA3 扩展到 4D：用最佳匹配特征搜索做运动判别 + VLM 生成提示给 SAM3 做实例分割；DAVIS-2016 J-Mean 65.04（VGGT4D 59.50），TUM-dynamics 位姿 2.9× 快/5.3× 省内存，4D 重建 0.70 s/3.74 GB。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">近期深度基础模型（如 Depth Anything 3, DA3）能取得出色的多视图深度估计，但假设静态 3D 场景，限制了在真实动态环境的使用。已有免训练 4D 方法（Easi3R、VGGT4D）依赖「对应关系训练」的骨干，其注意力编码了跨帧匹配，而纯深度模型 DA3 没有这一性质。论文提出 Dyna3：一个免训练框架，无需微调即可把 DA3 扩展到 4D 动态场景重建。关键洞察是 DA3 的跨视图特征虽只为深度…</p><p class="lang lang-en lang-block" data-lang="en">Recent depth foundation models like Depth Anything 3 (DA3) achieve remarkable multi-view depth estimation but assume static 3D scenes, limiting their applicability to real-world dynamic environments. Existing…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.01286">abs</a><a href="https://arxiv.org/pdf/2610.01286">PDF</a><a href="papers/arxiv-2610.01286/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.01286">abs</a><a href="https://arxiv.org/pdf/2610.01286">PDF</a><a href="../../papers/arxiv-2610.01286/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2609.34035/index.html"><img src="assets/media/2026-10-03/arxiv-2609.34035/fig-001.webp" alt="3D Point Tracking with State Space Models" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2609.34035/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">用状态空间模型做度量 3D 点跟踪</span><span class="lang lang-en lang-inline" data-lang="en">3D Point Tracking with State Space Models</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2609.34035/index.html"><img src="../../assets/media/2026-10-03/arxiv-2609.34035/fig-001.webp" alt="3D Point Tracking with State Space Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2609.34035/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">用状态空间模型做度量 3D 点跟踪</span><span class="lang lang-en lang-inline" data-lang="en">3D Point Tracking with State Space Models</span></a></h3>
   <div class="meta">新论文 · 日期 2026-09-28 · score 14 · S层 · 3D/4D Spatial Perception · cs.CV, cs.LG, cs.RO</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Masahiro Ogawa, Qi An, Atsushi Yamashita</div>
@@ -117,11 +117,11 @@
   <div class="tags"><span class="tag">3D 点跟踪</span><span class="tag">状态空间模型</span><span class="tag">Mamba-3</span><span class="tag">度量深度</span><span class="tag">Depth Anything 3</span><span class="tag">单卡预算</span><span class="tag">绝对度量指标</span><span class="tag">TAPVid-3D</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>组合两个冻结前端（稠密光流 + DA3 单目度量深度），只用一个 Mamba-3 状态空间模型学沿射线深度的残差；TAPVid-3D minival 绝对度量 mean metric-AJ 0.256（基线 0.147、DELTA 0.183），refiner 仅加约 11M 参数、6–12 fps。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">在绝对米制（而非未知尺度）下跟踪动态场景的任意点，支撑着 3D/4D 重建、机器人导航与自动驾驶——这些决策以米而非像素为单位。论文目标是：在单张消费级 GPU、无位姿、单目预算下，做到绝对度量准确的 3D 点跟踪器。方法基于一个观察：一旦某点的 2D 图像轨迹固定，决定其度量精度的量就是沿像素射线的深度。于是它不端到端学跟踪，而是组合两个冻结前端——稠密光流做 2D 对应、单目度量深度网络给第三维——只学它们无法…</p><p class="lang lang-en lang-block" data-lang="en">Tracking any point of a dynamic scene in metric 3D - in absolute meters, not up to an unknown scale - underpins 3D and 4D reconstruction, robot navigation, and autonomous driving, where decisions are made in m…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2609.34035">abs</a><a href="https://arxiv.org/pdf/2609.34035">PDF</a><a href="papers/arxiv-2609.34035/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2609.34035">abs</a><a href="https://arxiv.org/pdf/2609.34035">PDF</a><a href="../../papers/arxiv-2609.34035/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.01710/index.html"><img src="assets/media/2026-10-03/arxiv-2610.01710/fig-001.webp" alt="CoEvolve: Construct-to-Edit Visual Grounding with Bidirectional State Refinement" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.01710/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CoEvolve：用双向状态细化实现「构造-编辑」式视觉定位</span><span class="lang lang-en lang-inline" data-lang="en">CoEvolve: Construct-to-Edit Visual Grounding with Bidirectional State Refinement</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.01710/index.html"><img src="../../assets/media/2026-10-03/arxiv-2610.01710/fig-001.webp" alt="CoEvolve: Construct-to-Edit Visual Grounding with Bidirectional State Refinement" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.01710/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CoEvolve：用双向状态细化实现「构造-编辑」式视觉定位</span><span class="lang lang-en lang-inline" data-lang="en">CoEvolve: Construct-to-Edit Visual Grounding with Bidirectional State Refinement</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-01 · score 11 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.AI, cs.CV</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Dongwei Sun, Yujie Zhang, Bowen Yao, Pei Liu</div>
@@ -129,11 +129,11 @@
   <div class="tags"><span class="tag">视觉定位</span><span class="tag">空间推理</span><span class="tag">构造-编辑</span><span class="tag">RER</span><span class="tag">BDR</span><span class="tag">双向重建</span><span class="tag">受控纠正</span><span class="tag">遥感定位</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把视觉定位拆成「显式候选区域构造（RER）+ 坐标字段双向编辑（BDR）」；八 split Overall Acc@0.5 92.41，受控破坏下单次 BDR 把 mIoU 从 58.80% 提到 86.19%、Repair@0.7 87.99%。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">视觉定位用边界框定位语言描述的物体。多数多模态定位模型把目标识别、空间推理与边界估计压缩成一次终端预测；自由形式的推理链虽让推理语言化，却不必然暴露可测量、可编辑的空间状态，于是中间定位误差难以诊断与纠正，错误区域与不准边界会留到最终框。论文提出 CoEvolve，把定位拆成显式的「状态构造」与「状态编辑」：Region-Evolution Reinforcement（RER）把定位分析组织成渐进式语义-空间轨迹，…</p><p class="lang lang-en lang-block" data-lang="en">Visual grounding localizes an object described by language with a bounding box. Most multimodal grounding models compress target identification, spatial reasoning, and boundary estimation into one terminal pre…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.01710">abs</a><a href="https://arxiv.org/pdf/2610.01710">PDF</a><a href="papers/arxiv-2610.01710/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.01710">abs</a><a href="https://arxiv.org/pdf/2610.01710">PDF</a><a href="../../papers/arxiv-2610.01710/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.02091/index.html"><img src="assets/media/2026-10-03/arxiv-2610.02091/fig-001.webp" alt="GeoLatent: Geometry-Guided Latent Structuring with Routed Optimization for 3D Reasoning" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.02091/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GeoLatent：用几何引导的潜在结构化与路由优化做 3D 推理</span><span class="lang lang-en lang-inline" data-lang="en">GeoLatent: Geometry-Guided Latent Structuring with Routed Optimization for 3D Reasoning</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.02091/index.html"><img src="../../assets/media/2026-10-03/arxiv-2610.02091/fig-001.webp" alt="GeoLatent: Geometry-Guided Latent Structuring with Routed Optimization for 3D Reasoning" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.02091/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GeoLatent：用几何引导的潜在结构化与路由优化做 3D 推理</span><span class="lang lang-en lang-inline" data-lang="en">GeoLatent: Geometry-Guided Latent Structuring with Routed Optimization for 3D Reasoning</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-02 · score 10 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV, cs.AI</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Yakun Zhu, Yi Bin, Yujuan Ding, Zheng Wang</div>
@@ -141,7 +141,7 @@
   <div class="tags"><span class="tag">3D 空间推理</span><span class="tag">空间潜在</span><span class="tag">CR-GEO</span><span class="tag">路由优化</span><span class="tag">有效秩</span><span class="tag">潜在读出干预</span><span class="tag">SPAR-Bench</span><span class="tag">Qwen3-VL</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>用 CR-GEO 分离共享/残差教师几何 + 路由优化让答案学习经潜在中介：几何有效秩 1.00→3.87，屏蔽潜在读出方向准确率 89.1%→25.8%，SPAR-Bench 73.0%、SPBench 72.1%、三基准均值 62.8%。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">尽管视觉语言模型进展迅速，从 2D 图像做 3D 空间推理仍困难。文本方法用离散 token 描述中间几何，限制了连续空间关系的保真度；连续潜在表示更丰富，但单一潜在类型不能显式分离不同空间任务所需的线索。分解式空间潜在分别表示位置、方向与全局几何并在几何监督下学习，但几何表示仍会塌缩到某个主导方向，且不受限的注意力会让潜在在答案学习中未被充分利用。论文提出 GeoLatent，结合 Common–Residual…</p><p class="lang lang-en lang-block" data-lang="en">Despite progress in vision-language models, 3D spatial reasoning from 2D images remains challenging. Text-based methods describe intermediate geometry with discrete tokens, limiting fidelity for continuous spa…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.02091">abs</a><a href="https://arxiv.org/pdf/2610.02091">PDF</a><a href="papers/arxiv-2610.02091/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.02091">abs</a><a href="https://arxiv.org/pdf/2610.02091">PDF</a><a href="../../papers/arxiv-2610.02091/index.html">半海报</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -237,6 +237,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
