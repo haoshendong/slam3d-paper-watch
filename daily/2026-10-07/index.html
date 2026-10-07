@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-07/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-10-07</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-10-07/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：4</span><span class="stat">推荐论文：4</span><span class="stat">新论文：4</span><span class="stat">仓库：21</span><span class="stat">新仓库：2</span></div>
 </section>
@@ -36,8 +36,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 4 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2610.05207/index.html"><img src="assets/media/2026-10-07/arxiv-2610.05207/fig-001.webp" alt="F$^2$ SLAM: Turning Feed-Forward Geometry into Persistent Factors for SLAM" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.05207/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">F²SLAM：把前馈几何转化为 SLAM 的持久因子</span><span class="lang lang-en lang-inline" data-lang="en">F$^2$ SLAM: Turning Feed-Forward Geometry into Persistent Factors for SLAM</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.05207/index.html"><img src="../../assets/media/2026-10-07/arxiv-2610.05207/fig-001.webp" alt="F$^2$ SLAM: Turning Feed-Forward Geometry into Persistent Factors for SLAM" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.05207/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">F²SLAM：把前馈几何转化为 SLAM 的持久因子</span><span class="lang lang-en lang-inline" data-lang="en">F$^2$ SLAM: Turning Feed-Forward Geometry into Persistent Factors for SLAM</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-04 · score 14 · S层 · Learning + Geometric Optimization SLAM/VIO · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Zhisong Xu, Fan Zhu, Jiawei Qian, Ziyu Chen</div>
@@ -45,11 +45,11 @@
   <div class="tags"><span class="tag">前馈几何先验</span><span class="tag">持久因子图</span><span class="tag">稠密 bundle adjustment</span><span class="tag">状态一致性门控</span><span class="tag">未标定 SLAM</span><span class="tag">双时间尺度</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把 Flow3r/前馈几何变成稠密 BA 内的 target-weight 因子，与 DROID 式高频跟踪在同一因子图里联合优化，并用状态一致性门控决定低频量测是否刷新；Replica 未标定平均 ATE 0.002 m，7-Scenes 完成度从 0.030 降到 0.015 m。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">前馈 3D 模型提供强多视图几何先验，而在线 SLAM 主要依赖局部量测，长序列会累积漂移。已有把两者结合的做法通常把前馈预测当作‘外部几何状态’，事后与在线估计对齐或融合，从而把更广的多视图证据排除在精化 SLAM 状态的优化器之外。F²SLAM 反过来把前馈几何直接转成‘优化原生的目标-权重量测’，挂到一张持久稠密因子图上：高频流维持局部跟踪约束与图连通性，低频流用更广的多视图上下文在通过状态一致性检查后选择性…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 3D models provide strong multi-view geometric priors, while on- line simultaneous localization and mapping (SLAM) relies mainly on local mea- surements and can accumulate drift over long sequences…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.05207">abs</a><a href="https://arxiv.org/pdf/2610.05207">PDF</a><a href="papers/arxiv-2610.05207/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.05207">abs</a><a href="https://arxiv.org/pdf/2610.05207">PDF</a><a href="../../papers/arxiv-2610.05207/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.05664/index.html"><img src="assets/media/2026-10-07/arxiv-2610.05664/fig-001.webp" alt="StageVLN: Spatial and Trajectory Auxiliary Guidance for Efficient Vision-Language Navigation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.05664/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">StageVLN：面向高效视觉语言导航的空间与轨迹辅助引导</span><span class="lang lang-en lang-inline" data-lang="en">StageVLN: Spatial and Trajectory Auxiliary Guidance for Efficient Vision-Language Navigation</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.05664/index.html"><img src="../../assets/media/2026-10-07/arxiv-2610.05664/fig-001.webp" alt="StageVLN: Spatial and Trajectory Auxiliary Guidance for Efficient Vision-Language Navigation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.05664/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">StageVLN：面向高效视觉语言导航的空间与轨迹辅助引导</span><span class="lang lang-en lang-inline" data-lang="en">StageVLN: Spatial and Trajectory Auxiliary Guidance for Efficient Vision-Language Navigation</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-05 · score 13 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.RO</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Anh Dao, Quan-Dung Pham, Le Danh Vinh, The Anh Nguyen</div>
@@ -57,11 +57,11 @@
   <div class="tags"><span class="tag">视觉语言导航 VLN</span><span class="tag">几何基础模型蒸馏</span><span class="tag">训练期辅助监督</span><span class="tag">VGGT-Ω 教师</span><span class="tag">部署效率</span><span class="tag">具身决策接口</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>训练期用冻结 VGGT-Ω 做多级几何蒸馏 + 相对朝向 + 专家路线进度，部署时只留 Qwen3.5-4B 导航策略；R2R-CE 56.3% SR / 51.4% SPL、RxR-CE 54.3% SR，推理显存 10.24 GiB（比 NaVILA 低 41.4%）。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">视觉语言导航（VLN）策略越来越受益于大型视觉语言模型提供的语义先验，但标准的动作监督并不显式要求中间表征保留场景几何、相对朝向或全局路程进度。在推理阶段引入深度估计、显式地图、点云或几何基础模型可以补上这些结构，却会带来额外算力、显存开销与部署时的架构依赖。StageVLN 是一个训练框架：它用“特权”的空间与轨迹引导塑造导航表征，同时保持原有推理通路不变。一个冻结的几何基础模型对分层导航状态提供多级空间引导，相…</p><p class="lang lang-en lang-block" data-lang="en">Vision-and-Language Navigation (VLN) policies increasingly benefit from strong semantic priors provided by large vision-language models (VLMs). However, standard action supervision does not explicitly encourag…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.05664">abs</a><a href="https://arxiv.org/pdf/2610.05664">PDF</a><a href="papers/arxiv-2610.05664/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.05664">abs</a><a href="https://arxiv.org/pdf/2610.05664">PDF</a><a href="../../papers/arxiv-2610.05664/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.06813/index.html"><img src="assets/media/2026-10-07/arxiv-2610.06813/fig-001.webp" alt="Less Context, Better Geometry: Masked Geometric Encoder for Robust 3D Foundation Models" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.06813/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">更少上下文，更好几何：面向鲁棒 3D 基础模型的掩码几何编码器</span><span class="lang lang-en lang-inline" data-lang="en">Less Context, Better Geometry: Masked Geometric Encoder for Robust 3D Foundation Models</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.06813/index.html"><img src="../../assets/media/2026-10-07/arxiv-2610.06813/fig-001.webp" alt="Less Context, Better Geometry: Masked Geometric Encoder for Robust 3D Foundation Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.06813/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">更少上下文，更好几何：面向鲁棒 3D 基础模型的掩码几何编码器</span><span class="lang lang-en lang-inline" data-lang="en">Less Context, Better Geometry: Masked Geometric Encoder for Robust 3D Foundation Models</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-06 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Zhimin Shao, Xijun Liu, Zhaoliang Zhang, Yutao Tang</div>
@@ -69,11 +69,11 @@
   <div class="tags"><span class="tag">3D 基础模型</span><span class="tag">跨视角注意力掩码</span><span class="tag">自蒸馏</span><span class="tag">token 合并</span><span class="tag">遮挡鲁棒性</span><span class="tag">doppelganger 歧义</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>训练时随机掩掉帧间全局注意力（Bernoulli 掩码率 ρ），向冻结全上下文教师 π³ 做特征+几何双级自蒸馏；推理期用锚帧引导的自适应 token 合并。遮挡大场景下点精度误差仅增 48%（VGGT/π³ 分别 +119%/+128%），8 万级歧义基准 cross-pair 位姿最优。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 基础模型的进展使快速三维重建与相机标定成为可能，它们依赖从大量空间数据中学到的 3D 先验。但 all-to-all 全局注意力带来二次复杂度并限制长序列推理；不受约束的跨视角交互还会把来自被遮挡或‘外观相似但几何相距甚远’视角的不可靠证据传播出去。本文提出掩码几何编码器（MGE）：在训练时从全局注意力中策略性地丢弃帧 token，并向一个预训练的全上下文教师模型做蒸馏，从而在“不完整的跨视角上下文”下学到更…</p><p class="lang lang-en lang-block" data-lang="en">Recent progress in 3D foundation models has enabled rapid 3D reconstruction and camera calibration by leveraging learned 3D priors from vast amount of spatial data. However, the all-to-all global attention des…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.06813">abs</a><a href="https://arxiv.org/pdf/2610.06813">PDF</a><a href="papers/arxiv-2610.06813/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.06813">abs</a><a href="https://arxiv.org/pdf/2610.06813">PDF</a><a href="../../papers/arxiv-2610.06813/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.05757/index.html"><img src="assets/media/2026-10-07/arxiv-2610.05757/fig-001.webp" alt="Human-in-the-Loop Neuro-Symbolic Drift Anticipation for Reliable Visual SLAM" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.05757/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">人在回路神经符号漂移预判：面向可靠视觉 SLAM 的监督层</span><span class="lang lang-en lang-inline" data-lang="en">Human-in-the-Loop Neuro-Symbolic Drift Anticipation for Reliable Visual SLAM</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.05757/index.html"><img src="../../assets/media/2026-10-07/arxiv-2610.05757/fig-001.webp" alt="Human-in-the-Loop Neuro-Symbolic Drift Anticipation for Reliable Visual SLAM" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.05757/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">人在回路神经符号漂移预判：面向可靠视觉 SLAM 的监督层</span><span class="lang lang-en lang-inline" data-lang="en">Human-in-the-Loop Neuro-Symbolic Drift Anticipation for Reliable Visual SLAM</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-05 · score 14 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Junhyun Nam, Wonse Jo</div>
@@ -81,7 +81,7 @@
   <div class="tags"><span class="tag">视觉 SLAM 漂移</span><span class="tag">神经符号推理</span><span class="tag">人在回路 HITL</span><span class="tag">LLM 符号桥</span><span class="tag">早期预警率 EWR</span><span class="tag">决策级监督</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>概念框架：PSD+RTS 特征经 DNN 给风险，LLM 把专家语言翻成符号规则，LNN 融合规则与硬件护栏得分，仅做决策级监督、不改位姿；EuRoC MH_04 上平均预警 6.2 s（DeepSEE 2.4 s），良标注下 EWR 峰值 91.5%。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">数据驱动模型有预测能力，但其‘黑箱’特性在分布外（OOD）环境常产生物理上不一致的输出。本文提出 Hybrid DeepSEE（HDS），一个用于视觉 SLAM 漂移主动预判的人在回路（HITL）神经符号框架：把神经漂移风险估计与符号约束推理结合，并用大语言模型作为推理桥梁，把人类的定性上下文翻译成可解释的符号约束。框架在常规 V-SLAM 估计器之上增加一个约束感知的监督层，实时监控漂移风险并在预定义约束下评估一…</p><p class="lang lang-en lang-block" data-lang="en">This paper introduces Hybrid DeepSEE (HDS), a Human-in-the-Loop (HITL) neuro-symbolic framework for proactive drift anticipation in Visual SLAM (V-SLAM). While data-driven models offer predictive power, their…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.05757">abs</a><a href="https://arxiv.org/pdf/2610.05757">PDF</a><a href="papers/arxiv-2610.05757/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.05757">abs</a><a href="https://arxiv.org/pdf/2610.05757">PDF</a><a href="../../papers/arxiv-2610.05757/index.html">半海报</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -177,6 +177,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
