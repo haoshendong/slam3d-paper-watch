@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="../../assets/app.css">
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-09/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
@@ -20,7 +20,7 @@
     <div class="meta">静态网页 · 2026-10-09</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-10-09/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
   </div>
   <div class="stats"><span class="stat">候选论文：5</span><span class="stat">推荐论文：5</span><span class="stat">新论文：5</span><span class="stat">仓库：20</span><span class="stat">新仓库：4</span></div>
 </section>
@@ -36,8 +36,8 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 5 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2610.09173/index.html"><img src="assets/media/2026-10-09/arxiv-2610.09173/fig-001.webp" alt="RDGSplat: Render-Dedicated Geometry for Novel View Synthesis" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.09173/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RDGSplat：面向新视角合成的渲染专用几何</span><span class="lang lang-en lang-inline" data-lang="en">RDGSplat: Render-Dedicated Geometry for Novel View Synthesis</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.09173/index.html"><img src="../../assets/media/2026-10-09/arxiv-2610.09173/fig-001.webp" alt="RDGSplat: Render-Dedicated Geometry for Novel View Synthesis" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.09173/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RDGSplat：面向新视角合成的渲染专用几何</span><span class="lang lang-en lang-inline" data-lang="en">RDGSplat: Render-Dedicated Geometry for Novel View Synthesis</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-07 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Zhijie Zheng, Xinhao Xiang, Jiawei Zhang</div>
@@ -45,11 +45,11 @@
   <div class="tags"><span class="tag">3D 基础模型</span><span class="tag">渲染专用几何</span><span class="tag">冻结骨干双趟评估</span><span class="tag">复制解码器</span><span class="tag">目标位姿条件适配器</span><span class="tag">度量预测保持</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>从冻结 3D 基础模型中解码出第二套“渲染专用几何”：用复制解码器（RDGD）在纯光度监督下重定位高斯图元，再用目标位姿条件适配器（TCA）在残差流内让表示依赖被渲染视角；四基准三骨干全部提升（WM2.0 RE10K 20.918→24.266 dB），同时度量深度/位姿逐位不变，仅训练 205.5 M 参数（14.7%）。</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 基础模型通过在重建所用表示上挂一个高斯头来实现高效新视角合成；但它们渲染出的视角达不到其恢复的几何质量，因为该几何是在度量目标下估计、从未按渲染效果被评分。近期方法通过更新骨干权重来缓解，却因此丢弃了模型原本擅长的度量预测，且每换一个骨干都要重做。为此，本文提出 RDGSplat：从冻结的 3D 基础模型中解码出第二套“渲染专用几何”，同时保持其度量预测不变。具体地，作者设计渲染专用几何解码（Render-D…</p><p class="lang lang-en lang-block" data-lang="en">3D foundation models enable efficient novel view synthesis by carrying a Gaussian head on the representation they already use for reconstruction. However, the views they render fall short of the geometry they…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.09173">abs</a><a href="https://arxiv.org/pdf/2610.09173">PDF</a><a href="papers/arxiv-2610.09173/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.09173">abs</a><a href="https://arxiv.org/pdf/2610.09173">PDF</a><a href="../../papers/arxiv-2610.09173/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.10181/index.html"><img src="assets/media/2026-10-09/arxiv-2610.10181/fig-001.webp" alt="Argos: Adapt Rich Geometric Priors for Generalizable Online Scene-Change-Detection" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.10181/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Argos：适配丰富几何先验的通用在线场景变化检测</span><span class="lang lang-en lang-inline" data-lang="en">Argos: Adapt Rich Geometric Priors for Generalizable Online Scene-Change-Detection</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.10181/index.html"><img src="../../assets/media/2026-10-09/arxiv-2610.10181/fig-001.webp" alt="Argos: Adapt Rich Geometric Priors for Generalizable Online Scene-Change-Detection" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.10181/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Argos：适配丰富几何先验的通用在线场景变化检测</span><span class="lang lang-en lang-inline" data-lang="en">Argos: Adapt Rich Geometric Priors for Generalizable Online Scene-Change-Detection</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-07 · score 5 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
   <div class="meta">作者：Ruihan Xu, Jiae Yoon, Kaichen Zhou, Ue-Hwan Kim</div>
@@ -57,11 +57,11 @@
   <div class="tags"><span class="tag">几何基础模型</span><span class="tag">场景变化检测</span><span class="tag">共视感知跨 session 比较</span><span class="tag">VGGT-Ω 冻结骨干</span><span class="tag">change-aware 4D 建图</span><span class="tag">实时 SLAM 系统</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>把几何基础模型 VGGT-Ω 的隐式 3D 特征通过“共视感知的跨 session 比较器”（相机读取器 + 跨 session 交叉注意力 + DPT 融合头）适配到“两趟未定位 RGB 观测”的变化检测与重建；自建 Argos-CD 等基准上变化 IoU 最多 +42.01%、F1 +27.91%，并接入 VGGT-SLAM 形成实时 change-aware 4D 建图…</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">在动态环境中运行的机器人需要可靠地检测周围环境随时间如何变化。现有基于学习的方法大多依赖成对 2D 图像特征，在大视角变化和遮挡下表现不佳、对噪声敏感、跨域泛化有限；而显式 3D 方法通常需要昂贵的离线优化。本文表明，几何基础模型（Geometric Foundation Models, GFM）的隐式 3D 知识为解决这些限制提供了坚实基础。作者提出 Argos，适配 GFM 特征以联合完成场景变化检测与 3D…</p><p class="lang lang-en lang-block" data-lang="en">Robots operating in dynamic environments require reliable detection of how their surroundings change over time. Existing learning-based methods largely rely on pairwise 2D image features, which struggle under…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.10181">abs</a><a href="https://arxiv.org/pdf/2610.10181">PDF</a><a href="papers/arxiv-2610.10181/index.html">完整单篇海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.10181">abs</a><a href="https://arxiv.org/pdf/2610.10181">PDF</a><a href="../../papers/arxiv-2610.10181/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.09857/index.html"><img src="assets/media/2026-10-09/arxiv-2610.09857/fig-001.webp" alt="Towards Accurate End-Effector Localization for UMI-Style Robotic Manipulation Teaching" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.09857/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向 UMI 式机器人操作示教的末端执行器精确定位：MILD 基准与 AprilVINS</span><span class="lang lang-en lang-inline" data-lang="en">Towards Accurate End-Effector Localization for UMI-Style Robotic Manipulation Teaching</span></a></h3>
+  <a class="thumb" href="../../papers/arxiv-2610.09857/index.html"><img src="../../assets/media/2026-10-09/arxiv-2610.09857/fig-001.webp" alt="Towards Accurate End-Effector Localization for UMI-Style Robotic Manipulation Teaching" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.09857/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向 UMI 式机器人操作示教的末端执行器精确定位：MILD 基准与 AprilVINS</span><span class="lang lang-en lang-inline" data-lang="en">Towards Accurate End-Effector Localization for UMI-Style Robotic Manipulation Teaching</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-07 · score 10 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
   <div class="meta">内容级别：半海报</div>
   <div class="meta">作者：Junjie Zhang, Deteng Zhang, Zhisong Xu, Bo Sun</div>
@@ -69,10 +69,10 @@
   <div class="tags"><span class="tag">操作接口定位</span><span class="tag">鱼眼视觉惯性里程计</span><span class="tag">AprilTag 辅助 VIO</span><span class="tag">序列局部标记几何</span><span class="tag">先验准入与导出守护</span><span class="tag">示教回放容差</span></div>
   <p class="insight"><strong>一句话工作总结：</strong>提出近距操作接口定位基准 MILD（86 段真实序列 / 15 类桌面任务 / 三种工作空间变体 + Isaac Sim 子集）与 AprilTag 辅助鱼眼 VIO 系统 AprilVINS；后者在无预测绘标记地图下把序列局部 tag 先验准入滑窗并守护导出，AprilTag4 上 TCP 相对 APE RMSE 达 2–10 mm（无标记 VIO 为 30–80 mm），…</p>
   <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">为机器人示教学习恢复末端执行器轨迹，需要定位在夹爪接近物体、遮挡相机并与工作空间交互时保持准确且时间完整。现有 SLAM 基准侧重导航运动，而操作数据集更关注策略学习而非定位评估。作者提出 MILD——一个含真实与仿真序列的操作接口定位数据集。真实子集提供来自 Insta360 X5 与 Insight9 的 86 段传感器序列、覆盖 15 个重复桌面任务、标定资产与逐次执行的机器人末端参考轨迹；仿真子集 MILD…</p><p class="lang lang-en lang-block" data-lang="en">Robot demonstration learning requires accurate and temporally complete end-effector localization during close-range manipulation and camera occlusion. Existing SLAM benchmarks emphasize navigation motions, whe…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.09857">abs</a><a href="https://arxiv.org/pdf/2610.09857">PDF</a><a href="papers/arxiv-2610.09857/index.html">半海报</a></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.09857">abs</a><a href="https://arxiv.org/pdf/2610.09857">PDF</a><a href="../../papers/arxiv-2610.09857/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2610.07217"><img src="assets/media/2026-10-09/arxiv-2610.07217/fig-001.webp" alt="RoboCap: A New Platform for Egocentric Robot Learning" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2610.07217"><img src="../../assets/media/2026-10-09/arxiv-2610.07217/fig-001.webp" alt="RoboCap: A New Platform for Egocentric Robot Learning" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2610.07217"><span class="lang lang-zh lang-inline" data-lang="zh">RoboCap：面向第一视角机器人学习的新平台</span><span class="lang lang-en lang-inline" data-lang="en">RoboCap: A New Platform for Egocentric Robot Learning</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-06 · score 7 · A-层 · Real-time / GPU Robotics Systems · cs.RO, cs.AI, cs.CV, cs.HC</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -84,7 +84,7 @@
   <div class="links"><a href="https://arxiv.org/abs/2610.07217">abs</a><a href="https://arxiv.org/pdf/2610.07217">PDF</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2610.07788"><img src="assets/media/2026-10-09/arxiv-2610.07788/fig-001.webp" alt="Image-Space Refraction Correction for Underwater 3D Reconstruction: Warping Flat-Port Views into Pinhole Perspective" loading="lazy"></a>
+  <a class="thumb" href="https://arxiv.org/abs/2610.07788"><img src="../../assets/media/2026-10-09/arxiv-2610.07788/fig-001.webp" alt="Image-Space Refraction Correction for Underwater 3D Reconstruction: Warping Flat-Port Views into Pinhole Perspective" loading="lazy"></a>
   <h3><a href="https://arxiv.org/abs/2610.07788"><span class="lang lang-zh lang-inline" data-lang="zh">面向水下 3D 重建的图像空间折射校正：把平口视角映射为针孔透视</span><span class="lang lang-en lang-inline" data-lang="en">Image-Space Refraction Correction for Underwater 3D Reconstruction: Warping Flat-Port Views into Pinhole Perspective</span></a></h3>
   <div class="meta">新论文 · 日期 2026-10-06 · score 13 · B-层 · Traditional LiDAR/Visual SLAM · cs.CV</div>
   <div class="meta">内容级别：简报式摘要</div>
@@ -185,6 +185,6 @@
 
 <footer>静态站点 · 每日自动生成</footer>
 </main>
-<script src="assets/app.js"></script>
+<script src="../../assets/app.js"></script>
 </body>
 </html>
