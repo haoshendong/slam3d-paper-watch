@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
-  <title>Daily Paper Reader 2026-10-09</title>
+  <title>Daily Paper Reader 2026-10-13</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
@@ -12,88 +12,112 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-09/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-13/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="meta">静态网页 · 2026-10-09</div>
+    <div class="meta">静态网页 · 2026-10-13</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-10-09/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="daily/2026-10-13/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：5</span><span class="stat">推荐论文：5</span><span class="stat">新论文：5</span><span class="stat">仓库：20</span><span class="stat">新仓库：4</span></div>
+  <div class="stats"><span class="stat">候选论文：14</span><span class="stat">推荐论文：7</span><span class="stat">新论文：14</span><span class="stat">仓库：22</span><span class="stat">新仓库：6</span></div>
 </section>
 <section class="section brief"><h2>今日概览</h2><ul>
-<li><strong>结论先行</strong>：今日论文侧最大看点集中在 S 级两篇“<strong>几何基础模型作为可复用几何先验</strong>”——<code>Argos</code>（把 VGGT-Ω 的隐式几何特征直接当作跨 session 变化描述子，并接成实时 change-aware 4D 建图）与 <code>RDGSplat</code>（从冻结 3D 基础模型解码第二套“渲染专用几何”，在不改任何预训练权重的前提下提升新视角合成）。两篇都给出“冻结骨干 + 轻量新增模块”的干净设计与可核验数字，正对用户“几何先验 + 可靠性/可解释性”主线。</li>
-<li><strong>论文侧数字</strong>：<code>papers_total=5</code>、<code>papers_new=5</code>、<code>papers_seen_filtered=7</code>、<code>papers_fetched_total=12</code>。<strong>推荐论文 5 篇</strong>（落在 5–10 区间，未凑数展开靠后候选）。仓库侧 <code>repos_total=20</code>、<code>repos_new=4</code>。</li>
-<li><strong>重复过滤说明</strong>：<code>papers_seen_filtered=7</code>，即 7 篇历史命中论文按“近 7 天推荐清单”去重，<strong>未作为“跟踪/更新”补进重点推荐</strong>；今日全部推荐来自 <code>is_new=true</code> 的 5 篇。</li>
-<li><strong>医疗/生物医学过滤</strong>：今日 5 篇新增论文与 4 个新增仓库<strong>均无医疗/临床主题命中</strong>，无需按规则剔除（已用 <code>is_medical_paper</code> 复核，零命中）。</li>
-<li><strong>层级复核说明</strong>：采集器只对 <code>RDGSplat</code> 自动判级（S）；其余 4 篇标题未命中关键词、<code>priority_tier</code> 留空，已按 <code>docs/deep_read_workflow.md</code> 与当日 tier-review 脚本 <code>scripts/apply_overrides_20261009.py</code> 人工复核归类为 Argos=S、MILD/AprilVINS=A、RoboCap=A-、水下折射校正=B-（复核理由均写入 <code>candidates.json</code> 的 <code>tier_review_note</code>）。</li>
-<li><strong>采集缺口</strong>：arXiv 有 <strong>2 个聚合查询失败</strong>（均 <code>HTTP 429</code>）：<code>4D reconstruction / dynamic scene / scene flow / 4D Gaussian</code> 一路，以及 <code>embodied navigation / VLN / spatial reasoning / robot world model / GNSS</code> 一路（各 1 次尝试、无重试）。这覆盖 S 级“3D/4D 表征”与 A 级“具身导航/世界模型”两路，故今日这两路命中偏少需结合该缺口理解，<strong>明日应关注是否补齐</strong>。GitHub 查询（8 个）未报告失败。</li>
-<li><strong>流程约束</strong>：未创建、修改或递归调度任何 cron job；未改动既有采集脚本，只新增当日取源/生成/校验脚本。</li>
+<li><strong>结论先行</strong>：今天最值得读的不是某一篇论文，而是两个“可迁移机制”——其一是 <strong>S 级 <code>Make It Flow</code></strong> 把「2D 光流 → 3D 欧拉运动场 → 高斯体积感知形变」这条“把视角相关观测提升为视角无关场”的链路做干净了（7 场景平均 333 FPS / 3.8 GiB，预处理约 55 s，运动场约 2 MB）；其二是 <strong>A 级 <code>PriMoRetarget</code></strong> 用「优先级层级 + 零空间投影」替代难调的加权多目标，把足部落点与接触保持变成硬优先级（Inter-X 接触保持 78.8% vs 最佳基线 35.2%）。这两条都直接对应你“融合/约束如何取舍、先验如何安全吸收”的主线。</li>
+<li><strong>论文池结构（受缺口影响）</strong>：3DGS/渲染相关 4 篇（Make It Flow、H2-Ray、SplatQ、Confidence-Aware Densification），约束优化/具身决策 2 篇（CASTER、PriMoRetarget），空间音频驱动 4D 人体动作 1 篇（Sonic-AMG）。<strong>今天没有任何一篇属于“几何基础模型 / 学习+几何优化 SLAM/VIO”</strong>——不是这类工作消失，而是对应查询全部失败。</li>
+<li><strong>论文侧数字</strong>：<code>papers_total=14</code>、<code>papers_new=14</code>、<code>papers_seen_filtered=0</code>、<code>papers_fetched_total=14</code>；推荐 7 篇。</li>
+<li><strong>重复过滤说明</strong>：<code>papers_seen_filtered=0</code>，今日<strong>没有</strong>历史重复需过滤，故不存在“把旧论文当跟踪更新”的情况；7 篇推荐全部为 <code>is_new=true</code>。</li>
+<li><strong>医疗/生物医学过滤</strong>：关键词过滤<strong>零命中</strong>（<code>is_medical_paper</code> 全量复核），但按“医疗/临床方向”规则<strong>手动排除 1 篇</strong>——<code>arxiv:2610.12631</code>《Image-Based Path-Planning for Navigation of Soft-Growing Robots in the Spinal Sub-Arachnoid Space》（软体生长机器人于人体脊髓蛛网膜下腔内做路径规划，涉及微创手术/给药与人体组织保护）。该篇不进推荐、不进翻译、不进媒体。</li>
+<li><strong>层级复核说明</strong>：采集器只对 4 篇自动判级（Make It Flow=S、SplatQ=B、Confidence-Aware=B、H2-Ray=B），其余留空或需调整。人工复核为：CASTER=A、PriMoRetarget=A、Sonic-AMG=A-、H2-Ray 由 B 上调为 A-（渲染硬件/GPU 系统侧）；另有 7 篇 <code>eess.SP</code>/电网/遥感/集群项按“偏离主轴”归为 C 级观察、不进推荐。理由已写入 <code>data/2026-10-13/candidates.json</code> 的 <code>tier_review_note</code> / <code>off_axis_note</code> / <code>exclusion_reason</code>。</li>
+<li><strong>流程约束</strong>：未创建、修改或递归调度任何 cron job；未改动既有采集脚本，只新增当日取源/复核/生成/校验脚本。</li>
 </ul></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 5 篇论文。</p></div>
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 14 篇候选中按 S/A 层级与评分推荐前 7 篇；靠后候选不在网页中展开。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2610.09173/index.html"><img src="assets/media/2026-10-09/arxiv-2610.09173/fig-001.webp" alt="RDGSplat: Render-Dedicated Geometry for Novel View Synthesis" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.09173/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RDGSplat：面向新视角合成的渲染专用几何</span><span class="lang lang-en lang-inline" data-lang="en">RDGSplat: Render-Dedicated Geometry for Novel View Synthesis</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-07 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <a class="thumb" href="papers/arxiv-2610.13860/index.html"><img src="assets/media/2026-10-13/arxiv-2610.13860/fig-001.webp" alt="Make It Flow: Animating Water in 3D Gaussian Splatting Scenes" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2610.13860/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Make It Flow：在静态 3D 高斯溅射场景中给水做动画</span><span class="lang lang-en lang-inline" data-lang="en">Make It Flow: Animating Water in 3D Gaussian Splatting Scenes</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-12 · score 20 · S层 · 3D/4D Spatial Perception · cs.CV, cs.GR</div>
   <div class="meta">内容级别：完整单篇海报</div>
-  <div class="meta">作者：Zhijie Zheng, Xinhao Xiang, Jiawei Zhang</div>
-  <span class="score">评分 11/10</span>
-  <div class="tags"><span class="tag">3D 基础模型</span><span class="tag">渲染专用几何</span><span class="tag">冻结骨干双趟评估</span><span class="tag">复制解码器</span><span class="tag">目标位姿条件适配器</span><span class="tag">度量预测保持</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>从冻结 3D 基础模型中解码出第二套“渲染专用几何”：用复制解码器（RDGD）在纯光度监督下重定位高斯图元，再用目标位姿条件适配器（TCA）在残差流内让表示依赖被渲染视角；四基准三骨干全部提升（WM2.0 RE10K 20.918→24.266 dB），同时度量深度/位姿逐位不变，仅训练 205.5 M 参数（14.7%）。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 基础模型通过在重建所用表示上挂一个高斯头来实现高效新视角合成；但它们渲染出的视角达不到其恢复的几何质量，因为该几何是在度量目标下估计、从未按渲染效果被评分。近期方法通过更新骨干权重来缓解，却因此丢弃了模型原本擅长的度量预测，且每换一个骨干都要重做。为此，本文提出 RDGSplat：从冻结的 3D 基础模型中解码出第二套“渲染专用几何”，同时保持其度量预测不变。具体地，作者设计渲染专用几何解码（Render-D…</p><p class="lang lang-en lang-block" data-lang="en">3D foundation models enable efficient novel view synthesis by carrying a Gaussian head on the representation they already use for reconstruction. However, the views they render fall short of the geometry they…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.09173">abs</a><a href="https://arxiv.org/pdf/2610.09173">PDF</a><a href="papers/arxiv-2610.09173/index.html">完整单篇海报</a></div>
+  <div class="meta">作者：Kjell Keune, Florian Hahlbohm, Jannis M\&quot;oller, Susana Castillo, Martin Eisemann, Marcus Magnor</div>
+  <span class="score">评分 20/10</span>
+  <div class="tags"><span class="tag">3D 高斯溅射</span><span class="tag">3D 欧拉运动场</span><span class="tag">多视角重投影融合</span><span class="tag">无迹变换形变</span><span class="tag">对称循环动画</span><span class="tag">实时渲染</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把 2D 光流经深度重投影提升为体素 3D 欧拉运动场（静态/动态命中比与视角命中阈值做细化），再用 7 个 sigma 点的无迹变换以体积感知方式形变高斯图元，配合前/后向对称动画 + sin² 不透明度调度 + 逐高斯随机相位得到无缝循环；7 场景数据集上平均 333 FPS / 3.8 GiB（静态 3DGS 416 FPS / 2.0 GiB），预处理约 55 s，运…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 高斯溅射（3DGS）等显式 3D 场景表示近期实现了高质量实时新视角合成，但这类方法假设场景是静态的，难以表现真实环境中普遍存在的动态现象。有规律的运动（如人或车辆）可以被采集与重建，而流水这类高频效果在随手拍摄条件下仍难以处理——因为无法进行密集多视角、高速采集。本文提出一种在静态 3DGS 场景中为水做动画的方法：不依赖动态采集，也不做物理仿真，仅生成视觉上合理的运动。方法从参考图像或模型渲染图中估计 2…</p><p class="lang lang-en lang-block" data-lang="en">Explicit 3D scene representations such as 3D Gaussian Splatting (3DGS) have recently enabled high-quality, real-time novel view synthesis. However, these methods assume static scenes, limiting realism in the p…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.13860">abs</a><a href="https://arxiv.org/pdf/2610.13860">PDF</a><a href="papers/arxiv-2610.13860/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.10181/index.html"><img src="assets/media/2026-10-09/arxiv-2610.10181/fig-001.webp" alt="Argos: Adapt Rich Geometric Priors for Generalizable Online Scene-Change-Detection" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.10181/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Argos：适配丰富几何先验的通用在线场景变化检测</span><span class="lang lang-en lang-inline" data-lang="en">Argos: Adapt Rich Geometric Priors for Generalizable Online Scene-Change-Detection</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-07 · score 5 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
-  <div class="meta">内容级别：完整单篇海报</div>
-  <div class="meta">作者：Ruihan Xu, Jiae Yoon, Kaichen Zhou, Ue-Hwan Kim</div>
-  <span class="score">评分 5/10</span>
-  <div class="tags"><span class="tag">几何基础模型</span><span class="tag">场景变化检测</span><span class="tag">共视感知跨 session 比较</span><span class="tag">VGGT-Ω 冻结骨干</span><span class="tag">change-aware 4D 建图</span><span class="tag">实时 SLAM 系统</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>把几何基础模型 VGGT-Ω 的隐式 3D 特征通过“共视感知的跨 session 比较器”（相机读取器 + 跨 session 交叉注意力 + DPT 融合头）适配到“两趟未定位 RGB 观测”的变化检测与重建；自建 Argos-CD 等基准上变化 IoU 最多 +42.01%、F1 +27.91%，并接入 VGGT-SLAM 形成实时 change-aware 4D 建图…</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">在动态环境中运行的机器人需要可靠地检测周围环境随时间如何变化。现有基于学习的方法大多依赖成对 2D 图像特征，在大视角变化和遮挡下表现不佳、对噪声敏感、跨域泛化有限；而显式 3D 方法通常需要昂贵的离线优化。本文表明，几何基础模型（Geometric Foundation Models, GFM）的隐式 3D 知识为解决这些限制提供了坚实基础。作者提出 Argos，适配 GFM 特征以联合完成场景变化检测与 3D…</p><p class="lang lang-en lang-block" data-lang="en">Robots operating in dynamic environments require reliable detection of how their surroundings change over time. Existing learning-based methods largely rely on pairwise 2D image features, which struggle under…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.10181">abs</a><a href="https://arxiv.org/pdf/2610.10181">PDF</a><a href="papers/arxiv-2610.10181/index.html">完整单篇海报</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2610.09857/index.html"><img src="assets/media/2026-10-09/arxiv-2610.09857/fig-001.webp" alt="Towards Accurate End-Effector Localization for UMI-Style Robotic Manipulation Teaching" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.09857/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">面向 UMI 式机器人操作示教的末端执行器精确定位：MILD 基准与 AprilVINS</span><span class="lang lang-en lang-inline" data-lang="en">Towards Accurate End-Effector Localization for UMI-Style Robotic Manipulation Teaching</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-07 · score 10 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
+  <a class="thumb" href="papers/arxiv-2610.12567/index.html"><img src="assets/media/2026-10-13/arxiv-2610.12567/fig-001.webp" alt="CASTER: Formalizing Zero-Shot Manipulation from Synthetic Videos as Constrained Optimization" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2610.12567/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CASTER：把“从合成视频做零样本操作”形式化为约束优化</span><span class="lang lang-en lang-inline" data-lang="en">CASTER: Formalizing Zero-Shot Manipulation from Synthetic Videos as Constrained Optimization</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-12 · score 4 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV</div>
   <div class="meta">内容级别：半海报</div>
-  <div class="meta">作者：Junjie Zhang, Deteng Zhang, Zhisong Xu, Bo Sun</div>
-  <span class="score">评分 10/10</span>
-  <div class="tags"><span class="tag">操作接口定位</span><span class="tag">鱼眼视觉惯性里程计</span><span class="tag">AprilTag 辅助 VIO</span><span class="tag">序列局部标记几何</span><span class="tag">先验准入与导出守护</span><span class="tag">示教回放容差</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>提出近距操作接口定位基准 MILD（86 段真实序列 / 15 类桌面任务 / 三种工作空间变体 + Isaac Sim 子集）与 AprilTag 辅助鱼眼 VIO 系统 AprilVINS；后者在无预测绘标记地图下把序列局部 tag 先验准入滑窗并守护导出，AprilTag4 上 TCP 相对 APE RMSE 达 2–10 mm（无标记 VIO 为 30–80 mm），…</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">为机器人示教学习恢复末端执行器轨迹，需要定位在夹爪接近物体、遮挡相机并与工作空间交互时保持准确且时间完整。现有 SLAM 基准侧重导航运动，而操作数据集更关注策略学习而非定位评估。作者提出 MILD——一个含真实与仿真序列的操作接口定位数据集。真实子集提供来自 Insta360 X5 与 Insight9 的 86 段传感器序列、覆盖 15 个重复桌面任务、标定资产与逐次执行的机器人末端参考轨迹；仿真子集 MILD…</p><p class="lang lang-en lang-block" data-lang="en">Robot demonstration learning requires accurate and temporally complete end-effector localization during close-range manipulation and camera occlusion. Existing SLAM benchmarks emphasize navigation motions, whe…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.09857">abs</a><a href="https://arxiv.org/pdf/2610.09857">PDF</a><a href="papers/arxiv-2610.09857/index.html">半海报</a></div>
+  <div class="meta">作者：Yinlong Dai, Homanga Bharadhwaj, Dylan P. Losey</div>
+  <span class="score">评分 4/10</span>
+  <div class="tags"><span class="tag">零样本操作</span><span class="tag">合成视频到机器人轨迹</span><span class="tag">约束优化形式化</span><span class="tag">语义吸引域</span><span class="tag">数字孪生 CEM</span><span class="tag">任务特征加权</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把“冻结视频生成器产出合成演示 → 真实机器人轨迹”统一成带语义一致性（ℙ[𝒢_τ(ξ)=1]≥1−ε_sem）与物理可行性（ℙ[ξ∈ℱ_R]≥1−ε_phys）约束的优化问题，并用 Markov 不等式给出“生成质量 σ_vid 与语义吸引域半径 ρ 之比”决定成功播种概率的界；CASTER 用 LLM 抽取任务关键特征并跨多条采样视频取中位/加权参考，在 Isaac Si…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">以往让机器人从人类学习往往需要真实的人类演示，而视频生成模型的进步提供了新范式：可以直接提示生成器合成该任务的视频。好处是这些合成视频发生在机器人当前环境中，无需真实人类示教；但问题是，生成的视频虽然看起来动作合理，却既缺乏物理一致性也没有机器人落地（grounding），机器人无法直接执行视频里的轨迹。本文旨在把“从合成视频生成到真实机器人轨迹”的过程形式化，指出该问题是一个约束优化问题：从合成视频中提取的物体轨…</p><p class="lang lang-en lang-block" data-lang="en">Prior research on learning from humans often requires real human demonstrations. But advances in video generation models offer a new paradigm: we can now prompt these generators to make synthetic videos of the…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.12567">abs</a><a href="https://arxiv.org/pdf/2610.12567">PDF</a><a href="papers/arxiv-2610.12567/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2610.07217"><img src="assets/media/2026-10-09/arxiv-2610.07217/fig-001.webp" alt="RoboCap: A New Platform for Egocentric Robot Learning" loading="lazy"></a>
-  <h3><a href="https://arxiv.org/abs/2610.07217"><span class="lang lang-zh lang-inline" data-lang="zh">RoboCap：面向第一视角机器人学习的新平台</span><span class="lang lang-en lang-inline" data-lang="en">RoboCap: A New Platform for Egocentric Robot Learning</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-06 · score 7 · A-层 · Real-time / GPU Robotics Systems · cs.RO, cs.AI, cs.CV, cs.HC</div>
-  <div class="meta">内容级别：简报式摘要</div>
-  <div class="meta">作者：Grounded Superintelligence, BitRobot</div>
-  <span class="score">评分 7/10</span>
-  <div class="tags"><span class="tag">第一视角数据采集</span><span class="tag">可穿戴多相机平台</span><span class="tag">端侧 SLAM</span><span class="tag">第一视角深度估计</span><span class="tag">手部跟踪</span><span class="tag">机器人学习数据</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>提出 250 g 六相机双 IMU 可穿戴采集设备 RoboCap 与配套 Grounded API（SLAM、第一视角深度估计、手部跟踪），主打野外第一视角操作数据的厘米级采集精度与跨装置泛化。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">尽管第一视角操作数据对扩展机器人学习很有前景，但目前仍十分稀缺。规模化采集需要把人体工学硬件与厘米级精度的 3D 算法做垂直整合，而这一精度此前未被公开证明。为填补空白，作者提出 RoboCap——一顶 250 g、六相机双 IMU、面向野外第一视角数据采集的头戴设备，以及配套的 Grounded API——一套为 RoboCap 调优的设备无关 3D 算法。该报告展示了硬件、标定与 3D 算法如何相互作用，以在公…</p><p class="lang lang-en lang-block" data-lang="en">Despite its promise for scaling robot learning, egocentric manipulation data is still scarce today. Collection at scale requires vertically integrating ergonomic hardware with centimeter-precise 3D algorithms,…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.07217">abs</a><a href="https://arxiv.org/pdf/2610.07217">PDF</a></div>
+  <a class="thumb" href="papers/arxiv-2610.12642/index.html"><img src="assets/media/2026-10-13/arxiv-2610.12642/fig-001.webp" alt="PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2610.12642/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PriMoRetarget：用优先级层级替代权重调参的人形机器人动作重定向</span><span class="lang lang-en lang-inline" data-lang="en">PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-12 · score 4 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.GR</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Nicholas Ioannidis, Dun Yang, Max Smith, Tue Vu, Ziyu Zhang, Shayegan Omidshafiei, Xue Bin Peng</div>
+  <span class="score">评分 4/10</span>
+  <div class="tags"><span class="tag">动作重定向</span><span class="tag">优先化优化</span><span class="tag">零空间投影</span><span class="tag">接触与足部落点保持</span><span class="tag">多角色交互</span><span class="tag">RL 跟踪参考轨迹</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把重定向从加权多目标求和改成显式优先级层级，并在每一步用零空间投影 P^{H,λ}=I−(J^H)ᵀ(J^H(J^H)ᵀ+λI)⁻¹J^H 把低优先级梯度投影掉，只允许其沿保持高优先级误差的方向更新；利用逐帧可分性把 (Tm)×(Tm) 投影分解为 T 个 m×m 系统，复杂度从 O(T³m³) 降到 O(Tm³)，并把时间平滑/关节限位/地面穿透作为 free 目标直接累加…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">动作重定向是把人类动捕数据迁移到人形机器人的关键预处理步骤。既有方法对单角色动作有效，但当涉及多角色、多物体交互时，会多出必须保持的接触与空间关系。重定向通常被表述为加权多目标优化问题，而相互冲突的目标不仅需要仔细调参，还仍可能损害重要的运动特征。本文提出 PriMoRetarget：一个把相对权重替换为显式优先级层级（priority hierarchy）的优先化重定向框架。低优先级更新被约束为必须保持高优先级目…</p><p class="lang lang-en lang-block" data-lang="en">Motion retargeting is a critical preprocessing step for transferring human motion data to humanoid robots. While existing methods are effective for single-character motions, interactions involving multiple cha…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.12642">abs</a><a href="https://arxiv.org/pdf/2610.12642">PDF</a><a href="papers/arxiv-2610.12642/index.html">半海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="https://arxiv.org/abs/2610.07788"><img src="assets/media/2026-10-09/arxiv-2610.07788/fig-001.webp" alt="Image-Space Refraction Correction for Underwater 3D Reconstruction: Warping Flat-Port Views into Pinhole Perspective" loading="lazy"></a>
-  <h3><a href="https://arxiv.org/abs/2610.07788"><span class="lang lang-zh lang-inline" data-lang="zh">面向水下 3D 重建的图像空间折射校正：把平口视角映射为针孔透视</span><span class="lang lang-en lang-inline" data-lang="en">Image-Space Refraction Correction for Underwater 3D Reconstruction: Warping Flat-Port Views into Pinhole Perspective</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-06 · score 13 · B-层 · Traditional LiDAR/Visual SLAM · cs.CV</div>
+  <a class="thumb" href="https://arxiv.org/abs/2610.13498"><img src="assets/media/2026-10-13/arxiv-2610.13498/fig-001.webp" alt="A Hybrid and Hierarchical Ray Tracing Method for Efficient 3D Gaussian Rendering" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2610.13498"><span class="lang lang-zh lang-inline" data-lang="zh">H2-Ray：面向高效 3D 高斯渲染的混合层次化光线求交架构</span><span class="lang lang-en lang-inline" data-lang="en">A Hybrid and Hierarchical Ray Tracing Method for Efficient 3D Gaussian Rendering</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-12 · score 9 · A-层 · Real-time / GPU Robotics Systems · cs.AR, cs.GR</div>
   <div class="meta">内容级别：简报式摘要</div>
-  <div class="meta">作者：Chelim Lim, Tobias Fischer, Emilio Olivastri, Beverley Gorry</div>
-  <span class="score">评分 13/10</span>
-  <div class="tags"><span class="tag">水下 3D 重建</span><span class="tag">平口折射校正</span><span class="tag">图像空间几何校正</span><span class="tag">SfM/VSLAM 预处理</span><span class="tag">度量精度</span><span class="tag">光线追迹仿真</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>提出与下游解耦的图像空间物理折射校正，把平口防水壳造成的碗状畸变在重建前移除；在两个真实水下数据集上相比传统/折射式 SfM 配准更多帧并保持低重投影误差，可跨多种重建与 VSLAM 后端使用。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">消费级相机配平口防水壳因低成本与易得，被广泛用于水下探索以及珊瑚礁与海底栖息地测绘。但平口界面的折射会在重建场景与相机轨迹中造成碗状形变，损害测绘与导航所需的度量精度。为在重建前移除主导性折射畸变，作者提出一种图像空间的、基于物理的折射校正。该方法与下游解耦：校正后的图像可直接作为现有重建与 SLAM 算法的输入。作者用光线追迹仿真刻画折射畸变，并在两个不同场景结构的真实水下数据集上验证。与传统及折射式 SfM 相…</p><p class="lang lang-en lang-block" data-lang="en">Consumer-grade cameras in flat-port housings are widely used for underwater exploration and mapping of coral reefs and seafloor habitats due to their low cost and accessibility. However, refraction at flat-por…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.07788">abs</a><a href="https://arxiv.org/pdf/2610.07788">PDF</a></div>
+  <div class="meta">作者：Tiancheng Zhao, Sixu Li, Yuzhou Chen, Hengyu Ding, Zhiming Pan, Chaojian Li</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">3D 高斯光线求交</span><span class="tag">负载均衡空间 BVH</span><span class="tag">光线簇路径复用</span><span class="tag">统一求交引擎</span><span class="tag">GPU 架构</span><span class="tag">实时渲染系统</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>面向光线求交式 3DGS 的 GPU 架构：用负载均衡空间 BVH 把非均匀高斯分布转成均衡局部遍历单元、用光线簇路径复用让邻近光线共享遍历状态、用统一求交引擎在共享 40% 浮点单元的数据通路上同时支持高斯与三角求交；8 场景上 RTX A5000 相对 RaySplats 几何平均 3.77×、最高 9.26× 加速（周期精确 RT Core 模型 + 实测 CUDA 计…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 高斯溅射（3DGS）是实时神经重建与渲染的强表示。现有 3DGS 系统依赖光栅化以保证效率，近期工作开始探索光线求交以支持二次光照、强畸变相机与景深效果。但与光栅化相比，光线求交式 3DGS 引入三大挑战：(1) 海量高斯图元高度非均匀的空间分布造成严重负载不均；(2) 相邻像素生成的光线往往路径高度相似，产生大量冗余遍历；(3) 同时支持高斯与三角图元会带来异构求交负载，与现有 GPU 架构不匹配。作者提出…</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) is a powerful representation for real-time neural reconstruction and rendering. While existing 3DGS systems rely on rasterization for efficiency, recent work explores ray tracing t…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.13498">abs</a><a href="https://arxiv.org/pdf/2610.13498">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2610.13300"><img src="assets/media/2026-10-13/arxiv-2610.13300/fig-001.webp" alt="Sonic-AMG: Streaming Human Motion Generation from Spatial Audio" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2610.13300"><span class="lang lang-zh lang-inline" data-lang="zh">Sonic-AMG：从空间音频流式生成人体动作</span><span class="lang lang-en lang-inline" data-lang="en">Sonic-AMG: Streaming Human Motion Generation from Spatial Audio</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-12 · score 8 · A-层 · 3D/4D Spatial Perception · cs.CV, cs.GR, cs.LG, cs.RO</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Jingcheng Ni, Zekun Li, Zhiyang Dou, Xiaoyan Cong, Ziyao Zeng, Hongyang Du, Randall Balestriero, Taku Komura, Srinath Sridhar</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">空间音频</span><span class="tag">流式动作生成</span><span class="tag">因果 Transformer</span><span class="tag">rehearsal 训练</span><span class="tag">spatial feedback</span><span class="tag">实时在线生成</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>首个从空间音频流式生成人体动作的框架：把声学内容与身体相对声源几何分别编码为 token，用带 flow 头的因果 Transformer + 因果解码器在线出动作；针对训练-推理历史不匹配提出 rehearsal training（全序列监督 + 短自回归自推演），并用 spatial feedback 从生成的根本位姿重算身体相对声源位置；SAM 上取得最优 FID 与…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">建模人对空间音频的反应需要同时理解“听到了什么”与“声音从哪来”。既有工作从完整的声学与空间输入序列离线生成动作；但人在反应时并不知道接下来会听到什么。作者提出 Sonic-AMG，据其所述是首个从空间音频流式生成人体动作的框架。模型把声学内容与身体坐标系下的声源几何分别编码为 token，以此条件驱动一个带 flow 头的因果 Transformer 生成连续动作隐变量，再由因果解码器重建动作片段。标准教师强制训…</p><p class="lang lang-en lang-block" data-lang="en">Modeling human reactions to spatial audio requires understanding both what is heard and where it comes from. Prior work generates motion offline from complete acoustic and spatial input sequences. Humans, howe…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.13300">abs</a><a href="https://arxiv.org/pdf/2610.13300">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2610.13503"><img src="assets/media/2026-10-13/arxiv-2610.13503/fig-001.webp" alt="SplatQ: Interaction-Aware Pruning of 3D Gaussian Splatting via Quadratic Selection" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2610.13503"><span class="lang lang-zh lang-inline" data-lang="zh">SplatQ：用二次选择做交互感知的 3D 高斯溅射剪枝</span><span class="lang lang-en lang-inline" data-lang="en">SplatQ: Interaction-Aware Pruning of 3D Gaussian Splatting via Quadratic Selection</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-12 · score 14 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Hongbin Ye, Haixu Liu, Shenwei Kang, Wenxiu Wei, Tinglan Wang, Hongdong Zhu, Fan Tang, Qi Gao, Yin Ma, Kai Wen, Hai Wei, Nuo Qian, Wei-Shi Zheng, Shaobo Chen, Fa-Ting Hong, Jingke Meng</div>
+  <span class="score">评分 14/10</span>
+  <div class="tags"><span class="tag">3D 高斯溅射剪枝</span><span class="tag">组合优化 QUBO</span><span class="tag">模拟退火/相干伊辛机</span><span class="tag">区域预算平滑</span><span class="tag">空间质量均衡</span><span class="tag">渲染加速</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把 3DGS 剪枝从“全局 Top-K 独立打分”改成固定预算下的组合式选择：先按空间邻近与外观相似分块并平滑块保留配额，再用代表性像素对不透明度变化的响应构造联合删除的二次近似，写成 QUBO（含单点项、两两交互与配额惩罚）并用模拟退火或相干伊辛机求解；5 个基准上在重建质量、空间均衡与渲染速度上均优于 SOTA 剪枝。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">现有 3D 高斯溅射（3DGS）剪枝方法主要依赖基于独立重要性分数的全局 Top-K 选择，缺乏区域预算控制，也忽略了高斯被联合删除时的相互影响，因此无法保证整场景重建质量的均衡。作者提出 SplatQ——一种在固定预算下协同处理区域预算分配与高斯联合选择的组合式剪枝算法。SplatQ 按空间邻近性与外观相似性把高斯划分成有大小限制的块，把全局选择分解为若干特定规模的子问题；随后对基于重要性的块保留配额做平滑，避免…</p><p class="lang lang-en lang-block" data-lang="en">Existing 3D Gaussian Splatting (3DGS) pruning methods primarily rely on global Top-K selection based on independent importance scores, lacking regional budget control and ignoring joint deletion effects. Conse…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.13503">abs</a><a href="https://arxiv.org/pdf/2610.13503">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2610.13541"><img src="assets/media/2026-10-13/arxiv-2610.13541/fig-001.webp" alt="Efficient Confidence-Aware Densification for 3DGS" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2610.13541"><span class="lang lang-zh lang-inline" data-lang="zh">面向 3DGS 的高效置信度感知加密</span><span class="lang lang-en lang-inline" data-lang="en">Efficient Confidence-Aware Densification for 3DGS</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-12 · score 11 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Manuel Hofer, Thomas K\&quot;ohler, Felix Windisch, Bernhard Kerbl, Markus Steinberger, Lukas Radl</div>
+  <span class="score">评分 11/10</span>
+  <div class="tags"><span class="tag">3D 高斯溅射</span><span class="tag">MCMC 密度控制</span><span class="tag">置信度感知加密</span><span class="tag">误差驱动图元放置</span><span class="tag">固定预算</span><span class="tag">免先验重建</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>在 3DGS-MCMC 的固定预算框架内用“误差驱动”替换“不透明度驱动”的加密：新图元主要放在屏幕空间梯度大处、并优先选择学习到的低置信度图元，同时把贡献最小的图元重定位过去；24 场景平均在 100k–2M 每个预算档位都优于 3DGS-MCMC（100k 时夺回 ConeGS 1.05 dB 领先中的 0.84 dB），500k 起 PSNR/SSIM 在对比的固定预算…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3DGS-MCMC 用基于不透明度的采样与重定位取代了 3D 高斯溅射中原有的梯度驱动密度控制，已成为固定图元预算下免先验加密的事实标准。由于场景重建得越好的地方不透明度越高，这种采样会把大多数新图元送到前景，使背景重建不足；在低预算下，ConeGS、EDGS 等基于先验的方法反而更优，代价是需要预训练辐射场或稠密图像匹配以及单独的初始化阶段。作者主张在固定预算的 MCMC 框架内回归“误差驱动”的加密：其置信度感…</p><p class="lang lang-en lang-block" data-lang="en">3DGS-MCMC has replaced the gradient-driven density control of 3D Gaussian Splatting with opacity-based sampling and relocation, and is now the de facto standard for prior-free densification under a fixed primi…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.13541">abs</a><a href="https://arxiv.org/pdf/2610.13541">PDF</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -102,80 +126,88 @@
     <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
   </div>
   <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/Dwawayu/scr4tch">Dwawayu/scr4tch</a></strong><div>Project page for Scr4tch: Self-Supervised 4D Reconstruction from Raw Video Alone</div></div>
+  <div><div class="meta">新项目 · HTML · ★ 0 · 更新 2026-10-12 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/overdued/embodied-navigation">overdued/embodied-navigation</a></strong><div>具身导航领域树：Embodied Navigation Field Map</div></div>
+  <div><div class="meta">新项目 · HTML · ★ 0 · 更新 2026-10-12 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/odorspaces/odorspaces.github.io">odorspaces/odorspaces.github.io</a></strong><div>[CoRL 2026] OdorSpaces: Visual-Olfactory Embodied Navigation in 3D Environments</div></div>
+  <div><div class="meta">新项目 · HTML · ★ 0 · 更新 2026-10-12 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/liuxingle0513/liuxingle0513.github.io">liuxingle0513/liuxingle0513.github.io</a></strong><div>Academic portfolio of Xingle Liu — embodied AI, vision-language navigation, and remote sensing.</div></div>
+  <div><div class="meta">新项目 · CSS · ★ 0 · 更新 2026-10-11 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/stavrosefth/ros2-space-rover">stavrosefth/ros2-space-rover</a></strong><div>Solar-rechargeable 4WD rover on a Raspberry Pi 5 with ROS 2 Jazzy: monocular neural depth (MiDaS), RTAB-Map visual SLAM, Nav2 path planning and an always-on safety layer. No lidar, no stereo camera.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-12 · score 2 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：mecanum-wheels, midas, monocular-depth-estimation, nav2, raspberry-pi-5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/PurpleSentinel/neo-m9n-ui">PurpleSentinel/neo-m9n-ui</a></strong><div>NEO-M9N Monitor: GTK 4 / libadwaita desktop app that tests a u-blox NEO-M9N GNSS receiver over USB. Live fix, satellites and sky plot, RF/jamming/antenna diagnostics, PASS/WARN/FAIL device test, UBX capture, JSONL logging and replay. Linux…</div></div>
+  <div><div class="meta">新项目 · Python · ★ 2 · 更新 2026-10-12 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：diagnostics, fedora, gnome, gnss, gnss-receiver</div></div>
+</div>
+<div class="repo">
   <div><strong><a href="https://github.com/Jiang-HB/PointVGGT">Jiang-HB/PointVGGT</a></strong><div>PointVGGT: Zero-Shot Multiview RGB-D Point Cloud Registration with Visual Geometry Foundation Priors</div></div>
-  <div><div class="meta">新项目 · ★ 0 · 更新 2026-10-08 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+  <div><div class="meta">★ 5 · 更新 2026-10-08 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Hari-17as/Voxel-Replay">Hari-17as/Voxel-Replay</a></strong><div>4D dynamic scene reconstruction and interactive V4D spatial video player</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-08 · score 9 · S层 · 3D/4D Spatial Perception</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/jou1182/gnss-sod-learned-scorer">jou1182/gnss-sod-learned-scorer</a></strong><div>Simulation code, frozen protocol and results: learned (gradient-boosting) baseline-elimination scorer for second-order design of GNSS control networks</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-08 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/srsanthosh7117/4DV-Scene-Reconstruction">srsanthosh7117/4DV-Scene-Reconstruction</a></strong><div>A compact 4D scene representation and lightweight player for dynamic multi-camera video with 6-DoF navigation.</div></div>
-  <div><div class="meta">新项目 · TypeScript · ★ 0 · 更新 2026-10-08 · score 3</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/OpenBMB/SimpleNav">OpenBMB/SimpleNav</a></strong><div>SimpleNav: A simple, unified, reproducible, and extensible framework for navigation VLA research.</div></div>
-  <div><div class="meta">Python · ★ 125 · 更新 2026-10-08 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：embodied, navigation, vision-language-action</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/leeall7/gnss-filter-public">leeall7/gnss-filter-public</a></strong><div>Public page for gnss filter google play app</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-08 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/manankharwar/fusioncore">manankharwar/fusioncore</a></strong><div>ROS 2 localization for outdoor robots: IMU, wheel encoders and GPS fused in a 23-state UKF at 100 Hz. When the estimate goes wrong it reports which sensor and why, instead of drifting silently. Apache 2.0.</div></div>
-  <div><div class="meta">C++ · ★ 373 · 更新 2026-10-08 · score 7 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：autonomous-robots, autonomous-systems, gazebo, gazebo-ros, gnss</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-09 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam_ros2">rsasaki0109/lidar_slam_ros2</a></strong><div>ROS 2 LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
+  <div><div class="meta">Python · ★ 858 · 更新 2026-10-12 · score 15 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
 </div></div>
-  <details class="repo-more"><summary>还有 12 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <details class="repo-more"><summary>还有 14 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
   <div><strong><a href="https://github.com/Meshvale/meshvale-geometry">Meshvale/meshvale-geometry</a></strong><div>C++20 geometry foundation for meshes, attributes, topology, robust operations, and invariant checks.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-07 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-10-11 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/yiyuan00/Lift-See-Act">yiyuan00/Lift-See-Act</a></strong><div>[NeurIPS 2026] Lift, See, Act: Hierarchical Robot Policy Pretraining with 3D Foundation Models</div></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-08 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+  <div><div class="meta">CSS · ★ 0 · 更新 2026-10-10 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/GehaoZhang6/Grounded-Action-Model">GehaoZhang6/Grounded-Action-Model</a></strong><div>Grounded Action Model: 3D Grounding as a Foundation for Robotics</div></div>
+  <div><div class="meta">Python · ★ 36 · 更新 2026-10-12 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-grounding, foundation-models, manipulation, robot-learning, robotics</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
-  <div><div class="meta">Python · ★ 13 · 更新 2026-10-08 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-10-12 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
-  <div><div class="meta">Python · ★ 2 · 更新 2026-10-08 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-10-12 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/sisren-embodied-nav/sisren-embodied-nav.github.io">sisren-embodied-nav/sisren-embodied-nav.github.io</a></strong><div>Spatial Intelligence and Structured Reasoning for Embodied Navigation</div></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-08 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+  <div><strong><a href="https://github.com/justin13888/geocoordinates-rs">justin13888/geocoordinates-rs</a></strong><div>Feature-complete geospatial coordinate library for Rust</div></div>
+  <div><div class="meta">Rust · ★ 2 · 更新 2026-10-12 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：geospatial, gnss, gps, rust</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/aineera/learning-slam-from-scratch">aineera/learning-slam-from-scratch</a></strong><div>Visual SLAM from Scratch → Deep Learning | Octave + PyTorch + RPi | Loop Closure with Neural Network</div></div>
-  <div><div class="meta">Jupyter Notebook · ★ 0 · 更新 2026-10-06 · score 9 · B-层 · Traditional LiDAR/Visual SLAM</div></div>
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-12 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/syou15954-bit/myanmar-gnss-dashboard">syou15954-bit/myanmar-gnss-dashboard</a></strong></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-08 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><strong><a href="https://github.com/slkamg0-ai/gnss-lite">slkamg0-ai/gnss-lite</a></strong></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-10-12 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/3D-Vision-World/All-3R-SLAM-in-this-Repo">3D-Vision-World/All-3R-SLAM-in-this-Repo</a></strong><div>This is a list of relevant papers for 3D Geometric Foundation Models and Applications.</div></div>
-  <div><div class="meta">★ 288 · 更新 2026-10-08 · score 10</div><div class="meta">Topics：3d-geometric-foundation-models, dust3r, mast3r, slam, vggt</div></div>
+  <div><div class="meta">★ 288 · 更新 2026-10-11 · score 10</div><div class="meta">Topics：3d-geometric-foundation-models, dust3r, mast3r, slam, vggt</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/sangnguyen2803/2D-3D_reconstruction_underwater_archaeological_perception">sangnguyen2803/2D-3D_reconstruction_underwater_archaeological_perception</a></strong><div>Multi-view 3D reconstruction pipeline built with DINOv2 combining local and foundation-model visual features, correspondence matching, reliability estimation, geometric verification, SfM, MVS, and dense 3D reconstruction.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-08 · score 6</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-10-12 · score 6</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
-  <div><div class="meta">★ 1899 · 更新 2026-10-05 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
+  <div><div class="meta">★ 1900 · 更新 2026-10-11 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/lyz678/Embodied-RobotSim">lyz678/Embodied-RobotSim</a></strong><div>Embodied-RobotSim is a comprehensive ROS 2 (Jazzy) simulation workspace for a mobile robot equipped with a Franka FR3 robotic arm, a 2D LiDAR, a stereo RGB-D camera, and a rich, advanced sensor suite. The simulation runs in Gazebo and inte…</div></div>
-  <div><div class="meta">Python · ★ 26 · 更新 2026-10-07 · score 3</div></div>
+  <div><strong><a href="https://github.com/yuan-xiaohan/4D-Myocardium-Reconstruction-with-Decoupled-Motion-and-Shape-Model">yuan-xiaohan/4D-Myocardium-Reconstruction-with-Decoupled-Motion-and-Shape-Model</a></strong><div>This repository contains the code for the ICCV&#x27;2023 paper &quot;4D Myocardium Reconstruction with Decoupled Motion and Shape Model&quot;.</div></div>
+  <div><div class="meta">Python · ★ 29 · 更新 2026-10-10 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/DMcClarence/4D-reconstruction-testing">DMcClarence/4D-reconstruction-testing</a></strong></div>
+  <div><div class="meta">Shell · ★ 0 · 更新 2026-10-11 · score 3</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/dhairya-shah7/EchoLocate">dhairya-shah7/EchoLocate</a></strong><div>Active Ultrasonic Echolocation, 2D SLAM Room Mapping &amp; ONNX Neural Navigation for Visually Impaired Users</div></div>
