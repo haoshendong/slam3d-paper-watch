@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-10-14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-10-14</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：1</span><span class="stat">推荐论文：1</span><span class="stat">新论文：1</span><span class="stat">仓库：21</span><span class="stat">新仓库：7</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>结论先行</strong>：今天唯一的新论文 <code>Zebra3D</code> 值得读的不是“又一个 3D 基础模型”，而是它给出一条<strong>可迁移的诊断流程</strong>——让预训练模型<strong>自己</strong>指出哪些层可以被廉价算子替换、哪些层必须保留完整 softmax。它用两个独立诊断量（单阶段替换的输出偏差 + oracle 保留 top-20% key/value 块时的注意力集中度）得到跨三套骨干一致的深度规律：<strong>敏感层注意力更集中，两端层注意力接近均匀</strong>，于是“集中的地方用稀疏、均匀的地方用线性”。这套「先测量敏感性、再做算子分配、最后闭式对齐」的顺序，和你在融合里判断“哪个环节可以先验简化、哪个环节必须保留完整残差”是同一类问题。</li>
+<li><strong>论文侧数字</strong>：<code>papers_total=1</code>、<code>papers_new=1</code>、<code>papers_seen_filtered=6</code>、<code>papers_fetched_total=7</code>；推荐 1 篇。</li>
+<li><strong>重复过滤说明</strong>：<code>papers_seen_filtered=6</code>，即今日抓到的 7 条里 <strong>6 条是历史重复</strong>，已按“只推荐 <code>is_new=true</code>”的规则全部过滤；唯一 <code>is_new=true</code> 的论文是 <code>arxiv:2610.12727</code>。今日<strong>没有</strong>把旧论文当“跟踪/更新”补进重点论文。</li>
+<li><strong>层级复核说明</strong>：采集器只对 1 篇自动判级（<code>Zebra3D</code> = S，<code>geometry-foundation-models</code>，score 19）。人工复核<strong>维持 S 级</strong>并明确其定位：它不是新的 3D 表示或新的几何解码器，而是对已发布前馈 3D 基础模型做<strong>注意力算子层级的效率改造</strong>，因此同时落在「几何基础模型」与「实时/GPU 系统」两侧；复核理由已写入 <code>data/2026-10-14/candidates.json</code> 的 <code>tier_review_note</code>，采集缺口写入 <code>collection_gap_note</code>。</li>
+<li><strong>流程约束</strong>：未创建、修改或递归调度任何 cron job；未改动既有采集脚本，只新增当日取源/复核/生成/校验脚本。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 1 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.12727/index.html"><img src="../../assets/media/2026-10-14/arxiv-2610.12727/fig-001.webp" alt="Zebra3D: Efficient Hybrid Foundation Models For Scalable 3D Reconstruction" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.12727/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Zebra3D：用敏感性引导的稀疏-线性混合注意力加速 3D 基础模型</span><span class="lang lang-en lang-inline" data-lang="en">Zebra3D: Efficient Hybrid Foundation Models For Scalable 3D Reconstruction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-09 · score 19 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.LG</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Utkarsh Saxena, Ruijing Yang, Mehdi Rezagholizadeh, Akash Haridas</div>
+  <span class="score">评分 19/10</span>
+  <div class="tags"><span class="tag">3D 基础模型</span><span class="tag">前馈重建</span><span class="tag">稀疏注意力</span><span class="tag">线性注意力</span><span class="tag">闭式仿射拟合</span><span class="tag">知识蒸馏</span><span class="tag">长序列重建</span><span class="tag">GPU 内核</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>先用“单阶段替换的输出偏差 + oracle top-20% key/value 块的注意力集中度”给每套骨干的每个全局注意力阶段排序，再把最不敏感的阶段换成带闭式岭回归仿射校正的线性注意力、把敏感阶段保留为 8×8 tile 稀疏注意力（未选中 tile 用均值 key/value + log n_b 占用偏移的 landmark 参与同一个 softmax）。免训练转换在…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">前馈式 3D 基础模型能从无位姿图像重建场景，但全局注意力的二次代价限制了它们在大规模视角集合上的可扩展性。本文提出 Zebra3D，一种逐层稀疏-线性混合注意力框架，无需从头训练即可提升预训练 3D 基础模型的效率。作者在 VGGT、HunyuanWorld-Mirror 与 π³ 上观察到一条跨骨干一致的深度规律：早期阶段对线性替换相对宽容，而敏感的中后段阶段注意力更集中。Zebra3D 利用这一结构，把以线性…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 3D foundation models reconstruct scenes from unposed images, but the quadratic cost of global attention limits their scalability to large view sets. We present Zebra3D, a layerwise sparse-linear h…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.12727">abs</a><a href="https://arxiv.org/pdf/2610.12727">PDF</a><a href="../../papers/arxiv-2610.12727/index.html">完整单篇海报</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/aigc3d/Glob3R">aigc3d/Glob3R</a></strong><div>[Nips2026] Official Repo of &quot;Glob3R: Global Structure-from-Motion with 3D Foundation Models&quot;</div></div>
+  <div><div class="meta">新项目 · Python · ★ 256 · 更新 2026-10-13 · score 12 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/YongzheLyu/UniFusion">YongzheLyu/UniFusion</a></strong><div>Official implementation of UniFusion: Sparse-View 4D Reconstruction via Unified Spatio-temporal Depth Alignment (ECCV 2026).</div></div>
+  <div><div class="meta">新项目 · Python · ★ 6 · 更新 2026-10-13 · score 8 · S层 · 3D/4D Spatial Perception</div><div class="meta">Topics：4d-reconstruction, eccv2026</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/fengrungu-cyber/dynamic-gbi-rrt">fengrungu-cyber/dynamic-gbi-rrt</a></strong><div>Adaptive mobile robot navigation in dynamic environments using LRBPF-SLAM, online map updating, uncertainty-aware obstacle prediction, and Dynamic GBI-RRT path planning. Features include adaptive Motion Confidence Index (MCI), risk-aware c…</div></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-10-13 · score 6 · A层 · Robust State Estimation / Uncertainty</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/johnaggrey/Ananse_GNSS_QC">johnaggrey/Ananse_GNSS_QC</a></strong><div>A tool that perform QC checks on GNSS data and checks various data readiness. Quality indicators involve duration, missing observables, signal availability, cycle slips, gaps, multipath/QC warnings, etc</div></div>
+  <div><div class="meta">新项目 · Python · ★ 2 · 更新 2026-10-13 · score 6 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/MaksymKutyshenko/esp32-gps-tracker">MaksymKutyshenko/esp32-gps-tracker</a></strong><div>ESP32-S3 GPS tracker on ESP-IDF/FreeRTOS: GNSS, MicroSD track log, GPRS uplink, deep sleep; plus its own live-map web app (Fastify, Postgres, React, Leaflet).</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-10-13 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：embedded, esp-idf, esp32-s3, fastify, freertos</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/hogib/gnssdl">hogib/gnssdl</a></strong></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-13 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/handHeldSieve/SMV_GNSSboard_2026-27">handHeldSieve/SMV_GNSSboard_2026-27</a></strong></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-10-13 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/JamesEverett28/cochlear-implant-reconstruction">JamesEverett28/cochlear-implant-reconstruction</a></strong><div>Software pipeline for 4D reconstruction of a cochlear implant from videos of its insertion into a 3D-printed cochlear</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-13 · score 11 · S层 · 3D/4D Spatial Perception</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 13 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/Dwawayu/scr4tch">Dwawayu/scr4tch</a></strong><div>Project page for Scr4tch: Self-Supervised 4D Reconstruction from Raw Video Alone</div></div>
+  <div><div class="meta">HTML · ★ 2 · 更新 2026-10-13 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Cornell-VAILab/ArchWorld">Cornell-VAILab/ArchWorld</a></strong><div>[NeurIPS&#x27;26] Official Source Code for &quot;Towards Reconstructing Geographically Diverse Architecture with 3D Foundation Models&quot;</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-13 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-10-13 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-10-13 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sisren-embodied-nav/sisren-embodied-nav.github.io">sisren-embodied-nav/sisren-embodied-nav.github.io</a></strong><div>Spatial Intelligence and Structured Reasoning for Embodied Navigation</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-13 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/overdued/embodied-navigation">overdued/embodied-navigation</a></strong><div>具身导航领域树：Embodied Navigation Field Map</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-12 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/odorspaces/odorspaces.github.io">odorspaces/odorspaces.github.io</a></strong><div>[CoRL 2026] OdorSpaces: Visual-Olfactory Embodied Navigation in 3D Environments</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-12 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/liuxingle0513/liuxingle0513.github.io">liuxingle0513/liuxingle0513.github.io</a></strong><div>Academic portfolio of Xingle Liu — embodied AI, vision-language navigation, and remote sensing.</div></div>
+  <div><div class="meta">CSS · ★ 0 · 更新 2026-10-11 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam_ros2">rsasaki0109/lidar_slam_ros2</a></strong><div>ROS 2 LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
+  <div><div class="meta">Python · ★ 858 · 更新 2026-10-13 · score 15 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/stavrosefth/ros2-space-rover">stavrosefth/ros2-space-rover</a></strong><div>Solar-rechargeable 4WD rover on a Raspberry Pi 5 with ROS 2 Jazzy: monocular neural depth (MiDaS), RTAB-Map visual SLAM, Nav2 path planning and an always-on safety layer. No lidar, no stereo camera.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-12 · score 2 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：mecanum-wheels, midas, monocular-depth-estimation, nav2, raspberry-pi-5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-13 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/aardvark-platform/aardvark.base">aardvark-platform/aardvark.base</a></strong><div>Aardvark.Base is the foundation of the open-source Aardvark Platform for visual computing, real-time graphics, and visualization.</div></div>
+  <div><div class="meta">C# · ★ 164 · 更新 2026-10-13 · score 3</div><div class="meta">Topics：aardvark, aardvark-platform, attribute-grammars, datastructures, fsharp</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/dhairya-shah7/EchoLocate">dhairya-shah7/EchoLocate</a></strong><div>Active Ultrasonic Echolocation, 2D SLAM Room Mapping &amp; ONNX Neural Navigation for Visually Impaired Users</div></div>
+  <div><div class="meta">TypeScript · ★ 0 · 更新 2026-10-13 · score 2</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
