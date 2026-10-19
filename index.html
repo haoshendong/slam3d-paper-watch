@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
-  <title>Daily Paper Reader 2026-10-18</title>
+  <title>Daily Paper Reader 2026-10-19</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
@@ -12,28 +12,51 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-18/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-19/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="meta">静态网页 · 2026-10-18</div>
+    <div class="meta">静态网页 · 2026-10-19</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-10-18/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="daily/2026-10-19/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：0</span><span class="stat">推荐论文：0</span><span class="stat">新论文：0</span><span class="stat">仓库：20</span><span class="stat">新仓库：2</span></div>
+  <div class="stats"><span class="stat">候选论文：2</span><span class="stat">推荐论文：2</span><span class="stat">新论文：2</span><span class="stat">仓库：18</span><span class="stat">新仓库：5</span></div>
 </section>
 <section class="section brief"><h2>今日概览</h2><ul>
-<li><strong>结论先行</strong>：今天没有可读的新论文，日报的重心从「读新工作」转为「<strong>把采集链路和既有 S 级项目状态补齐</strong>」。三条可执行结论：① <strong>采集链路已连续两天被 429 挡住</strong>（昨天靠 RSS 兜底救回 25 篇，今天连 RSS 都是空 feed），明天周一是一周公告量最大的一天，必须先加重试/退避再谈召回；② 今日唯一新增的两个仓库都是 <strong>C 级 GNSS 工程/物理侧</strong>（<code>TEP-GNSS</code>、<code>l76k-at6558-agnss</code>），一个不提供定位算法，一个只优化冷启动 TTFF，都不进入主线；③ 空档期值得补的是 <strong><code>Cornell-VAILab/ArchWorld</code></strong>——396 个实地地标、8 个地理区域、<strong>公制尺度稠密真值</strong>，外加推理期 <strong>ArchAttend</strong>（把 cross-view attention 引到建筑元素上），它既能做「几何基础模型的区域/建筑类型偏差」验收，也能给 UniMetric 这类尺度恢复提供下游检查面。</li>
-<li><strong>计数</strong>：<code>papers_total=0</code>、<code>papers_new=0</code>、<code>papers_seen_filtered=0</code>、<code>papers_fetched_total=0</code>；<code>repos_total=20</code>、<code>repos_new=2</code>。</li>
-<li><strong>重复过滤说明</strong>：今日 <code>papers_seen_filtered=0</code>，<strong>没有</strong>历史重复论文被过滤——空结果的成因是 arXiv 无新公告与 API 限流，不是去重。今日也没有把任何 <code>is_new=false</code> 的旧论文补进 S/A 章节。</li>
-<li><strong>层级分布</strong>：S 0 / A 0 / A- 0 / B 0 / B- 0 / C 0（论文侧）；仓库侧 2 个新增均映射到 <code>gnss-ins-ppp</code>（C 级）。</li>
-<li><strong>媒体状态</strong>：今日无推荐论文，<code>paper_media.py --limit 10</code> 选中 0 篇，<strong>未生成任何图表或页面预览</strong>；站点为纯文字版（仓库卡片 + 简报正文），不存在空白/全黑 WebP 风险。</li>
+<li><strong>结论先行</strong>：今天的主线是「<strong>把视角/相机从几何状态里拆出去</strong>」，两篇 S 级分别落在底层几何与 3D/4D 表征两端。第一篇 <strong>GeoState</strong> 证明 GFM 特征直接当世界状态会被视角污染：把场景压成固定 512×512 状态、相机只在解码时查询后，Waymo 2.0 s AbsRel 从 VGGT-World 的 0.213 降到 <strong>0.127（−40.4%）</strong>，且整个 rollout 只标定一次尺度。第二篇 <strong>Dense4D</strong> 把同一思路用到人体 4D 对应：用“参考时刻 3D 坐标”定义点身份，靠匹配而不是运动解码建立跨帧轨迹，Panoptic Studio Humans <strong>AJ 38.4</strong>（最强基线 17.0），4D-DRESS 点到扫描 <strong>0.86 cm</strong>（V-DPM 2.31 cm）。</li>
+<li><strong>对你有用的两条</strong>：① GeoState 的「单一尺度 gauge + 状态/查询分离」可直接改造成地图查询一致性验收；② Dense4D 的「对象参考点图 + 残差判可见」可作为动态物体地图层的最小原型。</li>
+<li><strong>重复过滤</strong>：<code>papers_seen_filtered=5</code>，5 篇历史已见论文被过滤，未作为“跟踪/更新”补入推荐。</li>
+<li><strong>层级说明</strong>：层级沿用采集器 <code>priority_tier</code> 与 <code>priority_domain</code>，未做升降级改写；两篇都命中 <code>geometry-foundation-models</code>，GeoState 另命中 <code>robotic-foundation-models</code>。</li>
+<li><strong>媒体状态</strong>：<code>paper_media.py</code> 在 <code>/usr/bin/python3.10</code> 下完成，2/2 篇 <code>status=ok</code>。Dense4D 从官方 HTML 取到 6 张图；GeoState 的 PDF 回退只得到页面预览（<code>doclayout-yolo</code> 缺失），已用官方 HTML 的 SVG/PNG 补入框架图与定性图，共 8 张 WebP，抽样均非空白（std 43.5–105.1）。</li>
 </ul></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>分层重点论文</h2></div>
-  <div class="grid"><p class="muted">暂无论文候选。</p></div>
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 2 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="papers/arxiv-2610.22343/index.html"><img src="assets/media/2026-10-19/arxiv-2610.22343/fig-framework.webp" alt="GeoState: Learning View-Decoupled Geometry States for 3D World Modeling" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2610.22343/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GeoState：把视角从 3D 世界状态里拆出去</span><span class="lang lang-en lang-inline" data-lang="en">GeoState: Learning View-Decoupled Geometry States for 3D World Modeling</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-16 · score 17 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.AI, cs.LG, cs.RO</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Hongchang Liu, Jian Liu, Yujuan Ding, Liang Peng</div>
+  <span class="score">评分 17/10</span>
+  <div class="tags"><span class="tag">视角解耦</span><span class="tag">几何基础模型</span><span class="tag">场景 tokenizer</span><span class="tag">3D 世界模型</span><span class="tag">深度预测</span><span class="tag">尺度一致性</span><span class="tag">VGGT-Ω</span><span class="tag">FR3D</span><span class="tag">零样本迁移</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>GeoState 把冻结 VGGT-Ω 的多视角几何特征压成固定 512×512 场景状态，查询相机只在解码阶段以 Plücker 射线进入，从而把“世界是什么”与“如何观察”分开。Waymo 预测相机设置下 t+2.0 s AbsRel 0.127、δ1 0.848，比 VGGT-World 的 0.213/0.731 低 40.4%，且整个 rollout 只用最后观测帧…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">近期的 3D 世界模型越来越多地把几何基础模型（GFM）的特征当作预测性世界状态，看重其丰富的几何先验。但这些特征对视角的依赖会把场景动态与相机引起的变化纠缠在一起，使状态演化更难预测。本文提出 GeoState：一种视角解耦的几何表示，用于预测式 3D 世界建模，把场景状态演化与依赖相机的观测分开。具体来说，场景 tokenizer 把多视角 GFM 特征聚合成视角解耦的场景状态，几何解码器再用相机射线查询该状态…</p><p class="lang lang-en lang-block" data-lang="en">Recent 3D world models increasingly use features from geometry foundation models (GFMs) as predictive world states, benefiting from their rich geometric priors. However, the view dependence of these features e…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.22343">abs</a><a href="https://arxiv.org/pdf/2610.22343">PDF</a><a href="papers/arxiv-2610.22343/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2610.22325/index.html"><img src="assets/media/2026-10-19/arxiv-2610.22325/fig-001.webp" alt="Dense4D: Pixel-Level 4D Human Correspondence" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2610.22325/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Dense4D：像素级 4D 人体对应</span><span class="lang lang-en lang-inline" data-lang="en">Dense4D: Pixel-Level 4D Human Correspondence</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-16 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Rıza Alp Güler</div>
+  <span class="score">评分 11/10</span>
+  <div class="tags"><span class="tag">4D 人体对应</span><span class="tag">Human Point Map</span><span class="tag">无模板</span><span class="tag">amodal 对应</span><span class="tag">点跟踪</span><span class="tag">VGGT-Ω</span><span class="tag">4D-DRESS</span><span class="tag">动态场景</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>Dense4D 用“参考时刻 3D 坐标”定义人体表面点身份：一次前向为所有帧预测 HPM 与深度，靠 HPM 最近邻匹配建立跨帧对应，再用目标帧深度抬升为 3D 轨迹，全程不需要人体模板，也不预测相机位姿。Panoptic Studio Humans 上 AJ 38.4、APD 50.3、OA 89.6，分别比最强基线高 21.4 与 22.7 个百分点；4D-DRESS…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">在 4D 中重建人体运动，需要在关节运动、形变和可见性变化中识别同一个表面点。本文提出 Dense4D：据我们所知，这是首个专用于密集 4D 对应的前馈模型，可从一组单目 RGB 图像建立身体、衣物与头发之间的像素级对应，且不需要人体模板。模型专门针对人体几何训练，联合处理以人为中心的裁剪与已知的图像到裁剪变换，为每张图预测 Human Point Map（HPM）与深度。HPM 把每个人体像素分配到其观测表面点在…</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing human motion in 4D requires identifying the same surface points through articulation, deformation and changes in visibility. We introduce Dense4D, to our knowledge the first feed-forward model d…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.22325">abs</a><a href="https://arxiv.org/pdf/2610.22325">PDF</a><a href="papers/arxiv-2610.22325/index.html">完整单篇海报</a></div>
+</article></div>
 </section>
 <section class="section" id="repos">
   <div class="section-head">
@@ -41,48 +64,48 @@
     <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
   </div>
   <div class="repo-list"><div class="repo">
-  <div><strong><a href="https://github.com/matthewsmawfield/TEP-GNSS">matthewsmawfield/TEP-GNSS</a></strong><div>Global Time Echoes: Distance-Structured Correlations in GNSS Clocks — Multi-center analysis of 62.7M GNSS clock measurements revealing distance-structured correlations with exponential decay (λ = 3,330–4,549 km), consistent with screened s…</div></div>
-  <div><div class="meta">新项目 · Python · ★ 3 · 更新 2026-10-17 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：atomic-clocks, clock-networks, conformal-coupling, distance-correlations, fundamental-physics</div></div>
+  <div><strong><a href="https://github.com/William-WANG2/Deblur4D">William-WANG2/Deblur4D</a></strong><div>Deblur4D: Feed-Forward 4D Reconstruction from Blurry RGB and Complementary Vision</div></div>
+  <div><div class="meta">新项目 · JavaScript · ★ 0 · 更新 2026-10-18 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/badriram/l76k-at6558-agnss">badriram/l76k-at6558-agnss</a></strong><div>Fast cold starts for Quectel L76K / AT6558 (CASIC) GNSS: AID-INI + CASIC AGNSS cut ~40 s to ~6 s. Portable C99 library, MicroPython test, measurements.</div></div>
-  <div><div class="meta">新项目 · C · ★ 0 · 更新 2026-10-17 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：agnss, at6558, casic, embedded, gnss</div></div>
+  <div><strong><a href="https://github.com/lacina-dev/vitulus_gnss">lacina-dev/vitulus_gnss</a></strong><div>ROS package for Ardusimple GNSS-RTK recievers.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-10-18 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/hudasol/marsad">hudasol/marsad</a></strong><div>Position-trust layer for autonomous systems and decision platforms. Detects GNSS jamming and spoofing, scores track integrity across sources, and recommends fallback navigation. PX4/MAVLink-native, MCP-ready.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-17 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：anomaly-detection, autonomy, gnss, gps-spoofing-data, jamming-detection</div></div>
+  <div><strong><a href="https://github.com/QuazarMedia/simt-gnss">QuazarMedia/simt-gnss</a></strong><div>GNSS Engine behind the SIMT app</div></div>
+  <div><div class="meta">新项目 · Kotlin · ★ 1 · 更新 2026-10-18 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sparkainlp-x/gnss-log-stats">sparkainlp-x/gnss-log-stats</a></strong><div>Local-only descriptive statistics for GNSS CSV logs</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-18 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/smerty/neartrip">smerty/neartrip</a></strong><div>Intelligent NTRIP proxy</div></div>
+  <div><div class="meta">新项目 · Rust · ★ 3 · 更新 2026-10-18 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：gnss, ntrip, ntripcaster, ntripserver, rtk</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-17 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/3D-Vision-World/All-3R-SLAM-in-this-Repo">3D-Vision-World/All-3R-SLAM-in-this-Repo</a></strong><div>This is a list of relevant papers for 3D Geometric Foundation Models and Applications.</div></div>
-  <div><div class="meta">★ 288 · 更新 2026-10-15 · score 10</div><div class="meta">Topics：3d-geometric-foundation-models, dust3r, mast3r, slam, vggt</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-18 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/rohitsinha-iit/e5-multibody-4d-probing">rohitsinha-iit/e5-multibody-4d-probing</a></strong><div>E5 multibody-structure probing of 4D feed-forward reconstruction models (Any4D)</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-17 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-18 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/ginzburg-dev/radiance4d">ginzburg-dev/radiance4d</a></strong><div>C++ rendering engine built around DirectX 12 and Vulkan. 3D/4D Gaussian Splatting, ray tracing, photogrammetry, and temporally stable reconstruction.</div></div>
-  <div><div class="meta">C++ · ★ 0 · 更新 2026-10-16 · score 9 · S层 · 3D/4D Spatial Perception</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/chrisshaji/dggt-4d-viewer">chrisshaji/dggt-4d-viewer</a></strong><div>Interactive 4D Gaussian viewer for DGGT driving-scene reconstructions</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-16 · score 9 · S层 · 3D/4D Spatial Perception</div></div>
+  <div><div class="meta">C++ · ★ 1 · 更新 2026-10-16 · score 9 · S层 · 3D/4D Spatial Perception</div></div>
 </div></div>
-  <details class="repo-more"><summary>还有 12 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <details class="repo-more"><summary>还有 10 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
   <div><strong><a href="https://github.com/yanglei18/UniMetric">yanglei18/UniMetric</a></strong><div>Official implementation of UniMetric: Universal Metric Scale Recovery for Visual Geometry Foundation Models.</div></div>
   <div><div class="meta">Python · ★ 3 · 更新 2026-10-15 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div><div class="meta">Topics：3d-reconstruction, autonomous-driving, benchmark, camera-pose-estimation, computer-vision</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Cornell-VAILab/ArchWorld">Cornell-VAILab/ArchWorld</a></strong><div>[NeurIPS&#x27;26] Official Source Code for &quot;Towards Reconstructing Geographically Diverse Architecture with 3D Foundation Models&quot;</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-15 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+  <div><strong><a href="https://github.com/GehaoZhang6/Grounded-Action-Model">GehaoZhang6/Grounded-Action-Model</a></strong><div>Grounded Action Model: 3D Grounding as a Foundation for Robotics</div></div>
+  <div><div class="meta">Python · ★ 51 · 更新 2026-10-18 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-grounding, foundation-models, manipulation, robot-learning, robotics</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
-  <div><div class="meta">Python · ★ 14 · 更新 2026-10-17 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-10-18 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/fengrungu-cyber/dynamic-gbi-rrt">fengrungu-cyber/dynamic-gbi-rrt</a></strong><div>Adaptive mobile robot navigation in dynamic environments using LRBPF-SLAM, online map updating, uncertainty-aware obstacle prediction, and Dynamic GBI-RRT path planning. Features include adaptive Motion Confidence Index (MCI), risk-aware c…</div></div>
@@ -90,23 +113,11 @@
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
-  <div><div class="meta">Python · ★ 2 · 更新 2026-10-17 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-10-18 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/sisren-embodied-nav/sisren-embodied-nav.github.io">sisren-embodied-nav/sisren-embodied-nav.github.io</a></strong><div>Spatial Intelligence and Structured Reasoning for Embodied Navigation</div></div>
   <div><div class="meta">HTML · ★ 0 · 更新 2026-10-13 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/aim-uofa/SAGE">aim-uofa/SAGE</a></strong><div>[NeurIPS 2026] Official code for SAGE — adapting 3D geometric foundation models (MV-DUSt3R, VGGT) with sparse SfM anchors and frozen 3DGS rendering consistency from static-scene Internet video.</div></div>
-  <div><div class="meta">★ 3 · 更新 2026-10-15 · score 4 · B层 · Neural Rendering / 3DGS / NeRF</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/stavrosefth/ros2-space-rover">stavrosefth/ros2-space-rover</a></strong><div>Solar-rechargeable 4WD rover on a Raspberry Pi 5 with ROS 2 Jazzy: monocular neural depth (MiDaS), RTAB-Map visual SLAM, Nav2 path planning and an always-on safety layer. No lidar, no stereo camera.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-12 · score 2 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：mecanum-wheels, midas, monocular-depth-estimation, nav2, raspberry-pi-5</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/yuan-xiaohan/4D-Myocardium-Reconstruction-with-Decoupled-Motion-and-Shape-Model">yuan-xiaohan/4D-Myocardium-Reconstruction-with-Decoupled-Motion-and-Shape-Model</a></strong><div>This repository contains the code for the ICCV&#x27;2023 paper &quot;4D Myocardium Reconstruction with Decoupled Motion and Shape Model&quot;.</div></div>
-  <div><div class="meta">Python · ★ 30 · 更新 2026-10-15 · score 4</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
@@ -114,7 +125,11 @@
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/aardvark-platform/aardvark.base">aardvark-platform/aardvark.base</a></strong><div>Aardvark.Base is the foundation of the open-source Aardvark Platform for visual computing, real-time graphics, and visualization.</div></div>
-  <div><div class="meta">C# · ★ 164 · 更新 2026-10-17 · score 3</div><div class="meta">Topics：aardvark, aardvark-platform, attribute-grammars, datastructures, fsharp</div></div>
+  <div><div class="meta">C# · ★ 164 · 更新 2026-10-18 · score 3</div><div class="meta">Topics：aardvark, aardvark-platform, attribute-grammars, datastructures, fsharp</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/DMcClarence/4D-reconstruction-testing">DMcClarence/4D-reconstruction-testing</a></strong></div>
+  <div><div class="meta">Shell · ★ 0 · 更新 2026-10-18 · score 3</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/dhairya-shah7/EchoLocate">dhairya-shah7/EchoLocate</a></strong><div>Active Ultrasonic Echolocation, 2D SLAM Room Mapping &amp; ONNX Neural Navigation for Visually Impaired Users</div></div>
