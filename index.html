@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
-  <title>Daily Paper Reader 2026-10-20</title>
+  <title>Daily Paper Reader 2026-10-21</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
@@ -12,75 +12,51 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-20/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-10-21/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="meta">静态网页 · 2026-10-20</div>
+    <div class="meta">静态网页 · 2026-10-21</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-10-20/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="daily/2026-10-21/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：4</span><span class="stat">推荐论文：4</span><span class="stat">新论文：4</span><span class="stat">仓库：16</span><span class="stat">新仓库：4</span></div>
+  <div class="stats"><span class="stat">候选论文：2</span><span class="stat">推荐论文：2</span><span class="stat">新论文：2</span><span class="stat">仓库：15</span><span class="stat">新仓库：6</span></div>
 </section>
 <section class="section brief"><h2>今日概览</h2><ul>
-<li><strong>结论先行</strong>：今天四篇其实在回答同一个问题——<strong>模型的力气该花在哪里</strong>。ArchWorld 把“误差花在哪个区域/建筑类型”拆开量；PUGS 把“形变不确定性”变成探索半径与分裂准则；Dusting 把“高斯容量”按空间缺口与时间梯度重新分配；DD-GBP 把“计算量”按活跃子网分配。前三条是<strong>表示层的不确定性/容量分配</strong>，第四条是<strong>推断层的计算分配</strong>，两者共享同一个判断：均匀用力是错的。</li>
-<li><strong>一句话数字</strong>：π³ 中位 Chamfer 距离 0.154 m，但东亚归一化误差是东南亚的 <strong>2.05 倍</strong>；PUGS 在 UVEB 拿到 <strong>30.85 dB（+1.16）</strong>、DRUVA <strong>34.41 dB（+3.99）</strong>；Dusting 在 CMU Panoptic 拿到 <strong>29.05 dB（+0.71）</strong>、LPIPS 0.063（基线 0.110）；DD-GBP 四臂成功率 <strong>92.5%</strong>，次优 53.5%。</li>
-<li><strong>对你有用的两条</strong>：① ArchWorld 的 <code>CD / CD̂</code> 双指标 + 分区报告，可直接改成你的地图/深度验收表；② DD-GBP 的“残差界早停 + 门控子网重线性化”，是把 BA 塞进固定时间预算的可落地写法。</li>
-<li><strong>重复过滤</strong>：<code>papers_seen_filtered=6</code>，6 篇历史已见论文被过滤，未作为“跟踪/更新”补入推荐。</li>
-<li><strong>层级说明</strong>：层级沿用采集器 <code>priority_tier</code>/<code>priority_domain</code>，未做升降级改写；四篇分别命中 <code>geometry-foundation-models</code>（ArchWorld）、<code>spatial-perception-3d4d</code>（PUGS、Dusting、DD-GBP），其中 PUGS 同时命中 <code>neural-rendering</code>。</li>
-<li><strong>媒体状态</strong>：见文末“媒体与发布”一节（<code>paper_media.py</code> 结果与抽查结论）。</li>
+<li><strong>结论先行</strong>：今天两篇都在回答同一个问题——<strong>手上已有的量，能不能当成监督用</strong>。IntriAdapt 把“已知相机内参”从输入条件翻转为输出端的几何校验器，用视线残差在 1.57M 参数的 LoRA 上做测试时适配；RIGID 把“冻结 3D 基础模型的注意力关系”当成监督目标，用 Sinkhorn-Wasserstein 对齐 VLA 的注意力分布，而不是逼学生特征逐点等于教师。前者是把<strong>标定信息</strong>变成自监督信号，后者是把<strong>教师的关系结构</strong>变成蒸馏信号；两者共同的方法论是：不要对齐绝对值，要对齐不变量。</li>
+<li><strong>一句话数字</strong>：IntriAdapt 单图 10 基准平均排名 <strong>2.39</strong>（MoGe2* 3.16、MoGe2 3.58），序列 6 基准 <strong>2.79</strong>（MoGe2* 4.18），KITTI 求解残差 7.98→<strong>0.92</strong>；RIGID 的 LIBERO-Plus 四套件总平均 <strong>75.0%</strong>（Spatial Forcing 70.3%、π0 53.6%），关系对齐 effective rank <strong>306.3</strong> 对点对点的 248.0。</li>
+<li><strong>对你有用的两条</strong>：① IntriAdapt 的 ray residual 是一个<strong>不需要真值</strong>的自检量，可以直接当作标定漂移/前端退化的报警信号；② RIGID 的 effective rank + 谱熵体检，可以拿来判断“蒸馏有没有把学生网络压扁”，比只看下游指标更早暴露问题。</li>
+<li><strong>重复过滤</strong>：<code>papers_seen_filtered=4</code>，4 篇历史已见论文被过滤，未作为“跟踪/更新”补入推荐。</li>
+<li><strong>层级说明</strong>：层级沿用采集器 <code>priority_tier</code>/<code>priority_domain</code>，未做升降级改写；两篇分别命中 <code>geometry-foundation-models</code>（IntriAdapt）与 <code>geometry-foundation-models</code> + <code>embodied-navigation</code> + <code>robotic-foundation-models</code>（RIGID）。</li>
+<li><strong>媒体状态</strong>：见文末“媒体与发布”一节。</li>
 </ul></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 4 篇论文。</p></div>
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 2 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2610.17936/index.html"><img src="assets/media/2026-10-20/arxiv-2610.17936/fig-001.webp" alt="PUGS: Physics-Guided Uncertainty Modeling for Underwater Dynamic 3D Gaussian Splatting" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.17936/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PUGS：把水下成像的物理不确定性变成动态 3DGS 的探索信号</span><span class="lang lang-en lang-inline" data-lang="en">PUGS: Physics-Guided Uncertainty Modeling for Underwater Dynamic 3D Gaussian Splatting</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-13 · score 19 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <a class="thumb" href="papers/arxiv-2610.24607/index.html"><img src="assets/media/2026-10-21/arxiv-2610.24607/fig-001.webp" alt="IntriAdapt: Generalizable Intrinsic-Guided Test-Time Adaptation for Metric Geometry Estimation" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2610.24607/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">IntriAdapt：把相机内参当作输出端几何校验器的测试时适配</span><span class="lang lang-en lang-inline" data-lang="en">IntriAdapt: Generalizable Intrinsic-Guided Test-Time Adaptation for Metric Geometry Estimation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-17 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
-  <div class="meta">作者：Tingjun Li, Yuxi Wang, Guoqiang Zhong, Zhaoxiang Zhang</div>
-  <span class="score">评分 19/10</span>
-  <div class="tags"><span class="tag">水下重建</span><span class="tag">动态 3DGS</span><span class="tag">变分推断</span><span class="tag">位置方差</span><span class="tag">重参数化采样</span><span class="tag">随机退火</span><span class="tag">自一致性蒸馏</span><span class="tag">不确定性致密化</span><span class="tag">UVEB</span><span class="tag">DRUVA</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>PUGS 把水下动态 3DGS 的形变场从“一个位移”改成“均值 + 位置方差”：位移按 Δμ + β(t)(Δσ⊙ε) 采样，Δσ 用 ℓ1 稀疏先验约束，β 从 1 退火到 0；训练时并行渲染确定性路径与随机路径，用 stop-gradient 蒸馏把确定性路径拉向随机路径的中心趋势，推理时关掉采样只走确定性路径。UVEB 11 场景平均 30.85 dB（比 Defor…</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">动态 3DGS 通常用确定性形变场建模场景运动，隐含假设每个高斯只有一条几何轨迹。这个假设在水下会失效：光散射、折射、海雪与低能见度会在成像过程中引入大量物理歧义。本文提出 PUGS，学习水下成像固有的不确定性，并把它当作物理信号来引导动态场景表示。方法不再估计单一确定位移，而是把每个高斯的运动参数化为带期望形变与物理不确定性的概率分布，并通过局部重参数化采样轨迹，在训练中探索多个物理上可行的解；随后用不确定性随机…</p><p class="lang lang-en lang-block" data-lang="en">Dynamic 3D Gaussian Splatting (3DGS) provides an efficient framework for dynamic scene reconstruction. Most existing approaches model scene dynamics with deterministic deformation fields, assuming each Gaussia…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.17936">abs</a><a href="https://arxiv.org/pdf/2610.17936">PDF</a><a href="papers/arxiv-2610.17936/index.html">完整单篇海报</a></div>
+  <div class="meta">作者：Jiaxing Chen, Zizheng Yan, Jingyu Zhuang, Jinwei Chen</div>
+  <span class="score">评分 11/10</span>
+  <div class="tags"><span class="tag">测试时适配</span><span class="tag">相机内参</span><span class="tag">LoRA</span><span class="tag">度量几何</span><span class="tag">单目深度</span><span class="tag">视线图残差</span><span class="tag">点图</span><span class="tag">在线标定</span><span class="tag">MoGe2</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>IntriAdapt 的核心是把“已知内参”从输入条件改造成自监督信号。它先按 MoGe 系列的仿射不变点图约定，用已知焦距解出轴向平移 τ，把点图换算成逐像素视线图，再与 K_gt^-1[u,v,1] 归一化得到的真值视线图求余弦残差；梯度经点图回传到插在 DINOv2 编码器每个注意力层的 rank-16 LoRA（1.57M 参数，约主干 0.4%），主干全冻结。单图每…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">从图像恢复度量 3D 几何本质上是病态问题，根源是透视投影的歧义。当前的几何模型在推理时会接收或预测内参，但并不用内参去监督模型适配；已有的测试时适配（TTA）方法则普遍依赖外部深度测量。本文反过来把相机内参当作输出端的几何校验器：把预测点云诱导的逐像素视线与已知内参定义的视线做比较，得到一个闭式的几何不一致度量。作者提出 IntriAdapt，在冻结的几何基础模型上只优化一个轻量 LoRA 适配器来最小化该残差，…</p><p class="lang lang-en lang-block" data-lang="en">Recovering metric 3D geometry from images is fundamentally ill-posed due to perspective projection ambiguity. Current geometry models incorporate supplied or predicted intrinsics during inference, but do not u…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.24607">abs</a><a href="https://arxiv.org/pdf/2610.24607">PDF</a><a href="papers/arxiv-2610.24607/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2610.20460/index.html"><img src="assets/media/2026-10-20/arxiv-2610.20460/fig-001.webp" alt="DD-GBP: Anytime Multi-Arm Planning and Continuous Execution via Distributed Dynamic Gaussian Belief Propagation" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.20460/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DD-GBP：用分布式动态高斯置信传播做多机械臂随时规划</span><span class="lang lang-en lang-inline" data-lang="en">DD-GBP: Anytime Multi-Arm Planning and Continuous Execution via Distributed Dynamic Gaussian Belief Propagation</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-15 · score 14 · S层 · 3D/4D Spatial Perception · cs.RO</div>
+  <a class="thumb" href="papers/arxiv-2610.24705/index.html"><img src="assets/media/2026-10-21/arxiv-2610.24705/fig-001.webp" alt="Relational Spatial Alignment for Vision-Language-Action Models" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2610.24705/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RIGID：用关系对齐把 3D 几何蒸进 VLA，同时不压扁语义表征</span><span class="lang lang-en lang-inline" data-lang="en">Relational Spatial Alignment for Vision-Language-Action Models</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-17 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO</div>
   <div class="meta">内容级别：完整单篇海报</div>
-  <div class="meta">作者：Zhao Jin, Fengyi Dai, Yuetong Yin, Yunan Wang</div>
-  <span class="score">评分 14/10</span>
-  <div class="tags"><span class="tag">高斯置信传播</span><span class="tag">因子图</span><span class="tag">多臂规划</span><span class="tag">GP 轨迹参数化</span><span class="tag">随时推断</span><span class="tag">事件触发重规划</span><span class="tag">分布式优化</span><span class="tag">一致性证明</span><span class="tag">重线性化</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>DD-GBP 把多臂规划写成动态因子图上的 MAP 推断，用 GP 支撑状态参数化关节轨迹，为每个机器人建局部树图，只通过活跃链路异步传消息。触发式重规划时用 BFS 抽出受影响子网（有深度与节点数上限），并证明剪掉非活跃因子不改变门控目标、重规划前后轨迹变化有局部界、执行用的三次 Hermite 曲线正是 GP 条件均值。50 个四臂场景成功率 92.5%，对照 Syn-G…</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">在复杂动态环境中在线、安全地执行长时程多臂任务仍然困难。本文提出分布式动态高斯置信传播（DD-GBP），通过并行局部推断直接规划关节空间轨迹。统一的 GP 参数化把自适应规划时域、插值时刻因子与连续执行连在一起；每个机器人维护一棵局部树结构因子图，并在活跃的臂间链路上异步交换消息。动态子网重建与事件触发更新降低通信与推断开销，同时响应移动障碍。作者还给出局部推断精度、随时早停、触发重规划一致性与 GP 一致执行的理…</p><p class="lang lang-en lang-block" data-lang="en">Safely executing long-horizon multi-arm tasks online in complex dynamic environments remains challenging. We propose a new distributed dynamic Gaussian belief propagation (DD-GBP) method that directly plans jo…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.20460">abs</a><a href="https://arxiv.org/pdf/2610.20460">PDF</a><a href="papers/arxiv-2610.20460/index.html">完整单篇海报</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2610.21302/index.html"><img src="assets/media/2026-10-20/arxiv-2610.21302/fig-001.webp" alt="Dusting the Phantom: Gaussian Allocation for Fading Dynamic Content" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.21302/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Dusting the Phantom：动态高斯的瓶颈是“分配”而不是“容量”</span><span class="lang lang-en lang-inline" data-lang="en">Dusting the Phantom: Gaussian Allocation for Fading Dynamic Content</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-15 · score 13 · S层 · 3D/4D Spatial Perception · cs.CV</div>
-  <div class="meta">内容级别：完整单篇海报</div>
-  <div class="meta">作者：Minhyeok Roh, Minseo Lee, Jun Young Jeong, Byeonghyeon Lee</div>
-  <span class="score">评分 13/10</span>
-  <div class="tags"><span class="tag">动态高斯</span><span class="tag">高斯分配</span><span class="tag">种子注入</span><span class="tag">时间偏置重定位</span><span class="tag">FreeTimeGS</span><span class="tag">多视图抬升</span><span class="tag">快速小目标</span><span class="tag">N3DV</span><span class="tag">CMU Panoptic</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>方法建立在 FreeTimeGS 上，不动表示、只动分配。Seed Injection 把“帧差动态掩码 × 渲染误差”当种子图，从 8 个同步视角各采 48 个候选像素，用光线对最近点中点抬升到 3D，按光线距离排序后每帧最多注入 256 个种子（复用低透明度高斯，预算不变）；Temporal Biased Relocation 把目标高斯在各时刻的位置梯度归一化成时间分布…</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">动态高斯表示让高质量实时体积视频越来越可行，但剧烈运动仍会破坏重建：小而快的物体会消失，高动态区域的细纹理会丢失。简单延长训练或增加高斯数量往往仍无法恢复这些小目标。作者认为关键瓶颈不是表示容量，而是高斯基元被分配在何处、何时。现有分配策略依赖当前高斯位置，忽略了被重定位高斯的时空目的地。本文提出两个互补策略：Seed Injection 用时间外观变化与重建误差定位欠重建的动态区域，并通过多视图观测在几何合理的…</p><p class="lang lang-en lang-block" data-lang="en">Dynamic Gaussian representations have made high-quality, real-time volumetric video increasingly practical, yet challenging motion can still break their reconstruction: small fast-moving objects may disappear,…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.21302">abs</a><a href="https://arxiv.org/pdf/2610.21302">PDF</a><a href="papers/arxiv-2610.21302/index.html">完整单篇海报</a></div>
-</article>
-<article class="card">
-  <a class="thumb" href="papers/arxiv-2610.22514/index.html"><img src="assets/media/2026-10-20/arxiv-2610.22514/fig-001.webp" alt="Towards Reconstructing Geographically Diverse Architecture with 3D Foundation Models" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2610.22514/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ArchWorld：在地理多样的建筑场景上审计 3D 基础模型</span><span class="lang lang-en lang-inline" data-lang="en">Towards Reconstructing Geographically Diverse Architecture with 3D Foundation Models</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-10-16 · score 12 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.LG</div>
-  <div class="meta">内容级别：完整单篇海报</div>
-  <div class="meta">作者：Nicky Kriplani, Yiwen Zhang, Angelina Wang, Hadar Averbuch-Elor</div>
-  <span class="score">评分 12/10</span>
-  <div class="tags"><span class="tag">3D 基础模型</span><span class="tag">基准评测</span><span class="tag">地理多样性</span><span class="tag">Chamfer 距离</span><span class="tag">跨视图注意力</span><span class="tag">免训练干预</span><span class="tag">VGGT</span><span class="tag">π³</span><span class="tag">Depth Anything 3</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>ArchWorld 用 396 个野外 landmark 场景（92K 图、64 国、8 个区域、平均 232 图/场景）建立带米制稠密真值的评测集，并在 VGGT、Depth Anything 3、π³ 三个 3DFM 上做按区域、按建筑类型的分解评测。整体中位 Chamfer 距离 π³ 0.154 m、VGGT 0.277 m、DA3 0.869 m，但 π³ 在东亚的…</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">互联网规模的 landmarks 照片集推动了 3D 视觉的进展，但对单次前馈估计场景结构的 3D 基础模型（3DFM）仍然很难。本文提出 ArchWorld：一个地理覆盖广、带丰富元数据的三维建筑 landmark 基准，用它系统分析当前 3DFM 的失败模式。作者发现模型误差随地理区域系统性变化，但这种差异只部分符合训练数据代表性这一常见公平性解释：区域特有的建筑特征与背景干扰同样在改变难度。基于这些发现，本文…</p><p class="lang lang-en lang-block" data-lang="en">Internet-scale photo collections of real-world landmarks have driven progress in 3D computer vision yet remain highly challenging for modern 3D foundation models (3DFMs) that estimate scene structure in a sing…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2610.22514">abs</a><a href="https://arxiv.org/pdf/2610.22514">PDF</a><a href="papers/arxiv-2610.22514/index.html">完整单篇海报</a></div>
+  <div class="meta">作者：Chaoran Zhu, Hengyi Wang, Chenglin Cui, Yazhe Wan</div>
+  <span class="score">评分 10/10</span>
+  <div class="tags"><span class="tag">视觉-语言-动作模型</span><span class="tag">3D 基础模型</span><span class="tag">知识蒸馏</span><span class="tag">最优传输</span><span class="tag">Sinkhorn</span><span class="tag">秩塌缩</span><span class="tag">旋转不变</span><span class="tag">空间推理</span><span class="tag">LIBERO-Plus</span><span class="tag">VGGT</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>RIGID 先做一个诊断：把 VLA 的视觉 token 逐点对齐到冻结 VGGT 的特征（Spatial Forcing 一类做法），会让 VLA 特征的数值秩显著塌缩（effective rank 248.0 对 306.3，成功率 72.9% 对 85.2%），语义容量随之受损。作者改为对齐成对关系：学生用可学习 q/k 投影算多视图注意力图，教师取 VGGT 第 12…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">空间理解是机器人感知环境并执行动作的基础。现有做法通常把 VLA 的表示与预训练 3D 基础模型直接对齐来注入 3D 感知；但作者观察到，这种直接的几何特征对齐本质上是在特征空间里施加一种低秩正则，导致预训练 VLA 表示出现严重的秩塌缩。本文把关注点从“逐点相等”转向“成对关系一致”：提出一种表示对齐方法，在注入 3D 空间感知的同时不牺牲模型原有的表达能力。作者进一步从理论上说明该关系对齐目标具有旋转不变性——…</p><p class="lang lang-en lang-block" data-lang="en">Spatial understanding is essential for robots to perceive their surrounding environments and execute actions. Existing approaches typically encode 3D awareness into vision-language-action (VLA) models by direc…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.24705">abs</a><a href="https://arxiv.org/pdf/2610.24705">PDF</a><a href="papers/arxiv-2610.24705/index.html">完整单篇海报</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -89,64 +65,60 @@
     <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
   </div>
   <div class="repo-list"><div class="repo">
-  <div><strong><a href="https://github.com/evan-wes/reifyscene">evan-wes/reifyscene</a></strong><div>Reify a scene: turn casually captured, uncalibrated video — one clip or several — into an interpretable, queryable, semantically editable 4D reconstruction.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-19 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+  <div><strong><a href="https://github.com/Xiaoang0211/ProMo3D">Xiaoang0211/ProMo3D</a></strong><div>Official implementation of ProMo3D (NeurIPS 2026): probing motion cues in frozen 3D foundation models.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-20 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/rsasaki0109/Calibrex">rsasaki0109/Calibrex</a></strong><div>Check whether the sensor calibration on your robot is still right: one command, honest per-axis verdicts for LiDAR, IMU, camera, GNSS, and vehicle.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 30 · 更新 2026-10-19 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：camera-imu-calibration, camera-lidar, extrinsic-calibration, gnss, imu</div></div>
+  <div><strong><a href="https://github.com/Nimsi123/tt4d">Nimsi123/tt4d</a></strong><div>TT4D: A Pipeline and Dataset for Table Tennis 4D Reconstruction From Monocular Videos</div></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-10-20 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Averyy/onodiy-esp32-ntrip-server">Averyy/onodiy-esp32-ntrip-server</a></strong><div>DIY RTK base station firmware for ESP32 + Unicore UM982 (UM980 planned): setup wizard, automatic receiver setup and multi-server NTRIP streaming for onocoy, RTK2go and others</div></div>
-  <div><div class="meta">新项目 · C · ★ 0 · 更新 2026-10-19 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：esp-idf, esp32, gnss, ntrip, ntrip-server</div></div>
+  <div><strong><a href="https://github.com/UCLA-Bruin-Supermileage/SMV_IGPSboard_2026-27">UCLA-Bruin-Supermileage/SMV_IGPSboard_2026-27</a></strong><div>GNSS and Accelerometer Sensor Board</div></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-10-21 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/hyperpostulate/rw4-poc">hyperpostulate/rw4-poc</a></strong><div>A minimal Xiaomi Vela JS quick app (.rpk) for the Redmi Watch 4. The project began as a GPS/compass idea, but the watch exposes no GNSS or health API to third-party apps, so GPS is impossible on this device (see On-device findings). What s…</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-19 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><strong><a href="https://github.com/yasinhan-lang/GNSS_Koordinat_YHAN">yasinhan-lang/GNSS_Koordinat_YHAN</a></strong></div>
+  <div><div class="meta">新项目 · HTML · ★ 0 · 更新 2026-10-20 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Pepeuch/universal-gnss">Pepeuch/universal-gnss</a></strong><div>universsal GNSS parser for ros2</div></div>
-  <div><div class="meta">C++ · ★ 4 · 更新 2026-10-19 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><strong><a href="https://github.com/facebookresearch/efm3d">facebookresearch/efm3d</a></strong><div>This is the official release for the paper &quot;EFM3D A Benchmark for Measuring Progress Towards 3D Egocentric Foundation Models&quot; (https//arxiv.org/abs/2406.10224).</div></div>
+  <div><div class="meta">新项目 · Python · ★ 188 · 更新 2026-10-20 · score 3</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Guiimartinho/gnss-bike-computer">Guiimartinho/gnss-bike-computer</a></strong></div>
-  <div><div class="meta">C · ★ 0 · 更新 2026-10-19 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><strong><a href="https://github.com/NicholasTJL-projects/SpaceTimeReconstruction">NicholasTJL-projects/SpaceTimeReconstruction</a></strong><div>Space + Time Reconstruction in 4D</div></div>
+  <div><div class="meta">新项目 · JavaScript · ★ 0 · 更新 2026-10-20 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/weihan1/growflow">weihan1/growflow</a></strong><div>Official code release for the paper: Grow with the Flow: 4D Reconstruction of Growing Plants with Gaussian Flow Fields</div></div>
+  <div><div class="meta">Python · ★ 31 · 更新 2026-10-20 · score 9 · S层 · 3D/4D Spatial Perception</div><div class="meta">Topics：4d-reconstruction, neural-ode, neural-rendering</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-19 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/lyz678/Embodied-RobotSim">lyz678/Embodied-RobotSim</a></strong><div>Embodied-RobotSim is a comprehensive ROS 2 (Jazzy) simulation workspace for a mobile robot equipped with a Franka FR3 robotic arm, a 2D/D LiDAR, a stereo RGB-D camera, and a rich, advanced sensor suite. The simulation integrates state-of-t…</div></div>
-  <div><div class="meta">Python · ★ 115 · 更新 2026-10-19 · score 5</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-20 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div></div>
-  <details class="repo-more"><summary>还有 8 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
-  <div><strong><a href="https://github.com/rohitsinha-iit/e5-multibody-4d-probing">rohitsinha-iit/e5-multibody-4d-probing</a></strong><div>E5 multibody-structure probing of 4D feed-forward reconstruction models (Any4D)</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-10-19 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
-</div>
-<div class="repo">
+  <details class="repo-more"><summary>还有 7 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
   <div><strong><a href="https://github.com/Cornell-VAILab/ArchWorld">Cornell-VAILab/ArchWorld</a></strong><div>[NeurIPS&#x27;26] Official Source Code for &quot;Towards Reconstructing Geographically Diverse Architecture with 3D Foundation Models&quot;</div></div>
   <div><div class="meta">Python · ★ 0 · 更新 2026-10-19 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/William-WANG2/Deblur4D">William-WANG2/Deblur4D</a></strong><div>Deblur4D: Feed-Forward 4D Reconstruction from Blurry RGB and Complementary Vision</div></div>
-  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-10-18 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
-</div>
-<div class="repo">
   <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
-  <div><div class="meta">Python · ★ 14 · 更新 2026-10-19 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/GehaoZhang6/Grounded-Action-Model">GehaoZhang6/Grounded-Action-Model</a></strong><div>Grounded Action Model: 3D Grounding as a Foundation for Robotics</div></div>
-  <div><div class="meta">Python · ★ 51 · 更新 2026-10-18 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-grounding, foundation-models, manipulation, robot-learning, robotics</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-10-20 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
-  <div><div class="meta">Python · ★ 2 · 更新 2026-10-19 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-10-20 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
-  <div><div class="meta">★ 1905 · 更新 2026-10-14 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
+  <div><strong><a href="https://github.com/Averyy/onodiy-esp32-ntrip-server">Averyy/onodiy-esp32-ntrip-server</a></strong><div>DIY RTK base station firmware for ESP32 + Unicore UM982 (UM980 planned): setup wizard, automatic receiver setup and multi-server NTRIP streaming for onocoy, RTK2go and others</div></div>
+  <div><div class="meta">C · ★ 0 · 更新 2026-10-20 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：esp-idf, esp32, gnss, ntrip, ntrip-server</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lyz678/Embodied-RobotSim">lyz678/Embodied-RobotSim</a></strong><div>Embodied-RobotSim is a comprehensive ROS 2 (Jazzy) simulation workspace for a mobile robot equipped with a Franka FR3 robotic arm, a 2D/D LiDAR, a stereo RGB-D camera, and a rich, advanced sensor suite. The simulation integrates state-of-t…</div></div>
+  <div><div class="meta">Python · ★ 115 · 更新 2026-10-19 · score 5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/aardvark-platform/aardvark.base">aardvark-platform/aardvark.base</a></strong><div>Aardvark.Base is the foundation of the open-source Aardvark Platform for visual computing, real-time graphics, and visualization.</div></div>
+  <div><div class="meta">C# · ★ 164 · 更新 2026-10-20 · score 3</div><div class="meta">Topics：aardvark, aardvark-platform, attribute-grammars, datastructures, fsharp</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/dhairya-shah7/EchoLocate">dhairya-shah7/EchoLocate</a></strong><div>Active Ultrasonic Echolocation, 2D SLAM Room Mapping &amp; ONNX Neural Navigation for Visually Impaired Users</div></div>
