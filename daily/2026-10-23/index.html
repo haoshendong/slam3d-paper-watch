@@ -24,7 +24,15 @@
   </div>
   <div class="stats"><span class="stat">候选论文：4</span><span class="stat">推荐论文：4</span><span class="stat">新论文：4</span><span class="stat">仓库：20</span><span class="stat">新仓库：6</span></div>
 </section>
-
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>结论先行</strong>：今天三篇 S 级其实在回答同一个问题——<strong>“3D 基础模型该以什么形态进入策略或生成模型”</strong>，而且给出了三种不同的答案：GeoMem-VLA 把它压成 <strong>K 个可记忆的 token</strong>（几何成为状态）；RGF 把它变成 <strong>成对关系约束</strong>（几何成为结构）；CausalAlign 先用探针与干预 <strong>定位信息衰减的位置</strong>，再在那里注入 <strong>帧间变化 token</strong>（几何成为定点监督）。三篇的共同前提是：教师只在训练期出现，<strong>推理零额外输入、零重建、零缓存</strong>。</li>
+<li><strong>一个反直觉发现</strong>：RGF 证明把点级几何对齐从视频专家延伸到动作专家会<strong>跌破无对齐基线</strong>（三个 WAM 变体分别 97.90→97.55、98.75→98.35、98.40→97.95）。这比它的正收益更值得记：稠密几何目标会限制紧凑动作特征，监督不是越多越好。</li>
+<li><strong>一句话数字</strong>：GeoMem LIBERO <strong>98.9%</strong>、RoboTwin 平均 <strong>91.17%</strong>、真机 <strong>78.0%</strong>；RGF LIBERO <strong>98.65%</strong>（Fast-WAM 97.60）、真机 <strong>65.71%</strong>（57.14）；CausalAlign 重投影误差 <strong>−22.6%</strong>（8.4→6.5 px）、平滑度 <strong>+23.9%</strong>、下游 RoboCasa365 <strong>43.5%→54.2%</strong>。</li>
+<li><strong>对你有用的三条</strong>：① “先测哪一层在丢信息、再定点加低秩适配”可以搬到融合网络诊断；② 关系对齐与特征维度无关，天然适合异构传感器特征；③ 低维几何 token + 容量受限的相似合并记忆，可直接替换固定滑窗做关键帧/子图管理。</li>
+<li><strong>重复过滤</strong>：<code>papers_seen_filtered=11</code>，11 篇历史已见论文被过滤，未作为“跟踪/更新”补入推荐。</li>
+<li><strong>层级口径</strong>：层级沿用采集器 <code>priority_tier</code>；DewHand 采集器未分级（score 6），按内容归入 Geometry Foundation Models 应用并显式标注，不改写采集器字段。</li>
+<li><strong>媒体与发布</strong>：见文末。</li>
+</ul></section>
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 4 篇论文。</p></div>
   <div class="grid"><article class="card">
