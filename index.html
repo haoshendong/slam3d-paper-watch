@@ -30,6 +30,7 @@
 <li><strong>一句话数字</strong>：宏平均 AUC@1/5/10 = <strong>58.65 / 85.41 / 90.99</strong>（LoMa-L 57.40 / 84.44 / 90.06）；25 视图匹配器 <strong>447 → 203 ms（2.20×）</strong>，代价是峰值显存 <strong>176 → 979 MiB</strong>。</li>
 <li><strong>对你有用的两条</strong>：① “中心侧只算一次”的星图结构，正好对应你滑窗里反复对同一关键帧做匹配的开销；② 几何负样本项（已通过互为最大、但对极误差 &gt; 3 px 就显式当负样本）可以直接搬到任何喂给 RANSAC 的稀疏匹配器，也能映射到你最怕的“高置信 GNSS/视觉外点”。</li>
 <li><strong>层级口径</strong>：层级沿用采集器 <code>priority_tier</code>；<code>F2G-Pose</code> 仓库采集器未分级，按内容放在仓库章节并显式标注，不改写采集器字段。</li>
+<li><strong>采集缺口</strong>：4 路 arXiv 聚合查询中 3 路 429 失败（SLAM/VO、4D 重建、具身导航/GNSS），今日这 1 篇全部来自 geometry-foundation 一路；因此其余方向“今日无新增”只能说明本轮没抓到。</li>
 <li><strong>媒体与发布</strong>：见文末。</li>
 </ul></section>
 <section class="section" id="papers">
