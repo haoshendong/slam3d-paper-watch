@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-10-24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-10-24</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：1</span><span class="stat">推荐论文：1</span><span class="stat">新论文：1</span><span class="stat">仓库：18</span><span class="stat">新仓库：5</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>结论先行</strong>：今天只有一篇，但方向很清楚——<strong>把“几何基础模型”从“输出几何”改成“输出描述子”</strong>。MVLoMa 不再让 3D 基础模型去解码点图/位姿，而是直接取它已经跨视图交互过的末层 token 当作局部特征匹配的描述子输入，于是匹配器拿到的特征本身已经“看过整组图”。第二个改动是计算单元：从“图像对”改成“中心图 + 一组邻居”的<strong>星图</strong>，中心侧只算一次，24 条边一次前向出结果。</li>
+<li><strong>一个值得记的负边界</strong>：它并没有在所有指标上赢。Mip-NeRF 360 的最严阈值上稠密 RoMa 仍最强（75.42 对 74.29），Tanks and Temples 上 LoMa-L 仍最高（68.22 对 67.96）。作者自己把定位写成“稠密两视图匹配的互补稀疏方案”，这句话比宏平均更像结论。</li>
+<li><strong>一句话数字</strong>：宏平均 AUC@1/5/10 = <strong>58.65 / 85.41 / 90.99</strong>（LoMa-L 57.40 / 84.44 / 90.06）；25 视图匹配器 <strong>447 → 203 ms（2.20×）</strong>，代价是峰值显存 <strong>176 → 979 MiB</strong>。</li>
+<li><strong>对你有用的两条</strong>：① “中心侧只算一次”的星图结构，正好对应你滑窗里反复对同一关键帧做匹配的开销；② 几何负样本项（已通过互为最大、但对极误差 &gt; 3 px 就显式当负样本）可以直接搬到任何喂给 RANSAC 的稀疏匹配器，也能映射到你最怕的“高置信 GNSS/视觉外点”。</li>
+<li><strong>层级口径</strong>：层级沿用采集器 <code>priority_tier</code>；<code>F2G-Pose</code> 仓库采集器未分级，按内容放在仓库章节并显式标注，不改写采集器字段。</li>
+<li><strong>媒体与发布</strong>：见文末。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 1 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.31321/index.html"><img src="../../assets/media/2026-10-24/arxiv-2610.31321/fig-001.webp" alt="MVLoMa: Multi-View Local Feature Matching with Any Geometry Foundation Model" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.31321/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">MVLoMa：用任意几何基础模型做多视图局部特征匹配</span><span class="lang lang-en lang-inline" data-lang="en">MVLoMa: Multi-View Local Feature Matching with Any Geometry Foundation Model</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-22 · score 18 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Xinyang Lu, Shengzhe Wei, Sheng Tang, Weiqi Zhang</div>
+  <span class="score">评分 18/10</span>
+  <div class="tags"><span class="tag">局部特征匹配</span><span class="tag">星图匹配</span><span class="tag">几何基础模型</span><span class="tag">DA3</span><span class="tag">VGGT</span><span class="tag">冻结骨干</span><span class="tag">双 softmax</span><span class="tag">几何负样本</span><span class="tag">相对位姿估计</span><span class="tag">SfM 前端</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把匹配的计算单元从“图像对”改成“星图”：中心图的描述子只算一次，跨视图信息在冻结几何基础模型的末层 token 里已经就位，直接当描述子输入；匹配器只做中心↔邻居的注意力，不交换邻居之间的关系，因此仍能对每条边输出标准 score 矩阵交给 RANSAC。25 视图上平均 AUC@1/5/10 为 58.65/85.41/90.99，比 LoMa-L 高 1.25/0.97…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">局部特征匹配通常按图像对来建模，但 SfM 与视觉定位实际上是用一张参考图去匹配多张检索到或共视的邻居图。把成对匹配器逐边独立作用于这些“中心—邻居”边，会重复计算参考侧、并让匹配器在看不到其余观测的情况下就为某条边定案。作者提出 MVLoMa：一个稀疏星图匹配器，把 LoMa 从图像对扩展到多视图。它先用冻结的多视图几何模型联合描述星图内所有图像，再把得到的跨视图几何上下文注入局部描述子；随后通过逐视图自注意力与…</p><p class="lang lang-en lang-block" data-lang="en">Local feature matching is typically formulated for image pairs, although structure-from-motion and visual localization commonly match one reference image against many retrieved or covisible neighbours. Applyin…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.31321">abs</a><a href="https://arxiv.org/pdf/2610.31321">PDF</a><a href="../../papers/arxiv-2610.31321/index.html">完整单篇海报</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">ZGCA-HMI-Lab/Embodied-Agent-Research-Map</a></strong><div>A continuously updated research map of embodied agent architectures, dexterous manipulation, VLA, and navigation for reading and group discussion.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-23 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/raisemanface/gnss-signal-monitor">raisemanface/gnss-signal-monitor</a></strong></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-10-23 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kotekan/gnss-broker">kotekan/gnss-broker</a></strong><div>Broker software for coordinating GNSS detection pipelines in kotekan.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-23 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ChristopherJoshy/deadreckon">ChristopherJoshy/deadreckon</a></strong><div>On-device GNSS integrity monitor for Android: six physics checks flag GPS spoofing, offline LLM explains why.</div></div>
+  <div><div class="meta">新项目 · TypeScript · ★ 1 · 更新 2026-10-23 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：android, executorch, expo, gnss, gps-spoofing</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jrryzh/F2G-Pose">jrryzh/F2G-Pose</a></strong><div>This repo is the official implementation of &quot;F2G-Pose: Geometry-Aware Foundation Feature Lifting for Direct RGB-D Category-Level Object Pose Estimation&quot;.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 27 · 更新 2026-10-23 · score 2</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/JamesEverett28/cochlear-implant-reconstruction">JamesEverett28/cochlear-implant-reconstruction</a></strong><div>Software pipeline for 4D reconstruction of a cochlear implant from videos of its insertion into a 3D-printed cochlear</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-22 · score 11 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-23 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/metacog-osint/noise-floor">metacog-osint/noise-floor</a></strong><div>Noise Floor: an open, licence-clean picture of contested spectrum. GNSS degradation from ADS-B (adsb.lol, ODbL), SBAS outages, storms, bursts, latching.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-23 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：ads-b, electronic-warfare, gnss, gps-jamming, h3</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 10 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/rohitsinha-iit/e5-multibody-4d-probing">rohitsinha-iit/e5-multibody-4d-probing</a></strong><div>E5 multibody-structure probing of 4D feed-forward reconstruction models (Any4D)</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-23 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/liaohello/uniRobotPlatform">liaohello/uniRobotPlatform</a></strong><div>A MuJoCo-based embodied AI simulation and 3D interaction data collection platform with LiDAR/SLAM navigation, RGB-D perception, robotic arm manipulation, teleoperation data recording, and policy evaluation for BC, ACT, Diffusion Policy, VL…</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-23 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-10-23 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-10-23 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/mhieule/AgentsWorld">mhieule/AgentsWorld</a></strong><div>Reproduction of &#x27;WorldAgents: Can Foundation Image Models be Agents for 3D World Models?&#x27;</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-22 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/LarryLiZimo/navigation-benchmark">LarryLiZimo/navigation-benchmark</a></strong><div>Model x harness benchmark for LLM-centric embodied navigation</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-10-22 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sahaj2310-tech/AETHER-SLAM">sahaj2310-tech/AETHER-SLAM</a></strong><div>Live dense 3D reconstruction from a single camera on a 4 GB GPU: monocular SLAM, confidence-gated scale-shift filtering of neural depth, and uncertainty-weighted TSDF fusion, with a React/Three.js dashboard.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-21 · score 8</div><div class="meta">Topics：3d-reconstruction, computer-vision, depth-estimation, fastapi, kalman-filter</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lyz678/Embodied-RobotSim">lyz678/Embodied-RobotSim</a></strong><div>Embodied-RobotSim is a comprehensive ROS 2 (Jazzy) simulation workspace for a mobile robot equipped with a Franka FR3 robotic arm, a 2D/D LiDAR, a stereo RGB-D camera, and a rich, advanced sensor suite. The simulation integrates state-of-t…</div></div>
+  <div><div class="meta">Python · ★ 101 · 更新 2026-10-19 · score 5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/HCPLab-SYSU/Embodied_AI_Paper_List">HCPLab-SYSU/Embodied_AI_Paper_List</a></strong><div>[Embodied-AI-Survey-2025] Paper List and Resource Repository for Embodied AI</div></div>
+  <div><div class="meta">★ 2191 · 更新 2026-10-21 · score 4</div><div class="meta">Topics：agent, causality, embodied-ai, interaction, manipulation</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/aardvark-platform/aardvark.base">aardvark-platform/aardvark.base</a></strong><div>Aardvark.Base is the foundation of the open-source Aardvark Platform for visual computing, real-time graphics, and visualization.</div></div>
+  <div><div class="meta">C# · ★ 164 · 更新 2026-10-23 · score 3</div><div class="meta">Topics：aardvark, aardvark-platform, attribute-grammars, datastructures, fsharp</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
