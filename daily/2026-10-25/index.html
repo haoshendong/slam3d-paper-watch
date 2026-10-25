@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-10-25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-10-25</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：0</span><span class="stat">推荐论文：0</span><span class="stat">新论文：0</span><span class="stat">仓库：22</span><span class="stat">新仓库：7</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>今日无新增论文，已过滤历史重复论文 6 篇</strong>：抓取到的 6 篇 arXiv 条目全部为 <code>is_new=false</code>，未作为“跟踪/更新”补入推荐，本节之后只讲仓库与采集状态。</li>
+<li><strong>结论先行</strong>：今天没有一篇可推荐的新论文，唯一有价值的增量在仓库侧，而且指向同一件事——<strong>“3D 基础模型的水下假设”正在被逐项拆掉</strong>。RayTun3R 的结论最锋利：前馈 3D 模型在鱼眼上崩，部分原因是位置编码里带着针孔相机偏置；只改位置编码与网格坐标（10,752 个可训练参数）就把旋转误差降 2–12 倍，且不增加推理成本。</li>
+<li><strong>第二个观察</strong>：ArtHOI 把“单目视频 → 关节物体 + 手”的 4D 重建做成纯优化框架，用自适应采样把归一化网格的<strong>米制尺度与位姿</strong>落到世界系——这与我们关心的“尺度可观测性/尺度从哪来”是同一个问题，只是换到了人手—物体场景。</li>
+<li><strong>主轴映射</strong>：底层几何 = RayTun3R（相机几何适配）、Rodyn-SLAM（动态场景下的稠密 RGB-D 几何）；3D/4D 表征 = ArtHOI（关节物体 4D）、Multi-Phone-Splat（多机同步采集 + 3DGS/4DGS 重建管线）；空间推理 = 无新增；具身决策 = 无新增（<code>gnss-spoof-guard</code> 是 GNSS 拒止下的导航原型，属可靠性问题而非学习策略）。</li>
+<li><strong>对你有用的两条</strong>：① RayTun3R 的“先定位偏置在位置编码，再做参数高效残差修正”是可复用的诊断范式，鱼眼/广角在我们车载与机器人平台上都常见；② Multi-Phone-Splat 的采集—标定—重建流水线（ChArUco 内参/rig + AprilTag 位姿更新）可以直接当多相机 4D 数据采集的工程参考。</li>
+<li><strong>重复过滤</strong>：<code>papers_seen_filtered=6</code>，6 篇历史已见论文被过滤，未作为“跟踪/更新”补入推荐，也不复述其内容。</li>
+<li><strong>层级口径</strong>：论文层级沿用采集器 <code>priority_tier</code>（今日为空）；仓库沿用采集器给出的 <code>priority_domain</code>，并在正文标注我对“是否真是项目/是否与主轴相关”的判断，不改写采集器字段。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2></div>
+  <div class="grid"><p class="muted">暂无论文候选。</p></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/Inso-13/ArtHOI">Inso-13/ArtHOI</a></strong><div>[TPAMI 2026] The official repository of &quot;ArtHOI: Articulated Human-Object Interaction Synthesis by 4D Reconstruction from Video Priors&quot;.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 42 · 更新 2026-10-24 · score 9 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/DaniilSinitsyn/raytun3r">DaniilSinitsyn/raytun3r</a></strong><div>RayTun3R: Online Camera Adaptation in 3D Foundation Models</div></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-10-24 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/LiyingCV/liyingcv.github.io">LiyingCV/liyingcv.github.io</a></strong><div>Liying Yang — Research in 3D/4D reconstruction and generation.</div></div>
+  <div><div class="meta">新项目 · HTML · ★ 0 · 更新 2026-10-24 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Valeria-Itrat/Multi-Phone-Splat">Valeria-Itrat/Multi-Phone-Splat</a></strong><div>Synchronized multi-phone capture, camera calibration, and 3D/4D Gaussian splat reconstruction.</div></div>
+  <div><div class="meta">新项目 · JavaScript · ★ 0 · 更新 2026-10-24 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/LogosIntelligenceLab/Rodyn-SLAM">LogosIntelligenceLab/Rodyn-SLAM</a></strong><div>[IEEE RAL 2024] RoDyn-SLAM: Robust Dynamic Dense RGB-D SLAM with Neural Radiance Fields</div></div>
+  <div><div class="meta">新项目 · Python · ★ 43 · 更新 2026-10-24 · score 11 · B层 · Neural Rendering / 3DGS / NeRF</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/MaxBingham/gnss-spoof-guard">MaxBingham/gnss-spoof-guard</a></strong></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-24 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lukislp/mowdeck">lukislp/mowdeck</a></strong><div>Self-hosted, manufacturer-independent control centre for robotic lawn mowers: live map and status, schedules with rain pause, spot mowing driven by MowDeck itself, cameras, notifications, firmware updates and a Bluetooth bridge for low-lat…</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-24 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：bluetooth-proxy, capacitor, docker-compose, esphome, fastapi</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Camellia2222/UEGS-SLAM">Camellia2222/UEGS-SLAM</a></strong><div>UEGS-SLAM: Uncertainty-Aware Event Gaussian Splatting SLAM</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-24 · score 13 · A层 · Robust State Estimation / Uncertainty</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 14 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/liaohello/uniRobotPlatform">liaohello/uniRobotPlatform</a></strong><div>A MuJoCo-based embodied AI simulation and 3D interaction data collection platform with LiDAR/SLAM navigation, RGB-D perception, robotic arm manipulation, teleoperation data recording, and policy evaluation for BC, ACT, Diffusion Policy, VL…</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-23 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-10-24 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-10-24 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">ZGCA-HMI-Lab/Embodied-Agent-Research-Map</a></strong><div>A continuously updated research map of embodied agent architectures, dexterous manipulation, VLA, and navigation for reading and group discussion.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-24 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/LarryLiZimo/navigation-benchmark">LarryLiZimo/navigation-benchmark</a></strong><div>Model x harness benchmark for LLM-centric embodied navigation</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-10-22 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/gnssplusplus-library">rsasaki0109/gnssplusplus-library</a></strong><div>Modern C++20 GNSS toolkit — RTK/PPP/CLAS/IMU fusion.</div></div>
+  <div><div class="meta">C++ · ★ 231 · 更新 2026-10-25 · score 10 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：c-plus-plus, gnss, imu, localization, positioning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/scpetersonGNSS/Caltrans-GNSS-Study">scpetersonGNSS/Caltrans-GNSS-Study</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-25 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-24 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/tanyorg/gnomon">tanyorg/gnomon</a></strong><div>NMEA 0183 GNSS monitor in Rust, modelled on gpsd&#x27;s gpsmon (gpsd or raw NMEA over TCP)</div></div>
+  <div><div class="meta">Rust · ★ 0 · 更新 2026-10-24 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：gnss, gnss-receiver, nmea0183, rust</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sangnguyen2803/2D-3D_reconstruction_underwater_archaeological_perception">sangnguyen2803/2D-3D_reconstruction_underwater_archaeological_perception</a></strong><div>Multi-view 3D reconstruction pipeline built with DINOv2 combining local and foundation-model visual features, correspondence matching, reliability estimation, geometric verification, SfM, MVS, and dense 3D reconstruction.</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-10-24 · score 6</div><div class="meta">Topics：3d-reconstruction, 3d-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sahaj2310-tech/AETHER-SLAM">sahaj2310-tech/AETHER-SLAM</a></strong><div>Live dense 3D reconstruction from a single camera on a 4 GB GPU: monocular SLAM, confidence-gated scale-shift filtering of neural depth, and uncertainty-weighted TSDF fusion, with a React/Three.js dashboard.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-21 · score 8</div><div class="meta">Topics：3d-reconstruction, computer-vision, depth-estimation, fastapi, kalman-filter</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lyz678/Embodied-RobotSim">lyz678/Embodied-RobotSim</a></strong><div>Embodied-RobotSim is a comprehensive ROS 2 (Jazzy) simulation workspace for a mobile robot equipped with a Franka FR3 robotic arm, a 2D/D LiDAR, a stereo RGB-D camera, and a rich, advanced sensor suite. The simulation integrates state-of-t…</div></div>
+  <div><div class="meta">Python · ★ 101 · 更新 2026-10-24 · score 5</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
+  <div><div class="meta">★ 1907 · 更新 2026-10-24 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jrryzh/F2G-Pose">jrryzh/F2G-Pose</a></strong><div>This repo is the official implementation of &quot;F2G-Pose: Geometry-Aware Foundation Feature Lifting for Direct RGB-D Category-Level Object Pose Estimation&quot;.</div></div>
+  <div><div class="meta">Python · ★ 50 · 更新 2026-10-23 · score 2</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
