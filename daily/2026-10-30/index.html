@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-10-30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-10-30</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：5</span><span class="stat">推荐论文：5</span><span class="stat">新论文：5</span><span class="stat">仓库：2</span><span class="stat">新仓库：0</span></div>
+</section>
+
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 5 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.35361/index.html"><img src="../../assets/media/2026-10-30/arxiv-2610.35361/fig-001.webp" alt="SG-Splat: Stable Geometry Learning under Pose Uncertainty for Pose-Free 3D Gaussian Splatting" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.35361/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SG-Splat：在位姿不确定下稳定几何学习的前馈高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">SG-Splat: Stable Geometry Learning under Pose Uncertainty for Pose-Free 3D Gaussian Splatting</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-26 · score 21 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Xiaohan Lu, Jiaqi Zhang, Weijia Jiang, Siwei Ma</div>
+  <span class="score">评分 20/10</span>
+  <div class="tags"><span class="tag">无位姿前馈 3DGS</span><span class="tag">位姿不确定性</span><span class="tag">可微 bundle adjustment</span><span class="tag">双路训练</span><span class="tag">点图校正</span><span class="tag">DL3DV</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把「位姿误差污染高斯属性」拆成两个分支加双路训练来治：DL3DV 24 视角无位姿设定 PSNR 23.190（YoNoSplat 22.433、AnySplat 19.914），AUC@5 0.849（WorldMirror 0.792）；只用预测位姿训练反而掉到 21.155，说明关键不是「多用预测位姿」而是「用在哪条分支上」。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">无位姿前馈 3D 高斯泼溅（3DGS）能直接从一组未标定图像回归高斯表示，但残余位姿误差会扰动「相机系 → 规范系」的高斯变换，给几何与属性学习注入噪声监督。SG-Splat 把几何/相机估计与高斯属性预测拆成两个分支，减少误差耦合；再用由粗到细的两步精化：流光引导位姿精化（FGPR）用相关特征与可微 bundle adjustment 迭代修正位姿并输出深度残差，残差引导几何校正（RGC）用该残差以有界乘性修正量…</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting (3DGS) has become a promising representation for real-time novel view synthesis and 3D scene reconstruction. For practical deployment, recent studies have explored pose-free feed-forward…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.35361">abs</a><a href="https://arxiv.org/pdf/2610.35361">PDF</a><a href="../../papers/arxiv-2610.35361/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.33802/index.html"><img src="../../assets/media/2026-10-30/arxiv-2610.33802/fig-001.webp" alt="ProMo3D: Probing Motion Cues in Frozen 3D Foundation Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.33802/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ProMo3D：探测冻结 3D 基础模型里的运动线索</span><span class="lang lang-en lang-inline" data-lang="en">ProMo3D: Probing Motion Cues in Frozen 3D Foundation Models</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-25 · score 14 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV, cs.AI, cs.LG</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Xiaoang Zhang, Mert Kiray, Yordanka Velikova, Manoj Biswanath</div>
+  <span class="score">评分 18/10</span>
+  <div class="tags"><span class="tag">3D 基础模型探针</span><span class="tag">运动分割</span><span class="tag">低秩二次探针</span><span class="tag">视觉几何骨干</span><span class="tag">零样本迁移</span><span class="tag">静态/动态分离</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>运动理解不是「要再训一个大解码器」，而是「冻结 token 里已有、只差一个低秩二次读出」：π³X 上 rank-8 探针仅 0.295M 参数，DAVIS17 粗掩码 J-M 73.7（GeoMotion 75.4），加 SAM2 后 81.9/92.3（GeoMotion+SAM2 81.1/92.6），训练数据只有 160 个视频、推理只加 4.2 ms/帧。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">前馈 3D 基础模型重塑了多视图重建，但动态 4D 理解仍依赖大规模运动监督或针对具体架构手工设计的启发式。本文问：冻结的 3D 基础模型 token 里是否already 编码了运动相关信息、只是缺少轻量读出函数？在三个骨干上做线性探针，作者发现静态/动态可分性确实可从冻结表示中解码；在 π³X 上的秩受限与谱分析进一步显示，恢复出的运动线索集中在一个低维子空间。据此提出基于探针的运动蒸馏（PMD）：把「与固定锚…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 3D foundation models have recently reshaped multi-view reconstruction, yet dynamic 4D understanding still often relies on large-scale motion supervision or hand-crafted, architecture-specific heur…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.33802">abs</a><a href="https://arxiv.org/pdf/2610.33802">PDF</a><a href="../../papers/arxiv-2610.33802/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.37000/index.html"><img src="../../assets/media/2026-10-30/arxiv-2610.37000/fig-001.webp" alt="GPA-VGGT: Geometry-Preserving Acceleration of VGGT" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.37000/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GPA-VGGT：保几何精度的 VGGT 免训练加速</span><span class="lang lang-en lang-inline" data-lang="en">GPA-VGGT: Geometry-Preserving Acceleration of VGGT</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-27 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Muyeol Sung, Jangwon Kim, Jongwoo Lim</div>
+  <span class="score">评分 17/10</span>
+  <div class="tags"><span class="tag">VGGT 加速</span><span class="tag">token merging</span><span class="tag">注意力质量修正</span><span class="tag">免训练</span><span class="tag">长序列几何</span><span class="tag">WACV 2027</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>先诊断出旧加速法的三处误差来源（合并 query、丢掉 log s 的注意力质量修正、早期块过早去掉跨帧上下文），再逐一补回：CO3D 严格指标 AUC@3 56.94（vanilla VGGT 57.49，FastVGGT 41.56），200 帧 33.65 s vs 86.78 s（2.58×），显存与 vanilla 只差 0.01 GiB。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">VGGT 这类前馈几何模型能在一次前向里从 1 到数百视图恢复相机参数、深度与点图，但其全局注意力的复杂度随帧数平方增长，长序列上主导端到端时延。此前的免训练加速（如 token merging）会掉精度，难以真正替代 VGGT。GPA-VGGT 把早期块的全局注意力换成「帧注意力 + 共享跨帧 K/V 集」，在其余块里只合并 key/value、保留全部 query，并给被合并的 key 补上 log s 的注意…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward geometry models such as VGGT recover camera parameters, depth maps, and point maps from one to hundreds of views in a single forward pass, making them powerful backbones for multi-view 3D percepti…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.37000">abs</a><a href="https://arxiv.org/pdf/2610.37000">PDF</a><a href="../../papers/arxiv-2610.37000/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.37216/index.html"><img src="../../assets/media/2026-10-30/arxiv-2610.37216/fig-001.webp" alt="Zhengrong-Spatial-Aware 1.0: Advancing 3D Multimodal Intelligence" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.37216/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Zhengrong-Spatial-Aware 1.0：3D 多模态空间智能的工程适配报告</span><span class="lang lang-en lang-inline" data-lang="en">Zhengrong-Spatial-Aware 1.0: Advancing 3D Multimodal Intelligence</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-27 · score 10 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Yu Zhang, Xiaogang Wang, Yuhang Cheng, Jingrui Li</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">3D 空间问答</span><span class="tag">HiSpatial</span><span class="tag">Qwen3-VL</span><span class="tag">QLoRA</span><span class="tag">单目点图</span><span class="tag">混合域微调</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>两条可复现的适配流水线：HiSpatial-3B 目标集 1.73%→79.89%（3,600 步），风格化集 14.9%→55.1%；Qwen3-VL-8B 20.74%→45.27%、32B 30.79%→47.60%。价值在工程链路与「混合域数据比例」这一经验，不在方法创新；数据集未公开、无逐任务拆分与方差，引用需谨慎。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">这是一份工程报告，交付两条面向 3D 感知视觉问答的端到端多模态适配流水线，跑在自建空间数据集上。第一条微调 HiSpatial-3B，在 RGB 之外注入度量尺度点图；第二条用 QLoRA 适配 Qwen3-VL。完整栈覆盖数据转换、图文对齐、单目几何预处理、指令构造、混合域训练、检查点管理、批量推理与自动评测。目标基准上 HiSpatial 从 1.73% 提到 79.89%（3,600 步），另一批风格化数据…</p><p class="lang lang-en lang-block" data-lang="en">This report presents the implementation and validation of two end-to-end multimodal adaptation pipelines for 3D-aware visual question answering on a custom spatial dataset. The first pipeline fine-tunes HiSpat…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.37216">abs</a><a href="https://arxiv.org/pdf/2610.37216">PDF</a><a href="../../papers/arxiv-2610.37216/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.35806/index.html"><img src="../../assets/media/2026-10-30/arxiv-2610.35806/fig-001.webp" alt="Does VGGT Know What It Does Not Know?" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.35806/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">VGGT 知不知道自己不知道？冻结特征里的位姿失效信号</span><span class="lang lang-en lang-inline" data-lang="en">Does VGGT Know What It Does Not Know?</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-27 · score 6 · A层 · Robust State Estimation / Uncertainty · cs.CV, cs.LG</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Adityan Thirumani Srinivasan, David Nordström</div>
+  <span class="score">评分 15/10</span>
+  <div class="tags"><span class="tag">位姿不确定性</span><span class="tag">线性探针</span><span class="tag">失效预测</span><span class="tag">选择性预测</span><span class="tag">VGGT</span><span class="tag">几何基础模型可信度</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>VGGT 不报位姿不确定性，但它的冻结特征里有一个几乎免费的失败信号：一个线性探针 ROC-AUC 93.5%（自带置信度 79.7%），按探针保留最可信的 50% 图像对，失败率从 34.9% 降到 3.8%；代价是需要失败标签训练探针，且它抓不到短基线的平移失败。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">VGGT 这类前馈重建模型在一次前向里回归相机与几何，却不为预测的相机位姿报告任何不确定性：错误的相对位姿与正确的看起来一样。本文问：冻结的模型是否仍「知道」自己的位姿是错的？在 HardMatch（1,000 对刻意困难的图像对，VGGT 在其中 35% 上失败）上，对冻结特征做线性探针可在未见类别上以 ROC-AUC 93.5% 预测位姿失败，而 VGGT 自带的点图置信度只有 79.7%、用其全部输出训练的分…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 3D reconstruction models such as VGGT regress cameras and geometry in a single forward pass, but they report no uncertainty for the camera poses they predict: an incorrect relative pose looks no d…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.35806">abs</a><a href="https://arxiv.org/pdf/2610.35806">PDF</a><a href="../../papers/arxiv-2610.35806/index.html">半海报</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/LogosIntelligenceLab/Rodyn-SLAM">LogosIntelligenceLab/Rodyn-SLAM</a></strong><div>[IEEE RAL 2024] RoDyn-SLAM: Robust Dynamic Dense RGB-D SLAM with Neural Radiance Fields</div></div>
+  <div><div class="meta">Python · ★ 43 · 更新 2026-10-24 · score 11 · B层 · Neural Rendering / 3DGS / NeRF</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Meshvale/meshvale-geometry">Meshvale/meshvale-geometry</a></strong><div>C++20 geometry foundation for meshes, attributes, topology, robust operations, and invariant checks.</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-10-26 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div></div>
+  
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
