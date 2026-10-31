@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-10-31</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-10-31</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：18</span><span class="stat">推荐论文：6</span><span class="stat">新论文：18</span><span class="stat">仓库：16</span><span class="stat">新仓库：5</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>结论先行</strong>：今天的共同主题是<strong>&quot;把可信度做成一个可读的量，而不是靠超参直觉&quot;</strong>。磁异常导航那篇把匹配模糊性压成后验 Shannon 熵（AUC 0.73/0.78，无需真值）；π0.5 评测把 9 个推理旋钮压到 1 个显著；世界模型规划那篇用配对干预证明&quot;多算 3 倍更新反而少成功 1 次&quot;；GOFish 把相机标定抬成一等公民；TACOS 把优化器丢掉的接触残差捡回来当标签。</li>
+<li><strong>最值得读的一篇</strong>：<strong>Forward-Backward Map Matching（2610.38047）</strong>。它是今天唯一&quot;换后验表示就同时拿到精度与可靠性&quot;的工作：网格、剪枝、测量完全相同，只把前向滤波换成前向-后向平滑，中位误差 57.7 m → 32.8 m（−43%），而 EKF 与 10⁴/10⁵ 粒子滤波都贴在前向 PMF 上（差距 &lt;0.4 m）。</li>
+<li><strong>最反直觉的一组数字</strong>：世界模型规划的 matched 实验。同一个决策点、同一段历史，更新 4/8/12 次对应成功 9/8/7；所有翻转只在 8 个场景簇中的 1 个（scene 18651）——K=4 选中代价 19.6764 反而成功，K=12 选中更低的 7.5485 反而失败。</li>
+<li><strong>最&quot;省钱&quot;的可靠性信号</strong>：后验熵。它不增加任何前向计算（本来就要算后验），只多一次 Shannon 熵累加，在 10% 虚警率下抓住 26%/47% 的大误差段，<code>κ/ln Ns</code> 还让阈值跨网格可比。</li>
+<li><strong>最需要打问号的一篇</strong>：世界模型规划那篇。单作者、单任务（PushT）、单预测器家族，结论只出现在 1/8 个场景簇，作者自己在正文写&quot;a single example isn&#x27;t enough evidence to support a general mechanism&quot;——它的价值在方法学，不在结论强度。</li>
+<li><strong>主轴映射</strong>：底层几何 = GOFish（标定感知的光栅化域与稠密化）；可靠状态估计底座 = 前向-后向因子图 + 熵诊断、TACOS 的接触残差；3D/4D 表征 = GOFish 的单场景高斯 + 网格；空间推理 = 今日无候选；具身决策 = π0.5 推理/采集配对评测、学习型规划器的预算干预。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 18 篇候选中按 S/A 层级与评分推荐前 6 篇；靠后候选不在网页中展开。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.37917/index.html"><img src="../../assets/media/2026-10-31/arxiv-2610.37917/page-001.webp" alt="What Actually Matters? A Paired Evaluation of Inference Settings for $\pi_{0.5}$ on BEHAVIOR-1K" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.37917/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">π0.5 在 BEHAVIOR-1K 上到底什么在起作用：100 个任务的配对评测</span><span class="lang lang-en lang-inline" data-lang="en">What Actually Matters? A Paired Evaluation of Inference Settings for $\pi_{0.5}$ on BEHAVIOR-1K</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-30 · score 17 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.AI, cs.CV, cs.LG</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Ruben Hammele, Samira Huber, Mohammad Nazeri, Amirreza Payandeh, Alexandyr T. Card, Aaron Nguyen, Anuj Pokhrel, Daeun Song, Xuesu Xiao, S\&quot;oren Pirk</div>
+  <span class="score">评分 14/10</span>
+  <div class="tags"><span class="tag">VLA 推理配置</span><span class="tag">配对评测</span><span class="tag">BEHAVIOR-1K</span><span class="tag">动作块执行</span><span class="tag">数据采集成本</span><span class="tag">置信区间</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>9 个推理旋钮里只有 1 个显著：每次预测执行 13 条而非 26 条动作，Q-score 掉 0.16±0.03、成功率掉 11 个点、episode 多 752 步；去噪 20→1 步、关掉 overlap inpainting、2 倍速、best-of-4、224 直接渲染都在置信区间内看不出差别。数据采集侧快照重启省 29–43% 仿真步，但成功率没变。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">视觉-语言-动作（VLA）模型被视为通用家用机器人的可行路线，但在小规模设定里调好的推理与数据采集策略，未必能迁移到任务更多样的大规模评测。本文在一个微调过的 π0.5 模型上（基于 2025 BEHAVIOR Challenge 冠军方案，公开测试集 Q-score 0.39），对先前提出的推理与数据采集策略做系统性配对评测，覆盖全部 100 个任务。结论是这些策略并不一致地迁移：每次预测执行的动作数减半会让 Q…</p><p class="lang lang-en lang-block" data-lang="en">Vision-Language-Action (VLA) models offer a promising paradigm for general-purpose household robotics. However, inference and data-collection strategies that have been deployed in smaller-scale settings do not…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.37917">abs</a><a href="https://arxiv.org/pdf/2610.37917">PDF</a><a href="../../papers/arxiv-2610.37917/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.37891/index.html"><img src="../../assets/media/2026-10-31/arxiv-2610.37891/fig-001.webp" alt="When More Planning Hurts: Learned Planners for World Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.37891/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">更多规划反而更差：世界模型上的学习型规划器实测（含负结果）</span><span class="lang lang-en lang-inline" data-lang="en">When More Planning Hurts: Learned Planners for World Models</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-30 · score 11 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.AI, cs.LG</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Josef Chen</div>
+  <span class="score">评分 11/10</span>
+  <div class="tags"><span class="tag">世界模型规划</span><span class="tag">负结果</span><span class="tag">计算预算分配</span><span class="tag">配对干预</span><span class="tag">代理指标失配</span><span class="tag">PushT</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一个 1,505 参数的学出来的更新头在 16 个预留场景上只解出 8 个，而对照的 LePlanner 解 16/16 且只用 5.652 s；更反直觉的是「多算反而更差」——同一决策点 4/8/12 次更新对应 9/8/7 次成功，且所有翻转只在 8 个簇中的 1 个里。作者的结论是：这份工作没有达到自己预设的判据。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">在 PushT 上，一个只有 1,505 个参数的固定动作更新器，在预留的 16 个场景中解出 8 个；对照规划器分别是：选定的 Adam 解 7 个（规划加编码共 218.440 s）、改造版 iCEM 解 2 个（49.309 s）、已发布的 LePlanner 解 16 个（5.652 s），而本文更新器耗时 59.079 s——它没有满足作者事先设定的任务-成本判据。作者另做一组配对实验：在同一历史后只回放…</p><p class="lang lang-en lang-block" data-lang="en">On PushT, our fixed action updater (1,505 parameters) solves 8 of 16 scenes reserved from our configuration selection. The comparison planners perform as follows: Selected Adam (7 tasks solved, total planning…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.37891">abs</a><a href="https://arxiv.org/pdf/2610.37891">PDF</a><a href="../../papers/arxiv-2610.37891/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.38047/index.html"><img src="../../assets/media/2026-10-31/arxiv-2610.38047/fig-001.webp" alt="Forward-Backward Map Matching for Airborne Magnetic Anomaly Navigation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.38047/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">用前向-后向链式因子图做航空磁异常匹配导航：把后验熵当成无需真值的模糊度探针</span><span class="lang lang-en lang-inline" data-lang="en">Forward-Backward Map Matching for Airborne Magnetic Anomaly Navigation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-30 · score 6 · A层 · Robust State Estimation / Uncertainty · eess.SP, cs.RO, physics.geo-ph</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Joseph O&#x27;Leary, Tapio Simula, Tom Kimpson, Corey Davey, Wenchao Li, Andrew D. Greentree, Allison Kealy</div>
+  <span class="score">评分 16/10</span>
+  <div class="tags"><span class="tag">链式因子图</span><span class="tag">前向-后向平滑</span><span class="tag">后验熵</span><span class="tag">模糊度诊断</span><span class="tag">地图匹配</span><span class="tag">GNSS 拒止导航</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>同一个网格、同一套剪枝、同一批测量，只把前向滤波换成前向-后向平滑，中位误差就从 57.7 m 降到 32.8 m（−43%）；再加一个几乎免费的诊断量——后验 Shannon 熵，AUC 0.73/0.78 抓「大误差段」，10% 虚警下检出 26%/47%。代价是全部结果来自合成 INS + 磁测，真实地图与噪声相关性未覆盖。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">航空磁异常导航（MagNav）用磁力计测量匹配岩石圈磁异常图，作为不依赖 GNSS 的被动定位手段。已有匹配算法各有妥协：扩展卡尔曼滤波假设后验高斯单峰，粒子滤波需要大量采样，Viterbi 则丢掉后验不确定性只留一条最优路径。本文把匹配建模为链式因子图上的推断，按段用前向-后向算法求解，得到候选位置上的离散后验及其 Shannon 熵。在 Renfrew_395 地图上，10³ 次合成试验的中位定位误差 32.7…</p><p class="lang lang-en lang-block" data-lang="en">Airborne magnetic anomaly navigation provides a passive, unjammable alternative to Global Navigation Satellite Systems positioning by matching magnetometer measurements against a lithospheric magnetic anomaly…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.38047">abs</a><a href="https://arxiv.org/pdf/2610.38047">PDF</a><a href="../../papers/arxiv-2610.38047/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2610.37818"><img src="../../assets/media/2026-10-31/arxiv-2610.37818/fig-001.webp" alt="GOFish: Full Field-of-View Gaussian Splatting and Mesh Extraction" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2610.37818"><span class="lang lang-zh lang-inline" data-lang="zh">GOFish：全视场鱼眼高斯泼溅与网格提取</span><span class="lang lang-en lang-inline" data-lang="en">GOFish: Full Field-of-View Gaussian Splatting and Mesh Extraction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-30 · score 15 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR, cs.RO</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Allen Tu, Meher Gitika Karumuri, Shifan Zhu, Hailing Wang, Yen-Liang Lin, David Held, Matthias Zwicker, Tom Goldstein</div>
+  <span class="score">评分 13/10</span>
+  <div class="tags"><span class="tag">鱼眼 3DGS</span><span class="tag">全视场光栅化</span><span class="tag">网格提取</span><span class="tag">标定感知稠密化</span><span class="tag">实时渲染</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>第一个能「鱼眼直接训练 + 视场超过 180° + 同场景出网格」的 3DGS 表面重建：FIORD PSNR +2.28 dB、FullCircle +1.97 dB、ScanNet++ +0.46 dB，FIORD 网格 F 0.245±0.001（PGSR 0.239±0.002），79 FPS vs 3DGUT+PPISP 的 84 FPS；代价是仍需逐场景优化，不是…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">机器人、自动驾驶与 360 相机用鱼眼镜头换取大视场，但已有鱼眼高斯泼溅只能光栅化到 180° 且不产出网格，而高斯表面重建方法又假设针孔图像。GOFish 声称是首个直接在鱼眼图像上训练、能把视场光栅化到 180° 以上、并从同一场景提取对齐网格的 3DGS 表面重建方法：标定定义的稠密化在整幅视场恢复表面，标定 Mip 滤波与广角外观建模把像素模糊与镜头衰减挡在场景与网格之外。在 200° 的 FIORD 与…</p><p class="lang lang-en lang-block" data-lang="en">Robots, autonomous vehicles, and consumer 360{\deg} cameras use fisheye lenses for wide fields of view (FoVs). Simulation-ready digital twins require photorealistic rendering across the full FoV and an aligned…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.37818">abs</a><a href="https://arxiv.org/pdf/2610.37818">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2610.37806"><img src="../../assets/media/2026-10-31/arxiv-2610.37806/fig-001.webp" alt="TACOS: Terrain-Aware COntact Supervision for Visual Footstep Planning" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2610.37806"><span class="lang lang-zh lang-inline" data-lang="zh">TACOS：把因子图残差变成视觉落脚点规划的地形监督</span><span class="lang lang-en lang-inline" data-lang="en">TACOS: Terrain-Aware COntact Supervision for Visual Footstep Planning</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-30 · score 5 · B-层 · Robust State Estimation / Uncertainty · cs.RO, cs.CV</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Jean-Michel Fortin, William Larriv\&#x27;ee-Hardy, Gabriel Jeanson, Olivier Gamache, Daniele De Martini, Fran\c{c}ois Pomerleau, Philippe Gigu\`ere</div>
+  <span class="score">评分 11/10</span>
+  <div class="tags"><span class="tag">因子图残差</span><span class="tag">自监督标签</span><span class="tag">足式状态估计</span><span class="tag">落脚点规划</span><span class="tag">地形感知</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把「这一步踩得稳不稳」定义成足式状态估计因子图里的接触残差，而不是人工规则；1,716 个标注接触上涨 28% 排序、室外试验排序相关性 +58%，50 m 森林实机验证泥地/植被这类非几何属性也能学到。对我们的意义是「用估计器残差给感知打标签」这条链路，但它的贡献在监督设计，不在状态估计本身。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">人类靠视觉预判地面会不会塌陷再决定落脚，自监督学习本可以让足式机器人也具备这种能力，但监督信号通常凭直觉选，其影响很少被检验。TACOS 提出一个基于足式状态估计因子图残差的连续落脚不稳定度分数，把它投影到接触前的图像上，用来监督稠密视觉预测器；作者给出硬分数（利用后见之明）与因果软分数（可即时获得）两个变体。在 1,716 个手工标注接触上，两个变体在检测不稳定与排序严重程度上都优于所有对照，池化严重度排序提升…</p><p class="lang lang-en lang-block" data-lang="en">Humans navigate their environment based on their vision system, anticipating how the ground will respond before committing to a step. Self-supervised learning could provide legged robots the same ability, but…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.37806">abs</a><a href="https://arxiv.org/pdf/2610.37806">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2610.38380"><img src="../../assets/media/2026-10-31/arxiv-2610.38380/fig-001.webp" alt="Adaptive Orbit-Aided Vector Tracking for Orbit Determination of LEO Satellites" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2610.38380"><span class="lang lang-zh lang-inline" data-lang="zh">LEO 卫星自适应轨道辅助矢量跟踪</span><span class="lang lang-en lang-inline" data-lang="en">Adaptive Orbit-Aided Vector Tracking for Orbit Determination of LEO Satellites</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-30 · score 5 · C层 · 纯 GNSS/INS / PPP-AR · eess.SP, cs.SY, eess.SY</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Zihong Zhou, Bing Xu</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">矢量跟踪环</span><span class="tag">轨道动力学先验</span><span class="tag">自适应协方差</span><span class="tag">GNSS 拒止</span><span class="tag">LEO-PNT</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把「轨道动力学先验」用自适应协方差塞进 GNSS 矢量跟踪环：标称三维位置 RMSE 2.631→1.081 m、速度 0.3985→0.1023 m/s；信号全断时位置误差仍有界在 8.27 m 而标量环直接失效。与我们的相关性在「残余先验 + 自适应权重」这一层，不在定轨本身。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">CubeSat 的低轨定位导航授时（LEO-PNT）需要可靠的在轨定轨，但机载接收机受单频码基测量、信号间歇与高动态轨道条件限制。本文提出自适应轨道辅助矢量跟踪（OAVT）：以 GNSS 矢量跟踪环（VTL）为主估计器，松耦合一个低保真轨道动力学模型（ODM）提供位置/速度伪测量，并用基于 GNSS 压力与 ODM-GNSS 残差一致性的自适应协方差分配来调节 ODM 的贡献。标称条件下 OAVT 保留 VTL 相…</p><p class="lang lang-en lang-block" data-lang="en">Reliable orbit determination for CubeSats is essential for emerging low-Earth-orbit positioning, navigation, and timing (LEO-PNT) applications. However, onboard orbit determination remains constrained by singl…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.38380">abs</a><a href="https://arxiv.org/pdf/2610.38380">PDF</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/cvlab-kaist/T4GS">cvlab-kaist/T4GS</a></strong><div>Official Implementation of &quot;Learning Temporally Aware Compact Gaussians for Feed-Forward 4D Reconstruction&quot;</div></div>
+  <div><div class="meta">新项目 · Python · ★ 98 · 更新 2026-10-29 · score 9 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/SeeleAI/OpenEVA">SeeleAI/OpenEVA</a></strong><div>A Family of Native 3D Foundation Models for both Understanding &amp; Generation.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 12 · 更新 2026-10-30 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/FrowardTraveler/4D_PGNF">FrowardTraveler/4D_PGNF</a></strong><div>Physics-Guided Neural Field for Sparse-View 4D Reconstruction of Mixed Rigid–Fluid Scenes</div></div>
+  <div><div class="meta">新项目 · HTML · ★ 0 · 更新 2026-10-30 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Ban004/gnss-pulse">Ban004/gnss-pulse</a></strong></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-10-31 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kijitora-no-hito/mosaic_gnss_recorder">kijitora-no-hito/mosaic_gnss_recorder</a></strong></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-10-30 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yiyuan00/Lift-See-Act">yiyuan00/Lift-See-Act</a></strong><div>[NeurIPS 2026] Lift, See, Act: Hierarchical Robot Policy Pretraining with 3D Foundation Models</div></div>
+  <div><div class="meta">CSS · ★ 0 · 更新 2026-10-30 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-10-31 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Meshvale/meshvale-geometry">Meshvale/meshvale-geometry</a></strong><div>C++20 geometry foundation for meshes, attributes, topology, robust operations, and invariant checks.</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-10-26 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 8 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
+  <div><div class="meta">JavaScript · ★ 136 · 更新 2026-10-28 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/liaohello/uniRobotPlatform">liaohello/uniRobotPlatform</a></strong><div>A MuJoCo-based embodied AI simulation and 3D interaction data collection platform with LiDAR/SLAM navigation, RGB-D perception, robotic arm manipulation, teleoperation data recording, and policy evaluation for BC, ACT, Diffusion Policy, VL…</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-30 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ian-benge/AMD-Powered-Physical-AI-Robotics">ian-benge/AMD-Powered-Physical-AI-Robotics</a></strong><div>ROS 2 Mars rover simulation with AMD NPU perception, ROCm terrain mapping, guarded navigation, and uncertainty-aware object tracking.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-26 · score 7 · A层 · Robust State Estimation / Uncertainty</div><div class="meta">Topics：amd, computer-vision, gazebo, nav2, npu</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-10-30 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-10-30 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">ZGCA-HMI-Lab/Embodied-Agent-Research-Map</a></strong><div>A continuously updated research map of embodied agent architectures, dexterous manipulation, VLA, and navigation for reading and group discussion.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-10-29 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
+  <div><div class="meta">★ 1910 · 更新 2026-10-30 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ifradlin/arrow">ifradlin/arrow</a></strong><div>Arbitrary Reconstruction and Tracking of 4D Observation in the Wild</div></div>
+  <div><div class="meta">TypeScript · ★ 122 · 更新 2026-10-29 · score 3</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
