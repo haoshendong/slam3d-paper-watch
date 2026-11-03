@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-02</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-02</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：4</span><span class="stat">推荐论文：4</span><span class="stat">新论文：4</span><span class="stat">仓库：3</span><span class="stat">新仓库：0</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><p>今天没有 S 级新增，四篇全落在 A 级，而且恰好是<strong>同一条链路的四个不同位置</strong>：DiFuse 在“表征”层把生成分支的中间结构张量接进理解通路；OneScene-Bench 在“评测”层证明模型能处理多张图并不等于能把多视角证据整合成一个场景；OpenFlyV2 在“系统”层把共享 VLM 表征压进 10 Hz 全机载闭环；EvoLife 在“决策”层把“何时问、记住什么”做成可开关的 harness。</p>
+<p>拼在一起看，今天的主线是<strong>“共享表征够不够、以及怎么验证它真的被用上”</strong>。DiFuse 用 token-shuffle 证明空间对应不可省（换顺序掉 1.84 分）；OneScene-Bench 用重叠度证明很多“多视角能力”其实是单视角取最大值；EvoLife 的 2×2 开关矩阵则把“外部信息”和“历史经验”的边际贡献拆开。三篇的方法论其实是同一件事：<strong>用受控扰动而不是总分来证明能力来源</strong>。</p></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 4 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.39609/index.html"><img src="../../assets/media/2026-11-02/arxiv-2610.39609/fig-001.webp" alt="DiFuse: Fusing Native Diffusion Representations for Spatial Reasoning in Unified Multimodal Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.39609/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DiFuse：复用统一多模态模型原生扩散分支的中间表征来做空间推理</span><span class="lang lang-en lang-inline" data-lang="en">DiFuse: Fusing Native Diffusion Representations for Spatial Reasoning in Unified Multimodal Models</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-29 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Ruixin Fan, Weining Wang, Jiahui Sun, Tailai Chen</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">统一多模态模型</span><span class="tag">扩散中间表征</span><span class="tag">空间推理</span><span class="tag">残差注入</span><span class="tag">表征复用</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把 UMM 自己扩散分支第 g18 层、第 100 步去噪的中间特征做 PCA 压缩与卷积适配，对齐到视觉 token 网格后残差注入解码器前 8 层；UniWorld-V1 上空间均分 +1.80（相对匹配 SFT 基线），通用均分基本持平，但随机特征对照说明约一半增益来自“多一条残差通路”本身。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">统一多模态模型同时支持理解与生成，但两个方向的信息流并不对称：理解侧的表示会去条件化生成，生成侧的中间表示却很少被反向用于理解。作者先在 UniWorld-V1 上做逐层筛查，确定哪一层 DiT 表示、在哪个去噪时刻、注入到理解分支的哪几层解码器最有效，再把选定的特征做空间对齐后以固定系数的残差加到视觉 token 上。整个过程不引入外部扩散模型或几何编码器，扩散分支与视觉编码器全部冻结，训练只用标准 SFT 目标。</p><p class="lang lang-en lang-block" data-lang="en">Unified multimodal models (UMMs) jointly support visual understanding and image generation, yet information flow between these two capabilities remains largely asymmetric: understanding representations routine…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.39609">abs</a><a href="https://arxiv.org/pdf/2610.39609">PDF</a><a href="../../papers/arxiv-2610.39609/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.39446/index.html"><img src="../../assets/media/2026-11-02/arxiv-2610.39446/fig-001.webp" alt="Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.39446/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Ask to Evolve（EvoLife）：混合动作空间 + 主动提问 + 持久记忆的终身具身导航框架</span><span class="lang lang-en lang-inline" data-lang="en">Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-29 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Kai Sheng, Liuyi Wang, Jinlong Li, Haojie Dai</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">终身导航</span><span class="tag">主动交互</span><span class="tag">持久空间记忆</span><span class="tag">混合动作空间</span><span class="tag">具身 agent</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把导航做成工具化 agent：四种动作模式可切换，遇歧义主动向 guide 提问，地点记忆跨任务保留。R2R-CE 上无交互 86% SR、有交互 100% SR，记忆重访 SPL 从 82.2 升到 93.3；GOAT e-SR 94.0、LHPR-VLN 98.0。关键前提是 guide 私下可访问路线与目标信息——100% 应读作“有特权协助下的上限”，而不是自主导航水…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">要让具身智能体在真实世界里长期工作，行动、交互与记忆必须协同：每次遭遇都应影响当前决策，并沉淀为后续任务的经验。EvoLife 是一个统一的导航 harness，支持四种动作模式（航点、局部离散调整、像素导航、目标导航），允许智能体在指令模糊或受阻时主动提问求助，并用“地点记录”把观测、描述、历史图像与对话绑定到空间位置。作者在 8 个基准、4 类任务族上评测，平均每集仅 1.87 次主动交互，在 4 组 100…</p><p class="lang lang-en lang-block" data-lang="en">Giving embodied agents the freedom to act autonomously, initiate interactions, and understand their surroundings through experience is a step toward bringing them to life in the physical world. Realizing this…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.39446">abs</a><a href="https://arxiv.org/pdf/2610.39446">PDF</a><a href="../../papers/arxiv-2610.39446/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.39287/index.html"><img src="../../assets/media/2026-11-02/arxiv-2610.39287/fig-001.webp" alt="OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.39287/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">OpenFlyV2：机载视觉-语言-动作模型，把理解、空间推理与闭环飞行放进同一个 10 亿参数模型</span><span class="lang lang-en lang-inline" data-lang="en">OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-29 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Junli Liu, Zhongrui You, Chenhui Li, Zhen Li</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">航空 VLA</span><span class="tag">机载推理</span><span class="tag">视觉语言导航</span><span class="tag">历史压缩</span><span class="tag">flow 动作生成</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>0.8B 主干 + 0.2B 动作专家，全部推理在 DJI M30T 上的 Jetson Orin NX 完成：10 Hz 输出 12 航点，仿真 seen/unseen 成功率 62.88%/52.67%（DualVLN 38.88%/36.67%），零样本真机 100 次试验成功率 48%，训练数据全部来自仿真与 3DGS 渲染（72,352 条轨迹 + 60,006 条…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">现有航空机器人系统往往一个模型只做一件事，或者依赖机外算力，无法在资源受限平台上维持闭环。OpenFlyV2 用共享的视觉-语言表征同时支撑语义理解、语言 grounding、空间推理与连续飞行控制：一个 0.8B 的 Qwen3.5-VL 主干，加一个 0.2B 的动作专家，把共享多模态上下文转成短时域航点。Motion-Adaptive Memory 把飞行历史压成事件 token，Motion-Structu…</p><p class="lang lang-en lang-block" data-lang="en">Human cognition flexibly draws on a shared perceptual foundation to understand environments, attend to referenced entities, reason about spatial relationships, and act. Endowing aerial robots with an analogous…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.39287">abs</a><a href="https://arxiv.org/pdf/2610.39287">PDF</a><a href="../../papers/arxiv-2610.39287/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2610.38926/index.html"><img src="../../assets/media/2026-11-02/arxiv-2610.38926/fig-001.webp" alt="OneScene-Bench: Do Vision-Language Models Integrate Evidence Across Views?" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2610.38926/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">OneScene-Bench：视觉语言模型真的把多视角证据整合成一个场景了吗？</span><span class="lang lang-en lang-inline" data-lang="en">OneScene-Bench: Do Vision-Language Models Integrate Evidence Across Views?</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-10-29 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Swathi Suhas, Anurag Das, Bernt Schiele, Jonas Fischer</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">多视角评测</span><span class="tag">跨视角整合</span><span class="tag">空间推理</span><span class="tag">VLM 诊断</span><span class="tag">基准</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>基于 DL3DV-10K 构造 1,300 题（计数 700 / 一致性 300 / 空间推理 300），用重叠度与编辑可见性控制“是否必须跨视角整合”。12 个模型在互补视角计数上只有 4.5–50.0%（完全重叠 45.5–81.5%），一致性 47.0–55.7% 基本等于随机，而空间推理最高到 92.7%——说明“能处理多图”和“能把多视角整合成一个场景”是两种能力。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">现有“多图”评测无法区分“分别看每张图再聚合”与“真的建立跨视角对应”，因为很多题用单视角加取最大值就能答对。OneScene-Bench 用真实多视角场景构造 1,300 道人工核验题，通过控制物体在两视角间的重叠程度（完全重叠/子集/互补）、编辑区域是否两视角共享、以及空间证据是否分散在不同视角，来显式区分“必须跨视角整合”的情形。评测 12 个开源与闭源 VLM 后发现：互补视角计数骤降、跨视角一致性长期停在…</p><p class="lang lang-en lang-block" data-lang="en">Vision-language models (VLMs) increasingly process multiple views of the same scene, but it remains unclear whether they integrate these observations into a coherent scene-level representation. Existing multi-…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2610.38926">abs</a><a href="https://arxiv.org/pdf/2610.38926">PDF</a><a href="../../papers/arxiv-2610.38926/index.html">半海报</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/yiyuan00/Lift-See-Act">yiyuan00/Lift-See-Act</a></strong><div>[NeurIPS 2026] Lift, See, Act: Hierarchical Robot Policy Pretraining with 3D Foundation Models</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-01 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/SeeleAI/OpenEVA">SeeleAI/OpenEVA</a></strong><div>A Family of Native 3D Foundation Models for both Understanding &amp; Generation.</div></div>
+  <div><div class="meta">Python · ★ 12 · 更新 2026-10-31 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/thyytran/SplatSeed">thyytran/SplatSeed</a></strong><div>How foundation-model initialization (VGGT, MASt3R) changes 3D Gaussian Splatting quality under sparse views</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-10-31 · score 3 · B层 · Neural Rendering / 3DGS / NeRF</div></div>
+</div></div>
+  
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
