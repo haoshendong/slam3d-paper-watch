@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-04</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-04</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：2</span><span class="stat">推荐论文：2</span><span class="stat">新论文：2</span><span class="stat">仓库：16</span><span class="stat">新仓库：6</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><p>今天两篇都落在 S 级，但回答的是同一个问题的两端：<strong>中间表征该用什么，才能让下游模块真正接得上</strong>。</p>
+<p>AnchorHEC 在“底层几何”这一端给出答案：不要用重建位姿直接标定相机，而是用机器人正运动学给单目重建锚定米制尺度与基座朝向，再把固定相机配准到由此三角化出的米制点上。Gnomon4D 在“空间推理 → 具身决策”这一端给出答案：不要用 RGB 未来当动作条件，而是用与视频栅格对齐的 4D 运动场（GeoDelta），让动作专家直接读取本体与物体的相对运动。</p>
+<p>两篇的共同点是都把“一个隐式的、纠缠的整体”拆成了“可单独检验的中间量”：前者把标定拆成尺度、基座对齐、腕部精化、固定相机配准四步，每一步都有独立对照；后者把未来拆成外观（Video）、几何运动（GeoDelta）、控制（Action）三路，并用消融证明增益来自物体运动而非本体运动。这种拆法对我们做融合与评测的价值，大于它们各自的 headline 数字。</p></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 2 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.02884/index.html"><img src="../../assets/media/2026-11-04/arxiv-2611.02884/fig-001.webp" alt="AnchorHEC: Targetless Hand-Eye Calibration of Wrist and Fixed Cameras" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.02884/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AnchorHEC：腕部与固定相机的一次性无靶标手眼标定</span><span class="lang lang-en lang-inline" data-lang="en">AnchorHEC: Targetless Hand-Eye Calibration of Wrist and Fixed Cameras</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-02 · score 13 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Guebin Hwang, Taeyeop Lee, Yeonseo Lee, Hyosup Shin</div>
+  <span class="score">评分 10/10</span>
+  <div class="tags"><span class="tag">无靶标手眼标定</span><span class="tag">3D 基础模型</span><span class="tag">正运动学约束</span><span class="tag">bundle adjustment</span><span class="tag">固定相机配准</span><span class="tag">米制尺度</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把机器人正运动学当作米制锚点，先用 3DFM 联合重建初始化腕部与固定相机位姿，再用 exact-FK bundle adjustment 精化腕部变换，最后把固定相机配准到由腕部位姿三角化出的米制点云。仿真 24 个条件下腕部平移/旋转平均比 JCR 低 84.6%/70.0%，实体 xArm6 上 Nw=15 时腕部 1.35 cm、固定相机 1.63 cm。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">同时装有腕部相机与固定相机的机器人系统需要两类相机到机器人的刚体变换，而现有多数手眼标定方法依赖标定靶或机器人本体观测。基于场景重建的方法不需要靶标，但只处理腕部相机；固定相机不随末端运动，无法复用同一运动约束。AnchorHEC 用一段共同场景的 RGB 图像、正运动学（FK）与已知内参，在一次流程内同时标定两类相机：先用 FK 与共享 3D 基础模型重建初始化，再用 FK 约束的腕部图像 bundle adju…</p><p class="lang lang-en lang-block" data-lang="en">Recent robot systems combine wrist and fixed cameras, requiring camera-to-robot transforms for both. Most hand-eye calibration methods rely on targets or robot-body observations. Scene-based methods using 3D r…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.02884">abs</a><a href="https://arxiv.org/pdf/2611.02884">PDF</a><a href="../../papers/arxiv-2611.02884/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.02474/index.html"><img src="../../assets/media/2026-11-04/arxiv-2611.02474/fig-001.webp" alt="Gnomon4D: Learning Where and When to Focus for Geometric Motion-Grounded World-Action Modeling" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.02474/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Gnomon4D：把 4D 几何运动作为世界-动作模型的在线接口</span><span class="lang lang-en lang-inline" data-lang="en">Gnomon4D: Learning Where and When to Focus for Geometric Motion-Grounded World-Action Modeling</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-02 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Lingwei Dang, Yan Zhou, Juntong Li, Zhenhao Zhang</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">世界-动作模型</span><span class="tag">4D 几何运动</span><span class="tag">GeoDelta</span><span class="tag">Mixture-of-Transformers</span><span class="tag">交互显著性</span><span class="tag">跨本体预训练</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>在 Mixture-of-Transformers 里增加一个 GeoDelta 专家，与视频、动作专家联合去噪，预测每个前景像素的 (Δu,Δv,Δd)；再用 embodiment-object 相对运动算出空间显著性（InSAttn）与时间转折分数（TransAgg），把交互 token 残差注入动作专家。RoboTwin 2.0 平均 94.33%，真机 ID 82.5…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">世界-动作模型（WAM）用视频生成先验同时预测未来观测与机器人动作，但 RGB 未来把物理状态变化与外观纠缠在一起，逐帧深度或点图又缺少跨帧对应。已有 4D 方法要么把运动留在视觉特征里隐式处理，要么用单独接口把预测轨迹翻译成动作。Gnomon4D 同时生成未来视频、机器人动作与 GeoDelta——一个与视频对齐的 4D 几何运动场，记录本体与被操作物体像素的像面位移与深度变化。GeoDelta 把本体运动与物体…</p><p class="lang lang-en lang-block" data-lang="en">World-action models (WAMs) use video-generation priors to jointly predict future observations and robot actions. Yet RGB futures entangle physical state changes with appearance, while frame-wise depth and poin…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.02474">abs</a><a href="https://arxiv.org/pdf/2611.02474">PDF</a><a href="../../papers/arxiv-2611.02474/index.html">完整单篇海报</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/lisaweijler/latent-rfm">lisaweijler/latent-rfm</a></strong><div>[NeurIPS 2026] Latent Riemannian Flow Matching for Geometry-Grounded 3D Foundation Models</div></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-11-03 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/XiaoJingSpace/SHARP-Studio">XiaoJingSpace/SHARP-Studio</a></strong><div>Windows desktop editor for video-to-Gaussian scenes, powered by SHARP, with Unity-style scene tools and experimental 4D reconstruction.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-03 · score 8 · S层 · 3D/4D Spatial Perception</div><div class="meta">Topics：4d-gaussians, desktop-app, gaussian-splatting, pyside6, sharp</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Liziang1145/Explorer">Liziang1145/Explorer</a></strong><div>Explorer (探路者) — embodied intelligence platform on AMD Ryzen AI PC + Kria KR260. VR teleoperation, VLA safety pre-check, FAST-LIO2 LiDAR mapping and supervised navigation, sharing one PS/PL execution base.</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-11-03 · score 6 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/globsky/SignalSim">globsky/SignalSim</a></strong><div>A multi-stage GNSS signal and data simulator</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 221 · 更新 2026-11-03 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/codewithRahul01/GNSS-Error-prediction">codewithRahul01/GNSS-Error-prediction</a></strong><div>This is a new Project the i had start working on.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-03 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kmaterna/geodesy_modeling">kmaterna/geodesy_modeling</a></strong><div>Internal tools for preparing, downsampling and inverting GNSS/InSAR</div></div>
+  <div><div class="meta">新项目 · Python · ★ 23 · 更新 2026-11-03 · score 3 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sisren-embodied-nav/sisren-embodied-nav.github.io">sisren-embodied-nav/sisren-embodied-nav.github.io</a></strong><div>Spatial Intelligence and Structured Reasoning for Embodied Navigation</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-03 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-04 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 8 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/OlehandroStox/argentum-splat">OlehandroStox/argentum-splat</a></strong><div>Free Gaussian Splatting plugin for Cinema 4D 2027 and Redshift. Single-image AI, multi-photo reconstruction, PLY/SPLAT/SPZ/SOG/KSPLAT import, captured cameras, Redshift Linear training and MoGraph. Local processing on Windows.</div></div>
+  <div><div class="meta">Python · ★ 3 · 更新 2026-11-02 · score 9 · S层 · 3D/4D Spatial Perception</div><div class="meta">Topics：3d-gaussian-splatting, 3d-reconstruction, c4d, cinema4d, gaussian-splatting</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yiyuan00/Lift-See-Act">yiyuan00/Lift-See-Act</a></strong><div>[NeurIPS 2026] Lift, See, Act: Hierarchical Robot Policy Pretraining with 3D Foundation Models</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-03 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-11-03 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-03 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">ZGCA-HMI-Lab/Embodied-Agent-Research-Map</a></strong><div>A continuously updated research map of embodied agent architectures, dexterous manipulation, VLA, and navigation for reading and group discussion.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-03 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/3D-Vision-World/All-3R-SLAM-in-this-Repo">3D-Vision-World/All-3R-SLAM-in-this-Repo</a></strong><div>This is a list of relevant papers for 3D Geometric Foundation Models and Applications.</div></div>
+  <div><div class="meta">★ 288 · 更新 2026-11-03 · score 10</div><div class="meta">Topics：3d-geometric-foundation-models, dust3r, mast3r, slam, vggt</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ifradlin/arrow">ifradlin/arrow</a></strong><div>Arbitrary Reconstruction and Tracking of 4D Observation in the Wild</div></div>
+  <div><div class="meta">Python · ★ 125 · 更新 2026-11-03 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Jingong-Chen/Any3R">Jingong-Chen/Any3R</a></strong><div>Any3R: Feedforward 3D Reconstruction from Any Camera Type — pinhole, fisheye beyond 180°, 360° panoramas, or any mix, in one forward pass</div></div>
+  <div><div class="meta">Python · ★ 41 · 更新 2026-11-02 · score 2</div><div class="meta">Topics：3d-reconstruction, camera-pose-estimation, computer-vision, depth-estimation, feed-forward</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
