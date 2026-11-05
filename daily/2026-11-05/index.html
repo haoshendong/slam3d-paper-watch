@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-05</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-05</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：24</span><span class="stat">推荐论文：7</span><span class="stat">新论文：24</span><span class="stat">仓库：21</span><span class="stat">新仓库：5</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><p>今天的候选有一个共同点：<strong>都在处理“某个被默认可靠的量其实不可靠”</strong>。</p>
+<p>Phase-DGS 处理的是时间戳——多相机触发漂移、丢帧、冻结之后，帧号不再等于时刻，于是它用一个由图像内容推断的相位替换时间戳，让 4DGS 在“运动进程”而不是“钟表时间”上优化。FlowRig 处理的是骨架的身份——逐帧独立预测会让同一根骨在相邻帧落到不同槽位，于是它把槽位做成跨帧持久的身份，用一次序列级匹配固定下来。AIRoA-0 处理的是坐标系——不同机器人基座不同，于是它把状态与动作都定义在夹爪工具系上，人手与机械臂共享同一套数值。FlowBench 处理的是“感知即推理”的假设——把“看见结果再回答”与“想象结果再回答”拆成两个条件，差出来的就是想象成本。RoboScope Kit 处理的是评测时间——先把时间花在哪测清楚，再只删“策略不会消费”的计算。</p>
+<p>这五篇分处“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”的不同层，但方法动作高度一致：<strong>先把一个隐式的、纠缠的量显式化（相位 / 槽位身份 / 工具系坐标 / 想象条件 / 消费声明），再在这个显式量上做约束或调度</strong>。这比它们各自的 headline 数字更值得记。</p></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 24 篇候选中按 S/A 层级与评分推荐前 7 篇；靠后候选不在网页中展开。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.04666/index.html"><img src="../../assets/media/2026-11-05/arxiv-2611.04666/fig-001.webp" alt="Phase-DGS: Phase-guided Dynamic Gaussian Splatting from Unsynchronized Multi-view Video" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.04666/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Phase-DGS：用内容相位替代时间戳的不同步多视角 4D 高斯重建</span><span class="lang lang-en lang-inline" data-lang="en">Phase-DGS: Phase-guided Dynamic Gaussian Splatting from Unsynchronized Multi-view Video</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-04 · score 20 · S层 · 3D/4D Spatial Perception · cs.CV, cs.GR</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Hosung Jeon, Jun Young Jeong, Sangwoon Kwak, Joonsoo Kim, Sangmin Kim, Jaesik Park, Won-Sik Cheong, Hyon-Gon Choo</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">动态高斯泼溅</span><span class="tag">多相机时间同步</span><span class="tag">语义相位</span><span class="tag">DINOv2</span><span class="tag">特征库</span><span class="tag">4D 重建</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把“同步”从硬件问题改写成内容对齐问题：DINOv2 特征加 MLP 预测每帧相位，替换 4DGS 的时间戳；SelfCap 丢帧条件下 FreeTimeGS 主干从 27.894 dB 升到 34.379 dB，训练显存 +30.5%、迭代速度慢 2.11 倍，渲染端零额外开销。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">动态高斯泼溅（DGS）默认所有相机逐帧严格同步，而真实采集里触发延迟、丢帧与相机冻结都会破坏这一假设。Phase-DGS 不再估计相机之间的绝对时间偏移，而是为每张图像推断一个位于 [0,1] 的“语义相位”，表示该帧在运动周期中的位置；同一运动状态在不同相机、不同时刻被拍到时会被赋予同一相位，于是相位取代时间戳成为 4DGS 的时间坐标。方法由预训练 DINOv2 编码器、三层 MLP 相位投影器和可学习特征库组…</p><p class="lang lang-en lang-block" data-lang="en">Spatiotemporal scene reconstruction with Dynamic Gaussian Splatting (DGS) fundamentally depends on perfect temporal synchronization across all cameras, an assumption rarely achievable in practice. Industry-sta…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.04666">abs</a><a href="https://arxiv.org/pdf/2611.04666">PDF</a><a href="../../papers/arxiv-2611.04666/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.03775/index.html"><img src="../../assets/media/2026-11-05/arxiv-2611.03775/fig-001.webp" alt="FlowRig: Unified Skeleton Generation for 3D and 4D Meshes via Flow Matching" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.03775/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">FlowRig：一次前向同时生成 3D 与 4D 网格骨架的流匹配模型</span><span class="lang lang-en lang-inline" data-lang="en">FlowRig: Unified Skeleton Generation for 3D and 4D Meshes via Flow Matching</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-04 · score 12 · S层 · 3D/4D Spatial Perception · cs.CV, cs.GR</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Fengzhi Guo, Nate Morrill, Shiqi Li, Cheng Zhang</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">流匹配</span><span class="tag">骨架绑定</span><span class="tag">4D 网格</span><span class="tag">集合预测</span><span class="tag">时序一致性</span><span class="tag">不确定性</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用 128 个骨架槽位 + DiT 流匹配一次生成整段骨架：TexVerse 24 帧窗口 J2J 从 0.0163 降到 0.0142，骨数偏差、图结构距离与汉明距离全部为 0（基线为 3.18/0.265/14.19），单网格推理 1.1 s；代价是依赖上游时间对齐的网格序列。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">自动绑定（rigging）长期分裂为两条路线：静态 3D 方法质量高但骨数控制弱、逐帧套用到动态网格会抖动；4D 方法多依赖逐序列优化，代价高。FlowRig 把骨架生成写成以网格为条件的流匹配问题：用冻结的 Michelangelo 点云编码器提取每帧条件 token，在 128 个骨架槽位上做集合预测，一次前向即可输出整段序列时间对齐的骨架，单个网格输入时自然退化为 3D 绑定。模型附带图头预测运动学树、不确定…</p><p class="lang lang-en lang-block" data-lang="en">Automatic rigging is a fundamental task for both static 3D and dynamic 4D mesh animation, yet existing methods do not provide a unified feedforward solution for these two settings. While static 3D riggers achi…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.03775">abs</a><a href="https://arxiv.org/pdf/2611.03775">PDF</a><a href="../../papers/arxiv-2611.03775/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.03815/index.html"><img src="../../assets/media/2026-11-05/arxiv-2611.03815/fig-001.webp" alt="AIRoA-0: Long-Horizon, Precise, Cross-Embodiment Manipulation from Handheld Data" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.03815/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AIRoA-0：只用 1.6 万小时手持数据训练的长程跨载体操作方法</span><span class="lang lang-en lang-inline" data-lang="en">AIRoA-0: Long-Horizon, Precise, Cross-Embodiment Manipulation from Handheld Data</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-04 · score 11 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.AI, cs.LG</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Yueh-Hua Wu, Kei Ota, Hanlong Li, Hayata Yuasa, Jason Wang, Kengo Ikeuchi, Kensuke Chiyoma, Makoto Sugiura, Masafumi Takahashi, Masatoshi Tateno, Naoaki Kanazawa, Nicola Scianca, Petr Khrapchenkov, Satoshi Otsubo, Takehiko Ohkawa, Takuya Okubo, Tatsuya Matsushima, Yuki Noguchi, Yuma Shin, Zixuan Zhong</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">手持数据</span><span class="tag">视觉-语言-动作</span><span class="tag">跨载体</span><span class="tag">长程任务</span><span class="tag">阶段预测</span><span class="tag">流式解码</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把状态/动作锚在夹爪坐标系，用 1.6 万小时手持数据预训练，再加阶段预测与本体记忆做长程任务：十任务平均 78%（最强基线 27%），未见场地、仅两个腕部相机、同一权重跨四种机器人；后训练单任务 &amp;lt; 4 小时（8×H200）。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">A-0 是一套双臂操作策略，训练数据全部来自 YUBI 手持夹爪的 16,151 小时人类演示（1,065 万个子任务片段），全程没有机器人数据、遥操作、强化学习或仿真。状态与动作都定义在夹爪自身：动作是相对当前观测位姿的目标位姿，状态是两夹爪相对位姿加开度，因此同一套数值同时描述人手与机器人。在 π0.5 主干上，A-0 加入视觉证据预算门、子任务辅助预测、阶段头与本体感受记忆，推理端用阶段 EMA 与非均匀流式…</p><p class="lang lang-en lang-block" data-lang="en">AIRoA-0 (A-0) is a bimanual manipulation system learned from 16,151 hours of handheld demonstrations, with no robot data collected at any stage. The demonstrations are recorded with YUBI, our open-source handh…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.03815">abs</a><a href="https://arxiv.org/pdf/2611.03815">PDF</a><a href="../../papers/arxiv-2611.03815/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.03850/index.html"><img src="../../assets/media/2026-11-05/arxiv-2611.03850/fig-001.webp" alt="RoboScope Kit: Unified Interfaces for Fast and Scalable Embodied-AI Evaluation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.03850/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RoboScope Kit：把策略评测拆成“模拟器池 + 策略副本池”的统一接口</span><span class="lang lang-en lang-inline" data-lang="en">RoboScope Kit: Unified Interfaces for Fast and Scalable Embodied-AI Evaluation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-04 · score 9 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.AI</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Deng-Ke Wu, Yifan Jin, Yida Yang, Lei Qian, Zhaoye Zhou, Hongru Zhang, Kai Ye, Shuyuan Hu, Yiran Mao, Zewei Ye, Bo Zhao</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">评测基础设施</span><span class="tag">策略评测</span><span class="tag">并发调度</span><span class="tag">动作块</span><span class="tag">可复现性</span><span class="tag">CUDA MPS</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>统一 Policy 接口 + 基准适配器 + 双池调度 + 动作块边界渲染：LIBERO-Long 500 episode 从 2,990 s 降到 671 s（4.45×），开 CUDA MPS 到 485 s（6.16×），成功率 89.9% 对官方 90.2%（等价区间内）；四卡 RoboTwin 500 episode 从 21,582 s 降到 862 s（25.0…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">仿真基准各自带一套评测器、观测布局与动作约定，导致“N 个模型 × M 个基准”要重复集成 N×M 次；同时评测本身很慢：单 GPU 跑 500 个 RoboTwin Easy episode 需要 359.7 分钟，剖析显示仿真占满 CPU 而 GPU 平均利用率只有 14.3%。RoboScope Kit 把每个模型包成一个 Policy 类、每个基准包成一个适配器，保留基准原有的任务、初始状态、终止与计分规则…</p><p class="lang lang-en lang-block" data-lang="en">Simulation benchmarks are the standard way to compare robot policies, but each benchmark brings its own evaluator, observation layout, and action convention, and evaluation is slow: 500 RoboTwin Easy episodes…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.03850">abs</a><a href="https://arxiv.org/pdf/2611.03850">PDF</a><a href="../../papers/arxiv-2611.03850/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.03937/index.html"><img src="../../assets/media/2026-11-05/arxiv-2611.03937/fig-001.webp" alt="FlowBench: Counterfactual Imagination Training for Spatial Intelligence" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.03937/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">FlowBench：把“反事实空间想象”做成可训练、可评测的基准</span><span class="lang lang-en lang-inline" data-lang="en">FlowBench: Counterfactual Imagination Training for Spatial Intelligence</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-04 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Yifan Liu, Baihan Zhang, Khai Loong Aw, Klemen Kotar, Daniel L. K. Yamins</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">空间推理</span><span class="tag">反事实想象</span><span class="tag">基准与数据集</span><span class="tag">世界模型</span><span class="tag">视觉语言模型</span><span class="tag">sim-to-real</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把“想象运动后的空间关系”做成多选题基准与训练集：Sim 42 万题 + Real 1,083 测试题，开源 VLM 接近随机（41–50%），在 Sim 上微调后真实测试 +16.9 点；世界模型侧 PSI-0.6 文本到光流从 52.1% 升到 61.7%。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">人类能想象“如果物体这样移动，场景的空间关系会怎么变”，而视觉语言模型与世界模型在这件事上仍缺少统一评测。FlowBench 把这一能力形式化为反事实空间想象（CSI）：给定初始图像、假设运动与空间问题，模型必须在没看到结果的情况下回答结果场景。仿真侧用 AI2-THOR/ProcTHOR 自动生成 42 万条训练题（含结果帧、光流、深度、语义与推理注释），真实侧从 Bridge V2、DROID 等机器人视频构造…</p><p class="lang lang-en lang-block" data-lang="en">Humans imagine scene changes under hypothetical motions, an ability central to spatial reasoning and robotic planning. However, this capability remains underexplored in vision-language models and world models.…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.03937">abs</a><a href="https://arxiv.org/pdf/2611.03937">PDF</a><a href="../../papers/arxiv-2611.03937/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2611.04174"><img src="../../assets/media/2026-11-05/arxiv-2611.04174/page-001.webp" alt="ELiCv2: Learned LiDAR Geometry Compression under Real-Time Embedded Constraints" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2611.04174"><span class="lang lang-zh lang-inline" data-lang="zh">ELiCv2：在嵌入式实时约束下重排 LiDAR 几何压缩的计算预算</span><span class="lang lang-en lang-inline" data-lang="en">ELiCv2: Learned LiDAR Geometry Compression under Real-Time Embedded Constraints</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-04 · score 7 · A-层 · Real-time / GPU Robotics Systems · eess.IV</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Soowoong Kim, Junsik Kim, Gun Bang, Jinsoo Choi</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">LiDAR 压缩</span><span class="tag">嵌入式实时</span><span class="tag">稀疏卷积</span><span class="tag">熵编码</span><span class="tag">Jetson Thor</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>把熵编码与稀疏卷积接口的冗余计算换成查表与层级传播，再把省下的算力用于自运动对齐的时序上下文：Jetson Thor 上 C=32 平均 BD-rate −30.97%（nuScenes 上相对 G-PCC intra −43.15%），仍保持 20 Hz。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">学习式 LiDAR 压缩越来越依赖更重的推理，难以满足嵌入式实时约束。ELiCv2 去掉渐进编码里两处冗余计算：离散熵接口直接从预计算整数 CDF 中选取分布，而不是逐体素物化；占用驱动的 kernel-map 构造直接从已解码层级推导细层稀疏卷积的 kernel-map，省掉坐标邻域搜索。省下的预算被投入到轻量的、由自运动对齐的上一帧提供局部占用上下文的时序条件化上。在四个 LiDAR 数据集与 NVIDIA J…</p><p class="lang lang-en lang-block" data-lang="en">Improving learned LiDAR compression increasingly relies on heavier inference, making it harder to meet the constraints of real-time embedded systems. We present ELiCv2, which removes two sources of redundant c…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.04174">abs</a><a href="https://arxiv.org/pdf/2611.04174">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2611.03932"><img src="../../assets/media/2026-11-05/arxiv-2611.03932/fig-001.webp" alt="CoReMatch: Recurrent Continuous Coordinate Refinement for Real-Time Robotic Feature Matching" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2611.03932"><span class="lang lang-zh lang-inline" data-lang="zh">CoReMatch：在连续坐标空间做回归的半稠密特征匹配</span><span class="lang lang-en lang-inline" data-lang="en">CoReMatch: Recurrent Continuous Coordinate Refinement for Real-Time Robotic Feature Matching</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-04 · score 8 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO, cs.CV</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Robert J. Wang, Charles Ling, Boyu Wang</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">特征匹配</span><span class="tag">半稠密匹配</span><span class="tag">嵌入式部署</span><span class="tag">视觉里程计</span><span class="tag">AGX Orin</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>用“循环坐标回归 + 一次聚合的深窄 Transformer + 局部亚像素回归”替代高分辨率置信图：MegaDepth AUC@5 57.4（ELoFTR 56.4）而耗时 177 ms 对 2,067 ms；ScanNet 22.8 对 19.2；KITTI VO ATE 6.98 m 对 10.17 m。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">半稠密匹配器通常在固定网格上预测置信度，对应点被限制在预定义位置，要高精度就得提高网格分辨率，而 Transformer 的耗时随分辨率急剧上升：Efficient LoFTR 在 AGX Orin 上处理 640×640 图像对需 311 ms，升到 960×960 就慢 4.5 倍，1152×1152 超过 2 秒。CoReMatch 把匹配改写成连续坐标的循环 refinement：粗层用 Deep Aggr…</p><p class="lang lang-en lang-block" data-lang="en">Feature matching underpins many robotic perception tasks, including visual localization, mapping, SLAM, and autonomous navigation. Existing semi-dense matchers predict confidence on fixed grids, limiting corre…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.03932">abs</a><a href="https://arxiv.org/pdf/2611.03932">PDF</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/sharvan-m/4D_Scene_Reconstruction_and_A_Traversable_Video_Format">sharvan-m/4D_Scene_Reconstruction_and_A_Traversable_Video_Format</a></strong><div>To build a 4D scene reconstruction using 4D Gaussian Splatting and creating a traversable video in .4dv format.</div></div>
+  <div><div class="meta">新项目 · ★ 1 · 更新 2026-11-04 · score 13 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/changyeon2/OdorSpaces">changyeon2/OdorSpaces</a></strong><div>[CoRL 2026] OdorSpaces: Visual-Olfactory Embodied Navigation in 3D Environments</div></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-11-04 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/EDC-Dragon/gnss_poc">EDC-Dragon/gnss_poc</a></strong></div>
+  <div><div class="meta">新项目 · C · ★ 0 · 更新 2026-11-04 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/willitopow/aplicacion-gnss">willitopow/aplicacion-gnss</a></strong><div>dibuja las coordenadas y une figuras, exporta a dxf</div></div>
+  <div><div class="meta">新项目 · JavaScript · ★ 0 · 更新 2026-11-04 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/prs-eth/PaGeR">prs-eth/PaGeR</a></strong><div>PaGeR — Unified Panoramic Geometry Estimation via Multi-View Foundation Models</div></div>
+  <div><div class="meta">新项目 · Python · ★ 161 · 更新 2026-11-04 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/anhthuan1999/varsplat">anhthuan1999/varsplat</a></strong><div>[CVPR 2026] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM</div></div>
+  <div><div class="meta">Python · ★ 35 · 更新 2026-11-04 · score 10 · A层 · Robust State Estimation / Uncertainty</div><div class="meta">Topics：3dgs, 3dgs-slam, gaussian-splatting, slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/odorspaces/odorspaces.github.io">odorspaces/odorspaces.github.io</a></strong><div>[CoRL 2026] OdorSpaces: Visual-Olfactory Embodied Navigation in 3D Environments</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-04 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/gnssplusplus-library">rsasaki0109/gnssplusplus-library</a></strong><div>Modern C++20 GNSS toolkit — RTK/PPP/CLAS/IMU fusion.</div></div>
+  <div><div class="meta">C++ · ★ 245 · 更新 2026-11-04 · score 10 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：c-plus-plus, gnss, imu, localization, positioning</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 13 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/SeeleAI/OpenEVA">SeeleAI/OpenEVA</a></strong><div>A Family of Native 3D Foundation Models for both Understanding &amp; Generation.</div></div>
+  <div><div class="meta">Python · ★ 13 · 更新 2026-11-04 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lisaweijler/latent-rfm">lisaweijler/latent-rfm</a></strong><div>[NeurIPS 2026] Latent Riemannian Flow Matching for Geometry-Grounded 3D Foundation Models</div></div>
+  <div><div class="meta">★ 1 · 更新 2026-11-03 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/XiaoJingSpace/SHARP-Studio">XiaoJingSpace/SHARP-Studio</a></strong><div>Windows desktop editor for video-to-Gaussian scenes, powered by SHARP, with Unity-style scene tools and experimental 4D reconstruction.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-03 · score 8 · S层 · 3D/4D Spatial Perception</div><div class="meta">Topics：4d-gaussians, desktop-app, gaussian-splatting, pyside6, sharp</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
+  <div><div class="meta">JavaScript · ★ 146 · 更新 2026-11-04 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 14 · 更新 2026-11-04 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Liziang1145/Explorer">Liziang1145/Explorer</a></strong><div>Explorer (探路者) — embodied intelligence platform on AMD Ryzen AI PC + Kria KR260. VR teleoperation, VLA safety pre-check, FAST-LIO2 LiDAR mapping and supervised navigation, sharing one PS/PL execution base.</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-11-03 · score 6 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-04 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sisren-embodied-nav/sisren-embodied-nav.github.io">sisren-embodied-nav/sisren-embodied-nav.github.io</a></strong><div>Spatial Intelligence and Structured Reasoning for Embodied Navigation</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-04 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">ZGCA-HMI-Lab/Embodied-Agent-Research-Map</a></strong><div>A continuously updated research map of embodied agent architectures, dexterous manipulation, VLA, and navigation for reading and group discussion.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-04 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-05 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/codewithRahul01/GNSS-Error-prediction">codewithRahul01/GNSS-Error-prediction</a></strong><div>This is a new Project the i had start working on.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-04 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ifradlin/arrow">ifradlin/arrow</a></strong><div>Arbitrary Reconstruction and Tracking of 4D Observation in the Wild</div></div>
+  <div><div class="meta">Python · ★ 125 · 更新 2026-11-03 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Jingong-Chen/Any3R">Jingong-Chen/Any3R</a></strong><div>Any3R: Feedforward 3D Reconstruction from Any Camera Type — pinhole, fisheye beyond 180°, 360° panoramas, or any mix, in one forward pass</div></div>
+  <div><div class="meta">Python · ★ 46 · 更新 2026-11-02 · score 2</div><div class="meta">Topics：3d-reconstruction, camera-pose-estimation, computer-vision, depth-estimation, feed-forward</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
