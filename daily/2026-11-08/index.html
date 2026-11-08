@@ -24,7 +24,7 @@
   </div>
   <div class="stats"><span class="stat">候选论文：0</span><span class="stat">推荐论文：0</span><span class="stat">新论文：0</span><span class="stat">仓库：22</span><span class="stat">新仓库：1</span></div>
 </section>
-<section class="section brief"><h2>今日概览</h2><p>今天没有论文，只有仓库状态可以读。为了不让&quot;0 篇&quot;变成一句空话，先把今天这批旧仓库更新放回主轴上：</p>
+<section class="section brief"><h2>今日概览</h2><p>今天没有论文，只有仓库状态可以读。先把&quot;0 篇&quot;的成因写在页面上：4 条 arXiv API 查询全部 <code>HTTP 429</code>（直连 <code>export.arxiv.org</code> 同样 429），RSS 兜底 5 个类目（cs.RO / cs.CV / cs.GR / eess.IV / eess.SP）返回的 feed 均为 0 条 item（<code>lastBuildDate</code> 停在 <code>Sat, 07 Nov 2026 05:00 UTC</code>），arXiv 列表页最新公告日为 <code>Fri, 6 Nov 2026</code>（周末不公告）——所以本轮是<strong>候选集为空</strong>，不是&quot;召回后去重筛掉&quot;。为了不让&quot;0 篇&quot;变成一句空话，把今天这批旧仓库更新放回主轴上：</p>
 <ul>
 <li><strong>底层几何</strong>：<code>Jingong-Chen/Any3R</code>（52★，MIT 代码 / FAIR 非商用权重）在 10-31 放出了推理代码、4.6 GB 权重、交互 demo 与评测脚本，主张&quot;用每像素射线场（ray field）代替镜头类型&quot;，一套权重覆盖针孔、Brown–Conrady、Kannala–Brandt、等距/等立体/球极、FOV、MEI、双球、EUCM、柱面、等距柱面共 13 种中心相机，且允许同场景混用不同镜头。README 自称单张 RTX 5090 上 32 视图 512×512 用 1.1 s、128 视图 9 s（17.7 GB）。</li>
 <li><strong>3D/4D 表征</strong>：<code>jzr99/Mesh4D</code>（123★，CVPR 2026）在 11-05 放出 <strong>MeshBench 基准与可视化代码</strong>，这是 4D mesh 重建/跟踪第一次有可复用的评测入口。</li>
