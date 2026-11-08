@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-08</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-08</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：0</span><span class="stat">推荐论文：0</span><span class="stat">新论文：0</span><span class="stat">仓库：22</span><span class="stat">新仓库：1</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><p>今天没有论文，只有仓库状态可以读。为了不让&quot;0 篇&quot;变成一句空话，先把今天这批旧仓库更新放回主轴上：</p>
+<ul>
+<li><strong>底层几何</strong>：<code>Jingong-Chen/Any3R</code>（52★，MIT 代码 / FAIR 非商用权重）在 10-31 放出了推理代码、4.6 GB 权重、交互 demo 与评测脚本，主张&quot;用每像素射线场（ray field）代替镜头类型&quot;，一套权重覆盖针孔、Brown–Conrady、Kannala–Brandt、等距/等立体/球极、FOV、MEI、双球、EUCM、柱面、等距柱面共 13 种中心相机，且允许同场景混用不同镜头。README 自称单张 RTX 5090 上 32 视图 512×512 用 1.1 s、128 视图 9 s（17.7 GB）。</li>
+<li><strong>3D/4D 表征</strong>：<code>jzr99/Mesh4D</code>（123★，CVPR 2026）在 11-05 放出 <strong>MeshBench 基准与可视化代码</strong>，这是 4D mesh 重建/跟踪第一次有可复用的评测入口。</li>
+<li><strong>可靠性底座</strong>：<code>anhthuan1999/varsplat</code>（35★，MIT，CVPR 2026，GMU）把逐 splat 外观方差经全方差公式渲成逐像素不确定度，并同时用在跟踪、子图配准、回环检测三段——这是今天与本轴最贴近的一条。</li>
+<li><strong>系统与 baseline</strong>：<code>rsasaki0109/lidar_slam_ros2</code>（939★，BSD-2-Clause）是 ROS2 下的 LiDAR SLAM 建图/基准/Autoware 兼容地图工作流，适合当对照与工具链，而不是新方法。</li>
+<li><strong>具身侧信号偏弱</strong>：<code>changyeon2/OdorSpaces</code>（CoRL 2026，5★，视觉-嗅觉导航）、<code>VITA-Group/VeriWorld</code>（2★，UE5 可验证空间推理任务）都还是&quot;有想法、无生态&quot;的阶段。</li>
+</ul>
+<p>一句话：<strong>今天没有新方法可读，只有三条工程进度值得记——射线场接口、4D 评测基准、不确定度进 SLAM 三段。</strong></p></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2></div>
+  <div class="grid"><p class="muted">今日无新增论文：采集器本轮未取到任何候选（arXiv 无新公告或接口不可用），具体原因见今日概览；今日重点见下方仓库/项目与简报。</p></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/erickramer42/peil">erickramer42/peil</a></strong><div>Anomaly detection for the emitters around a vehicle or building: Wi-Fi and BLE (Kismet, Android), sub-GHz and TPMS (rtl_433) and GNSS on one clock, judged by versioned, deterministic rules that show their evidence. Defensive: decodes no co…</div></div>
+  <div><div class="meta">新项目 · Rust · ★ 1 · 更新 2026-11-07 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：android, automotive, ble, counter-surveillance, gnss</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sharvan-m/4D_Scene_Reconstruction_and_A_Traversable_Video_Format">sharvan-m/4D_Scene_Reconstruction_and_A_Traversable_Video_Format</a></strong><div>To build a 4D scene reconstruction using 4D Gaussian Splatting and creating a traversable video in .4dv format.</div></div>
+  <div><div class="meta">★ 1 · 更新 2026-11-04 · score 13 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jzx05/3R-Handbook">jzx05/3R-Handbook</a></strong><div>Automated research handbook for 3D geometric foundation models (3R), feed-forward reconstruction and SLAM — synced from All-3R-SLAM every 2h.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-06 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div><div class="meta">Topics：3d-reconstruction, awesome-list, computer-vision, dust3r, gluemap</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/anhthuan1999/varsplat">anhthuan1999/varsplat</a></strong><div>[CVPR 2026] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM</div></div>
+  <div><div class="meta">Python · ★ 35 · 更新 2026-11-04 · score 10 · A层 · Robust State Estimation / Uncertainty</div><div class="meta">Topics：3dgs, 3dgs-slam, gaussian-splatting, slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam_ros2">rsasaki0109/lidar_slam_ros2</a></strong><div>ROS 2 LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
+  <div><div class="meta">Python · ★ 939 · 更新 2026-11-07 · score 15 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/lukislp/mowdeck">lukislp/mowdeck</a></strong><div>Self-hosted, manufacturer-independent control centre for robotic lawn mowers: live map and status, schedules with rain pause, spot mowing driven by MowDeck itself, cameras, notifications, firmware updates and a Bluetooth bridge for low-lat…</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-07 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：bluetooth-proxy, capacitor, docker-compose, esphome, fastapi</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-08 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Ban004/gnss-pulse">Ban004/gnss-pulse</a></strong></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-07 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 14 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/William-WANG2/Deblur4D">William-WANG2/Deblur4D</a></strong><div>Deblur4D: Feed-Forward 4D Reconstruction from Blurry RGB and Complementary Vision</div></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-11-06 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Xiaoang0211/ProMo3D">Xiaoang0211/ProMo3D</a></strong><div>Official implementation of ProMo3D (NeurIPS 2026): probing motion cues in frozen 3D foundation models.</div></div>
+  <div><div class="meta">Python · ★ 4 · 更新 2026-11-05 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/bestzbf/MultiD4RT">bestzbf/MultiD4RT</a></strong><div>MultiD4RT: multi-camera 4D reconstruction, scene flow and 3D tracking from synchronized RGB</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-05 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/FrowardTraveler/4D_PGNF">FrowardTraveler/4D_PGNF</a></strong><div>Physics-Guided Neural Field for Sparse-View 4D Reconstruction of Mixed Rigid–Fluid Scenes</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-05 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
+  <div><div class="meta">JavaScript · ★ 149 · 更新 2026-11-07 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 16 · 更新 2026-11-07 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-07 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/VITA-Group/VeriWorld">VITA-Group/VeriWorld</a></strong><div>A Verifiable Visual SWE-Bench for Spatial Reasoning in 3D Environments. UE5 infra for AI-create verifiable 3D tasks via vibe coding for VLM/LLM evaluation with multi-turn protocol. Supports runtime Python/CUDA execution, agent harness desi…</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-07 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/changyeon2/OdorSpaces">changyeon2/OdorSpaces</a></strong><div>[CoRL 2026] OdorSpaces: Visual-Olfactory Embodied Navigation in 3D Environments</div></div>
+  <div><div class="meta">★ 5 · 更新 2026-11-05 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/varunvarmaakhil-lgtm/ORION">varunvarmaakhil-lgtm/ORION</a></strong><div>Success-aware PPO for embodied navigation in Habitat-Lab: an auxiliary TD(λ) episode-success head cut final distance to goal by 39% across a 10-seed study.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-05 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/odorspaces/odorspaces.github.io">odorspaces/odorspaces.github.io</a></strong><div>[CoRL 2026] OdorSpaces: Visual-Olfactory Embodied Navigation in 3D Environments</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-05 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sisren-embodied-nav/sisren-embodied-nav.github.io">sisren-embodied-nav/sisren-embodied-nav.github.io</a></strong><div>Spatial Intelligence and Structured Reasoning for Embodied Navigation</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-04 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jzr99/Mesh4D">jzr99/Mesh4D</a></strong><div>[CVPR 2026] Mesh4D: 4D Mesh Reconstruction and Tracking from Monocular Video</div></div>
+  <div><div class="meta">Python · ★ 123 · 更新 2026-11-05 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Jingong-Chen/Any3R">Jingong-Chen/Any3R</a></strong><div>Any3R: Feedforward 3D Reconstruction from Any Camera Type — pinhole, fisheye beyond 180°, 360° panoramas, or any mix, in one forward pass</div></div>
+  <div><div class="meta">Python · ★ 52 · 更新 2026-11-02 · score 2</div><div class="meta">Topics：3d-reconstruction, camera-pose-estimation, computer-vision, depth-estimation, feed-forward</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
