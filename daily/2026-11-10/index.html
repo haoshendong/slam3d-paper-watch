@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-10</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：8</span><span class="stat">推荐论文：6</span><span class="stat">新论文：8</span><span class="stat">仓库：21</span><span class="stat">新仓库：5</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>论文</strong>：候选 8 篇，全部为新增（<code>is_new=true</code>），另有 6 篇历史重复被过滤；推荐 <strong>6 篇</strong>，分布为 <strong>S 1 / A 5 / A- 0 / B 0 / B- 0 / C 0</strong>。今天没有 A- 实时/GPU 系统、没有新的 B 级神经渲染论文，也没有值得纳入的纯 GNSS/INS 论文。</li>
+<li><strong>采集说明</strong>：4 条 arXiv 组查询里有 2 条返回 HTTP 429（geometry foundation 组与 SLAM/learned VO 组），因此今天 S 级的“几何基础模型”和“学习式几何优化 SLAM/VIO”两个方向实际是<strong>空窗而非空白</strong>；剩余查询带回 14 篇、去重后 8 篇。重试预算按 fast 模式只给了 1 次，没有继续补查。</li>
+<li><strong>医疗过滤</strong>：8 篇候选的标题、摘要、comment 与类别中均未出现 medical/biomedical/clinical、MRI、CT、病理、病灶等命中，<strong>本篇日报无需做医疗排除</strong>。</li>
+<li><strong>主题分布</strong>：今天的主线从“几何表征”偏向“<strong>证据与评测</strong>”——工具使用数据集的留出相机协议（ToolDex）、任务条件化的证据获取基准（Seeing What Matters）、把视频压成可查询度量记忆（BEV3SR）、以及“坐标到底什么时候有用”（Grounded Reasoning）。这一组文章共同回答的是：空间表征好不好，不能只看描述是否完整，要看它能否支撑当前任务所需的证据。</li>
+<li><strong>仓库</strong>：新增 5 个，但质量参差；2 个 GNSS 硬件/固件项目值得记一笔，1 个被关键词误判为 S 级（公交站日照应用），已在仓库段落标注。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 8 篇候选中按 S/A 层级与评分推荐前 6 篇；靠后候选不在网页中展开。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.09036/index.html"><img src="../../assets/media/2026-11-10/arxiv-2611.09036/fig-001.webp" alt="ToolDex: An Ego-Exo Human Demonstration Dataset for Creative Physical Tool Use" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.09036/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ToolDex：面向创造性工具使用的第一/第三人称人类演示数据集与三层基准</span><span class="lang lang-en lang-inline" data-lang="en">ToolDex: An Ego-Exo Human Demonstration Dataset for Creative Physical Tool Use</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-06 · score 13 · S层 · 3D/4D Spatial Perception · cs.RO, cs.AI</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Mohamed Elmoghany, Kehan Li, Ruoqu Chen, Tarun Chiruvolu</div>
+  <span class="score">评分 9.4/10</span>
+  <div class="tags"><span class="tag">第一/第三人称数据集</span><span class="tag">手—工具—目标物交互</span><span class="tag">稀疏视角 3D/4DGS</span><span class="tag">留出相机评测</span><span class="tag">六自由度工具位姿</span><span class="tag">机器人策略学习</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>这是一篇数据集与基准论文，而不是新模型论文：贡献在于采集协议、标注链路（SAM2+DINOv2 目标掩码、FoundationPose 六自由度工具位姿、WiLoR 手部 MANO、HO-Cap 式手—工具联合优化）以及统一的三层评测。实验结论有三块：静态 3DGS 上 IS+Difix3D 达到 20.45 dB PSNR / 55.11 MUSIQ（InstantSpla…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">创造性工具使用要求智能体在缺少标准工具时，依据物体可供性、物理约束与操作策略重新选择或改造工具，但现有基准多为仿真、交互简化，或缺少完整的手—工具—目标物交互标注。ToolDex 用两路第一人称相机加 8 路第三人称 RGB-D 相机同步采集日常桌面场景中的工具替代行为，显式区分手、工具与目标物三种角色，并覆盖面团、液体、沙粒等可形变目标。数据集包含 10,853 次试验、60 小时、6,158,809 帧带标注数…</p><p class="lang lang-en lang-block" data-lang="en">Creative tool use is a fundamental human capability and an important step toward general-purpose embodied intelligence. It requires agents to reason about object affordances, physical constraints, and manipula…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.09036">abs</a><a href="https://arxiv.org/pdf/2611.09036">PDF</a><a href="../../papers/arxiv-2611.09036/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.09794/index.html"><img src="../../assets/media/2026-11-10/arxiv-2611.09794/fig-001.webp" alt="Seeing What Matters: Benchmarking Task-Conditioned Actionable Spatial Belief for Manipulation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.09794/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Seeing What Matters：面向操作的任务条件化可执行空间信念基准</span><span class="lang lang-en lang-inline" data-lang="en">Seeing What Matters: Benchmarking Task-Conditioned Actionable Spatial Belief for Manipulation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-07 · score 10 · A层 · Robust State Estimation / Uncertainty · cs.RO, cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Yina Jian, Mingkun Xu</div>
+  <span class="score">评分 8.8/10</span>
+  <div class="tags"><span class="tag">任务条件化证据获取</span><span class="tag">空间—功能信念账本</span><span class="tag">主动感知评测</span><span class="tag">功能分布外泛化</span><span class="tag">隐藏后置条件</span><span class="tag">视觉语言模型诊断</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>方法上有三件东西：空间—功能信念账本（谓词、估计值、置信度、视觉出处、陈旧标记、任务相关性）、规则化 View Belief Map（按缺失谓词的证据增益减视角代价排序）、以及可选的行动诱导信念修正（执行后比对预测与观测后置条件，定位陈旧条目并要求补看）。实验结论是：命令绑定与功能字段是决定性组件——去掉功能字段，功能 OOD 成功率掉到 0.0%；去掉命令绑定掉到 19.7…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">空间推理基准通常评估模型能否描述场景，但操作需要的是“取得让当前指令可执行的那部分证据”。同一工作台上，对某个任务有用的视角对另一个任务可能毫无价值。作者提出 Seeing What Matters：在仿真桌面操作中评测任务条件化的可执行空间信念，覆盖咖啡工作站、抽屉/柜子、微波炉/电器三个域共 860 个冻结评测用例；按方法、观测预算与重复推理展开后超过 115,000 个评测回合，分闭环可执行性与同物体功能分布…</p><p class="lang lang-en lang-block" data-lang="en">When should a robot look at the cup, and when at the portafilter? Spatial-reasoning benchmarks evaluate whether a model can describe a scene, but manipulation needs something more specific: the ability to acqu…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.09794">abs</a><a href="https://arxiv.org/pdf/2611.09794">PDF</a><a href="../../papers/arxiv-2611.09794/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.09816/index.html"><img src="../../assets/media/2026-11-10/arxiv-2611.09816/fig-001.webp" alt="BEV3SR: Evidence-Aware 3D Spatial Reasoning from Video" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.09816/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">BEV3SR：把视频观测组织成可查询的度量 BEV 场景记忆做三维空间推理</span><span class="lang lang-en lang-inline" data-lang="en">BEV3SR: Evidence-Aware 3D Spatial Reasoning from Video</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-07 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Fan Zhu, Rui Yu</div>
+  <span class="score">评分 8.2/10</span>
+  <div class="tags"><span class="tag">BEV 度量场景记忆</span><span class="tag">免训练空间推理</span><span class="tag">参考系形式化</span><span class="tag">几何算子执行</span><span class="tag">视觉证据检索</span><span class="tag">RGB-D 视频问答</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>技术链条是：Mask2Former 全景分割 → 逐像素反投影到世界系并投到地面栅格得到 BEV 足迹 → 用实例图关联跨帧同一物体、合并成持久物体记录（含高度范围与支撑帧集合）→ BEV 栅格索引支持按位置查物体 → 形式化器判定问题属于度量还是视觉证据 → 度量路径做参考系实例化（含 agent 视角的朝向假设枚举）与算子执行，视觉路径做物体一致 + 场景上下文的贪心选帧…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">视频给视觉语言模型的是顺序、视角局部的观测，而不是持久的度量场景记录；很多三维问题还需要在提问指定的参考系下回答，固定采样若干 RGB 帧很容易漏掉稀疏或被遮挡的线索。BEV3SR 是一个免训练、与骨干无关的框架：它把带相机参数的 RGB-D 视频转成物体级的度量鸟瞰图（BEV）场景记忆，再用空间任务形式化器把自然语言问题拆成参考系、约束、目标与证据类型。需要几何证据的问题交给几何推理器，在指定参考系下用度量记录确…</p><p class="lang lang-en lang-block" data-lang="en">3D spatial reasoning from video remains challenging for VLMs because videos provide sequential, view-local observations rather than persistent metric scene records. Many questions must be answered in a query-s…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.09816">abs</a><a href="https://arxiv.org/pdf/2611.09816">PDF</a><a href="../../papers/arxiv-2611.09816/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.06768/index.html"><img src="../../assets/media/2026-11-10/arxiv-2611.06768/fig-001.webp" alt="PyRUA-REAL: Robot Exploration and Adaptive Learning through RSI in the Real World" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.06768/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PyRUA-REAL：让编码智能体在真实机器人上把探索经验固化成可复用程序</span><span class="lang lang-en lang-inline" data-lang="en">PyRUA-REAL: Robot Exploration and Adaptive Learning through RSI in the Real World</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-05 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Qiang Wang, Jianxin Bi, Shulong Jiang, Ruiyang Si</div>
+  <span class="score">评分 7.4/10</span>
+  <div class="tags"><span class="tag">具身递归自我改进</span><span class="tag">编码智能体</span><span class="tag">可复用技能库</span><span class="tag">执行反馈</span><span class="tag">离线程序部署</span><span class="tag">双臂操作</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>这是一篇实证研究论文：不改基础模型参数，改进的是代码、技能库与经验库。关键数字：八任务开发期平均 91.1%；RoboDojo 42 任务 84.42%（PyRUA-Lean 50.35%、GPT-6-Astra 22.48%）；反馈形式对照 B 15.3%、BS 45.8%、BVJ 54.2%，且 BVJ 的优化时间更短（25.4 对 31.8 分钟）；显式任务规格使五类能…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">由 GPT-6-Astra 这类模型驱动的编码智能体能写可执行机器人程序，但物理交互能否带来持久的能力提升仍不清楚。PyRUA-REAL 研究“具身递归自我改进”（RSI）：编码智能体把交互经验保存为持久记忆与可复用技能，指导下一次探索与代码修订；研究者智能体负责选目标与技术路线，工程师智能体负责实现、跑试验、诊断失败。作者在双臂 Franka 平台上做了八个真实任务，记录到的开发期平均成功率 91.1%；在 Ro…</p><p class="lang lang-en lang-block" data-lang="en">Coding agents powered by models such as GPT-6-Astra connect spatial reasoning with executable robot behavior, raising the question of how such agents can produce lasting improvements in robot capabilities from…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.06768">abs</a><a href="https://arxiv.org/pdf/2611.06768">PDF</a><a href="../../papers/arxiv-2611.06768/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.08485/index.html"><img src="../../assets/media/2026-11-10/arxiv-2611.08485/fig-001.webp" alt="Where and Why is Grounded Reasoning Useful?" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.08485/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Where and Why is Grounded Reasoning Useful：坐标 grounding 到底在什么任务上起作用</span><span class="lang lang-en lang-inline" data-lang="en">Where and Why is Grounded Reasoning Useful?</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-06 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：David Yan, Le Xue, Forrest Huang, Qiuyi Zhang</div>
+  <span class="score">评分 7.9/10</span>
+  <div class="tags"><span class="tag">grounded reasoning</span><span class="tag">坐标损坏分析</span><span class="tag">思维链忠实性</span><span class="tag">不可描述参照</span><span class="tag">空间推理评测</span><span class="tag">BrickVision</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>方法上有两条线：分析线用解码期坐标损坏（生成坐标时随机化并重置 KV cache）测 grounding 使用率，发现多个开源 grounded 模型在空间/感知任务上性能几乎不变，只有计数明显下降；训练线从 Qwen3-VL-8B 出发，用 6,368 条高质量 SFT 数据做冷启动再上 GRPO 强化学习，比较 grounded 与纯文本两条配方。结论是 SFT 阶段计数…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">让模型在思维链里输出相关位置的文本坐标（grounded reasoning）是解复杂视觉推理的常见做法，但这种做法的收益与边界缺少系统研究。作者先提出一种解码期坐标随机化的分析方法，测量模型是否真的在使用自己输出的坐标；再对 grounding 训练配方做细致消融，发现 grounding 只在计数类任务上稳定有效，在广泛的空间推理与细粒度感知基准上没有显著增益。用合成任务进一步定位原因：当任务需要“难以用语言描…</p><p class="lang lang-en lang-block" data-lang="en">Grounded reasoning, where a model outputs text coordinates of relevant locations in chain-of-thought reasoning, is a common strategy for solving complex visual reasoning problems. However, the benefits and lim…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.08485">abs</a><a href="https://arxiv.org/pdf/2611.08485">PDF</a><a href="../../papers/arxiv-2611.08485/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.06040/index.html"><img src="../../assets/media/2026-11-10/arxiv-2611.06040/fig-001.webp" alt="USI-Brain: Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.06040/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">USI-Brain：用水下空间数据引擎把外观与几何接进视觉语言模型</span><span class="lang lang-en lang-inline" data-lang="en">USI-Brain: Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-04 · score 7 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Zhiliang Zhu, Zhiqiang Zhao, Xie&#x27;an Jiang, Yingxin Lai</div>
+  <span class="score">评分 7.6/10</span>
+  <div class="tags"><span class="tag">水下空间智能</span><span class="tag">空间数据引擎</span><span class="tag">几何辅助问答</span><span class="tag">特征整流器</span><span class="tag">领域微调</span><span class="tag">多模态基准</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>这是一篇“数据引擎 + 领域微调”的论文：底座 Qwen3-VL-8B-Instruct，全参数解冻（ViT、merger、语言模型），4.27M 问答训 2 个 epoch，64 张 B200 约 25 小时。UPR 插在视觉编码器之后、多模态投影之前：用 DINOv2 ViT-L/14 提先验，预测散射偏置 β 与吸收恢复增益 G，做 F̃=G⊙(F−β)，再用 sigm…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">水下空间推理依赖物体边界与几何线索，而散射、色偏与低能见度恰好破坏这些线索；现有水下资源虽提供图像、标注与深度，但对视觉语言模型是碎片化监督。作者提出一个空间数据引擎：先用混合水下增强（HUE）准备图像，再分两路生成问答——二维分支问外观与像平面关系，几何辅助分支把图像区域与深度采样、重建物体框连起来，生成深度、排序、遮挡与分层问题，最后按五类能力组织并经专家过滤，得到 4.27M 问答对。用该语料训练 USI-B…</p><p class="lang lang-en lang-block" data-lang="en">Underwater spatial reasoning depends on object boundaries and geometric cues that are obscured by scattering, color distortion, and low visibility. Existing underwater resources capture these cues through imag…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.06040">abs</a><a href="https://arxiv.org/pdf/2611.06040">PDF</a><a href="../../papers/arxiv-2611.06040/index.html">半海报</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/Agnuxo1/hikage-machi">Agnuxo1/hikage-machi</a></strong><div>Open bus-stop solar exposure application: tested synthetic geometry foundation, reproducible controls and transparent UDC2026 scope.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-11-09 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/aklofas/purple-gnss">aklofas/purple-gnss</a></strong><div>Open-source RTK GNSS receiver</div></div>
+  <div><div class="meta">新项目 · Jupyter Notebook · ★ 0 · 更新 2026-11-10 · score 6 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：galileo, gnss, gps, rtk</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/RFSAT/PicoRTK">RFSAT/PicoRTK</a></strong><div>GNSS with RTK for Raspberry Pico 2 W</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 0 · 更新 2026-11-09 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Renbrant/MeshCrossway">Renbrant/MeshCrossway</a></strong><div>MeshCrossway is an open-source, ESP32-based portable communicator designed to connect travelers and search-and-rescue teams across Meshtastic and MeshCore networks in parallel, with dedicated LoRa radios, a touchscreen interface, GNSS posi…</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 26 · 更新 2026-11-10 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：lora, meshcore, meshcore-client, meshcore-lora, meshtastic</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/misaka10111/Disaster-Response-Drone">misaka10111/Disaster-Response-Drone</a></strong><div>An Webots simulated autonomous drone for disaster response, integrating visual-inertial SLAM with neural networks for object recognition.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-11-09 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/shamus-li/lightfield-gaussian-splatting">shamus-li/lightfield-gaussian-splatting</a></strong><div>Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction</div></div>
+  <div><div class="meta">Python · ★ 7 · 更新 2026-11-09 · score 11 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/anhthuan1999/varsplat">anhthuan1999/varsplat</a></strong><div>[CVPR 2026] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM</div></div>
+  <div><div class="meta">Python · ★ 35 · 更新 2026-11-04 · score 10 · A层 · Robust State Estimation / Uncertainty</div><div class="meta">Topics：3dgs, 3dgs-slam, gaussian-splatting, slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/UMich-CURLY/NavVerse-Benchmark">UMich-CURLY/NavVerse-Benchmark</a></strong><div>A Physically Grounded Indoor-to-Ourdoor Embodied Navigation Benchmark</div></div>
+  <div><div class="meta">Python · ★ 16 · 更新 2026-11-09 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 13 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/William-WANG2/Deblur4D">William-WANG2/Deblur4D</a></strong><div>Deblur4D: Feed-Forward 4D Reconstruction from Blurry RGB and Complementary Vision</div></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-11-06 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/bestzbf/MultiD4RT">bestzbf/MultiD4RT</a></strong><div>MultiD4RT: multi-camera 4D reconstruction, scene flow and 3D tracking from synchronized RGB</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-05 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/FrowardTraveler/4D_PGNF">FrowardTraveler/4D_PGNF</a></strong><div>Physics-Guided Neural Field for Sparse-View 4D Reconstruction of Mixed Rigid–Fluid Scenes</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-05 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
+  <div><div class="meta">JavaScript · ★ 149 · 更新 2026-11-07 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ian-benge/AMD-Powered-Physical-AI-Robotics">ian-benge/AMD-Powered-Physical-AI-Robotics</a></strong><div>ROS 2 Mars rover simulation with AMD NPU perception, ROCm terrain mapping, guarded navigation, and uncertainty-aware object tracking.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-08 · score 7 · A层 · Robust State Estimation / Uncertainty</div><div class="meta">Topics：amd, computer-vision, gazebo, nav2, npu</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 17 · 更新 2026-11-09 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-09 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">ZGCA-HMI-Lab/Embodied-Agent-Research-Map</a></strong><div>A continuously updated research map of embodied agent architectures, dexterous manipulation, VLA, and navigation for reading and group discussion.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-09 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/VITA-Group/VeriWorld">VITA-Group/VeriWorld</a></strong><div>A Verifiable Visual SWE-Bench for Spatial Reasoning in 3D Environments. UE5 infra for AI-create verifiable 3D tasks via vibe coding for VLM/LLM evaluation with multi-turn protocol. Supports runtime Python/CUDA execution, agent harness desi…</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-07 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-09 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
+  <div><div class="meta">★ 1916 · 更新 2026-11-08 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/facebookresearch/efm3d">facebookresearch/efm3d</a></strong><div>This is the official release for the paper &quot;EFM3D A Benchmark for Measuring Progress Towards 3D Egocentric Foundation Models&quot; (https//arxiv.org/abs/2406.10224).</div></div>
+  <div><div class="meta">Python · ★ 188 · 更新 2026-11-08 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jzr99/Mesh4D">jzr99/Mesh4D</a></strong><div>[CVPR 2026] Mesh4D: 4D Mesh Reconstruction and Tracking from Monocular Video</div></div>
+  <div><div class="meta">Python · ★ 123 · 更新 2026-11-05 · score 3</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
