@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-12</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：19</span><span class="stat">推荐论文：9</span><span class="stat">新论文：19</span><span class="stat">仓库：15</span><span class="stat">新仓库：1</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>论文</strong>：候选 19 篇，全部为新增（<code>is_new=true</code>，历史重复过滤 0 篇）；推荐 <strong>9 篇</strong>，分布为 <strong>S 1 / A 3 / A- 1 / B 2 / B- 1 / C 1</strong>。没有医疗/生物医学/临床方向候选需要排除。</li>
+<li><strong>采集说明（重要）</strong>：4 条 arXiv 组查询<strong>全部返回 HTTP 429</strong>，其中两条正是 S 级的 “geometry foundation / 3D foundation model” 与 “SLAM / learned VO” 组；19 篇候选全部来自 RSS 兜底（cs.RO / cs.CV / cs.GR / eess.IV / eess.SP）。GitHub 侧 8 条查询中 GNSS 一条被 403 限流。因此今天的 S 级覆盖有<strong>查询失败造成的缺口</strong>，不能把“没有新的几何基础模型论文”当成领域空窗。</li>
+<li><strong>主题</strong>：今天的主线是<strong>“把不可解释的量换成可检验的几何或对照”</strong>。URL-Sim 把“加多少高斯”变成显式预算问题（12932）；kNN 论文把“VLA 的基准分数”拆成检索与泛化两部分（13160）；DOBB 把状态协方差与执行器极限折算成方向性安全边距（13142）；RoboACE 把“自我改进”从权重搬到可版本化的软件层（13034）。</li>
+<li><strong>仓库</strong>：候选 15 个，新增 1 个（<code>bestzbf/mvmc</code>，多相机 4D 重建 + 场景流 + 3D 跟踪）。其余为历史条目，只挑 4 个继续跟踪。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 19 篇候选中按 S/A 层级与评分推荐前 9 篇；靠后候选不在网页中展开。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.12932/index.html"><img src="../../assets/media/2026-11-12/arxiv-2611.12932/fig-001.webp" alt="URL-Sim: Unified and Regulated LiDAR Simulation for High-Fidelity Reconstruction of Dynamic Driving Scenes" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.12932/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">URL-Sim：把行人、骑行者与车辆统一进 LiDAR 高斯的动态驾驶场景仿真</span><span class="lang lang-en lang-inline" data-lang="en">URL-Sim: Unified and Regulated LiDAR Simulation for High-Fidelity Reconstruction of Dynamic Driving Scenes</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 17 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Kefei Qian, Xipeng Feng, Jie Li, Long Cao, Yuhan Chen, Xiangfei Huang, Guofa Li</div>
+  <span class="score">评分 8.4/10</span>
+  <div class="tags"><span class="tag">LiDAR 仿真</span><span class="tag">3D 高斯溅射</span><span class="tag">非刚性建模</span><span class="tag">SMPL</span><span class="tag">有界致密化</span><span class="tag">可微光线追踪</span><span class="tag">动态场景图</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>结论是“非刚性建模 + 有界预算”能在不增加基元数量的前提下同时改善几何与外观：Waymo Chamfer 0.0468 对 LiDAR-RT 的 0.0863（−45.7%），F-score@5cm 0.9682 对 0.9461；KITTI-360 Chamfer 0.0909 对 0.1367（−33.5%）。代价是渲染帧率略降（17.6 vs 20.1 FPS）。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出 URL-Sim，一个面向动态驾驶场景的 LiDAR 仿真框架。它把场景拆成静态背景、刚性目标、SMPL 行人、无模板形变目标四类高斯表示，用可微 LiDAR 光线追踪渲染深度与强度，并把 3DGS 中无约束的致密化换成“全局预算 + 二次增长调度 + 多维重要性打分”的受控致密化（RGD）。在 Waymo 与 KITTI-360 各 4 段含非刚性目标的序列上，3M 高斯预算内 2D 深度/强度指标与 3…</p><p class="lang lang-en lang-block" data-lang="en">Reconstructing high-fidelity LiDAR simulation scenes from real-world driving logs is essential for cost-effective safety validation of autonomous driving systems. While simulators based on Neural Radiance Fiel…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.12932">abs</a><a href="https://arxiv.org/pdf/2611.12932">PDF</a><a href="../../papers/arxiv-2611.12932/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.13160/index.html"><img src="../../assets/media/2026-11-12/arxiv-2611.13160/fig-001.webp" alt="How Much of Your VLA Is kNN" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.13160/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">你的 VLA 有多少是 kNN：用检索基线量化 LIBERO 上的“记忆化”</span><span class="lang lang-en lang-inline" data-lang="en">How Much of Your VLA Is kNN</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 11 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.AI, cs.LG</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Denis Grachev, Damien LaRocque, Omar Moured</div>
+  <span class="score">评分 8.9/10</span>
+  <div class="tags"><span class="tag">VLA</span><span class="tag">检索基线</span><span class="tag">记忆化诊断</span><span class="tag">LIBERO-Plus</span><span class="tag">表征质量</span><span class="tag">离线指标</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：在 LIBERO 这种示范密集的基准上，一个不学策略的 kNN 就能拿到 91.7%，且抗扰动降幅最小；常用 VLA 的动作块也与训练示范高度接近（5/8 模型比留出真值更接近 kNN 预测）。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文用一个完全不训练的策略回答“VLA 的基准分数有多少来自泛化”：把 1693 条 LIBERO 示范每 2 帧存一条（观测, 动作块）记忆，推理时按视觉/状态/语言/时间/历史距离检索近邻并加权复用动作块，在 LIBERO 上达到 91.7%、在 LIBERO-Plus 上 82.4%，后者是全部被评策略中降幅最小的（−9.3pt）。作者进一步用同一套检索去探测 9 个公开 VLA 的视觉语言骨干，发现微调多数…</p><p class="lang lang-en lang-block" data-lang="en">Vision-language-action (VLA) models now exceed 95% success on the LIBERO simulation benchmark, yet it remains unclear how much of this performance requires generalization beyond the training demonstrations. In…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.13160">abs</a><a href="https://arxiv.org/pdf/2611.13160">PDF</a><a href="../../papers/arxiv-2611.13160/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.13142/index.html"><img src="../../assets/media/2026-11-12/arxiv-2611.13142/fig-001.webp" alt="DOBB: Dynamic Oriented Bounding Boxes for Multi-Agent Collision Avoidance under State Uncertainty and Heterogeneous Dynamics" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.13142/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DOBB：把状态不确定性写进方向性安全边界，而不是丢给策略去猜</span><span class="lang lang-en lang-inline" data-lang="en">DOBB: Dynamic Oriented Bounding Boxes for Multi-Agent Collision Avoidance under State Uncertainty and Heterogeneous Dynamics</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 10 · A层 · Robust State Estimation / Uncertainty · cs.RO, cs.AI</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Pedro Antonio Alarcon Granadeno, Jane Cleland-Huang</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">碰撞避免</span><span class="tag">状态不确定性</span><span class="tag">安全边距</span><span class="tag">有向包围盒</span><span class="tag">执行器约束</span><span class="tag">分布外鲁棒性</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>结论：把“估计协方差 + 执行器极限”映射成方向性安全边距，比把它们作为特征喂给策略更抗分布漂移；代价是高不确定性下失败从碰撞转为超时。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出动态有向包围盒（DOBB）：给定状态估计、其协方差和智能体的执行器响应参数，在线构造三层嵌套的有向矩形——占据层、一步投影层、刹车预留层，并把两两交互编码为四向面间隙、SAT 有符号间隔与归一化侵占面积。策略观测与奖励都建立在这套几何上，使“不确定性该让安全距离变大多少”由几何直接给出。在 4 个训练保真度环境与 500 个十智能体场景上，DOBB 平均总失败率 2.6%，且在执行器分布外与σ_p=0.5…</p><p class="lang lang-en lang-block" data-lang="en">Learning-based decentralized collision avoidance must remain reliable under state-estimation uncertainty and heterogeneous agent dynamics. Existing methods typically address these factors through training-doma…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.13142">abs</a><a href="https://arxiv.org/pdf/2611.13142">PDF</a><a href="../../papers/arxiv-2611.13142/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.13034/index.html"><img src="../../assets/media/2026-11-12/arxiv-2611.13034/fig-001.webp" alt="RoboACE: Adversarial Co-Evolution for Robot Self-Improvement" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.13034/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">RoboACE：让“练什么”和“怎么执行”一起演化，权重保持冻结</span><span class="lang lang-en lang-inline" data-lang="en">RoboACE: Adversarial Co-Evolution for Robot Self-Improvement</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 7 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Delin Zhao, Zhengrong Yue, Junlin He, Yali Wang</div>
+  <span class="score">评分 7.6/10</span>
+  <div class="tags"><span class="tag">具身智能体</span><span class="tag">自我改进</span><span class="tag">课程演化</span><span class="tag">harness 修订</span><span class="tag">LIBERO-PRO</span><span class="tag">冻结基础模型</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：不训练任何权重，仅靠“课程 + 执行”两套可修订软件交替演化，就能把 LIBERO-PRO 从 59% 推到 74%；但这是单条开发轨迹的累计结果，无法归因到某个模块。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文把机器人自我改进拆成两个可修订的 harness：课程侧根据能力档案挑选/构造练习条件，执行侧用可复用的提示、技能与工具修订来应对这些条件，两侧交替更新、彼此固定一侧作为对照。所有基础模型权重冻结，只改软件层。在 LIBERO 生态四个各 200 条件的评测面板上，最终部署相对初始版本提升 35.5 / 30.0 / 15.0 / 11.0 个百分点，LIBERO-PRO 达到 74.0%，比直接用同一个 π0…</p><p class="lang lang-en lang-block" data-lang="en">Robot agents can improve reusable skills, planning procedures, and recovery strategies from execution feedback, yet a fixed practice source leaves the search for new weaknesses unchanged. Useful practice depen…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.13034">abs</a><a href="https://arxiv.org/pdf/2611.13034">PDF</a><a href="../../papers/arxiv-2611.13034/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2611.13766"><img src="../../assets/media/2026-11-12/arxiv-2611.13766/fig-001.webp" alt="FAME-QP: A GPU-Accelerated Quadratic-Programming Solver for Real-Time Model Predictive Control" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2611.13766"><span class="lang lang-zh lang-inline" data-lang="zh">FAME-QP：用 CUDA 图回放把稠密 QP 的求解延迟压到实时 MPC 区间</span><span class="lang lang-en lang-inline" data-lang="en">FAME-QP: A GPU-Accelerated Quadratic-Programming Solver for Real-Time Model Predictive Control</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 6 · A-层 · Real-time / GPU Robotics Systems · cs.RO, cs.GR, cs.SY, eess.SY</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Santosh Mohan Rajkumar, Debdipta Goswami, Stephanie Stockar</div>
+  <span class="score">评分 6.5/10</span>
+  <div class="tags"><span class="tag">GPU 求解器</span><span class="tag">模型预测控制</span><span class="tag">CUDA graph</span><span class="tag">实时优化</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>要点：把“每步重建算子 + 多次 kernel launch”的开销换成缓存算子与图回放；只作简报，不生成详情页。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文提出 FAME-QP，一个面向线性 MPC 稠密二次规划的 GPU 求解器。它把约束相关的算子表示与单/双 kernel 迭代融合，用 CUDA graph 回放整条迭代链，并通过设备校准与问题特定计时自动选择执行配置；同时缓存算子库以挑选初始惩罚，矩阵变化时惰性更新算子。在人形与四旋翼控制实验中，相对同类 GPU 求解器降低了延迟并保持解的精度。</p><p class="lang lang-en lang-block" data-lang="en">We present FAME-QP, a GPU-accelerated solver for dense quadratic programs arising in linear model predictive control. FAME-QP combines constraint-dependent operator representations with fused single- and two-k…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.13766">abs</a><a href="https://arxiv.org/pdf/2611.13766">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2511.21098"><img src="../../assets/media/2026-11-12/arxiv-2511.21098/fig-001.webp" alt="Pygmalion Effect in Vision: Image-to-Clay Translation for Reflective Geometry Reconstruction" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2511.21098"><span class="lang lang-zh lang-inline" data-lang="zh">“去高光”作为几何先验：把反射物体翻译成黏土再重建</span><span class="lang lang-en lang-inline" data-lang="en">Pygmalion Effect in Vision: Image-to-Clay Translation for Reflective Geometry Reconstruction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 10 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.AI, cs.GR</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Gayoung Lee, Junho Kim, Jin-Hwa Kim, Junmo Kim</div>
+  <span class="score">评分 6.8/10</span>
+  <div class="tags"><span class="tag">3D 高斯溅射</span><span class="tag">反射分离</span><span class="tag">BRDF</span><span class="tag">几何先验</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>要点：用“同一几何、两条渲染路径”把外观歧义从几何学习里剥离；方法简单，可与现有 3DGS 管线组合。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文针对反射物体外观与几何纠缠的问题，提出双分支高斯框架：一个分支走 BRDF 渲染，另一个分支用合成“黏土图”监督同一套高斯几何，提供无反射的几何引导。合成与真实数据上几何与光度指标均有一致提升。</p><p class="lang lang-en lang-block" data-lang="en">Understanding reflection remains a long-standing challenge in 3D reconstruction due to the entanglement of appearance and geometry under view-dependent reflections. In this work, we present the Pygmalion Effec…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2511.21098">abs</a><a href="https://arxiv.org/pdf/2511.21098">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2503.00868"><img src="../../assets/media/2026-11-12/arxiv-2503.00868/fig-001.webp" alt="Physics-Driven Extraction of Dynamic Fluid Asset from Monocular Video with Generative 3DGS" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2503.00868"><span class="lang lang-zh lang-inline" data-lang="zh">用生成式 3DGS 从单目视频提取可仿真的动态流体资产</span><span class="lang lang-en lang-inline" data-lang="en">Physics-Driven Extraction of Dynamic Fluid Asset from Monocular Video with Generative 3DGS</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 9 · B层 · Neural Rendering / 3DGS / NeRF · cs.GR</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Zhiwei Zhao, Yin Zhao, Minchen Li, Yixin Hu</div>
+  <span class="score">评分 6.2/10</span>
+  <div class="tags"><span class="tag">3D 高斯溅射</span><span class="tag">流体仿真</span><span class="tag">可微物理</span><span class="tag">单目视频</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>要点：把“重建”换成“辨识仿真参数”，因此结果可外推；代价是只适用于可用流体模型描述的现象。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文不再用逐帧形变场拟合像素，而是优化一个流体仿真器的参数来复现单目视频中的动力学：先用生成式 3DGS 补出初始流体几何（含未观测表面），从表面运动估计带物理约束修正的速度场并转成无散度网格表示，再用可微 APIC 仿真优化黏度、边界条件与流入/流出速度。输出资产天然可编辑、可交互、可时间外推。</p><p class="lang lang-en lang-block" data-lang="en">Existing methods for dynamic 3D scene synthesis from video rely on per-frame deformation fields optimized through pixel-level reconstruction losses. While effective for closed systems such as elastic solids, t…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2503.00868">abs</a><a href="https://arxiv.org/pdf/2503.00868">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2611.12949"><img src="../../assets/media/2026-11-12/arxiv-2611.12949/fig-001.webp" alt="Maze Runner: Autonomous Maze Navigation with Line-Based Localization and Control Barrier Functions" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2611.12949"><span class="lang lang-zh lang-inline" data-lang="zh">Maze Runner：线条定位 + CBF 的迷宫自主导航栈</span><span class="lang lang-en lang-inline" data-lang="en">Maze Runner: Autonomous Maze Navigation with Line-Based Localization and Control Barrier Functions</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 9 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO, cs.SY, eess.SY</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Alvaro J. Gaona, Lucas G\&#x27;omez-Velayos, Peter Pasuy-Quevedo</div>
+  <span class="score">评分 6.4/10</span>
+  <div class="tags"><span class="tag">EKF-SLAM</span><span class="tag">线特征</span><span class="tag">控制屏障函数</span><span class="tag">ROS 2</span><span class="tag">NMPC</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>要点：用“带不确定度的线特征”把定位、建图与控制串成可复现的 ROS 2 栈，工程完整性比算法新颖性更值得看。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文给出一个 C++/ROS 2 的完整自主栈：每帧扫描用 RANSAC 与总体最小二乘提取墙面线并给出逐线不确定度，同一前端同时供已知地图 EKF 与在线建图 EKF-SLAM 使用；规划用膨胀栅格上的 A* 加视线捷径或前向 Hybrid A*，控制用 NMPC 加离散时间 CBF。仿真中机器人跑完 135 m 路线，已知地图定位 RMSE 1.0 cm、SLAM 模式 24 cm，规划 6 ms、NMPC 平…</p><p class="lang lang-en lang-block" data-lang="en">Maze navigation requires localization from sparse, repetitive geometry, planning through narrow corridors, and control that stays safe when the estimate or the map is wrong. We present Maze Runner, an open aut…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.12949">abs</a><a href="https://arxiv.org/pdf/2611.12949">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2611.13655"><img src="../../assets/media/2026-11-12/arxiv-2611.13655/fig-001.webp" alt="Toward Pseudorange-Based PNT with Starlink: A Mock Fused LEO GNSS Implementation" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2611.13655"><span class="lang lang-zh lang-inline" data-lang="zh">把 Starlink 当 GNSS 用：伪距 PNT 的融合架构模拟实现</span><span class="lang lang-en lang-inline" data-lang="en">Toward Pseudorange-Based PNT with Starlink: A Mock Fused LEO GNSS Implementation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 8 · C层 · 纯 GNSS/INS / PPP-AR · eess.SP, astro-ph.IM, cs.SY, eess.SY</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Samuel C. Morgan, Zacharias M. Komodromos, Wenkai Qin, Andrew Graff, Zachary L. Clements, W. Jeremy Morrison, Todd E. Humphreys</div>
+  <span class="score">评分 5.8/10</span>
+  <div class="tags"><span class="tag">LEO PNT</span><span class="tag">Starlink</span><span class="tag">伪距定位</span><span class="tag">授时</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>要点：单靠公开星历的 Starlink opportunistic 定位达不到 GNSS 级精度，关键在运营方级别的轨道/钟产品。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文从实采 Starlink Ku 波段下行信号提取到达时间观测，并配上“如同星座运营方原生提供”的高保真波束专用轨道与钟模型，模拟一个通信与 LEO PNT 融合的系统。在消费级接收硬件限制下，现场试验得到 95% 误差界：水平 2.33 m（半长轴）、垂直 3.37 m、授时 11.19 ns，实际解误差均落在界内。</p><p class="lang lang-en lang-block" data-lang="en">We present experimental results from Starlink for pseudorange-based positioning, navigation, and timing (PNT), emulating a system that fuses a primary communications mission with a secondary low-Earth orbit (L…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.13655">abs</a><a href="https://arxiv.org/pdf/2611.13655">PDF</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/bestzbf/mvmc">bestzbf/mvmc</a></strong><div>mvmc: multi-camera 4D reconstruction, scene flow and 3D tracking from synchronized RGB</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-11 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jzx05/3R-Handbook">jzx05/3R-Handbook</a></strong><div>Automated research handbook for 3D geometric foundation models (3R), feed-forward reconstruction and SLAM — synced from All-3R-SLAM every 2h.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-10 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div><div class="meta">Topics：3d-reconstruction, awesome-list, computer-vision, dust3r, gluemap</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/shamus-li/lightfield-gaussian-splatting">shamus-li/lightfield-gaussian-splatting</a></strong><div>Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction</div></div>
+  <div><div class="meta">Python · ★ 7 · 更新 2026-11-09 · score 11 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/mikiarduini/visual-world-models-backbones">mikiarduini/visual-world-models-backbones</a></strong><div>Evaluating pre-trained Visual Foundation Models (DINOv2, CLIP, SigLIP, MAE) for Zero-Shot Planning with Visual World Models in Robotic Manipulation (2D &amp; 3D).</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-11 · score 5 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：clip, dinov2, mae, model-predictive-control, reinforcement-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/3D-Vision-World/All-3R-SLAM-in-this-Repo">3D-Vision-World/All-3R-SLAM-in-this-Repo</a></strong><div>This is a list of relevant papers for 3D Geometric Foundation Models and Applications.</div></div>
+  <div><div class="meta">★ 294 · 更新 2026-11-10 · score 10</div><div class="meta">Topics：3d-geometric-foundation-models, dust3r, mast3r, slam, vggt</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Agnuxo1/hikage-machi">Agnuxo1/hikage-machi</a></strong><div>Open bus-stop solar exposure application: tested synthetic geometry foundation, reproducible controls and transparent UDC2026 scope.</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-11 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Nimsi123/tt4d">Nimsi123/tt4d</a></strong><div>TT4D: A Pipeline and Dataset for Table Tennis 4D Reconstruction From Monocular Videos</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-10 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
+  <div><div class="meta">JavaScript · ★ 151 · 更新 2026-11-11 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 7 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 17 · 更新 2026-11-11 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Liziang1145/Explorer">Liziang1145/Explorer</a></strong><div>Explorer (探路者) — embodied intelligence platform on AMD Ryzen AI PC + Kria KR260. VR teleoperation, VLA safety pre-check, FAST-LIO2 LiDAR mapping and supervised navigation, sharing one PS/PL execution base.</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-11-10 · score 6 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-11 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/UMich-CURLY/NavVerse-Benchmark">UMich-CURLY/NavVerse-Benchmark</a></strong><div>A Physically Grounded Indoor-to-Ourdoor Embodied Navigation Benchmark</div></div>
+  <div><div class="meta">Python · ★ 16 · 更新 2026-11-09 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">ZGCA-HMI-Lab/Embodied-Agent-Research-Map</a></strong><div>A continuously updated research map of embodied agent architectures, dexterous manipulation, VLA, and navigation for reading and group discussion.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-09 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
+  <div><div class="meta">★ 1916 · 更新 2026-11-08 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/misaka10111/Disaster-Response-Drone">misaka10111/Disaster-Response-Drone</a></strong><div>An Webots simulated autonomous drone for disaster response, integrating visual-inertial SLAM with neural networks for object recognition.</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-09 · score 3</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
