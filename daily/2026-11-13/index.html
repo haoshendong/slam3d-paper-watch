@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-13</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-13</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：8</span><span class="stat">推荐论文：8</span><span class="stat">新论文：8</span><span class="stat">仓库：21</span><span class="stat">新仓库：0</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>新增论文 8 篇</strong>（全部 <code>is_new=true</code>），推荐梯度：<strong>S 级 4 篇、A 级 1 篇、B- 级 1 篇、C 级 2 篇</strong>；A-、B 级今日为 0。</li>
+<li><strong>重复过滤 3 篇</strong>（<code>papers_seen_filtered=3</code>），未把历史论文当“更新”混入。</li>
+<li><strong>医疗方向过滤</strong>：论文候选无医疗命中；仓库侧过滤 1 个（<code>raster-labs/DICOMflux-3D</code>，描述含 DICOM/patient 空间几何，按规则不进入推荐）。</li>
+<li><strong>采集异常（需知悉）</strong>：首次采集时 4 条 arXiv 查询全部失败（3 条 HTTP 429、1 条读超时），<code>papers_total=0</code>；重跑后恢复 8 篇，但 <code>embodied navigation / spatial reasoning / robot world model / GNSS</code> 那条组查询仍读超时。</li>
+</ul>
+<p>→ 因此<strong>今日“空间推理 / 具身导航”方向可能缺漏</strong>，本报告不把它当作“当天没有新工作”。</p>
+<ul>
+<li><strong>媒体</strong>：<code>media.json</code> 全部 8 篇 <code>status=ok</code>，共 33 张 WebP，抽查均非空白（像素标准差 21.7–98.9，颜色分箱 626–15030）。</li>
+</ul>
+<p>但环境缺 <code>doclayout_yolo</code>，PaperCropper 版式检测不可用，退化为 PDF 内嵌图/整页渲染；<strong>今日没有表格截图</strong>，DASH-SLAM 只有 2 张整页预览。</p></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 8 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.12038/index.html"><img src="../../assets/media/2026-11-13/arxiv-2611.12038/fig-001.webp" alt="DPGS-SLAM: Diffusion-Prior and Provenance-Aware Monocular Gaussian Splatting SLAM for Dynamic Visual Sensing" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.12038/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DPGS-SLAM：给扩散补全的背景高斯打“来源标签”，让动态遮挡区可临时表示又不污染位姿</span><span class="lang lang-en lang-inline" data-lang="en">DPGS-SLAM: Diffusion-Prior and Provenance-Aware Monocular Gaussian Splatting SLAM for Dynamic Visual Sensing</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-09 · score 30 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO, cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Yifan Luo, Takafumi Matsumaru, Vibekananda Dutta, Xin He</div>
+  <span class="score">评分 8.6/10</span>
+  <div class="tags"><span class="tag">动态 SLAM</span><span class="tag">3D 高斯溅射</span><span class="tag">扩散补全</span><span class="tag">来源标签</span><span class="tag">SAM2</span><span class="tag">Metric3D v2</span><span class="tag">单目 RGB</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>作者报告平均 ATE RMSE 为 TUM RGB-D 1.2 cm、BONN RGB-D 2.7 cm（BONN 上为对比方法最低），StaDy4D 三段平均 PSNR 比 WildGS-SLAM 高 4.60 dB。消融显示：去掉全部运动掩码，TUM 平均 ATE 从 1.2 cm 退化到 3.1 cm；去掉生成高斯的替换机制，动态掩码内 PSNR 从 22.1 dB 掉…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文针对单目 RGB 动态场景：3DGS-SLAM 的静态场景假设在运动物体前失效，而把动态观测整块剔除又会让被遮挡的静态背景缺少观测约束，出现空洞或糊化。DPGS-SLAM 用光流模型 OCLR 周期性地发现运动候选，用 SAM2 做掩码细化与跨帧传播，得到时序一致的动态掩码；对满足“未知面积比例”阈值的关键帧，异步调用经 LoRA 微调的 Stable Diffusion Inpainting 补全被遮挡背景，…</p><p class="lang lang-en lang-block" data-lang="en">This paper presents DPGS-SLAM (Diffusion-Prior and Provenance-Aware Monocular Gaussian Splatting SLAM) for dense mapping in environments containing dynamic objects. Dynamic observations can contaminate camera…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.12038">abs</a><a href="https://arxiv.org/pdf/2611.12038">PDF</a><a href="../../papers/arxiv-2611.12038/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.11169/index.html"><img src="../../assets/media/2026-11-13/arxiv-2611.11169/fig-001.webp" alt="Map2SLAM: From Streaming Map Prediction to Real-Time SLAM" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.11169/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Map2SLAM：把流式 3D 基础模型的输出当“观测”，用可回滚状态和异步重观测搭出 28 FPS SLAM</span><span class="lang lang-en lang-inline" data-lang="en">Map2SLAM: From Streaming Map Prediction to Real-Time SLAM</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-08 · score 19 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Jian Gao, Lin-Zhuo Chen, Yihang Chen, Jiagang Chen</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">流式 3D 基础模型</span><span class="tag">SLAM 系统设计</span><span class="tag">回环检测</span><span class="tag">增量位姿图</span><span class="tag">Sim(3)</span><span class="tag">视觉定位检索</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>在 KITTI、VBR、Oxford Spires 三个无标定基准上平均 ATE 分别 7.56 m、5.15 m、3.07 m，比各自第二好的无标定方法低 42.7%–48.3%；KITTI Sequence 00 上 29.1 FPS（518×154，RTX 5090D）。消融最能说明问题：只加回环检索与 iPGO、不做几何校验，KITTI 平均 ATE 从 15.28…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">流式 3D 基础模型（3DFM）能在线给出相机位姿与稠密几何，但预测一旦发出就固定，回环无法修正累积漂移，因此还不能直接替代 SLAM。Map2SLAM 的做法是保持 LingBot-Map 冻结，只训练一个 180 万参数的 SALAD 检索头，把模型的预测当成外部持久 SLAM 状态的“观测”：前端用因果续推逐帧跟踪，用 Keyframe Probe 决定提交还是回滚 KV 更新；后端异步选择历史帧，用双向前缀…</p><p class="lang lang-en lang-block" data-lang="en">Streaming 3D foundation models (3DFMs) estimate camera poses and dense geometry online, but they fall short of SLAM: their predictions are fixed once emitted, so loop closures cannot correct accumulated drift.…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.11169">abs</a><a href="https://arxiv.org/pdf/2611.11169">PDF</a><a href="../../papers/arxiv-2611.11169/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.10239/index.html"><img src="../../assets/media/2026-11-13/arxiv-2611.10239/page-001.webp" alt="DASH-SLAM: Calibration-Free Metric Monocular SLAM via Depth Scale Propagation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.10239/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DASH-SLAM：用共享锚帧把 Depth Anything 3 的分批米制尺度串成一条可优化位姿图</span><span class="lang lang-en lang-inline" data-lang="en">DASH-SLAM: Calibration-Free Metric Monocular SLAM via Depth Scale Propagation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-07 · score 18 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Otavio Ribas, Jacopo Panerati, Pierre-Yves Lajoie</div>
+  <span class="score">评分 8.8/10</span>
+  <div class="tags"><span class="tag">单目 SLAM</span><span class="tag">米制尺度</span><span class="tag">Depth Anything 3</span><span class="tag">锚帧尺度串联</span><span class="tag">位姿图</span><span class="tag">SE(3) 评测</span><span class="tag">退化场景</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>TUM RGB-D 上平均 ATE 0.028 m（Sim(3)）/0.078 m（SE(3)），Replica 0.008/0.045 m，7-Scenes 0.053/0.070 m；后两者在无标定方法中最低。尺度偏差分别为 2.1%、5.0%、0.8%，而纯 DA3 流式（DA3-Streaming）为 12.9%、4.1%、2.9%。速度 25.3–162.4 FPS…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">几何基础模型能从单目图像给出稠密几何和相机参数，但可靠 SLAM 还要求跨重建一致的尺度和正确的数据关联。DASH-SLAM 把预训练 Depth Anything 3（DA3）的米制深度接进一个共享关键帧的位姿图，不做任务特定微调：相邻两批重建共享两个锚帧，用锚帧上两张深度图的中值深度比估计相对尺度，再用阻尼因子 g 把尺度比按 r^(1-g) 沿批次累积，并把累积尺度作用到里程计平移、回环约束和地图几何上。回环…</p><p class="lang lang-en lang-block" data-lang="en">Geometric foundation models estimate dense geometry and camera parameters from monocular images, but reliable SLAM also requires consistent scale and accurate data association across successive reconstructions…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.10239">abs</a><a href="https://arxiv.org/pdf/2611.10239">PDF</a><a href="../../papers/arxiv-2611.10239/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.14135/index.html"><img src="../../assets/media/2026-11-13/arxiv-2611.14135/fig-001.webp" alt="Sim(3)-TurboReg: Robust and Efficient Scale-Aware Registration via Tri-Scale Consistency" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.14135/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Sim(3)-TurboReg：把 TurboReg 的相容图判据换成“三尺度一致性”，90% 外点下仍只要 0.6 ms</span><span class="lang lang-en lang-inline" data-lang="en">Sim(3)-TurboReg: Robust and Efficient Scale-Aware Registration via Tri-Scale Consistency</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-10 · score 13 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Zijun Zhou, Shaocheng Yan, Zhenjun Zhao, Yutong Hu</div>
+  <span class="score">评分 8.2/10</span>
+  <div class="tags"><span class="tag">Sim(3) 配准</span><span class="tag">鲁棒估计</span><span class="tag">图相容性</span><span class="tag">TurboReg</span><span class="tag">外点剔除</span><span class="tag">分块拼接</span><span class="tag">尺度歧义</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>90% 外点、未知尺度的 Stanford 配准上，它的误差与自适应 RANSAC 持平（旋转 0.483° vs 0.487°），中位耗时 0.605 ms vs 8.052 ms，低 92.5%；RANSAC-1K 在 320 次试验中失败 80 次，TEASER++ 的旋转误差达 121.3°。作为即插即用后端替换 DA3-Streaming 的分块对齐后，KITTI…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">前馈 3D 基础模型受显存限制，长序列只能滑窗分块推理，而分块会带来严重的单目尺度歧义，必须用对异常值稳健的 Sim(3) 配准把各块拼起来。Sim(3)-TurboReg 的做法是改造 TurboReg 的相容图构造：不再用“绝对距离不变”判据，而是为每条对应算三个尺度——边的尺度比 s_ij，以及两端点各自的局部尺度 s_i、s_j（双侧 kNN 邻域内成对尺度比的中值），三者取对数后的极差 Δ_ij≤τ 才保…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 3D foundation models recover geometry at high fidelity, yet inference memory constraints keep them from processing long sequences natively. Current streaming systems work around this limit with sl…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.14135">abs</a><a href="https://arxiv.org/pdf/2611.14135">PDF</a><a href="../../papers/arxiv-2611.14135/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.13528/index.html"><img src="../../assets/media/2026-11-13/arxiv-2611.13528/fig-001.webp" alt="GEMOR-GS: Global Extrinsic-calibration-refined Mapping and Online Relocalization for 3D Gaussian-Splatting SLAM" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.13528/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">GEMOR-GS：把在线 3DGS 地图重建成“可重定位”的机器人世界模型，并量化标定误差如何传下去</span><span class="lang lang-en lang-inline" data-lang="en">GEMOR-GS: Global Extrinsic-calibration-refined Mapping and Online Relocalization for 3D Gaussian-Splatting SLAM</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-10 · score 28 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Yuchen Yang, Ming Ding, Xinyu Wu, Hesheng Wang</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">LiDAR-惯性-视觉 SLAM</span><span class="tag">3D 高斯溅射</span><span class="tag">外参标定</span><span class="tag">离线全局重建</span><span class="tag">重定位</span><span class="tag">机器人世界模型</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>离线全局重建在全部 6632 对关键帧上胜过在线地图，单帧 PSNR 高 14.3–19.9 dB；同序列对比 Gaussian-LIC2 高 5.38–12.29 dB（零协议差异的 Retail 上 +9.43 dB）。位姿-地图交替优化 30.06 dB，只优化地图 27.01 dB（−3.05），只优化位姿崩到 6.64 dB。留出集重定位成功率：自采 100%、tu…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">LiDAR-惯性-视觉 SLAM 需要一个既写实又几何一致的场景表示，3DGS 提供了可渲染、可查询的显式地图。GEMOR-GS 先用直接法（NID）在专门的标定段上离线估计 LiDAR-相机外参并全程复用；在线用 IESKF 跟踪并存五通道关键帧（图、稀疏深度、动态掩码、点云、位姿）；离线阶段交替优化关键帧位姿与高斯参数（带三重门控的可微渲染 + LiDAR 投影目标），再从精化后的关键帧 schema 重建全局…</p><p class="lang lang-en lang-block" data-lang="en">Photorealistic and metrically consistent world representations are a primary requirement for LiDAR--inertial--visual SLAM systems that serve robots over continuous operation. 3D Gaussian splatting makes such r…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.13528">abs</a><a href="https://arxiv.org/pdf/2611.13528">PDF</a><a href="../../papers/arxiv-2611.13528/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2611.12452"><img src="../../assets/media/2026-11-13/arxiv-2611.12452/fig-001.webp" alt="V3DSAM: Semantic-Geometric Loop Verification and Geometry-Anchored Persistent Instance Mapping for Feed-Forward Dense SLAM" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2611.12452"><span class="lang lang-zh lang-inline" data-lang="zh">V3DSAM：给前馈稠密 SLAM 加“语义-几何双尺度回环校验”和几何锚定的持久实例地图</span><span class="lang lang-en lang-inline" data-lang="en">V3DSAM: Semantic-Geometric Loop Verification and Geometry-Anchored Persistent Instance Mapping for Feed-Forward Dense SLAM</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-09 · score 18 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO, cs.CV</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Maolin Ye, Dongqing Zhao, Linyang Li, Shuai Xue</div>
+  <span class="score">评分 6.5/10</span>
+  <div class="tags"><span class="tag">前馈稠密 SLAM</span><span class="tag">回环校验</span><span class="tag">开放词表语义</span><span class="tag">实例地图</span><span class="tag">VGGT-SLAM 2.0</span><span class="tag">SAM3</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>TUM RGB-D 评测中该校验器拒绝了全部 4 个假回环候选；ScanNet 长序列上实例身份一致性提升（论文未给具体数值）。注意：采集脚本按关键词把它归到 B-/traditional-slam，实际主题是前馈稠密 SLAM + 开放词表语义，更接近 A- 的“几何基础模型 + 语义关联”方向，阅读时不要按传统 SLAM 预期。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">长序列前馈稠密 SLAM 的跨视图关联不可靠。V3DSAM 把 VGGT-SLAM 2.0 的前馈几何与 SAM3 的开放词表语义结合：像素级双向重投影 + 物体级 3D 空间对应做双尺度回环校验，不依赖主干内部特征；实例地图用“类别约束的 3D 连通性”在优化后的全局坐标系里定义物理实例并分配全局 ID，不做逐帧身份传播。</p><p class="lang lang-en lang-block" data-lang="en">To address unreliable cross-view association in long-sequence feed-forward dense SLAM, this letter presents V3DSAM, an open-vocabulary semantic dense SLAM system that establishes physical correspondences at bo…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.12452">abs</a><a href="https://arxiv.org/pdf/2611.12452">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2611.14250"><img src="../../assets/media/2026-11-13/arxiv-2611.14250/page-001.webp" alt="CFAR Detection on Non-Coherently Integrated Angular Maps for mmWave Radio SLAM" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2611.14250"><span class="lang lang-zh lang-inline" data-lang="zh">面向毫米波无线电 SLAM 的非相干积累角度图 CFAR 检测</span><span class="lang lang-en lang-inline" data-lang="en">CFAR Detection on Non-Coherently Integrated Angular Maps for mmWave Radio SLAM</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-11 · score 13 · C层 · 纯 GNSS/INS / PPP-AR · eess.SP</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Paolo Tosi, Ossi Kaltiokallio, Marcus Henninger, Silvio Mandelli</div>
+  <span class="score">评分 5/10</span>
+  <div class="tags"><span class="tag">毫米波</span><span class="tag">ISAC</span><span class="tag">CFAR</span><span class="tag">多径检测</span><span class="tag">无线电 SLAM</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>相比 SVD 检测器，定位 RMSE 从 0.30 m 降到 0.24–0.26 m，非视距快照改善最大；多单元非相干检测器进一步降复杂度而不损精度。属于 C 级外围观察：与几何/融合相关，但不涉及我们当前的视觉-惯性主线。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">毫米波 SLAM 需要可靠的多径检测：反射路径提供视距之外的几何约束。论文为波束扫描的双站 ISAC 推导了非相干积累角度功率图上的修正 CFAR 检测器（后积累噪声统计与标准 CA-CFAR 不同），并给出多单元 cell-under-test 形式与十字形训练窗以降低计算量；在 60 GHz 室内实测上用 snapshot-SLAM 估计器评测。</p><p class="lang lang-en lang-block" data-lang="en">Reliable multipath detection is essential for millimeter-wave simultaneous localization and mapping (SLAM), where propagation paths reflecting off the environment provide geometric constraints beyond the domin…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.14250">abs</a><a href="https://arxiv.org/pdf/2611.14250">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="https://arxiv.org/abs/2611.11845"><img src="../../assets/media/2026-11-13/arxiv-2611.11845/fig-001.webp" alt="Prop-WRF: Proposal-Guided Wireless Radiance Field for Scalable Multi-Frequency Outdoor Channel Frequency Response Prediction" loading="lazy"></a>
+  <h3><a href="https://arxiv.org/abs/2611.11845"><span class="lang lang-zh lang-inline" data-lang="zh">Prop-WRF：用提议网络引导的无线辐射场做多频段室外信道响应预测</span><span class="lang lang-en lang-inline" data-lang="en">Prop-WRF: Proposal-Guided Wireless Radiance Field for Scalable Multi-Frequency Outdoor Channel Frequency Response Prediction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-09 · score 7 · C层 · 纯 GNSS/INS / PPP-AR · eess.SP</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Yulin Fu, Jiancun Fan, Shiyu Zhai, Zhibo Duan</div>
+  <span class="score">评分 4/10</span>
+  <div class="tags"><span class="tag">无线辐射场</span><span class="tag">信道预测</span><span class="tag">虚拟锚点</span><span class="tag">多径 SLAM</span><span class="tag">主动采样</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>仿真显示 CFR 预测精度与训练稳定性优于常规稀疏方向 WRF 基线，且环境越大优势越明显；论文未给出与真实测量的对比。C 级外围观察，与当前几何/SLAM 主线关联弱。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">稀疏方向无线辐射场（WRF）能从接收机位置与多径方向先验预测信道频响，但大范围室外采样间隔大，有限采样预算难以集中在有效虚拟锚点（VA）附近。Prop-WRF 用一个轻量提议网络通过在线蒸馏学习 VA 占用密度，迭代把重采样导向可能的 VA 位置；主网络在细化区间上预测复radiance并用解析传播模型合成 CFR，只在 radiance 分支引入频率编码以共享 VA 几何，另加阶段式混合归一化损失与区间权重正则，…</p><p class="lang lang-en lang-block" data-lang="en">Sparse-directional wireless radiance fields (WRFs) enable complex channel frequency response (CFR) prediction from receiver locations and multipath direction priors. However, in large-scale outdoor environment…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.11845">abs</a><a href="https://arxiv.org/pdf/2611.11845">PDF</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/jzx05/3R-Handbook">jzx05/3R-Handbook</a></strong><div>Automated research handbook for 3D geometric foundation models (3R), feed-forward reconstruction and SLAM — synced from All-3R-SLAM every 2h.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-10 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div><div class="meta">Topics：3d-reconstruction, awesome-list, computer-vision, dust3r, gluemap</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/shamus-li/lightfield-gaussian-splatting">shamus-li/lightfield-gaussian-splatting</a></strong><div>Sparse Light Field Sampling Improves Casual 3D and 4D Reconstruction</div></div>
+  <div><div class="meta">Python · ★ 7 · 更新 2026-11-09 · score 11 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yiyuan00/Lift-See-Act">yiyuan00/Lift-See-Act</a></strong><div>[NeurIPS 2026] Lift, See, Act: Hierarchical Robot Policy Pretraining with 3D Foundation Models</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-12 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yytgyutt/Stegnav">yytgyutt/Stegnav</a></strong><div>Unofficial paper-inspired STEGNav reproduction scaffold for HomeGraph and embodied navigation research</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-12 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kotekan/gnss-broker">kotekan/gnss-broker</a></strong><div>Broker software for coordinating GNSS detection pipelines in kotekan.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-12 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-13 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/hogib/gnssdl">hogib/gnssdl</a></strong></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-12 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/saidwivedi/InteractVLM">saidwivedi/InteractVLM</a></strong><div>[CVPR 2025] InteractVLM: 3D Interaction Reasoning from 2D Foundational Models</div></div>
+  <div><div class="meta">Python · ★ 143 · 更新 2026-11-12 · score 3</div><div class="meta">Topics：hoi, human-object-interaction, vision-language-model</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 13 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/raster-labs/DICOMflux-3D">raster-labs/DICOMflux-3D</a></strong><div>Checked 2D 16-bit DICOM greyscale presentation and f64 patient LPS spatial geometry foundation (FS-01)</div></div>
+  <div><div class="meta">Rust · ★ 0 · 更新 2026-11-12 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/bestzbf/mvmc">bestzbf/mvmc</a></strong><div>mvmc: multi-camera 4D reconstruction, scene flow and 3D tracking from synchronized RGB</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-11 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Nimsi123/tt4d">Nimsi123/tt4d</a></strong><div>TT4D: A Pipeline and Dataset for Table Tennis 4D Reconstruction From Monocular Videos</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-10 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
+  <div><div class="meta">JavaScript · ★ 151 · 更新 2026-11-12 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 17 · 更新 2026-11-12 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Liziang1145/Explorer">Liziang1145/Explorer</a></strong><div>Explorer (探路者) — embodied intelligence platform on AMD Ryzen AI PC + Kria KR260. VR teleoperation, VLA safety pre-check, FAST-LIO2 LiDAR mapping and supervised navigation, sharing one PS/PL execution base.</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-11-10 · score 6 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-12 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/mikiarduini/visual-world-models-backbones">mikiarduini/visual-world-models-backbones</a></strong><div>Evaluating pre-trained Visual Foundation Models (DINOv2, CLIP, SigLIP, MAE) for Zero-Shot Planning with Visual World Models in Robotic Manipulation (2D &amp; 3D).</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-11 · score 5 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：clip, dinov2, mae, model-predictive-control, reinforcement-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/UMich-CURLY/NavVerse-Benchmark">UMich-CURLY/NavVerse-Benchmark</a></strong><div>A Physically Grounded Indoor-to-Ourdoor Embodied Navigation Benchmark</div></div>
+  <div><div class="meta">Python · ★ 16 · 更新 2026-11-09 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ZGCA-HMI-Lab/Embodied-Agent-Research-Map">ZGCA-HMI-Lab/Embodied-Agent-Research-Map</a></strong><div>A continuously updated research map of embodied agent architectures, dexterous manipulation, VLA, and navigation for reading and group discussion.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-09 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/julien-blanchon/finerobotics-robot-4d-reconstruction">julien-blanchon/finerobotics-robot-4d-reconstruction</a></strong></div>
+  <div><div class="meta">★ 0 · 更新 2026-11-12 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
+  <div><div class="meta">★ 1917 · 更新 2026-11-12 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/misaka10111/Disaster-Response-Drone">misaka10111/Disaster-Response-Drone</a></strong><div>An Webots simulated autonomous drone for disaster response, integrating visual-inertial SLAM with neural networks for object recognition.</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-09 · score 3</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
