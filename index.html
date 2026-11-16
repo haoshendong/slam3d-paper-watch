@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
-  <title>Daily Paper Reader 2026-11-15</title>
+  <title>Daily Paper Reader 2026-11-16</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
@@ -12,76 +12,29 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-11-15/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-11-16/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="meta">静态网页 · 2026-11-15</div>
+    <div class="meta">静态网页 · 2026-11-16</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-11-15/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="daily/2026-11-16/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：4</span><span class="stat">推荐论文：4</span><span class="stat">新论文：4</span><span class="stat">仓库：20</span><span class="stat">新仓库：0</span></div>
+  <div class="stats"><span class="stat">候选论文：0</span><span class="stat">推荐论文：0</span><span class="stat">新论文：0</span><span class="stat">仓库：19</span><span class="stat">新仓库：0</span></div>
 </section>
 <section class="section brief"><h2>今日概览</h2><ul>
-<li><strong>实质新增论文 0 篇</strong>：采集侧 <code>papers_new=4</code>，但这 4 条（2611.16472、2611.15429、2611.16162、2611.14007）与 <strong>2026-11-14 简报的 B-/C 观察位条目是同一批 arXiv ID</strong>。昨日只有 8 篇 S/A 进了 <code>translations.json</code> 推荐列表，去重键没覆盖观察位，所以今天被重新判成&quot;新增&quot;。正文按 B-/C 观察记录处理，不当成今日新发现。</li>
-<li><strong>层级分布</strong>：S 0、A 0、A- 0、B 0、B- 2、C 2；无 S/A，因此今日不生成精读海报，也不下载原文。</li>
-<li><strong>重复过滤</strong>：<code>papers_fetched_total=22</code>、<code>papers_seen_filtered=18</code>（历史已见被正确过滤）；另有上述 4 条&quot;跨日重复覆盖&quot;已人工标注。</li>
-<li><strong>新增仓库 0 个</strong>：<code>repos_total=20</code> 全为历史已见；首跑部分成功那次曾把 3 个低分仓库标记为 seen（均为 0–1 star 个人项目），重采后不再单列。</li>
-<li><strong>采集链路</strong>：08:00 首跑全部请求被本机代理 <code>127.0.0.1:7890</code> 重置（18 条错误、结果为空）；绕开代理直连后 <code>export.arxiv.org</code> 返回 <strong>429 Rate exceeded</strong>；改为带规范 User-Agent + 重试（<code>--arxiv-retries 2 --arxiv-retry-sleep 45 --arxiv-sleep 8</code>）后 <strong>0 错误</strong>，今日结果即该次直连采集。</li>
-<li><strong>为什么今天这么薄</strong>：11-15 是周日，arXiv 周末不发布新公告（<code>rss.arxiv.org/rss/cs.RO</code> 当日 item 数为 0），本周新稿在 11-14 已基本覆盖完。</li>
+<li><strong>实质新增论文 0 篇</strong>：重采后 <code>papers_fetched_total=21</code>、<code>papers_seen_filtered=21</code>、<code>errors=0</code>，即 arXiv 本轮取到的 21 篇候选全部是近期日报已覆盖的历史条目，没有一篇构成新发现。今天不生成任何精读海报，也不下载原文与图表。</li>
+<li><strong>层级分布</strong>：S 0、A 0、A- 0、B 0、B- 0、C 0。推荐论文数为 0，网页按“无新增/已过滤重复”状态渲染。</li>
+<li><strong>重复过滤</strong>：21 篇历史论文被正确过滤（键为 arXiv ID）。没有跨日期误判，也没有医疗噪声混入——今天根本没有进入候选池的新稿。</li>
+<li><strong>新增仓库 2 个，均不建议跟进</strong>：<code>jaranwayne/UroJEPA</code>（&quot;A 3D foundation model for urology&quot;，泌尿科方向，属医疗领域，按规则排除）、<code>youcefkhelifa2703-ai/athar-gnss</code>（Dart 移动端应用，无描述、0 star，C 级纯 GNSS 且无技术内容）。二者在首跑被判为新，重采时已标记为 seen。</li>
+<li><strong>采集链路</strong>：08:00 首跑四条 arXiv 查询全部失败（3 条 HTTP 429、1 条读超时），<code>papers=[]</code>；本轮以 <code>--arxiv-retries 3 --arxiv-retry-sleep 60 --arxiv-sleep 15</code> 重采，<strong>0 错误</strong>，结果即上方统计。首跑快照保留在 <code>data/2026-11-16/candidates.firstrun.json</code>。</li>
+<li><strong>为什么这么薄</strong>：11-16 是周一，08:00（CST）时 arXiv 当天的公告尚未完全生效，7 天回看窗口内的稿件在 11-09 至 11-15 已逐日覆盖完；新增主峰通常出现在周一晚间的公告批次，明天的采集会自然接上。</li>
 </ul></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 4 篇论文。</p></div>
-  <div class="grid"><article class="card">
-  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.16472">论文预览</a>
-  <h3><a href="https://arxiv.org/abs/2611.16472"><span class="lang lang-zh lang-inline" data-lang="zh">边缘设备上的 RGB-D SLAM：Raspberry Pi 5 上 RTAB-Map 与 ORB-SLAM3 的基准与性能剖析</span><span class="lang lang-en lang-inline" data-lang="en">RGB-D SLAM on the Edge: Benchmarking and Profiling RTAB-Map and ORB-SLAM3 on the Raspberry Pi 5</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-12 · score 17 · B-层 · Traditional LiDAR/Visual SLAM · cs.RO</div>
-  <div class="meta">内容级别：简报式摘要</div>
-  <div class="meta">作者：Himanshu Patil, Jaideep Joshi, Rohit Saluja, Ganesh Ramakrishnan</div>
-  <span class="score">评分 17/10</span>
-  <div class="tags"><span class="tag">RGB-D SLAM</span><span class="tag">边缘计算</span><span class="tag">Raspberry Pi 5</span><span class="tag">性能剖析</span><span class="tag">基准测试</span><span class="tag">TUM RGB-D</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：这是 ARM 边缘板上两套主流 RGB-D SLAM 的真实开销账本，价值不在“谁更准”（作者自己判定不显著），而在覆盖率—耗时—精度三者的耦合关系，以及 27% 的重复性噪声提醒——单次跑分不足以支撑系统选型。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文在 Raspberry Pi 5 上对 RTAB-Map 与 ORB-SLAM3 做 RGB-D SLAM 基准测试：使用六条 TUM RGB-D 序列、三种图像分辨率，逐次记录跟踪覆盖率、轨迹误差、单帧耗时、内存、CPU 负载与温度，并对两个系统做阶段级与函数级性能剖析。RTAB-Map 被配置为处理并保留每一帧，因此其后端逐帧运行，而不是默认的 1 Hz；在所有配置都能跟住的序列上，其前端耗时 38–74…</p><p class="lang lang-en lang-block" data-lang="en">Micro aerial vehicles that operate without GPS often run SLAM on ARM-based edge boards, yet there is little published data on how standard RGB-D SLAM systems behave on such hardware. We benchmark RTAB-Map and…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.16472">abs</a><a href="https://arxiv.org/pdf/2611.16472">PDF</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.15429">论文预览</a>
-  <h3><a href="https://arxiv.org/abs/2611.15429"><span class="lang lang-zh lang-inline" data-lang="zh">IncR-3DSGG：用特权深度监督从带位姿 RGB 图像增量生成 3D 场景图</span><span class="lang lang-en lang-inline" data-lang="en">IncR-3DSGG: Incremental Posed RGB Image Based 3D Scene Graph Generation via Privileged Depth Supervision</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-11 · score 5 · B-层 · Traditional LiDAR/Visual SLAM · cs.CV</div>
-  <div class="meta">内容级别：简报式摘要</div>
-  <div class="meta">作者：Mrunmai Phatak, Daniel Kienzle, Roman Küble, Jörg Hähner</div>
-  <span class="score">评分 5/10</span>
-  <div class="tags"><span class="tag">3D 场景图</span><span class="tag">特权监督</span><span class="tag">位姿图优化</span><span class="tag">免深度推理</span><span class="tag">3RScan</span><span class="tag">增量建图</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：把“深度传感器”换成“训练时的特权监督 + 推理时的 2D 线索 + PGO 融合”，用学习到的成对距离/角度当测量因子，是“学习测量 + 图优化”这套结构在 3D 场景图上的一个干净实例。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 场景图以对象及其空间/语义关系表达环境，适合具身智能体使用，但现有方法在推理阶段普遍依赖深度传感器——或用点云重叠关联跨视图实例，或用几何线索计算对象间关系，从而把部署限制在带深度传感器的平台上。论文提出 IncR-3DSGG：仅从“带位姿的 RGB 图像”（位姿由现成视觉 SLAM 系统给出相机外参）增量构建 3D 场景图，推理时不使用深度。其核心是一个参数化关系预测器（PRP），从 2D 视觉特征与 2D…</p><p class="lang lang-en lang-block" data-lang="en">Scene graphs provide a compact, structured representation of environments by capturing objects and their spatial or semantic relationships in a form suitable for embodied agents. Existing 3D scene graph genera…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.15429">abs</a><a href="https://arxiv.org/pdf/2611.15429">PDF</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.16162">论文预览</a>
-  <h3><a href="https://arxiv.org/abs/2611.16162"><span class="lang lang-zh lang-inline" data-lang="zh">GOOSELoc：非结构化越野地形下地面—航空跨视角定位的多模态基准</span><span class="lang lang-en lang-inline" data-lang="en">GOOSELoc: A Multimodal Benchmark for Ground-to-Aerial Localization in Unstructured Off-Road Terrain</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-12 · score 8 · C层 · 纯 GNSS/INS / PPP-AR · cs.CV</div>
-  <div class="meta">内容级别：简报式摘要</div>
-  <div class="meta">作者：Fabian Deuser, Peter Mortimer, Robin-Nico Kampa, Anna Bößendörfer</div>
-  <span class="score">评分 8/10</span>
-  <div class="tags"><span class="tag">跨视角定位</span><span class="tag">GNSS 拒止</span><span class="tag">越野环境</span><span class="tag">多模态基准</span><span class="tag">LiDAR</span><span class="tag">环视影像</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：它把“GNSS 失效时的跨视角定位”从城市搬到森林/农田，并用实测说明现有 SOTA 微调后仍大幅退化——这正是我们需要的外部压力测试集，而不是又一篇刷点论文。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">跨视角位姿估计通过把车载传感器数据与带地理参考的正射影像匹配，估计地面相机的地理位姿，在 GNSS 不可靠场景（如林冠下、城市峡谷）尤其重要。现有度量级跨视角基准（VIGOR、cross-view KITTI）以城市与道路场景为主，人造结构强、缺少越野地形。论文提出 GOOSELoc：面向森林、农田与乡村道路等非结构化环境的地面—航空定位多模态基准，包含德国慕尼黑周边跨四季采集的 9,356 个场景，配对带地理参考…</p><p class="lang lang-en lang-block" data-lang="en">Cross-view pose estimation estimates a ground camera&#x27;s geographic pose by matching onboard sensor data with geo-referenced overhead imagery. This is particularly relevant when GNSS is unreliable, for example u…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.16162">abs</a><a href="https://arxiv.org/pdf/2611.16162">PDF</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.14007">论文预览</a>
-  <h3><a href="https://arxiv.org/abs/2611.14007"><span class="lang lang-zh lang-inline" data-lang="zh">相位校正方法在导航接收机跟踪环路中的应用</span><span class="lang lang-en lang-inline" data-lang="en">Application of the Phase Correction Method in Tracking Modules of Navigation Receivers</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-10 · score 4 · C层 · 纯 GNSS/INS / PPP-AR · eess.SP</div>
-  <div class="meta">内容级别：简报式摘要</div>
-  <div class="meta">作者：Kudryavtsev I. A., Shafran S. V., Balmasova M. A</div>
-  <span class="score">评分 4/10</span>
-  <div class="tags"><span class="tag">GNSS 接收机</span><span class="tag">跟踪环路</span><span class="tag">PLL/FLL</span><span class="tag">相位校正</span><span class="tag">DDS</span><span class="tag">高动态</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：属于接收机跟踪环的底层实现细节——把相位校正塞进 DDS 相位累加器以换取窄带下的动态响应，并可省掉独立 FLL 鉴频器；只在评估“窄带 + 高动态”跟踪配置时才有参考意义。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">跟踪模块的问题之一是窄带宽下的显著惯性，而窄带宽正是抑制信号噪声所需要的。论文描述一种相位校正方法，用于改善 GNSS 接收机跟踪过程的精度与动态特性：核心思想是在每个积分周期结束时，校正接收信号与本地复制信号之间的相位偏差，且该校正直接作用在 DDS 系统的相位累加器上，从而显著削弱惯性效应。作者指出，在 FLL 辅助 PLL 的跟踪结构下使用窄滤波带宽时，相位校正方法效率更高；此时不再需要独立的 FLL 鉴频器…</p><p class="lang lang-en lang-block" data-lang="en">One of the problems of the tracking modules is their significant inertia in case of narrow bandwidth, which is desirable to mitigate signal noise. The paper describes a method of phase correction, improving ac…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.14007">abs</a><a href="https://arxiv.org/pdf/2611.14007">PDF</a></div>
-</article></div>
+  <div class="section-head"><h2>分层重点论文</h2></div>
+  <div class="grid"><p class="muted">今日无新增论文：21 篇候选均已在近期日报展示，按去重规则过滤；今日重点见下方仓库/项目与简报。</p></div>
 </section>
 <section class="section" id="repos">
   <div class="section-head">
@@ -101,32 +54,28 @@
   <div><div class="meta">Python · ★ 0 · 更新 2026-11-13 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div><div class="meta">Topics：3d-reconstruction, awesome-list, computer-vision, dust3r, gluemap</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/lydiwine/TwinST3R">lydiwine/TwinST3R</a></strong><div>Stereo extension of the MonST3R model for 4D reconstruction of dynamic scenes. Geometry estimation from stereo image pairs.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-11-14 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+  <div><strong><a href="https://github.com/jaranwayne/UroJEPA">jaranwayne/UroJEPA</a></strong><div>A 3D foundation model for urology</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-11-15 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/csete/gpredict">csete/gpredict</a></strong><div>Gpredict satellite tracking application</div></div>
-  <div><div class="meta">C · ★ 1205 · 更新 2026-11-15 · score 6 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：amsat, c, gnss, gps, gtk3</div></div>
+  <div><strong><a href="https://github.com/codewithRahul01/GNSS-Error-prediction">codewithRahul01/GNSS-Error-prediction</a></strong><div>This is a new Project the i had start working on.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-15 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/youcefkhelifa2703-ai/athar-gnss">youcefkhelifa2703-ai/athar-gnss</a></strong></div>
+  <div><div class="meta">Dart · ★ 0 · 更新 2026-11-15 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/syou15954-bit/myanmar-gnss-dashboard">syou15954-bit/myanmar-gnss-dashboard</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-15 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/rguilmet/RTK-Rover">rguilmet/RTK-Rover</a></strong><div>A personal RTK-Rover for navigating to various waypoints, recording waypoints, and general centimeter level GPS capability. Waveshare ESP32-S3-Touch-3.5B based, with Unicore UM982 Dual Antenna GNSS, and Ebyte E220-900T30 LoRa 1W module. Co…</div></div>
-  <div><div class="meta">C++ · ★ 0 · 更新 2026-11-14 · score 6 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/Pepeuch/universal-gnss">Pepeuch/universal-gnss</a></strong><div>universsal GNSS parser for ros2</div></div>
-  <div><div class="meta">C++ · ★ 4 · 更新 2026-11-14 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-15 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-11-15 · score 6 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div></div>
-  <details class="repo-more"><summary>还有 12 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <details class="repo-more"><summary>还有 11 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
   <div><strong><a href="https://github.com/Agnuxo1/hikage-machi">Agnuxo1/hikage-machi</a></strong><div>Open bus-stop solar exposure application: tested synthetic geometry foundation, reproducible controls and transparent UDC2026 scope.</div></div>
   <div><div class="meta">Python · ★ 1 · 更新 2026-11-14 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/yiyuan00/Lift-See-Act">yiyuan00/Lift-See-Act</a></strong><div>[NeurIPS 2026] Lift, See, Act: Hierarchical Robot Policy Pretraining with 3D Foundation Models</div></div>
-  <div><div class="meta">Python · ★ 1 · 更新 2026-11-12 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
@@ -134,7 +83,7 @@
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
-  <div><div class="meta">Python · ★ 17 · 更新 2026-11-14 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+  <div><div class="meta">Python · ★ 17 · 更新 2026-11-15 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/Liziang1145/Explorer">Liziang1145/Explorer</a></strong><div>Explorer (探路者) — embodied intelligence platform on AMD Ryzen AI PC + Kria KR260. VR teleoperation, VLA safety pre-check, FAST-LIO2 LiDAR mapping and supervised navigation, sharing one PS/PL execution base.</div></div>
@@ -142,15 +91,15 @@
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
-  <div><div class="meta">Python · ★ 2 · 更新 2026-11-14 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-15 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/yytgyutt/Stegnav">yytgyutt/Stegnav</a></strong><div>Unofficial paper-inspired STEGNav reproduction scaffold for HomeGraph and embodied navigation research</div></div>
   <div><div class="meta">Python · ★ 0 · 更新 2026-11-12 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/UMich-CURLY/NavVerse-Benchmark">UMich-CURLY/NavVerse-Benchmark</a></strong><div>A Physically Grounded Indoor-to-Ourdoor Embodied Navigation Benchmark</div></div>
-  <div><div class="meta">Python · ★ 17 · 更新 2026-11-09 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-16 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/3D-Vision-World/All-3R-SLAM-in-this-Repo">3D-Vision-World/All-3R-SLAM-in-this-Repo</a></strong><div>This is a list of relevant papers for 3D Geometric Foundation Models and Applications.</div></div>
@@ -161,12 +110,12 @@
   <div><div class="meta">★ 1921 · 更新 2026-11-14 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/julien-blanchon/finerobotics-robot-4d-reconstruction">julien-blanchon/finerobotics-robot-4d-reconstruction</a></strong></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-11-14 · score 3</div></div>
+  <div><strong><a href="https://github.com/jzr99/Mesh4D">jzr99/Mesh4D</a></strong><div>[CVPR 2026] Mesh4D: 4D Mesh Reconstruction and Tracking from Monocular Video</div></div>
+  <div><div class="meta">Python · ★ 123 · 更新 2026-11-15 · score 3</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/misaka10111/Disaster-Response-Drone">misaka10111/Disaster-Response-Drone</a></strong><div>An Webots simulated autonomous drone for disaster response, integrating visual-inertial SLAM with neural networks for object recognition.</div></div>
-  <div><div class="meta">Python · ★ 1 · 更新 2026-11-09 · score 3</div></div>
+  <div><strong><a href="https://github.com/julien-blanchon/finerobotics-robot-4d-reconstruction">julien-blanchon/finerobotics-robot-4d-reconstruction</a></strong></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-15 · score 3</div></div>
 </div></div></details>
 </section>
 
