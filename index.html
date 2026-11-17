@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
-  <title>Daily Paper Reader 2026-11-16</title>
+  <title>Daily Paper Reader 2026-11-17</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
@@ -12,29 +12,112 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-11-16/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-11-17/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="meta">静态网页 · 2026-11-16</div>
+    <div class="meta">静态网页 · 2026-11-17</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-11-16/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="daily/2026-11-17/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：0</span><span class="stat">推荐论文：0</span><span class="stat">新论文：0</span><span class="stat">仓库：19</span><span class="stat">新仓库：0</span></div>
+  <div class="stats"><span class="stat">候选论文：21</span><span class="stat">推荐论文：7</span><span class="stat">新论文：21</span><span class="stat">仓库：19</span><span class="stat">新仓库：5</span></div>
 </section>
 <section class="section brief"><h2>今日概览</h2><ul>
-<li><strong>实质新增论文 0 篇</strong>：重采后 <code>papers_fetched_total=21</code>、<code>papers_seen_filtered=21</code>、<code>errors=0</code>，即 arXiv 本轮取到的 21 篇候选全部是近期日报已覆盖的历史条目，没有一篇构成新发现。今天不生成任何精读海报，也不下载原文与图表。</li>
-<li><strong>层级分布</strong>：S 0、A 0、A- 0、B 0、B- 0、C 0。推荐论文数为 0，网页按“无新增/已过滤重复”状态渲染。</li>
-<li><strong>重复过滤</strong>：21 篇历史论文被正确过滤（键为 arXiv ID）。没有跨日期误判，也没有医疗噪声混入——今天根本没有进入候选池的新稿。</li>
-<li><strong>新增仓库 2 个，均不建议跟进</strong>：<code>jaranwayne/UroJEPA</code>（&quot;A 3D foundation model for urology&quot;，泌尿科方向，属医疗领域，按规则排除）、<code>youcefkhelifa2703-ai/athar-gnss</code>（Dart 移动端应用，无描述、0 star，C 级纯 GNSS 且无技术内容）。二者在首跑被判为新，重采时已标记为 seen。</li>
-<li><strong>采集链路</strong>：08:00 首跑四条 arXiv 查询全部失败（3 条 HTTP 429、1 条读超时），<code>papers=[]</code>；本轮以 <code>--arxiv-retries 3 --arxiv-retry-sleep 60 --arxiv-sleep 15</code> 重采，<strong>0 错误</strong>，结果即上方统计。首跑快照保留在 <code>data/2026-11-16/candidates.firstrun.json</code>。</li>
-<li><strong>为什么这么薄</strong>：11-16 是周一，08:00（CST）时 arXiv 当天的公告尚未完全生效，7 天回看窗口内的稿件在 11-09 至 11-15 已逐日覆盖完；新增主峰通常出现在周一晚间的公告批次，明天的采集会自然接上。</li>
+<li><strong>新增论文 21 篇，推荐 7 篇</strong>：S 0、<strong>A 5</strong>、<strong>A- 1</strong>、<strong>B 1</strong>、B- 0、C 0。其余 14 篇落在文本到图像设计、服装仿真、JSCC 图像传输、V2X 资源分配、5G 时延因果推断、双摆控制等方向，与主轴无关，未展开。</li>
+<li><strong>重复过滤</strong>：<code>papers_seen_filtered=0</code>，21 篇全部为首次出现，没有把历史论文当“更新”混入。</li>
+<li><strong>医疗方向过滤</strong>：论文与仓库两侧均无医疗/生物医学命中，无需排除项。</li>
+<li><strong>S 级为什么是 0</strong>：今天的候选池没有几何基础模型、学习+几何优化 SLAM/VIO、3D/4D 感知三条主线的新稿。最接近 S 的是 RAWATTA（加速 VGGT-Ω 推理），但它的贡献是注意力近似与精度权衡，不产生新的几何能力，按规则归 A-。今天的 A 级 5 篇也不是“SLAM 论文”，而是导航/VLA/世界模型与语义安全——这是当前这批公告的真实分布，不做拔高归类。</li>
+<li><strong>采集链路</strong>：4 条 arXiv API 查询全部失败（3 条 HTTP 429、1 条读超时），<code>collect_sources.py</code> 回退 RSS，恢复 21 篇候选（<code>papers_fetched_total=21</code>）。因此<strong>本日“学习+几何优化 SLAM/VIO”与纯 SLAM 方向可能存在缺漏</strong>，不应当作“当天没有新工作”。</li>
+<li><strong>媒体与网页</strong>：5 篇 A 级进入图表生成（S/A 才出图），A-/B 只出文字卡。</li>
 </ul></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>分层重点论文</h2></div>
-  <div class="grid"><p class="muted">今日无新增论文：21 篇候选均已在近期日报展示，按去重规则过滤；今日重点见下方仓库/项目与简报。</p></div>
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 21 篇候选中按 S/A 层级与评分推荐前 7 篇；靠后候选不在网页中展开。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="papers/arxiv-2611.17442/index.html"><img src="assets/media/2026-11-17/arxiv-2611.17442/fig-001.webp" alt="Racing the Clock: Teaching VLNs Budget-Conditioned Object Search" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.17442/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">赶时间：教 VLN 做预算条件化的目标搜索</span><span class="lang lang-en lang-inline" data-lang="en">Racing the Clock: Teaching VLNs Budget-Conditioned Object Search</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 14.5 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO, cs.AI, cs.CV, cs.LG</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Maitree Meher, Siming He, S. Shankar Sastry, Jitendra Malik, Claire Tomlin, Jonas Frey</div>
+  <span class="score">评分 14.5/10</span>
+  <div class="tags"><span class="tag">VLN</span><span class="tag">预算条件化</span><span class="tag">Bellman 专家</span><span class="tag">特权监督</span><span class="tag">HM3D</span><span class="tag">实机部署</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：它把“还剩多少预算”做成显式状态变量，并且证明“专家越强不等于教得越好”——决定监督质量的是专家的动作是否依赖学生永远拿不到的信息。对做可靠状态估计的人，这篇真正可借的是评测协议（同一场景/起点/解码，只改计数文本）和“可感知/可学习才保留，只能靠行动发现才扣留”的抽象原则。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">论文研究“预算条件化目标搜索”：给定目标类别与显式动作预算，智能体要在预算耗尽前找到尽可能多的不同实例，发现由相机视场与临近程度几何判定。作者把专家设计表述为“场景抽象的选择”——同一条预算索引的 Bellman 递推，作用在全环境的不同抽象上，就得到知道不同信息的专家：对象级 Bellman 专家拿到全部目标位置，问题退化为预算化路径规划；房间级 Bellman 专家只保留已观测房间连通性、门口证据与跨场景语义先…</p><p class="lang lang-en lang-block" data-lang="en">A rescue robot entering a building with thirty seconds on the clock should sprint toward the single most promising room; given ten minutes, it should instead explore a broader tour. Yet vision-language-navigat…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.17442">abs</a><a href="https://arxiv.org/pdf/2611.17442">PDF</a><a href="papers/arxiv-2611.17442/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2611.17598/index.html"><img src="assets/media/2026-11-17/arxiv-2611.17598/fig-001.webp" alt="X-Nav Technical Report: Real-World Long-Horizon Indoor-to-Outdoor Navigation on a Humanoid Robot" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.17598/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">X-Nav 技术报告：人形机器人室内到室外的长程导航</span><span class="lang lang-en lang-inline" data-lang="en">X-Nav Technical Report: Real-World Long-Horizon Indoor-to-Outdoor Navigation on a Humanoid Robot</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 13.0 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO, cs.AI, cs.CV</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Jiaxin Huang, Chengxing Lin, Xiaoyu Luo, Sirui Chen, Jingyu Guo, Aolin Li, Kairui Chen, Rui Zhen, Cheng Wen, Kerui Gu, Shunyao Wang, Zhihui Peng, Shaoli Huang</div>
+  <span class="score">评分 13/10</span>
+  <div class="tags"><span class="tag">人形机器人</span><span class="tag">VLN</span><span class="tag">室内到室外</span><span class="tag">数字孪生</span><span class="tag">DAgger</span><span class="tag">目标接近</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：这不是又一个 VLN 模型，而是一份把“基准 episode（10–15 m 室内）”与“真实 mission（约 100 m 室内到室外）”之间的三处缺口（问题定义、数据来源、模型到行走机器人）逐条补齐的工程报告。最值得抄的是两个小模块：用里程计把“过时的像素目标”重新锚定的 goal adapter，以及用掩码内 LiDAR 点中值给出目标三维位置、再交给 P 控…</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">室内到室外的长程导航对人形机器人仍是开放问题：一条指令覆盖房间、门与道路，相机随步态晃动。X-Nav 是作者所知首个让双足人形机器人完成语言指令、从室内走到室外的长程任务的系统，覆盖从数据到部署的完整链路。数据引擎在开源场景、部署点的数字孪生与真实机器人三处采集数据；导航模型 MELIOR 只用机器人内置相机的 RGB，分两版：MELIOR-A 预测动作，MELIOR-N 预测导航目标；智能体工作流 X-Navar…</p><p class="lang lang-en lang-block" data-lang="en">Long-horizon navigation from indoors to outdoors remains an open problem for humanoid robots: one instruction covers rooms, doors and roads, and the camera moves with the gait. Worken, AGIBOT&#x27;s measure of prod…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.17598">abs</a><a href="https://arxiv.org/pdf/2611.17598">PDF</a><a href="papers/arxiv-2611.17598/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2611.17394/index.html"><img src="assets/media/2026-11-17/arxiv-2611.17394/fig-001.webp" alt="Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.17394/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Agentic-Teacher：面向 VLA 失败驱动后训练的智能体数据引擎</span><span class="lang lang-en lang-inline" data-lang="en">Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 9.5 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Gongyue Teng, Yuqing Xie, Yixian Zhang, Feng Gao, Shu&#x27;ang Yu, Jiaji Rao, Sukai Wang, Guanghui Ren, Ya Zhang, Maoqing Yao, Yu Wang, Chao Yu, Xinlei Chen</div>
+  <span class="score">评分 9.5/10</span>
+  <div class="tags"><span class="tag">VLA 后训练</span><span class="tag">失败驱动</span><span class="tag">编码智能体</span><span class="tag">数据筛选</span><span class="tag">flow matching</span><span class="tag">DAgger</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：它把 DAgger 里“人来纠正”的那一环换成“写程序来纠正”，但真正的贡献在于后半段——把程序生成的轨迹重新投影回基模型的流形上（噪声扩覆盖、删冗余、用冻结模型的 flow-matching 损失做准入）。这三步里最后一步最值得抄：它给了一个用模型自身损失判断“这条合成数据是否可学”的廉价判据。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">改进预训练 VLA 需要能针对其弱点、并提供有效监督的示范。编码智能体可以通过与环境交互自主生成示范，但“执行成功”并不等于“对 VLA 学习有效”。论文提出 Agentic-Teacher：给定一个 VLA checkpoint、任务说明与环境工具，引擎分析失败的 rollout、选择干预状态，并通过执行反馈迭代开发闭环代码策略；通过验证的策略成为可复用的示范生成器，从 VLA 吃力的状态采集成功续接轨迹。为让这…</p><p class="lang lang-en lang-block" data-lang="en">Improving a pretrained vision-language-action (VLA) model requires demonstrations that address its weaknesses and provide effective supervision for learning. Coding agents can autonomously generate demonstrati…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.17394">abs</a><a href="https://arxiv.org/pdf/2611.17394">PDF</a><a href="papers/arxiv-2611.17394/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2611.17529/index.html"><img src="assets/media/2026-11-17/arxiv-2611.17529/fig-001.webp" alt="Learning Latent Goal Costs for Visual World-Model Planning with an Expanding Curriculum" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.17529/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">用扩张课程学习视觉世界模型规划中的隐式目标代价</span><span class="lang lang-en lang-inline" data-lang="en">Learning Latent Goal Costs for Visual World-Model Planning with an Expanding Curriculum</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 9.0 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.LG</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Konstantinos Mylonas, Thrasyvoulos Spyropoulos</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">世界模型</span><span class="tag">图像目标规划</span><span class="tag">I-JEPA</span><span class="tag">代价校准</span><span class="tag">排序学习</span><span class="tag">CEM</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：它论证了“预训练嵌入的距离不是可到达性”，并用一个恒等初始化的残差适配器 + 沿轨迹时序的排序损失，把冻结编码器的代价场重新校准成近似“沿合法路径的进度”。规模很小（两个 2D 玩具环境），但诊断指标做得很干净：成对排序一致率、跨墙排序、Spearman、门口局部“上坡步”比例。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">用冻结的视觉世界模型做图像目标规划，关键在于如何把预测观测与目标比较打分。预训练视觉编码器嵌入之间的均方误差在目标附近有用，却会偏好“隔着障碍看起来很像目标、实际很难到达”的状态。论文在冻结的 I-JEPA 嵌入上拟合一个小残差适配器来改进这个隐式目标代价：从每个目标附近出发，规划器逐步从更宽的初始状态区域收集轨迹；适配器从成功轨迹上观测的先后顺序学习，并用失败 rollout 推断额外比较。拟合不需要任何任务特定…</p><p class="lang lang-en lang-block" data-lang="en">Image-goal planning with a frozen visual world model depends on how predicted observations are scored against the goal. Mean-squared error (MSE) between embeddings from a pretrained visual encoder can provide…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.17529">abs</a><a href="https://arxiv.org/pdf/2611.17529">PDF</a><a href="papers/arxiv-2611.17529/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="papers/arxiv-2611.17566/index.html"><img src="assets/media/2026-11-17/arxiv-2611.17566/fig-001.webp" alt="Grounding Object-to-Object Hazard Reasoning into 3D Risk Fields for Task-Conditioned Safety" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.17566/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">把物体间危险推理落到 3D 风险场，实现任务条件化的安全</span><span class="lang lang-en lang-inline" data-lang="en">Grounding Object-to-Object Hazard Reasoning into 3D Risk Fields for Task-Conditioned Safety</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 8.0 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Mariana Sosa Guzm\&#x27;an, Yide Song, Amin Abyaneh, Gregory Dudek, Hsiu-Chin Lin</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">VLM 安全推理</span><span class="tag">3D 风险场</span><span class="tag">开放词表分割</span><span class="tag">避障调制</span><span class="tag">任务拒绝</span><span class="tag">机械臂安全</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：它给“语义 → 几何约束”造了一个窄而干净的接口——VLM 只输出“哪两个物体、哪种空间关系要避开”，剩下的由分割+深度+体素密度转成一个有明确表面边界条件（Γ=1）的连续场，交给经典的 obstacle modulation 滤波器执行。价值在于接口设计，而不是 VLM 本身。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">机器人安全不只取决于几何约束，还取决于语义：任务、环境属性与场景中物体之间的交互。论文提出一个基于视觉-语言模型（VLM）的框架，为机械臂操作推断任务与场景相关的安全约束。给 VLM 一个结构化安全工具、一张 RGB-D 观测与一句自然语言任务，先判断该任务是否因可能导致不可恢复的危险结果而应被拒绝；否则识别可预防的物体对危险，并指定必须避开的空间关系。随后用开放词表分割与深度把检测到的物体落到三维，构造表示危险区…</p><p class="lang lang-en lang-block" data-lang="en">Safety in robotics does not solely depend on geometric constraints, but also on semantics: the given task, environment properties, and interactions between objects in the scene. We present a framework based on…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.17566">abs</a><a href="https://arxiv.org/pdf/2611.17566">PDF</a><a href="papers/arxiv-2611.17566/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.17629">论文预览</a>
+  <h3><a href="https://arxiv.org/abs/2611.17629"><span class="lang lang-zh lang-inline" data-lang="zh">免训练加速多视图 3D Transformer：按层角色分配注意力近似</span><span class="lang lang-en lang-inline" data-lang="en">Training-Free Acceleration of Multi-View 3D Transformers via Regime-Aware Attention Approximation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 7.5 · A-层 · Real-time / GPU Robotics Systems · cs.CV, cs.AI</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Muhammed Izzet Sezer, Sevval Belkis Dikkaya</div>
+  <span class="score">评分 7.5/10</span>
+  <div class="tags"><span class="tag">VGGT</span><span class="tag">注意力近似</span><span class="tag">8 位精度</span><span class="tag">免训练加速</span><span class="tag">显存</span><span class="tag">前馈重建</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：它先测出“全局注意力不是稀疏而是有结构的”（平均/匹配/锚定三层角色），再按角色选近似算子，并用最坏数据集校准来决定配置是否接受——这是一个“测量驱动 + 保守验收”的加速范式，而不是又一种稀疏注意力。对跑 VGGT 类前端的我们，2 倍速且位姿掉点 &lt;1 的账很直接。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">VGGT-Ω 这类多视图 3D Transformer 能用一次前向从无位姿图像重建场景，预测相机位姿、深度与三维点，但全局注意力的成本随图像数二次增长。从大语言模型借来的加速器假设每个 token 只关注少数其他 token，用在这些模型上要么掉精度、要么几乎不提速。论文在七个数据集上研究三个多视图 Transformer 的全局注意力，发现每层只承担三种角色之一：对整场景做平均、跨多图匹配点、或以第一张图为锚（…</p><p class="lang lang-en lang-block" data-lang="en">Multi-view 3D transformers such as VGGT reconstruct a scene from a set of unposed images in a single forward pass, predicting camera poses, depth and 3D points, but the cost of their global attention grows qua…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.17629">abs</a><a href="https://arxiv.org/pdf/2611.17629">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.18340">论文预览</a>
+  <h3><a href="https://arxiv.org/abs/2611.18340"><span class="lang lang-zh lang-inline" data-lang="zh">DIRT：深度补全的图像渲染 + 双频带混合，面向实时新视角合成</span><span class="lang lang-en lang-inline" data-lang="en">DIRT: Depth-completed Image-based Rendering using Two-band Blending for Live Novel-view Synthesis</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 6.0 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Mathias Harrer, Laura Fink, Noah Lewis, Paul Himmler, Tim Weyrich</div>
+  <span class="score">评分 6/10</span>
+  <div class="tags"><span class="tag">图像渲染</span><span class="tag">深度补全</span><span class="tag">双频带混合</span><span class="tag">实时新视角合成</span><span class="tag">多传感器</span><span class="tag">非神经</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：在“全神经/全优化”的主流之外，它把经典 IBR 的两个老部件（屏幕空间深度补全 + 双频带混合）做扎实，换来毫秒级、免训练、跨传感器的实时渲染；对我们做在线建图的启示是：只要几何代理够准，渲染质量不一定需要 3DGS。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">主流新视角合成方法通常需要逐场景优化才能渲染，限制了实时场景的可用性；实时或即席新视角合成要求在采集过程中低延迟渲染并对新场景强泛化。论文提出一种沿用传统图像渲染思路的实时方法，输入是一组带位姿的深度传感器观测与图像：利用主动传感器得到的稀疏点几何，在新视角的屏幕空间补全稀疏深度缓冲；以此代理几何把带位姿图像投影到目标帧，再用频率感知的双频带混合融合这些观测。整条流水线完全非神经、无优化，不需要训练数据也不做场景特…</p><p class="lang lang-en lang-block" data-lang="en">State-of-the-art novel-view synthesis (NVS) methods commonly require per-scene optimization before rendering, limiting their applicability in live settings. Live or ad-hoc NVS, however, demands low-latency ren…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.18340">abs</a><a href="https://arxiv.org/pdf/2611.18340">PDF</a></div>
+</article></div>
 </section>
 <section class="section" id="repos">
   <div class="section-head">
@@ -42,56 +125,60 @@
     <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
   </div>
   <div class="repo-list"><div class="repo">
-  <div><strong><a href="https://github.com/lynn9106/Pi3x_4D_Reconstruction_Comparison_2">lynn9106/Pi3x_4D_Reconstruction_Comparison_2</a></strong><div>Interactive comparison of five Pi3X-based 4D reconstruction models (part 2 of 2)</div></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-14 · score 11 · S层 · 3D/4D Spatial Perception</div></div>
+  <div><strong><a href="https://github.com/Jayden-Cui/GSWorld-QFormer">Jayden-Cui/GSWorld-QFormer</a></strong><div>Causal 4D Gaussian reconstruction with prefix Q-Formers and continuous or FSQ action codes.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-16 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/lynn9106/Pi3x_4D_Reconstruction_Comparison">lynn9106/Pi3x_4D_Reconstruction_Comparison</a></strong><div>Interactive comparison of five Pi3X-based 4D reconstruction models (part 1 of 2)</div></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-14 · score 11 · S层 · 3D/4D Spatial Perception</div></div>
+  <div><strong><a href="https://github.com/Ringmast4r/GNSS">Ringmast4r/GNSS</a></strong><div>Which GPS satellites are over you right now: live sky plot, map, rises and sets, predicted DOP, and a USB GPS receiver read over Web Serial. https://ringmast4r.github.io/GNSS/</div></div>
+  <div><div class="meta">新项目 · JavaScript · ★ 55 · 更新 2026-11-16 · score 6 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：educational, gnss, gps, javascript, leaflet</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ThemistoklisSakkas/maritime-ais-gnss">ThemistoklisSakkas/maritime-ais-gnss</a></strong><div>Maritime AIS intelligence on real data + GNSS-resilient INS/GNSS navigation under spoofing and jamming</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-16 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：ais, gnss, inertial-navigation, kalman-filter, maritime</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/TheNandinee/ichnos">TheNandinee/ichnos</a></strong><div>Open, replayable GPS jamming &amp; spoofing intelligence for Indian airspace from public ADS-B data. Receive-only.</div></div>
+  <div><div class="meta">新项目 · JavaScript · ★ 0 · 更新 2026-11-16 · score 2 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：ads-b, aviation-safety, defence-tech, gnss, gps-jamming</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/tracenav/gnsswire">tracenav/gnsswire</a></strong></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-16 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/sharvan-m/4D_Scene_Reconstruction_and_A_Traversable_Video_Format">sharvan-m/4D_Scene_Reconstruction_and_A_Traversable_Video_Format</a></strong><div>To build a 4D scene reconstruction using 4D Gaussian Splatting and creating a traversable video in .4dv format.</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-16 · score 13 · S层 · 3D/4D Spatial Perception</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/jzx05/3R-Handbook">jzx05/3R-Handbook</a></strong><div>Automated research handbook for 3D geometric foundation models (3R), feed-forward reconstruction and SLAM — synced from All-3R-SLAM every 2h.</div></div>
   <div><div class="meta">Python · ★ 0 · 更新 2026-11-13 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div><div class="meta">Topics：3d-reconstruction, awesome-list, computer-vision, dust3r, gluemap</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/jaranwayne/UroJEPA">jaranwayne/UroJEPA</a></strong><div>A 3D foundation model for urology</div></div>
-  <div><div class="meta">★ 0 · 更新 2026-11-15 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/codewithRahul01/GNSS-Error-prediction">codewithRahul01/GNSS-Error-prediction</a></strong><div>This is a new Project the i had start working on.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-11-15 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/youcefkhelifa2703-ai/athar-gnss">youcefkhelifa2703-ai/athar-gnss</a></strong></div>
-  <div><div class="meta">Dart · ★ 0 · 更新 2026-11-15 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/syou15954-bit/myanmar-gnss-dashboard">syou15954-bit/myanmar-gnss-dashboard</a></strong></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-15 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/rguilmet/RTK-Rover">rguilmet/RTK-Rover</a></strong><div>A personal RTK-Rover for navigating to various waypoints, recording waypoints, and general centimeter level GPS capability. Waveshare ESP32-S3-Touch-3.5B based, with Unicore UM982 Dual Antenna GNSS, and Ebyte E220-900T30 LoRa 1W module. Co…</div></div>
-  <div><div class="meta">C++ · ★ 0 · 更新 2026-11-15 · score 6 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam_ros2">rsasaki0109/lidar_slam_ros2</a></strong><div>ROS 2 LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
+  <div><div class="meta">Python · ★ 941 · 更新 2026-11-16 · score 15 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
 </div></div>
   <details class="repo-more"><summary>还有 11 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
   <div><strong><a href="https://github.com/Agnuxo1/hikage-machi">Agnuxo1/hikage-machi</a></strong><div>Open bus-stop solar exposure application: tested synthetic geometry foundation, reproducible controls and transparent UDC2026 scope.</div></div>
   <div><div class="meta">Python · ★ 1 · 更新 2026-11-14 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
+  <div><strong><a href="https://github.com/FrowardTraveler/4D_PGNF">FrowardTraveler/4D_PGNF</a></strong><div>Physics-Guided Neural Field for Sparse-View 4D Reconstruction of Mixed Rigid–Fluid Scenes</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-16 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/jaranwayne/UroJEPA">jaranwayne/UroJEPA</a></strong><div>A 3D foundation model for urology</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-11-15 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
   <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
-  <div><div class="meta">JavaScript · ★ 151 · 更新 2026-11-14 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
+  <div><div class="meta">JavaScript · ★ 152 · 更新 2026-11-16 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
-  <div><div class="meta">Python · ★ 17 · 更新 2026-11-15 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/Liziang1145/Explorer">Liziang1145/Explorer</a></strong><div>Explorer (探路者) — embodied intelligence platform on AMD Ryzen AI PC + Kria KR260. VR teleoperation, VLA safety pre-check, FAST-LIO2 LiDAR mapping and supervised navigation, sharing one PS/PL execution base.</div></div>
-  <div><div class="meta">C++ · ★ 0 · 更新 2026-11-10 · score 6 · A层 · Robotic Foundation Models / VLA</div></div>
+  <div><div class="meta">Python · ★ 17 · 更新 2026-11-16 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
-  <div><div class="meta">Python · ★ 2 · 更新 2026-11-15 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-16 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/yytgyutt/Stegnav">yytgyutt/Stegnav</a></strong><div>Unofficial paper-inspired STEGNav reproduction scaffold for HomeGraph and embodied navigation research</div></div>
@@ -99,23 +186,19 @@
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-16 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/3D-Vision-World/All-3R-SLAM-in-this-Repo">3D-Vision-World/All-3R-SLAM-in-this-Repo</a></strong><div>This is a list of relevant papers for 3D Geometric Foundation Models and Applications.</div></div>
-  <div><div class="meta">★ 294 · 更新 2026-11-13 · score 10</div><div class="meta">Topics：3d-geometric-foundation-models, dust3r, mast3r, slam, vggt</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-17 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/zchoi/Awesome-Embodied-Robotics-and-Agent">zchoi/Awesome-Embodied-Robotics-and-Agent</a></strong><div>This is a curated list of &quot;Embodied AI or robot with Large Language Models&quot; research. Watch this repository for the latest updates!</div></div>
-  <div><div class="meta">★ 1921 · 更新 2026-11-14 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
+  <div><div class="meta">★ 1923 · 更新 2026-11-14 · score 4</div><div class="meta">Topics：agent, awesome, embodied-agent, embodied-ai, large-language-model</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/jzr99/Mesh4D">jzr99/Mesh4D</a></strong><div>[CVPR 2026] Mesh4D: 4D Mesh Reconstruction and Tracking from Monocular Video</div></div>
-  <div><div class="meta">Python · ★ 123 · 更新 2026-11-15 · score 3</div></div>
+  <div><strong><a href="https://github.com/misaka10111/Disaster-Response-Drone">misaka10111/Disaster-Response-Drone</a></strong><div>An Webots simulated autonomous drone for disaster response, integrating visual-inertial SLAM with neural networks for object recognition.</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-16 · score 3</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/julien-blanchon/finerobotics-robot-4d-reconstruction">julien-blanchon/finerobotics-robot-4d-reconstruction</a></strong></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-11-15 · score 3</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-16 · score 3</div></div>
 </div></div></details>
 </section>
 
