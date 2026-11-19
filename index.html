@@ -30,7 +30,7 @@
 <li><strong>医疗/生物医学过滤</strong>：EEG 伪迹去除那篇（<code>2611.21781</code>，eess.SP，含 BCI Competition IV-2a、EOG/EMG 伪迹）按生物医学信号处理排除；另有奶牛行为视频数据集（<code>2611.21706</code>）属动物福利/农业视觉，虽非医疗但不入主线。二者都不进简报、译文与媒体。</li>
 <li><strong>S 级为什么是 0</strong>：<code>errors</code> 里 4 条查询分别对应 Geometry Foundation、SLAM/VIO、4D 重建、具身导航+GNSS，全部 HTTP 429，脚本退回 RSS 兜底才拿到 24 篇。<strong>这是采集缺口，不是“当天没有新工作”</strong>；RSS 只按关键词过筛，覆盖比 API 检索窄。</li>
 <li><strong>仓库侧为什么是 0</strong>：8 条 GitHub 查询全部 403（未认证配额用尽，出口 IP 103.208.196.126），<code>repos_total=0</code>。这不是“今天没有新仓库”，是没查到。</li>
-<li><strong>媒体与网页</strong>：S/A 3 篇走官方 HTML → Markdown → 证据索引链路，<code>source_manifest.json</code> 全部 <code>status=ok</code>（TeX + HTML 双源）；图表由 <code>paper_media.py</code> 生成，结果见下文媒体说明。</li>
+<li><strong>媒体与网页</strong>：S/A 3 篇走官方 HTML → Markdown → 证据索引链路，<code>source_manifest.json</code> 全部 <code>status=ok</code>（TeX + HTML 双源）；<code>paper_media.py</code> 共生成 13 张 WebP（ARG-Avatar 6 张语义图、相机高度 4 张、标定 IPP 1 张图摘要 + 2 张页面预览——该篇 HTML 只有一张栅格图，其余是矢量图），逐张检查均值/标准差/灰度范围，无全黑、全白或低信息空白图。环境缺 torch/numpy/doclayout-yolo，PaperCropper 不可用，走 HTML 语义图与 PDF 页面回退，不影响出图。</li>
 </ul></section>
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 24 篇候选中按 S/A 层级与评分推荐前 8 篇；靠后候选不在网页中展开。</p></div>
