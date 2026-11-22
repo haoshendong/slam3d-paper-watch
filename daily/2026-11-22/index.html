@@ -28,8 +28,8 @@
 <li><strong>新增论文 18 篇，推荐 9 篇</strong>：S <strong>3</strong>（Plan4D、Homeward、Lift-See-Act）、A <strong>3</strong>（SBEE、SpatialMem、Point Dynamics）、A- <strong>1</strong>（Facet-SLAM）、B <strong>1</strong>（CoSphere-SLAM）、C <strong>1</strong>（GNetSS）。</li>
 <li><strong>重复过滤</strong>：<code>papers_fetched_total=29</code>、<code>papers_new=18</code>、<code>papers_seen_filtered=11</code>，11 篇历史条目按 arXiv ID 正确过滤，没有把旧论文当“更新”补进重点。</li>
 <li><strong>医疗过滤</strong>：本批 18 篇论文没有临床/生物医学题目，0 篇因医疗方向被排除。仓库侧 <code>CryoDINO</code>（冷冻电镜断层 3D 基础模型）属生物医学成像，按规则不推荐，只在仓库节说明。</li>
-<li><strong>采集链路</strong>：08:00 首跑 <code>errors</code> 为 4 条 arXiv（1 条读超时、3 条 HTTP 429），<code>papers=[]</code>、<code>papers_new=0</code>；下午带重试重采后 0 arXiv 错误，才得到上述 18 篇。首跑与重采的快照分别落为 <code>candidates.firstrun.json</code>（papers=0、repos=18/4）和 <code>candidates.arxiv-retry.json</code>，网页使用合并后的 <code>candidates.json</code>。因此今天的 S 级数量只代表这一轮 arXiv 结果，<strong>不能读作三条 S 主线当天只有 3 篇工作</strong>。</li>
-<li><strong>媒体生成</strong>：见文末“本地归档”中的 media 结果；S/A 六篇均已锁定官方 HTML + TeX 双源并生成 <code>fulltext.md</code>，实验数字取自正文表格。</li>
+<li><strong>采集链路</strong>：08:00 首跑 <code>errors</code> 为 4 条 arXiv（1 条读超时、3 条 HTTP 429），<code>papers=[]</code>、<code>papers_new=0</code>；随后带重试重采后 0 arXiv 错误，才得到上述 18 篇。首跑与重采的快照分别落为 <code>candidates.firstrun.json</code>（papers=0、repos=18/4）和 <code>candidates.arxiv-retry.json</code>，网页使用合并后的 <code>candidates.json</code>。因此今天的 S 级数量只代表这一轮 arXiv 结果，<strong>不能读作三条 S 主线当天只有 3 篇工作</strong>。</li>
+<li><strong>媒体生成</strong>：S/A 六篇全部走 arXiv 官方 HTML 语义图，共 <strong>28 张 WebP</strong>（Plan4D 6、Homeward 4、LSA 6、SBEE 6、Point Dynamics 3、SpatialMem 3），全部 <code>status=ok</code>；逐张检查均值/标准差/灰度，最低 32×32 标准差 11.0、唯一灰度数 ≥234，无全黑、全白或空白掩码。A-/B/C 三篇（Facet-SLAM、CoSphere-SLAM、GNetSS）因环境缺 PyMuPDF（<code>fitz</code>）返回 <code>missing_dependency</code>、0 图；按规则它们只需简报，不影响日报。PaperCropper 仍因缺 torch/numpy/doclayout-yolo 不可用。</li>
 </ul></section>
 <section class="section" id="papers">
   <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 18 篇候选中按 S/A 层级与评分推荐前 9 篇；靠后候选不在网页中展开。</p></div>
