@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-23</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-23</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：5</span><span class="stat">推荐论文：5</span><span class="stat">新论文：5</span><span class="stat">仓库：9</span><span class="stat">新仓库：1</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>新增论文 5 篇，全部推荐</strong>：A <strong>3</strong>（WinDEX、Pressure Drop、协作无线 SLAM 性能界）、A- <strong>1</strong>（Auriga 工业移动操作平台报告）、C <strong>1</strong>（UAV 集群 GNSS 保编队欺骗检测）。</li>
+<li><strong>今日没有 S 级</strong>：不是三条 S 主线（几何基础模型、学习+几何优化 SLAM、3D/4D 感知）当天没有工作，而是本轮 4 组查询里没有出现未展示过的新 S 级条目；11-22 的 Plan4D/Homeward/Lift-See-Act 等仍是最新 S 级进展。</li>
+<li><strong>重复过滤</strong>：<code>papers_fetched_total=20</code>（两次重采并集 8 条 unshown 中，Facet-SLAM、CoSphere-SLAM、GNetSS 三篇是 2026-11-22 简报已经展开过的，按“不重复推荐”剔除）。脚本之所以把它们重新标成 new，是因为当日简报正文没写 arXiv ID，而这三个条目的层级排位又落在当日 top-10 之外——这是已知的去重盲区，已人工修正，后续简报尽量带 ID。</li>
+<li><strong>医疗过滤</strong>：本批 5 篇没有临床/生物医学题目，0 篇因医疗方向被排除；仓库侧 <code>CryoDINO</code>（冷冻电镜 3D 基础模型）仍按领域规则不推荐。</li>
+<li><strong>采集链路</strong>：08:00 首跑 arXiv 4 条查询全部失败（3 条 429 Too Many Requests、1 条 429 Unknown），<code>papers=[]</code>、<code>papers_new=0</code>；随后两次带重试重采，<code>candidates.arxiv-retry.json</code>（geometry/4D/embodied 成功、SLAM 组 4 次重试仍 429）与 <code>candidates.run3.json</code>（geometry/SLAM/4D 成功、embodied 组失败）合并后覆盖全部 4 组查询。GitHub 三次运行均 403 限流（<code>126.75.120.35</code> 未认证配额用尽），仓库结果取首跑 4 个与重采并集的 9 个，其中新增仍只有 1 个。</li>
+<li><strong>媒体生成</strong>：见文末“本地归档”；S/A 三篇均锁定 arXiv TeX e-print + 官方 HTML 全文后再写精读页。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 5 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.21143/index.html"><img src="../../assets/media/2026-11-23/arxiv-2611.21143/fig-001.webp" alt="WinDEX: Metric 3D Hand Motion Reconstruction in the Wild for Dexterous Teleoperation and Policy Learning" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.21143/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">WinDEX：野外米制三维手部运动重建，用于灵巧遥操作与策略学习</span><span class="lang lang-en lang-inline" data-lang="en">WinDEX: Metric 3D Hand Motion Reconstruction in the Wild for Dexterous Teleoperation and Policy Learning</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 8.4 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Hongyu Ma, Hairong Qu, Shiqi Zhao, Yongsong Yang</div>
+  <span class="score">评分 8.4/10</span>
+  <div class="tags"><span class="tag">手部运动重建</span><span class="tag">立体鱼眼</span><span class="tag">视觉惯性 SLAM</span><span class="tag">米制尺度</span><span class="tag">策略学习</span><span class="tag">蒸馏</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：用立体鱼眼 + IMU 把「手在哪、手指怎么动」直接解到世界系，再把这套标注蒸馏成能跑 171 FPS 的因果模型去带遥操作和策略学习。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">人手操作数据是训练灵巧机器人最便宜的动作监督，但要在野外低成本、大规模地拿到「米制尺度 + 世界坐标系」的 3D 手部运动很困难。WinDEX 用一副立体鱼眼加 IMU 的采集设备 CyberCap，把几何–时序优化与视觉惯性 SLAM 结合起来：优化把 MANO 手模型拟合到人工复核的 2D 关键点，SLAM 给相机轨迹，两者复合得到重力对齐世界系下的手腕轨迹与手指关节角。网络端 WinDEX-Net 原生处理鱼…</p><p class="lang lang-en lang-block" data-lang="en">Human manipulation data are widely used to train robots for human-like dexterity. However, low-cost, large-scale collection in the wild remains challenging. Existing methods remain limited in geometrically gro…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.21143">abs</a><a href="https://arxiv.org/pdf/2611.21143">PDF</a><a href="../../papers/arxiv-2611.21143/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.23120/index.html"><img src="../../assets/media/2026-11-23/arxiv-2611.23120/fig-001.webp" alt="Pressure Drop: Gravity Vector Estimation from a Distributed Barometric Pressure Sensor Array" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.23120/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Pressure Drop：用分布式气压传感器阵列直接估计重力方向</span><span class="lang lang-en lang-inline" data-lang="en">Pressure Drop: Gravity Vector Estimation from a Distributed Barometric Pressure Sensor Array</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-18 · score 8.0 · A层 · Robust State Estimation / Uncertainty · cs.RO</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：William Dubois, Nicolas Lauzon, Johann Laconte, François Pomerleau</div>
+  <span class="score">评分 8/10</span>
+  <div class="tags"><span class="tag">重力估计</span><span class="tag">气压计</span><span class="tag">可观测性</span><span class="tag">退化环境</span><span class="tag">状态估计</span><span class="tag">传感器冗余</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：不靠加速度计，改用一排气压计测出的相对高程把重力方向直接解出来，与机器人怎么动无关。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">移动机器人常把重力向量当作 SLAM 的全局约束，但主流做法是用 IMU 间接观测：加速度计里混着本体加速度，机器人一加速重力就估不准。这篇改用气压计阵列直接观测重力方向：N 个气压计给出相对高程差，与它们在机体系里的位置构成线性方程 z = Pg，非共面且 N≥4 时可直接解出重力单位向量。作者给出可观测性分析（N=3 时解集是一条直线与单位球的交，只剩符号二义）、估计协方差的闭式表达式与阵列几何设计准则，并用…</p><p class="lang lang-en lang-block" data-lang="en">While gravity is often used in mobile robotics as a global constraint for Simultaneous Localization and Mapping (SLAM) algorithms, most estimation methods rely on indirect observation of the gravity vector. In…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.23120">abs</a><a href="https://arxiv.org/pdf/2611.23120">PDF</a><a href="../../papers/arxiv-2611.23120/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.20925/index.html"><img src="../../assets/media/2026-11-23/arxiv-2611.20925/fig-001.webp" alt="Improving Radio SLAM via Information Sharing: Collaborative Performance Bounds" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.20925/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">信息共享如何提升无线 SLAM：协作场景的性能下界</span><span class="lang lang-en lang-inline" data-lang="en">Improving Radio SLAM via Information Sharing: Collaborative Performance Bounds</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-16 · score 7.6 · A层 · Robust State Estimation / Uncertainty · eess.SP</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Radovan Juran, Ossi Kaltiokallio, Julia Equi, Jukka Talvitie</div>
+  <span class="score">评分 7.6/10</span>
+  <div class="tags"><span class="tag">协作 SLAM</span><span class="tag">无线定位</span><span class="tag">后验 Cramér–Rao 界</span><span class="tag">信息共享</span><span class="tag">6G ISAC</span><span class="tag">不确定性</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：把「多车共享蜂窝量测能省多少定位误差」写成一个可算的下界，并指出哪里开始收益饱和。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">面向 6G 通感一体化（ISAC），这篇研究密集车联环境下协作式无线 SLAM 的性能极限。设定是多个用户设备（UE）各自状态未知、环境地标状态也未知，用蜂窝无线量测（时延、离开角、到达角）联合估计。作者首次给出集中式多 UE 无线 SLAM 的后验 Cramér–Rao 界（PCRB），显式刻画 UE 数量、几何构型与「不同 UE 观测不同地标」的能力差异；据此分析信息共享随 UE 密度的缩放、指出收益递减区间，…</p><p class="lang lang-en lang-block" data-lang="en">This paper studies the fundamental performance limits of radio-based collaborative simultaneous localization and mapping (C-SLAM) in dense vehicular environments towards the 6G integrated sensing and communica…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.20925">abs</a><a href="https://arxiv.org/pdf/2611.20925">PDF</a><a href="../../papers/arxiv-2611.20925/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.22852">论文预览</a>
+  <h3><a href="https://arxiv.org/abs/2611.22852"><span class="lang lang-zh lang-inline" data-lang="zh">工业环境移动操作机器人技术报告（Auriga @Work 平台）</span><span class="lang lang-en lang-inline" data-lang="en">Technical Report of Mobile Manipulator Robot for Industrial Environments</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-17 · score 6.6 · A-层 · Real-time / GPU Robotics Systems · cs.RO, cs.CV, eess.SY</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Aria Dadnavi, Matin Jamshidi, Kian Khatibi, Shahriar Karimi Makhsous</div>
+  <span class="score">评分 6.6/10</span>
+  <div class="tags"><span class="tag">移动操作</span><span class="tag">Jetson Orin NX</span><span class="tag">麦克纳姆轮</span><span class="tag">工程报告</span><span class="tag">边缘部署</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：一个学生队的工业移动操作整机方案书，看点在边缘算力、自制电控与整机集成清单。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">这是 Shahid Beheshti 大学电气工程系机器人实验室 Auriga 队的整机技术报告，介绍面向工业重复性/危险性任务的 @Work 移动操作平台：四轮麦克纳姆全向底盘、5 自由度机械臂加 3D 打印夹爪，自制 ESP32 电控板与 NVIDIA Jetson Orin NX 上位机，覆盖机械设计、电气、感知与任务流程。25 页、22 图、4 表，属工程记录而非方法论文，没有提出新算法，也没有统一的定量对…</p><p class="lang lang-en lang-block" data-lang="en">This paper presents the design and implementation of Auriga Robotics&#x27; mobile manipulator robot, developed at the Robotics and Intelligent Automation Laboratory, Department of Electrical Engineering, Shahid Beh…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.22852">abs</a><a href="https://arxiv.org/pdf/2611.22852">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.26023">论文预览</a>
+  <h3><a href="https://arxiv.org/abs/2611.26023"><span class="lang lang-zh lang-inline" data-lang="zh">利用伪距与多普勒中的发射机视差检测 UAV 集群的「保编队」GNSS 欺骗</span><span class="lang lang-en lang-inline" data-lang="en">Detecting Formation-Preserving GNSS Spoofing of UAV Swarms through Transmitter Parallax in Pseudorange and Doppler</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-19 · score 7.0 · C层 · 纯 GNSS/INS / PPP-AR · cs.CR, eess.SP</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Minseok Park, Joon Soo Yoo</div>
+  <span class="score">评分 7/10</span>
+  <div class="tags"><span class="tag">GNSS 欺骗</span><span class="tag">UAV 集群</span><span class="tag">完整性监测</span><span class="tag">似然比检验</span><span class="tag">故障检测</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：整体平移能骗过队形检查，但骗不过「不同位置看到同一发射机的角度差」。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">UAV 集群常用「编队一致性」检测 GNSS 欺骗：把各机报告位置与已知队形比对。保编队攻击（如 GNSS-WASP）用每颗卫星一个、位于几公里外的发射机整体平移整个集群而保持队形，从而绕过这种检测。这篇指出攻击仍在位置层之下留痕：发射机靠近时各机看到它的来向略有差异，这种视差会让信号到达时间在 90 m 编队上产生 20–40 cm 的弯曲（5 km 外发射机），与攻击者施加的任何延迟无关。作者据此提出似然比检验…</p><p class="lang lang-en lang-block" data-lang="en">Swarms of unmanned aerial vehicles (UAVs) detect Global Navigation Satellite System (GNSS) spoofing by checking the drones&#x27; reported positions against their known formation. Formation-preserving spoofing evade…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.26023">abs</a><a href="https://arxiv.org/pdf/2611.26023">PDF</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/StarsBeyondSea/multi-agent-feedforward-3d-reconstruction">StarsBeyondSea/multi-agent-feedforward-3d-reconstruction</a></strong></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-11-22 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Nimsi123/tt4d">Nimsi123/tt4d</a></strong><div>TT4D: A Pipeline and Dataset for Table Tennis 4D Reconstruction From Monocular Videos</div></div>
+  <div><div class="meta">Python · ★ 4 · 更新 2026-11-22 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/ASU-NEM-Labs/open4dgs-core">ASU-NEM-Labs/open4dgs-core</a></strong><div>Tools for preparing synchronized multi-camera captures, initializing dynamic Gaussian scenes, and exporting 4D reconstructions. Companion to Open4DGS-Trigs.</div></div>
+  <div><div class="meta">Python · ★ 73 · 更新 2026-11-21 · score 9 · S层 · 3D/4D Spatial Perception</div><div class="meta">Topics：3d-reconstruction, 4dgs, computer-vision, gaussian-splatting, volumetric-video</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Max-luo-song/FreeForward4D">Max-luo-song/FreeForward4D</a></strong><div>FreeForward4D: Annotation-Free Feed-Forward 4D Reconstruction of Driving Scenes</div></div>
+  <div><div class="meta">Python · ★ 6 · 更新 2026-11-21 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yiyuan00/Lift-See-Act">yiyuan00/Lift-See-Act</a></strong><div>[NeurIPS 2026] Lift, See, Act: Hierarchical Robot Policy Pretraining with 3D Foundation Models</div></div>
+  <div><div class="meta">Python · ★ 1 · 更新 2026-11-21 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/CryoDINO/cryodino.github.io">CryoDINO/cryodino.github.io</a></strong><div>CryoDINO: A generalizable 3D foundation model for Cryo-electron tomography</div></div>
+  <div><div class="meta">JavaScript · ★ 0 · 更新 2026-11-20 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/makhmudlp/GulfMetric">makhmudlp/GulfMetric</a></strong><div>Benchmarking and Correcting the Metric Scale of 3D Foundation Models in UAE Scenes</div></div>
+  <div><div class="meta">Jupyter Notebook · ★ 0 · 更新 2026-11-20 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
+  <div><div class="meta">Python · ★ 17 · 更新 2026-11-22 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+</div></div>
+  <details class="repo-more"><summary>还有 1 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
+  <div><strong><a href="https://github.com/KosmoResearch/UniQuery4R">KosmoResearch/UniQuery4R</a></strong><div>UniQuery4R: Unified 4D Scene Reconstruction from a Single Query</div></div>
+  <div><div class="meta">Python · ★ 27 · 更新 2026-11-20 · score 2</div></div>
+</div></div></details>
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
