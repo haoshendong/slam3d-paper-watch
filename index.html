@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
-  <title>Daily Paper Reader 2026-11-24</title>
+  <title>Daily Paper Reader 2026-11-25</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
@@ -12,100 +12,77 @@
 </head>
 <body>
 <a class="skip-link" href="#content">跳到内容</a>
-<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-11-24/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<header class="top"><div class="wrap nav"><strong><a href="index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="daily/2026-11-25/index.html">今日</a><a href="archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
 <main class="wrap" id="content">
 
 <section class="hero">
   <div class="hero-copy">
-    <div class="meta">静态网页 · 2026-11-24</div>
+    <div class="meta">静态网页 · 2026-11-25</div>
     <h1>可靠状态估计与空间智能每日论文阅读</h1>
     <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
-    <div class="links"><a class="btn" href="daily/2026-11-24/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
+    <div class="links"><a class="btn" href="daily/2026-11-25/index.html">当日固定页</a><a class="btn" href="archive/index.html">查看归档</a></div>
   </div>
-  <div class="stats"><span class="stat">候选论文：22</span><span class="stat">推荐论文：6</span><span class="stat">新论文：22</span><span class="stat">仓库：19</span><span class="stat">新仓库：4</span></div>
+  <div class="stats"><span class="stat">候选论文：4</span><span class="stat">推荐论文：4</span><span class="stat">新论文：4</span><span class="stat">仓库：18</span><span class="stat">新仓库：4</span></div>
 </section>
 <section class="section brief"><h2>今日概览</h2><ul>
-<li><strong>S 1</strong>：<code>arXiv:2611.26764</code> <strong>TacHOI</strong>——用触觉接触给单目手–物重建补米制尺度，ARCTIC 上 ADD-S* 从 15.6 cm 降到 3.6 cm。</li>
-<li><strong>A 3</strong>：<code>arXiv:2611.26744</code> <strong>FORTH</strong>（触觉 VLA 的代理–物理量配对）、<code>arXiv:2611.26825</code> <strong>Skill-JEPA</strong>（技能先验与规划器采样分布对齐）、<code>arXiv:2611.26706</code> <strong>SMC 潜空间规划</strong>（粒子 + 梯度 + 图上代价势）。</li>
-<li><strong>B 2</strong>：<code>arXiv:2611.27719</code> <strong>VeilGS</strong>（低光 3DGS 的 Retinex 式解耦）、<code>arXiv:2611.27525</code> <strong>PennyGS</strong>（消费级 GPU 上 4K 全分辨率 3DGS 训练）。</li>
-<li><strong>重复过滤</strong>：今日 <code>papers_seen_filtered=0</code>，22 篇全部 <code>is_new=true</code>，没有历史重复被剔除。</li>
-<li><strong>医疗过滤</strong>：主动排除 1 篇——<code>arXiv:2611.26703</code> MambaSplit（荧光显微图像语义解混，属生物医学成像）；另有若干人脸/形态学、SAR 基准、ISAC 定位候选因不属主线未展开。</li>
-<li><strong>采集链路</strong>：arXiv API 4 条查询全部 429（3 条 Too Many Requests、1 条 Unknown），<code>papers=[]</code>；脚本按设计走 RSS 兜底，覆盖 cs.RO / cs.CV / cs.GR / eess.IV / eess.SP 五类，得到 22 篇，因此今天的候选池是 RSS 结果而非 API 结果，排序仍用同一套优先级打分。</li>
-<li><strong>媒体与发布</strong>：S/A 四篇均先锁定 arXiv TeX e-print + 官方 HTML 全文（<code>data/2026-11-24/papers/&lt;slug&gt;/</code>，含 <code>source_manifest.json</code> 与 sha256），再写精读页；图表由 <code>paper_media.py</code> 处理，结果见文末。</li>
+<li><strong>S 4，一条主线</strong>：今天四篇都在回答同一个问题——<strong>三维表征该以什么形式进入下游</strong>。VG3R 说「视频生成模型的隐表征 + 一个平移量」就够了；PINE 说「点图/法向/实例是三条 token 流」；Ego4Gen 说「几何–运动潜变量才是世界模型与动作的接口」；Foresight Forcing 说「只要三维教师特征的变化量，不必预测未来像素」。</li>
+<li><code>arXiv:2611.28520</code> <strong>VG3R</strong>（8.9）：把 Wan2.1 用 LoRA 改成前馈重建器，ClipShift 补回片段级逆深度平移、LayerTap 从多层特征回归逐帧相机；ScanNet ATE <strong>0.142</strong>（Aether 0.174、Geo4D 0.179），单帧 <strong>74–84 ms</strong>。</li>
+<li><code>arXiv:2611.29389</code> <strong>PINE</strong>（8.6）：一次前向同时出点图、法向、实例图；点图 Rel_p <strong>4.16 / 3.33</strong>（无/有内参），大物体实例 <strong>76.3 vs SAM 58.7</strong>，比 MoGe-3 + SAM 快 <strong>5.7×</strong>。</li>
+<li><code>arXiv:2611.27513</code> <strong>Ego4Gen</strong>（7.3）：四维未来生成 + 几何–运动动作接口；RoboTwin Hard 成功率 <strong>51%/37%</strong>，而视频潜变量基线在 Hard 上基本为 0。</li>
+<li><code>arXiv:2611.30963</code> <strong>Foresight Forcing</strong>（7.1）：「三维教师特征差」蒸馏成空间转变 query；RoboTwin 2.0 Full <strong>95.01%</strong>、LIBERO-Plus <strong>84.5%</strong>、真实六任务 <strong>85.8%</strong>。</li>
+<li><strong>重复过滤</strong>：<code>papers_seen_filtered=2</code>，2 篇历史已推论文被剔除，未进入本节。</li>
+<li><strong>医疗过滤</strong>：今日候选池 4 篇正文与类别均为 cs.CV / cs.RO，未出现医疗、生物医学或临床方向论文，无需额外排除（不是「已过滤 N 篇」，而是本批没有这类噪声）。</li>
+<li><strong>媒体与发布</strong>：四篇均先锁定 arXiv TeX e-print + 官方 HTML（<code>data/2026-11-25/papers/&lt;slug&gt;/</code>，含 <code>source_manifest.json</code> 与 sha256），再写精读页；图表由 <code>paper_media.py</code> 从官方 HTML 抽取，6/6/6/5 张，全部通过非空白检查（见文末）。</li>
 </ul></section>
 <section class="section" id="papers">
-  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 22 篇候选中按 S/A 层级与评分推荐前 6 篇；靠后候选不在网页中展开。</p></div>
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 4 篇论文。</p></div>
   <div class="grid"><article class="card">
-  <a class="thumb" href="papers/arxiv-2611.26764/index.html"><img src="assets/media/2026-11-24/arxiv-2611.26764/fig-001.webp" alt="TacHOI: Contact-Aware Object Reconstruction and Tracking for Egocentric Videos" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2611.26764/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">TacHOI：用触觉接触给单目手–物重建补上米制尺度</span><span class="lang lang-en lang-inline" data-lang="en">TacHOI: Contact-Aware Object Reconstruction and Tracking for Egocentric Videos</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-23 · score 15 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO, cs.CV</div>
+  <a class="thumb" href="papers/arxiv-2611.28520/index.html"><img src="assets/media/2026-11-25/arxiv-2611.28520/fig-001.webp" alt="VG3R: Video Generation Model for Feed-Forward 3D Reconstruction" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.28520/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">VG3R：把视频生成模型直接改造成前馈三维重建器</span><span class="lang lang-en lang-inline" data-lang="en">VG3R: Video Generation Model for Feed-Forward 3D Reconstruction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-21 · score 18 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
   <div class="meta">内容级别：完整单篇海报</div>
-  <div class="meta">作者：Jackson Codd, Haoyu Li, Xianyi Cheng</div>
-  <span class="score">评分 8.7/10</span>
-  <div class="tags"><span class="tag">手–物重建</span><span class="tag">触觉接触</span><span class="tag">米制尺度</span><span class="tag">单目几何</span><span class="tag">联合优化</span><span class="tag">自视角视频</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：单目看不出物体有多大多远，那就让「手摸到哪、两只手指隔多远」来当尺子——触觉提供与图像无关的物理证据，直接约束物体深度和尺度。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">自视角视频是机器人模仿学习的廉价数据源，但单目重建物体几何与运动同时受尺度–深度歧义和手部遮挡困扰，图像推断出的接触与形状先验本身无法唯一确定米制尺度。TacHOI 是一个无需训练的框架：以预训练视觉结果（HaMeR 手、SAM 3D 物体网格、Do-As-I-Do 轨迹、ViPE 相机）为初值，把实测触觉压力转成两类约束——接触把物体沿视线方向拉到手上，标定手上分离的接触点又像卡尺一样给出物体外观尺寸。两类约束与…</p><p class="lang lang-en lang-block" data-lang="en">Egocentric videos offer a scalable source of human demonstrations for robot learning. However, recovering metric object geometry and motion from monocular video is hindered by scale-depth ambiguity and hand-in…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.26764">abs</a><a href="https://arxiv.org/pdf/2611.26764">PDF</a><a href="papers/arxiv-2611.26764/index.html">完整单篇海报</a></div>
+  <div class="meta">作者：Jingong Chen, Qingwen Zhang, Lin Lian, Xinxin Zuo</div>
+  <span class="score">评分 8.9/10</span>
+  <div class="tags"><span class="tag">视频生成先验</span><span class="tag">前馈重建</span><span class="tag">相机位姿</span><span class="tag">逆深度平移</span><span class="tag">多层特征</span><span class="tag">Wan2.1</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：视频生成模型里已经藏着深度和相机运动，缺的只是一个「平移量」和一个「多层相机头」，补上这两样就能一步前馈出场景与轨迹。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">视频生成模型已被当作三维先验使用，但用于重建时要么只出深度不出相机，要么靠几十步迭代去噪联合生成几何与相机，速度很慢。VG3R 把预训练 Wan2.1 用 LoRA 微调成前馈模型：它发现生成模型其实已经编码了深度与相机运动，只是形式不对。为此加两个部件——片段级平移预测（ClipShift）用注意力池化整段视频的 transformer 特征，回归出解码逆深度时被归一化抹掉的那个平移量；多层相机头（LayerTa…</p><p class="lang lang-en lang-block" data-lang="en">Video generation models are widely used as 3D priors for novel view synthesis and 3D scene generation. Fine-tuned for perception, generation models also excel at dense prediction such as depth estimation. Howe…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.28520">abs</a><a href="https://arxiv.org/pdf/2611.28520">PDF</a><a href="papers/arxiv-2611.28520/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2611.26744/index.html"><img src="assets/media/2026-11-24/arxiv-2611.26744/fig-001.webp" alt="FORTH: Grounding Tactile VLA Execution via Forward-Only Proxy-Control Pairing" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2611.26744/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">FORTH：把触觉 VLA 的「代理指标」和「物理可控量」逐层配对</span><span class="lang lang-en lang-inline" data-lang="en">FORTH: Grounding Tactile VLA Execution via Forward-Only Proxy-Control Pairing</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-23 · score 9 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.SY, eess.SY</div>
-  <div class="meta">内容级别：半海报</div>
-  <div class="meta">作者：Junde Li, Wei-Han Yu, Xiangyi Chu, Yaoxin Li, Jiawei Xu, Ka-Fai Un, Pui-In Mak</div>
-  <span class="score">评分 7.4/10</span>
-  <div class="tags"><span class="tag">触觉 VLA</span><span class="tag">前向–前向</span><span class="tag">零阶优化</span><span class="tag">滑移检测</span><span class="tag">一类门控</span><span class="tag">力控</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：不要再用「损失降了」当「力控对了」的证据——给每一层配一个可测的物理量，再用只前向的更新和一类门控把它闭环。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">视觉–语言–动作（VLA）策略常被认为具备力控制能力，但这篇指出该假设在三个部署层面同时失效：冻结的视觉骨干丢掉了接触几何，下游损失掩盖了 token 级梯度对齐，离散指示量会触发优化崩塌。FORTH 给出一个只做前向的测量与执行框架，把每一层的优化目标与其物理可控观测量显式配对：层内前向–前向（Forward-Forward）触觉编码器在不反传的情况下保留空间接触几何；token 并行的零阶适配器在激活空间更新…</p><p class="lang lang-en lang-block" data-lang="en">Vision-Language-Action (VLA) policies are widely credited with force control, operating on the unverified assumption that proxy loss minimization implies physical force grounding. In this work, we demonstrate…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.26744">abs</a><a href="https://arxiv.org/pdf/2611.26744">PDF</a><a href="papers/arxiv-2611.26744/index.html">半海报</a></div>
+  <a class="thumb" href="papers/arxiv-2611.30963/index.html"><img src="assets/media/2026-11-25/arxiv-2611.30963/fig-001.webp" alt="Foresight Forcing: Learning Spatial Foresight for Robotic Manipulation" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.30963/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Foresight Forcing：把三维教师特征的「变化量」蒸馏成操作策略的空间前瞻</span><span class="lang lang-en lang-inline" data-lang="en">Foresight Forcing: Learning Spatial Foresight for Robotic Manipulation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-24 · score 12 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO, cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Mishuo Han, Zhixuan Liang, Zhaoyuan Wan, Wendi Chen</div>
+  <span class="score">评分 7.1/10</span>
+  <div class="tags"><span class="tag">世界动作模型</span><span class="tag">三维教师蒸馏</span><span class="tag">空间转变 query</span><span class="tag">VGGT</span><span class="tag">操作策略</span><span class="tag">RoboTwin</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：不预测未来像素，而是预测「三维教师特征会怎么变」——把这个变化量蒸馏成 query，动作生成时只读 query，部署时不需要教师也不需要未来帧。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">机器人操作策略如果预判物体怎么动、空间关系怎么变，动作会更准。世界动作模型（WAM）通过预测未来视觉观测来学这件事，但训练目标通常把底层的三维几何转变留在隐含层。Foresight Forcing（F²）改为从预训练三维特征空间的变化里学「空间转变表示」：训练时用冻结的 VGGT 对「对齐后的当前帧与未来帧」抽取 patch 特征，取逐 patch 差值作为稠密监督，蒸馏进一组空间转变 query；这些 query…</p><p class="lang lang-en lang-block" data-lang="en">Robotic manipulation policies can improve action prediction by anticipating how objects move and how their spatial relationships change. World Action Models (WAMs) learn to predict future visual observations,…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.30963">abs</a><a href="https://arxiv.org/pdf/2611.30963">PDF</a><a href="papers/arxiv-2611.30963/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2611.26825/index.html"><img src="assets/media/2026-11-24/arxiv-2611.26825/fig-001.webp" alt="Skill-JEPA: Learning Planner-Aligned Action Spaces for World Models" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2611.26825/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Skill-JEPA：让世界模型的技能先验与规划器的采样分布对齐</span><span class="lang lang-en lang-inline" data-lang="en">Skill-JEPA: Learning Planner-Aligned Action Spaces for World Models</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-23 · score 9 · A层 · Robotic Foundation Models / VLA · cs.RO, cs.LG</div>
-  <div class="meta">内容级别：半海报</div>
-  <div class="meta">作者：Tom\&#x27;as Couso Coddou, Christ Devia, Rex G. Liu, Rodrigo Toro Icarte</div>
-  <span class="score">评分 7.9/10</span>
-  <div class="tags"><span class="tag">世界模型</span><span class="tag">JEPA</span><span class="tag">潜动作空间</span><span class="tag">规划</span><span class="tag">变分自编码器</span><span class="tag">分布对齐</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：不是把规划器改聪明，而是把「动作」换成「规划器本来就会采样的那种技能」，让模型在规划器提问的地方准确。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">基于 JEPA 的世界模型在潜空间里预测动作后果，规划器则从高斯分布采样候选动作序列来挑最优。问题在于：模型只见过训练数据里结构化、随状态变化的动作，而规划器采的是各向同性高斯，预测因此不可靠，目标越远失败越多。Skill-JEPA 让动作空间与规划器对齐：一个以当前状态为条件的变分自编码器把短动作段编码成服从标准高斯先验的「技能」，解码回动作；世界模型改为预测技能的效果，规划器仍从同一个高斯出发搜索技能，候选因此…</p><p class="lang lang-en lang-block" data-lang="en">World models based on Joint-Embedding Predictive Architectures (JEPAs) learn from pixels to predict the outcome of actions in a latent space. To reach a goal, a planner samples many candidate action sequences,…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.26825">abs</a><a href="https://arxiv.org/pdf/2611.26825">PDF</a><a href="papers/arxiv-2611.26825/index.html">半海报</a></div>
+  <a class="thumb" href="papers/arxiv-2611.29389/index.html"><img src="assets/media/2026-11-25/arxiv-2611.29389/fig-001.webp" alt="PINE: Point, Instance and Normal Estimation in One-Step Diffusion Model" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.29389/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">PINE：一次前向同时出点图、表面法向与实例图</span><span class="lang lang-en lang-inline" data-lang="en">PINE: Point, Instance and Normal Estimation in One-Step Diffusion Model</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-22 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Zeyu Ren, Jie Ni, Rui Qian, Jiahao Wei</div>
+  <span class="score">评分 8.6/10</span>
+  <div class="tags"><span class="tag">单步扩散</span><span class="tag">点图</span><span class="tag">表面法向</span><span class="tag">实例分割</span><span class="tag">相机射线编码</span><span class="tag">DINOv3</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：三张图不是三个任务，而是三条 token 流——用射线定位、用流掩码隔噪、用 DINO 亲和度分组，一次前向全部出。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">理解场景既需要几何（表面在哪、朝哪），也需要语义（哪些面属于同一个物体），但现有模型要么用两个网络、要么跑两遍。PINE 是一个单步 Omni Diffusion Transformer：把点图、表面法向与实例图各当作一条 token 流，用流匹配去噪几何流、用聚类损失直接回归实例流，并用流掩码阻止实例流与几何噪声互相污染。它把每个 token 的位置从「像素索引」改成「该 patch 的相机射线与参考相机平面的交…</p><p class="lang lang-en lang-block" data-lang="en">Understanding a scene requires both geometry and semantics: geometry recovers its spatial structure, and semantics separates it into objects. Current models obtain the two from separate networks or separate pa…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.29389">abs</a><a href="https://arxiv.org/pdf/2611.29389">PDF</a><a href="papers/arxiv-2611.29389/index.html">完整单篇海报</a></div>
 </article>
 <article class="card">
-  <a class="thumb" href="papers/arxiv-2611.26706/index.html"><img src="assets/media/2026-11-24/arxiv-2611.26706/fig-001.webp" alt="Latent Space Planning with Sequential Monte Carlo" loading="lazy"></a>
-  <h3><a href="papers/arxiv-2611.26706/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">潜空间规划即序贯蒙特卡洛：粒子群 + 梯度更新 + 图上的代价势</span><span class="lang lang-en lang-inline" data-lang="en">Latent Space Planning with Sequential Monte Carlo</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-23 · score 7 · A层 · Robotic Foundation Models / VLA · cs.RO</div>
-  <div class="meta">内容级别：半海报</div>
-  <div class="meta">作者：Hrishikesh Viswanath, Anindita Ghosh, Uttaran Bhattacharya, Aniket Bera</div>
-  <span class="score">评分 7.7/10</span>
-  <div class="tags"><span class="tag">潜空间规划</span><span class="tag">序贯蒙特卡洛</span><span class="tag">MPPI</span><span class="tag">代价势</span><span class="tag">世界模型</span><span class="tag">粒子滤波</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：与其让规划器在潜空间里瞎采或硬爬坡，不如让一群粒子先按重要性权重走向目标分布，再用梯度把「计划」本身拉过去，并用图上的测地代价告诉粒子哪边通。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">用学习到的世界模型做规划，本质是找一条能到达目标的动作序列。采样类规划器在长时程上容易失败，梯度类容易陷局部极小；MPPI 则在两者之间交替，但每次迭代都从高斯重新采样、只靠重要性权重逼近目标分布，而「趋向目标的轨迹」这个分布本身又很难直接写出来，因此需要一串中间分布。这篇把潜空间规划写成由序贯蒙特卡洛（SMC）引导的优化：SMC 步移动一群完整动作序列（粒子），梯度优化步用加权粒子更新名义计划，二者耦合迭代。作者…</p><p class="lang lang-en lang-block" data-lang="en">Planning with learned world models amounts to finding action sequences whose predicted rollouts reach a goal. Sampling-based planners often struggle at longer horizons, while gradient-based methods can become…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.26706">abs</a><a href="https://arxiv.org/pdf/2611.26706">PDF</a><a href="papers/arxiv-2611.26706/index.html">半海报</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.27719">论文预览</a>
-  <h3><a href="https://arxiv.org/abs/2611.27719"><span class="lang lang-zh lang-inline" data-lang="zh">VeilGS：把「暗」当成覆盖在场景上的一层薄纱（Retinex 式 3DGS）</span><span class="lang lang-en lang-inline" data-lang="en">VeilGS: Solving Darkness as a Veil of 2D Basis Maps over Retinex 3DGS</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-23 · score 12 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.GR</div>
-  <div class="meta">内容级别：简报式摘要</div>
-  <div class="meta">作者：Mohab Kishawy, Chengzhou Tang, Shahram Shirani, Jun Chen</div>
-  <span class="score">评分 6.6/10</span>
-  <div class="tags"><span class="tag">3D 高斯泼溅</span><span class="tag">低光增强</span><span class="tag">Retinex</span><span class="tag">新视角合成</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：别让高斯去记「这里很暗」，把暗单独拎出来当一层可解析分离的滤镜，剩下的才是场景。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">低光拍摄中的黑暗并不均匀：每个面收到多少光取决于它相对少数光源的位置，相机又用一条色调曲线压掉剩下的动态范围。多数低光三维重建要么对整幅图施加同一条曲线，要么把黑暗直接存进三维表示里吸收细节。VeilGS 把退化建模成覆盖在清晰场景上的一层「纱」：每个高斯携带反照率与阴影隐变量（替代球谐），每幅视图经过空间变化的增益与一条全局色调曲线变暗，去掉这层纱即为恢复结果；增益由一个小网络预测粗糙基，系数逐视图求解而非学习。…</p><p class="lang lang-en lang-block" data-lang="en">In a dark capture, the darkness is not uniform. How much light reaches a surface depends on where it lies relative to the few light sources, and the camera compresses what remains with a tone curve. Most low-l…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.27719">abs</a><a href="https://arxiv.org/pdf/2611.27719">PDF</a></div>
-</article>
-<article class="card">
-  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.27525">论文预览</a>
-  <h3><a href="https://arxiv.org/abs/2611.27525"><span class="lang lang-zh lang-inline" data-lang="zh">PennyGS：消费级 GPU 上分钟级完成 4K 全分辨率 3DGS 训练</span><span class="lang lang-en lang-inline" data-lang="en">PennyGS: Full Resolution 3DGS Training in Minutes on Consumer GPUs</span></a></h3>
-  <div class="meta">新论文 · 日期 2026-11-23 · score 10 · B层 · Neural Rendering / 3DGS / NeRF · cs.GR, cs.PF</div>
-  <div class="meta">内容级别：简报式摘要</div>
-  <div class="meta">作者：Nicholas Jing Shou Nge, Yuang Shi, Geraldine Morin, Simone Gasparini, Anand Bhojan, Wei Tsang Ooi</div>
-  <span class="score">评分 7/10</span>
-  <div class="tags"><span class="tag">3D 高斯泼溅</span><span class="tag">实时重建</span><span class="tag">GPU 优化</span><span class="tag">4K 训练</span><span class="tag">边缘部署</span></div>
-  <p class="insight"><strong>一句话工作总结：</strong>一句话：把 4K 3DGS 训练从「研究级 GPU 的小时级」压到「消费卡的分钟级」，靠的是把每一步的工程瓶颈逐个拆掉。</p>
-  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3DGS 的输入已经是消费设备拍的高分辨率图像，训练却仍在降分辨率、研究级 GPU 上进行。PennyGS 逐段优化训练步：更精简的 splat（平面 RGB + 方向锥不透明度）、融合投影与键值生成、带跨步像素采样的前向光栅化优化、近似 tile SSIM 损失、每 splat 一个 warp 的反向光栅化、以及融合反向投影与稀疏 Adam。在标准 30k 步预算下，它在 Mip-NeRF 360 与 Tanks…</p><p class="lang lang-en lang-block" data-lang="en">3D Gaussian Splatting is increasingly fed by high-resolution captures from commodity devices, yet training still happens at reduced resolution with research-grade GPUs. We present PennyGS, a method to achieve…</p></div>
-  <div class="links"><a href="https://arxiv.org/abs/2611.27525">abs</a><a href="https://arxiv.org/pdf/2611.27525">PDF</a></div>
+  <a class="thumb" href="papers/arxiv-2611.27513/index.html"><img src="assets/media/2026-11-25/arxiv-2611.27513/fig-001.webp" alt="Ego4Gen: Generating Geometry-Grounded Motion Tokens as a World-Action Interface" loading="lazy"></a>
+  <h3><a href="papers/arxiv-2611.27513/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Ego4Gen：把「几何–运动潜变量」当作世界模型与动作之间的接口</span><span class="lang lang-en lang-inline" data-lang="en">Ego4Gen: Generating Geometry-Grounded Motion Tokens as a World-Action Interface</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-20 · score 10 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Yang Liu, Chao Ye, Jiahao Zhang, Zeyuan Hou</div>
+  <span class="score">评分 7.3/10</span>
+  <div class="tags"><span class="tag">4D 世界模型</span><span class="tag">几何–运动潜变量</span><span class="tag">场景流</span><span class="tag">逆动力学</span><span class="tag">模态路由 LoRA</span><span class="tag">机器人操作</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：不要用视频像素当世界模型的接口，用「点图 + 场景流」这组几何–运动潜变量，既能解码成 4D，也能直接喂给逆动力学出动作。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">Ego4Gen 是一个面向机器人操作的四维未来生成世界模型：给定一张第一视角图和一段文字指令，它联合生成时间对齐的 RGB 帧、稠密点图与稠密场景流，同时预测外观、空间结构与运动如何演化。它以 Cosmos3-Nano 为骨干，通过「按模态路由的 LoRA」与「非对称注意力」把冻结的生成先验扩到三个模态，并用 MotionCrafter 给出的几何伪标签学习预测未来的几何与运动潜变量。这些潜变量既可直接解码成显式三…</p><p class="lang lang-en lang-block" data-lang="en">We present Ego4Gen (Egocentric 4D Future Generation), a world model for 4D future generation in robotic manipu lation. Given a single egocentric image and a text prompt, Ego4Gen jointly generates temporally al…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.27513">abs</a><a href="https://arxiv.org/pdf/2611.27513">PDF</a><a href="papers/arxiv-2611.27513/index.html">完整单篇海报</a></div>
 </article></div>
 </section>
 <section class="section" id="repos">
@@ -114,42 +91,38 @@
     <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
   </div>
   <div class="repo-list"><div class="repo">
-  <div><strong><a href="https://github.com/WeiZhou96/PS4D">WeiZhou96/PS4D</a></strong><div>PS4D: projective scale complements 4D reconstruction of manipulated objects</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-22 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
+  <div><strong><a href="https://github.com/ErnestoLozano/vi3">ErnestoLozano/vi3</a></strong><div>VI3: Grounding Pretrained 3D Foundation Models with Inertial Cues</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-24 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam">rsasaki0109/lidar_slam</a></strong><div>3D LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
-  <div><div class="meta">新项目 · Python · ★ 962 · 更新 2026-11-23 · score 15 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
+  <div><strong><a href="https://github.com/andyjiang1116/OpenEmbodied">andyjiang1116/OpenEmbodied</a></strong><div>A structured research atlas for Embodied AI, spanning perception, reasoning, world models, navigation, manipulation, and real-world deployment.</div></div>
+  <div><div class="meta">新项目 · ★ 0 · 更新 2026-11-24 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/JakCrane/GNSS">JakCrane/GNSS</a></strong></div>
-  <div><div class="meta">新项目 · Rust · ★ 0 · 更新 2026-11-23 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><strong><a href="https://github.com/ToledoEM/gnss-ntp-graphs">ToledoEM/gnss-ntp-graphs</a></strong><div>History graphs for a GPS-disciplined NTP server: offset, jitter, peers, satellites, DOP and ntpviz-style stats from chrony or ntpd and gpsd. Python, no deps.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-24 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：chrony, gnss, gps, monitorin, ntp</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/h0lad/um982py">h0lad/um982py</a></strong><div>Python3 library for the Unicore UM982/UM980/UM960 GNSS Receiver</div></div>
-  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-23 · score 3 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：gnss, gnss-validation, gps, gps-data, gps-location</div></div>
+  <div><strong><a href="https://github.com/ScientistWorld/2512.22745-split4d-decomposed-4d-scene-reconstruction-without-video-segmentation">ScientistWorld/2512.22745-split4d-decomposed-4d-scene-reconstruction-without-video-segmentation</a></strong><div>Split4D: Decomposed 4D Scene Reconstruction Without Video Segmentation</div></div>
+  <div><div class="meta">新项目 · Python · ★ 0 · 更新 2026-11-24 · score 4</div><div class="meta">Topics：computer-vision, done</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/jzx05/3R-Handbook">jzx05/3R-Handbook</a></strong><div>Automated research handbook for 3D geometric foundation models (3R), feed-forward reconstruction and SLAM — synced from All-3R-SLAM every 2h.</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-11-23 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div><div class="meta">Topics：3d-reconstruction, awesome-list, computer-vision, dust3r, gluemap</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-24 · score 11 · S层 · Geometry Foundation Models / 3D Foundation Models</div><div class="meta">Topics：3d-reconstruction, awesome-list, computer-vision, dust3r, gluemap</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/mikiarduini/visual-world-models-backbones">mikiarduini/visual-world-models-backbones</a></strong><div>Evaluating pre-trained Visual Foundation Models (DINOv2, CLIP, SigLIP, MAE) for Zero-Shot Planning with Visual World Models in Robotic Manipulation (2D &amp; 3D).</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-11-23 · score 5 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：clip, dinov2, mae, model-predictive-control, reinforcement-learning</div></div>
+  <div><strong><a href="https://github.com/rguilmet/RTK-Rover">rguilmet/RTK-Rover</a></strong><div>A personal RTK-Rover for navigating to various waypoints, recording waypoints, and general centimeter level GPS capability. Waveshare ESP32-S3-Touch-3.5B based, with Unicore UM982 Dual Antenna GNSS, and Ebyte E220-900T30 LoRa 1W module. Co…</div></div>
+  <div><div class="meta">C++ · ★ 0 · 更新 2026-11-24 · score 6 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
-  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-24 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-25 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/Jingong-Chen/Any3R">Jingong-Chen/Any3R</a></strong><div>Any3R: Feedforward 3D Reconstruction from Any Camera Type — pinhole, fisheye beyond 180°, 360° panoramas, or any mix, in one forward pass</div></div>
-  <div><div class="meta">Python · ★ 69 · 更新 2026-11-23 · score 2</div><div class="meta">Topics：3d-reconstruction, camera-pose-estimation, computer-vision, depth-estimation, feed-forward</div></div>
+  <div><strong><a href="https://github.com/3D-Vision-World/All-3R-SLAM-in-this-Repo">3D-Vision-World/All-3R-SLAM-in-this-Repo</a></strong><div>This is a list of relevant papers for 3D Geometric Foundation Models and Applications.</div></div>
+  <div><div class="meta">★ 296 · 更新 2026-11-24 · score 10</div><div class="meta">Topics：3d-geometric-foundation-models, dust3r, mast3r, slam, vggt</div></div>
 </div></div>
-  <details class="repo-more"><summary>还有 11 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
-  <div><strong><a href="https://github.com/Meharaj007/OpenJewelCAD">Meharaj007/OpenJewelCAD</a></strong><div>Windows-first jewellery CAD in Rust, C++ and OCCT, growing from a tested geometry foundation toward parametric design and manufacturing workflows.</div></div>
-  <div><div class="meta">Rust · ★ 0 · 更新 2026-11-23 · score 9 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
-</div>
-<div class="repo">
+  <details class="repo-more"><summary>还有 10 个候选仓库</summary><div class="repo-list repo-list-muted"><div class="repo">
   <div><strong><a href="https://github.com/Max-luo-song/FreeForward4D">Max-luo-song/FreeForward4D</a></strong><div>FreeForward4D: Annotation-Free Feed-Forward 4D Reconstruction of Driving Scenes</div></div>
   <div><div class="meta">Python · ★ 7 · 更新 2026-11-23 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
 </div>
@@ -162,20 +135,16 @@
   <div><div class="meta">JavaScript · ★ 0 · 更新 2026-11-23 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
 </div>
 <div class="repo">
-  <div><strong><a href="https://github.com/jaranwayne/UroJEPA">jaranwayne/UroJEPA</a></strong><div>A 3D foundation model for urology</div></div>
-  <div><div class="meta">Python · ★ 0 · 更新 2026-11-23 · score 8 · S层 · Geometry Foundation Models / 3D Foundation Models</div></div>
-</div>
-<div class="repo">
-  <div><strong><a href="https://github.com/Nimsi123/tt4d">Nimsi123/tt4d</a></strong><div>TT4D: A Pipeline and Dataset for Table Tennis 4D Reconstruction From Monocular Videos</div></div>
-  <div><div class="meta">Python · ★ 4 · 更新 2026-11-22 · score 8 · S层 · 3D/4D Spatial Perception</div></div>
-</div>
-<div class="repo">
   <div><strong><a href="https://github.com/chang-xinhai/Awesome-Embodied-3DV">chang-xinhai/Awesome-Embodied-3DV</a></strong><div>A curated map of 3D/4D perception, reconstruction, generation, simulation-ready assets, and world models for embodied AI.</div></div>
-  <div><div class="meta">Python · ★ 17 · 更新 2026-11-23 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
+  <div><div class="meta">Python · ★ 17 · 更新 2026-11-24 · score 6 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：3d-generation, 3d-reconstruction, 3d-vision, awesome-list, computer-vision</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
-  <div><div class="meta">Python · ★ 2 · 更新 2026-11-23 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-24 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/mikiarduini/visual-world-models-backbones">mikiarduini/visual-world-models-backbones</a></strong><div>Evaluating pre-trained Visual Foundation Models (DINOv2, CLIP, SigLIP, MAE) for Zero-Shot Planning with Visual World Models in Robotic Manipulation (2D &amp; 3D).</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-23 · score 5 · A层 · Robotic Foundation Models / VLA</div><div class="meta">Topics：clip, dinov2, mae, model-predictive-control, reinforcement-learning</div></div>
 </div>
 <div class="repo">
   <div><strong><a href="https://github.com/varunvarmaakhil-lgtm/ORION">varunvarmaakhil-lgtm/ORION</a></strong><div>Success-aware PPO for embodied navigation in Habitat-Lab: an auxiliary TD(λ) episode-success head cut final distance to goal by 39% across a 10-seed study.</div></div>
@@ -188,6 +157,10 @@
 <div class="repo">
   <div><strong><a href="https://github.com/StarsBeyondSea/multi-agent-feedforward-3d-reconstruction">StarsBeyondSea/multi-agent-feedforward-3d-reconstruction</a></strong></div>
   <div><div class="meta">★ 0 · 更新 2026-11-22 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Jingong-Chen/Any3R">Jingong-Chen/Any3R</a></strong><div>Any3R: Feedforward 3D Reconstruction from Any Camera Type — pinhole, fisheye beyond 180°, 360° panoramas, or any mix, in one forward pass</div></div>
+  <div><div class="meta">Python · ★ 72 · 更新 2026-11-23 · score 2</div><div class="meta">Topics：3d-reconstruction, camera-pose-estimation, computer-vision, depth-estimation, feed-forward</div></div>
 </div></div></details>
 </section>
 
