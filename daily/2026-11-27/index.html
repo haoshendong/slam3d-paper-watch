@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-27</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：22</span><span class="stat">推荐论文：9</span><span class="stat">新论文：22</span><span class="stat">仓库：5</span><span class="stat">新仓库：2</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>今天的主线是「状态里到底该放什么、什么时候更新」</strong>。AirLeg 把「腿式里程计网络」和「视觉地图」放进同一个双层优化互相精化，并把融合权重交给方差分量估计；Recall4D 证明长时 4D 退化不是对齐问题而是「对没看见的点继续重新预测」，改成「有观测才更新」就降 26% 误差；SpatialArena 则证明<strong>评测协议本身</strong>就是方差来源——换一种对齐方式，同一份预测的 AbsRel 能差 55–59%。三件事指向同一个结论：先定义清楚状态与观测的关系，再谈换网络。</li>
+<li><code>arXiv:2611.32523</code> <strong>AirLeg</strong>（9.0）：仿真预训练 + 无真值 imperative learning 适配 + 部署期 LoRA；GrandTour 17 序列平均 ATE <strong>0.189 m</strong>（normal 0.148 / challenging 0.225），是唯一全部序列 &lt;0.4 m 的方法；Go2 上 0.5 h 无标签数据达 <strong>0.59%</strong> 漂移，Jetson AGX Orin 实时（1.4 核 / 2.6 GB）。</li>
+<li><code>arXiv:2611.32816</code> <strong>SpatialArena</strong>（8.6）：52 个模型 / 5 任务 / 23 个公共数据集 + 自采 30 场景；单目深度 AbsRel 中位从公共集 6.80% 涨到 <strong>22.96%</strong>（3.28×），SfM AUC@5° 从 0.610 掉到 <strong>0.270</strong>；相机 roll 让侧视误差变成前视的 <strong>2.14–2.28 倍</strong>。</li>
+<li><code>arXiv:2611.33655</code> <strong>Recall4D</strong>（8.2）：用真值位姿替换全部窗口交接后 EPE 仍为 1.568（基线 1.569），证明主因是「遗忘」；免训练插件让 2,000 帧 EPE 从 5.334 降到 <strong>4.634</strong>、SR 从 0.178 升到 0.362，且快 <strong>7.6×</strong>。</li>
+<li><code>arXiv:2611.32718</code> <strong>DANIEL</strong>（7.8）：int8 softmax 在 449 token 上结构性失效（91% 权重小于一个量化步长、却承载 17–33% 注意力质量），改为蒸馏无注意力学生；芯片上 <strong>27.1 FPS</strong>、AbsRel <strong>0.269</strong>（DAv2-S zoo 0.354）、int8 与 float 相关 0.99993。</li>
+<li><code>arXiv:2611.34223</code> <strong>AnyCam4D</strong>（7.6）：给原生 4D 高斯做光线渲染，关键是对 4D 协方差的平方根做<strong>条件化</strong>；170° 鱼眼原生训练领先去畸变 <strong>8.1 dB</strong>，相机旋转 60–80° 时相对真值领先 EWA <strong>6.2 dB</strong>，每步代价约 1.1×。</li>
+<li><code>arXiv:2611.33374</code> <strong>VersionGS</strong>（7.2）：动态场景改「存每帧状态」而非「拟合运动」；DanceNet3D 前景 PSNR <strong>25.68 dB</strong>（TAD-GS 22.36），最快运动帧只掉 <strong>&lt;0.3 dB</strong>，N3DV/Technicolor 比 TAD-GS 省 <strong>6.0×/5.7×</strong> 存储。</li>
+<li><code>arXiv:2611.32475</code> <strong>ROVO</strong>（7.4，A 级）：只估朝向、不估平移；窄视场下相对旋转 RMSE 降 <strong>19.7–69.4%</strong>，VPAIR 覆盖率 <strong>99.1%</strong>（ORB-SLAM3 8.0%），但原始视场下仅是打平。</li>
+<li><code>arXiv:2611.32335</code> <strong>GOLD-SLAM</strong>（6.8，A- 级）：全景 + LiDAR 深度的高斯 SLAM，自采 WHOLE（20 序列）；PSNR 比全景基线高 <strong>5.56–9.10 dB</strong>、Depth-L1 低 <strong>71.9–83.9%</strong>，Jetson Orin NX 上 PSNR 掉到 19.51 dB 且 4 条 OOM。</li>
+<li><code>arXiv:2611.32025</code> <strong>ViewMgmt3DGS</strong>（6.6，B 级）：在线 3DGS 的视图管理 + 边缘引导初始化 + 自参考不透明度正则；三个数据集新视角指标全部最好，TUM 上 5 cm 内深度像素 <strong>37.53%</strong>（HI-SLAM2 31.86%）。</li>
+<li><strong>重复过滤</strong>：<code>papers_seen_filtered=0</code>，今天 22 篇全部未推送过，因此没有任何历史论文被当作「跟踪/更新」复述。</li>
+<li><strong>医疗过滤</strong>：22 篇的标题、摘要、comment 与类别（cs.CV/cs.RO/cs.GR/cs.LG）中均无医疗/生物医学/临床命中；仓库侧也没有医疗成像项目，因此本批<strong>未剔除任何条目</strong>。需要说明的是：<code>HARI4D</code>（人手-物体交互）与 <code>3D CoCa v3</code>（城市场景语言）虽涉及人体/场景语义，但不属临床或生物医学影像，按规则正常参与排序，只是未进前 9。</li>
+<li><strong>媒体与发布</strong>：9 篇均先锁定 arXiv TeX e-print + 官方 HTML（<code>data/2026-11-27/papers/&lt;slug&gt;/</code>，含 <code>source_manifest.json</code> 与 sha256），再写精读页；图表结果见文末「本地归档」。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">从 22 篇候选中按 S/A 层级与评分推荐前 9 篇；靠后候选不在网页中展开。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.32523/index.html"><img src="../../assets/media/2026-11-27/arxiv-2611.32523/fig-001.webp" alt="AirLeg: A Robust and Accurate Self-Supervised Visual-Inertial-Leg SLAM System" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.32523/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AirLeg：无真值自监督适配的视觉-惯性-腿式 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">AirLeg: A Robust and Accurate Self-Supervised Visual-Inertial-Leg SLAM System</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-24 · score 19 · S层 · Learning + Geometric Optimization SLAM/VIO · cs.RO</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Kuan Xu, Tianxin Hu, Ruofei Bai, Ruimeng Liu</div>
+  <span class="score">评分 9/10</span>
+  <div class="tags"><span class="tag">视觉-惯性-腿 SLAM</span><span class="tag">自监督 sim-to-real</span><span class="tag">双层优化</span><span class="tag">方差分量估计</span><span class="tag">因子图融合</span><span class="tag">嵌入式实时</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：把「腿式里程计网络」和「视觉地图」放进同一个双层优化里互相精化，于是无真值也能把腿式里程计适配到实机，融合权重再由方差分量估计按残差统计在线调。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">腿式机器人的视觉-惯性-腿（VIL）状态估计只需在 IMU 与关节编码器之外再加一台相机，但学习型腿式里程计卡在监督上：仿真训练的模型有 sim-to-real 差距，真机标签又需要动捕或额外 LiDAR，而直接用视觉估计当伪标签会让网络复制视觉误差、失去与视觉互补的能力。AirLeg 把这个问题写成双层优化：下层是多传感器 BA，用腿式里程计精化视觉地图；上层用精化后地图的重投影误差监督网络，因此监督信号本身被多…</p><p class="lang lang-en lang-block" data-lang="en">Visual-inertial-leg (VIL) state estimation offers cost-effective localization for legged robots, adding only a camera to the onboard IMU and joint encoders. However, learning-based leg odometry is limited by i…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.32523">abs</a><a href="https://arxiv.org/pdf/2611.32523">PDF</a><a href="../../papers/arxiv-2611.32523/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.33374/index.html"><img src="../../assets/media/2026-11-27/arxiv-2611.33374/fig-001.webp" alt="VersionGS: Compact and Motion-Robust Dynamic Gaussian Splatting via Versioned Gaussians" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.33374/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">VersionGS：用「版本化高斯」做紧凑且抗快速运动的动态高斯泼溅</span><span class="lang lang-en lang-inline" data-lang="en">VersionGS: Compact and Motion-Robust Dynamic Gaussian Splatting via Versioned Gaussians</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-25 · score 18 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Shihang Wei, Yichi Zhang, Fengqing Zhu</div>
+  <span class="score">评分 7.2/10</span>
+  <div class="tags"><span class="tag">动态 3DGS</span><span class="tag">4D 表示</span><span class="tag">版本字典</span><span class="tag">率失真</span><span class="tag">高斯压缩</span><span class="tag">自由视点视频</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：把「运动」换成「版本」——每帧状态显式存，未变的高斯只加一次引用，于是快速运动付出的是存储而不是画质；再靠剪枝与图像编码把存储压回来。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">现有动态高斯泼溅要么把随时间的变化编码成时间的平滑函数，要么编码成帧间的受限更新，两者在快速运动下都会明显掉质量：在困难的舞蹈序列上，高运动帧比低运动帧低 1.1–4.0 dB。VersionGS 改为直接编码每一帧的高斯状态，只用运动估计来引导重建：在每个帧组（GOP）内，未变化的高斯保留当前版本并共享一个字典，发生变化的高斯作为新版本追加，早期帧继续引用旧版本。为了让版本尽量被复用，作者提出选择性顺序构建——只…</p><p class="lang lang-en lang-block" data-lang="en">Recent dynamic Gaussian splatting methods encode temporal change, either as smooth functions of time or as constrained updates between frames. We observe that their reconstruction quality degrades significantl…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.33374">abs</a><a href="https://arxiv.org/pdf/2611.33374">PDF</a><a href="../../papers/arxiv-2611.33374/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.34223/index.html"><img src="../../assets/media/2026-11-27/arxiv-2611.34223/fig-001.webp" alt="AnyCam4D: Ray-Based 4D Gaussian Rendering for Arbitrary Camera Models" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.34223/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">AnyCam4D：给原生 4D 高斯做基于光线的渲染，适配任意相机模型</span><span class="lang lang-en lang-inline" data-lang="en">AnyCam4D: Ray-Based 4D Gaussian Rendering for Arbitrary Camera Models</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-25 · score 16 · S层 · 3D/4D Spatial Perception · cs.CV, cs.GR</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Sascha Kirch, Rafael Pagés, Jan Ondřej, Clara Pérez-Molina</div>
+  <span class="score">评分 7.6/10</span>
+  <div class="tags"><span class="tag">4D 高斯</span><span class="tag">光线渲染</span><span class="tag">非针孔相机</span><span class="tag">鱼眼/广角</span><span class="tag">数值稳定性</span><span class="tag">新视角合成</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：4D 高斯原本用不上光线渲染，是因为协方差开方不稳定；把 4D 协方差的平方根条件化之后，就能在原始鱼眼画面上训练、用任意镜头渲染，而且每步代价只比 EWA 高一点。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">真实相机不是针孔，但大多数动态高斯泼溅都假设它们是，于是先把画面去畸变——广角与鱼眼会因此丢掉视场或细节。静态高斯泼溅已经用「基于光线的光栅化」解决了这件事，可原生 4D 高斯（在时空中建模运动）无法直接套用：每个高斯的方向与尺寸无法从它的协方差里稳定恢复。AnyCam4D 的做法是训练原生 4D 高斯时就用光线求值，从而可以直接在原始画面上训练、保留视场与分辨率，每步代价与标准投影相当。关键贡献是一个数值稳定的方…</p><p class="lang lang-en lang-block" data-lang="en">Real cameras are not pinholes, yet most dynamic Gaussian splatting assumes they are. Footage is therefore undistorted first, losing field of view or detail, especially with wide-angle and fisheye cameras. Stat…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.34223">abs</a><a href="https://arxiv.org/pdf/2611.34223">PDF</a><a href="../../papers/arxiv-2611.34223/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.32718/index.html"><img src="../../assets/media/2026-11-27/arxiv-2611.32718/fig-001.webp" alt="Seeing to Drive on a Single Board: Attention-Free Depth for Onboard Robot Navigation" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.32718/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">DANIEL：把深度基础模型蒸馏成无注意力学生，跑在树莓派 5 + Hailo-8L 上</span><span class="lang lang-en lang-inline" data-lang="en">Seeing to Drive on a Single Board: Attention-Free Depth for Onboard Robot Navigation</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-24 · score 16 · S层 · Geometry Foundation Models / 3D Foundation Models · cs.RO, cs.CV, cs.LG</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Itai Mizlish, Boaz Ben-Moshe</div>
+  <span class="score">评分 7.8/10</span>
+  <div class="tags"><span class="tag">深度基础模型</span><span class="tag">int8 量化失效</span><span class="tag">知识蒸馏</span><span class="tag">边缘部署</span><span class="tag">地面接触测距</span><span class="tag">SLAM/导航</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：int8 注意力在几百个 token 上结构性失效，所以把深度基础模型蒸馏成纯卷积学生，再用「相机高度 + 地面接触点」把相对深度换成米制量程，于是几瓦算力也能做测距与导航。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">小型地面机器人只能带一台相机与几瓦算力，而能把相机变成测距仪的深度基础模型却是为 GPU 设计的 ViT。本文把其中一个搬上 Raspberry Pi 5 + Hailo-8L（全整数量化的加速器，连注意力也是 int8），并先回答了「为什么不能直接量化」：在 449 个 token 的输入下，float 模型里 91% 的 softmax 权重小于一个 int8 步长，却承载每个 query 17–33%（中位…</p><p class="lang lang-en lang-block" data-lang="en">A small ground robot can carry one camera and a few watts of compute, but the depth foundation models that could turn that camera into a range sensor are vision transformers sized for GPUs. We bring one to a R…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.32718">abs</a><a href="https://arxiv.org/pdf/2611.32718">PDF</a><a href="../../papers/arxiv-2611.32718/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.33655/index.html"><img src="../../assets/media/2026-11-27/arxiv-2611.33655/fig-001.webp" alt="Recall4D: Forgetting, Not Misalignment, Limits Long-Horizon Feed-Forward 4D Reconstruction" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.33655/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">Recall4D：拖垮长时 4D 重建的是遗忘，不是错配</span><span class="lang lang-en lang-inline" data-lang="en">Recall4D: Forgetting, Not Misalignment, Limits Long-Horizon Feed-Forward 4D Reconstruction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-25 · score 14 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Tianle Lyu</div>
+  <span class="score">评分 8.2/10</span>
+  <div class="tags"><span class="tag">长时 4D 重建</span><span class="tag">误差归因</span><span class="tag">持久世界状态</span><span class="tag">稀疏锚点蒙皮</span><span class="tag">免训练插件</span><span class="tag">长序列</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：长视频退化的主因是「对没看见的点继续重新预测」，所以修法不是更好的对齐而是一个记忆——看不见就保持，看得见才平均更新；动态物体只跟踪少量锚点再蒙皮。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">前馈 4D 跟踪器能从短片段恢复相机运动、深度与点轨迹，但把窗口首尾相接铺到长视频上就会退化。本文先用实验排除最常见的解释：把所有窗口交接处的对齐换成真值变换，跟踪误差几乎不变（EPE 1.568 对 1.569）。误差真正随时间增长的方式是「距上次观测的帧数」——静态点一旦离开视野，跟踪器仍从看不见它的窗口里反复解码位置，每解一次就覆盖前一次已恢复的几何，作者称之为遗忘。仅仅保留未见点的最后观测位置而不改网络，就…</p><p class="lang lang-en lang-block" data-lang="en">Feed-forward 4D trackers recover camera motion, depth, and point trajectories from short video clips, but chaining windows over long videos degrades their accuracy. We find that replacing inter-window alignmen…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.33655">abs</a><a href="https://arxiv.org/pdf/2611.33655">PDF</a><a href="../../papers/arxiv-2611.33655/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.32816/index.html"><img src="../../assets/media/2026-11-27/arxiv-2611.32816/fig-001.webp" alt="SpatialArena: Where Do Geometric Foundation Models Stand?" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.32816/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">SpatialArena：几何基础模型到底站在哪一步</span><span class="lang lang-en lang-inline" data-lang="en">SpatialArena: Where Do Geometric Foundation Models Stand?</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-24 · score 11 · S层 · 3D/4D Spatial Perception · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Yu Chen, Haosen Yang, Su Ee Tan, Zhensong Zhang</div>
+  <span class="score">评分 8.6/10</span>
+  <div class="tags"><span class="tag">几何基础模型</span><span class="tag">基准与协议</span><span class="tag">稳健对齐</span><span class="tag">深度估计</span><span class="tag">SfM/SLAM 评测</span><span class="tag">相机 roll 先验</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：把「对齐」当作评测协议的一部分固定下来，再用同一个尺子量 52 个几何模型，于是看出公开基准的高分有相当一部分来自视角正立、深度范围窄、序列短这三件事。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">3D 感知正从任务专用流程转向几何基础模型（单目深度、前馈 3D/4D 重建、预测几何的视觉-语言模型），但它们的进展无法可靠度量：每篇论文采样帧、设分辨率、选划分的方式都不同，数字不可比；每次评测都要做的 up-to-scale 对齐本身可能比模型之间的差距更大——在错误的空间拟合深度会让误差接近三倍，标准轨迹对齐会把失败方法的误差低报最多 2.6 倍；公开基准也很少覆盖长录制、动态场景和航拍视角。Spatial…</p><p class="lang lang-en lang-block" data-lang="en">3D perception is shifting from task-specific pipelines to geometric foundation models: monocular depth networks, feed-forward 3D/4D reconstruction models, and vision--language models that predict geometry. How…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.32816">abs</a><a href="https://arxiv.org/pdf/2611.32816">PDF</a><a href="../../papers/arxiv-2611.32816/index.html">完整单篇海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.32475/index.html"><img src="../../assets/media/2026-11-27/arxiv-2611.32475/fig-001.webp" alt="ROVO: Robust Rotation-Only Visual Odometry for UAVs at Low and Moderate Altitudes" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.32475/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">ROVO：只估旋转的无人机视觉里程计，在中低空把小视差变成优势</span><span class="lang lang-en lang-inline" data-lang="en">ROVO: Robust Rotation-Only Visual Odometry for UAVs at Low and Moderate Altitudes</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-24 · score 15 · A层 · Embodied Navigation / VLN / Spatial Reasoning · cs.RO, cs.CG</div>
+  <div class="meta">内容级别：半海报</div>
+  <div class="meta">作者：Xiaokai Song, Li Zhang, Xichao Teng, Erting Pan</div>
+  <span class="score">评分 7.4/10</span>
+  <div class="tags"><span class="tag">旋转-only 视觉里程计</span><span class="tag">可观测性</span><span class="tag">旋转平均</span><span class="tag">UAV 导航</span><span class="tag">小视差几何</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：既然小视差下平移方向不可观测，就干脆不估平移——只做相对旋转的多视一致选择与滑窗旋转平均，让深度不确定性没有通道传播到姿态。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">在中低空飞行的无人机上，图像噪声会把旋转与平移估计耦合在一起，即使很小的扰动也能让平移方向出现大误差。受远距离视觉感知中角度线索的启发，作者提出只估旋转的视觉里程计（ROVO）：从匹配图像估计成对相对旋转，在重叠窗口内稳健平均，再通过共享帧把相邻窗口对齐。由于轨迹状态里只保留朝向，不确定的地标深度不会传播到后续估计。在轨迹仿真中，滑窗 ROVO 的平均朝向误差只有传统 SLAM 基线的 10.7%；在真实飞行数据上…</p><p class="lang lang-en lang-block" data-lang="en">Image noise can confound rotation and translation estimates in monocular visual navigation for unmanned aerial vehicles (UAVs) at low and moderate altitudes, where even small perturbations may cause large erro…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.32475">abs</a><a href="https://arxiv.org/pdf/2611.32475">PDF</a><a href="../../papers/arxiv-2611.32475/index.html">半海报</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.32335">论文预览</a>
+  <h3><a href="https://arxiv.org/abs/2611.32335"><span class="lang lang-zh lang-inline" data-lang="zh">GOLD-SLAM：全景相机 + LiDAR 深度的高斯泼溅 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">GOLD-SLAM: Gaussian-splatting Omnidirectional LiDAR-Depth SLAM</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-24 · score 17 · A-层 · Real-time / GPU Robotics Systems · cs.CV, cs.RO</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Weicong Zhang, Yuan Huang, Yu Zheng, Lin Chenxiao</div>
+  <span class="score">评分 6.8/10</span>
+  <div class="tags"><span class="tag">全景 SLAM</span><span class="tag">LiDAR-视觉-惯性</span><span class="tag">高斯泼溅建图</span><span class="tag">数据集</span><span class="tag">嵌入式部署</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：把跟踪与建图都搬到球面域，用 LiDAR 盲区的视觉特征补位姿、用 DAEP 补新表面并剪漂浮物，代价是嵌入式上要降分辨率与视角预算。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">全景相机一帧就能覆盖接近整个球面视场，但这种覆盖与 LiDAR 视场不匹配，给依赖 LiDAR 深度先验的全景高斯泼溅 SLAM 带来实质困难。GOLD-SLAM 在球面域内做跟踪与建图，并用 LiDAR 覆盖不到的区域里的视觉特征提升位姿估计；针对新观测表面覆盖不足与增量建图中的漂浮伪影，提出深度感知的地图扩展与剪枝（DAEP）。为便于评测，作者用无人机平台采集了 WHOLE 数据集，覆盖弱几何、高动态、全向、低…</p><p class="lang lang-en lang-block" data-lang="en">Panoramic cameras capture nearly the entire spherical field of view in a single frame. However, the mismatch between this panoramic coverage and the field of view of LiDAR poses a substantial challenge for pan…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.32335">abs</a><a href="https://arxiv.org/pdf/2611.32335">PDF</a></div>
+</article>
+<article class="card">
+  <a class="thumb placeholder" href="https://arxiv.org/abs/2611.32025">论文预览</a>
+  <h3><a href="https://arxiv.org/abs/2611.32025"><span class="lang lang-zh lang-inline" data-lang="zh">在线 3DGS 的视图管理：边缘引导初始化 + 自参考不透明度正则</span><span class="lang lang-en lang-inline" data-lang="en">View Management with Gaussian Placement and Opacity Regularization for Online 3DGS</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-24 · score 18 · B层 · Neural Rendering / 3DGS / NeRF · cs.CV, cs.RO</div>
+  <div class="meta">内容级别：简报式摘要</div>
+  <div class="meta">作者：Dong Hwi Kim, Park Sangwon, Chaehyeon Song, Ayoung Kim</div>
+  <span class="score">评分 6.6/10</span>
+  <div class="tags"><span class="tag">在线 3DGS</span><span class="tag">SLAM 建图</span><span class="tag">视图管理</span><span class="tag">漂浮物抑制</span><span class="tag">实时系统</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：地图过拟合的根因是「视角太少、更新预算固定」，所以把中间帧放进来、按组分配预算、按细节放高斯，并用地图自己的渲染证据压掉前方漂浮物。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">把 3DGS 与 SLAM 耦合能得到实时可渲染的地图，但地图仍沿用传统 SLAM 的优化设计：只在为定位挑选的关键帧上训练，并用不确定的前端深度约束几何。这些设计忽略了 3DGS 地图的模型复杂度——参数上百万、每个区域却只有少数视角，于是过拟合稀疏输入。本文从两侧同时收紧：一方面把关键帧之间的非关键帧图像随建图更新逐步纳入训练集，并按「新关键帧、全部关键帧、非关键帧」三组各自提供的监督分配有限更新；另一方面用边…</p><p class="lang lang-en lang-block" data-lang="en">The realistic rendering of 3D Gaussian Splatting (3DGS) has drawn interest from real-time applications that require maps to be built online. This led to coupling 3DGS with SLAM, providing camera poses and init…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.32025">abs</a><a href="https://arxiv.org/pdf/2611.32025">PDF</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/RFingAdam/gnss-toolkit">RFingAdam/gnss-toolkit</a></strong><div>Capture raw NMEA sentences via AT-commands, then compute TTFF, CEP₅₀/₉₅, RMS error and generate publication-quality plots—all in Python.</div></div>
+  <div><div class="meta">新项目 · Python · ★ 1 · 更新 2026-11-26 · score 5 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：at-commands, data-analysis, gnss, gps, nmea</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/entr0-pi/gnss">entr0-pi/gnss</a></strong><div>ESP32 bridge for GNSS with optional Bluetooth LE, NTRIP client, Wi‑Fi status UI and TCP streaming.</div></div>
+  <div><div class="meta">新项目 · C++ · ★ 5 · 更新 2026-11-26 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div><div class="meta">Topics：arduino, bluetooth-low-energy, esp32, gnss-receiver, ntrip</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/rsasaki0109/lidar_slam">rsasaki0109/lidar_slam</a></strong><div>3D LiDAR SLAM for pointcloud-map authoring, benchmarking, and Autoware-compatible map workflows.</div></div>
+  <div><div class="meta">Python · ★ 987 · 更新 2026-11-26 · score 15 · B-层 · Traditional LiDAR/Visual SLAM</div><div class="meta">Topics：autoware-compatible, benchmarking, gnss, lidar, lidar-slam</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kotekan/gnss-broker">kotekan/gnss-broker</a></strong><div>Broker software for coordinating GNSS detection pipelines in kotekan.</div></div>
+  <div><div class="meta">Python · ★ 0 · 更新 2026-11-26 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/kermarrecg/gnss-live">kermarrecg/gnss-live</a></strong></div>
+  <div><div class="meta">HTML · ★ 0 · 更新 2026-11-27 · score 4 · C层 · 纯 GNSS/INS / PPP-AR</div></div>
+</div></div>
+  
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

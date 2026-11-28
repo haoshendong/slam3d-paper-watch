@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="可靠状态估计、几何基础模型和具身空间智能方向的每日论文阅读器。">
+  <title>Daily Paper Reader 2026-11-28</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/app.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到内容</a>
+<header class="top"><div class="wrap nav"><strong><a href="../../index.html">Daily Paper Reader</a></strong><nav class="nav-links"><a href="index.html">今日</a><a href="../../archive/index.html">归档</a><a href="#papers">论文</a><a href="#repos">仓库</a><span class="lang-toggle" role="group" aria-label="语言切换"><button type="button" data-set-lang="zh" aria-pressed="true">中文</button><button type="button" data-set-lang="en" aria-pressed="false">English</button></span></nav></div></header>
+<main class="wrap" id="content">
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="meta">静态网页 · 2026-11-28</div>
+    <h1>可靠状态估计与空间智能每日论文阅读</h1>
+    <p class="muted">沿“底层几何 → 3D/4D 表征 → 空间推理 → 具身决策”查看当天候选；按层级、评分、截图和中文摘要筛选，需要原文时可切换 English。</p>
+    <div class="links"><a class="btn" href="index.html">当日固定页</a><a class="btn" href="../../archive/index.html">查看归档</a></div>
+  </div>
+  <div class="stats"><span class="stat">候选论文：1</span><span class="stat">推荐论文：1</span><span class="stat">新论文：1</span><span class="stat">仓库：7</span><span class="stat">新仓库：2</span></div>
+</section>
+<section class="section brief"><h2>今日概览</h2><ul>
+<li><strong>今天唯一的新论文正好打在「协同/多源融合的可信性」上</strong>。CADENCE 把协同高斯 SLAM 拆成三个独立决策：区域记忆<strong>排序</strong>候选、几何验证<strong>接受/拒绝</strong>关系、逐模态置信度<strong>授权</strong>接受后能改什么。它最有价值的一句话是：匹配到同一个地方，不代表这份观测的每一种信息都可信——暗光同伴的颜色被拒，深度仍可写进接收方地图。</li>
+<li><strong>数字</strong>：8 个未参与训练 Matterport3D 房屋上，区域排序 AUROC <strong>0.951–0.970</strong>（外观检索 0.710–0.894）；同口径几何验证错链 <strong>1/345（0.29%）</strong>；八种退化下软加权把接收方 PSNR 损失从 <strong>2.66 → 1.05 dB</strong>；12 条留出 iPhone 扫描平均 ATE <strong>6.98 cm</strong>，精化 6.81 cm / 24.04 dB。</li>
+<li><strong>它不擅长的地方也很清楚</strong>：精度不占优（Replica-8 PSNR 38.50 dB 处于已发表 34.11–44.87 dB 的中段；GS-ICP SLAM 的 ATE 0.16 cm 更好；iPhone 上 ARKit 4.16 cm、ORB-SLAM3 5.82 cm 都比它准，只是不产地图）。</li>
+<li><strong>仓库侧拿到两个真正的项目</strong>：<code>π⁴</code>（4D 场景几何与运动基础模型，0.5B 参数，513★，权重已开放）与 <code>OpenXNav</code>（上交的通用具身导航，Apache-2.0，但代码仍是 Coming Soon）。</li>
+<li><strong>重复过滤</strong>：<code>papers_seen_filtered=7</code>，7 篇历史论文被过滤，没有把旧论文当「跟踪/更新」复述。</li>
+<li><strong>医疗过滤</strong>：唯一新增论文属 cs.CV 的室内协同重建，标题/摘要/正文/类别均无医疗、生物医学或临床命中，本批<strong>未剔除任何条目</strong>。</li>
+</ul></section>
+<section class="section" id="papers">
+  <div class="section-head"><h2>分层重点论文</h2><p class="muted paper-note">今日推荐 1 篇论文。</p></div>
+  <div class="grid"><article class="card">
+  <a class="thumb" href="../../papers/arxiv-2611.34549/index.html"><img src="../../assets/media/2026-11-28/arxiv-2611.34549/fig-001.webp" alt="CADENCE: Sensor-GroundedWorld-Consistent Gaussian SLAM for Collaborative Mobile Reconstruction" loading="lazy"></a>
+  <h3><a href="../../papers/arxiv-2611.34549/index.html"><span class="lang lang-zh lang-inline" data-lang="zh">CADENCE：把「找匹配」与「允许改图」拆开的协同高斯 SLAM</span><span class="lang lang-en lang-inline" data-lang="en">CADENCE: Sensor-GroundedWorld-Consistent Gaussian SLAM for Collaborative Mobile Reconstruction</span></a></h3>
+  <div class="meta">新论文 · 日期 2026-11-25 · score 13 · S层 · Learning + Geometric Optimization SLAM/VIO · cs.CV</div>
+  <div class="meta">内容级别：完整单篇海报</div>
+  <div class="meta">作者：Reshad Ul Karim, Abrar Samin, Md Rashad Al Hasan Rony</div>
+  <span class="score">评分 13/10</span>
+  <div class="tags"><span class="tag">协同高斯 SLAM</span><span class="tag">跨设备关联</span><span class="tag">传感器接地区域记忆</span><span class="tag">逐模态置信度</span><span class="tag">几何验证</span><span class="tag">移动端实时</span></div>
+  <p class="insight"><strong>一句话工作总结：</strong>一句话：协同高斯 SLAM 的真问题不是「能不能匹配上」，而是「匹配上以后允许它改什么」——CADENCE 用区域记忆排序、几何验证兜底、逐模态置信度授权，把一次错配的破坏面限制在单个模态内。</p>
+  <div class="paper-copy"><p class="lang lang-zh lang-block" data-lang="zh">多台消费级手机协同扫描同一室内场景，可以比单机覆盖更快、更完整，但异质设备带来两类麻烦：观测质量参差（暗光、运动模糊、曝光失配、深度不可用），以及跨设备关联不可靠。一个贡献者的坏帧或一次错配，就足以污染共享的高斯地图。CADENCE 的做法是把协同拆成三个独立决策：先由「传感器接地世界一致性记忆（SG-WCM）」按外观、相对位姿、重力、气压高度与观测质量对同伴区域排序；再由确定性几何验证（以及可选的物理检查）决定这…</p><p class="lang lang-en lang-block" data-lang="en">Collaborative reconstruction with consumer phones promises faster and more complete indoor maps. However, heterogeneous devices introduce degraded observations and unreliable cross-device associations, so a si…</p></div>
+  <div class="links"><a href="https://arxiv.org/abs/2611.34549">abs</a><a href="https://arxiv.org/pdf/2611.34549">PDF</a><a href="../../papers/arxiv-2611.34549/index.html">完整单篇海报</a></div>
+</article></div>
+</section>
+<section class="section" id="repos">
+  <div class="section-head">
+    <h2>精选仓库/项目</h2>
+    <p class="muted repo-note">默认显示 8 个精选；S/A 领域、新仓库和高分仓库优先，可展开查看完整候选。</p>
+  </div>
+  <div class="repo-list"><div class="repo">
+  <div><strong><a href="https://github.com/wuyi2121/OpenXNav">wuyi2121/OpenXNav</a></strong><div>OpenXNav: A Generalist Embodied Navigation System in the Open World</div></div>
+  <div><div class="meta">新项目 · ★ 4 · 更新 2026-11-27 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/yyfz/Pi4">yyfz/Pi4</a></strong><div>π^4: A Foundation Model for 4D Scene Geometry and Motion</div></div>
+  <div><div class="meta">新项目 · Python · ★ 513 · 更新 2026-11-27 · score 4</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/TingdeLiu/tingdeliu.github.io">TingdeLiu/tingdeliu.github.io</a></strong><div>Research notes on embodied AI, vision-language navigation, and robot learning — paper surveys, in-depth readings, and engineering practice.</div></div>
+  <div><div class="meta">JavaScript · ★ 156 · 更新 2026-11-26 · score 8 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div><div class="meta">Topics：ai-agent, chinese, embodied-ai, english, multimodal-learning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/guozhihuan01-hash/embodied-nav-papers">guozhihuan01-hash/embodied-nav-papers</a></strong><div>Auto-updated list of embodied navigation papers from arXiv (2024–Now)</div></div>
+  <div><div class="meta">Python · ★ 2 · 更新 2026-11-27 · score 5 · A层 · Embodied Navigation / VLN / Spatial Reasoning</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/andyjiang1116/OpenEmbodied">andyjiang1116/OpenEmbodied</a></strong><div>A structured research atlas for Embodied AI, spanning perception, reasoning, world models, navigation, manipulation, and real-world deployment.</div></div>
+  <div><div class="meta">★ 0 · 更新 2026-11-25 · score 5 · A层 · Robotic Foundation Models / VLA</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/StarsBeyondSea/multi-agent-feedforward-3d-reconstruction">StarsBeyondSea/multi-agent-feedforward-3d-reconstruction</a></strong></div>
+  <div><div class="meta">★ 0 · 更新 2026-11-22 · score 3</div></div>
+</div>
+<div class="repo">
+  <div><strong><a href="https://github.com/Jingong-Chen/Any3R">Jingong-Chen/Any3R</a></strong><div>Any3R: Feedforward 3D Reconstruction from Any Camera Type — pinhole, fisheye beyond 180°, 360° panoramas, or any mix, in one forward pass</div></div>
+  <div><div class="meta">Python · ★ 74 · 更新 2026-11-27 · score 2</div><div class="meta">Topics：3d-reconstruction, camera-pose-estimation, computer-vision, depth-estimation, feed-forward</div></div>
+</div></div>
+  
+</section>
+
+<footer>静态站点 · 每日自动生成</footer>
+</main>
+<script src="../../assets/app.js"></script>
+</body>
+</html>
