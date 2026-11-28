@@ -26,6 +26,7 @@
 </section>
 <section class="section brief"><h2>今日概览</h2><ul>
 <li><strong>今天唯一的新论文正好打在「协同/多源融合的可信性」上</strong>。CADENCE 把协同高斯 SLAM 拆成三个独立决策：区域记忆<strong>排序</strong>候选、几何验证<strong>接受/拒绝</strong>关系、逐模态置信度<strong>授权</strong>接受后能改什么。它最有价值的一句话是：匹配到同一个地方，不代表这份观测的每一种信息都可信——暗光同伴的颜色被拒，深度仍可写进接收方地图。</li>
+<li><strong>采集降级（必读）</strong>：4 条 arXiv 查询中 3 条失败（2 条 SSL 中断、1 条 HTTP 429），8 条 GitHub 查询中 4 条失败（3 条 SSL 中断、1 条 403 限流）。因此「今天只有 1 篇」是<strong>采集下限，不是当日真实产出</strong>；A 级（具身导航 / VLA）与 C 级（GNSS/INS）的「零新增」尤其不能当作方向停滞。</li>
 <li><strong>数字</strong>：8 个未参与训练 Matterport3D 房屋上，区域排序 AUROC <strong>0.951–0.970</strong>（外观检索 0.710–0.894）；同口径几何验证错链 <strong>1/345（0.29%）</strong>；八种退化下软加权把接收方 PSNR 损失从 <strong>2.66 → 1.05 dB</strong>；12 条留出 iPhone 扫描平均 ATE <strong>6.98 cm</strong>，精化 6.81 cm / 24.04 dB。</li>
 <li><strong>它不擅长的地方也很清楚</strong>：精度不占优（Replica-8 PSNR 38.50 dB 处于已发表 34.11–44.87 dB 的中段；GS-ICP SLAM 的 ATE 0.16 cm 更好；iPhone 上 ARKit 4.16 cm、ORB-SLAM3 5.82 cm 都比它准，只是不产地图）。</li>
 <li><strong>仓库侧拿到两个真正的项目</strong>：<code>π⁴</code>（4D 场景几何与运动基础模型，0.5B 参数，513★，权重已开放）与 <code>OpenXNav</code>（上交的通用具身导航，Apache-2.0，但代码仍是 Coming Soon）。</li>
